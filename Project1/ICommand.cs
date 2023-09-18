@@ -1,6 +1,9 @@
 ﻿using System;
 
-public interface ICommand
+namespace Project1
 {
-    //this is the code for the command interface
+    public interface ICommand
+    {
+        //this is the code for the command interface
+    }
 }
