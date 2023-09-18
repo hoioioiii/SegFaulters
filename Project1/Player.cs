@@ -9,12 +9,14 @@ public class Player
 	{
 		// this is the player controller
 
-		void PlayerControllerInitialize()
+        // not finished code
+
+		public void PlayerControllerInitialize()
         {
             KeyboardCtrlr = new KeyboardController();
-        }
+        } 
         
-        void PlayerControllerUpdate()
+        public void Update()
 		{           
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
