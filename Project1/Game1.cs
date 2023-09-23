@@ -51,13 +51,7 @@ namespace Project1
         {
             // TODO: Add your initialization logic here
             player = new Player();
-
-            /*
-            Rows = rows;
-            Columns = columns;
-            currentFrame = 0;
-            */
-
+            
             base.Initialize();
         }
 
@@ -82,6 +76,7 @@ namespace Project1
                 Exit();
 
             // TODO: Add your update logic here
+
             KeyboardState state = Keyboard.GetState();
             // Print to debug console currently pressed keys
             System.Text.StringBuilder sb = new StringBuilder();
@@ -158,14 +153,7 @@ namespace Project1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
-            /*
-            int width = CurrentDirectionTexture.Width / Columns;
-            int height = CurrentDirectionTexture.Height / Rows;
-            int row = currentFrame / Columns;
-            int column = currentFrame % Columns;
-            */
-
+            
             _spriteBatch.Begin();
             if (isMoving)
             {
