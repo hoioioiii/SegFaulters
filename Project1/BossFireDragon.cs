@@ -24,5 +24,6 @@ namespace Project1
             spriteBatch.End();
         }
     }
+    kn.kn.
 }
 
