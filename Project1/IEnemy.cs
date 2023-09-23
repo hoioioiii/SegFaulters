@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1
@@ -7,17 +8,17 @@ namespace Project1
 	{
         void Update();
         void Draw(SpriteBatch spriteBatch);
-    
 
-        //public Texture2D Load();
 
-        //public void Move();
+        public Texture2D Load();
 
-        //public void Health();
+        public void Move();
 
-        //public void Attack();
+        public void Health();
 
-        //public void ItemDrop();
+        public void Attack();
+
+        public void ItemDrop();
 
     }
 }
