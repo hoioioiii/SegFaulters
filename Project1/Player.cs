@@ -1,34 +1,37 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-public class Player
+namespace Project1
 {
-    private KeyboardController KeyboardCtrlr;
+    public class Player
+    {
+        Vector2 position;
 
-    public Player()
-	{
-		// this is the player controller
+        private int positionX = 250;
+        private int positionY = 250;
 
-        // not finished code
+        private bool isFacingRight;
 
-		public void PlayerControllerInitialize()
+        public Texture2D linkRight;
+        public Texture2D linkLeft;
+
+        public Player()
         {
-            KeyboardCtrlr = new KeyboardController();
-        } 
-        
-        public void Update()
-		{           
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            // this is the player controller
 
-            // keyboard inputs
-            var kState = Keyboard.GetState();
+            // not finished code
 
-            if (kState.IsKeyDown(Keys.D0)) { Exit(); }
-            else if (kState.IsKeyDown(Keys.D1)) { option = 1; }
-            else if (kState.IsKeyDown(Keys.D2)) { option = 2; }
-            else if (kState.IsKeyDown(Keys.D3)) { option = 3; }
-            else if (kState.IsKeyDown(Keys.D4)) { option = 4; }
+            /*
+            void Update(KeyboardState state)
+            {
+
+            }
+            */
         }
-	}
+
+    }
 }
