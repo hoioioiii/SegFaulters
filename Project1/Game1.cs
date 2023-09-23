@@ -44,8 +44,26 @@ namespace Project1
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            ENEMY = new Bat();
-            
+            /**
+             * 
+             * Replace all sprites with proper sprites.
+             */
+
+
+            //ENEMY = new Bat();
+            //ENEMY = new BossAquaDragon();
+            //ENEMY = new BossDino();
+            //ENEMY = new BossFireDragon();
+            //ENEMY = new DogMonster();
+            //ENEMY = new Flame();
+            //ENEMY = new Jelly();
+            //ENEMY = new Merchant();
+            //ENEMY = new OldMan();
+            //ENEMY = new Skeleton();
+            //ENEMY = new Snake();
+            //ENEMY = new SpikeCross();
+           
+
 
         }
 

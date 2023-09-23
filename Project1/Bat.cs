@@ -34,7 +34,7 @@ namespace Project1
         private int TOTAL_FRAME;
 
         //Remove later-------
-        private Game1 GameObj;
+        private Game1 GameObject;
         private ContentManager ContentLoad;
 
         //Remove later above--------------
@@ -47,31 +47,35 @@ namespace Project1
         private int ROW;
         private int COL;
 
+        //Movement:
+        private int POS_X;
+        private int POS_Y;
 
         public Bat()
 		{
             //remove later:
-            GameObj = Constants.GameObj;
-            ContentLoad = GameObj.Content;
+            GameObject = Constants.GameObj;
+            ContentLoad = GameObject.Content;
             Texture = Load();
+            POS_X = SPRITE_X;
+            POS_Y = SPRITE_Y;
+
         }
         //change the current frame to the next frame
         public void Update()
         {
-            Health();
-            CURRENT_FRAME += Constants.FRAME_SPD;
+            Move();
+            CURRENT_FRAME += FRAME_SPD;
             if (CURRENT_FRAME >= TOTAL_FRAME)
                 CURRENT_FRAME = START_FRAME;
         }
 
         private void Animate()
         {
-
-            //determine which part of hte texture square needs to be drawm for hte current frame.
-            //Start off by calculating the width and height of the frame.This finds the width and height of 1 image square
+    
             WIDTH = Texture.Width / Columns;
             HEIGHT = Texture.Height / Rows;
-            //Then calculate which row and column the current frame is located at.
+            
             ROW = (int)CURRENT_FRAME / Columns;
             COL = (int)CURRENT_FRAME % Columns;
 
@@ -80,7 +84,7 @@ namespace Project1
         {
             Animate();
             Rectangle SOURCE_REC = new Rectangle(WIDTH * COL, HEIGHT * ROW, WIDTH, HEIGHT);
-            Rectangle DEST_REC = new Rectangle(Constants.SPRITE_X, Constants.SPRITE_X, WIDTH, HEIGHT);
+            Rectangle DEST_REC = new Rectangle(POS_X, POS_Y, WIDTH, HEIGHT);
             spriteBatch.Draw(Texture, DEST_REC, SOURCE_REC, Color.White);
 
         }
@@ -90,9 +94,9 @@ namespace Project1
          */
         private void setFrames()
         {
-            Rows = Constants.BAT_R;
-            Columns = Constants.BAT_C;
-            CURRENT_FRAME = Constants.START_FRAME;
+            Rows = BAT_R;
+            Columns = BAT_C;
+            CURRENT_FRAME = START_FRAME;
             TOTAL_FRAME = Rows * Columns;
         }
 
@@ -107,7 +111,15 @@ namespace Project1
 
         public void Move()
         {
-            throw new NotImplementedException();
+            int DIR_X = RandomMove.RandMove();
+            int DIR_Y = RandomMove.RandMove();
+            
+            //Add bounding constraints:
+
+            POS_X += RandomMove.CheckBounds(DIR_X, POS_X, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
+            POS_Y += RandomMove.CheckBounds(DIR_Y, POS_Y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
+            
+
         }
 
         public void Health()
@@ -124,6 +136,9 @@ namespace Project1
         {
             //Items they drop
         }
+
+
+
     }
 }
 
