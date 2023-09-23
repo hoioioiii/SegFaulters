@@ -7,6 +7,19 @@ namespace Project1
 	{
         void Update();
         void Draw(SpriteBatch spriteBatch);
+    
+
+        //public Texture2D Load();
+
+        //public void Move();
+
+        //public void Health();
+
+        //public void Attack();
+
+        //public void ItemDrop();
+
     }
 }
+
 

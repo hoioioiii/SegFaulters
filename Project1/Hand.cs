@@ -7,10 +7,11 @@ namespace Project1
 	{
 		public Hand()
 		{
+           
 		}
         public void Update()
         {
-
+            
         }
         public void Draw(SpriteBatch spriteBatch)
         {
