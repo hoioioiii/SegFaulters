@@ -108,11 +108,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tinal\\Source\\Repos\\SegFaulters\\Project1\\Project1.csproj",
+      "projectUniqueName": "C:\\Users\\tinal\\source\\repos\\Segfaulters\\Project1\\Project1.csproj",
       "projectName": "Project1",
-      "projectPath": "C:\\Users\\tinal\\Source\\Repos\\SegFaulters\\Project1\\Project1.csproj",
+      "projectPath": "C:\\Users\\tinal\\source\\repos\\Segfaulters\\Project1\\Project1.csproj",
       "packagesPath": "C:\\Users\\tinal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tinal\\Source\\Repos\\SegFaulters\\Project1\\obj\\",
+      "outputPath": "C:\\Users\\tinal\\source\\repos\\Segfaulters\\Project1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
