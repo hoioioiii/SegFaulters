@@ -4,12 +4,14 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/tinal/source/repos/SegFaulters/Project1/Content/emptyhealthbar2.png</File>
-    <File>C:/Users/tinal/source/repos/SegFaulters/Project1/Content/emptyhealthbar3.png</File>
-    <File>C:/Users/tinal/source/repos/SegFaulters/Project1/Content/redbaradjusted.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulters/Project1/Content/emptyhealthbar2.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulters/Project1/Content/emptyhealthbar3.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulters/Project1/Content/redbar.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulters/Project1/Content/redbaradjusted.png</File>
   </SourceFiles>
   <DestFiles>
     <File>emptyhealthbar.png</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>

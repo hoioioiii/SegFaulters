@@ -98,8 +98,8 @@ namespace Project1
             _spriteBatch.Begin();
             HealthBarSprite.Draw();
 
-            _spriteBatch.End();
-            _spriteBatch.Begin();
+           
+         
 
 
             ENEMY.Draw(_spriteBatch);
