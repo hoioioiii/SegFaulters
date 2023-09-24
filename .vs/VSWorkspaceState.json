@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Project1"
+    ""
   ],
-  "SelectedNode": "\\Project1\\Player.cs",
+<<<<<<< HEAD
+  "SelectedNode": "\\C:\\Users\\Jachi\\Source\\Repos\\SegFaulters",
+=======
+  "SelectedNode": "\\Project1\\Game1.cs",
+>>>>>>> 9d37bc122c255da2749eeadda9334c6e6cd009aa
   "PreviewInSolutionExplorer": false
 }
