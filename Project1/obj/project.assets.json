@@ -102,23 +102,39 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Jachi\\.nuget\\packages\\": {},
+=======
+    "C:\\Users\\tinal\\.nuget\\packages\\": {},
+>>>>>>> 81d6b8a646b726d10c0f0d48dee113987b277d4b
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Jachi\\source\\repos\\SegFaulters\\Project1\\Project1.csproj",
       "projectName": "Project1",
       "projectPath": "C:\\Users\\Jachi\\source\\repos\\SegFaulters\\Project1\\Project1.csproj",
       "packagesPath": "C:\\Users\\Jachi\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Jachi\\source\\repos\\SegFaulters\\Project1\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\tinal\\source\\repos\\SegFaulters\\Project1\\Project1.csproj",
+      "projectName": "Project1",
+      "projectPath": "C:\\Users\\tinal\\source\\repos\\SegFaulters\\Project1\\Project1.csproj",
+      "packagesPath": "C:\\Users\\tinal\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tinal\\source\\repos\\SegFaulters\\Project1\\obj\\",
+>>>>>>> 81d6b8a646b726d10c0f0d48dee113987b277d4b
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\Jachi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\tinal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 81d6b8a646b726d10c0f0d48dee113987b277d4b
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

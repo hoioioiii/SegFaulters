@@ -1,5 +1,6 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     ""
   ],
 <<<<<<< HEAD
@@ -7,5 +8,19 @@
 =======
   "SelectedNode": "\\Project1\\Game1.cs",
 >>>>>>> 9d37bc122c255da2749eeadda9334c6e6cd009aa
+=======
+    "",
+    "\\Project1",
+    "\\Project1\\bin",
+    "\\Project1\\bin\\Debug",
+    "\\Project1\\bin\\Debug\\net6.0",
+    "\\Project1\\Content",
+    "\\Project1\\Content\\obj",
+    "\\Project1\\Content\\obj\\DesktopGL",
+    "\\Project1\\Content\\obj\\DesktopGL\\net6.0",
+    "\\Project1\\Content\\obj\\DesktopGL\\net6.0\\Content"
+  ],
+  "SelectedNode": "\\Project1\\Game1.cs",
+>>>>>>> 81d6b8a646b726d10c0f0d48dee113987b277d4b
   "PreviewInSolutionExplorer": false
 }
