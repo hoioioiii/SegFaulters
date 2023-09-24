@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -7,18 +8,24 @@ namespace Project1
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        public static SpriteBatch _spriteBatch;
+        public static ContentManager contentLoader;
+
+        private IHealth HealthBarSprite;
 
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            contentLoader = Content;
             IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            HealthBarSprite = new HealthSystem();
+
 
             base.Initialize();
         }
@@ -36,6 +43,12 @@ namespace Project1
                 Exit();
 
             // TODO: Add your update logic here
+            HealthBarSprite.Update();
+            HealthBarSprite.HealthDamage(1);
+
+            HealthBarSprite.Update();
+
+
 
             base.Update(gameTime);
         }
@@ -44,7 +57,10 @@ namespace Project1
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            _spriteBatch.Begin();
+            HealthBarSprite.Draw();
+
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
