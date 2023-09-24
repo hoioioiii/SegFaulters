@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -9,13 +10,29 @@ namespace Project1
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+
+        public static ContentManager ContentManager1;
+        public static Game1 Game;
+
+        private IEnemy ENEMY;
+
+        private Texture2D _texture;
+     
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
+            
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-        }
 
+            //remove this later
+            ContentManager1 = Content;
+            Game = this;
+            
+
+
+        }
+        
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
@@ -27,7 +44,27 @@ namespace Project1
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
+            /**
+             * 
+             * Replace all sprites with proper sprites.
+             */
+
+
+            ENEMY = new Bat();
+            //ENEMY = new BossAquaDragon();
+            //ENEMY = new BossDino();
+            //ENEMY = new BossFireDragon();
+            //ENEMY = new DogMonster();
+            //ENEMY = new Flame();
+            //ENEMY = new Jelly();
+            //ENEMY = new Merchant();
+            //ENEMY = new OldMan();
+            //ENEMY = new Skeleton();
+            //ENEMY = new Snake();
+            //ENEMY = new SpikeCross();
+
+
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -37,6 +74,8 @@ namespace Project1
 
             // TODO: Add your update logic here
 
+          
+            ENEMY.Update();
             base.Update(gameTime);
         }
 
@@ -44,9 +83,17 @@ namespace Project1
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            _spriteBatch.Begin();
 
+
+            ENEMY.Draw(_spriteBatch);
+
+            _spriteBatch.End();
             base.Draw(gameTime);
+
+
+
+           
         }
     }
 }
