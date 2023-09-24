@@ -63,7 +63,7 @@ namespace Project1
         }
         //change the current frame to the next frame
         public void Update()
-        {
+        {   
             Move();
             CURRENT_FRAME += FRAME_SPD;
             if (CURRENT_FRAME >= TOTAL_FRAME)
@@ -115,7 +115,6 @@ namespace Project1
             int DIR_Y = RandomMove.RandMove();
             
             //Add bounding constraints:
-
             POS_X += RandomMove.CheckBounds(DIR_X, POS_X, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
             POS_Y += RandomMove.CheckBounds(DIR_Y, POS_Y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
             

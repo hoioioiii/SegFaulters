@@ -50,7 +50,7 @@ namespace Project1
              */
 
 
-            //ENEMY = new Bat();
+            ENEMY = new Bat();
             //ENEMY = new BossAquaDragon();
             //ENEMY = new BossDino();
             //ENEMY = new BossFireDragon();
@@ -62,7 +62,7 @@ namespace Project1
             //ENEMY = new Skeleton();
             //ENEMY = new Snake();
             //ENEMY = new SpikeCross();
-           
+
 
 
         }
