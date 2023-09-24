@@ -8,7 +8,10 @@ namespace Project1
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        public static SpriteBatch _spriteBatch;
+        public static ContentManager contentLoader;
+
+        private IHealth HealthBarSprite;
 
 
         public static ContentManager ContentManager1;
@@ -23,6 +26,7 @@ namespace Project1
             _graphics = new GraphicsDeviceManager(this);
             
             Content.RootDirectory = "Content";
+            contentLoader = Content;
             IsMouseVisible = true;
 
             //remove this later
@@ -36,6 +40,8 @@ namespace Project1
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            HealthBarSprite = new HealthSystem();
+
 
             base.Initialize();
         }
@@ -73,6 +79,12 @@ namespace Project1
                 Exit();
 
             // TODO: Add your update logic here
+            HealthBarSprite.Update();
+            HealthBarSprite.HealthDamage(1);
+
+            HealthBarSprite.Update();
+
+
 
           
             ENEMY.Update();
@@ -83,6 +95,10 @@ namespace Project1
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            _spriteBatch.Begin();
+            HealthBarSprite.Draw();
+
+            _spriteBatch.End();
             _spriteBatch.Begin();
 
 
