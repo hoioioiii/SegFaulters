@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System.Collections;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -17,10 +18,11 @@ namespace Project1
         public static ContentManager ContentManager1;
         public static Game1 Game;
 
-        private IEnemy ENEMY;
+        public static IEnemy ENEMY;
 
         private Texture2D _texture;
-     
+        private ArrayList ControllerList;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -41,7 +43,8 @@ namespace Project1
         {
             // TODO: Add your initialization logic here
             HealthBarSprite = new HealthSystem();
-
+            ControllerList = new ArrayList();
+            ControllerList.Add(new KeyBoardController(this));
 
             base.Initialize();
         }
@@ -54,9 +57,10 @@ namespace Project1
              * 
              * Replace all sprites with proper sprites.
              */
+            IListIterate EntityList = new EnemyIterator(this);
 
-
-            ENEMY = new Bat();
+            
+            //ENEMY = new Bat();
             //ENEMY = new BossAquaDragon();
             //ENEMY = new BossDino();
             //ENEMY = new BossFireDragon();
@@ -78,15 +82,21 @@ namespace Project1
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+
+
             // TODO: Add your update logic here
+
+            foreach (IController controller in ControllerList)
+            {
+                controller.Update();
+            }
+
+
             HealthBarSprite.Update();
             HealthBarSprite.HealthDamage(1);
 
             HealthBarSprite.Update();
 
-
-
-          
             ENEMY.Update();
             base.Update(gameTime);
         }

@@ -82,3 +82,15 @@ C:\Users\tinal\source\repos\Segfaulters\Project1\obj\Debug\net6.0\refint\Project
 C:\Users\tinal\source\repos\Segfaulters\Project1\obj\Debug\net6.0\Project1.pdb
 C:\Users\tinal\source\repos\Segfaulters\Project1\obj\Debug\net6.0\Project1.genruntimeconfig.cache
 C:\Users\tinal\source\repos\Segfaulters\Project1\obj\Debug\net6.0\ref\Project1.dll
+C:\Users\tinal\source\repos\Segfaulters\Project1\bin\Debug\net6.0\Content\AD.xnb
+C:\Users\tinal\source\repos\Segfaulters\Project1\bin\Debug\net6.0\Content\DINO.xnb
+C:\Users\tinal\source\repos\Segfaulters\Project1\bin\Debug\net6.0\Content\DM.xnb
+C:\Users\tinal\source\repos\Segfaulters\Project1\bin\Debug\net6.0\Content\FD.xnb
+C:\Users\tinal\source\repos\Segfaulters\Project1\bin\Debug\net6.0\Content\FIRE.xnb
+C:\Users\tinal\source\repos\Segfaulters\Project1\bin\Debug\net6.0\Content\HAND.xnb
+C:\Users\tinal\source\repos\Segfaulters\Project1\bin\Debug\net6.0\Content\JELLY.xnb
+C:\Users\tinal\source\repos\Segfaulters\Project1\bin\Debug\net6.0\Content\MERCHANT.xnb
+C:\Users\tinal\source\repos\Segfaulters\Project1\bin\Debug\net6.0\Content\OLDM.xnb
+C:\Users\tinal\source\repos\Segfaulters\Project1\bin\Debug\net6.0\Content\SKELETON.xnb
+C:\Users\tinal\source\repos\Segfaulters\Project1\bin\Debug\net6.0\Content\SNAKE.xnb
+C:\Users\tinal\source\repos\Segfaulters\Project1\bin\Debug\net6.0\Content\SPIKES.xnb

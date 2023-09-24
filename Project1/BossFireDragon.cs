@@ -91,8 +91,8 @@ namespace Project1
          */
         private void setFrames()
         {
-            Rows = BAT_R;
-            Columns = BAT_C;
+            Rows = FD_R;
+            Columns = FD_C;
             CURRENT_FRAME = START_FRAME;
             TOTAL_FRAME = Rows * Columns;
         }
@@ -103,7 +103,7 @@ namespace Project1
         public Texture2D Load()
         {
             setFrames();
-            return ContentLoad.Load<Texture2D>(assetName: "KEESE_BAT");
+            return ContentLoad.Load<Texture2D>(assetName: "FD");
         }
 
         public void Move()

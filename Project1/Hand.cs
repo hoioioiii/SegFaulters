@@ -80,7 +80,7 @@ namespace Project1
 
             Animate();
             Rectangle SOURCE_REC = new Rectangle(WIDTH * COL, HEIGHT * ROW, WIDTH, HEIGHT);
-            Rectangle DEST_REC = new Rectangle(POS_X, POS_Y, WIDTH, HEIGHT);
+            Rectangle DEST_REC = new Rectangle(POS_X, POS_Y, WIDTH + 30, HEIGHT +30);
             spriteBatch.Draw(Texture, DEST_REC, SOURCE_REC, Color.White);
         }
 
@@ -89,8 +89,8 @@ namespace Project1
           */
         private void setFrames()
         {
-            Rows = BAT_R;
-            Columns = BAT_C;
+            Rows = HAND_R;
+            Columns = HAND_C;
             CURRENT_FRAME = START_FRAME;
             TOTAL_FRAME = Rows * Columns;
         }
@@ -101,7 +101,7 @@ namespace Project1
         public Texture2D Load()
         {
             setFrames();
-            return ContentLoad.Load<Texture2D>(assetName: "KEESE_BAT");
+            return ContentLoad.Load<Texture2D>(assetName: "HAND");
         }
 
         public void Move()
