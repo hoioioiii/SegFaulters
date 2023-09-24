@@ -1,0 +1,5 @@
+C:\Users\Ephratah\source\repos\Boioioiii\SegFaulters\Project1\obj\Debug\net6.0\Project1.csproj.AssemblyReference.cache
+C:\Users\Ephratah\source\repos\Boioioiii\SegFaulters\Project1\obj\Debug\net6.0\Project1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ephratah\source\repos\Boioioiii\SegFaulters\Project1\obj\Debug\net6.0\Project1.AssemblyInfoInputs.cache
+C:\Users\Ephratah\source\repos\Boioioiii\SegFaulters\Project1\obj\Debug\net6.0\Project1.AssemblyInfo.cs
+C:\Users\Ephratah\source\repos\Boioioiii\SegFaulters\Project1\obj\Debug\net6.0\Project1.csproj.CoreCompileInputs.cache
