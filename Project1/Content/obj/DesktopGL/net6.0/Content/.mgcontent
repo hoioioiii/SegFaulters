@@ -4,13 +4,11 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/../../../../../OneDrive/Pictures/redbar.png</File>
-    <File>C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/emptyhealthbar2.png</File>
-    <File>C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/emptyhealthbar3.png</File>
-    <File>C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/redbaradjusted.png</File>
+    <File>C:/Users/tinal/source/repos/SegFaulters/Project1/Content/emptyhealthbar2.png</File>
+    <File>C:/Users/tinal/source/repos/SegFaulters/Project1/Content/emptyhealthbar3.png</File>
+    <File>C:/Users/tinal/source/repos/SegFaulters/Project1/Content/redbaradjusted.png</File>
   </SourceFiles>
   <DestFiles>
-    <File>redbar.png</File>
     <File>emptyhealthbar.png</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />

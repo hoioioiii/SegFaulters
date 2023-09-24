@@ -1,5 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/../../../../../OneDrive/Pictures/redbar.png","C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/bin/DesktopGL/Content/redbar.xnb","TextureProcessor","Texture2DContent",521,252405,0.0989973
-"C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/emptyhealthbar2.png","C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/bin/DesktopGL/Content/emptyhealthbar.xnb","TextureProcessor","Texture2DContent",2418,52565,0.0938959
-"C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/emptyhealthbar3.png","C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/bin/DesktopGL/Content/emptyhealthbar3.xnb","TextureProcessor","Texture2DContent",2418,52565,0.2006871
-"C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/redbaradjusted.png","C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/bin/DesktopGL/Content/redbaradjusted.xnb","TextureProcessor","Texture2DContent",524,52565,0.0916149
+"C:/Users/tinal/source/repos/SegFaulters/Project1/Content/emptyhealthbar2.png","C:/Users/tinal/source/repos/SegFaulters/Project1/Content/bin/DesktopGL/Content/emptyhealthbar.xnb","TextureProcessor","Texture2DContent",2418,52565,0.128865
+"C:/Users/tinal/source/repos/SegFaulters/Project1/Content/emptyhealthbar3.png","C:/Users/tinal/source/repos/SegFaulters/Project1/Content/bin/DesktopGL/Content/emptyhealthbar3.xnb","TextureProcessor","Texture2DContent",2418,52565,0.0035474
+"C:/Users/tinal/source/repos/SegFaulters/Project1/Content/redbaradjusted.png","C:/Users/tinal/source/repos/SegFaulters/Project1/Content/bin/DesktopGL/Content/redbaradjusted.xnb","TextureProcessor","Texture2DContent",524,52565,0.0035052
