@@ -1,10 +1,10 @@
 ﻿public class RightMovingPlayerState : IPlayerState
 {
-    private Player player;
+    private PlayerState player;
     //placeholder till connected with global health system
     private int health;
 
-    public RightMovingPlayerState(Player player, int initialHealth)
+    public RightMovingPlayerState(PlayerState player, int initialHealth)
     {
         this.player = player;
         this.health = initialHealth;

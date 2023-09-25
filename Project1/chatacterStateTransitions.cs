@@ -1,45 +1,46 @@
-public interface IPlayerState
-{
-	void ChangeDirection();
-	void TakeDamage(int damageAmount);
-	void UseWeapon();
-	void Update();
-	void VictoryState();
-	void DeathState();
 
-}
-
-public class Player
-{
-	public IPlayerState State;
-    private int initialHealth { get; set; }
-    private Player player { get; set; }
-
-    public Player(int initialHealth)
+	public interface IPlayerState
 	{
-        this.initialHealth = initialHealth;
-        this.player = this; // initialize the player property
-        State = new RightMovingPlayerState(this, initialHealth);
+		void ChangeDirection();
+		void TakeDamage(int damageAmount);
+		void UseWeapon();
+		void Update();
+		void VictoryState();
+		void DeathState();
+
 	}
 
-	public void ChangeDirection()
+	public class PlayerState
 	{
-		State.ChangeDirection();
-	}
+		public IPlayerState State;
+		private int initialHealth { get; set; }
+		private PlayerState player { get; set; }
 
-	public void TakeDamage(int damageAmount)
-	{
+		public PlayerState(int initialHealth)
+		{
+			this.initialHealth = initialHealth;
+			this.player = this; // initialize the player property
+			State = new RightMovingPlayerState(this, initialHealth);
+		}
 
-        State.TakeDamage(damageAmount);
-	}
+		public void ChangeDirection()
+		{
+			State.ChangeDirection();
+		}
 
-	public void UseWeapon()
-	{
-		State.UseWeapon();
-	}
+		public void TakeDamage(int damageAmount)
+		{
 
-	public void Update()
-	{
-		State.Update();
+			State.TakeDamage(damageAmount);
+		}
+
+		public void UseWeapon()
+		{
+			State.UseWeapon();
+		}
+
+		public void Update()
+		{
+			State.Update();
+		}
 	}
-}
