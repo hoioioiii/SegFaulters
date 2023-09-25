@@ -2,9 +2,9 @@
 
 public class VictoryPlayerState : IPlayerState
 {
-    private PlayerState player;
+    private Player player;
     //placeholder till connected with global health system
-    public VictoryPlayerState(PlayerState player)
+    public VictoryPlayerState(Player player)
     {
         this.player = player;
         //construct sprite here too?? (texture?)
