@@ -48,40 +48,46 @@ namespace Project1
         private int POS_X;
         private int POS_Y;
 
+        private ISprite sprite;
+
         public Hand()
 		{
             //remove later:
+            /*
             GameObject = Constants.GameObj;
             ContentLoad = GameObject.Content;
             Texture = Load();
             POS_X = SPRITE_X;
             POS_Y = SPRITE_Y;
+            */
+
+            sprite = EnemySpriteFactory.Instance.CreateHandSprite();
         }
         public void Update()
         {
+            sprite.Update();
+            /*
             Move();
             CURRENT_FRAME += FRAME_SPD;
             if (CURRENT_FRAME >= TOTAL_FRAME)
                 CURRENT_FRAME = START_FRAME;
+            */
         }
 
         private void Animate()
         {
 
-            WIDTH = Texture.Width / Columns;
-            HEIGHT = Texture.Height / Rows;
+            //WIDTH = Texture.Width / Columns;
+            //HEIGHT = Texture.Height / Rows;
 
-            ROW = (int)CURRENT_FRAME / Columns;
-            COL = (int)CURRENT_FRAME % Columns;
+            //ROW = (int)CURRENT_FRAME / Columns;
+            //COL = (int)CURRENT_FRAME % Columns;
 
         }
         public void Draw(SpriteBatch spriteBatch)
         {
 
-            Animate();
-            Rectangle SOURCE_REC = new Rectangle(WIDTH * COL, HEIGHT * ROW, WIDTH, HEIGHT);
-            Rectangle DEST_REC = new Rectangle(POS_X, POS_Y, WIDTH + 30, HEIGHT +30);
-            spriteBatch.Draw(Texture, DEST_REC, SOURCE_REC, Color.White);
+            sprite.Draw(spriteBatch);
         }
 
         /*
@@ -89,10 +95,10 @@ namespace Project1
           */
         private void setFrames()
         {
-            Rows = HAND_R;
-            Columns = HAND_C;
-            CURRENT_FRAME = START_FRAME;
-            TOTAL_FRAME = Rows * Columns;
+            //Rows = HAND_R;
+            //Columns = HAND_C;
+            //CURRENT_FRAME = START_FRAME;
+            //TOTAL_FRAME = Rows * Columns;
         }
 
         /*
@@ -100,19 +106,19 @@ namespace Project1
          */
         public Texture2D Load()
         {
-            setFrames();
+            //setFrames();
             return ContentLoad.Load<Texture2D>(assetName: "HAND");
         }
 
         public void Move()
         {
-            int DIR_X = RandomMove.RandMove();
-            int DIR_Y = RandomMove.RandMove();
+            //int DIR_X = RandomMove.RandMove();
+            //int DIR_Y = RandomMove.RandMove();
 
-            //Add bounding constraints:
+            ////Add bounding constraints:
 
-            POS_X += RandomMove.CheckBounds(DIR_X, POS_X, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            POS_Y += RandomMove.CheckBounds(DIR_Y, POS_Y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
+            //POS_X += RandomMove.CheckBounds(DIR_X, POS_X, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
+            //POS_Y += RandomMove.CheckBounds(DIR_Y, POS_Y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
 
 
         }

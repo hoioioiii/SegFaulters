@@ -1,5 +1,4 @@
 ﻿using System;
-using System;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System.ComponentModel;
@@ -9,8 +8,8 @@ using System.Xml.Linq;
 
 namespace Project1
 {
-	public class EnemySpriteFactory
-	{
+    public class EnemySpriteFactory
+    {
         //private Texture2D goombaSpritesheet;
         //private Texture2D koopaSpritesheet;
         private Texture2D batSpritesheet;
@@ -48,114 +47,90 @@ namespace Project1
         {
             //goombaSpriteSheet = content.Load<Texture2D>("goomba");
             batSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            aquaDragonSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            dinoSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            fireDragonSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            dogMonsterSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            flameSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            handSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            jellySpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            merchantSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            oldManSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            skeletonSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            snakeSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            spikeCrossSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
+            
+            aquaDragonSpritesheet = content.Load<Texture2D>(assetName: "AD");
+            dinoSpritesheet = content.Load<Texture2D>(assetName: "DINO");
+            fireDragonSpritesheet = content.Load<Texture2D>(assetName: "FD");
+            dogMonsterSpritesheet = content.Load<Texture2D>(assetName: "DM");
+            flameSpritesheet = content.Load<Texture2D>(assetName: "FIRE");
+            handSpritesheet = content.Load<Texture2D>(assetName: "HAND");
+            jellySpritesheet = content.Load<Texture2D>(assetName: "JELLY");
+            merchantSpritesheet = content.Load<Texture2D>(assetName: "MERCHANT");
+            oldManSpritesheet = content.Load<Texture2D>(assetName: "OLDM");
+            skeletonSpritesheet = content.Load<Texture2D>(assetName: "SKELETON");
+            snakeSpritesheet = content.Load<Texture2D>(assetName: "SNAKE");
+            spikeCrossSpritesheet = content.Load<Texture2D>(assetName: "SPIKES");
+            
 
             // More Content.Load calls follow
             //...
         }
-        /*
-        public IEnemy CreateGoombaSprite()
+        
+       
+        public ISprite CreateBatSprite()
         {
-            return new GoombaSprite(goombaSpritesheet, Game1.Instance.level.isAboveGround);
+            return new BatSprite(batSpritesheet);
         }
 
-        public IEnemy CreateKoopaSprite()
+        public ISprite CreateBossAquaDragonSprite()
         {
-            return new KoopaSprite(koopaSpritesheet, 32, 32);
-        }
-
-        public IEnemy CreateGiantKoopaSprite()
-        {
-            return new KoopaSprite(koopaSpritesheet, 64, 64);
-        }
-        */
-        public IEnemy CreateBatSprite()
-        {
-            Bat.setFrames();
-            return new Bat(batSpritesheet);
-        }
-
-        public IEnemy CreateBossAquaDragonSprite()
-        {
-            BossAquaDragonSprite.setFrames();
+           
             return new BossAquaDragonSprite(aquaDragonSpritesheet);
         }
 
-        public IEnemy CreateDinoSprite()
+        public ISprite CreateDinoSprite()
         {
-            BossDino.setFrames();
-            return new BossDino(dinoSpritesheet);
+            return new BossDinoSprite(dinoSpritesheet);
         }
 
-        public IEnemy CreateFireDragonSprite()
+        public ISprite CreateFireDragonSprite()
         {
-            BossFireDragon.setFrames();
-            return new BossFireDragon(fireDragonSpritesheet);
+            return new BossFireDragonSprite(fireDragonSpritesheet);
         }
 
-        public IEnemy CreateDogMonsterSprite()
+        public ISprite CreateDogMonsterSprite()
         {
-            DogMonster.setFrames();
-            return new DogMonster(dogMonsterSpritesheet);
+            return new DogMonsterSprite(dogMonsterSpritesheet);
         }
 
-        public IEnemy CreateFlameSprite()
+        public ISprite CreateFlameSprite()
         {
-            Flame.setFrames();
-            return new Flame(flameSpritesheet);
+            return new FlameSprite(flameSpritesheet);
         }
 
-        public IEnemy CreateHandSprite()
+        public ISprite CreateHandSprite()
         {
-            Hand.setFrames();
-            return new Hand(handSpritesheet);
+            return new HandSprite(handSpritesheet);
         }
 
-        public IEnemy CreateJellySprite()
+        public ISprite CreateJellySprite()
         {
-            Jelly.setFrames();
-            return new Jelly(jellySpritesheet);
+            return new JellySprite(jellySpritesheet);
         }
 
-        public IEnemy CreateMerchantSprite()
+        public ISprite CreateMerchantSprite()
         {
-            Merchant.setFrames();
-            return new Merchant(merchantSpritesheet);
+            return new MerchantSprite(merchantSpritesheet);
         }
 
-        public IEnemy CreateOldManSprite()
+        public ISprite CreateOldManSprite()
         {
-            OldMan.setFrames();
-            return new OldMan(oldManSpritesheet);
+            return new OldManSprite(oldManSpritesheet);
         }
 
-        public IEnemy CreateSkeletonSprite()
+        public ISprite CreateSkeletonSprite()
         {
-            Skeleton.setFrames();
-            return new Skeleton(skeletonSpritesheet);
+            return new SkeletonSprite(skeletonSpritesheet);
         }
 
-        public IEnemy CreateSnakeSprite()
+        public ISprite CreateSnakeSprite()
         {
-            Snake.setFrames();
-            return new Snake(snakeSpritesheet);
+            return new SnakeSprite(snakeSpritesheet);
         }
 
-        public IEnemy CreateSpikeCrossSprite()
+        public ISprite CreateSpikeCrossSprite()
         {
-            SpikeCross.setFrames();
-            return new SpikeCross(spikeCrossSpritesheet);
+            return new SpikeCrossSprite(spikeCrossSpritesheet);
         }
 
         // More public ISprite returning methods follow
