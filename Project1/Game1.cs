@@ -155,6 +155,7 @@ namespace Project1
             GraphicsDevice.Clear(Color.CornflowerBlue);
             
             _spriteBatch.Begin();
+
             if (isMoving)
             {
                 // replace with animations

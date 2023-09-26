@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\Project1",
-    "\\Project1\\Content",
-    "\\Project1\\obj"
+    "\\Project1\\Content"
   ],
-  "SelectedNode": "\\Project1\\Project1.csproj",
+  "SelectedNode": "\\Project1\\Player.cs",
   "PreviewInSolutionExplorer": false
 }
