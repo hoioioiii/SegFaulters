@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/KEESE_BAT.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/AD.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/DINO.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/DM.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/emptyhealthbar2.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/emptyhealthbar3.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/FD.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/FIRE.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/HAND.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/JELLY.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/MERCHANT.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/OLDM.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/redbar.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/redbaradjusted.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/SKELETON.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/SNAKE.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/SPIKES.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File>emptyhealthbar.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
