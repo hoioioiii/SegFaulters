@@ -26,10 +26,18 @@
     <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/redbaradjusted.png</File>
     <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/rupeeBlue.png</File>
     <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/rupeeGold.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/swordDown.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/swordLeft.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/swordRight.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/swordUp.png</File>
     <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/triforcePieceBlue.png</File>
     <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/triforcePieceGold.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

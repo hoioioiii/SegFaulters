@@ -141,8 +141,8 @@ namespace Project1
             //ITERATE_MAP.Add(Keys.Y, //Call Command State);)
             //ITERATE_MAP.Add(Keys.U, //Call Command State);)
             //ITERATE_MAP.Add(Keys.I, //Call Command State);)
-            ITERATE_MAP.Add(Keys.O, new EntityIterateBackCommand());
-            ITERATE_MAP.Add(Keys.P, new EntityIterateForwardCommand());
+            ITERATE_MAP.Add(Keys.U, new EntityIterateBackCommand());
+            ITERATE_MAP.Add(Keys.I, new EntityIterateForwardCommand());
 
         }
 

@@ -31,8 +31,8 @@ namespace Project1
         public FairySprite(Texture2D[] spriteSheet)
         {
             Texture = spriteSheet;
-            Rows = ARROW_R;
-            Columns = ARROW_C;
+            Rows = FAIRY_R;
+            Columns = FAIRY_C;
             current_frame = START_FRAME;
             total_frame = Rows * Columns;
             pos_x = SPRITE_X;

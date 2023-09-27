@@ -31,8 +31,8 @@ namespace Project1
         public BoomerangSprite(Texture2D[] spriteSheet)
         {
             Texture = spriteSheet;
-            Rows = ARROW_R;
-            Columns = ARROW_C;
+            Rows = BOOM_R;
+            Columns = BOOM_C;
             current_frame = START_FRAME;
             total_frame = Rows * Columns;
             pos_x = SPRITE_X;

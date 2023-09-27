@@ -31,8 +31,8 @@ namespace Project1
         public BowSprite(Texture2D[] spriteSheet)
         {
             Texture = spriteSheet;
-            Rows = ARROW_R;
-            Columns = ARROW_C;
+            Rows = BOW_R;
+            Columns = BOW_C;
             current_frame = START_FRAME;
             total_frame = Rows * Columns;
             pos_x = SPRITE_X;
