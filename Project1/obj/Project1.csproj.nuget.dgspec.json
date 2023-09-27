@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tinal\\source\\repos\\Segfaulters\\Project1\\Project1.csproj": {}
+    "C:\\Users\\Ephratah\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tinal\\source\\repos\\Segfaulters\\Project1\\Project1.csproj": {
+    "C:\\Users\\Ephratah\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tinal\\source\\repos\\Segfaulters\\Project1\\Project1.csproj",
+        "projectUniqueName": "C:\\Users\\Ephratah\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj",
         "projectName": "Project1",
-        "projectPath": "C:\\Users\\tinal\\source\\repos\\Segfaulters\\Project1\\Project1.csproj",
-        "packagesPath": "C:\\Users\\tinal\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tinal\\source\\repos\\Segfaulters\\Project1\\obj\\",
+        "projectPath": "C:\\Users\\Ephratah\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj",
+        "packagesPath": "C:\\Users\\Ephratah\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Ephratah\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\tinal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Ephratah\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
