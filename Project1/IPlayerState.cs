@@ -2,10 +2,15 @@
 	public interface IPlayerState
 	{
 		void ChangeDirection();
+
 		void TakeDamage(int damageAmount);
+
 		void UseWeapon();
+
 		void Update();
+
 		void VictoryState();
+
 		void DeathState();
 
 	}
