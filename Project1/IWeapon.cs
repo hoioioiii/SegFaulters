@@ -9,8 +9,10 @@ namespace Project1
 {
     public interface IWeapon
     {
-        public void WeaponFire(Texture2D player);
-        public void WeaponReload();
+        public void WeaponStartFire();
+        public void WeaponStopFire();
+
+         
 
         
 

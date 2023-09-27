@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.ComponentModel;
@@ -13,42 +14,39 @@ namespace Project1
         public SpriteBatch _spriteBatch;
         Microsoft.Xna.Framework.Vector2 playerPosition = new Microsoft.Xna.Framework.Vector2(100, 100);
 
-
+        Player player;
         Texture2D shooter;
-        private Weapon pistol;
-
         Game1 currentGame;
+        public static ContentManager contentLoader;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            contentLoader = Content;
+            //_spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
         protected override void Initialize()
         {
             currentGame = this;
+            player = new Player();
 
             base.Initialize();
         }
         
         protected override void LoadContent()
         {
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            //_spriteBatch = new SpriteBatch(GraphicsDevice);
+            //shooter = Content.Load<Texture2D>("topdownpistol");
 
-
-            
-            shooter = Content.Load<Texture2D>("topdownpistol");
-            pistol = new Pistol(currentGame, shooter, playerPosition);
         }
 
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
-
-            pistol.Update();
 
 
             if (Keyboard.GetState().IsKeyDown(Keys.Back))
@@ -66,11 +64,8 @@ namespace Project1
             _spriteBatch.Begin();
 
 
-            _spriteBatch.Draw(shooter, playerPosition, Color.White);
+            //_spriteBatch.Draw(shooter, playerPosition, Color.White);
 
-            //_spriteBatch.Draw(pistol.weaponSprite, playerPosition, Color.White);
-
-            pistol.Draw(gameTime, _spriteBatch);  
 
             _spriteBatch.End();
 
