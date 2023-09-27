@@ -5,9 +5,9 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    public class SnakeSprite : ISprite
+    public class RupeeSprite : ISprite
     {
-        private Texture2D Texture { get; set; }
+        private Texture2D[] Texture { get; set; }
 
         //rows is the number of rows i the texture alias
         private int Rows { get; set; }
@@ -27,13 +27,12 @@ namespace Project1
         private int width;
         private int height;
 
-        private int row;
-        private int col;
-        public SnakeSprite(Texture2D spriteSheet)
-		{
+
+        public RupeeSprite(Texture2D[] spriteSheet)
+        {
             Texture = spriteSheet;
-            Rows = SNAKE_R;
-            Columns = SNAKE_C;
+            Rows = ARROW_R;
+            Columns = ARROW_C;
             current_frame = START_FRAME;
             total_frame = Rows * Columns;
             pos_x = SPRITE_X;
@@ -41,7 +40,8 @@ namespace Project1
         }
         public void Update()
         {
-            Move();
+
+            //Move();
             current_frame += FRAME_SPD;
             if (current_frame >= total_frame)
                 current_frame = START_FRAME;
@@ -62,21 +62,22 @@ namespace Project1
         private void Animate()
         {
 
-            width = Texture.Width / Columns;
-            height = Texture.Height / Rows;
-
-            row = (int)current_frame / Columns;
-            col = (int)current_frame % Columns;
+            width = Texture[(int)current_frame].Width;
+            height = Texture[(int)current_frame].Height;
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             Animate();
-            Rectangle SOURCE_REC = new Rectangle(width * col, height * row, width, height);
+            Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture, DEST_REC, SOURCE_REC, Color.White);
+            spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
+
     }
 }
+
+
+
 

@@ -80,6 +80,6 @@ namespace Project1
         public static int SWORD_C = 4;
 
         public static int TRIFORCE_R = 1;
-        public static int TRIFORCE_C = 7;
+        public static int TRIFORCE_C = 2;
     }
 }

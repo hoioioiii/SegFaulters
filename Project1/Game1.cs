@@ -57,7 +57,7 @@ namespace Project1
              * 
              * Replace all sprites with proper sprites.
              */
-            IListIterate EntityList = new EnemyIterator(this);
+            IListIterate EntityList = new ItemIterator(this);
 
             
             //ENEMY = new Bat();

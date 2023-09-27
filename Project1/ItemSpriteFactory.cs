@@ -92,62 +92,62 @@ namespace Project1
         public ISprite CreateBombSprite()
         {
            
-            return new BossAquaDragonSprite(bombSpriteStorage);
+            return new BombSprite(bombSpriteStorage);
         }
 
         public ISprite CreateBoomerangSprite()
         {
-            return new BossDinoSprite(boomerangSpriteStorage);
+            return new BoomerangSprite(boomerangSpriteStorage);
         }
 
         public ISprite CreateBowSprite()
         {
-            return new BossFireDragonSprite(bowSpriteStorage);
+            return new BowSprite(bowSpriteStorage);
         }
 
         public ISprite CreateClockSprite()
         {
-            return new DogMonsterSprite(clockSpriteStorage);
+            return new ClockSprite(clockSpriteStorage);
         }
 
         public ISprite CreateFairySprite()
         {
-            return new FlameSprite(fairySpriteStorage);
+            return new FairySprite(fairySpriteStorage);
         }
 
         public ISprite CreateHeartSprite()
         {
-            return new HandSprite(heartSpriteStorage);
+            return new HeartSprite(heartSpriteStorage);
         }
 
         public ISprite CreateHeartContainerSprite()
         {
-            return new JellySprite(heartContainerSpriteStorage);
+            return new HeartContainerSprite(heartContainerSpriteStorage);
         }
 
         public ISprite CreateKeySprite()
         {
-            return new MerchantSprite(keySpriteStorage);
+            return new KeySprite(keySpriteStorage);
         }
 
         public ISprite CreateMapSprite()
         {
-            return new OldManSprite(mapSpriteStorage);
+            return new MapSprite(mapSpriteStorage);
         }
 
         public ISprite CreateRupeeSprite()
         {
-            return new SkeletonSprite(rupeeSpriteStorage);
+            return new RupeeSprite(rupeeSpriteStorage);
         }
 
         public ISprite CreateTriforceSprite()
         {
-            return new SnakeSprite(triforceSpriteStorage);
+            return new TriforceSprite(triforceSpriteStorage);
         }
 
         public ISprite CreateSwordSprite()
         {
-            return new SnakeSprite(swordSpriteStorage);
+            return new SwordSprite(swordSpriteStorage);
         }
 
         // More public ISprite returning methods follow
