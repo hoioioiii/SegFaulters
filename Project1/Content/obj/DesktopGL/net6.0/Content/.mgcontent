@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>DesktopGL</Platform>
+  <Config />
+  <SourceFiles>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/arrowDown.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/arrowLeft.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/arrowRight.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/arrowUp.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/bomb.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/boomerang_sheet.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/bow.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/clock.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/emptyhealthbar.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/emptyhealthbar2.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/emptyhealthbar3.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/fairy1.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/fairy2.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/heartBlue.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/heartContainer.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/heartRed.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/key.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/map.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/redbar.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/redbaradjusted.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/rupeeBlue.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/rupeeGold.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/triforcePieceBlue.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/triforcePieceGold.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
