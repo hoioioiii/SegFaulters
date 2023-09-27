@@ -50,7 +50,7 @@ namespace Project1
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            player = new Player();
+            //player = new Player();
             
             base.Initialize();
         }

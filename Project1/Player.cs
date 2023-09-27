@@ -54,8 +54,8 @@ namespace Project1
         public Player()
         {
             //remove later:
-            Game1 game1 = new Game1();
-            linkRight1 = Load("ZeldaSpriteLinkRight");
+            //Game1 game1 = new Game1();
+            //linkRight1 = Load("ZeldaSpriteLinkRight");
             
 
         }
@@ -115,10 +115,6 @@ namespace Project1
             // render attack texture to sprite
 
             // call method of attack used (e.g. sword or arrow)
-        }
-
-        public void Sword()
-        {
             // the sword should be a seperate object so it can have its own bounding box
 
         }
