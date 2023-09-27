@@ -15,7 +15,6 @@ namespace Project1
         Microsoft.Xna.Framework.Vector2 playerPosition = new Microsoft.Xna.Framework.Vector2(100, 100);
 
         Player player;
-        Texture2D shooter;
         Game1 currentGame;
         public static ContentManager contentLoader;
 
@@ -39,6 +38,8 @@ namespace Project1
         protected override void LoadContent()
         {
             //_spriteBatch = new SpriteBatch(GraphicsDevice);
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            player.LoadContent();
             //shooter = Content.Load<Texture2D>("topdownpistol");
 
         }
@@ -63,7 +64,7 @@ namespace Project1
 
             _spriteBatch.Begin();
 
-
+            player.Draw(_spriteBatch);
             //_spriteBatch.Draw(shooter, playerPosition, Color.White);
 
 
