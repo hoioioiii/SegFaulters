@@ -1,8 +1,8 @@
 ﻿public class DeadPlayerState : IPlayerState
 {
-    private PlayerState player;
+    private Player player;
     //placeholder till connected with global health system
-    public DeadPlayerState(PlayerState player)
+    public DeadPlayerState(Player player)
     {
         this.player = player;
         //construct sprite here too?? (texture?)

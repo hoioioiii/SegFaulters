@@ -1,10 +1,10 @@
 ﻿public class LefttMovingPlayerState : IPlayerState
 {
-    private PlayerState player;
+    private Player player;
     //placeholder till connected with global health system
     private int health;
 
-    public LefttMovingPlayerState(PlayerState player, int initialHealth)
+    public LefttMovingPlayerState(Player player, int initialHealth)
     {
         this.player = player;
         this.health = initialHealth;
@@ -18,8 +18,6 @@
 
         //left is just a placeholder till switch cases 
         //	player.State = new LeftMovingPlayerState(player);
-
-
     }
 
     public void DeathState()
