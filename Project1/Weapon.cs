@@ -21,7 +21,7 @@ namespace Project1
         {
             this.Character = character;
             Vector2 characterPosition = this.CharacterPosition();
-            this.offSet = new Vector2(characterPosition.X, characterPosition.Y); // NEEDS TO MODIFY POSITION ACCORDING TO HANDS, OR SPECIFIC SPOT
+            this.offSet = new Vector2(characterPosition.X, characterPosition.Y); // NEEDS TO MODIFY POSITION ACCORDING TO HANDS/OFFSET, OR SPECIFIC SPOT
             this.direction = new Vector2(0, -1); //MODIFY TO HANDLE COLLISION
         }
 
@@ -29,7 +29,7 @@ namespace Project1
         //VIRTUAL BECAUSE WE NEED WEAPONS TO OVERRIDE THIS
         public virtual void WeaponStartFire()
         {
-            //this.Character.FireType(this.direction, this.CharacterPosition);
+            //this.Character.FireAction(this.direction, this.CharacterPosition);
         }
 
         public virtual void WeaponStopFire() 
