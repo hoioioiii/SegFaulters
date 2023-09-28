@@ -24,6 +24,7 @@ namespace Project1
 
         // scales the size of the sprite on screen
         private static int spriteScale = 4;
+        private static int swordScale = 1;
 
         // cardinal direction player is facing, starts with up on 1 and progresses clockwise (e.g. 4 is left-facing)
         private static int linkDirection = 2;
@@ -45,6 +46,14 @@ namespace Project1
         public static Texture2D linkAttackLeft;
         public static Texture2D linkAttackUp;
         public static Texture2D linkAttackDown;
+
+        //sword frames
+        public static Texture2D swordRight;
+        public static Texture2D swordLeft;
+        public static Texture2D swordUp;
+        public static Texture2D swordDown;
+
+
 
         // attacking
         private static bool isAttacking = false;
@@ -75,6 +84,7 @@ namespace Project1
             AttackTimer = ATTACK_SECONDS;
 
             //base.Initialize();
+
         }
 
         public static void LoadContent(ContentManager content)
@@ -96,6 +106,12 @@ namespace Project1
             linkAttackLeft = content.Load<Texture2D>("linkAttackLeft");
             linkAttackUp = content.Load<Texture2D>("linkAttackUp");
             linkAttackDown = content.Load<Texture2D>("linkAttackDown");
+
+            //attack using swordd
+            swordRight = content.Load<Texture2D>("swordRight");
+            swordLeft = content.Load<Texture2D>("swordLeft");
+            swordUp = content.Load<Texture2D>("swordUp");
+            swordDown = content.Load<Texture2D>("swordDown");
         }
 
         //change the current frame to the next frame
@@ -133,7 +149,6 @@ namespace Project1
                 {
                     // attack using his sword
                     isAttacking = true;
-                    //WaitForAttack();
                 }
 
                 if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.A))
@@ -186,18 +201,33 @@ namespace Project1
                 switch (linkDirection)
                 {
                     case 1:
+                        int swordOffsetX = 5;
+                        int swordOffsetY = -65;
+                        DrawSword(swordUp, swordOffsetX, swordOffsetY);
                         DrawLink(linkAttackUp);
                         break;
                     case 2:
+                        swordOffsetX = 55;
+                        swordOffsetY = 25;
+                        DrawSword(swordRight, swordOffsetX, swordOffsetY);
                         DrawLink(linkAttackRight);
                         break;
                     case 3:
+                        swordOffsetX = 25;
+                        swordOffsetY = 60;
+                        DrawSword(swordDown, swordOffsetX, swordOffsetY);
                         DrawLink(linkAttackDown);
                         break;
                     case 4:
+                        swordOffsetX = -50;
+                        swordOffsetY = 25;
+                        DrawSword(swordLeft, swordOffsetX, swordOffsetY);
                         DrawLink(linkAttackLeft);
                         break;
                     default:
+                        swordOffsetX = 55;
+                        swordOffsetY = 25;
+                        DrawSword(swordRight, swordOffsetX, swordOffsetY);
                         DrawLink(linkAttackRight);
                         break;
                 }
@@ -261,10 +291,10 @@ namespace Project1
             // doesn't need to be implemented in sprint 2
         }
 
-        public void Attack()
+        public static void DrawSword(Texture2D tex, int offsetX, int offsetY)
         {
             // Attacks
-
+            Game1._spriteBatch.Draw(tex, new Rectangle((int)position.X + offsetX, (int)position.Y + offsetY, tex.Width * swordScale, tex.Height * swordScale), Color.White);
             // render attack texture to sprite
 
             // call method of attack used (e.g. sword or arrow)
