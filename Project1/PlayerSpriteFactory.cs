@@ -5,6 +5,7 @@ using System.ComponentModel;
 using Project1;
 using System.Reflection.Metadata;
 using System.Xml.Linq;
+using static Project1.Constants;
 
 namespace Project1
 {
@@ -12,26 +13,24 @@ namespace Project1
     {
         //private Texture2D goombaSpritesheet;
         //private Texture2D koopaSpritesheet;
+        private Texture2D[] link1SpriteStorage = new Texture2D[PLAYER_FRAMES];
+        private Texture2D[] link2SpriteStorage = new Texture2D[PLAYER_FRAMES];
+        private Texture2D[] linkAttackSpriteStorage = new Texture2D[PLAYER_FRAMES];
         /*
-        private Texture2D batSpritesheet;
-        private Texture2D aquaDragonSpritesheet;
-        private Texture2D dinoSpritesheet;
-        private Texture2D fireDragonSpritesheet;
-        private Texture2D dogMonsterSpritesheet;
-        private Texture2D flameSpritesheet;
-        private Texture2D handSpritesheet;
-        private Texture2D jellySpritesheet;
-        private Texture2D merchantSpritesheet;
-        private Texture2D oldManSpritesheet;
-        private Texture2D skeletonSpritesheet;
-        private Texture2D snakeSpritesheet;
-        private Texture2D spikeCrossSpritesheet;
+        private Texture2D[] boomerangSpriteStorage = new Texture2D[BOOM_C * BOOM_R];
+        private Texture2D[] bowSpriteStorage = new Texture2D[BOW_C * BOW_R];
+        private Texture2D[] clockSpriteStorage = new Texture2D[CLOCK_C * CLOCK_R];
+        private Texture2D[] fairySpriteStorage = new Texture2D[FAIRY_C * FAIRY_R];
+        private Texture2D[] heartSpriteStorage = new Texture2D[HEART_C * HEART_R];
+        private Texture2D[] heartContainerSpriteStorage = new Texture2D[HEART_CONTAINER_C * HEART_CONTAINER_R];
+        private Texture2D[] keySpriteStorage = new Texture2D[KEY_C * KEY_R];
+        private Texture2D[] mapSpriteStorage = new Texture2D[MAP_C * MAP_R];
+        private Texture2D[] rupeeSpriteStorage = new Texture2D[RUPEE_C * RUPEE_R];
+        private Texture2D[] triforceSpriteStorage = new Texture2D[TRIFORCE_C * TRIFORCE_R];
+        private Texture2D[] swordSpriteStorage = new Texture2D[SWORD_C * SWORD_R];
         */
-        private Texture2D linkRightSpritesheet;
-        private Texture2D linkLeftSpritesheet;
-        private Texture2D linkRightAnimatedTexSpritesheet;
-        private Texture2D linkLeftAnimatedTexSpritesheet;
-        
+
+
         // More private Texture2Ds follow
         // ...
 
@@ -45,85 +44,130 @@ namespace Project1
             }
         }
 
-        private PlayerSpriteFactory()
-        {
-        }
-
         public void LoadAllTextures(ContentManager content)
         {
             //goombaSpriteSheet = content.Load<Texture2D>("goomba");
+            //Enum for up down left right?
+            link1SpriteStorage[(int)DIRECTION.right] = content.Load<Texture2D>(assetName: "LinkRight1");
+            link1SpriteStorage[(int)DIRECTION.left] = content.Load<Texture2D>(assetName: "LinkLeft1");
+            link1SpriteStorage[(int)DIRECTION.up] = content.Load<Texture2D>(assetName: "LinkUp1");
+            link1SpriteStorage[(int)DIRECTION.down] = content.Load<Texture2D>(assetName: "LinkDown1");
+
             /*
-            batSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            aquaDragonSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            dinoSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            fireDragonSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            dogMonsterSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            flameSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            handSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            jellySpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            merchantSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            oldManSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            skeletonSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            snakeSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            spikeCrossSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
+
+            bombSpriteStorage[0] = content.Load<Texture2D>(assetName: "bomb");
+            boomerangSpriteStorage[0] = content.Load<Texture2D>(assetName: "boomerang_sheet");
+            bowSpriteStorage[0] = content.Load<Texture2D>(assetName: "bow");
+            clockSpriteStorage[0] = content.Load<Texture2D>(assetName: "clock");
+
+            fairySpriteStorage[0] = content.Load<Texture2D>(assetName: "fairy1");
+            fairySpriteStorage[1] = content.Load<Texture2D>(assetName: "fairy2");
+
+            heartSpriteStorage[0] = content.Load<Texture2D>(assetName: "heartBlue");
+            heartSpriteStorage[1] = content.Load<Texture2D>(assetName: "heartRed");
+
+            heartContainerSpriteStorage[0] = content.Load<Texture2D>(assetName: "heartContainer");
+            keySpriteStorage[0] = content.Load<Texture2D>(assetName: "key");
+            mapSpriteStorage[0] = content.Load<Texture2D>(assetName: "map");
+
+            rupeeSpriteStorage[0] = content.Load<Texture2D>(assetName: "rupeeBlue");
+            rupeeSpriteStorage[1] = content.Load<Texture2D>(assetName: "rupeeGold");
+
+            triforceSpriteStorage[0] = content.Load<Texture2D>(assetName: "triforcePieceBlue");
+            triforceSpriteStorage[1] = content.Load<Texture2D>(assetName: "triforcePieceGold");
+
             */
 
-            linkRightSpritesheet = content.Load<Texture2D>(assetName: "ZeldaSpriteLinkRight");
-            linkLeftSpritesheet = content.Load<Texture2D>(assetName: "ZeldaSpriteLinkLeft");
-            linkRightAnimatedTexSpritesheet = content.Load<Texture2D>(assetName: "linkWalkRightSpritesheet");
-            linkLeftAnimatedTexSpritesheet = content.Load<Texture2D>(assetName: "linkWalkLeftSpritesheet");
+            link2SpriteStorage[(int)DIRECTION.right] = content.Load<Texture2D>(assetName: "LinkRight2");
+            link2SpriteStorage[(int)DIRECTION.left] = content.Load<Texture2D>(assetName: "LinkLeft2");
+            link2SpriteStorage[(int)DIRECTION.up] = content.Load<Texture2D>(assetName: "LinkUp2");
+            link2SpriteStorage[(int)DIRECTION.down] = content.Load<Texture2D>(assetName: "LinkDown2");
+
+            linkAttackSpriteStorage[(int)DIRECTION.right] = content.Load<Texture2D>(assetName: "LinkAttackRight");
+            linkAttackSpriteStorage[(int)DIRECTION.left] = content.Load<Texture2D>(assetName: "LinkAttackLeft");
+            linkAttackSpriteStorage[(int)DIRECTION.up] = content.Load<Texture2D>(assetName: "LinkAttackUp");
+            linkAttackSpriteStorage[(int)DIRECTION.down] = content.Load<Texture2D>(assetName: "LinkAttackDown");
+
 
             // More Content.Load calls follow
             //...
         }
+
+
+        public IPlayerSprite CreateLinkSprite()
+        {
+            return new LinkSprite(link1SpriteStorage, link2SpriteStorage, linkAttackSpriteStorage);
+        }
+
         /*
-        public IEnemy CreateGoombaSprite()
+        public ISprite CreateLink2Sprite()
         {
-            return new GoombaSprite(goombaSpritesheet, Game1.Instance.level.isAboveGround);
+
+            return new Link2Sprite(link2SpriteStorage);
         }
 
-        public IEnemy CreateKoopaSprite()
+        public ISprite CreateLinkAttackSprite()
         {
-            return new KoopaSprite(koopaSpritesheet, 32, 32);
-        }
 
-        public IEnemy CreateGiantKoopaSprite()
-        {
-            return new KoopaSprite(koopaSpritesheet, 64, 64);
+            return new LinkAttackSprite(linkAttackSpriteStorage);
         }
         */
-        public IPlayer CreateLinkRightSprite()
-        {
-            return new LinkRight(linkRightSpritesheet);
-        }
-
-        public IPlayer CreateLinkLeftSprite()
-        { 
-            return new LinkLeft(linkLeftSpritesheet);
-        }
-
-        public IPlayer CreateLinkRightAnimatedSprite()
-        {
-            return new LinkRightAnimated(linkRightAnimatedTexSpritesheet);
-        }
-
-        public IPlayer CreateLinkLeftAnimatedSprite()
-        {
-            return new LinkLeftAnimated(linkLeftAnimatedTexSpritesheet);
-        }
 
         /*
 
-        public IPlayer CreateSnakeSprite()
+        public ISprite CreateBoomerangSprite()
         {
-            Snake.setFrames();
-            return new Snake(snakeSpritesheet);
+            return new BoomerangSprite(boomerangSpriteStorage);
         }
 
-        public IPlayer CreateSpikeCrossSprite()
+        public ISprite CreateBowSprite()
         {
-            SpikeCross.setFrames();
-            return new SpikeCross(spikeCrossSpritesheet);
+            return new BowSprite(bowSpriteStorage);
+        }
+
+        public ISprite CreateClockSprite()
+        {
+            return new ClockSprite(clockSpriteStorage);
+        }
+
+        public ISprite CreateFairySprite()
+        {
+            return new FairySprite(fairySpriteStorage);
+        }
+
+        public ISprite CreateHeartSprite()
+        {
+            return new HeartSprite(heartSpriteStorage);
+        }
+
+        public ISprite CreateHeartContainerSprite()
+        {
+            return new HeartContainerSprite(heartContainerSpriteStorage);
+        }
+
+        public ISprite CreateKeySprite()
+        {
+            return new KeySprite(keySpriteStorage);
+        }
+
+        public ISprite CreateMapSprite()
+        {
+            return new MapSprite(mapSpriteStorage);
+        }
+
+        public ISprite CreateRupeeSprite()
+        {
+            return new RupeeSprite(rupeeSpriteStorage);
+        }
+
+        public ISprite CreateTriforceSprite()
+        {
+            return new TriforceSprite(triforceSpriteStorage);
+        }
+
+        public ISprite CreateSwordSprite()
+        {
+            return new SwordSprite(swordSpriteStorage);
         }
         */
 
@@ -131,10 +175,3 @@ namespace Project1
         // ...
     }
 }
-
-// Client code in main game class' LoadContent method:
-//EnemySpriteFactory.Instance.LoadAllTextures(Content);
-
-// Client code in Goomba class:
-//ISprite mySprite = EnemySpriteFactory.Instance.CreateGoombaSprite();
-
