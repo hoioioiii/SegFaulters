@@ -23,6 +23,8 @@ namespace Project1
         private Texture2D _texture;
         private ArrayList ControllerList;
 
+        public Player player;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -34,8 +36,8 @@ namespace Project1
             //remove this later
             ContentManager1 = Content;
             Game = this;
-            
 
+           
 
         }
         
@@ -46,6 +48,7 @@ namespace Project1
             ControllerList = new ArrayList();
             ControllerList.Add(new KeyBoardController(this));
 
+            player = new Player();
             base.Initialize();
         }
 
