@@ -9,14 +9,23 @@ namespace Project1
 {
     public class Player
     {
+        private GraphicsDeviceManager _graphics;
+        private SpriteBatch _spriteBatch;
+        private ContentManager Content;
         Vector2 position;
 
-        // replace magic numbers
-        private int positionX = 250;
-        private int positionY = 250;
+        private int positionX = 300;
+        private int positionY = 300;
+
+        private bool isMoving = false;
+
+        private int playerSpeed = 5;
+
+        // scales the size of the sprite on screen
+        private int spriteScale = 4;
 
         // cardinal direction player is facing, starts with up on 1 and progresses clockwise (e.g. 4 is left-facing)
-        private int direction = 3;
+        private int linkDirection = 2;
 
         // frames used for still and animation
         public Texture2D linkRight1;
@@ -29,59 +38,79 @@ namespace Project1
         public Texture2D linkLeft2;
         public Texture2D linkUp2;
         public Texture2D linkDown2;
-        
-        //currentFrame is used to keep track of which frame of the animation we are currently on
-        private int currentFrame;
 
-        //totalFrames keeps track of how many frames there are in total
-        private int totalFrames = 2;
+        // frames used for attacking
+        public Texture2D linkAttackRight;
+        public Texture2D linkAttackLeft;
+        public Texture2D linkAttackUp;
+        public Texture2D linkAttackDown;
 
-        //Remove later-------
+        // attacking
+        private bool isAttacking = false;
+        // play attack frame for ATTACK_SECONDS seconds
+        private float AttackTimer;
+        const float ATTACK_SECONDS = 0.5f;
+
+        // for sprite animation
+        private float FrameTimer;
+        // how many animation frames per second, not the framerate of the game
+        const float FRAMES_PER_SECOND = 10;
+        const float FRAMETIME = 1 / FRAMES_PER_SECOND;
+        // link only has two frames of animation
+        private bool isSecondFrame = false;
+
         private Game1 game1;
-        //private ContentManager ContentLoad;
-
-        // speed of the animation
-        private int speed;
-
-        //Later create a animation tracker class:
-        private int width;
-        private int height;
-        
-        //Movement:
-        private int posX;
-        private int posY;
 
         public Player()
         {
-            //remove later:
-            //Game1 game1 = new Game1();
-            //linkRight1 = Load("ZeldaSpriteLinkRight");
-            
+            Game1 game1 = new Game1();
+            _graphics = new GraphicsDeviceManager(game1);
+        }
 
+        void Initialize()
+        {
+            //ContentManager Content = new ContentManager();
+            FrameTimer = FRAMETIME;
+            AttackTimer = ATTACK_SECONDS;
+
+            //base.Initialize();
+        }
+
+        void LoadContent()
+        {
+            //_spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            // TODO: use this.Content to load your game content here
+
+            // still and movement
+            linkRight1 = Content.Load<Texture2D>("linkRight1");
+            linkLeft1 = Content.Load<Texture2D>("linkLeft1");
+            linkUp1 = Content.Load<Texture2D>("linkUp1");
+            linkDown1 = Content.Load<Texture2D>("linkDown1");
+
+            // movement only
+            linkRight2 = Content.Load<Texture2D>("linkRight2");
+            linkLeft2 = Content.Load<Texture2D>("linkLeft2");
+            linkUp2 = Content.Load<Texture2D>("linkUp2");
+            linkDown2 = Content.Load<Texture2D>("linkDown2");
+
+            // Attack using weapon or item
+            linkAttackRight = Content.Load<Texture2D>("linkAttackRight");
+            linkAttackLeft = Content.Load<Texture2D>("linkAttackLeft");
+            linkAttackUp = Content.Load<Texture2D>("linkAttackUp");
+            linkAttackDown = Content.Load<Texture2D>("linkAttackDown");
         }
 
         //change the current frame to the next frame
         public void Update()
         {
-            Move();
-            currentFrame += speed;
-            if (currentFrame >= totalFrames)
-                currentFrame = 0;
-        }
-
-        private void Animate()
-        {
-            width = linkRight1.Width;
-            height = linkRight1.Height;
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Animate();
-            // TODO: refactor
-            Rectangle sourceRect = new Rectangle(width, height, width, height);
-            Rectangle destRect = new Rectangle(posX, posY, width, height);
-            spriteBatch.Draw(linkRight1, destRect, sourceRect, Color.White);
+            
+            
 
         }
         
@@ -89,15 +118,13 @@ namespace Project1
         /*
          * Responsible for loading the sprite image
          */
-        public Texture2D Load(string texName)
+        public Texture2D Load(ContentManager Content, string texName)
         {
-            return game1.Content.Load<Texture2D>(assetName: texName);
+            return Content.Load<Texture2D>(assetName: texName);
         }
 
         public void Move()
         {
-            int directionX = 0;
-            int directionY = 0;
 
             
         }
