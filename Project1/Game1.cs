@@ -21,6 +21,12 @@ namespace Project1
         
         private int playerSpeed = 5;
 
+        // attacking
+        private bool isAttacking = false;
+        // play attack frame for ATTACK_SECONDS seconds
+        private float AttackTimer;
+        const float ATTACK_SECONDS = 1;
+
         // scales the size of the sprite on screen
         private int spriteScale = 4;
 
@@ -44,12 +50,6 @@ namespace Project1
         public Texture2D linkAttackLeft;
         public Texture2D linkAttackUp;
         public Texture2D linkAttackDown;
-
-        // attacking
-        private bool isAttacking = false;
-        // play attack frame for ATTACK_SECONDS seconds
-        private float AttackTimer;
-        const float ATTACK_SECONDS = 0.5f;
 
         // for sprite animation
         private float FrameTimer;
@@ -137,8 +137,10 @@ namespace Project1
                 Exit();
             }
 
-            if (isAttacking)
+            if (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.N))
             {
+                // attack using his sword
+                isAttacking = true;
                 WaitForAttack();
             }
 
@@ -146,13 +148,6 @@ namespace Project1
             // else ifs used so link can only move in the cardinal directions
             if (!isAttacking)
             {
-                if (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.N))
-                {
-                    // attack using his sword
-                    isAttacking = true;
-                    //WaitForAttack();
-                }
-
                 if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.A))
                 {
                     position.X -= playerSpeed;
@@ -178,6 +173,10 @@ namespace Project1
                     linkDirection = 2;
                 }
             }
+            
+
+
+
             
             if (state.IsKeyDown(Keys.T) || state.IsKeyDown(Keys.Y))
             {
