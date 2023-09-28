@@ -13,7 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-<<<<<<< HEAD
 #begin LinkAttackDown.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -206,5 +205,3 @@
 /processorParam:TextureFormat=Color
 /build:ZeldaSpriteLinkRight.gif
 
-=======
->>>>>>> parent of ff86808 (Added factory and modified concrete classes to use it)
