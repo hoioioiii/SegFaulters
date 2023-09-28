@@ -52,6 +52,17 @@ namespace Project1
         private static float AttackTimer;
         const float ATTACK_SECONDS = 0.5f;
 
+        // damage
+        private static bool isDamaged = false;
+        // Link cannot take damage for x seconds after getting hit
+        private static float DamageTimer;
+        const float INVINCIBILITY_SECONDS = 1;
+        // Link will flash after damaged, indicating temporary invincibility
+        private static bool renderLink = true;
+        private static float FlashTimer;
+        const float FLASHES_PER_SECOND = 8;
+        const float FLASHTIME = 1 / FLASHES_PER_SECOND;
+
         // for sprite animation
         private static float FrameTimer;
         // how many animation frames per second, not the framerate of the game
@@ -59,6 +70,9 @@ namespace Project1
         const float FRAMETIME = 1 / FRAMES_PER_SECOND;
         // link only has two frames of animation
         private static bool isSecondFrame = false;
+
+        
+        
 
         //private Game1 game1;
 
@@ -73,7 +87,8 @@ namespace Project1
             //ContentManager Content = new ContentManager();
             FrameTimer = FRAMETIME;
             AttackTimer = ATTACK_SECONDS;
-
+            DamageTimer = INVINCIBILITY_SECONDS;
+            FlashTimer = FLASHTIME;
             //base.Initialize();
         }
 
@@ -101,9 +116,12 @@ namespace Project1
         //change the current frame to the next frame
         public static void Update(GameTime gameTime)
         {
+            // timers for Update()
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             AttackTimer -= elapsedSeconds;
-
+            DamageTimer -= elapsedSeconds;
+            FlashTimer -= elapsedSeconds;
+            
             // rename to keyState
             KeyboardState state = Keyboard.GetState();
             // Print to debug console currently pressed keys
@@ -118,11 +136,14 @@ namespace Project1
                 isMoving = false;
             // Move our sprite based on arrow keys being pressed:
 
-            
-
             if (isAttacking)
             {
                 WaitForAttack();
+            }
+
+            if (isDamaged)
+            {
+                DamageInvincibility();
             }
 
             // movement
@@ -133,7 +154,6 @@ namespace Project1
                 {
                     // attack using his sword
                     isAttacking = true;
-                    //WaitForAttack();
                 }
 
                 if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.A))
@@ -162,6 +182,11 @@ namespace Project1
                 }
             }
 
+            if (state.IsKeyDown(Keys.E))
+            {
+                isDamaged = true;
+                DamageInvincibility();
+            }
             if (state.IsKeyDown(Keys.T) || state.IsKeyDown(Keys.Y))
             {
                 // cycle between which block is currently being shown
@@ -178,64 +203,70 @@ namespace Project1
 
         public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
+            // timer for Draw()
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             FrameTimer -= elapsedSeconds;
 
-            if (isAttacking)
+            // Link will not be rendered when damaged (he will flash for INVINCIBILITY_SECONDS seconds)
+            if (renderLink)
             {
-                switch (linkDirection)
+                // direction & isAttacking dictates which Link sprite is drawn
+                if (isAttacking)
                 {
-                    case 1:
-                        DrawLink(linkAttackUp);
-                        break;
-                    case 2:
-                        DrawLink(linkAttackRight);
-                        break;
-                    case 3:
-                        DrawLink(linkAttackDown);
-                        break;
-                    case 4:
-                        DrawLink(linkAttackLeft);
-                        break;
-                    default:
-                        DrawLink(linkAttackRight);
-                        break;
-                }
-            }
-            else
-            {
-                if (isMoving)
-                {
-                    CheckFrameTimer();
-                    if (isSecondFrame)
+                    switch (linkDirection)
                     {
-                        switch (linkDirection)
+                        case 1:
+                            DrawLink(linkAttackUp);
+                            break;
+                        case 2:
+                            DrawLink(linkAttackRight);
+                            break;
+                        case 3:
+                            DrawLink(linkAttackDown);
+                            break;
+                        case 4:
+                            DrawLink(linkAttackLeft);
+                            break;
+                        default:
+                            DrawLink(linkAttackRight);
+                            break;
+                    }
+                }
+                else
+                {
+                    if (isMoving)
+                    {
+                        CheckFrameTimer();
+                        if (isSecondFrame)
                         {
-                            case 1:
-                                DrawLink(linkUp2);
-                                break;
-                            case 2:
-                                DrawLink(linkRight2);
-                                break;
-                            case 3:
-                                DrawLink(linkDown2);
-                                break;
-                            case 4:
-                                DrawLink(linkLeft2);
-                                break;
-                            default:
-                                DrawLink(linkRight2);
-                                break;
+                            switch (linkDirection)
+                            {
+                                case 1:
+                                    DrawLink(linkUp2);
+                                    break;
+                                case 2:
+                                    DrawLink(linkRight2);
+                                    break;
+                                case 3:
+                                    DrawLink(linkDown2);
+                                    break;
+                                case 4:
+                                    DrawLink(linkLeft2);
+                                    break;
+                                default:
+                                    DrawLink(linkRight2);
+                                    break;
+                            }
+                        }
+                        else
+                        {
+                            Link1Switch();
                         }
                     }
                     else
                     {
                         Link1Switch();
                     }
-                }
-                else
-                {
-                    Link1Switch();
                 }
             }
         }
@@ -249,10 +280,16 @@ namespace Project1
             return Content.Load<Texture2D>(assetName: texName);
         }
 
+        // is seperate method to reduce duplicate code
+        public static void DrawLink(Texture2D tex)
+        {
+            Game1._spriteBatch.Draw(tex, new Rectangle((int)position.X, (int)position.Y, tex.Width * spriteScale, tex.Height * spriteScale), Color.White);
+        }
+
+        // movement goes here
         public void Move()
         {
 
-            
         }
 
         public void Health()
@@ -282,6 +319,25 @@ namespace Project1
             }
         }
 
+        // Link cannot take damage for x seconds after getting hit
+        public static void DamageInvincibility()
+        {
+            if (DamageTimer <= 0)
+            {
+                renderLink = true;
+                isDamaged = false;
+                DamageTimer = INVINCIBILITY_SECONDS;
+            }
+            else
+            {
+                if (FlashTimer <= 0)
+                {
+                    renderLink = !renderLink;
+                    FlashTimer = FLASHTIME;
+                }
+            }
+        }
+
         // if Timer > FRAMETIME, switch the frame
         public static void CheckFrameTimer()
         {
@@ -292,13 +348,8 @@ namespace Project1
             }
         }
 
-        // is seperate method to reduce duplicate code
-        public static void DrawLink(Texture2D tex)
-        {
-            Game1._spriteBatch.Draw(tex, new Rectangle((int)position.X, (int)position.Y, tex.Width * spriteScale, tex.Height * spriteScale), Color.White);
-        }
-
         // this switch statement will be used both when link is moving and when he is still
+        // direction dictates which sprite is drawn
         // preventing duplicated code (a code smell)
         public static void Link1Switch()
         {
