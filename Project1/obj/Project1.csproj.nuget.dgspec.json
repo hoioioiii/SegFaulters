@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+    "E:\\Jack\\source\\reops\\SegFaulters\\Project1\\Project1.csproj": {}
+  },
+  "projects": {
+    "E:\\Jack\\source\\reops\\SegFaulters\\Project1\\Project1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Jack\\source\\reops\\SegFaulters\\Project1\\Project1.csproj",
+        "projectName": "Project1",
+        "projectPath": "E:\\Jack\\source\\reops\\SegFaulters\\Project1\\Project1.csproj",
+        "packagesPath": "C:\\Users\\John\\.nuget\\packages\\",
+        "outputPath": "E:\\Jack\\source\\reops\\SegFaulters\\Project1\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\John\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> parent of ff86808 (Added factory and modified concrete classes to use it)
         ],
         "originalTargetFrameworks": [
           "net6.0"

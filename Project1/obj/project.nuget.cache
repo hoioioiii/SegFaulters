@@ -1,11 +1,20 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "JGuqPiuyJmulGj8Bwni1tw9J24XlFZdNkJZrZEir9sQqQR4AdrMqKzSoJqqEJGcuwc4GLpGv78oI7rdI82kLlw==",
   "success": true,
   "projectFilePath": "D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+=======
+  "dgSpecHash": "CXG+5W/Gk+fItD0gpJN+znPld6Li9GKwQXwzFQWTYN0B7Ox6HePRQLDDFmGWpBHBcoSXddYWXP8YJ11KQF1KPw==",
+  "success": true,
+  "projectFilePath": "E:\\Jack\\source\\reops\\SegFaulters\\Project1\\Project1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\John\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\John\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+>>>>>>> parent of ff86808 (Added factory and modified concrete classes to use it)
   ],
   "logs": []
 }

@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Microsoft.Xna.Framework;
+=======
+﻿using Microsoft.Xna.Framework;
+>>>>>>> parent of ff86808 (Added factory and modified concrete classes to use it)
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
@@ -12,6 +16,7 @@ namespace Project1
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+<<<<<<< HEAD
         Vector2 position;
 
         private int positionX = 300;
@@ -64,6 +69,8 @@ namespace Project1
 
         public Player player;
         
+=======
+>>>>>>> parent of ff86808 (Added factory and modified concrete classes to use it)
 
         public Game1()
         {
@@ -72,6 +79,7 @@ namespace Project1
             IsMouseVisible = true;
         }
 
+<<<<<<< HEAD
         public void Quit() => Exit();
 
         protected override void Initialize()
@@ -81,12 +89,19 @@ namespace Project1
             FrameTimer = FRAMETIME;
             AttackTimer = ATTACK_SECONDS;
             
+=======
+        protected override void Initialize()
+        {
+            // TODO: Add your initialization logic here
+
+>>>>>>> parent of ff86808 (Added factory and modified concrete classes to use it)
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+<<<<<<< HEAD
 
             // TODO: use this.Content to load your game content here
 
@@ -107,6 +122,10 @@ namespace Project1
             linkAttackLeft = Content.Load<Texture2D>("linkAttackLeft");
             linkAttackUp = Content.Load<Texture2D>("linkAttackUp");
             linkAttackDown = Content.Load<Texture2D>("linkAttackDown");
+=======
+
+            // TODO: use this.Content to load your game content here
+>>>>>>> parent of ff86808 (Added factory and modified concrete classes to use it)
         }
 
         protected override void Update(GameTime gameTime)
@@ -116,6 +135,7 @@ namespace Project1
 
             // TODO: Add your update logic here
 
+<<<<<<< HEAD
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             AttackTimer -= elapsedSeconds;
 
@@ -192,12 +212,15 @@ namespace Project1
 
             }
 
+=======
+>>>>>>> parent of ff86808 (Added factory and modified concrete classes to use it)
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+<<<<<<< HEAD
             
             _spriteBatch.Begin();
 
@@ -317,6 +340,12 @@ namespace Project1
                     DrawLink(linkRight1);
                     break;
             }
+=======
+
+            // TODO: Add your drawing code here
+
+            base.Draw(gameTime);
+>>>>>>> parent of ff86808 (Added factory and modified concrete classes to use it)
         }
     }
 }
