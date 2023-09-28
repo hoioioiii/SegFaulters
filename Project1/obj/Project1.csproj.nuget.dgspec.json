@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/dm/Documents/Projects3902/SegFaulters/Project1/Project1.csproj": {}
+    "D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj": {}
   },
   "projects": {
-    "/Users/dm/Documents/Projects3902/SegFaulters/Project1/Project1.csproj": {
+    "D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/dm/Documents/Projects3902/SegFaulters/Project1/Project1.csproj",
+        "projectUniqueName": "D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj",
         "projectName": "Project1",
-        "projectPath": "/Users/dm/Documents/Projects3902/SegFaulters/Project1/Project1.csproj",
-        "packagesPath": "/Users/dm/.nuget/packages/",
-        "outputPath": "/Users/dm/Documents/Projects3902/SegFaulters/Project1/obj/",
+        "projectPath": "D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/dm/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -63,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.307/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
