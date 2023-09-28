@@ -46,43 +46,20 @@ namespace Project1
 
         public void LoadAllTextures(ContentManager content)
         {
-            //goombaSpriteSheet = content.Load<Texture2D>("goomba");
-            //Enum for up down left right?
+            
+            // still and movement
             link1SpriteStorage[(int)DIRECTION.right] = content.Load<Texture2D>(assetName: "LinkRight1");
             link1SpriteStorage[(int)DIRECTION.left] = content.Load<Texture2D>(assetName: "LinkLeft1");
             link1SpriteStorage[(int)DIRECTION.up] = content.Load<Texture2D>(assetName: "LinkUp1");
             link1SpriteStorage[(int)DIRECTION.down] = content.Load<Texture2D>(assetName: "LinkDown1");
 
-            /*
-
-            bombSpriteStorage[0] = content.Load<Texture2D>(assetName: "bomb");
-            boomerangSpriteStorage[0] = content.Load<Texture2D>(assetName: "boomerang_sheet");
-            bowSpriteStorage[0] = content.Load<Texture2D>(assetName: "bow");
-            clockSpriteStorage[0] = content.Load<Texture2D>(assetName: "clock");
-
-            fairySpriteStorage[0] = content.Load<Texture2D>(assetName: "fairy1");
-            fairySpriteStorage[1] = content.Load<Texture2D>(assetName: "fairy2");
-
-            heartSpriteStorage[0] = content.Load<Texture2D>(assetName: "heartBlue");
-            heartSpriteStorage[1] = content.Load<Texture2D>(assetName: "heartRed");
-
-            heartContainerSpriteStorage[0] = content.Load<Texture2D>(assetName: "heartContainer");
-            keySpriteStorage[0] = content.Load<Texture2D>(assetName: "key");
-            mapSpriteStorage[0] = content.Load<Texture2D>(assetName: "map");
-
-            rupeeSpriteStorage[0] = content.Load<Texture2D>(assetName: "rupeeBlue");
-            rupeeSpriteStorage[1] = content.Load<Texture2D>(assetName: "rupeeGold");
-
-            triforceSpriteStorage[0] = content.Load<Texture2D>(assetName: "triforcePieceBlue");
-            triforceSpriteStorage[1] = content.Load<Texture2D>(assetName: "triforcePieceGold");
-
-            */
-
+            // movement only
             link2SpriteStorage[(int)DIRECTION.right] = content.Load<Texture2D>(assetName: "LinkRight2");
             link2SpriteStorage[(int)DIRECTION.left] = content.Load<Texture2D>(assetName: "LinkLeft2");
             link2SpriteStorage[(int)DIRECTION.up] = content.Load<Texture2D>(assetName: "LinkUp2");
             link2SpriteStorage[(int)DIRECTION.down] = content.Load<Texture2D>(assetName: "LinkDown2");
 
+            // Attack using weapon or item
             linkAttackSpriteStorage[(int)DIRECTION.right] = content.Load<Texture2D>(assetName: "LinkAttackRight");
             linkAttackSpriteStorage[(int)DIRECTION.left] = content.Load<Texture2D>(assetName: "LinkAttackLeft");
             linkAttackSpriteStorage[(int)DIRECTION.up] = content.Load<Texture2D>(assetName: "LinkAttackUp");

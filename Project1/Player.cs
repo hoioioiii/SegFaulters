@@ -99,6 +99,7 @@ namespace Project1
 
         public static void LoadContent(ContentManager content)
         {
+            /*
             // still and movement
             linkRight1 = content.Load<Texture2D>("linkRight1");
             linkLeft1 = content.Load<Texture2D>("linkLeft1");
@@ -116,6 +117,7 @@ namespace Project1
             linkAttackLeft = content.Load<Texture2D>("linkAttackLeft");
             linkAttackUp = content.Load<Texture2D>("linkAttackUp");
             linkAttackDown = content.Load<Texture2D>("linkAttackDown");
+            */
 
             //create the link sprite
             sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
@@ -223,7 +225,7 @@ namespace Project1
                 {
                     //tell sprite how to draw
                     sprite.Draw(sprBatch, "attack");
-
+                    /*
                     switch (linkDirection)
                     {
                         case 1:
@@ -242,6 +244,7 @@ namespace Project1
                             DrawLink(linkAttackRight);
                             break;
                     }
+                    */
                 }
                 else
                 {
@@ -252,7 +255,7 @@ namespace Project1
                         {
                             //tell sprite how to draw
                             sprite.Draw(sprBatch, "moving");
-
+                            /*
                             switch (linkDirection)
                             {
                                 case 1:
@@ -271,6 +274,7 @@ namespace Project1
                                     DrawLink(linkRight2);
                                     break;
                             }
+                            */
                         }
                         else
                         {
