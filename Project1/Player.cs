@@ -254,7 +254,7 @@ namespace Project1
                         if (isSecondFrame)
                         {
                             //tell sprite how to draw
-                            sprite.Draw(spriteBatch, "moving");
+                            sprite.Draw(spriteBatch, "move");
                             /*
                             switch (linkDirection)
                             {

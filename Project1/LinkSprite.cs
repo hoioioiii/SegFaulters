@@ -99,6 +99,7 @@ namespace Project1
             setCurrentFrames(_type);
             Rectangle DEST_REC;
             Rectangle SOURCE_REC;
+            //put draw calls in seperate methods
             switch (linkDirection)
             {
                case 1:
