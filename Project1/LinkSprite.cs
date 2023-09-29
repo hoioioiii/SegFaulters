@@ -105,32 +105,32 @@ namespace Project1
                         //DrawLink(linkAttackUp);
                     DEST_REC = new Rectangle((int)position.X, (int)position.Y, currentFrames[(int)DIRECTION.up].Width * spriteScale, currentFrames[(int)DIRECTION.up].Height * spriteScale);
                     SOURCE_REC = new Rectangle(0, 0, currentFrames[(int)DIRECTION.up].Width, currentFrames[(int)DIRECTION.up].Height);
-                    spriteBatch.Draw(Texture, DEST_REC, SOURCE_REC, Color.White);
+                    spriteBatch.Draw(currentFrames[(int)DIRECTION.up], DEST_REC, SOURCE_REC, Color.White);
                         //spriteBatch.Draw(currentFrames[(int)DIRECTION.up], new Rectangle((int)position.X, (int)position.Y, tex.Width * spriteScale, tex.Height * spriteScale), Color.White);
                     break;
                case 2:
                     //DrawLink(linkAttackRight);
                     DEST_REC = new Rectangle((int)position.X, (int)position.Y, currentFrames[(int)DIRECTION.right].Width * spriteScale, currentFrames[(int)DIRECTION.right].Height * spriteScale);
                     SOURCE_REC = new Rectangle(0, 0, currentFrames[(int)DIRECTION.right].Width, currentFrames[(int)DIRECTION.right].Height);
-                    spriteBatch.Draw(Texture, DEST_REC, SOURCE_REC, Color.White);
+                    spriteBatch.Draw(currentFrames[(int)DIRECTION.right], DEST_REC, SOURCE_REC, Color.White);
                     break;
                case 3:
                     //DrawLink(linkAttackDown);
                     DEST_REC = new Rectangle((int)position.X, (int)position.Y, currentFrames[(int)DIRECTION.down].Width * spriteScale, currentFrames[(int)DIRECTION.down].Height * spriteScale);
                     SOURCE_REC = new Rectangle(0, 0, currentFrames[(int)DIRECTION.down].Width, currentFrames[(int)DIRECTION.down].Height);
-                    spriteBatch.Draw(Texture, DEST_REC, SOURCE_REC, Color.White);
+                    spriteBatch.Draw(currentFrames[(int)DIRECTION.down], DEST_REC, SOURCE_REC, Color.White);
                     break;
                case 4:
                     //DrawLink(linkAttackLeft);
                     DEST_REC = new Rectangle((int)position.X, (int)position.Y, currentFrames[(int)DIRECTION.left].Width * spriteScale, currentFrames[(int)DIRECTION.left].Height * spriteScale);
                     SOURCE_REC = new Rectangle(0, 0, currentFrames[(int)DIRECTION.left].Width, currentFrames[(int)DIRECTION.left].Height);
-                    spriteBatch.Draw(Texture, DEST_REC, SOURCE_REC, Color.White);
+                    spriteBatch.Draw(currentFrames[(int)DIRECTION.left], DEST_REC, SOURCE_REC, Color.White);
                     break;
                default:
                     //DrawLink(linkAttackRight);
                     DEST_REC = new Rectangle((int)position.X, (int)position.Y, currentFrames[(int)DIRECTION.right].Width * spriteScale, currentFrames[(int)DIRECTION.right].Height * spriteScale);
                     SOURCE_REC = new Rectangle(0, 0, currentFrames[(int)DIRECTION.right].Width, currentFrames[(int)DIRECTION.right].Height);
-                    spriteBatch.Draw(Texture, DEST_REC, SOURCE_REC, Color.White);
+                    spriteBatch.Draw(currentFrames[(int)DIRECTION.right], DEST_REC, SOURCE_REC, Color.White);
                     break;
             }
             //Rectangle SOURCE_REC = new Rectangle(width * col, height * row, width, height);

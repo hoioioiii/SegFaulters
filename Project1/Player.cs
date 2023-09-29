@@ -93,7 +93,7 @@ namespace Project1
             AttackTimer = ATTACK_SECONDS;
             DamageTimer = INVINCIBILITY_SECONDS;
             FlashTimer = FLASHTIME;
-            sprBatch = spriteBatch;
+            //sprBatch = spriteBatch;
             //base.Initialize();
         }
 
@@ -224,7 +224,7 @@ namespace Project1
                 if (isAttacking)
                 {
                     //tell sprite how to draw
-                    sprite.Draw(sprBatch, "attack");
+                    sprite.Draw(spriteBatch, "attack");
                     /*
                     switch (linkDirection)
                     {
@@ -254,7 +254,7 @@ namespace Project1
                         if (isSecondFrame)
                         {
                             //tell sprite how to draw
-                            sprite.Draw(sprBatch, "moving");
+                            sprite.Draw(spriteBatch, "moving");
                             /*
                             switch (linkDirection)
                             {
@@ -279,14 +279,14 @@ namespace Project1
                         else
                         {
                             //tell sprite how to draw
-                            sprite.Draw(sprBatch, "still");
+                            sprite.Draw(spriteBatch, "still");
                             //Link1Switch();
                         }
                     }
                     else
                     {
                         //tell sprite how to draw
-                        sprite.Draw(sprBatch, "still");
+                        sprite.Draw(spriteBatch, "still");
                         //Link1Switch();
                     }
                 }
