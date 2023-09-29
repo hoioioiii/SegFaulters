@@ -1,17 +1,16 @@
 ﻿using Microsoft.VisualBasic;
 using Project1;
-public class PlayerState
+public class PlayerState : IPlayerState
 {
 
     public IPlayerState State;
-    private int initialHealth { get; set; }
 
 
 
-    public PlayerState(Player player, int initialHealth)
+    public PlayerState(Player player)
     {
-        this.initialHealth = initialHealth;
-        State = new LeftMovingPlayerState(player, initialHealth);
+
+        State = new LeftMovingPlayerState(player);
     }
 
     public void ChangeDirection(PlayerDirection direction)
@@ -19,20 +18,19 @@ public class PlayerState
         State.ChangeDirection(direction);
     }
 
-    public void TakeDamage(int damageAmount)
-    {
-
-        State.TakeDamage(damageAmount);
-    }
-
     public void UseWeapon()
     {
         State.UseWeapon();
     }
 
-    public void Update()
+    public void Update(PlayerDirection direction, bool moving)
     {
-        State.Update();
+        State.Update(direction, moving);
+    }
+
+    public void IsMoving(bool moving)
+    {
+        State.IsMoving(moving);
     }
 }
 public enum PlayerDirection

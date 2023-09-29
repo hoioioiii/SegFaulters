@@ -5,17 +5,11 @@ using Project1;
 public class LeftMovingPlayerState : IPlayerState
 {
     private PlayerState playerState;
-    //placeholder till connected with global health system
-    private int health;
     private Player player;
 
-    public LeftMovingPlayerState(Player player, int initialHealth)
+    public LeftMovingPlayerState(Player player)
     {
-        int xPos = player.positionX; 
-        int yPos = player.positionY;
-        this.health = initialHealth;
         this.player = player;
-        
         //construct sprite here too?? (texture?)
     }
 
@@ -26,45 +20,27 @@ public class LeftMovingPlayerState : IPlayerState
             case PlayerDirection.Left:
                 break;
             case PlayerDirection.Right:
-                player.playerState = new RightMovingPlayerState(player, health);
+                player.playerState = new RightMovingPlayerState(player);
                 break;
             case PlayerDirection.Up:
-                player.playerState = new UpMovingPlayerState(player, health);
+                player.playerState = new UpMovingPlayerState(player);
                 break;
             case PlayerDirection.Down:
-                player.playerState = new DownMovingPlayerState(player, health);
+                player.playerState = new DownMovingPlayerState(player);
                 break;
-
-        }
-
-
-    }
-
-    public void DeathState()
-    {
-        playerState.State = new DeadPlayerState(playerState);
-    }
-
-
-    public void TakeDamage(int damageAmount)
-    {
-
-        //immunity for x amount of time
-        //decrease global health by x amount
-        //check if DeadPlayerState is needed
-
-        health -= damageAmount;
-
-        if (health <= 0)
-        {
-            playerState.State = new DeadPlayerState(playerState);
-
         }
 
     }
-    public void Update()
+
+    public void IsMoving(bool moving)
     {
-        throw new System.NotImplementedException();
+        player.playerState = new LeftStandingPlayerState(player);
+    }
+
+    public void Update(PlayerDirection direction, bool moving)
+    {
+        player.playerState.IsMoving(moving);
+        player.playerState.ChangeDirection(direction);
     }
 
     public void UseWeapon()
@@ -74,8 +50,4 @@ public class LeftMovingPlayerState : IPlayerState
         //is a timed state, how to handle?
     }
 
-    public void VictoryState()
-    {
-        playerState.State = new VictoryPlayerState(playerState);
-    }
 }
