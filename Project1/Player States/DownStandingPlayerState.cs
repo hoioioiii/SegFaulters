@@ -2,12 +2,11 @@
 using Microsoft.VisualBasic;
 using Project1;
 
-public class RightMovingPlayerState : IPlayerState
+public class DownStandingPlayerState : IPlayerState
 {
-    private PlayerState playerState;
     private Player player;
 
-    public RightMovingPlayerState(Player player)
+    public DownStandingPlayerState(Player player)
     {
         this.player = player;
     }
@@ -21,12 +20,12 @@ public class RightMovingPlayerState : IPlayerState
                 player.playerState = new LeftMovingPlayerState(player);
                 break;
             case PlayerDirection.Right:
+                player.playerState = new RightMovingPlayerState(player);
                 break;
             case PlayerDirection.Up:
-                player.playerState = new UpMovingPlayerState(player);
+                player.playerState = new DownMovingPlayerState(player);
                 break;
             case PlayerDirection.Down:
-                player.playerState = new DownMovingPlayerState(player);
                 break;
         }
 
@@ -34,8 +33,8 @@ public class RightMovingPlayerState : IPlayerState
 
     public void IsMoving(bool moving)
     {
-        if(!moving)
-        player.playerState = new RightStandingPlayerState(player);
+        if (moving)
+            player.playerState = new DownMovingPlayerState(player);
     }
 
     public void Update(PlayerDirection direction, bool moving)

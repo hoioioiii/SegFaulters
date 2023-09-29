@@ -7,20 +7,15 @@ public class PlayerState : IPlayerState
 
 
 
-    public PlayerState(Player player)
+    public PlayerState(IPlayerState initialState)
     {
 
-        State = new LeftMovingPlayerState(player);
+        State = initialState;
     }
 
     public void ChangeDirection(PlayerDirection direction)
     {
         State.ChangeDirection(direction);
-    }
-
-    public void UseWeapon()
-    {
-        State.UseWeapon();
     }
 
     public void Update(PlayerDirection direction, bool moving)
@@ -32,7 +27,10 @@ public class PlayerState : IPlayerState
     {
         State.IsMoving(moving);
     }
+
 }
+
+
 public enum PlayerDirection
 {
     Left,

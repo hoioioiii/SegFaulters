@@ -14,7 +14,8 @@ namespace Project1
         private SpriteBatch _spriteBatch;
         private ContentManager Content;
         Vector2 position;
-        public PlayerState playerState { get; set; }
+        //CHANGES TO MAKE TO PLAYER.CS IN MAIN BRANCH!!!!!!!!!!!!!!!!!
+        public IPlayerState playerState { get; set; }
 
         public int positionX { get; set; } = 300;
         public int positionY { get; set; } = 300;
@@ -67,8 +68,8 @@ namespace Project1
         {
             Game1 game1 = new Game1();
             _graphics = new GraphicsDeviceManager(game1);
-
-            PlayerState playerState = new PlayerState(this, 5);
+            //CHANGES TO MAKE TO PLAYER.CS IN MAIN BRANCH!!!!!!!!!!!!!!!!!
+            playerState = new PlayerState(new LeftMovingPlayerState(this));
 
         }
 

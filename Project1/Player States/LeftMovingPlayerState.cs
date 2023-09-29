@@ -4,13 +4,11 @@ using Project1;
 
 public class LeftMovingPlayerState : IPlayerState
 {
-    private PlayerState playerState;
     private Player player;
 
     public LeftMovingPlayerState(Player player)
     {
         this.player = player;
-        //construct sprite here too?? (texture?)
     }
 
     public void ChangeDirection(PlayerDirection direction)
@@ -34,6 +32,7 @@ public class LeftMovingPlayerState : IPlayerState
 
     public void IsMoving(bool moving)
     {
+        if(!moving)
         player.playerState = new LeftStandingPlayerState(player);
     }
 
@@ -43,11 +42,5 @@ public class LeftMovingPlayerState : IPlayerState
         player.playerState.ChangeDirection(direction);
     }
 
-    public void UseWeapon()
-    {
-        //different sprite drawn
-        //switch case depending on which direction facing
-        //is a timed state, how to handle?
-    }
 
 }

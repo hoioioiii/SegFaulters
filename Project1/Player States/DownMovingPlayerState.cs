@@ -1,61 +1,47 @@
-﻿public class DownMovingPlayerState : IPlayerState
-{
-    private PlayerState player;
-    //placeholder till connected with global health system
-    private int health;
+﻿
+using Microsoft.VisualBasic;
+using Project1;
 
-    public DownMovingPlayerState(PlayerState player, int initialHealth)
+public class DownMovingPlayerState : IPlayerState
+{
+    private Player player;
+
+    public DownMovingPlayerState(Player player)
     {
         this.player = player;
-        this.health = initialHealth;
-        //construct sprite here too?? (texture?)
     }
 
-    public void ChangeDirection()
+    public void ChangeDirection(PlayerDirection direction)
     {
-        //grab keyboard inputs and switch case execute XMovingPlayerState based on command
-        //ex: if Key[0].IsPressed, execute RightMovingPlayerState.ChangeDirection(player, Key[0])
-
-        //left is just a placeholder till switch cases 
-        //	player.State = new LeftMovingPlayerState(player);
-    }
-
-    public void DeathState()
-    {
-        player.State = new DeadPlayerState(player);
-    }
-
-
-    public void TakeDamage(int damageAmount)
-    {
-
-        //immunity for x amount of time
-        //decrease global health by x amount
-        //check if DeadPlayerState is needed
-
-        health -= damageAmount;
-
-        if (health <= 0)
+        //fix other directions' classes
+        switch (direction)
         {
-            player.State = new DeadPlayerState(player);
-
+            case PlayerDirection.Left:
+                player.playerState = new LeftMovingPlayerState(player);
+                break;
+            case PlayerDirection.Right:
+                player.playerState = new RightMovingPlayerState(player);
+                break;
+            case PlayerDirection.Up:
+                player.playerState = new DownMovingPlayerState(player);
+                break;
+            case PlayerDirection.Down:
+                break;
         }
 
     }
-    public void Update()
+
+    public void IsMoving(bool moving)
     {
-        throw new System.NotImplementedException();
+        if(!moving)
+        player.playerState = new DownStandingPlayerState(player);
     }
 
-    public void UseWeapon()
+    public void Update(PlayerDirection direction, bool moving)
     {
-        //different sprite drawn
-        //switch case depending on which direction facing
-        //is a timed state, how to handle?
+        player.playerState.IsMoving(moving);
+        player.playerState.ChangeDirection(direction);
     }
 
-    public void VictoryState()
-    {
-        player.State = new VictoryPlayerState(player);
-    }
+
 }
