@@ -5,6 +5,7 @@ using System.ComponentModel;
 using Project1;
 using System.Reflection.Metadata;
 using System.Xml.Linq;
+using static Project1.Constants;
 
 namespace Project1
 {
@@ -13,19 +14,19 @@ namespace Project1
         //private Texture2D goombaSpritesheet;
         //private Texture2D koopaSpritesheet;
         //testing for adding back to branch
-        private Texture2D batSpritesheet;
-        private Texture2D aquaDragonSpritesheet;
-        private Texture2D dinoSpritesheet;
-        private Texture2D fireDragonSpritesheet;
-        private Texture2D dogMonsterSpritesheet;
-        private Texture2D flameSpritesheet;
-        private Texture2D handSpritesheet;
-        private Texture2D jellySpritesheet;
-        private Texture2D merchantSpritesheet;
-        private Texture2D oldManSpritesheet;
-        private Texture2D skeletonSpritesheet;
-        private Texture2D snakeSpritesheet;
-        private Texture2D spikeCrossSpritesheet;
+        private Texture2D[] batSpritesheet = new Texture2D[BAT_C * BAT_R];
+        private Texture2D[] aquaDragonSpritesheet = new Texture2D[AD_C * AD_R];
+        private Texture2D[] dinoSpritesheet = new Texture2D[DINO_C * DINO_R];
+        private Texture2D[] fireDragonSpritesheet = new Texture2D[FD_C * FD_R];
+        private Texture2D[] dogMonsterSpritesheet = new Texture2D[DM_C * DM_R];
+        private Texture2D[] flameSpritesheet = new Texture2D[FLAME_C * FLAME_R];
+        private Texture2D[] handSpritesheet = new Texture2D[HAND_C * HAND_R];
+        private Texture2D[] jellySpritesheet = new Texture2D[JELLY_C * JELLY_R];
+        private Texture2D[] merchantSpritesheet = new Texture2D[MERCHANT_C * MERCHANT_R];
+        private Texture2D[] oldManSpritesheet = new Texture2D[OLDMAN_C * OLDMAN_R];
+        private Texture2D[] skeletonSpritesheet = new Texture2D[SKELETON_C * SKELETON_R];
+        private Texture2D[] snakeSpritesheet = new Texture2D[SNAKE_C * SNAKE_R];
+        private Texture2D[] spikeCrossSpritesheet = new Texture2D[SPIKE_C * SPIKE_R];
 
         // More private Texture2Ds follow
         // ...
@@ -47,21 +48,21 @@ namespace Project1
         public void LoadAllTextures(ContentManager content)
         {
             //goombaSpriteSheet = content.Load<Texture2D>("goomba");
-            batSpritesheet = content.Load<Texture2D>(assetName: "KEESE_BAT");
-            
-            aquaDragonSpritesheet = content.Load<Texture2D>(assetName: "AD");
-            dinoSpritesheet = content.Load<Texture2D>(assetName: "DINO");
-            fireDragonSpritesheet = content.Load<Texture2D>(assetName: "FD");
-            dogMonsterSpritesheet = content.Load<Texture2D>(assetName: "DM");
-            flameSpritesheet = content.Load<Texture2D>(assetName: "FIRE");
-            handSpritesheet = content.Load<Texture2D>(assetName: "HAND");
-            jellySpritesheet = content.Load<Texture2D>(assetName: "JELLY");
-            merchantSpritesheet = content.Load<Texture2D>(assetName: "MERCHANT");
-            oldManSpritesheet = content.Load<Texture2D>(assetName: "OLDM");
-            skeletonSpritesheet = content.Load<Texture2D>(assetName: "SKELETON");
-            snakeSpritesheet = content.Load<Texture2D>(assetName: "SNAKE");
-            spikeCrossSpritesheet = content.Load<Texture2D>(assetName: "SPIKES");
-            
+            batSpritesheet[0] = content.Load<Texture2D>(assetName: "KEESE_BAT");
+
+            aquaDragonSpritesheet[0] = content.Load<Texture2D>(assetName: "AD");
+            dinoSpritesheet[0] = content.Load<Texture2D>(assetName: "DINO");
+            fireDragonSpritesheet[0] = content.Load<Texture2D>(assetName: "FD");
+            dogMonsterSpritesheet[0] = content.Load<Texture2D>(assetName: "DM");
+            flameSpritesheet[0] = content.Load<Texture2D>(assetName: "FIRE");
+            handSpritesheet[0] = content.Load<Texture2D>(assetName: "HAND");
+            jellySpritesheet[0] = content.Load<Texture2D>(assetName: "JELLY");
+            merchantSpritesheet[0] = content.Load<Texture2D>(assetName: "MERCHANT");
+            oldManSpritesheet[0] = content.Load<Texture2D>(assetName: "OLDM");
+            skeletonSpritesheet[0] = content.Load<Texture2D>(assetName: "SKELETON");
+            snakeSpritesheet[0] = content.Load<Texture2D>(assetName: "SNAKE");
+            spikeCrossSpritesheet[0] = content.Load<Texture2D>(assetName: "SPIKES");
+
 
             // More Content.Load calls follow
             //...

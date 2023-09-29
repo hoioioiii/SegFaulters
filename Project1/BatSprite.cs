@@ -7,7 +7,7 @@ namespace Project1
 {
     public class BatSprite : ISprite
 	{
-        private Texture2D Texture { get; set; }
+        private Texture2D[] Texture { get; set; }
 
         //rows is the number of rows i the texture alias
         private int Rows { get; set; }
@@ -36,7 +36,7 @@ namespace Project1
         private int frameRow;
         private int frameColumn;
         */
-        public BatSprite(Texture2D spriteSheet)
+        public BatSprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
             Rows = BAT_R;
@@ -76,8 +76,8 @@ namespace Project1
         private void Animate()
         {
 
-            width = Texture.Width / Columns;
-            height = Texture.Height / Rows;
+            width = Texture[(int)current_frame].Width / Columns;
+            height = Texture[(int)current_frame].Height / Rows;
 
             row = (int)current_frame / Columns;
             col = (int)current_frame % Columns;
@@ -89,7 +89,7 @@ namespace Project1
             Animate();
             Rectangle SOURCE_REC = new Rectangle(width * col, height * row, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture, DEST_REC, SOURCE_REC, Color.White);
+            spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
     }
