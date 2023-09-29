@@ -11,10 +11,10 @@ namespace Project1
 {
     public class EnemySpriteFactory
     {
-        //private Texture2D goombaSpritesheet;
-        //private Texture2D koopaSpritesheet;
-        //testing for adding back to branch
+        
         private Texture2D[] batSpritesheet = new Texture2D[BAT_C * BAT_R];
+        //constants specify how mant frames there are for each sprite
+        //make sure to edit the constants is constants.cs to reflect how many frames there are for each sprites
         private Texture2D[] aquaDragonSpritesheet = new Texture2D[AD_C * AD_R];
         private Texture2D[] dinoSpritesheet = new Texture2D[DINO_C * DINO_R];
         private Texture2D[] fireDragonSpritesheet = new Texture2D[FD_C * FD_R];
@@ -47,7 +47,7 @@ namespace Project1
 
         public void LoadAllTextures(ContentManager content)
         {
-            //goombaSpriteSheet = content.Load<Texture2D>("goomba");
+            //add all frames to the arrays
             batSpritesheet[0] = content.Load<Texture2D>(assetName: "KEESE_BAT");
 
             aquaDragonSpritesheet[0] = content.Load<Texture2D>(assetName: "AD");
