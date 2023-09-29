@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/HAND.png</SourceFile>
-  <SourceTime>2023-09-26T03:20:33.6426535-04:00</SourceTime>
+  <SourceTime>2023-09-29T01:20:44.0855052-04:00</SourceTime>
   <DestFile>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/bin/DesktopGL/Content/HAND.xnb</DestFile>
-  <DestTime>2023-09-26T03:23:41.3026926-04:00</DestTime>
+  <DestTime>2023-09-29T01:47:09.6158306-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

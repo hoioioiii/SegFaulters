@@ -48,21 +48,43 @@ namespace Project1
         public void LoadAllTextures(ContentManager content)
         {
             //add all frames to the arrays
-            batSpritesheet[0] = content.Load<Texture2D>(assetName: "KEESE_BAT");
+            //anything in all caps still needs to be updates with the new sprite
+            batSpritesheet[0] = content.Load<Texture2D>(assetName: "bat1");
+            batSpritesheet[1] = content.Load<Texture2D>(assetName: "bat2");
 
-            aquaDragonSpritesheet[0] = content.Load<Texture2D>(assetName: "AD");
+            aquaDragonSpritesheet[0] = content.Load<Texture2D>(assetName: "ZeldaSpriteAquamentusLeft");
+            aquaDragonSpritesheet[1] = content.Load<Texture2D>(assetName: "ZeldaSpriteAquamentusRight");
+
+
             dinoSpritesheet[0] = content.Load<Texture2D>(assetName: "DINO");
             fireDragonSpritesheet[0] = content.Load<Texture2D>(assetName: "FD");
             dogMonsterSpritesheet[0] = content.Load<Texture2D>(assetName: "DM");
-            flameSpritesheet[0] = content.Load<Texture2D>(assetName: "FIRE");
-            handSpritesheet[0] = content.Load<Texture2D>(assetName: "HAND");
-            jellySpritesheet[0] = content.Load<Texture2D>(assetName: "JELLY");
-            merchantSpritesheet[0] = content.Load<Texture2D>(assetName: "MERCHANT");
-            oldManSpritesheet[0] = content.Load<Texture2D>(assetName: "OLDM");
-            skeletonSpritesheet[0] = content.Load<Texture2D>(assetName: "SKELETON");
-            snakeSpritesheet[0] = content.Load<Texture2D>(assetName: "SNAKE");
-            spikeCrossSpritesheet[0] = content.Load<Texture2D>(assetName: "SPIKES");
 
+            flameSpritesheet[0] = content.Load<Texture2D>(assetName: "ZeldaSpriteFire");
+
+            handSpritesheet[0] = content.Load<Texture2D>(assetName: "handLeft1");
+            handSpritesheet[1] = content.Load<Texture2D>(assetName: "handLeft2");
+            handSpritesheet[2] = content.Load<Texture2D>(assetName: "handRight1");
+            handSpritesheet[3] = content.Load<Texture2D>(assetName: "handRight2");
+
+            jellySpritesheet[0] = content.Load<Texture2D>(assetName: "jelly1");
+            jellySpritesheet[1] = content.Load<Texture2D>(assetName: "jelly2");
+            jellySpritesheet[2] = content.Load<Texture2D>(assetName: "jelly3");
+
+            merchantSpritesheet[0] = content.Load<Texture2D>(assetName: "MERCHANT");
+
+            oldManSpritesheet[0] = content.Load<Texture2D>(assetName: "ZeldaSpriteOldMan");
+
+            skeletonSpritesheet[0] = content.Load<Texture2D>(assetName: "skeleton1");
+            skeletonSpritesheet[1] = content.Load<Texture2D>(assetName: "skeleton2");
+
+            snakeSpritesheet[0] = content.Load<Texture2D>(assetName: "snakeLeft1");
+            snakeSpritesheet[1] = content.Load<Texture2D>(assetName: "snakeLeft2");
+            snakeSpritesheet[2] = content.Load<Texture2D>(assetName: "snakeRight1");
+            snakeSpritesheet[3] = content.Load<Texture2D>(assetName: "snakeRight2");
+
+            spikeCrossSpritesheet[0] = content.Load<Texture2D>(assetName: "SPIKES");
+            //REFACTOR make things based on direction they are facing
 
             // More Content.Load calls follow
             //...

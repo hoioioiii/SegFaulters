@@ -41,8 +41,8 @@ namespace Project1
         public static int BAT_R = 1;
         public static int BAT_C = 2;
 
-        public static int AD_R = 2;
-        public static int AD_C = 5;
+        public static int AD_R = 1;
+        public static int AD_C = 2;
 
         public static int DINO_R = 1;
         public static int DINO_C = 4;
@@ -55,7 +55,7 @@ namespace Project1
 
 
         public static int FLAME_R = 1;
-        public static int FLAME_C = 2;
+        public static int FLAME_C = 1;
 
 
         public static int HAND_R = 1;
