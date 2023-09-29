@@ -25,6 +25,7 @@
 /processorParam:TextureFormat=Color
 /build:AD.png
 
+<<<<<<< HEAD
 #begin bat1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -49,6 +50,8 @@
 /processorParam:TextureFormat=Color
 /build:bat2.png
 
+=======
+>>>>>>> origin/state-transition-character-interface-2.0
 #begin DINO.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -85,6 +88,7 @@
 /processorParam:TextureFormat=Color
 /build:emptyhealthbar.png
 
+<<<<<<< HEAD
 #begin emptyhealthbar2.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -97,6 +101,8 @@
 /processorParam:TextureFormat=Color
 /build:emptyhealthbar2.png
 
+=======
+>>>>>>> origin/state-transition-character-interface-2.0
 #begin emptyhealthbar3.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -145,6 +151,7 @@
 /processorParam:TextureFormat=Color
 /build:HAND.png
 
+<<<<<<< HEAD
 #begin handLeft1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -193,6 +200,8 @@
 /processorParam:TextureFormat=Color
 /build:handRight2.png
 
+=======
+>>>>>>> origin/state-transition-character-interface-2.0
 #begin JELLY.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -205,6 +214,7 @@
 /processorParam:TextureFormat=Color
 /build:JELLY.png
 
+<<<<<<< HEAD
 #begin jelly1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -241,6 +251,8 @@
 /processorParam:TextureFormat=Color
 /build:jelly3.png
 
+=======
+>>>>>>> origin/state-transition-character-interface-2.0
 #begin KEESE_BAT.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -253,6 +265,177 @@
 /processorParam:TextureFormat=Color
 /build:KEESE_BAT.png
 
+<<<<<<< HEAD
+=======
+#begin LinkAttackDown.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:LinkAttackDown.png
+
+#begin LinkAttackLeft.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:LinkAttackLeft.png
+
+#begin LinkAttackRight.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:LinkAttackRight.png
+
+#begin LinkAttackUp.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:LinkAttackUp.png
+
+#begin linkDown1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:linkDown1.png
+
+#begin linkDown2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:linkDown2.png
+
+#begin linkLeft1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:linkLeft1.png
+
+#begin linkLeft2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:linkLeft2.png
+
+#begin linkRight1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:linkRight1.png
+
+#begin linkRight2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:linkRight2.png
+
+#begin linkUp1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:linkUp1.png
+
+#begin linkUp2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:linkUp2.png
+
+#begin linkWalkLeftSpritesheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:linkWalkLeftSpritesheet.png
+
+#begin linkWalkRightSpritesheet.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:linkWalkRightSpritesheet.png
+
+>>>>>>> origin/state-transition-character-interface-2.0
 #begin MERCHANT.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -313,6 +496,7 @@
 /processorParam:TextureFormat=Color
 /build:SKELETON.png
 
+<<<<<<< HEAD
 #begin skeleton1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -337,6 +521,8 @@
 /processorParam:TextureFormat=Color
 /build:skeleton2.png
 
+=======
+>>>>>>> origin/state-transition-character-interface-2.0
 #begin SNAKE.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -349,6 +535,7 @@
 /processorParam:TextureFormat=Color
 /build:SNAKE.png
 
+<<<<<<< HEAD
 #begin snakeLeft1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -397,6 +584,8 @@
 /processorParam:TextureFormat=Color
 /build:snakeRight2.png
 
+=======
+>>>>>>> origin/state-transition-character-interface-2.0
 #begin SPIKES.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -409,7 +598,11 @@
 /processorParam:TextureFormat=Color
 /build:SPIKES.png
 
+<<<<<<< HEAD
 #begin ZeldaSpriteAquamentusLeft.gif
+=======
+#begin ZeldaSpriteLinkLeft.gif
+>>>>>>> origin/state-transition-character-interface-2.0
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -419,9 +612,15 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:ZeldaSpriteAquamentusLeft.gif
 
 #begin ZeldaSpriteAquamentusRight.gif
+=======
+/build:ZeldaSpriteLinkLeft.gif
+
+#begin ZeldaSpriteLinkRight.gif
+>>>>>>> origin/state-transition-character-interface-2.0
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -431,6 +630,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:ZeldaSpriteAquamentusRight.gif
 
 #begin ZeldaSpriteFire.gif
@@ -456,4 +656,7 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:ZeldaSpriteOldMan.png
+=======
+/build:ZeldaSpriteLinkRight.gif
+>>>>>>> origin/state-transition-character-interface-2.0
 

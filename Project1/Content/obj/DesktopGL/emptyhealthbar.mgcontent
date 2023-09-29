@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
   <SourceFile>C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/emptyhealthbar2.png</SourceFile>
   <SourceTime>2023-09-23T20:58:51.574014-04:00</SourceTime>
   <DestFile>C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/bin/DesktopGL/emptyhealthbar.xnb</DestFile>
   <DestTime>2023-09-23T22:19:17.6868666-04:00</DestTime>
+=======
+  <SourceFile>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/emptyhealthbar.png</SourceFile>
+  <SourceTime>2023-09-28T00:34:53.7386536-04:00</SourceTime>
+  <DestFile>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/emptyhealthbar.xnb</DestFile>
+  <DestTime>2023-09-28T00:37:24.0010878-04:00</DestTime>
+>>>>>>> origin/state-transition-character-interface-2.0
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

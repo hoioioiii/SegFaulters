@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+<<<<<<< HEAD
     <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/AD.png</File>
     <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/bat1.png</File>
     <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/bat2.png</File>
@@ -41,6 +42,41 @@
     <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/ZeldaSpriteAquamentusRight.gif</File>
     <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/ZeldaSpriteFire.gif</File>
     <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/ZeldaSpriteOldMan.png</File>
+=======
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/AD.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/DINO.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/DM.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/emptyhealthbar.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/emptyhealthbar3.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/FD.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/FIRE.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/HAND.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/JELLY.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/KEESE_BAT.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/LinkAttackDown.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/LinkAttackLeft.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/LinkAttackRight.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/LinkAttackUp.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/linkDown1.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/linkDown2.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/linkLeft1.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/linkLeft2.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/linkRight1.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/linkRight2.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/linkUp1.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/linkUp2.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/linkWalkLeftSpritesheet.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/linkWalkRightSpritesheet.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/MERCHANT.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/OLDM.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/redbar.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/redbaradjusted.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/SKELETON.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/SNAKE.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/SPIKES.png</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/ZeldaSpriteLinkLeft.gif</File>
+    <File>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/ZeldaSpriteLinkRight.gif</File>
+>>>>>>> origin/state-transition-character-interface-2.0
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
@@ -76,9 +112,12 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+<<<<<<< HEAD
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+=======
+>>>>>>> origin/state-transition-character-interface-2.0
   </DestFiles>
 </SourceFileCollection>

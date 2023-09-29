@@ -41,8 +41,13 @@ namespace Project1
         public static int BAT_R = 1;
         public static int BAT_C = 2;
 
+<<<<<<< HEAD
         public static int AD_R = 1;
         public static int AD_C = 2;
+=======
+        public static int AD_R = 2;
+        public static int AD_C = 5;
+>>>>>>> origin/state-transition-character-interface-2.0
 
         public static int DINO_R = 1;
         public static int DINO_C = 4;
@@ -55,6 +60,7 @@ namespace Project1
 
 
         public static int FLAME_R = 1;
+<<<<<<< HEAD
         public static int FLAME_C = 1;
 
 
@@ -64,6 +70,17 @@ namespace Project1
 
         public static int JELLY_R = 1;
         public static int JELLY_C = 3;
+=======
+        public static int FLAME_C = 3;
+
+
+        public static int HAND_R = 1;
+        public static int HAND_C = 8;
+
+
+        public static int JELLY_R = 2;
+        public static int JELLY_C = 8;
+>>>>>>> origin/state-transition-character-interface-2.0
 
 
         public static int MERCHANT_R = 1;
@@ -77,7 +94,11 @@ namespace Project1
         public static int SKELETON_C = 2;
 
         public static int SNAKE_R = 1;
+<<<<<<< HEAD
         public static int SNAKE_C = 4;
+=======
+        public static int SNAKE_C = 2;
+>>>>>>> origin/state-transition-character-interface-2.0
 
         public static int SPIKE_R = 1;
         public static int SPIKE_C = 7;

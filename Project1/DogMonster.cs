@@ -49,17 +49,24 @@ namespace Project1
         private int POS_X;
         private int POS_Y;
 
+<<<<<<< HEAD
         private ISprite sprite;
 
         public DogMonster()
 		{
             //remove later:
             /*
+=======
+        public DogMonster()
+		{
+            //remove later:
+>>>>>>> origin/state-transition-character-interface-2.0
             GameObject = Constants.GameObj;
             ContentLoad = GameObject.Content;
             Texture = Load();
             POS_X = SPRITE_X;
             POS_Y = SPRITE_Y;
+<<<<<<< HEAD
             */
 
             sprite = EnemySpriteFactory.Instance.CreateDogMonsterSprite();
@@ -68,27 +75,51 @@ namespace Project1
         {
             sprite.Update();
             /*
+=======
+        }
+        public void Update()
+        {
+>>>>>>> origin/state-transition-character-interface-2.0
             Move();
             CURRENT_FRAME += FRAME_SPD;
             if (CURRENT_FRAME >= TOTAL_FRAME)
                 CURRENT_FRAME = START_FRAME;
+<<<<<<< HEAD
             */
+=======
+>>>>>>> origin/state-transition-character-interface-2.0
         }
 
         private void Animate()
         {
 
+<<<<<<< HEAD
             //WIDTH = Texture.Width / Columns;
             //HEIGHT = Texture.Height / Rows;
 
             //ROW = (int)CURRENT_FRAME / Columns;
             //COL = (int)CURRENT_FRAME % Columns;
+=======
+            WIDTH = Texture.Width / Columns;
+            HEIGHT = Texture.Height / Rows;
+
+            ROW = (int)CURRENT_FRAME / Columns;
+            COL = (int)CURRENT_FRAME % Columns;
+>>>>>>> origin/state-transition-character-interface-2.0
 
         }
         public void Draw(SpriteBatch spriteBatch)
         {
 
+<<<<<<< HEAD
             sprite.Draw(spriteBatch);
+=======
+
+            Animate();
+            Rectangle SOURCE_REC = new Rectangle(WIDTH * COL, HEIGHT * ROW, WIDTH, HEIGHT);
+            Rectangle DEST_REC = new Rectangle(POS_X, POS_Y, WIDTH, HEIGHT);
+            spriteBatch.Draw(Texture, DEST_REC, SOURCE_REC, Color.White);
+>>>>>>> origin/state-transition-character-interface-2.0
         }
 
         /*
@@ -96,10 +127,17 @@ namespace Project1
           */
         private void setFrames()
         {
+<<<<<<< HEAD
             //Rows = DM_R;
             //Columns = DM_C;
             //CURRENT_FRAME = START_FRAME;
             //TOTAL_FRAME = Rows * Columns;
+=======
+            Rows = DM_R;
+            Columns = DM_C;
+            CURRENT_FRAME = START_FRAME;
+            TOTAL_FRAME = Rows * Columns;
+>>>>>>> origin/state-transition-character-interface-2.0
         }
 
         /*
@@ -107,12 +145,17 @@ namespace Project1
          */
         public Texture2D Load()
         {
+<<<<<<< HEAD
             //setFrames();
+=======
+            setFrames();
+>>>>>>> origin/state-transition-character-interface-2.0
             return ContentLoad.Load<Texture2D>(assetName: "DM");
         }
 
         public void Move()
         {
+<<<<<<< HEAD
             //int DIR_X = RandomMove.RandMove();
             //int DIR_Y = RandomMove.RandMove();
 
@@ -120,6 +163,15 @@ namespace Project1
 
             //POS_X += RandomMove.CheckBounds(DIR_X, POS_X, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
             //POS_Y += RandomMove.CheckBounds(DIR_Y, POS_Y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
+=======
+            int DIR_X = RandomMove.RandMove();
+            int DIR_Y = RandomMove.RandMove();
+
+            //Add bounding constraints:
+
+            POS_X += RandomMove.CheckBounds(DIR_X, POS_X, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
+            POS_Y += RandomMove.CheckBounds(DIR_Y, POS_Y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
+>>>>>>> origin/state-transition-character-interface-2.0
 
 
         }

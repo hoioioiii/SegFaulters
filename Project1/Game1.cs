@@ -22,6 +22,11 @@ namespace Project1
 
         private Texture2D _texture;
         private ArrayList ControllerList;
+<<<<<<< HEAD
+=======
+
+        public Player player;
+>>>>>>> origin/state-transition-character-interface-2.0
 
         public Game1()
         {
@@ -34,8 +39,13 @@ namespace Project1
             //remove this later
             ContentManager1 = Content;
             Game = this;
+<<<<<<< HEAD
             
 
+=======
+
+           
+>>>>>>> origin/state-transition-character-interface-2.0
 
         }
         
@@ -46,6 +56,7 @@ namespace Project1
             ControllerList = new ArrayList();
             ControllerList.Add(new KeyBoardController(this));
 
+            player = new Player();
             base.Initialize();
         }
 
@@ -75,6 +86,31 @@ namespace Project1
 
 
 
+<<<<<<< HEAD
+=======
+            /**
+             * 
+             * Replace all sprites with proper sprites.
+             */
+            IListIterate EntityList = new EnemyIterator(this);
+
+            
+            //ENEMY = new Bat();
+            //ENEMY = new BossAquaDragon();
+            //ENEMY = new BossDino();
+            //ENEMY = new BossFireDragon();
+            //ENEMY = new DogMonster();
+            //ENEMY = new Flame();
+            //ENEMY = new Jelly();
+            //ENEMY = new Merchant();
+            //ENEMY = new OldMan();
+            //ENEMY = new Skeleton();
+            //ENEMY = new Snake();
+            //ENEMY = new SpikeCross();
+
+
+
+>>>>>>> origin/state-transition-character-interface-2.0
         }
 
         protected override void Update(GameTime gameTime)
