@@ -21,21 +21,10 @@ namespace Project1
         public static int SCREEN_WIDTH_LOWER = 0;
         public static int SCREEN_HEIGHT_UPPER = 400;
         public static int SCREEN_HEIGHT_LOWER = 0;
-        //public static Game1 GameObj = Game1.Game;
-
-        public static int SPRITE_X = 350;
-        public static int SPRITE_Y = 200;
 
 
         /*
-         * Animations----------------------
-         */
-        public static int START_FRAME = 0;
-        public static double FRAME_SPD = .5 / 4;
-        public static int ENTITY_SPD = 2;
-
-        /*
-         * Bat sprite frames:
+         * Link sprite constants:
          */
 
         public enum DIRECTION {right = 0, left = 1, up = 2, down = 3};

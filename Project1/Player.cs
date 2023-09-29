@@ -82,43 +82,22 @@ namespace Project1
 
         public Player()
         {
-            //Game1 game1 = new Game1();
-            //_graphics = new GraphicsDeviceManager(game1);
+         
         }
 
         public static void Initialize(SpriteBatch spriteBatch)
         {
-            //ContentManager Content = new ContentManager();
+          
             FrameTimer = FRAMETIME;
             AttackTimer = ATTACK_SECONDS;
             DamageTimer = INVINCIBILITY_SECONDS;
             FlashTimer = FLASHTIME;
-            //sprBatch = spriteBatch;
-            //base.Initialize();
+            
         }
 
         public static void LoadContent(ContentManager content)
         {
-            /*
-            // still and movement
-            linkRight1 = content.Load<Texture2D>("linkRight1");
-            linkLeft1 = content.Load<Texture2D>("linkLeft1");
-            linkUp1 = content.Load<Texture2D>("linkUp1");
-            linkDown1 = content.Load<Texture2D>("linkDown1");
-
-            // movement only
-            linkRight2 = content.Load<Texture2D>("linkRight2");
-            linkLeft2 = content.Load<Texture2D>("linkLeft2");
-            linkUp2 = content.Load<Texture2D>("linkUp2");
-            linkDown2 = content.Load<Texture2D>("linkDown2");
-
-            // Attack using weapon or item
-            linkAttackRight = content.Load<Texture2D>("linkAttackRight");
-            linkAttackLeft = content.Load<Texture2D>("linkAttackLeft");
-            linkAttackUp = content.Load<Texture2D>("linkAttackUp");
-            linkAttackDown = content.Load<Texture2D>("linkAttackDown");
-            */
-
+       
             //create the link sprite
             sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
         }
@@ -225,26 +204,7 @@ namespace Project1
                 {
                     //tell sprite how to draw
                     sprite.Draw(spriteBatch, "attack");
-                    /*
-                    switch (linkDirection)
-                    {
-                        case 1:
-                            DrawLink(linkAttackUp);
-                            break;
-                        case 2:
-                            DrawLink(linkAttackRight);
-                            break;
-                        case 3:
-                            DrawLink(linkAttackDown);
-                            break;
-                        case 4:
-                            DrawLink(linkAttackLeft);
-                            break;
-                        default:
-                            DrawLink(linkAttackRight);
-                            break;
-                    }
-                    */
+                    
                 }
                 else
                 {
@@ -255,39 +215,20 @@ namespace Project1
                         {
                             //tell sprite how to draw
                             sprite.Draw(spriteBatch, "move");
-                            /*
-                            switch (linkDirection)
-                            {
-                                case 1:
-                                    DrawLink(linkUp2);
-                                    break;
-                                case 2:
-                                    DrawLink(linkRight2);
-                                    break;
-                                case 3:
-                                    DrawLink(linkDown2);
-                                    break;
-                                case 4:
-                                    DrawLink(linkLeft2);
-                                    break;
-                                default:
-                                    DrawLink(linkRight2);
-                                    break;
-                            }
-                            */
+                            
                         }
                         else
                         {
                             //tell sprite how to draw
                             sprite.Draw(spriteBatch, "still");
-                            //Link1Switch();
+                           
                         }
                     }
                     else
                     {
                         //tell sprite how to draw
                         sprite.Draw(spriteBatch, "still");
-                        //Link1Switch();
+                        
                     }
                 }
             }
@@ -370,29 +311,5 @@ namespace Project1
             }
         }
 
-        // this switch statement will be used both when link is moving and when he is still
-        // direction dictates which sprite is drawn
-        // preventing duplicated code (a code smell)
-        public static void Link1Switch()
-        {
-            switch (linkDirection)
-            {
-                case 1:
-                    DrawLink(linkUp1);
-                    break;
-                case 2:
-                    DrawLink(linkRight1);
-                    break;
-                case 3:
-                    DrawLink(linkDown1);
-                    break;
-                case 4:
-                    DrawLink(linkLeft1);
-                    break;
-                default:
-                    DrawLink(linkRight1);
-                    break;
-            }
-        }
     }
 }
