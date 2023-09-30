@@ -1,22 +1,42 @@
-﻿<Properties StartupConfiguration="{AEA6221D-370B-4F79-A939-13C098076914}|Default">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Project1 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.Workbench ActiveDocument="PlayerSpriteFactory.cs">
+﻿<Properties StartupConfiguration="{9BC08358-E214-417E-929B-B7D38788B002}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Constants.cs">
     <Files>
       <File FileName="Player.cs" />
-      <File FileName="Game1.cs" Line="4" Column="1" />
+      <File FileName="Game1.cs" />
       <File FileName="Program.cs" />
-      <File FileName="PlayerSpriteFactory.cs" Line="1" Column="1" />
+      <File FileName="Constants.cs" Line="38" Column="1" />
+      <File FileName="EntityIterateForwardCommand.cs" />
+      <File FileName="HandSprite.cs" />
+      <File FileName="EnemySpriteFactory.cs" Line="30" Column="1" />
+      <File FileName="BossFireDragonSprite.cs" />
+      <File FileName="FlameSprite.cs" />
+      <File FileName="JellySprite.cs" />
+      <File FileName="MerchantSprite.cs" />
+      <File FileName="OldManSprite.cs" Line="62" Column="1" />
+      <File FileName="SkeletonSprite.cs" />
+      <File FileName="SnakeSprite.cs" />
+      <File FileName="SpikeCrossSprite.cs" />
+      <File FileName="BossFireDragon.cs" />
+      <File FileName="Content/Content.mgcb" />
+      <File FileName="EnemyIterator.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State name="__root__" />
+        <State name="__root__">
+          <Node name="Project1">
+            <Node name="Project1" expanded="True">
+              <Node name="Player.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Project1 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>
