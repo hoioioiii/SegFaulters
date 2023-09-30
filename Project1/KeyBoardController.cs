@@ -113,23 +113,23 @@ namespace Project1
         public void GenerateMOVEMap()
         {
             MOVE_MAP = new Dictionary<Keys, ICommand>();
-            //MOVE_MAP.Add(Keys.Down, //Call Command State);
-            //MOVE_MAP.Add(Keys.Up, //Call Command State);
-            //MOVE_MAP.Add(Keys.Left, //Call Command State);
-            //MOVE_MAP.Add(Keys.Right, //Call Command State);
-            //MOVE_MAP.Add(Keys.E, //Call Command State);
-            //MOVE_MAP.Add(Keys.R, //Call Command State);
-            //MOVE_MAP.Add(Keys.D0, //Call Command State);
-            //MOVE_MAP.Add(Keys.D1, //Call Command State);
-            //MOVE_MAP.Add(Keys.D2, //Call Command State);
-            //MOVE_MAP.Add(Keys.D3, //Call Command State);
-            //MOVE_MAP.Add(Keys.D4, //Call Command State);
-            //MOVE_MAP.Add(Keys.D5, //Call Command State);
-            //MOVE_MAP.Add(Keys.D6, //Call Command State);
-            //MOVE_MAP.Add(Keys.D7, //Call Command State);
-            //MOVE_MAP.Add(Keys.D8, //Call Command State);
-            //MOVE_MAP.Add(Keys.D9, //Call Command State);
-            //MOVE_MAP.Add(Keys.Tab, //Call Command State);
+            MOVE_MAP.Add(Keys.Down, new MoveDown());
+            MOVE_MAP.Add(Keys.Up, new MoveUp());
+            MOVE_MAP.Add(Keys.Left, new MoveLeft());
+            MOVE_MAP.Add(Keys.Right, new MoveRight());
+            MOVE_MAP.Add(Keys.E, new TakeDamage());
+            MOVE_MAP.Add(Keys.R, new QuitGame());
+            MOVE_MAP.Add(Keys.D0, new Item0());
+            MOVE_MAP.Add(Keys.D1, new Item1());
+            MOVE_MAP.Add(Keys.D2, new Item2());
+            MOVE_MAP.Add(Keys.D3, new Item3());
+            MOVE_MAP.Add(Keys.D4, new Item4());
+            MOVE_MAP.Add(Keys.D5, new Item5());
+            MOVE_MAP.Add(Keys.D6, new Item6());
+            MOVE_MAP.Add(Keys.D7, new Item7());
+            MOVE_MAP.Add(Keys.D8, new Item8());
+            MOVE_MAP.Add(Keys.D9, new Item9());
+            //MOVE_MAP.Add(Keys.Tab, //Call Command State); //kyler- dont think we need a tab
 
         }
 
@@ -137,10 +137,10 @@ namespace Project1
         public void IteratorMap()
         {
            ITERATE_MAP = new Dictionary<Keys, ICommand>();
-            //ITERATE_MAP.Add(Keys.T, //Call Command State);)
-            //ITERATE_MAP.Add(Keys.Y, //Call Command State);)
-            //ITERATE_MAP.Add(Keys.U, //Call Command State);)
-            //ITERATE_MAP.Add(Keys.I, //Call Command State);)
+            ITERATE_MAP.Add(Keys.T, new BlockPrevious());
+            ITERATE_MAP.Add(Keys.Y, new BlockNext());
+            ITERATE_MAP.Add(Keys.U, new ItemPrevious());
+            ITERATE_MAP.Add(Keys.I, new ItemNext());
             ITERATE_MAP.Add(Keys.O, new EntityIterateBackCommand());
             ITERATE_MAP.Add(Keys.P, new EntityIterateForwardCommand());
 
