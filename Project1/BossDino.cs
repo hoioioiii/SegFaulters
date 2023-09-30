@@ -38,11 +38,7 @@ namespace Project1
 
         //Remove later above--------------
 
-<<<<<<< HEAD
         private ISprite sprite;
-=======
-
->>>>>>> state-transition-character-interface-2.0
 
         //Later create a animation tracker class:
         private int WIDTH;
@@ -62,7 +58,6 @@ namespace Project1
             Texture = Load();
             POS_X = SPRITE_X;
             POS_Y = SPRITE_Y;
-<<<<<<< HEAD
 
             sprite = EnemySpriteFactory.Instance.CreateDinoSprite();
         }
@@ -70,51 +65,28 @@ namespace Project1
         {
             sprite.Update();
             /*
-=======
-        }
-        public void Update()
-        {
->>>>>>> state-transition-character-interface-2.0
             Move();
             CURRENT_FRAME += FRAME_SPD;
             if (CURRENT_FRAME >= TOTAL_FRAME)
                 CURRENT_FRAME = START_FRAME;
-<<<<<<< HEAD
             */
-=======
->>>>>>> state-transition-character-interface-2.0
         }
 
         private void Animate()
         {
-<<<<<<< HEAD
             /*
-=======
-
->>>>>>> state-transition-character-interface-2.0
             WIDTH = Texture.Width / Columns;
             HEIGHT = Texture.Height / Rows;
 
             ROW = (int)CURRENT_FRAME / Columns;
             COL = (int)CURRENT_FRAME % Columns;
-<<<<<<< HEAD
             */
-=======
->>>>>>> state-transition-character-interface-2.0
 
         }
         public void Draw(SpriteBatch spriteBatch)
         {
 
-<<<<<<< HEAD
             sprite.Draw(spriteBatch);
-=======
-
-            Animate();
-            Rectangle SOURCE_REC = new Rectangle(WIDTH * COL, HEIGHT * ROW, WIDTH, HEIGHT);
-            Rectangle DEST_REC = new Rectangle(POS_X, POS_Y, WIDTH, HEIGHT);
-            spriteBatch.Draw(Texture, DEST_REC, SOURCE_REC, Color.White);
->>>>>>> state-transition-character-interface-2.0
         }
 
         /*
@@ -122,18 +94,12 @@ namespace Project1
          */
         private void setFrames()
         {
-<<<<<<< HEAD
             /*
-=======
->>>>>>> state-transition-character-interface-2.0
             Rows = DINO_R;
             Columns = DINO_C;
             CURRENT_FRAME = START_FRAME;
             TOTAL_FRAME = Rows * Columns;
-<<<<<<< HEAD
             */
-=======
->>>>>>> state-transition-character-interface-2.0
         }
 
         /*
@@ -141,24 +107,16 @@ namespace Project1
          */
         public Texture2D Load()
         {
-<<<<<<< HEAD
             /*
             setFrames();
             */
             return ContentLoad.Load<Texture2D>(assetName: "DINO");
             
-=======
-            setFrames();
-            return ContentLoad.Load<Texture2D>(assetName: "DINO");
->>>>>>> state-transition-character-interface-2.0
         }
 
         public void Move()
         {
-<<<<<<< HEAD
             /*
-=======
->>>>>>> state-transition-character-interface-2.0
             int DIR_X = RandomMove.RandMove();
             int DIR_Y = RandomMove.RandMove();
 
@@ -166,10 +124,7 @@ namespace Project1
 
             POS_X += RandomMove.CheckBounds(DIR_X, POS_X, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
             POS_Y += RandomMove.CheckBounds(DIR_Y, POS_Y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-<<<<<<< HEAD
             */
-=======
->>>>>>> state-transition-character-interface-2.0
 
 
         }

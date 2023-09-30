@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
-  <SourceFile>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/KEESE_BAT.png</SourceFile>
-  <SourceTime>2023-09-29T01:20:44.0859172-04:00</SourceTime>
-  <DestFile>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/bin/DesktopGL/Content/KEESE_BAT.xnb</DestFile>
-  <DestTime>2023-09-29T01:47:09.6403557-04:00</DestTime>
-=======
-  <SourceFile>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/KEESE_BAT.png</SourceFile>
-  <SourceTime>2023-09-28T22:39:30.6453644-04:00</SourceTime>
-  <DestFile>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/KEESE_BAT.xnb</DestFile>
-  <DestTime>2023-09-28T23:30:18.1450048-04:00</DestTime>
->>>>>>> state-transition-character-interface-2.0
+  <SourceFile>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/KEESE_BAT.png</SourceFile>
+  <SourceTime>2023-09-30T02:01:40.0650809-04:00</SourceTime>
+  <DestFile>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/bin/DesktopGL/Content/KEESE_BAT.xnb</DestFile>
+  <DestTime>2023-09-30T02:35:44.6270115-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

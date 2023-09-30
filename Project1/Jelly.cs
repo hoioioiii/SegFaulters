@@ -48,24 +48,17 @@ namespace Project1
         private int POS_X;
         private int POS_Y;
 
-<<<<<<< HEAD
         private ISprite sprite;
 
         public Jelly()
         {
             //remove later:
             /*
-=======
-        public Jelly()
-        {
-            //remove later:
->>>>>>> state-transition-character-interface-2.0
             GameObject = Constants.GameObj;
             ContentLoad = GameObject.Content;
             Texture = Load();
             POS_X = SPRITE_X;
             POS_Y = SPRITE_Y;
-<<<<<<< HEAD
             */
             sprite = EnemySpriteFactory.Instance.CreateJellySprite();
         }
@@ -73,50 +66,27 @@ namespace Project1
         {
             sprite.Update();
             /*
-=======
-        }
-        public void Update()
-        {
->>>>>>> state-transition-character-interface-2.0
             Move();
             CURRENT_FRAME += FRAME_SPD;
             if (CURRENT_FRAME >= TOTAL_FRAME)
                 CURRENT_FRAME = START_FRAME;
-<<<<<<< HEAD
             */
-=======
->>>>>>> state-transition-character-interface-2.0
         }
 
         private void Animate()
         {
 
-<<<<<<< HEAD
             //WIDTH = Texture.Width / Columns;
             //HEIGHT = Texture.Height / Rows;
 
             //ROW = (int)CURRENT_FRAME / Columns;
             //COL = (int)CURRENT_FRAME % Columns;
-=======
-            WIDTH = Texture.Width / Columns;
-            HEIGHT = Texture.Height / Rows;
-
-            ROW = (int)CURRENT_FRAME / Columns;
-            COL = (int)CURRENT_FRAME % Columns;
->>>>>>> state-transition-character-interface-2.0
 
         }
         public void Draw(SpriteBatch spriteBatch)
         {
 
-<<<<<<< HEAD
             sprite.Draw(spriteBatch);
-=======
-            Animate();
-            Rectangle SOURCE_REC = new Rectangle(WIDTH * COL, HEIGHT * ROW, WIDTH, HEIGHT);
-            Rectangle DEST_REC = new Rectangle(POS_X, POS_Y, WIDTH +200, HEIGHT+200);
-            spriteBatch.Draw(Texture, DEST_REC, SOURCE_REC, Color.White);
->>>>>>> state-transition-character-interface-2.0
         }
 
         /*
@@ -124,17 +94,10 @@ namespace Project1
          */
         private void setFrames()
         {
-<<<<<<< HEAD
             //Rows = JELLY_R;
             //Columns = JELLY_C;
             //CURRENT_FRAME = START_FRAME;
             //TOTAL_FRAME = Rows * Columns;
-=======
-            Rows = JELLY_R;
-            Columns = JELLY_C;
-            CURRENT_FRAME = START_FRAME;
-            TOTAL_FRAME = Rows * Columns;
->>>>>>> state-transition-character-interface-2.0
         }
 
         /*
@@ -142,17 +105,12 @@ namespace Project1
          */
         public Texture2D Load()
         {
-<<<<<<< HEAD
             //setFrames();
-=======
-            setFrames();
->>>>>>> state-transition-character-interface-2.0
             return ContentLoad.Load<Texture2D>(assetName: "JELLY");
         }
 
         public void Move()
         {
-<<<<<<< HEAD
             //int DIR_X = RandomMove.RandMove();
             //int DIR_Y = RandomMove.RandMove();
 
@@ -160,15 +118,6 @@ namespace Project1
 
             //POS_X += RandomMove.CheckBounds(DIR_X, POS_X, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
             //POS_Y += RandomMove.CheckBounds(DIR_Y, POS_Y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-=======
-            int DIR_X = RandomMove.RandMove();
-            int DIR_Y = RandomMove.RandMove();
-
-            //Add bounding constraints:
-
-            POS_X += RandomMove.CheckBounds(DIR_X, POS_X, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            POS_Y += RandomMove.CheckBounds(DIR_Y, POS_Y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
->>>>>>> state-transition-character-interface-2.0
 
 
         }

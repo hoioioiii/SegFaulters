@@ -15,19 +15,14 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Project1
 {
-<<<<<<< HEAD
    
     public class Constants
-=======
-    internal class Constants
->>>>>>> state-transition-character-interface-2.0
     {
         public static int SCREEN_WIDTH_UPPER = 700;
         public static int SCREEN_WIDTH_LOWER = 0;
         public static int SCREEN_HEIGHT_UPPER = 400;
         public static int SCREEN_HEIGHT_LOWER = 0;
         public static Game1 GameObj = Game1.Game;
-<<<<<<< HEAD
         // attacking
         public const float ATTACK_SECONDS = 0.5f;
 
@@ -39,12 +34,6 @@ namespace Project1
         // Link will flash after damaged, indicating temporary invincibility
         public const float FLASHES_PER_SECOND = 8;
         public const float FLASHTIME = 1 / FLASHES_PER_SECOND;
-=======
-
-        public static int SPRITE_X = 350;
-        public static int SPRITE_Y = 200;
-
->>>>>>> state-transition-character-interface-2.0
 
         /*
          * Animations----------------------
@@ -60,13 +49,8 @@ namespace Project1
         public static int BAT_R = 1;
         public static int BAT_C = 2;
 
-<<<<<<< HEAD
         public static int AD_R = 1;
         public static int AD_C = 2;
-=======
-        public static int AD_R = 2;
-        public static int AD_C = 5;
->>>>>>> state-transition-character-interface-2.0
 
         public static int DINO_R = 1;
         public static int DINO_C = 4;
@@ -79,7 +63,6 @@ namespace Project1
 
 
         public static int FLAME_R = 1;
-<<<<<<< HEAD
         public static int FLAME_C = 1;
 
 
@@ -89,17 +72,6 @@ namespace Project1
 
         public static int JELLY_R = 1;
         public static int JELLY_C = 3;
-=======
-        public static int FLAME_C = 3;
-
-
-        public static int HAND_R = 1;
-        public static int HAND_C = 8;
-
-
-        public static int JELLY_R = 2;
-        public static int JELLY_C = 8;
->>>>>>> state-transition-character-interface-2.0
 
 
         public static int MERCHANT_R = 1;
@@ -113,7 +85,6 @@ namespace Project1
         public static int SKELETON_C = 2;
 
         public static int SNAKE_R = 1;
-<<<<<<< HEAD
         public static int SNAKE_C = 4;
 
         public static int SPIKE_R = 1;
@@ -122,11 +93,5 @@ namespace Project1
         // how many animation frames per second, not the framerate of the game
         public const float FRAMES_PER_SECOND = 10;
         public const float FRAMETIME = 1 / FRAMES_PER_SECOND;
-=======
-        public static int SNAKE_C = 2;
-
-        public static int SPIKE_R = 1;
-        public static int SPIKE_C = 7;
->>>>>>> state-transition-character-interface-2.0
     }
 }
