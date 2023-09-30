@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,6 +15,7 @@ namespace Project1
         //private static SpriteBatch _spriteBatch;
         private static ContentManager Content;
         private static Vector2 position;
+        public IPlayerState playerState { get; set; }
 
         private int positionX = 300;
         private int positionY = 300;
@@ -66,14 +68,6 @@ namespace Project1
         
         // link only has two frames of animation
         private static bool isSecondFrame = false;
-
-        //private Game1 game1;
-
-        public Player()
-        {
-            //Game1 game1 = new Game1();
-            //_graphics = new GraphicsDeviceManager(game1);
-        }
 
         public static void Initialize()
         {
@@ -139,41 +133,7 @@ namespace Project1
                 DamageInvincibility();
             }
 
-            // movement
-            // else ifs used so link can only move in the cardinal directions
-            if (!isAttacking)
-            {
-                if (keyState.IsKeyDown(Keys.Z) || keyState.IsKeyDown(Keys.N))
-                {
-                    // attack using his sword
-                    isAttacking = true;
-                }
-
-                if (keyState.IsKeyDown(Keys.Left) || keyState.IsKeyDown(Keys.A))
-                {
-                    position.X -= playerSpeed;
-                    isMoving = true;
-                    linkDirection = 4;
-                }
-                else if (keyState.IsKeyDown(Keys.Down) || keyState.IsKeyDown(Keys.S))
-                {
-                    position.Y += playerSpeed;
-                    isMoving = true;
-                    linkDirection = 3;
-                }
-                else if (keyState.IsKeyDown(Keys.Up) || keyState.IsKeyDown(Keys.W))
-                {
-                    position.Y -= playerSpeed;
-                    isMoving = true;
-                    linkDirection = 1;
-                }
-                else if (keyState.IsKeyDown(Keys.Right) || keyState.IsKeyDown(Keys.D))
-                {
-                    position.X += playerSpeed;
-                    isMoving = true;
-                    linkDirection = 2;
-                }
-            }
+            Move(keyState);
 
             if (keyState.IsKeyDown(Keys.E))
             {
@@ -280,9 +240,43 @@ namespace Project1
         }
 
         // movement goes here
-        public void Move()
+        public static void Move(KeyboardState keyState)
         {
+            // movement
+            // else ifs used so link can only move in the cardinal directions
+            if (!isAttacking)
+            {
+                if (keyState.IsKeyDown(Keys.Z) || keyState.IsKeyDown(Keys.N))
+                {
+                    // attack using his sword
+                    isAttacking = true;
+                }
 
+                if (keyState.IsKeyDown(Keys.Left) || keyState.IsKeyDown(Keys.A))
+                {
+                    position.X -= playerSpeed;
+                    isMoving = true;
+                    linkDirection = 4;
+                }
+                else if (keyState.IsKeyDown(Keys.Down) || keyState.IsKeyDown(Keys.S))
+                {
+                    position.Y += playerSpeed;
+                    isMoving = true;
+                    linkDirection = 3;
+                }
+                else if (keyState.IsKeyDown(Keys.Up) || keyState.IsKeyDown(Keys.W))
+                {
+                    position.Y -= playerSpeed;
+                    isMoving = true;
+                    linkDirection = 1;
+                }
+                else if (keyState.IsKeyDown(Keys.Right) || keyState.IsKeyDown(Keys.D))
+                {
+                    position.X += playerSpeed;
+                    isMoving = true;
+                    linkDirection = 2;
+                }
+            }
         }
 
         public void Health()
