@@ -4,6 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+<<<<<<< HEAD
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/AD.png</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/DINO.png</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/dino1.png</File>
@@ -60,6 +61,24 @@
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/spikes7.png</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/ZeldaSpriteLinkLeft.gif</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/ZeldaSpriteLinkRight.gif</File>
+=======
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/LinkAttackDown.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/LinkAttackLeft.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/LinkAttackRight.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/LinkAttackUp.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/linkDown1.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/linkDown2.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/linkLeft1.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/linkLeft2.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/linkRight1.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/linkRight2.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/linkUp1.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/linkUp2.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/linkWalkLeftSpritesheet.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/linkWalkRightSpritesheet.png</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/ZeldaSpriteLinkLeft.gif</File>
+    <File>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/ZeldaSpriteLinkRight.gif</File>
+>>>>>>> factory-static-player
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
@@ -78,6 +97,7 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+<<<<<<< HEAD
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
@@ -118,5 +138,7 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+=======
+>>>>>>> factory-static-player
   </DestFiles>
 </SourceFileCollection>

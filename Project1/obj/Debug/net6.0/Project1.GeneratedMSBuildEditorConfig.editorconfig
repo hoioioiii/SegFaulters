@@ -8,4 +8,8 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Project1
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\tinal\source\repos\Segfaulter4.0\Project1\
+=======
+build_property.ProjectDir = /Users/dm/Documents/Projects3902/SegFaulters/Project1/
+>>>>>>> factory-static-player

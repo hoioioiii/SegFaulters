@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
   <SourceFile>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/linkUp1.png</SourceFile>
   <SourceTime>2023-09-30T01:37:33.3957597-04:00</SourceTime>
   <DestFile>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/bin/DesktopGL/Content/linkUp1.xnb</DestFile>
   <DestTime>2023-09-30T02:35:44.6602284-04:00</DestTime>
+=======
+  <SourceFile>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/linkUp1.png</SourceFile>
+  <SourceTime>2023-09-28T16:02:44.297902-04:00</SourceTime>
+  <DestFile>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/bin/DesktopGL/Content/linkUp1.xnb</DestFile>
+  <DestTime>2023-09-28T16:04:06.0209662-04:00</DestTime>
+>>>>>>> factory-static-player
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

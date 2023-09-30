@@ -13,6 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
+<<<<<<< HEAD
 #begin AD.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -325,6 +326,8 @@
 /processorParam:TextureFormat=Color
 /build:KEESE_BAT.png
 
+=======
+>>>>>>> factory-static-player
 #begin LinkAttackDown.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -493,6 +496,7 @@
 /processorParam:TextureFormat=Color
 /build:linkWalkRightSpritesheet.png
 
+<<<<<<< HEAD
 #begin MERCHANT.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -661,6 +665,8 @@
 /processorParam:TextureFormat=Color
 /build:spikes7.png
 
+=======
+>>>>>>> factory-static-player
 #begin ZeldaSpriteLinkLeft.gif
 /importer:TextureImporter
 /processor:TextureProcessor

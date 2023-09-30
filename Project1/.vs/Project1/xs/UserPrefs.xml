@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<Properties StartupConfiguration="{9BC08358-E214-417E-929B-B7D38788B002}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="BatSprite.cs">
     <Files>
@@ -27,4 +28,27 @@
   <MonoDevelop.Ide.ItemProperties.Project1 PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+=======
+﻿<Properties StartupConfiguration="{AEA6221D-370B-4F79-A939-13C098076914}|Default">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Project1 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="PlayerSpriteFactory.cs">
+    <Files>
+      <File FileName="Player.cs" />
+      <File FileName="Game1.cs" Line="4" Column="1" />
+      <File FileName="Program.cs" />
+      <File FileName="PlayerSpriteFactory.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+>>>>>>> factory-static-player
 </Properties>

@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -57,10 +53,15 @@ namespace Project1
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            HealthBarSprite = new HealthSystem();
-            ControllerList = new ArrayList();
-            ControllerList.Add(new KeyBoardController(this));
             KeyboardState state = Keyboard.GetState();
+
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+
+            if (state.IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
@@ -105,6 +106,7 @@ namespace Project1
 
             // TODO: use this.Content to load your game content here
             //Content content = this.Content;
+            PlayerSpriteFactory.Instance.LoadAllTextures(Content);
             Player.LoadContent(Content);
         }
 

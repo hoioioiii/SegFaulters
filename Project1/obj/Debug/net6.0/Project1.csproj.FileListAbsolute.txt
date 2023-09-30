@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:/Users/Jachi/Source/Repos/Boioioiii/SegFaulters/Project1/bin/Debug/net6.0/Project1.exe
 C:/Users/Jachi/Source/Repos/Boioioiii/SegFaulters/Project1/bin/Debug/net6.0/Project1.deps.json
 C:/Users/Jachi/Source/Repos/Boioioiii/SegFaulters/Project1/bin/Debug/net6.0/Project1.runtimeconfig.json
@@ -134,6 +135,24 @@ C:/Users/tinal/source/repos/Segfaulters/Project1/bin/Debug/net6.0/Content/SPIKES
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/SKELETON.xnb
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/SNAKE.xnb
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/SPIKES.xnb
+=======
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/LinkAttackDown.xnb
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/LinkAttackLeft.xnb
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/LinkAttackRight.xnb
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/LinkAttackUp.xnb
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/linkDown1.xnb
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/linkDown2.xnb
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/linkLeft1.xnb
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/linkLeft2.xnb
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/linkRight1.xnb
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/linkRight2.xnb
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/linkUp1.xnb
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/linkUp2.xnb
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/linkWalkLeftSpritesheet.xnb
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/linkWalkRightSpritesheet.xnb
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/ZeldaSpriteLinkLeft.xnb
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/ZeldaSpriteLinkRight.xnb
+>>>>>>> factory-static-player
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Project1
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Project1.deps.json
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Project1.runtimeconfig.json
@@ -148,12 +167,21 @@ C:/Users/tinal/source/repos/Segfaulters/Project1/bin/Debug/net6.0/Content/SPIKES
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/runtimes/win-x64/native/soft_oal.dll
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/runtimes/win-x86/native/SDL2.dll
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/runtimes/win-x86/native/soft_oal.dll
+<<<<<<< HEAD
+=======
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/obj/Debug/net6.0/Project1.csproj.AssemblyReference.cache
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/obj/Debug/net6.0/Project1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/obj/Debug/net6.0/Project1.AssemblyInfoInputs.cache
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/obj/Debug/net6.0/Project1.AssemblyInfo.cs
+/Users/dm/Documents/Projects3902/SegFaulters/Project1/obj/Debug/net6.0/Project1.csproj.CoreCompileInputs.cache
+>>>>>>> factory-static-player
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/obj/Debug/net6.0/Project1.csproj.CopyComplete
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/obj/Debug/net6.0/Project1.dll
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/obj/Debug/net6.0/refint/Project1.dll
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/obj/Debug/net6.0/Project1.pdb
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/obj/Debug/net6.0/Project1.genruntimeconfig.cache
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/obj/Debug/net6.0/ref/Project1.dll
+<<<<<<< HEAD
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/bat1.xnb
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/bat2.xnb
 /Users/dm/Documents/Projects3902/SegFaulters/Project1/bin/Debug/net6.0/Content/handLeft1.xnb
@@ -295,3 +323,5 @@ C:\Users\tinal\source\repos\Segfaulter4.0\Project1\bin\Debug\net6.0\Content\dm4.
 C:\Users\tinal\source\repos\Segfaulter4.0\Project1\bin\Debug\net6.0\Content\dm6.xnb
 C:\Users\tinal\source\repos\Segfaulter4.0\Project1\bin\Debug\net6.0\Content\dm7.xnb
 C:\Users\tinal\source\repos\Segfaulter4.0\Project1\bin\Debug\net6.0\Content\dm8.xnb
+=======
+>>>>>>> factory-static-player

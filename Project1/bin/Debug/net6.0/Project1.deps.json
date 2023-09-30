@@ -47,7 +47,11 @@
           "runtimes/win-x64/native/SDL2.dll": {
             "rid": "win-x64",
             "assetType": "native",
+<<<<<<< HEAD
             "fileVersion": "2.0.20.0"
+=======
+            "fileVersion": "0.0.0.0"
+>>>>>>> factory-static-player
           },
           "runtimes/win-x64/native/soft_oal.dll": {
             "rid": "win-x64",
@@ -57,7 +61,11 @@
           "runtimes/win-x86/native/SDL2.dll": {
             "rid": "win-x86",
             "assetType": "native",
+<<<<<<< HEAD
             "fileVersion": "2.0.20.0"
+=======
+            "fileVersion": "0.0.0.0"
+>>>>>>> factory-static-player
           },
           "runtimes/win-x86/native/soft_oal.dll": {
             "rid": "win-x86",

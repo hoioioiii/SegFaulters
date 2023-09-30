@@ -37,6 +37,7 @@ namespace Project1
 
         /*
          * Animations----------------------
+         * Link sprite constants:
          */
         public static int START_FRAME = 0;
         public static double FRAME_SPD = .5/4;
@@ -123,9 +124,12 @@ namespace Project1
 
 
 
+        public enum DIRECTION {right = 0, left = 1, up = 2, down = 3};
 
         public static int UP_DIRECTION_SPRITE = 2;
         public static int DOWN_DIRECTION_SPRITE = 0;
+        public static int PLAYER_FRAMES = 4;
+        public static int PLAYER_R = 1;
 
         // for Link's sprite animation
         // how many animation frames per second, not the framerate of the game
@@ -133,3 +137,4 @@ namespace Project1
         public const float FRAMETIME = 1 / FRAMES_PER_SECOND;
     }
 }
+

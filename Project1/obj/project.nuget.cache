@@ -1,11 +1,20 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "XMXS/nPbI/cnFse1DxJCb0BT82puO06+DfYfhlzqO6NyYp2YW3eeYYhmAIK2ylrgSOYOE1PV6vu2lB7cDNSeeg==",
   "success": true,
   "projectFilePath": "C:\\Users\\tinal\\source\\repos\\Segfaulter4.0\\Project1\\Project1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tinal\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
     "C:\\Users\\tinal\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+=======
+  "dgSpecHash": "SFKSib+VOBHDeRwxElbeOCH6f93UD9Q7YS0Cm+PeWwJvuW2j3fXJ8BlqpwM/iuca0VdLeZCOrLj8CBbAqcyFbA==",
+  "success": true,
+  "projectFilePath": "/Users/dm/Documents/Projects3902/SegFaulters/Project1/Project1.csproj",
+  "expectedPackageFiles": [
+    "/Users/dm/.nuget/packages/monogame.content.builder.task/3.8.1.303/monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "/Users/dm/.nuget/packages/monogame.framework.desktopgl/3.8.1.303/monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+>>>>>>> factory-static-player
   ],
   "logs": []
 }

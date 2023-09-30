@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -15,10 +14,13 @@ namespace Project1
         //private static SpriteBatch _spriteBatch;
         private static ContentManager Content;
         private static Vector2 position;
-        public IPlayerState playerState { get; set; }
 
         private int positionX = 300;
         private int positionY = 300;
+
+        //Needed for link sprite to draw
+        private static IPlayerSprite sprite;
+        private static SpriteBatch sprBatch;
 
         private static bool isMoving = false;
 
@@ -26,92 +28,78 @@ namespace Project1
 
         // scales the size of the sprite on screen
         private static int spriteScale = 4;
-        private static int swordScale = 4;
 
         // cardinal direction player is facing, starts with up on 1 and progresses clockwise (e.g. 4 is left-facing)
         private static int linkDirection = 2;
 
         // frames used for still and animation
-        private static Texture2D linkRight1;
-        private static Texture2D linkLeft1;
-        private static Texture2D linkUp1;
-        private static Texture2D linkDown1;
+        public static Texture2D linkRight1;
+        public static Texture2D linkLeft1;
+        public static Texture2D linkUp1;
+        public static Texture2D linkDown1;
 
         // frames used for animation only
-        private static Texture2D linkRight2;
-        private static Texture2D linkLeft2;
-        private static Texture2D linkUp2;
-        private static Texture2D linkDown2;
+        public static Texture2D linkRight2;
+        public static Texture2D linkLeft2;
+        public static Texture2D linkUp2;
+        public static Texture2D linkDown2;
 
         // frames used for attacking
-        private static Texture2D linkAttackRight;
-        private static Texture2D linkAttackLeft;
-        private static Texture2D linkAttackUp;
-        private static Texture2D linkAttackDown;
-
-        //sword frames
-        public static Texture2D swordRight;
-        public static Texture2D swordLeft;
-        public static Texture2D swordUp;
-        public static Texture2D swordDown;
+        public static Texture2D linkAttackRight;
+        public static Texture2D linkAttackLeft;
+        public static Texture2D linkAttackUp;
+        public static Texture2D linkAttackDown;
 
         // attacking
         private static bool isAttacking = false;
         // play attack frame for ATTACK_SECONDS seconds
         private static float AttackTimer;
+        const float ATTACK_SECONDS = 0.5f;
 
         // damage
         private static bool isDamaged = false;
         // Link cannot take damage for x seconds after getting hit
         private static float DamageTimer;
-
+        const float INVINCIBILITY_SECONDS = 1;
         // Link will flash after damaged, indicating temporary invincibility
         private static bool renderLink = true;
         private static float FlashTimer;
-
+        const float FLASHES_PER_SECOND = 8;
+        const float FLASHTIME = 1 / FLASHES_PER_SECOND;
 
         // for sprite animation
         private static float FrameTimer;
-
+        // how many animation frames per second, not the framerate of the game
+        const float FRAMES_PER_SECOND = 10;
+        const float FRAMETIME = 1 / FRAMES_PER_SECOND;
         // link only has two frames of animation
         private static bool isSecondFrame = false;
 
+        
+        
 
-        public static void Initialize()
+        //private Game1 game1;
+
+        public Player()
         {
-            //ContentManager Content = new ContentManager();
-            FrameTimer = Constants.FRAMETIME;
-            AttackTimer = Constants.ATTACK_SECONDS;
-            DamageTimer = Constants.INVINCIBILITY_SECONDS;
-            FlashTimer = Constants.FLASHTIME;
-            //base.Initialize();
+         
+        }
+
+        public static void Initialize(SpriteBatch spriteBatch)
+        {
+          
+            FrameTimer = FRAMETIME;
+            AttackTimer = ATTACK_SECONDS;
+            DamageTimer = INVINCIBILITY_SECONDS;
+            FlashTimer = FLASHTIME;
+            
         }
 
         public static void LoadContent(ContentManager content)
         {
-            // still and movement
-            linkRight1 = content.Load<Texture2D>("linkRight1");
-            linkLeft1 = content.Load<Texture2D>("linkLeft1");
-            linkUp1 = content.Load<Texture2D>("linkUp1");
-            linkDown1 = content.Load<Texture2D>("linkDown1");
-
-            // movement only
-            linkRight2 = content.Load<Texture2D>("linkRight2");
-            linkLeft2 = content.Load<Texture2D>("linkLeft2");
-            linkUp2 = content.Load<Texture2D>("linkUp2");
-            linkDown2 = content.Load<Texture2D>("linkDown2");
-
-            // Attack using weapon or item
-            linkAttackRight = content.Load<Texture2D>("linkAttackRight");
-            linkAttackLeft = content.Load<Texture2D>("linkAttackLeft");
-            linkAttackUp = content.Load<Texture2D>("linkAttackUp");
-            linkAttackDown = content.Load<Texture2D>("linkAttackDown");
-
-            //attack using swordd
-            swordRight = content.Load<Texture2D>("swordRight");
-            swordLeft = content.Load<Texture2D>("swordLeft");
-            swordUp = content.Load<Texture2D>("swordUp");
-            swordDown = content.Load<Texture2D>("swordDown");
+       
+            //create the link sprite
+            sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
         }
 
         //change the current frame to the next frame
@@ -122,12 +110,12 @@ namespace Project1
             AttackTimer -= elapsedSeconds;
             DamageTimer -= elapsedSeconds;
             FlashTimer -= elapsedSeconds;
-
+            
             // rename to keyState
-            KeyboardState keyState = Keyboard.GetState();
+            KeyboardState state = Keyboard.GetState();
             // Print to debug console currently pressed keys
             System.Text.StringBuilder sb = new StringBuilder();
-            foreach (var key in keyState.GetPressedKeys())
+            foreach (var key in state.GetPressedKeys())
                 sb.Append("Key: ").Append(key).Append(" pressed ");
 
             if (sb.Length > 0)
@@ -147,22 +135,56 @@ namespace Project1
                 DamageInvincibility();
             }
 
-            Move(keyState);
+            // movement
+            // else ifs used so link can only move in the cardinal directions
+            if (!isAttacking)
+            {
+                if (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.N))
+                {
+                    // attack using his sword
+                    isAttacking = true;
+                }
 
-            if (keyState.IsKeyDown(Keys.E))
+                if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.A))
+                {
+                    position.X -= playerSpeed;
+                    isMoving = true;
+                    sprite.Update(4, position);
+                }
+                else if (state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.S))
+                {
+                    position.Y += playerSpeed;
+                    isMoving = true;
+                    sprite.Update(3, position);
+                }
+                else if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.W))
+                {
+                    position.Y -= playerSpeed;
+                    isMoving = true;
+                    sprite.Update(1, position);
+                }
+                else if (state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D))
+                {
+                    position.X += playerSpeed;
+                    isMoving = true;
+                    sprite.Update(2, position);
+                }
+            }
+
+            if (state.IsKeyDown(Keys.E))
             {
                 isDamaged = true;
                 DamageInvincibility();
             }
-            if (keyState.IsKeyDown(Keys.T) || keyState.IsKeyDown(Keys.Y))
+            if (state.IsKeyDown(Keys.T) || state.IsKeyDown(Keys.Y))
             {
                 // cycle between which block is currently being shown
             }
-            if (keyState.IsKeyDown(Keys.U) || keyState.IsKeyDown(Keys.I))
+            if (state.IsKeyDown(Keys.U) || state.IsKeyDown(Keys.I))
             {
 
             }
-            if (keyState.IsKeyDown(Keys.O) || keyState.IsKeyDown(Keys.P))
+            if (state.IsKeyDown(Keys.O) || state.IsKeyDown(Keys.P))
             {
 
             }
@@ -180,33 +202,9 @@ namespace Project1
                 // direction & isAttacking dictates which Link sprite is drawn
                 if (isAttacking)
                 {
-                    switch (linkDirection)
-                    {
-                        case 1:
-                            int swordOffsetX = 0;
-                            int swordOffsetY = -50;
-                            DrawSword(swordUp, swordOffsetX, swordOffsetY);
-                            DrawLink(linkAttackUp);
-                            break;
-                        case 2:
-                            swordOffsetX = 50;
-                            swordOffsetY = 25;
-                            DrawSword(swordRight, swordOffsetX, swordOffsetY);
-                            DrawLink(linkAttackRight);
-                            break;
-                        case 3:
-                            swordOffsetX = 25;
-                            swordOffsetY = 60;
-                            DrawSword(swordDown, swordOffsetX, swordOffsetY);
-                            DrawLink(linkAttackDown);
-                            break;
-                        case 4:
-                            swordOffsetX = -50;
-                            swordOffsetY = 25;
-                            DrawSword(swordLeft, swordOffsetX, swordOffsetY);
-                            DrawLink(linkAttackLeft);
-                            break;
-                    }
+                    //tell sprite how to draw
+                    sprite.Draw(spriteBatch, "attack");
+                    
                 }
                 else
                 {
@@ -215,35 +213,27 @@ namespace Project1
                         CheckFrameTimer();
                         if (isSecondFrame)
                         {
-                            switch (linkDirection)
-                            {
-                                case 1:
-                                    DrawLink(linkUp2);
-                                    break;
-                                case 2:
-                                    DrawLink(linkRight2);
-                                    break;
-                                case 3:
-                                    DrawLink(linkDown2);
-                                    break;
-                                case 4:
-                                    DrawLink(linkLeft2);
-                                    break;
-                            }
+                            //tell sprite how to draw
+                            sprite.Draw(spriteBatch, "move");
+                            
                         }
                         else
                         {
-                            Link1Switch();
+                            //tell sprite how to draw
+                            sprite.Draw(spriteBatch, "still");
+                           
                         }
                     }
                     else
                     {
-                        Link1Switch();
+                        //tell sprite how to draw
+                        sprite.Draw(spriteBatch, "still");
+                        
                     }
                 }
             }
         }
-
+        
 
         /*
          * Responsible for loading the sprite image
@@ -260,53 +250,26 @@ namespace Project1
         }
 
         // movement goes here
-        public static void Move(KeyboardState keyState)
+        public void Move()
         {
-            // movement
-            // else ifs used so link can only move in the cardinal directions
-            if (!isAttacking)
-            {
-                if (keyState.IsKeyDown(Keys.Z) || keyState.IsKeyDown(Keys.N))
-                {
-                    // attack using his sword
-                    isAttacking = true;
-                }
 
-                if (keyState.IsKeyDown(Keys.Left) || keyState.IsKeyDown(Keys.A))
-                {
-                    position.X -= playerSpeed;
-                    isMoving = true;
-                    linkDirection = 4;
-                }
-                else if (keyState.IsKeyDown(Keys.Down) || keyState.IsKeyDown(Keys.S))
-                {
-                    position.Y += playerSpeed;
-                    isMoving = true;
-                    linkDirection = 3;
-                }
-                else if (keyState.IsKeyDown(Keys.Up) || keyState.IsKeyDown(Keys.W))
-                {
-                    position.Y -= playerSpeed;
-                    isMoving = true;
-                    linkDirection = 1;
-                }
-                else if (keyState.IsKeyDown(Keys.Right) || keyState.IsKeyDown(Keys.D))
-                {
-                    position.X += playerSpeed;
-                    isMoving = true;
-                    linkDirection = 2;
-                }
-            }
         }
 
-        public static void DrawSword(Texture2D tex, int offsetX, int offsetY)
+        public void Health()
+        {
+            // Check health
+            // doesn't need to be implemented in sprint 2
+        }
+
+        public void Attack()
         {
             // Attacks
-            Game1._spriteBatch.Draw(tex, new Rectangle((int)position.X + offsetX, (int)position.Y + offsetY, tex.Width * swordScale, tex.Height * swordScale), Color.White);
+
             // render attack texture to sprite
 
             // call method of attack used (e.g. sword or arrow)
             // the sword should be a seperate object so it can have its own bounding box
+
         }
 
         // if 1 second has passed since attacking, revert attack state to false (allowing for other actions)
@@ -315,7 +278,7 @@ namespace Project1
             if (AttackTimer <= 0)
             {
                 isAttacking = false;
-                AttackTimer = Constants.ATTACK_SECONDS;
+                AttackTimer = ATTACK_SECONDS;
             }
         }
 
@@ -326,14 +289,14 @@ namespace Project1
             {
                 renderLink = true;
                 isDamaged = false;
-                DamageTimer = Constants.INVINCIBILITY_SECONDS;
+                DamageTimer = INVINCIBILITY_SECONDS;
             }
             else
             {
                 if (FlashTimer <= 0)
                 {
                     renderLink = !renderLink;
-                    FlashTimer = Constants.FLASHTIME;
+                    FlashTimer = FLASHTIME;
                 }
             }
         }
@@ -344,34 +307,10 @@ namespace Project1
             if (FrameTimer <= 0)
             {
                 isSecondFrame = !isSecondFrame;
-                FrameTimer = Constants.FRAMETIME;
+                FrameTimer = FRAMETIME;
             }
         }
 
-        // this switch statement will be used both when link is moving and when he is still
-        // direction dictates which sprite is drawn
-        // preventing duplicated code (a code smell)
-        public static void Link1Switch()
-        {
-            switch (linkDirection)
-            {
-                case 1:
-                    DrawLink(linkUp1);
-                    break;
-                case 2:
-                    DrawLink(linkRight1);
-                    break;
-                case 3:
-                    DrawLink(linkDown1);
-                    break;
-                case 4:
-                    DrawLink(linkLeft1);
-                    break;
-                default:
-                    DrawLink(linkRight1);
-                    break;
-            }
-        }
     }
 }
 

@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\tinal\\source\\repos\\Segfaulter4.0\\Project1\\Project1.csproj": {}
   },
   "projects": {
@@ -12,14 +13,31 @@
         "projectPath": "C:\\Users\\tinal\\source\\repos\\Segfaulter4.0\\Project1\\Project1.csproj",
         "packagesPath": "C:\\Users\\tinal\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\tinal\\source\\repos\\Segfaulter4.0\\Project1\\obj\\",
+=======
+    "/Users/dm/Documents/Projects3902/SegFaulters/Project1/Project1.csproj": {}
+  },
+  "projects": {
+    "/Users/dm/Documents/Projects3902/SegFaulters/Project1/Project1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/dm/Documents/Projects3902/SegFaulters/Project1/Project1.csproj",
+        "projectName": "Project1",
+        "projectPath": "/Users/dm/Documents/Projects3902/SegFaulters/Project1/Project1.csproj",
+        "packagesPath": "/Users/dm/.nuget/packages/",
+        "outputPath": "/Users/dm/Documents/Projects3902/SegFaulters/Project1/obj/",
+>>>>>>> factory-static-player
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\tinal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+          "/Users/dm/.nuget/NuGet/NuGet.Config"
+>>>>>>> factory-static-player
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -70,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.308/RuntimeIdentifierGraph.json"
         }
       }
     }
