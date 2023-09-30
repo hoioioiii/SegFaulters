@@ -14,11 +14,11 @@ namespace Project1
         private GraphicsDeviceManager _graphics;
         //private static SpriteBatch _spriteBatch;
         private static ContentManager Content;
-        private static Vector2 position;
+        public static Vector2 position;
         public IPlayerState playerState { get; set; }
 
-        private int positionX = 300;
-        private int positionY = 300;
+        //private int positionX = 300;
+        //private int positionY = 300;
 
         private static bool isMoving = false;
 
@@ -75,7 +75,6 @@ namespace Project1
 
         // link only has two frames of animation
         private static bool isSecondFrame = false;
-
 
         public static void Initialize()
         {
@@ -183,27 +182,19 @@ namespace Project1
                     switch (linkDirection)
                     {
                         case 1:
-                            int swordOffsetX = 0;
-                            int swordOffsetY = -50;
-                            DrawSword(swordUp, swordOffsetX, swordOffsetY);
+                            Sword.Draw(position, linkDirection);
                             DrawLink(linkAttackUp);
                             break;
                         case 2:
-                            swordOffsetX = 50;
-                            swordOffsetY = 25;
-                            DrawSword(swordRight, swordOffsetX, swordOffsetY);
+                            Sword.Draw(position, linkDirection);
                             DrawLink(linkAttackRight);
                             break;
                         case 3:
-                            swordOffsetX = 25;
-                            swordOffsetY = 60;
-                            DrawSword(swordDown, swordOffsetX, swordOffsetY);
+                            Sword.Draw(position, linkDirection);
                             DrawLink(linkAttackDown);
                             break;
                         case 4:
-                            swordOffsetX = -50;
-                            swordOffsetY = 25;
-                            DrawSword(swordLeft, swordOffsetX, swordOffsetY);
+                            Sword.Draw(position, linkDirection);
                             DrawLink(linkAttackLeft);
                             break;
                     }
@@ -299,16 +290,6 @@ namespace Project1
             }
         }
 
-        public static void DrawSword(Texture2D tex, int offsetX, int offsetY)
-        {
-            // Attacks
-            Game1._spriteBatch.Draw(tex, new Rectangle((int)position.X + offsetX, (int)position.Y + offsetY, tex.Width * swordScale, tex.Height * swordScale), Color.White);
-            // render attack texture to sprite
-
-            // call method of attack used (e.g. sword or arrow)
-            // the sword should be a seperate object so it can have its own bounding box
-        }
-
         // if 1 second has passed since attacking, revert attack state to false (allowing for other actions)
         public static void WaitForAttack()
         {
@@ -374,47 +355,3 @@ namespace Project1
         }
     }
 }
-
-
-//using System.Collections.Generic;
-//using System.Diagnostics;
-//using System.Runtime.CompilerServices;
-//using System.Text;
-//using Microsoft.Xna.Framework;
-//using Microsoft.Xna.Framework.Graphics;
-//using Microsoft.Xna.Framework.Input;
-//using Microsoft.Xna.Framework.Content;
-
-//namespace Project1
-//{
-//    public class Player : IPlayerSprite
-//    {
-
-//        private ISprite sprite;
-//        public Player()
-//        {
-
-
-//            sprite = EnemySpriteFactory.Instance.CreateJellySprite();
-
-
-//        }
-//        public void Draw(SpriteBatch spriteBatch, string type)
-//        {
-//            sprite.Draw(spriteBatch);
-//        }
-
-//        public void Move()
-//        {
-
-//        }
-
-//        public void Update(int direction, Vector2 pos)
-//        {
-
-//            sprite.Update();
-//        }
-//    }
-//}
-
-

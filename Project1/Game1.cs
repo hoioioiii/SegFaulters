@@ -106,6 +106,7 @@ namespace Project1
             // TODO: use this.Content to load your game content here
             //Content content = this.Content;
             Player.LoadContent(Content);
+            Sword.LoadContent(Content);
         }
 
         protected override void Update(GameTime gameTime)
