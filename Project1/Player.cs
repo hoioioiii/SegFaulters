@@ -14,7 +14,7 @@ namespace Project1
         private GraphicsDeviceManager _graphics;
         //private static SpriteBatch _spriteBatch;
         private static ContentManager Content;
-        private static Vector2 position;
+        public static Vector2 position;
         public IPlayerState playerState { get; set; }
 
         private int positionX = 300;
@@ -182,27 +182,19 @@ namespace Project1
                     switch (linkDirection)
                     {
                         case 1:
-                            int swordOffsetX = 0;
-                            int swordOffsetY = -50;
-                            DrawSword(swordUp, swordOffsetX, swordOffsetY);
+                            Sword.Draw(position, linkDirection);
                             DrawLink(linkAttackUp);
                             break;
                         case 2:
-                            swordOffsetX = 50;
-                            swordOffsetY = 25;
-                            DrawSword(swordRight, swordOffsetX, swordOffsetY);
+                            Sword.Draw(position, linkDirection);
                             DrawLink(linkAttackRight);
                             break;
                         case 3:
-                            swordOffsetX = 25;
-                            swordOffsetY = 60;
-                            DrawSword(swordDown, swordOffsetX, swordOffsetY);
+                            Sword.Draw(position, linkDirection);
                             DrawLink(linkAttackDown);
                             break;
                         case 4:
-                            swordOffsetX = -50;
-                            swordOffsetY = 25;
-                            DrawSword(swordLeft, swordOffsetX, swordOffsetY);
+                            Sword.Draw(position, linkDirection);
                             DrawLink(linkAttackLeft);
                             break;
                     }
@@ -296,16 +288,6 @@ namespace Project1
                     linkDirection = 2;
                 }
             }
-        }
-
-        public static void DrawSword(Texture2D tex, int offsetX, int offsetY)
-        {
-            // Attacks
-            Game1._spriteBatch.Draw(tex, new Rectangle((int)position.X + offsetX, (int)position.Y + offsetY, tex.Width * swordScale, tex.Height * swordScale), Color.White);
-            // render attack texture to sprite
-
-            // call method of attack used (e.g. sword or arrow)
-            // the sword should be a seperate object so it can have its own bounding box
         }
 
         // if 1 second has passed since attacking, revert attack state to false (allowing for other actions)
