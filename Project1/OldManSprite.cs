@@ -42,9 +42,6 @@ namespace Project1
         public void Update()
         {
             Move();
-            current_frame += FRAME_SPD;
-            if (current_frame >= total_frame)
-                current_frame = START_FRAME;
         }
 
         public void Move()
@@ -62,18 +59,17 @@ namespace Project1
         private void Animate()
         {
 
-            width = Texture[(int)current_frame].Width / Columns;
-            height = Texture[(int)current_frame].Height / Rows;
+            width = Texture[(int)current_frame].Width;
+            height = Texture[(int)current_frame].Height;
 
-            row = (int)current_frame / Columns;
-            col = (int)current_frame % Columns;
+            
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             Animate();
-            Rectangle SOURCE_REC = new Rectangle(width * col, height * row, width, height);
+            Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }

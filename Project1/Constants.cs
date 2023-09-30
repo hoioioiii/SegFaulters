@@ -18,7 +18,7 @@ namespace Project1
    
     public class Constants
     {
-        public static int SCREEN_WIDTH_UPPER = 700;
+        public static int SCREEN_WIDTH_UPPER = 600;
         public static int SCREEN_WIDTH_LOWER = 0;
         public static int SCREEN_HEIGHT_UPPER = 400;
         public static int SCREEN_HEIGHT_LOWER = 0;
@@ -59,7 +59,7 @@ namespace Project1
         public static int FD_C = 4;
 
         public static int DM_R = 1;
-        public static int DM_C = 4;
+        public static int DM_C = 8;
 
 
         public static int FLAME_R = 1;
@@ -89,6 +89,42 @@ namespace Project1
 
         public static int SPIKE_R = 1;
         public static int SPIKE_C = 7;
+
+
+        public static int LINK_R = 1;
+        public static int LINK_C = 4;
+
+        public static int BOMB_R = 1;
+        public static int BOMB_C = 4;
+
+        public static int SWORD_R = 1;
+        public static int SWORD_C = 4;
+
+        public static int ARROW_R = 1;
+        public static int ARROW_C = 4;
+
+        public static int BOW_R = 1;
+        public static int BOW_C = 4;
+
+
+        public static int BOOMERANG_R = 1;
+        public static int BOOMERANG_C = 4;
+
+        public static int ORB_R = 1;
+        public static int ORB_C = 3;
+
+
+        public static int LINK_X = 300;
+        public static int LINK_Y = 300;
+
+       
+
+
+
+
+        public static int UP_DIRECTION_SPRITE = 2;
+        public static int DOWN_DIRECTION_SPRITE = 0;
+
         // for Link's sprite animation
         // how many animation frames per second, not the framerate of the game
         public const float FRAMES_PER_SECOND = 10;

@@ -64,17 +64,18 @@ namespace Project1
         private static bool isDamaged = false;
         // Link cannot take damage for x seconds after getting hit
         private static float DamageTimer;
-        
+
         // Link will flash after damaged, indicating temporary invincibility
         private static bool renderLink = true;
         private static float FlashTimer;
-        
+
 
         // for sprite animation
         private static float FrameTimer;
-        
+
         // link only has two frames of animation
         private static bool isSecondFrame = false;
+
 
         public static void Initialize()
         {
@@ -121,7 +122,7 @@ namespace Project1
             AttackTimer -= elapsedSeconds;
             DamageTimer -= elapsedSeconds;
             FlashTimer -= elapsedSeconds;
-            
+
             // rename to keyState
             KeyboardState keyState = Keyboard.GetState();
             // Print to debug console currently pressed keys
@@ -242,7 +243,7 @@ namespace Project1
                 }
             }
         }
-        
+
 
         /*
          * Responsible for loading the sprite image
@@ -373,3 +374,47 @@ namespace Project1
         }
     }
 }
+
+
+//using System.Collections.Generic;
+//using System.Diagnostics;
+//using System.Runtime.CompilerServices;
+//using System.Text;
+//using Microsoft.Xna.Framework;
+//using Microsoft.Xna.Framework.Graphics;
+//using Microsoft.Xna.Framework.Input;
+//using Microsoft.Xna.Framework.Content;
+
+//namespace Project1
+//{
+//    public class Player : IPlayerSprite
+//    {
+
+//        private ISprite sprite;
+//        public Player()
+//        {
+
+
+//            sprite = EnemySpriteFactory.Instance.CreateJellySprite();
+
+
+//        }
+//        public void Draw(SpriteBatch spriteBatch, string type)
+//        {
+//            sprite.Draw(spriteBatch);
+//        }
+
+//        public void Move()
+//        {
+
+//        }
+
+//        public void Update(int direction, Vector2 pos)
+//        {
+
+//            sprite.Update();
+//        }
+//    }
+//}
+
+

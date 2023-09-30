@@ -9,12 +9,6 @@ namespace Project1
     {
         private Texture2D[] Texture { get; set; }
 
-        //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
-
-        //Columns is the number of columns in the alias
-        private int Columns { get; set; }
-
         //curremtFrame is used to keep track of which frame of the animation we are currently on
         private double current_frame { get; set; }
 
@@ -27,22 +21,18 @@ namespace Project1
         private int width;
         private int height;
 
-        private int row;
-        private int col;
         public JellySprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
-            Rows = JELLY_R;
-            Columns = JELLY_C;
             current_frame = START_FRAME;
-            total_frame = Rows * Columns;
+            total_frame = JELLY_R * JELLY_C;
             pos_x = SPRITE_X;
             pos_y = SPRITE_Y;
         }
         public void Update()
         {
             Move();
-            current_frame += FRAME_SPD;
+            current_frame += 1;
             if (current_frame >= total_frame)
                 current_frame = START_FRAME;
         }
@@ -58,22 +48,17 @@ namespace Project1
 
 
         }
-
         private void Animate()
         {
 
-            width = Texture[(int)current_frame].Width / Columns;
-            height = Texture[(int)current_frame].Height / Rows;
-
-            row = (int)current_frame / Columns;
-            col = (int)current_frame % Columns;
+            width = Texture[(int)current_frame].Width;
+            height = Texture[(int)current_frame].Height;
 
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
             Animate();
-            Rectangle SOURCE_REC = new Rectangle(width * col, height * row, width, height);
+            Rectangle SOURCE_REC = new Rectangle(1,1, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }

@@ -29,6 +29,10 @@ namespace Project1
 
         private int row;
         private int col;
+
+        private int elapsedTime;
+        private int msecPerFrame;
+        private int secondsPassed;
         public SpikeCrossSprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
@@ -38,11 +42,27 @@ namespace Project1
             total_frame = Rows * Columns;
             pos_x = SPRITE_X;
             pos_y = SPRITE_Y;
+
+            elapsedTime = 0;
+            msecPerFrame = 100;
         }
         public void Update()
         {
+            elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
+            secondsPassed += Game1.deltaTime.ElapsedGameTime.Seconds;
             Move();
-            current_frame += FRAME_SPD;
+            UpdateFrames();
+
+        }
+
+        public void UpdateFrames()
+        {
+            if (elapsedTime >= msecPerFrame)
+            {
+                elapsedTime -= msecPerFrame;
+                current_frame += 1;
+            }
+
             if (current_frame >= total_frame)
                 current_frame = START_FRAME;
         }
@@ -62,18 +82,15 @@ namespace Project1
         private void Animate()
         {
 
-            width = Texture[(int)current_frame].Width / Columns;
-            height = Texture[(int)current_frame].Height / Rows;
-
-            row = (int)current_frame / Columns;
-            col = (int)current_frame % Columns;
+            width = Texture[(int)current_frame].Width;
+            height = Texture[(int)current_frame].Height;
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             Animate();
-            Rectangle SOURCE_REC = new Rectangle(width * col, height * row, width, height);
+            Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }

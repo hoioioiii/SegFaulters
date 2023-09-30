@@ -112,15 +112,7 @@ namespace Project1
 
         public void Move()
         {
-            //int DIR_X = RandomMove.RandMove();
-            //int DIR_Y = RandomMove.RandMove();
-
-            ////Add bounding constraints:
-
-            //POS_X += RandomMove.CheckBounds(DIR_X, POS_X, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            //POS_Y += RandomMove.CheckBounds(DIR_Y, POS_Y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-
-
+           
         }
 
         public void Health()

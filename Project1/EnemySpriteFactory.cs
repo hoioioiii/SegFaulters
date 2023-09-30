@@ -52,15 +52,38 @@ namespace Project1
             batSpritesheet[0] = content.Load<Texture2D>(assetName: "bat1");
             batSpritesheet[1] = content.Load<Texture2D>(assetName: "bat2");
 
+            //we can toss smthing else here
             aquaDragonSpritesheet[0] = content.Load<Texture2D>(assetName: "ZeldaSpriteAquamentusLeft");
             aquaDragonSpritesheet[1] = content.Load<Texture2D>(assetName: "ZeldaSpriteAquamentusRight");
 
 
-            dinoSpritesheet[0] = content.Load<Texture2D>(assetName: "DINO");
-            fireDragonSpritesheet[0] = content.Load<Texture2D>(assetName: "FD");
-            dogMonsterSpritesheet[0] = content.Load<Texture2D>(assetName: "DM");
+            dinoSpritesheet[0] = content.Load<Texture2D>(assetName: "dino1");
+            dinoSpritesheet[1] = content.Load<Texture2D>(assetName: "dino2");
+            dinoSpritesheet[2] = content.Load<Texture2D>(assetName: "dino3");
+            dinoSpritesheet[3] = content.Load<Texture2D>(assetName: "dino4");
+
+
+
+            fireDragonSpritesheet[0] = content.Load<Texture2D>(assetName: "fd1");
+            fireDragonSpritesheet[1] = content.Load<Texture2D>(assetName: "fd2");
+            fireDragonSpritesheet[2] = content.Load<Texture2D>(assetName: "fd3");
+            fireDragonSpritesheet[3] = content.Load<Texture2D>(assetName: "fd4");
+
+
+            dogMonsterSpritesheet[0] = content.Load<Texture2D>(assetName: "dm1");
+            dogMonsterSpritesheet[1] = content.Load<Texture2D>(assetName: "dm2");
+            dogMonsterSpritesheet[2] = content.Load<Texture2D>(assetName: "dm3");
+            dogMonsterSpritesheet[3] = content.Load<Texture2D>(assetName: "dm4");
+            dogMonsterSpritesheet[4] = content.Load<Texture2D>(assetName: "dm5");
+            dogMonsterSpritesheet[5] = content.Load<Texture2D>(assetName: "dm6");
+            dogMonsterSpritesheet[6] = content.Load<Texture2D>(assetName: "dm7");
+            dogMonsterSpritesheet[7] = content.Load<Texture2D>(assetName: "dm8");
+           
 
             flameSpritesheet[0] = content.Load<Texture2D>(assetName: "ZeldaSpriteFire");
+
+
+
 
             handSpritesheet[0] = content.Load<Texture2D>(assetName: "handLeft1");
             handSpritesheet[1] = content.Load<Texture2D>(assetName: "handLeft2");
@@ -83,7 +106,13 @@ namespace Project1
             snakeSpritesheet[2] = content.Load<Texture2D>(assetName: "snakeRight1");
             snakeSpritesheet[3] = content.Load<Texture2D>(assetName: "snakeRight2");
 
-            spikeCrossSpritesheet[0] = content.Load<Texture2D>(assetName: "SPIKES");
+            spikeCrossSpritesheet[0] = content.Load<Texture2D>(assetName: "spikes1");
+            spikeCrossSpritesheet[1] = content.Load<Texture2D>(assetName: "spikes2");
+            spikeCrossSpritesheet[2] = content.Load<Texture2D>(assetName: "spikes3");
+            spikeCrossSpritesheet[3] = content.Load<Texture2D>(assetName: "spikes4");
+            spikeCrossSpritesheet[4] = content.Load<Texture2D>(assetName: "spikes5");
+            spikeCrossSpritesheet[5] = content.Load<Texture2D>(assetName: "spikes6");
+            spikeCrossSpritesheet[6] = content.Load<Texture2D>(assetName: "spikes7");
             //REFACTOR make things based on direction they are facing
 
             // More Content.Load calls follow

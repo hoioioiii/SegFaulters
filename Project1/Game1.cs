@@ -12,6 +12,8 @@ namespace Project1
 {
     public class Game1 : Game
     {
+
+        public static GameTime deltaTime;
         private GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
         public static ContentManager contentLoader;
@@ -46,9 +48,11 @@ namespace Project1
 
 
         }
-        
 
-        void Quit() => Exit();
+
+        //void Quit() => Exit();
+
+
 
         protected override void Initialize()
         {
@@ -106,19 +110,18 @@ namespace Project1
 
         protected override void Update(GameTime gameTime)
         {
-            // TODO: Add your update logic here
-            Player.Update(gameTime);
-
             foreach (IController controller in ControllerList)
             {
                 controller.Update();
             }
+            deltaTime = gameTime;
+            // TODO: Add your update logic here
+            Player.Update(gameTime);
+            //HealthBarSprite.Update();
+            //HealthBarSprite.HealthDamage(1);
+            //HealthBarSprite.Update();
 
-
-            HealthBarSprite.Update();
-            HealthBarSprite.HealthDamage(1);
-
-            HealthBarSprite.Update();
+            
 
             ENEMY.Update();
             base.Update(gameTime);

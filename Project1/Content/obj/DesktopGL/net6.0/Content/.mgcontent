@@ -6,10 +6,26 @@
   <SourceFiles>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/AD.png</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/DINO.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/dino1.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/dino2.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/dino3.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/dino4.png</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/DM.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/dm1.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/dm2.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/dm3.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/dm4.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/dm5.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/dm6.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/dm7.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/dm8.png</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/emptyhealthbar.png</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/emptyhealthbar3.png</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/FD.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/fd1.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/fd2.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/fd3.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/fd4.png</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/FIRE.png</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/HAND.png</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/JELLY.png</File>
@@ -35,10 +51,40 @@
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/SKELETON.png</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/SNAKE.png</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/SPIKES.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/spikes1.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/spikes2.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/spikes3.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/spikes4.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/spikes5.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/spikes6.png</File>
+    <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/spikes7.png</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/ZeldaSpriteLinkLeft.gif</File>
     <File>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/ZeldaSpriteLinkRight.gif</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
