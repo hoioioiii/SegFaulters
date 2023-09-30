@@ -15,17 +15,25 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Project1
 {
-    internal class Constants
+   
+    public class Constants
     {
         public static int SCREEN_WIDTH_UPPER = 700;
         public static int SCREEN_WIDTH_LOWER = 0;
         public static int SCREEN_HEIGHT_UPPER = 400;
         public static int SCREEN_HEIGHT_LOWER = 0;
         public static Game1 GameObj = Game1.Game;
+        // attacking
+        public const float ATTACK_SECONDS = 0.5f;
 
         public static int SPRITE_X = 350;
         public static int SPRITE_Y = 200;
+        // damage
+        public const float INVINCIBILITY_SECONDS = 1;
 
+        // Link will flash after damaged, indicating temporary invincibility
+        public const float FLASHES_PER_SECOND = 8;
+        public const float FLASHTIME = 1 / FLASHES_PER_SECOND;
 
         /*
          * Animations----------------------
@@ -81,5 +89,9 @@ namespace Project1
 
         public static int SPIKE_R = 1;
         public static int SPIKE_C = 7;
+        // for Link's sprite animation
+        // how many animation frames per second, not the framerate of the game
+        public const float FRAMES_PER_SECOND = 10;
+        public const float FRAMETIME = 1 / FRAMES_PER_SECOND;
     }
 }

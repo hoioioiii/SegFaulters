@@ -1,8 +1,12 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Content;
 
 namespace Project1
 {
@@ -11,6 +15,10 @@ namespace Project1
         private GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
         public static ContentManager contentLoader;
+        //public static SpriteBatch _spriteBatch;
+
+        // not used because I made the methods in player public static
+        //public Player player
 
         private IHealth HealthBarSprite;
 
@@ -39,12 +47,27 @@ namespace Project1
 
         }
         
+
+        void Quit() => Exit();
+
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
             HealthBarSprite = new HealthSystem();
             ControllerList = new ArrayList();
             ControllerList.Add(new KeyBoardController(this));
+            KeyboardState state = Keyboard.GetState();
+
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+
+            if (state.IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
+
+            //Player player = new Player();
+            Player.Initialize();
 
             base.Initialize();
         }
@@ -75,16 +98,16 @@ namespace Project1
 
 
 
+
+            // TODO: use this.Content to load your game content here
+            //Content content = this.Content;
+            Player.LoadContent(Content);
         }
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-
-
             // TODO: Add your update logic here
+            Player.Update(gameTime);
 
             foreach (IController controller in ControllerList)
             {
@@ -110,6 +133,11 @@ namespace Project1
 
            
          
+           
+
+            Player.Draw(gameTime, _spriteBatch);
+
+            
 
 
             ENEMY.Draw(_spriteBatch);
