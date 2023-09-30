@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Vector2 = System.Numerics.Vector2;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Project1
 {
     internal class Boomerang : IWeaponProjectile
     {
-        private Texture2D[] texture;
+        //private static Texture2D[] boomerangTex;
+        private static Texture2D boomerangTex1;
+        private static Texture2D boomerangTex2;
+        private static Texture2D boomerangTex3;
+        private static Texture2D boomerangTex4;
 
         private bool activeAttack;
 
@@ -24,15 +27,20 @@ namespace Project1
 
         private Vector2 projectilePosition;
 
+        private static int scale = 4;
+
         private int currFrame;
         private int totalFrame;
+
+        // timer
+        //private static float boomerangTimer;
 
         public Boomerang(Vector2 userPosition, int direction) { 
             currFrame = 0;
             totalFrame = 3;
 
             this.userPosition = userPosition;
-            this.userDirection = direction;
+            //this.userDirection = direction;
 
             projectilePosition = userPosition;
         }
@@ -46,25 +54,41 @@ namespace Project1
         }
 
 
-        public void LoadContent(ContentManager content)
+        public static void LoadContent(ContentManager content)
         {
-            texture[0] = content.Load<Texture2D>("boomerang1");
-            texture[1]  = content.Load<Texture2D>("boomerang2");
-            texture[2] = content.Load<Texture2D>("boomerang3");
-            texture[3] = content.Load<Texture2D>("boomerang4");
+            boomerangTex1 = content.Load<Texture2D>("boomerang1");
+            boomerangTex2 = content.Load<Texture2D>("boomerang2");
+            boomerangTex3 = content.Load<Texture2D>("boomerang3");
+            boomerangTex4 = content.Load<Texture2D>("boomerang4");
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        // userScale needed to 
+        // GameTime gameTime may be needed
+        public void Draw(Vector2 position, int direction, int userScale)
         {
-            switch (userDirection) { //based on the userdirection, change the projectile position in the appropriate direction
+            //float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
+            //boomerangTimer;
+
+            //based on the direction, change the projectile position in the appropriate direction
+            switch (direction) {
                 case 1: //shot upwards
                     projectilePosition.X += 0; //X wont change
                     projectilePosition.Y += 10;
+                    DrawBoomerang(boomerangTex1, position, projectilePosition, userScale);
                     break;
                     //other cases for each direction
             }
-            Rectangle DEST_REC = new Rectangle((int)this.userPosition.X, (int)this.userPosition.Y, texture[currFrame].Width, texture[currFrame].Height);
-            spriteBatch.Draw(texture[(int)currFrame], DEST_REC, Color.White);
+            
+        }
+
+        private static void DrawBoomerang(Texture2D tex, Vector2 position, Vector2 offset, int userScale)
+        {
+            // Attacks
+            Game1._spriteBatch.Draw(tex, new Rectangle((int)position.X + (int)offset.X, (int)position.Y + (int)offset.Y, tex.Width * userScale, tex.Height * userScale), Color.White);
+            // render attack texture to sprite
+
+            // call method of attack used (e.g. sword or arrow)
+            // the sword should be a seperate object so it can have its own bounding box
         }
 
         public void Physics()
@@ -72,9 +96,29 @@ namespace Project1
             //no physics
         }
 
+        public void DetermineWeaponState()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetUserPos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetUserState()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Load()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update()
         {
-            
+            throw new NotImplementedException();
         }
     }
 }

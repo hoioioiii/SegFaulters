@@ -21,13 +21,13 @@ namespace Project1
 
         // not used because I made the methods in player public static
         //public Player player
+        private Player player;
 
         private IHealth HealthBarSprite;
 
-
         public static ContentManager ContentManager1;
         public static Game1 Game;
-
+        
         public static IEnemy ENEMY;
 
         private Texture2D _texture;
@@ -44,15 +44,10 @@ namespace Project1
             //remove this later
             ContentManager1 = Content;
             Game = this;
-            
-
-
+            Player player = new Player();
         }
 
-
         //void Quit() => Exit();
-
-
 
         protected override void Initialize()
         {
@@ -70,7 +65,7 @@ namespace Project1
                 Exit();
             }
 
-            //Player player = new Player();
+            
             Player.Initialize();
 
             base.Initialize();
@@ -101,11 +96,10 @@ namespace Project1
             //ENEMY = new SpikeCross();
 
 
-
-
             // TODO: use this.Content to load your game content here
             //Content content = this.Content;
             Player.LoadContent(Content);
+            Sword.LoadContent(Content);
             Boomerang.LoadContent(Content);
         }
 
@@ -135,23 +129,13 @@ namespace Project1
             _spriteBatch.Begin();
             HealthBarSprite.Draw();
 
-           
-         
-           
-
-            Player.Draw(gameTime, _spriteBatch);
+            player.Draw(gameTime, _spriteBatch);
 
             
-
-
             ENEMY.Draw(_spriteBatch);
 
             _spriteBatch.End();
             base.Draw(gameTime);
-
-
-
-           
         }
     }
 }

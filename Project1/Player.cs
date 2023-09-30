@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Text;
+﻿using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -16,9 +13,6 @@ namespace Project1
         private static ContentManager Content;
         public static Vector2 position;
         public IPlayerState playerState { get; set; }
-
-        private int positionX = 300;
-        private int positionY = 300;
 
         private static bool isMoving = false;
 
@@ -59,6 +53,10 @@ namespace Project1
         private static bool isAttacking = false;
         // play attack frame for ATTACK_SECONDS seconds
         private static float AttackTimer;
+        // weapons
+        private static bool isAttackingWithSword = false;
+        private static bool isAttackingWithBoomerang = false;
+        private static bool isAttackingWithBow = false;
 
         // damage
         private static bool isDamaged = false;
@@ -76,7 +74,14 @@ namespace Project1
         // link only has two frames of animation
         private static bool isSecondFrame = false;
 
+        //
+        private IWeaponProjectile projectile;
 
+        public Player()
+        {
+
+        }
+        
         public static void Initialize()
         {
             //ContentManager Content = new ContentManager();
@@ -147,7 +152,33 @@ namespace Project1
                 DamageInvincibility();
             }
 
-            Move(keyState);
+            // movement
+            // else ifs used so link can only move in the cardinal directions
+            if (!isAttacking)
+            {
+                if (keyState.IsKeyDown(Keys.Z) || keyState.IsKeyDown(Keys.N))
+                {
+                    // attack using his sword
+                    isAttacking = true;
+                    isAttackingWithSword = true;
+                }
+                else if (keyState.IsKeyDown(Keys.D1))
+                {
+                    // attack using his sword
+                    isAttacking = true;
+                    isAttackingWithBoomerang = true;
+                    
+                }
+                else if (keyState.IsKeyDown(Keys.D2))
+                {
+                    // attack using his sword
+                    isAttacking = true;
+                    isAttackingWithBow = true;
+                }
+
+                Move(keyState);
+            }
+
 
             if (keyState.IsKeyDown(Keys.E))
             {
@@ -168,7 +199,7 @@ namespace Project1
             }
         }
 
-        public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             // timer for Draw()
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -180,32 +211,50 @@ namespace Project1
                 // direction & isAttacking dictates which Link sprite is drawn
                 if (isAttacking)
                 {
-                    switch (linkDirection)
+                    if (isAttackingWithSword)
                     {
-                        case 1:
-                            int swordOffsetX = 0;
-                            int swordOffsetY = -50;
-                            DrawSword(swordUp, swordOffsetX, swordOffsetY);
-                            DrawLink(linkAttackUp);
-                            break;
-                        case 2:
-                            swordOffsetX = 50;
-                            swordOffsetY = 25;
-                            DrawSword(swordRight, swordOffsetX, swordOffsetY);
-                            DrawLink(linkAttackRight);
-                            break;
-                        case 3:
-                            swordOffsetX = 25;
-                            swordOffsetY = 60;
-                            DrawSword(swordDown, swordOffsetX, swordOffsetY);
-                            DrawLink(linkAttackDown);
-                            break;
-                        case 4:
-                            swordOffsetX = -50;
-                            swordOffsetY = 25;
-                            DrawSword(swordLeft, swordOffsetX, swordOffsetY);
-                            DrawLink(linkAttackLeft);
-                            break;
+                        switch (linkDirection)
+                        {
+                            case 1:
+                                Sword.Draw(position, linkDirection);
+                                DrawLink(linkAttackUp);
+                                break;
+                            case 2:
+                                Sword.Draw(position, linkDirection);
+                                DrawLink(linkAttackRight);
+                                break;
+                            case 3:
+                                Sword.Draw(position, linkDirection);
+                                DrawLink(linkAttackDown);
+                                break;
+                            case 4:
+                                Sword.Draw(position, linkDirection);
+                                DrawLink(linkAttackLeft);
+                                break;
+                        }
+                    }
+                    else if (isAttackingWithBoomerang)
+                    {
+                        projectile = new Boomerang(position, linkDirection);
+                        switch (linkDirection)
+                        {
+                            case 1:
+                                projectile.Draw(position, linkDirection, spriteScale);
+                                DrawLink(linkAttackUp);
+                                break;
+                            case 2:
+                                projectile.Draw(position, linkDirection, spriteScale);
+                                DrawLink(linkAttackRight);
+                                break;
+                            case 3:
+                                projectile.Draw(position, linkDirection, spriteScale);
+                                DrawLink(linkAttackDown);
+                                break;
+                            case 4:
+                                projectile.Draw(position, linkDirection, spriteScale);
+                                DrawLink(linkAttackLeft);
+                                break;
+                        }
                     }
                 }
                 else
@@ -266,12 +315,6 @@ namespace Project1
             // else ifs used so link can only move in the cardinal directions
             if (!isAttacking)
             {
-                if (keyState.IsKeyDown(Keys.Z) || keyState.IsKeyDown(Keys.N))
-                {
-                    // attack using his sword
-                    isAttacking = true;
-                }
-
                 if (keyState.IsKeyDown(Keys.Left) || keyState.IsKeyDown(Keys.A))
                 {
                     position.X -= playerSpeed;
@@ -297,16 +340,6 @@ namespace Project1
                     linkDirection = 2;
                 }
             }
-        }
-
-        public static void DrawSword(Texture2D tex, int offsetX, int offsetY)
-        {
-            // Attacks
-            Game1._spriteBatch.Draw(tex, new Rectangle((int)position.X + offsetX, (int)position.Y + offsetY, tex.Width * swordScale, tex.Height * swordScale), Color.White);
-            // render attack texture to sprite
-
-            // call method of attack used (e.g. sword or arrow)
-            // the sword should be a seperate object so it can have its own bounding box
         }
 
         // if 1 second has passed since attacking, revert attack state to false (allowing for other actions)
@@ -374,47 +407,3 @@ namespace Project1
         }
     }
 }
-
-
-//using System.Collections.Generic;
-//using System.Diagnostics;
-//using System.Runtime.CompilerServices;
-//using System.Text;
-//using Microsoft.Xna.Framework;
-//using Microsoft.Xna.Framework.Graphics;
-//using Microsoft.Xna.Framework.Input;
-//using Microsoft.Xna.Framework.Content;
-
-//namespace Project1
-//{
-//    public class Player : IPlayerSprite
-//    {
-
-//        private ISprite sprite;
-//        public Player()
-//        {
-
-
-//            sprite = EnemySpriteFactory.Instance.CreateJellySprite();
-
-
-//        }
-//        public void Draw(SpriteBatch spriteBatch, string type)
-//        {
-//            sprite.Draw(spriteBatch);
-//        }
-
-//        public void Move()
-//        {
-
-//        }
-
-//        public void Update(int direction, Vector2 pos)
-//        {
-
-//            sprite.Update();
-//        }
-//    }
-//}
-
-
