@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/swordUp.png</SourceFile>
-  <SourceTime>2023-09-30T01:59:37.5738831-04:00</SourceTime>
-  <DestFile>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/bin/DesktopGL/Content/swordUp.xnb</DestFile>
-  <DestTime>2023-09-30T02:09:17.4012268-04:00</DestTime>
+  <SourceFile>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/swordUp.png</SourceFile>
+  <SourceTime>2023-09-30T11:26:25.7096648-04:00</SourceTime>
+  <DestFile>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/swordUp.xnb</DestFile>
+  <DestTime>2023-09-30T11:28:05.1852852-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

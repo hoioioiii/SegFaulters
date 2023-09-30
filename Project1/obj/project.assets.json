@@ -102,31 +102,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tinal\\.nuget\\packages\\": {},
+    "C:\\Users\\Jachi\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\tinal\\source\\repos\\Segfaulter4.0\\Project1\\Project1.csproj",
+      "projectUniqueName": "C:\\Users\\Jachi\\source\\repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj",
       "projectName": "Project1",
-      "projectPath": "C:\\Users\\tinal\\source\\repos\\Segfaulter4.0\\Project1\\Project1.csproj",
-      "packagesPath": "C:\\Users\\tinal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tinal\\source\\repos\\Segfaulter4.0\\Project1\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\tinal\\source\\repos\\SegFault\\Project1\\Project1.csproj",
-      "projectName": "Project1",
-      "projectPath": "C:\\Users\\tinal\\source\\repos\\SegFault\\Project1\\Project1.csproj",
-      "packagesPath": "C:\\Users\\tinal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tinal\\source\\repos\\SegFault\\Project1\\obj\\",
->>>>>>> factory-static-player
+      "projectPath": "C:\\Users\\Jachi\\source\\repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj",
+      "packagesPath": "C:\\Users\\Jachi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Jachi\\source\\repos\\Boioioiii\\SegFaulters\\Project1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\tinal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Jachi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -182,13 +174,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\tinal\\source\\repos\\Segfaulter4.0\\Project1\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

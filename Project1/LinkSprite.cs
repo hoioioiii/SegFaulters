@@ -36,7 +36,7 @@ namespace Project1
         {
             linkDirection = direction;
             position = pos;
-          
+
         }
 
         private void setCurrentFrames(string type)
@@ -73,28 +73,28 @@ namespace Project1
             setCurrentFrames(_type);
             switch (linkDirection)
             {
-               case 1:
-                    
+                case 1:
+
                     DrawLink(spriteBatch, (int)DIRECTION.up);
                     break;
-               case 2:
-         
+                case 2:
+
                     DrawLink(spriteBatch, (int)DIRECTION.right);
                     break;
-               case 3:
-                    
+                case 3:
+
                     DrawLink(spriteBatch, (int)DIRECTION.down);
                     break;
-               case 4:
-                    
+                case 4:
+
                     DrawLink(spriteBatch, (int)DIRECTION.left);
                     break;
-               default:
-                    
+                default:
+
                     DrawLink(spriteBatch, (int)DIRECTION.right);
                     break;
             }
-            
+
         }
     }
 }

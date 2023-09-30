@@ -1,24 +1,11 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "XMXS/nPbI/cnFse1DxJCb0BT82puO06+DfYfhlzqO6NyYp2YW3eeYYhmAIK2ylrgSOYOE1PV6vu2lB7cDNSeeg==",
+  "dgSpecHash": "gzjgwI5qR2K4Y/4UUXUml1hvi8qcRVycv4Y9y36ybZlxdNFgIw1pcOcP7xJOYaFsMV5K7vhr6SDz7NBKELLyBA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tinal\\source\\repos\\Segfaulter4.0\\Project1\\Project1.csproj",
-=======
-  "dgSpecHash": "m8a7Xn4L4FYbesyjuIqUATrLU82/akSNjqtJfvRH9F9HAlvCKpKzp8mlkqblCclDwLJdGqcWrnfhvKH91RxeHQ==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\tinal\\source\\repos\\SegFault\\Project1\\Project1.csproj",
->>>>>>> factory-static-player
+  "projectFilePath": "C:\\Users\\Jachi\\source\\repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\tinal\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
-    "C:\\Users\\tinal\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+    "C:\\Users\\Jachi\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\Jachi\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\tinal\\source\\repos\\Segfaulter4.0\\Project1\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

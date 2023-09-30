@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/redbaradjusted.png</SourceFile>
-  <SourceTime>2023-09-30T02:01:40.2057237-04:00</SourceTime>
-  <DestFile>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/bin/DesktopGL/Content/redbaradjusted.xnb</DestFile>
-  <DestTime>2023-09-30T02:35:44.6907937-04:00</DestTime>
+  <SourceFile>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/redbaradjusted.png</SourceFile>
+  <SourceTime>2023-09-30T11:26:32.0453216-04:00</SourceTime>
+  <DestFile>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/redbaradjusted.xnb</DestFile>
+  <DestTime>2023-09-30T11:28:05.1533247-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

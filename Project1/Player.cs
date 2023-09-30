@@ -10,6 +10,9 @@ namespace Project1
 {
     public class Player
     {
+        // BUG SOLUTION 1.0
+        public IPlayerState playerState { get; set; }
+
         private GraphicsDeviceManager _graphics;
         //private static SpriteBatch _spriteBatch;
         private static ContentManager Content;
@@ -75,29 +78,29 @@ namespace Project1
         // link only has two frames of animation
         private static bool isSecondFrame = false;
 
-        
-        
+
+
 
         //private Game1 game1;
 
         public Player()
         {
-         
+
         }
 
-        public static void Initialize(SpriteBatch spriteBatch)
+        public static void Initialize()
         {
-          
+
             FrameTimer = FRAMETIME;
             AttackTimer = ATTACK_SECONDS;
             DamageTimer = INVINCIBILITY_SECONDS;
             FlashTimer = FLASHTIME;
-            
+
         }
 
         public static void LoadContent(ContentManager content)
         {
-       
+
             //create the link sprite
             sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
         }
@@ -110,7 +113,7 @@ namespace Project1
             AttackTimer -= elapsedSeconds;
             DamageTimer -= elapsedSeconds;
             FlashTimer -= elapsedSeconds;
-            
+
             // rename to keyState
             KeyboardState state = Keyboard.GetState();
             // Print to debug console currently pressed keys
@@ -204,7 +207,7 @@ namespace Project1
                 {
                     //tell sprite how to draw
                     sprite.Draw(spriteBatch, "attack");
-                    
+
                 }
                 else
                 {
@@ -215,25 +218,25 @@ namespace Project1
                         {
                             //tell sprite how to draw
                             sprite.Draw(spriteBatch, "move");
-                            
+
                         }
                         else
                         {
                             //tell sprite how to draw
                             sprite.Draw(spriteBatch, "still");
-                           
+
                         }
                     }
                     else
                     {
                         //tell sprite how to draw
                         sprite.Draw(spriteBatch, "still");
-                        
+
                     }
                 }
             }
         }
-        
+
 
         /*
          * Responsible for loading the sprite image
@@ -313,47 +316,3 @@ namespace Project1
 
     }
 }
-
-
-//using System.Collections.Generic;
-//using System.Diagnostics;
-//using System.Runtime.CompilerServices;
-//using System.Text;
-//using Microsoft.Xna.Framework;
-//using Microsoft.Xna.Framework.Graphics;
-//using Microsoft.Xna.Framework.Input;
-//using Microsoft.Xna.Framework.Content;
-
-//namespace Project1
-//{
-//    public class Player : IPlayerSprite
-//    {
-
-//        private ISprite sprite;
-//        public Player()
-//        {
-
-
-//            sprite = EnemySpriteFactory.Instance.CreateJellySprite();
-
-
-//        }
-//        public void Draw(SpriteBatch spriteBatch, string type)
-//        {
-//            sprite.Draw(spriteBatch);
-//        }
-
-//        public void Move()
-//        {
-
-//        }
-
-//        public void Update(int direction, Vector2 pos)
-//        {
-
-//            sprite.Update();
-//        }
-//    }
-//}
-
-

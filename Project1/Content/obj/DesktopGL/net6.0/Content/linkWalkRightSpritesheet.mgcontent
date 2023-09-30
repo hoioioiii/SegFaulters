@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
-  <SourceFile>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/linkWalkRightSpritesheet.png</SourceFile>
-  <SourceTime>2023-09-30T01:37:33.3987542-04:00</SourceTime>
-  <DestFile>C:/Users/tinal/source/repos/Segfaulter4.0/Project1/Content/bin/DesktopGL/Content/linkWalkRightSpritesheet.xnb</DestFile>
-  <DestTime>2023-09-30T02:35:44.6697516-04:00</DestTime>
-=======
-  <SourceFile>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/linkWalkRightSpritesheet.png</SourceFile>
-  <SourceTime>2023-09-28T16:02:44.2984552-04:00</SourceTime>
-  <DestFile>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/bin/DesktopGL/Content/linkWalkRightSpritesheet.xnb</DestFile>
-  <DestTime>2023-09-28T16:04:06.0251244-04:00</DestTime>
->>>>>>> factory-static-player
+  <SourceFile>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/linkWalkRightSpritesheet.png</SourceFile>
+  <SourceTime>2023-09-30T11:26:25.4246968-04:00</SourceTime>
+  <DestFile>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/linkWalkRightSpritesheet.xnb</DestFile>
+  <DestTime>2023-09-30T11:28:05.1433243-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

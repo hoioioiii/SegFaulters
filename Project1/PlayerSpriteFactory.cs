@@ -11,11 +11,11 @@ namespace Project1
 {
     public class PlayerSpriteFactory
     {
-      
+
         private Texture2D[] link1SpriteStorage = new Texture2D[PLAYER_FRAMES];
         private Texture2D[] link2SpriteStorage = new Texture2D[PLAYER_FRAMES];
         private Texture2D[] linkAttackSpriteStorage = new Texture2D[PLAYER_FRAMES];
-        
+
 
 
         // More private Texture2Ds follow
@@ -31,15 +31,9 @@ namespace Project1
             }
         }
 
-        private PlayerSpriteFactory()
-        {
-        }
-
         public void LoadAllTextures(ContentManager content)
         {
-            //add all frames to the arrays
-            //anything in all caps still needs to be updates with the new sprite
-            
+
             // still and movement
             link1SpriteStorage[(int)DIRECTION.right] = content.Load<Texture2D>(assetName: "LinkRight1");
             link1SpriteStorage[(int)DIRECTION.left] = content.Load<Texture2D>(assetName: "LinkLeft1");
@@ -73,4 +67,3 @@ namespace Project1
         // ...
     }
 }
-

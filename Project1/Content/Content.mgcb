@@ -13,8 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-<<<<<<< HEAD
-#begin AD.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/bat1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -24,9 +23,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:AD.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/bat1.png;bat1.png
 
-#begin DINO.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/bat2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -36,9 +35,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:DINO.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/bat2.png;bat2.png
 
-#begin dino1.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/dino1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -48,9 +47,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:dino1.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/dino1.png;dino1.png
 
-#begin dino2.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/dino2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -60,9 +59,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:dino2.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/dino2.png;dino2.png
 
-#begin dino3.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/dino3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -72,9 +71,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:dino3.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/dino3.png;dino3.png
 
-#begin dino4.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/dino4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -84,9 +83,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:dino4.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/dino4.png;dino4.png
 
-#begin DM.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/dm1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -96,9 +95,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:DM.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/dm1.png;dm1.png
 
-#begin dm1.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/dm2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -108,9 +107,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:dm1.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/dm2.png;dm2.png
 
-#begin dm2.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/dm3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -120,9 +119,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:dm2.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/dm3.png;dm3.png
 
-#begin dm3.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/dm4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -132,9 +131,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:dm3.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/dm4.png;dm4.png
 
-#begin dm4.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/dm5.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -144,9 +143,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:dm4.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/dm5.png;dm5.png
 
-#begin dm5.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/dm6.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -156,9 +155,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:dm5.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/dm6.png;dm6.png
 
-#begin dm6.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/dm7.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -168,9 +167,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:dm6.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/dm7.png;dm7.png
 
-#begin dm7.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/dm8.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -180,9 +179,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:dm7.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/dm8.png;dm8.png
 
-#begin dm8.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/emptyhealthbar.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -192,9 +191,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:dm8.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/emptyhealthbar.png;emptyhealthbar.png
 
-#begin emptyhealthbar.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/emptyhealthbar2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -204,9 +203,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:emptyhealthbar.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/emptyhealthbar2.png;emptyhealthbar2.png
 
-#begin emptyhealthbar3.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/emptyhealthbar3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -216,9 +215,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:emptyhealthbar3.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/emptyhealthbar3.png;emptyhealthbar3.png
 
-#begin FD.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/FD.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -228,9 +227,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:FD.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/FD.png;FD.png
 
-#begin fd1.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/fd1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -240,9 +239,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:fd1.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/fd1.png;fd1.png
 
-#begin fd2.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/fd2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -252,9 +251,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:fd2.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/fd2.png;fd2.png
 
-#begin fd3.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/fd3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -264,9 +263,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:fd3.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/fd3.png;fd3.png
 
-#begin fd4.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/fd4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -276,9 +275,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:fd4.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/fd4.png;fd4.png
 
-#begin FIRE.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/handLeft1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -288,9 +287,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:FIRE.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/handLeft1.png;handLeft1.png
 
-#begin HAND.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/handLeft2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -300,9 +299,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:HAND.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/handLeft2.png;handLeft2.png
 
-#begin JELLY.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/handRight1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -312,9 +311,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:JELLY.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/handRight1.png;handRight1.png
 
-#begin KEESE_BAT.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/handRight2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -324,11 +323,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:KEESE_BAT.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/handRight2.png;handRight2.png
 
-=======
->>>>>>> factory-static-player
-#begin LinkAttackDown.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/jelly1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -338,9 +335,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:LinkAttackDown.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/jelly1.png;jelly1.png
 
-#begin LinkAttackLeft.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/jelly2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -350,9 +347,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:LinkAttackLeft.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/jelly2.png;jelly2.png
 
-#begin LinkAttackRight.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/jelly3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -362,9 +359,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:LinkAttackRight.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/jelly3.png;jelly3.png
 
-#begin LinkAttackUp.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/LinkAttackDown.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -374,9 +371,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:LinkAttackUp.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/LinkAttackDown.png;LinkAttackDown.png
 
-#begin linkDown1.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/LinkAttackLeft.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -386,9 +383,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:linkDown1.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/LinkAttackLeft.png;LinkAttackLeft.png
 
-#begin linkDown2.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/LinkAttackRight.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -398,9 +395,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:linkDown2.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/LinkAttackRight.png;LinkAttackRight.png
 
-#begin linkLeft1.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/LinkAttackUp.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -410,9 +407,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:linkLeft1.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/LinkAttackUp.png;LinkAttackUp.png
 
-#begin linkLeft2.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/linkDown1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -422,9 +419,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:linkLeft2.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/linkDown1.png;linkDown1.png
 
-#begin linkRight1.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/linkDown2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -434,9 +431,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:linkRight1.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/linkDown2.png;linkDown2.png
 
-#begin linkRight2.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/linkLeft1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -446,9 +443,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:linkRight2.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/linkLeft1.png;linkLeft1.png
 
-#begin linkUp1.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/linkLeft2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -458,9 +455,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:linkUp1.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/linkLeft2.png;linkLeft2.png
 
-#begin linkUp2.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/linkRight1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -470,9 +467,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:linkUp2.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/linkRight1.png;linkRight1.png
 
-#begin linkWalkLeftSpritesheet.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/linkRight2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -482,9 +479,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:linkWalkLeftSpritesheet.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/linkRight2.png;linkRight2.png
 
-#begin linkWalkRightSpritesheet.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/linkUp1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -494,10 +491,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:linkWalkRightSpritesheet.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/linkUp1.png;linkUp1.png
 
-<<<<<<< HEAD
-#begin MERCHANT.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/linkUp2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -507,9 +503,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:MERCHANT.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/linkUp2.png;linkUp2.png
 
-#begin OLDM.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/linkWalkLeftSpritesheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -519,9 +515,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:OLDM.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/linkWalkLeftSpritesheet.png;linkWalkLeftSpritesheet.png
 
-#begin redbar.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/linkWalkRightSpritesheet.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -531,9 +527,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:redbar.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/linkWalkRightSpritesheet.png;linkWalkRightSpritesheet.png
 
-#begin redbaradjusted.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/MERCHANT.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -543,9 +539,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:redbaradjusted.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/MERCHANT.png;MERCHANT.png
 
-#begin SKELETON.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/redbar.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -555,9 +551,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:SKELETON.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/redbar.png;redbar.png
 
-#begin SNAKE.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/redbaradjusted.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -567,9 +563,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:SNAKE.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/redbaradjusted.png;redbaradjusted.png
 
-#begin SPIKES.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/skeleton1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -579,9 +575,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:SPIKES.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/skeleton1.png;skeleton1.png
 
-#begin spikes1.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/skeleton2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -591,9 +587,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:spikes1.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/skeleton2.png;skeleton2.png
 
-#begin spikes2.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/snakeLeft1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -603,9 +599,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:spikes2.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/snakeLeft1.png;snakeLeft1.png
 
-#begin spikes3.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/snakeLeft2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -615,9 +611,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:spikes3.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/snakeLeft2.png;snakeLeft2.png
 
-#begin spikes4.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/snakeRight1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -627,9 +623,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:spikes4.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/snakeRight1.png;snakeRight1.png
 
-#begin spikes5.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/snakeRight2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -639,9 +635,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:spikes5.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/snakeRight2.png;snakeRight2.png
 
-#begin spikes6.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/SPIKES.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -651,9 +647,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:spikes6.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/SPIKES.png;SPIKES.png
 
-#begin spikes7.png
+#begin ../../../../../../OneDrive/Documents/Sprite Images/spikes1.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -663,11 +659,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:spikes7.png
+/build:../../../../../../OneDrive/Documents/Sprite Images/spikes1.png;spikes1.png
 
-=======
->>>>>>> factory-static-player
-#begin ZeldaSpriteLinkLeft.gif
+#begin ../../../../../../OneDrive/Documents/Sprite Images/spikes2.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -677,9 +671,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:ZeldaSpriteLinkLeft.gif
+/build:../../../../../../OneDrive/Documents/Sprite Images/spikes2.png;spikes2.png
 
-#begin ZeldaSpriteLinkRight.gif
+#begin ../../../../../../OneDrive/Documents/Sprite Images/spikes3.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -689,5 +683,173 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:ZeldaSpriteLinkRight.gif
+/build:../../../../../../OneDrive/Documents/Sprite Images/spikes3.png;spikes3.png
+
+#begin ../../../../../../OneDrive/Documents/Sprite Images/spikes4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../OneDrive/Documents/Sprite Images/spikes4.png;spikes4.png
+
+#begin ../../../../../../OneDrive/Documents/Sprite Images/spikes5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../OneDrive/Documents/Sprite Images/spikes5.png;spikes5.png
+
+#begin ../../../../../../OneDrive/Documents/Sprite Images/spikes6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../OneDrive/Documents/Sprite Images/spikes6.png;spikes6.png
+
+#begin ../../../../../../OneDrive/Documents/Sprite Images/spikes7.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../OneDrive/Documents/Sprite Images/spikes7.png;spikes7.png
+
+#begin ../../../../../../OneDrive/Documents/Sprite Images/swordDown.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../OneDrive/Documents/Sprite Images/swordDown.png;swordDown.png
+
+#begin ../../../../../../OneDrive/Documents/Sprite Images/swordLeft.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../OneDrive/Documents/Sprite Images/swordLeft.png;swordLeft.png
+
+#begin ../../../../../../OneDrive/Documents/Sprite Images/swordRight.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../OneDrive/Documents/Sprite Images/swordRight.png;swordRight.png
+
+#begin ../../../../../../OneDrive/Documents/Sprite Images/swordUp.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../OneDrive/Documents/Sprite Images/swordUp.png;swordUp.png
+
+#begin ../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteAquamentusLeft.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteAquamentusLeft.gif;ZeldaSpriteAquamentusLeft.gif
+
+#begin ../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteAquamentusRight.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteAquamentusRight.gif;ZeldaSpriteAquamentusRight.gif
+
+#begin ../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteFire.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteFire.gif;ZeldaSpriteFire.gif
+
+#begin ../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteLinkLeft.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteLinkLeft.gif;ZeldaSpriteLinkLeft.gif
+
+#begin ../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteLinkRight.gif
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteLinkRight.gif;ZeldaSpriteLinkRight.gif
+
+#begin ../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteOldMan.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteOldMan.png;ZeldaSpriteOldMan.png
 
