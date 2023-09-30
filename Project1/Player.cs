@@ -29,50 +29,43 @@ namespace Project1
         private static int linkDirection = 2;
 
         // frames used for still and animation
-        public static Texture2D linkRight1;
-        public static Texture2D linkLeft1;
-        public static Texture2D linkUp1;
-        public static Texture2D linkDown1;
+        private static Texture2D linkRight1;
+        private static Texture2D linkLeft1;
+        private static Texture2D linkUp1;
+        private static Texture2D linkDown1;
 
         // frames used for animation only
-        public static Texture2D linkRight2;
-        public static Texture2D linkLeft2;
-        public static Texture2D linkUp2;
-        public static Texture2D linkDown2;
+        private static Texture2D linkRight2;
+        private static Texture2D linkLeft2;
+        private static Texture2D linkUp2;
+        private static Texture2D linkDown2;
 
         // frames used for attacking
-        public static Texture2D linkAttackRight;
-        public static Texture2D linkAttackLeft;
-        public static Texture2D linkAttackUp;
-        public static Texture2D linkAttackDown;
+        private static Texture2D linkAttackRight;
+        private static Texture2D linkAttackLeft;
+        private static Texture2D linkAttackUp;
+        private static Texture2D linkAttackDown;
 
         // attacking
         private static bool isAttacking = false;
         // play attack frame for ATTACK_SECONDS seconds
         private static float AttackTimer;
-        const float ATTACK_SECONDS = 0.5f;
 
         // damage
         private static bool isDamaged = false;
         // Link cannot take damage for x seconds after getting hit
         private static float DamageTimer;
-        const float INVINCIBILITY_SECONDS = 1;
+        
         // Link will flash after damaged, indicating temporary invincibility
         private static bool renderLink = true;
         private static float FlashTimer;
-        const float FLASHES_PER_SECOND = 8;
-        const float FLASHTIME = 1 / FLASHES_PER_SECOND;
+        
 
         // for sprite animation
         private static float FrameTimer;
-        // how many animation frames per second, not the framerate of the game
-        const float FRAMES_PER_SECOND = 10;
-        const float FRAMETIME = 1 / FRAMES_PER_SECOND;
+        
         // link only has two frames of animation
         private static bool isSecondFrame = false;
-
-        
-        
 
         //private Game1 game1;
 
@@ -85,10 +78,10 @@ namespace Project1
         public static void Initialize()
         {
             //ContentManager Content = new ContentManager();
-            FrameTimer = FRAMETIME;
-            AttackTimer = ATTACK_SECONDS;
-            DamageTimer = INVINCIBILITY_SECONDS;
-            FlashTimer = FLASHTIME;
+            FrameTimer = Constants.FRAMETIME;
+            AttackTimer = Constants.ATTACK_SECONDS;
+            DamageTimer = Constants.INVINCIBILITY_SECONDS;
+            FlashTimer = Constants.FLASHTIME;
             //base.Initialize();
         }
 
@@ -123,10 +116,10 @@ namespace Project1
             FlashTimer -= elapsedSeconds;
             
             // rename to keyState
-            KeyboardState state = Keyboard.GetState();
+            KeyboardState keyState = Keyboard.GetState();
             // Print to debug console currently pressed keys
             System.Text.StringBuilder sb = new StringBuilder();
-            foreach (var key in state.GetPressedKeys())
+            foreach (var key in keyState.GetPressedKeys())
                 sb.Append("Key: ").Append(key).Append(" pressed ");
 
             if (sb.Length > 0)
@@ -150,31 +143,31 @@ namespace Project1
             // else ifs used so link can only move in the cardinal directions
             if (!isAttacking)
             {
-                if (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.N))
+                if (keyState.IsKeyDown(Keys.Z) || keyState.IsKeyDown(Keys.N))
                 {
                     // attack using his sword
                     isAttacking = true;
                 }
 
-                if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.A))
+                if (keyState.IsKeyDown(Keys.Left) || keyState.IsKeyDown(Keys.A))
                 {
                     position.X -= playerSpeed;
                     isMoving = true;
                     linkDirection = 4;
                 }
-                else if (state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.S))
+                else if (keyState.IsKeyDown(Keys.Down) || keyState.IsKeyDown(Keys.S))
                 {
                     position.Y += playerSpeed;
                     isMoving = true;
                     linkDirection = 3;
                 }
-                else if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.W))
+                else if (keyState.IsKeyDown(Keys.Up) || keyState.IsKeyDown(Keys.W))
                 {
                     position.Y -= playerSpeed;
                     isMoving = true;
                     linkDirection = 1;
                 }
-                else if (state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D))
+                else if (keyState.IsKeyDown(Keys.Right) || keyState.IsKeyDown(Keys.D))
                 {
                     position.X += playerSpeed;
                     isMoving = true;
@@ -182,20 +175,20 @@ namespace Project1
                 }
             }
 
-            if (state.IsKeyDown(Keys.E))
+            if (keyState.IsKeyDown(Keys.E))
             {
                 isDamaged = true;
                 DamageInvincibility();
             }
-            if (state.IsKeyDown(Keys.T) || state.IsKeyDown(Keys.Y))
+            if (keyState.IsKeyDown(Keys.T) || keyState.IsKeyDown(Keys.Y))
             {
                 // cycle between which block is currently being shown
             }
-            if (state.IsKeyDown(Keys.U) || state.IsKeyDown(Keys.I))
+            if (keyState.IsKeyDown(Keys.U) || keyState.IsKeyDown(Keys.I))
             {
 
             }
-            if (state.IsKeyDown(Keys.O) || state.IsKeyDown(Keys.P))
+            if (keyState.IsKeyDown(Keys.O) || keyState.IsKeyDown(Keys.P))
             {
 
             }
@@ -315,7 +308,7 @@ namespace Project1
             if (AttackTimer <= 0)
             {
                 isAttacking = false;
-                AttackTimer = ATTACK_SECONDS;
+                AttackTimer = Constants.ATTACK_SECONDS;
             }
         }
 
@@ -326,14 +319,14 @@ namespace Project1
             {
                 renderLink = true;
                 isDamaged = false;
-                DamageTimer = INVINCIBILITY_SECONDS;
+                DamageTimer = Constants.INVINCIBILITY_SECONDS;
             }
             else
             {
                 if (FlashTimer <= 0)
                 {
                     renderLink = !renderLink;
-                    FlashTimer = FLASHTIME;
+                    FlashTimer = Constants.FLASHTIME;
                 }
             }
         }
@@ -344,7 +337,7 @@ namespace Project1
             if (FrameTimer <= 0)
             {
                 isSecondFrame = !isSecondFrame;
-                FrameTimer = FRAMETIME;
+                FrameTimer = Constants.FRAMETIME;
             }
         }
 
