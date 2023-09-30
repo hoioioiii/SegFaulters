@@ -13,6 +13,7 @@ namespace Project1
     internal interface ICommand
     {
         public void Execute();
+<<<<<<< HEAD
         //interface methods
         
         //player commands
@@ -265,3 +266,9 @@ namespace Project1
 }
     }
 }
+=======
+
+
+    }
+}
+>>>>>>> state-transition-character-interface-2.0
