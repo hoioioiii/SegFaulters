@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Vector2 = System.Numerics.Vector2;
 
@@ -21,16 +22,19 @@ namespace Project1
 
         private Vector2 userPosition;
 
+        private Vector2 projectilePosition;
+
         private int currFrame;
         private int totalFrame;
 
-        public Boomerang(Texture2D[] spritesheet, Vector2 userPosition, int direction) { 
-            texture = spritesheet;
+        public Boomerang(Vector2 userPosition, int direction) { 
             currFrame = 0;
             totalFrame = 3;
 
             this.userPosition = userPosition;
             this.userDirection = direction;
+
+            projectilePosition = userPosition;
         }
         public void Attack()
         {
@@ -42,28 +46,25 @@ namespace Project1
         }
 
 
-
-        public void DetermineWeaponState()
+        public void LoadContent(ContentManager content)
         {
-            this.lastWeaponDirection = userDirection;
-
-
-            //DirectionManager.weaponLoaderToDirection;
-
-
-
-        }
-
-        public void GetUserState()
-        {
-            this.userState //call a function
+            texture[0] = content.Load<Texture2D>("boomerang1");
+            texture[1]  = content.Load<Texture2D>("boomerang2");
+            texture[2] = content.Load<Texture2D>("boomerang3");
+            texture[3] = content.Load<Texture2D>("boomerang4");
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle SOURCE_REC = new Rectangle(1, 1, texture[currFrame].Width, texture[currFrame].Height);
-            Rectangle DEST_REC = new Rectangle((int)this.lastWeaponPosition.X, (int)this.lastWeaponPosition.Y, texture[currFrame].Width, texture[currFrame].Height);
-            spriteBatch.Draw(texture[(int)currFrame], DEST_REC, SOURCE_REC, Color.White);
+            switch (userDirection) { //based on the userdirection, change the projectile position in the appropriate direction
+                case 1: //shot upwards
+                    projectilePosition.X += 0; //X wont change
+                    projectilePosition.Y += 10;
+                    break;
+                    //other cases for each direction
+            }
+            Rectangle DEST_REC = new Rectangle((int)this.userPosition.X, (int)this.userPosition.Y, texture[currFrame].Width, texture[currFrame].Height);
+            spriteBatch.Draw(texture[(int)currFrame], DEST_REC, Color.White);
         }
 
         public void Physics()
