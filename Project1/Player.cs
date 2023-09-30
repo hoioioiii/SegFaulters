@@ -12,7 +12,6 @@ namespace Project1
     public class Player
     {
         private GraphicsDeviceManager _graphics;
-        //private static SpriteBatch _spriteBatch;
         private static ContentManager Content;
         private static Vector2 position;
         public IPlayerState playerState { get; set; }
@@ -26,7 +25,7 @@ namespace Project1
 
         // scales the size of the sprite on screen
         private static int spriteScale = 4;
-        private static int swordScale = 4;
+        
 
         // cardinal direction player is facing, starts with up on 1 and progresses clockwise (e.g. 4 is left-facing)
         private static int linkDirection = 2;
@@ -168,7 +167,7 @@ namespace Project1
             }
         }
 
-        public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public static void Draw(GameTime gameTime)
         {
             // timer for Draw()
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -183,27 +182,19 @@ namespace Project1
                     switch (linkDirection)
                     {
                         case 1:
-                            int swordOffsetX = 0;
-                            int swordOffsetY = -50;
-                            DrawSword(swordUp, swordOffsetX, swordOffsetY);
+                            Sword.Draw(position, linkDirection);
                             DrawLink(linkAttackUp);
                             break;
                         case 2:
-                            swordOffsetX = 50;
-                            swordOffsetY = 25;
-                            DrawSword(swordRight, swordOffsetX, swordOffsetY);
+                            Sword.Draw(position, linkDirection);
                             DrawLink(linkAttackRight);
                             break;
                         case 3:
-                            swordOffsetX = 25;
-                            swordOffsetY = 60;
-                            DrawSword(swordDown, swordOffsetX, swordOffsetY);
+                            Sword.Draw(position, linkDirection);
                             DrawLink(linkAttackDown);
                             break;
                         case 4:
-                            swordOffsetX = -50;
-                            swordOffsetY = 25;
-                            DrawSword(swordLeft, swordOffsetX, swordOffsetY);
+                            Sword.Draw(position, linkDirection);
                             DrawLink(linkAttackLeft);
                             break;
                     }
@@ -299,15 +290,7 @@ namespace Project1
             }
         }
 
-        public static void DrawSword(Texture2D tex, int offsetX, int offsetY)
-        {
-            // Attacks
-            Game1._spriteBatch.Draw(tex, new Rectangle((int)position.X + offsetX, (int)position.Y + offsetY, tex.Width * swordScale, tex.Height * swordScale), Color.White);
-            // render attack texture to sprite
-
-            // call method of attack used (e.g. sword or arrow)
-            // the sword should be a seperate object so it can have its own bounding box
-        }
+        
 
         // if 1 second has passed since attacking, revert attack state to false (allowing for other actions)
         public static void WaitForAttack()

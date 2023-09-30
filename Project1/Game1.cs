@@ -138,7 +138,7 @@ namespace Project1
          
            
 
-            Player.Draw(gameTime, _spriteBatch);
+            Player.Draw(gameTime);
 
             
 
