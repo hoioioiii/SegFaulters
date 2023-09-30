@@ -14,7 +14,7 @@ namespace Project1
         private GraphicsDeviceManager _graphics;
         //private static SpriteBatch _spriteBatch;
         private static ContentManager Content;
-        private static Vector2 position;
+        public static Vector2 position;
         public IPlayerState playerState { get; set; }
 
         private int positionX = 300;

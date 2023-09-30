@@ -14,7 +14,6 @@ namespace Project1
     {
         public void Execute();
         //interface methods
-        
         //player commands
         public class MoveDown : ICommand
         {

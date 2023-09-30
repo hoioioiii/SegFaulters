@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "XMXS/nPbI/cnFse1DxJCb0BT82puO06+DfYfhlzqO6NyYp2YW3eeYYhmAIK2ylrgSOYOE1PV6vu2lB7cDNSeeg==",
+  "dgSpecHash": "v+GLrp3RGB4Y6H4CEuSOEjobuC79NHJJckNpQAH9OHONpx4axAk3QrGVkPEPz303ZS5nMBaP4wc3hgC0YZV50Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tinal\\source\\repos\\Segfaulter4.0\\Project1\\Project1.csproj",
+  "projectFilePath": "D:\\CSE3902\\Projects\\SegFaulters\\SegFaulters\\Project1\\Project1.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\tinal\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
-    "C:\\Users\\tinal\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+    "C:\\Users\\kyler\\.nuget\\packages\\monogame.content.builder.task\\3.8.1.303\\monogame.content.builder.task.3.8.1.303.nupkg.sha512",
+    "C:\\Users\\kyler\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
   ],
   "logs": []
 }
