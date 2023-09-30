@@ -27,6 +27,8 @@ namespace Project1
         private int width;
         private int height;
 
+        private int elapsedTime;
+        private int msecPerFrame;
 
         public BossAquaDragonSprite(Texture2D[] spriteSheet)
 		{
@@ -37,17 +39,32 @@ namespace Project1
             total_frame = Rows * Columns;
             pos_x = SPRITE_X;
             pos_y = SPRITE_Y;
-            
-            
-        }
 
+
+            elapsedTime = 0;
+            msecPerFrame = 300;
+        }
         public void Update()
         {
+            elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
+
             Move();
-            current_frame += FRAME_SPD;
+            UpdateFrames();
+
+        }
+
+        public void UpdateFrames()
+        {
+            if (elapsedTime >= msecPerFrame)
+            {
+                elapsedTime -= msecPerFrame;
+                current_frame += 1;
+            }
+
             if (current_frame >= total_frame)
                 current_frame = START_FRAME;
         }
+
 
         public void Move()
         {

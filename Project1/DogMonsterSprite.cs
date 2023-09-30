@@ -155,11 +155,8 @@ namespace Project1
                 {
                     ChangeDirectionPath();
                     secTillDirChange = 0;
-                }
-                
-                
+                }  
             }
-
             if (Vertical)
             {
                 pos_y += Direction;

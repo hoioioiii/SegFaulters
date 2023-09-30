@@ -16,7 +16,7 @@ namespace Project1
         private int Columns { get; set; }
 
         //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private double current_frame { get; set; }
+        private int current_frame { get; set; }
 
         //totalFrames keeps track of how many frames there are in total
         private int total_frame { get; set; }
@@ -27,8 +27,10 @@ namespace Project1
         private int width;
         private int height;
 
-        private int row;
-        private int col;
+        private int elapsedTime;
+        private int msecPerFrame;
+
+
         public SkeletonSprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
@@ -38,11 +40,28 @@ namespace Project1
             total_frame = Rows * Columns;
             pos_x = SPRITE_X;
             pos_y = SPRITE_Y;
+
+
+            elapsedTime = 0;
+            msecPerFrame = 300;
         }
         public void Update()
         {
+            elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
+            
             Move();
-            current_frame += FRAME_SPD;
+            UpdateFrames();
+
+        }
+
+        public void UpdateFrames()
+        {
+            if (elapsedTime >= msecPerFrame)
+            {
+                elapsedTime -= msecPerFrame;
+                current_frame += 1;
+            }
+
             if (current_frame >= total_frame)
                 current_frame = START_FRAME;
         }
@@ -62,8 +81,8 @@ namespace Project1
         private void Animate()
         {
 
-            width = Texture[(int)current_frame].Width;
-            height = Texture[(int)current_frame].Height;
+            width = Texture[current_frame].Width;
+            height = Texture[current_frame].Height;
 
         }
 
@@ -72,7 +91,7 @@ namespace Project1
             Animate();
             Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+            spriteBatch.Draw(Texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
     }
 }

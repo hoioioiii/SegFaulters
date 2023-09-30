@@ -84,6 +84,9 @@ namespace Project1
         public static int SKELETON_R = 1;
         public static int SKELETON_C = 2;
 
+        public static int SKELETON_ARRAY = 2;
+        
+
         public static int SNAKE_R = 1;
         public static int SNAKE_C = 4;
 
@@ -105,7 +108,6 @@ namespace Project1
 
         public static int BOW_R = 1;
         public static int BOW_C = 4;
-
 
         public static int BOOMERANG_R = 1;
         public static int BOOMERANG_C = 4;

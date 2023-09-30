@@ -52,7 +52,6 @@ namespace Project1
             secondsPassed += Game1.deltaTime.ElapsedGameTime.Seconds;
             Move();
             UpdateFrames();
-
         }
 
         public void UpdateFrames()

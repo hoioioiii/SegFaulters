@@ -24,7 +24,7 @@ namespace Project1
         private Texture2D[] jellySpritesheet = new Texture2D[JELLY_C * JELLY_R];
         private Texture2D[] merchantSpritesheet = new Texture2D[MERCHANT_C * MERCHANT_R];
         private Texture2D[] oldManSpritesheet = new Texture2D[OLDMAN_C * OLDMAN_R];
-        private Texture2D[] skeletonSpritesheet = new Texture2D[SKELETON_C * SKELETON_R];
+        private Texture2D[] skeletonSpritesheet = new Texture2D[SKELETON_ARRAY];
         private Texture2D[] snakeSpritesheet = new Texture2D[SNAKE_C * SNAKE_R];
         private Texture2D[] spikeCrossSpritesheet = new Texture2D[SPIKE_C * SPIKE_R];
 
