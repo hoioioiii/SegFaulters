@@ -12,6 +12,7 @@ namespace Project1
      */
     internal interface ICommand
     {
+        public void Execute();
         //interface methods
         void Execute();
 
@@ -261,7 +262,7 @@ namespace Project1
             public void Execute()
             {
 
-            }
-        }
+    }
+}
     }
 }
