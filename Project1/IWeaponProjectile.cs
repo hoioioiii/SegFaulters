@@ -8,5 +8,24 @@ namespace Project1
 {
     internal interface IWeaponProjectile
     {
+        
+        public void Attack();
+
+        public void Load();
+
+        public void GetUserPos();
+
+        public void GetUserState();
+
+        public void DetermineWeaponState();
+
+        public void Update();
+
+        public void Physics();
     }
+
+
+
+
+}
 }
