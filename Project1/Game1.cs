@@ -27,6 +27,7 @@ namespace Project1
         public static Game1 Game;
 
         public static IEnemy ENEMY;
+        public static IItem Item;
 
         private Texture2D _texture;
         private ArrayList ControllerList;
@@ -84,12 +85,15 @@ namespace Project1
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            ItemSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             /**
              * 
              * Replace all sprites with proper sprites.
              */
             IListIterate EntityList = new EnemyIterator(this);
+
+            IListIterate ItemList = new ItemIterator(this);
 
             
             //ENEMY = new Bat();
@@ -128,7 +132,7 @@ namespace Project1
             //HealthBarSprite.Update();
 
             
-
+            Item.Update();
             ENEMY.Update();
             base.Update(gameTime);
         }
@@ -150,6 +154,8 @@ namespace Project1
 
 
             ENEMY.Draw(_spriteBatch);
+            Item.Draw(_spriteBatch);
+
 
             _spriteBatch.End();
             base.Draw(gameTime);
