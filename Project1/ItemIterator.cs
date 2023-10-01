@@ -27,7 +27,7 @@ namespace Project1
         {
            texture2D = temp;
         }
-
+        
         public void Load()//this would not exist but instead call the enemy class
         {
             Texture2D item0 = GAME_OBJ.Content.Load<Texture2D>("Compass");
@@ -45,13 +45,13 @@ namespace Project1
             Texture2D item12= GAME_OBJ.Content.Load<Texture2D>("Fairy");
             Texture2D item13= GAME_OBJ.Content.Load<Texture2D>("Clock");
 
-            
+
             Texture2D[] temp = {item1,item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12, item13};
             CreateList(temp);
         }
 
         public void Draw(SpriteBatch spriteBatch)
-        {
+            {
             Texture2D drawItem = texture2D[pointer];
 
             spriteBatch.Draw(drawItem, new Vector2(200, 200), Color.White);
@@ -64,7 +64,7 @@ namespace Project1
             {
                 pointer -= 1;
             }
-        
+           
         }
         public void moveForward()
         {

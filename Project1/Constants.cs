@@ -47,22 +47,34 @@ namespace Project1
          * Bat sprite frames:
          */
 
+        public static int ARROW_R = 1;
+        public static int ARROW_C = 4;
         public static int BAT_R = 1;
         public static int BAT_C = 2;
 
+        public static int BOMB_R = 1;
+        public static int BOMB_C = 1;
         public static int AD_R = 1;
         public static int AD_C = 2;
 
+        public static int BOOM_R = 1;
+        public static int BOOM_C = 1;
         public static int DINO_R = 1;
         public static int DINO_C = 4;
 
+        public static int BOW_R = 1;
+        public static int BOW_C = 1;
         public static int FD_R = 1;
         public static int FD_C = 4;
 
+        public static int CLOCK_R = 1;
+        public static int CLOCK_C = 1;
         public static int DM_R = 1;
         public static int DM_C = 8;
 
 
+        public static int FAIRY_R = 1;
+        public static int FAIRY_C = 2;
         public static int FLAME_R = 1;
         public static int FLAME_C = 1;
 
@@ -84,22 +96,32 @@ namespace Project1
 
         public static int SKELETON_R = 1;
         public static int SKELETON_C = 2;
+        public static int HEART_R = 1;
+        public static int HEART_C = 2;
 
         public static int SKELETON_ARRAY = 2;
-        
+
+        public static int HEART_CONTAINER_R = 1;
+        public static int HEART_CONTAINER_C = 1;
 
         public static int SNAKE_R = 1;
         public static int SNAKE_C = 4;
 
         public static int SPIKE_R = 1;
         public static int SPIKE_C = 7;
+        public static int KEY_R = 1;
+        public static int KEY_C = 1;
 
 
         public static int LINK_R = 1;
         public static int LINK_C = 4;
+        public static int MAP_R = 1;
+        public static int MAP_C = 1;
 
         public static int BOMB_R = 1;
         public static int BOMB_C = 4;
+        public static int RUPEE_R = 1;
+        public static int RUPEE_C = 2;
 
         public static int SWORD_R = 1;
         public static int SWORD_C = 4;
@@ -135,6 +157,8 @@ namespace Project1
         // how many animation frames per second, not the framerate of the game
         public const float FRAMES_PER_SECOND = 10;
         public const float FRAMETIME = 1 / FRAMES_PER_SECOND;
+        public static int TRIFORCE_R = 1;
+        public static int TRIFORCE_C = 2;
     }
 }
 

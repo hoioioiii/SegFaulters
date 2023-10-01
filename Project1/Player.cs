@@ -8,8 +8,8 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Project1
 {
-    public class Player
-    {
+public class Player
+{
         // BUG SOLUTION 1.0
         public IPlayerState playerState { get; set; }
 
@@ -83,8 +83,8 @@ namespace Project1
 
         //private Game1 game1;
 
-        public Player()
-        {
+	public Player()
+	{
 
         }
 
@@ -314,5 +314,5 @@ namespace Project1
             }
         }
 
-    }
+	}
 }

@@ -1,0 +1,5 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/../../../../../OneDrive/Pictures/redbar.png","C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/bin/DesktopGL/redbar.xnb","TextureProcessor","Texture2DContent",521,252405,0.2193174
+"C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/emptyhealthbar2.png","C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/bin/DesktopGL/emptyhealthbar.xnb","TextureProcessor","Texture2DContent",2418,52565,0.0081804
+"C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/emptyhealthbar3.png","C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/bin/DesktopGL/emptyhealthbar3.xnb","TextureProcessor","Texture2DContent",2418,52565,0.0044115
+"C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/redbaradjusted.png","C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/bin/DesktopGL/redbaradjusted.xnb","TextureProcessor","Texture2DContent",524,52565,0.0033821
