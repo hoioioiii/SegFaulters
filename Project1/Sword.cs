@@ -115,5 +115,10 @@ namespace Project1
         {
             throw new NotImplementedException();
         }
+
+        public void Draw()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

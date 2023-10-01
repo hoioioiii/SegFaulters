@@ -60,6 +60,7 @@ namespace Project1
         private static bool isAttackingWithSword = false;
         private static bool isAttackingWithBoomerang = false;
         private static bool isAttackingWithBow = false;
+        public static bool isAttackingWithBomb = false;
 
         // damage
         private static bool isDamaged = false;
@@ -77,13 +78,24 @@ namespace Project1
         
         // link only has two frames of animation
         private static bool isSecondFrame = false;
-               
-        
 
+        private static IWeaponMelee weapon;
+        private static IWeaponMelee spriteWeapon;
+
+        private static int onScreen;
+
+
+        private static int posX;
+        private static int posY;
+
+        private static bool remainOnScreen;
         //private Game1 game1;
 
         public Player()
         {
+            posX = 0;
+            posY = 0;
+            remainOnScreen = false;
          
         }
 
@@ -94,7 +106,6 @@ namespace Project1
             AttackTimer = Constants.ATTACK_SECONDS;
             DamageTimer = Constants.INVINCIBILITY_SECONDS;
             FlashTimer = Constants.FLASHTIME;
-            
         }
 
         public static void LoadContent(ContentManager content)
@@ -103,6 +114,8 @@ namespace Project1
             //create the link sprite
             sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
 
+            spriteWeapon = new Bomb();
+           
         }
 
         //change the current frame to the next frame
@@ -113,7 +126,8 @@ namespace Project1
             AttackTimer -= elapsedSeconds;
             DamageTimer -= elapsedSeconds;
             FlashTimer -= elapsedSeconds;
-            
+
+
             // rename to keyState
             KeyboardState state = Keyboard.GetState();
             // Print to debug console currently pressed keys
@@ -162,6 +176,18 @@ namespace Project1
                     isAttacking = true;
                     isAttackingWithBow = true;
                 }
+                else if (state.IsKeyDown(Keys.D3))
+                {
+                    // attack using his sword
+                    isAttacking = true;
+                    isAttackingWithBomb = true;
+
+                    isAttackingWithSword = false;
+                    isAttackingWithBoomerang = false;
+                    isAttackingWithBow = false;
+
+                }
+
 
 
                 if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.A))
@@ -169,6 +195,10 @@ namespace Project1
                     position.X -= playerSpeed;
                     isMoving = true;
                     linkDirection = 4;
+
+                    posX -= playerSpeed;
+
+
                     sprite.Update(4, position);
                 }
                 else if (state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.S))
@@ -176,21 +206,27 @@ namespace Project1
                     position.Y += playerSpeed;
                     isMoving = true;
                     linkDirection = 3;
+                    posX += playerSpeed;
                     sprite.Update(3, position);
+
                 }
                 else if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.W))
                 {
                     position.Y -= playerSpeed;
                     isMoving = true;
                     linkDirection = 1;
+                    posY -= playerSpeed;
                     sprite.Update(1, position);
+                   
                 }
                 else if (state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D))
                 {
                     position.X += playerSpeed;
                     isMoving = true;
                     linkDirection = 2;
+                    posY += playerSpeed;
                     sprite.Update(2, position);
+                    
                 }
             }
 
@@ -211,6 +247,29 @@ namespace Project1
             {
 
             }
+
+            if (remainOnScreen)
+            {
+                spriteWeapon.Update();
+            }
+
+
+        }
+
+        public static void CheckTime()
+        {
+            onScreen += Game1.deltaTime.ElapsedGameTime.Milliseconds;
+        }
+
+
+        public static void CheckOnScreen()
+        {
+            CheckTime();
+            if(onScreen > 1000)
+            {
+                remainOnScreen = false;
+            }
+           
         }
 
         public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -219,9 +278,22 @@ namespace Project1
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             FrameTimer -= elapsedSeconds;
 
+            CheckOnScreen();
+
+            if (remainOnScreen)
+            {
+                spriteWeapon.Draw();
+            }
+            else
+            {
+                onScreen = 0;
+                remainOnScreen = false;
+            }
+
             // Link will not be rendered when damaged (he will flash for INVINCIBILITY_SECONDS seconds)
             if (renderLink)
             {
+
                 // direction & isAttacking dictates which Link sprite is drawn
                 if (isAttacking)
                 {
@@ -269,6 +341,17 @@ namespace Project1
                                 break;
                         }
                     }
+                    else if (isAttackingWithBomb)
+                    {
+                        spriteWeapon = new Bomb();
+                        remainOnScreen = true;
+                        spriteWeapon.Attack();
+                        spriteWeapon.Draw();
+                        sprite.Draw(spriteBatch, "attack");
+                    }
+
+
+
                 }
                 else
                 {
@@ -279,13 +362,11 @@ namespace Project1
                         {
                             //tell sprite how to draw
                             sprite.Draw(spriteBatch, "move");
-                            
                         }
                         else
                         {
                             //tell sprite how to draw
                             sprite.Draw(spriteBatch, "still");
-                           
                         }
                     }
                     else
@@ -326,7 +407,6 @@ namespace Project1
 
             // call method of attack used (e.g. sword or arrow)
             // the sword should be a seperate object so it can have its own bounding box
-
         }
 
         // if 1 second has passed since attacking, revert attack state to false (allowing for other actions)
@@ -366,6 +446,18 @@ namespace Project1
                 isSecondFrame = !isSecondFrame;
                 FrameTimer = FRAMETIME;
             }
+        }
+
+
+        public static Vector2 getUserPos()
+        {
+
+            return new Vector2(position.X, position.Y);
+        }
+
+        public static int getUserDirection()
+        {
+            return linkDirection;
         }
 
     }

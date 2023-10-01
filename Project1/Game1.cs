@@ -12,12 +12,16 @@ namespace Project1
     {
         private GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
+        public static GameTime deltaTime;
+
+
 
         // not used because I made the methods in player public static
         //public Player player
 
         public Game1()
         {
+            
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
@@ -38,6 +42,10 @@ namespace Project1
                 Exit();
             }
 
+
+
+
+
             //Player player = new Player();
             Player.Initialize(_spriteBatch);
 
@@ -47,7 +55,7 @@ namespace Project1
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            WeaponSpriteFactory.Instance.LoadAllTextures(Content);
             // TODO: use this.Content to load your game content here
             //Content content = this.Content;
             PlayerSpriteFactory.Instance.LoadAllTextures(Content);
@@ -58,9 +66,9 @@ namespace Project1
 
         protected override void Update(GameTime gameTime)
         {
-            // TODO: Add your update logic here
+          
             Player.Update(gameTime);
-
+            deltaTime = gameTime;
             base.Update(gameTime);
         }
 
