@@ -1,30 +1,23 @@
-﻿<Properties StartupConfiguration="{9BC08358-E214-417E-929B-B7D38788B002}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="BatSprite.cs">
+﻿<Properties StartupConfiguration="{13C446E3-FEB6-45F8-8905-75F180389DF0}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="app.manifest">
     <Files>
-      <File FileName="Content/Content.mgcb" />
-      <File FileName="BatSprite.cs" Line="4" Column="1" />
+      <File FileName="Program.cs" />
       <File FileName="Game1.cs" />
-      <File FileName="Bat.cs" Line="22" Column="23" />
-      <File FileName="../../../../../../usr/local/share/dotnet/sdk/7.0.307/Sdks/Microsoft.NET.Sdk/targets/Microsoft.PackageDependencyResolution.targets" />
+      <File FileName="app.manifest" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Project1">
-            <Node name="Project1">
-              <Node name="Content" expanded="True" />
-              <Node name="BatSprite.cs" selected="True" />
-            </Node>
-          </Node>
+          <Node name="Project1" selected="True" />
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
-  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.Project1 PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

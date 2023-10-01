@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System.ComponentModel;
@@ -29,10 +29,6 @@ namespace Project1
             {
                 return instance;
             }
-        }
-
-        private PlayerSpriteFactory()
-        {
         }
 
         public void LoadAllTextures(ContentManager content)
@@ -73,4 +69,3 @@ namespace Project1
         // ...
     }
 }
-

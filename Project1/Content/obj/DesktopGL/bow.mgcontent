@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/bow.png</SourceFile>
-  <SourceTime>2023-09-25T01:07:17.7962224-04:00</SourceTime>
-  <DestFile>/Users/dm/Documents/Projects3902/SegFaulters/Project1/Content/bin/DesktopGL/bow.xnb</DestFile>
-  <DestTime>2023-09-25T02:06:55.9660752-04:00</DestTime>
+  <SourceFile>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/bow.png</SourceFile>
+  <SourceTime>2023-10-01T01:47:02.9747299-04:00</SourceTime>
+  <DestFile>C:/Users/Ephratah/source/repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/bow.xnb</DestFile>
+  <DestTime>2023-10-01T01:48:29.2656368-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

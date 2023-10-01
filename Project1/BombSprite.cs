@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static Project1.Constants;
 
 namespace Project1
 {
     internal class BombSprite: ISpriteWeapon
     {
+        private Texture2D[] Texture { get; set; }
 
         private Texture2D[] texture;
         private int userX;
@@ -75,7 +77,7 @@ namespace Project1
 
             if (elapsedTime > fps) {
                 return false;
-            }
+        }
             return true;
         }
 
@@ -95,7 +97,7 @@ namespace Project1
 
         public void Attack()
         {
-            
+
             DetermineWeaponState();
             setBomb();
 
@@ -113,7 +115,7 @@ namespace Project1
         public void Update()
         {
             UpdateFrames();
-            
+
         }
         private void placeOffset()
         {
@@ -136,7 +138,7 @@ namespace Project1
         private void GetUserState()
         {
             direction = Player.getUserDirection();
-        }
+}
 
         private void Load()
         {

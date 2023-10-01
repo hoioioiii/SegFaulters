@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -55,7 +55,7 @@ namespace Project1
             //remove later:
             GameObject = Constants.GameObj;
             ContentLoad = GameObject.Content;
-            Texture = Load();
+            //Texture = Load();
             POS_X = SPRITE_X;
             POS_Y = SPRITE_Y;
 
@@ -89,14 +89,14 @@ namespace Project1
         /*
          * Responsible for loading the sprite image
          */
-        public Texture2D Load()
-        {
-            /*
-            setFrames();
-            */
-            return ContentLoad.Load<Texture2D>(assetName: "DINO");
+        //public Texture2D Load()
+        //{
+        //    /*
+        //    setFrames();
+        //    */
+        //    return ContentLoad.Load<Texture2D>(assetName: "DINO");
             
-        }
+        //}
 
         public void Move()
         {

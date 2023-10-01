@@ -1,4 +1,4 @@
-﻿//using System;
+//using System;
 //using System.Collections;
 //using System.Collections.Generic;
 //using System.Linq;
@@ -143,6 +143,8 @@
 //            //ITERATE_MAP.Add(Keys.I, //Call Command State);)
 //            ITERATE_MAP.Add(Keys.O, new EntityIterateBackCommand());
 //            ITERATE_MAP.Add(Keys.P, new EntityIterateForwardCommand());
+//            ITERATE_MAP.Add(Keys.U, new ItemIterateBackCommand());
+//            ITERATE_MAP.Add(Keys.I, new ItemyIterateForwardCommand());
 
 //        }
 
@@ -184,26 +186,26 @@ namespace Project1
         ArraySegment<Keys> GET_PRESSED;
         public KeyBoardController(Game1 game1)
         {
+        
+
+              //Generate teh Double linked lists
 
 
-            //Generate teh Double linked lists
 
 
+              //GENERATE MAPS:
+              GenerateKeyToKeyMap();
+              GenerateMOVEMap();
+              IteratorMap();
 
-
-            //GENERATE MAPS:
-            GenerateKeyToKeyMap();
-            GenerateMOVEMap();
-            IteratorMap();
-
-            GAME_OBJ = game1;
-
+                GAME_OBJ = game1;
+                
         }
         public void ActionBasedOnInput(Keys CLEAN_KEY)
         {
 
 
-
+           
             if (MOVE_MAP.ContainsKey(CLEAN_KEY) && CURR_KEYBOARD_STATE.IsKeyDown(CLEAN_KEY) && PREV_KEYBOARD_STATE.IsKeyUp(CLEAN_KEY))
             {
                 MOVE_MAP.GetValueOrDefault(CLEAN_KEY).Execute();
@@ -225,7 +227,7 @@ namespace Project1
                 ActionBasedOnInput(CLEAN_KEY);
             }
 
-
+    
         }
 
         /*
@@ -266,7 +268,7 @@ namespace Project1
                     return KEY.Value;
                 }
             }
-            return input;
+           return input;
         }
 
 
@@ -304,8 +306,8 @@ namespace Project1
             /*
             ITERATE_MAP.Add(Keys.T, new BlockPrevious());
             ITERATE_MAP.Add(Keys.Y, new BlockNext());
-            ITERATE_MAP.Add(Keys.U, new ItemPrevious());
-            ITERATE_MAP.Add(Keys.I, new ItemNext());
+            ITERATE_MAP.Add(Keys.I, new ItemIterateForwardCommand());
+            ITERATE_MAP.Add(Keys.U, new ItemIterateBackCommand());
             ITERATE_MAP.Add(Keys.O, new EntityIterateBackCommand());
             ITERATE_MAP.Add(Keys.P, new EntityIterateForwardCommand());
 

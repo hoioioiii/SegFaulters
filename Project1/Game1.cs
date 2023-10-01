@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
+using System.Collections;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
+using System.Collections;
 
 namespace Project1
 {
@@ -29,6 +27,7 @@ namespace Project1
         public static Game1 Game;
 
         public static IEnemy ENEMY;
+        public static IItem Item;
 
         private Texture2D _texture;
         private ArrayList ControllerList;
@@ -60,10 +59,17 @@ namespace Project1
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            HealthBarSprite = new HealthSystem();
+            KeyboardState state = Keyboard.GetState();
             ControllerList = new ArrayList();
             ControllerList.Add(new KeyBoardController(this));
-            KeyboardState state = Keyboard.GetState();
+
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+
+            if (state.IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
@@ -82,12 +88,15 @@ namespace Project1
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            ItemSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             /**
              * 
              * Replace all sprites with proper sprites.
              */
             IListIterate EntityList = new EnemyIterator(this);
+
+            IListIterate ItemList = new ItemIterator(this);
 
             
             //ENEMY = new Bat();
@@ -108,6 +117,7 @@ namespace Project1
 
             // TODO: use this.Content to load your game content here
             //Content content = this.Content;
+            PlayerSpriteFactory.Instance.LoadAllTextures(Content);
             Player.LoadContent(Content);
         }
 
@@ -125,7 +135,7 @@ namespace Project1
             //HealthBarSprite.Update();
 
             
-
+            Item.Update();
             ENEMY.Update();
             base.Update(gameTime);
         }
@@ -135,7 +145,7 @@ namespace Project1
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
-            HealthBarSprite.Draw();
+            //HealthBarSprite.Draw();
 
            
          
@@ -147,6 +157,8 @@ namespace Project1
 
 
             ENEMY.Draw(_spriteBatch);
+            Item.Draw(_spriteBatch);
+
 
             _spriteBatch.End();
             base.Draw(gameTime);

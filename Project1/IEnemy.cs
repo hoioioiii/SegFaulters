@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -10,7 +10,7 @@ namespace Project1
         void Draw(SpriteBatch spriteBatch);
 
 
-        public Texture2D Load();
+        //public Texture2D Load();
 
         public void Move();
 

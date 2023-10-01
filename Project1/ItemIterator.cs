@@ -1,11 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
+using System.Reflection.Metadata;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1
@@ -14,65 +15,71 @@ namespace Project1
     {
 
         public Texture2D[] texture2D;
-        Game1 GAME_OBJ;
-        public int pointer;
 
-        public ItemIterator(Game1 game1) {
+
+        public static IItem[] ENTITY;
+        Game1 GAME_OBJ;
+        public static int pointer;
+
+        public ItemIterator(Game1 game1)
+        {
             //create iterator here  
             Load();
             pointer = 0;
             GAME_OBJ = game1;
+            Game1.Item = ENTITY[pointer];
         }
-        public void CreateList(Texture2D[] temp)
+        public void CreateList(Texture2D[] ignore)
         {
-           texture2D = temp;
+            IItem[] temp = { new ArrowItem(), new BombItem(), new BoomerangItem(), new Bow(), new Clock(), new Fairy(), new Heart(), new HeartContainer(),new Key(),new Map(),new Rupee(), new SwordItem(), new Triforce()}; 
+            ENTITY = temp;
         }
-
+        
         public void Load()//this would not exist but instead call the enemy class
         {
-            Texture2D item0 = GAME_OBJ.Content.Load<Texture2D>("Compass");
-            Texture2D item1= GAME_OBJ.Content.Load<Texture2D>("Map");
-            Texture2D item2 = GAME_OBJ.Content.Load<Texture2D>("Key");
-            Texture2D item3 = GAME_OBJ.Content.Load<Texture2D>("Heart");
-            Texture2D item4 = GAME_OBJ.Content.Load<Texture2D>("HeartContainer");
-            Texture2D item5 = GAME_OBJ.Content.Load<Texture2D>("Triforce");
-            Texture2D item6 = GAME_OBJ.Content.Load<Texture2D>("Boomerang");
-            Texture2D item7 = GAME_OBJ.Content.Load<Texture2D>("Bow");
-            Texture2D item8 = GAME_OBJ.Content.Load<Texture2D>("Heart");
-            Texture2D item9 = GAME_OBJ.Content.Load<Texture2D>("Rupee");
-            Texture2D item10 = GAME_OBJ.Content.Load<Texture2D>("Arrow");
-            Texture2D item11= GAME_OBJ.Content.Load<Texture2D>("Bomb");
-            Texture2D item12= GAME_OBJ.Content.Load<Texture2D>("Fairy");
-            Texture2D item13= GAME_OBJ.Content.Load<Texture2D>("Clock");
-
-            
-            Texture2D[] temp = {item1,item2, item3, item4, item5, item6, item7, item8, item9, item10, item11, item12, item13};
-            CreateList(temp);
+            CreateList(texture2D);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Texture2D drawItem = texture2D[pointer];
-
-            spriteBatch.Draw(drawItem, new Vector2(200, 200), Color.White);
+            IItem entitySprite = ENTITY[pointer];
+            entitySprite.Draw(spriteBatch);
 
         }
 
-        public void moveBack()
+        public static IItem getCurrEnemy(Boolean back)
+        {
+            if (back)
+            {
+                moveBack();
+            }
+            else
+            {
+                moveForward();
+            }
+
+
+
+            return ENTITY[pointer];
+        }
+
+        public static void moveBack()
         {
             if (pointer > 0)
             {
                 pointer -= 1;
             }
-        
+           
+
         }
-        public void moveForward()
+        public static void moveForward()
         {
-            if (pointer < texture2D.Length)
+            if (pointer < ENTITY.Length - 1)
             {
                 pointer += 1;
             }
             
+
         }
     }
 }
