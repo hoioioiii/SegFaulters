@@ -34,7 +34,7 @@ namespace Project1
         private int totalFrame;
 
         // timer
-        //private static float boomerangTimer;
+        private static float boomerangTimer;
 
         public Boomerang(Vector2 userPosition, int direction) { 
             currFrame = 0;
@@ -67,32 +67,34 @@ namespace Project1
 
         // userScale needed to 
         // GameTime gameTime may be needed
-        public static void ThrowBoomerang(Vector2 position, int direction, int userScale)
+        public static void Draw(Vector2 position, int direction, int userScale)
         {
             //float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             //boomerangTimer;
 
             //based on the direction, change the projectile position in the appropriate direction
-            switch (direction) {
-                case 1: //shot upwards
-                    //projectilePosition.X += 0; //X wont change
-                    //projectilePosition.Y += 10;
-                    DrawSprite(boomerangTex[1], position, position, userScale);
-                    break;
-                
+            //switch (direction)
+            //{
+            //    case 1: //shot upwards
+            // will need to change in the future, could not implement by 
+            int boomerangOffsetX = 0;
+                    int boomerangOffsetY = 0;
+                    DrawBoomerang(position, position, userScale);
+                    //break;
+
+
+            //}
+        }
+
+        private static void DrawBoomerang(Vector2 position, Vector2 offset, int userScale)
+        {
+            for (int i = 0; i < BOOMERANG_RANGE * userScale; i++)
+            {
+                int frameNumber = i % BOOMERANG_C;
+                Game1._spriteBatch.Draw(boomerangTex[frameNumber], new Rectangle((int)position.X, (int)position.Y + i, boomerangTex[1].Width * userScale, boomerangTex[1].Height * userScale), Color.White);
             }
-            
-        }
-
-        public void Draw(Vector2 position, int direction, int userScale)
-        {
-
-        }
-
-        private static void DrawSprite(Texture2D tex, Vector2 position, Vector2 offset, int userScale)
-        {
             // Attacks
-            Game1._spriteBatch.Draw(tex, new Rectangle((int)position.X + (int)offset.X, (int)position.Y + (int)offset.Y, tex.Width * userScale, tex.Height * userScale), Color.White);
+            
             // render attack texture to sprite
 
             // call method of attack used (e.g. sword or arrow)

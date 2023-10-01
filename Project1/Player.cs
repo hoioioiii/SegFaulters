@@ -52,7 +52,7 @@ namespace Project1
         public static Texture2D linkAttackDown;
 
         // attacking
-        private static bool isAttacking = false;
+        public static bool isAttacking = false;
         // play attack frame for ATTACK_SECONDS seconds
         private static float AttackTimer;
         
@@ -126,8 +126,7 @@ namespace Project1
             AttackTimer -= elapsedSeconds;
             DamageTimer -= elapsedSeconds;
             FlashTimer -= elapsedSeconds;
-
-
+            
             // rename to keyState
             KeyboardState state = Keyboard.GetState();
             // Print to debug console currently pressed keys
@@ -140,7 +139,8 @@ namespace Project1
             else
                 //System.Diagnostics.Debug.WriteLine("No Keys pressed");
                 isMoving = false;
-
+            
+            
 
             if (isAttacking)
             {
@@ -166,13 +166,13 @@ namespace Project1
                 }
                 else if (state.IsKeyDown(Keys.D1))
                 {
-                    // attack using his sword
+                    // attack using his 
                     isAttacking = true;
                     isAttackingWithBoomerang = true;
                 }
                 else if (state.IsKeyDown(Keys.D2))
                 {
-                    // attack using his sword
+                    // attack using his 
                     isAttacking = true;
                     isAttackingWithBow = true;
                 }
@@ -269,7 +269,6 @@ namespace Project1
             {
                 remainOnScreen = false;
             }
-           
         }
 
         public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -324,19 +323,41 @@ namespace Project1
                         switch (linkDirection)
                         {
                             case 1:
-                                Boomerang.ThrowBoomerang(position, linkDirection, spriteScale);
+                                Boomerang.Draw(position, linkDirection, spriteScale);
                                 sprite.Draw(spriteBatch, "attack");
                                 break;
                             case 2:
-                                Boomerang.ThrowBoomerang(position, linkDirection, spriteScale);
+                                Boomerang.Draw(position, linkDirection, spriteScale);
                                 sprite.Draw(spriteBatch, "attack");
                                 break;
                             case 3:
-                                Boomerang.ThrowBoomerang(position, linkDirection, spriteScale);
+                                Boomerang.Draw(position, linkDirection, spriteScale);
                                 sprite.Draw(spriteBatch, "attack");
                                 break;
                             case 4:
-                                Boomerang.ThrowBoomerang(position, linkDirection, spriteScale);
+                                Boomerang.Draw(position, linkDirection, spriteScale);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                        }
+                    }
+                    else if (isAttackingWithBow)
+                    {
+                        switch (linkDirection)
+                        {
+                            case 1:
+                                Arrow.Draw(position, linkDirection, spriteScale);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                            case 2:
+                                Arrow.Draw(position, linkDirection, spriteScale);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                            case 3:
+                                Arrow.Draw(position, linkDirection, spriteScale);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                            case 4:
+                                Arrow.Draw(position, linkDirection, spriteScale);
                                 sprite.Draw(spriteBatch, "attack");
                                 break;
                         }
@@ -416,6 +437,9 @@ namespace Project1
             {
                 isAttacking = false;
                 AttackTimer = ATTACK_SECONDS;
+                isAttackingWithBoomerang = false;
+                isAttackingWithBow = false;
+                isAttackingWithSword = false;
             }
         }
 
@@ -446,6 +470,59 @@ namespace Project1
                 isSecondFrame = !isSecondFrame;
                 FrameTimer = FRAMETIME;
             }
+        }
+
+
+        public static void attackSword()
+        {
+            isAttacking = true;
+            isAttackingWithSword = true;
+        }
+
+        public static void attackBoom()
+        {
+            isAttacking = true;
+            isAttackingWithBoomerang = true;
+        }
+
+        public static void attackBow()
+        {
+            isAttacking = true;
+            isAttackingWithBow = true;
+        }
+
+        public static void left() {
+            position.X -= playerSpeed;
+            isMoving = true;
+            linkDirection = 4;
+            sprite.Update(4, position);
+        }
+
+        public static void down() {
+            position.Y += playerSpeed;
+            isMoving = true;
+            linkDirection = 3;
+            sprite.Update(3, position);
+        }
+
+        public static void up() {
+            position.Y -= playerSpeed;
+            isMoving = true;
+            linkDirection = 1;
+            sprite.Update(1, position);
+        }
+
+        public static void right() {
+            position.X += playerSpeed;
+            isMoving = true;
+            linkDirection = 2;
+            sprite.Update(2, position);
+        }
+
+        public static void damage()
+        {
+            isDamaged = true;
+            DamageInvincibility();
         }
 
 

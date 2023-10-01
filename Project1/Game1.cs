@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
+using System.Collections;
 
 namespace Project1
 {
@@ -12,6 +13,7 @@ namespace Project1
     {
         private GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
+        private ArrayList ControllerList;
         public static GameTime deltaTime;
 
 
@@ -27,11 +29,14 @@ namespace Project1
             IsMouseVisible = true;
         }
 
-        void Quit() => Exit();
+        public void Quit() => Exit();
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            ControllerList = new ArrayList();
+            ControllerList.Add(new KeyBoardController(this));
+
             KeyboardState state = Keyboard.GetState();
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
@@ -62,11 +67,17 @@ namespace Project1
             Player.LoadContent(Content);
             Sword.LoadContent(Content);
             Boomerang.LoadContent(Content);
+            Arrow.LoadContent(Content);
         }
 
         protected override void Update(GameTime gameTime)
         {
-          
+            // TODO: Add your update logic here
+            foreach (IController controller in ControllerList)
+            {
+                controller.Update();
+            }
+
             Player.Update(gameTime);
             deltaTime = gameTime;
             base.Update(gameTime);
