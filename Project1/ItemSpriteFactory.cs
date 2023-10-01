@@ -89,13 +89,11 @@ namespace Project1
         {
             return new ArrowSprite(arrowSpriteStorage);
         }
-
         public ISprite CreateBombSprite()
-        {
-           
-            return new BombSprite(bombSpriteStorage);
+        {           
+            return new BombItemSprite(bombSpriteStorage);
         }
-
+        
         public ISprite CreateBoomerangSprite()
         {
             return new BoomerangSprite(boomerangSpriteStorage);

@@ -15,11 +15,14 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace Project1
 {
+    internal class Constants
     {
         public static int SCREEN_WIDTH_UPPER = 600;
         public static int SCREEN_WIDTH_LOWER = 0;
         public static int SCREEN_HEIGHT_UPPER = 400;
         public static int SCREEN_HEIGHT_LOWER = 0;
+        public static Game1 GameObj = Game1.Game;
+
         // attacking
         public const float ATTACK_SECONDS = 0.5f;
 
@@ -51,6 +54,7 @@ namespace Project1
 
         public static int BOMB_R = 1;
         public static int BOMB_C = 1;
+        public static int BOMB_ARRAY = 2;
         public static int AD_R = 1;
         public static int AD_C = 2;
 
@@ -165,16 +169,16 @@ namespace Project1
          * Link sprite constants:
          */
 
-        public enum DIRECTION {right = 0, left = 1, up = 2, down = 3};
+        //public enum DIRECTION {right = 0, left = 1, up = 2, down = 3};
 
-        public static int PLAYER_FRAMES = 4;
-        public static int PLAYER_R = 1;
+        //public static int PLAYER_FRAMES = 4;
+        //public static int PLAYER_R = 1;
 
         //
         //public const float INVINCIBILITY_SECONDS = 1;
         //public const float ATTACK_SECONDS = 0.5f;
         //public const float FLASHES_PER_SECOND = 8;
-        public const float FLASHTIME = 1 / FLASHES_PER_SECOND;
+        //public const float FLASHTIME = 1 / FLASHES_PER_SECOND;
         public const float FRAMES_PER_SECOND = 10;
         public const float FRAMETIME = 1 / FRAMES_PER_SECOND;
 

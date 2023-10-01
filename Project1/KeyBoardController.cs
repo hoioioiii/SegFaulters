@@ -303,7 +303,7 @@ namespace Project1
         public void IteratorMap()
         {
             ITERATE_MAP = new Dictionary<Keys, ICommand>();
-            /*
+            
             ITERATE_MAP.Add(Keys.T, new BlockPrevious());
             ITERATE_MAP.Add(Keys.Y, new BlockNext());
             ITERATE_MAP.Add(Keys.I, new ItemIterateForwardCommand());

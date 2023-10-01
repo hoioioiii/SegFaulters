@@ -8,7 +8,59 @@ namespace Project1
 {
     internal class DirectionManager
     {
-        public static Dictionary<String, int> weaponLoaderToDirection;
+
+        public static int FourDirMove(int pos, int direction)
+        {
+            //takes care of horizontal
+
+            if (direction % 2 == 0)
+            {
+                pos = moveX(pos, direction);
+            }
+            else
+            {
+                pos = moveY(pos, direction);
+            }
+
+            return pos;
+        }
+
+        public static int moveY(int pos, int direction)
+        {
+
+            //moving down
+            if (direction > 2)
+            {
+
+                pos += 1;
+            }
+            else//moving up
+            {
+
+                pos += -1;
+            }
+            return pos;
+        }
+
+        public static int moveX(int pos, int direction)
+        {
+
+            //moving left
+            if (direction > 2)
+            {
+
+                pos += -1;
+            }
+            else//moving right
+            {
+                pos += 1;
+
+            }
+
+            return pos;
+
+        }
+
 
         // 1 : up
         //2: right
@@ -19,7 +71,7 @@ namespace Project1
             if (direction % 2 == 0)
             {
                 //moving left
-                if(direction > 2)
+                if (direction > 2)
                 {
                     int offSet = -1 * 30;
                     x += offSet;
@@ -34,7 +86,6 @@ namespace Project1
         }
 
         public static int OffsetY(int y, int direction)
-        public static void createWeaponToDirectionMap()
         {
             if (direction % 2 != 0)
             {
@@ -43,11 +94,6 @@ namespace Project1
                 {
                     int offSet = -1 * 40;
                     y += offSet;
-            weaponLoaderToDirection = new Dictionary<String, int>();
-            weaponLoaderToDirection.Add("left", 0);
-            weaponLoaderToDirection.Add("right", 1);
-            weaponLoaderToDirection.Add("up", 2);
-            weaponLoaderToDirection.Add("down", 3);
                 }
                 else//moving up
                 {

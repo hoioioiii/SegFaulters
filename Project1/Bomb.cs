@@ -35,6 +35,24 @@ namespace Project1
             sprite.Draw(Game1._spriteBatch);
         }
 
-     
+        public void DetermineWeaponState()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetUserPos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetUserState()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Load()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

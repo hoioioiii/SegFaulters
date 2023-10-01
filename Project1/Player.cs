@@ -9,8 +9,8 @@ using static Project1.Constants;
 
 namespace Project1
 {
-public class Player
-{
+    public class Player
+    {
         // BUG SOLUTION 1.0
         public IPlayerState playerState { get; set; }
 
@@ -59,7 +59,7 @@ public class Player
         public static bool isAttacking = false;
         // play attack frame for ATTACK_SECONDS seconds
         private static float AttackTimer;
-        
+
         // weapons
         private static bool isAttackingWithSword = false;
         private static bool isAttackingWithBoomerang = false;
@@ -70,15 +70,15 @@ public class Player
         private static bool isDamaged = false;
         // Link cannot take damage for x seconds after getting hit
         private static float DamageTimer;
-        
+
         // Link will flash after damaged, indicating temporary invincibility
         private static bool renderLink = true;
         private static float FlashTimer;
-        
+
         // for sprite animation
         private static float FrameTimer;
         // how many animation frames per second, not the framerate of the game
-        
+
         // link only has two frames of animation
         private static bool isSecondFrame = false;
 
@@ -99,44 +99,44 @@ public class Player
             posX = 0;
             posY = 0;
             remainOnScreen = false;
-         
+
         }
 
-        public static void Initialize(SpriteBatch spriteBatch)
+        public static void Initialize()
         {
-          
             FrameTimer = Constants.FRAMETIME;
             AttackTimer = Constants.ATTACK_SECONDS;
             DamageTimer = Constants.INVINCIBILITY_SECONDS;
             FlashTimer = Constants.FLASHTIME;
-            //base.Initialize();
+
+            //create the link sprite
+            sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
+
+            spriteWeapon = new Bomb();
+
+
         }
 
-        public static void Initialize()
+        public static void LoadContent(ContentManager content)
         {
             // still and movement
             linkRight1 = content.Load<Texture2D>("linkRight1");
             linkLeft1 = content.Load<Texture2D>("linkLeft1");
             linkUp1 = content.Load<Texture2D>("linkUp1");
             linkDown1 = content.Load<Texture2D>("linkDown1");
-       
-            //create the link sprite
-            sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
+
+            // movement only
+            linkRight2 = content.Load<Texture2D>("linkRight2");
             linkLeft2 = content.Load<Texture2D>("linkLeft2");
-            spriteWeapon = new Bomb();
-           
-            //attack using swordd
-            swordRight = content.Load<Texture2D>("swordRight");
-            swordLeft = content.Load<Texture2D>("swordLeft");
-            swordUp = content.Load<Texture2D>("swordUp");
-            swordDown = content.Load<Texture2D>("swordDown");
+            linkUp2 = content.Load<Texture2D>("linkUp2");
+            linkDown2 = content.Load<Texture2D>("linkDown2");
+
+            // Attack using weapon or item
+            linkAttackRight = content.Load<Texture2D>("linkAttackRight");
+            linkAttackLeft = content.Load<Texture2D>("linkAttackLeft");
+            linkAttackUp = content.Load<Texture2D>("linkAttackUp");
             linkAttackDown = content.Load<Texture2D>("linkAttackDown");
 
-            //attack using swordd
-            swordRight = content.Load<Texture2D>("swordRight");
-            swordLeft = content.Load<Texture2D>("swordLeft");
-            swordUp = content.Load<Texture2D>("swordUp");
-            swordDown = content.Load<Texture2D>("swordDown");
         }
 
         //change the current frame to the next frame
@@ -147,7 +147,7 @@ public class Player
             AttackTimer -= elapsedSeconds;
             DamageTimer -= elapsedSeconds;
             FlashTimer -= elapsedSeconds;
-            
+
             // rename to keyState
             KeyboardState state = Keyboard.GetState();
             // Print to debug console currently pressed keys
@@ -161,14 +161,16 @@ public class Player
                 //System.Diagnostics.Debug.WriteLine("No Keys pressed");
                 isMoving = false;
             // Move our sprite based on arrow keys being pressed:
-            
-            
+
+
 
             if (isAttacking)
             {
                 WaitForAttack();
-            Move(keyState);
-            
+            }
+
+           // Move(keyState);
+
             // else ifs used so link can only move in the cardinal directions
             // Link can't move when attacking
             if (!isAttacking)
@@ -233,7 +235,7 @@ public class Player
                     linkDirection = 1;
                     posY -= playerSpeed;
                     sprite.Update(1, position);
-                   
+
                 }
                 else if (state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D))
                 {
@@ -242,7 +244,7 @@ public class Player
                     linkDirection = 2;
                     posY += playerSpeed;
                     sprite.Update(2, position);
-                    
+
                 }
             }
 
@@ -251,9 +253,9 @@ public class Player
                 DamageInvincibility();
             }
 
-            Move(keyState);
+            //Move(state);
 
-            if (keyState.IsKeyDown(Keys.E))
+            if (state.IsKeyDown(Keys.E))
             {
                 isDamaged = true;
                 DamageInvincibility();
@@ -288,7 +290,7 @@ public class Player
         public static void CheckOnScreen()
         {
             CheckTime();
-            if(onScreen > 1000)
+            if (onScreen > 1000)
             {
                 remainOnScreen = false;
             }
@@ -311,7 +313,10 @@ public class Player
                 onScreen = 0;
                 remainOnScreen = false;
             }
-
+            if (renderLink)
+            {
+                if (isAttacking)
+                {
                     if (isAttackingWithSword)
                     {
                         switch (linkDirection)
@@ -386,9 +391,6 @@ public class Player
                         spriteWeapon.Draw();
                         sprite.Draw(spriteBatch, "attack");
                     }
-
-
-
                 }
                 else
                 {
@@ -399,91 +401,24 @@ public class Player
                         {
                             //tell sprite how to draw
                             sprite.Draw(spriteBatch, "move");
-                                case 3:
-                                    DrawLink(linkDown2);
-                                    break;
+
+                        }
+                        else
+                        {
                             //tell sprite how to draw
                             sprite.Draw(spriteBatch, "still");
-                                    DrawLink(linkLeft2);
-                                    break;
-                            }
-                        }
-                        //tell sprite how to draw
-                        sprite.Draw(spriteBatch, "still");
-                        
-                        {
-                            Link1Switch();
+
                         }
                     }
                     else
                     {
-                        Link1Switch();
+                        //tell sprite how to draw
+                        sprite.Draw(spriteBatch, "still");
+
                     }
                 }
             }
         }
-        
-
-        /*
-         * Responsible for loading the sprite image
-         */
-        public Texture2D Load(ContentManager Content, string texName)
-        {
-            return Content.Load<Texture2D>(assetName: texName);
-        }
-
-        public static void Move(KeyboardState keyState)
-        {
-            // movement
-            // else ifs used so link can only move in the cardinal directions
-            if (!isAttacking)
-            {
-                if (keyState.IsKeyDown(Keys.Z) || keyState.IsKeyDown(Keys.N))
-                {
-                    // attack using his sword
-                    isAttacking = true;
-                }
-            
-                if (keyState.IsKeyDown(Keys.Left) || keyState.IsKeyDown(Keys.A))
-                {
-                    position.X -= playerSpeed;
-                    isMoving = true;
-                    linkDirection = 4;
-                }
-                else if (keyState.IsKeyDown(Keys.Down) || keyState.IsKeyDown(Keys.S))
-                {
-                    position.Y += playerSpeed;
-                    isMoving = true;
-                    linkDirection = 3;
-                }
-                else if (keyState.IsKeyDown(Keys.Up) || keyState.IsKeyDown(Keys.W))
-                {
-                    position.Y -= playerSpeed;
-                    isMoving = true;
-                    linkDirection = 1;
-        }
-                {
-                    position.X += playerSpeed;
-                    isMoving = true;
-                    linkDirection = 2;
-                }
-            }
-        }
-
-        public void Attack()
-        {
-            // Attacks
-
-            // render attack texture to sprite
-
-            // call method of attack used (e.g. sword or arrow)
-            // the sword should be a seperate object so it can have its own bounding box
-
-        }
-                AttackTimer = ATTACK_SECONDS;
-                isAttackingWithBoomerang = false;
-                isAttackingWithBow = false;
-                isAttackingWithSword = false;
         // if 1 second has passed since attacking, revert attack state to false (allowing for other actions)
         public static void WaitForAttack()
         {
@@ -491,6 +426,9 @@ public class Player
             {
                 isAttacking = false;
                 AttackTimer = Constants.ATTACK_SECONDS;
+                isAttackingWithBoomerang = false;
+                isAttackingWithBow = false;
+                isAttackingWithSword = false;
             }
         }
 
@@ -516,6 +454,13 @@ public class Player
         // if Timer > FRAMETIME, switch the frame
         public static void CheckFrameTimer()
         {
+            if (FrameTimer <= 0)
+            {
+                isSecondFrame = !isSecondFrame;
+                FrameTimer = FRAMETIME;
+            }
+        }
+
 
         public static void attackSword()
         {
@@ -535,28 +480,32 @@ public class Player
             isAttackingWithBow = true;
         }
 
-        public static void left() {
+        public static void left()
+        {
             position.X -= playerSpeed;
             isMoving = true;
             linkDirection = 4;
             sprite.Update(4, position);
         }
 
-        public static void down() {
+        public static void down()
+        {
             position.Y += playerSpeed;
             isMoving = true;
             linkDirection = 3;
             sprite.Update(3, position);
         }
 
-        public static void up() {
+        public static void up()
+        {
             position.Y -= playerSpeed;
             isMoving = true;
             linkDirection = 1;
             sprite.Update(1, position);
         }
 
-        public static void right() {
+        public static void right()
+        {
             position.X += playerSpeed;
             isMoving = true;
             linkDirection = 2;
@@ -565,11 +514,11 @@ public class Player
 
         public static void damage()
         {
-            isDamaged = true;
+            //isDamaged = true;
             DamageInvincibility();
         }
 
-//        }
+        //        }
 
         public static Vector2 getUserPos()
         {
@@ -584,10 +533,3 @@ public class Player
 
     }
 }
-
-//            sprite.Update();
-//        }
-//    }
-//}
-
-

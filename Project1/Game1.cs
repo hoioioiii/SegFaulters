@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using System.Collections;
+using static Project1.Constants;
 
 namespace Project1
 {
@@ -91,6 +92,7 @@ namespace Project1
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
+            WeaponSpriteFactory.Instance.LoadAllTextures(Content);
             /**
              * 
              * Replace all sprites with proper sprites.
@@ -118,6 +120,10 @@ namespace Project1
 
             // TODO: use this.Content to load your game content here
             //Content content = this.Content;
+            Sword.LoadContent(Content);
+            Arrow.LoadContent(Content);
+            Boomerang.LoadContent(Content); 
+
             PlayerSpriteFactory.Instance.LoadAllTextures(Content);
             Player.LoadContent(Content);
         }
@@ -152,7 +158,7 @@ namespace Project1
          
            
 
-            Player.Draw(gameTime);
+            Player.Draw(gameTime, _spriteBatch);
 
             
 

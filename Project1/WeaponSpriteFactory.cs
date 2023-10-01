@@ -15,7 +15,7 @@ namespace Project1
         private Texture2D[] SwordSheet = new Texture2D[SWORD_C * SWORD_R];
         private Texture2D[] BowSheet = new Texture2D[BOW_C * BOW_R];
         private Texture2D[] ArrowSheet = new Texture2D[ARROW_C * ARROW_R];
-        private Texture2D[] BombSheet = new Texture2D[BOMB_C * BOMB_R];
+        private Texture2D[] BombSheet = new Texture2D[BOMB_ARRAY];
         private Texture2D[] BoomerangSheet = new Texture2D[BOOMERANG_C * BOOMERANG_R];
         private Texture2D[] OrbSheet = new Texture2D[ORB_C * ORB_R];
         // More private Texture2Ds follow

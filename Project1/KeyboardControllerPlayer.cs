@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using static Project1.ICommand;
 
 namespace Project1
 {
@@ -24,7 +25,7 @@ namespace Project1
         private Dictionary<Keys, ICommand> ITERATE_MAP { get; set; }
 
         ArraySegment<Keys> GET_PRESSED;
-        public KeyBoardControllerPlayer(Game1 game1)
+        public KeyboardControllerPlayer(Game1 game1)
         {
 
 
