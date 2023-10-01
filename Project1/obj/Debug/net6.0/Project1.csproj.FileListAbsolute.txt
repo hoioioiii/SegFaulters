@@ -423,3 +423,7 @@ C:\Users\Jachi\source\repos\Boioioiii\SegFaulters\Project1\obj\Debug\net6.0\refi
 C:\Users\Jachi\source\repos\Boioioiii\SegFaulters\Project1\obj\Debug\net6.0\Project1.pdb
 C:\Users\Jachi\source\repos\Boioioiii\SegFaulters\Project1\obj\Debug\net6.0\Project1.genruntimeconfig.cache
 C:\Users\Jachi\source\repos\Boioioiii\SegFaulters\Project1\obj\Debug\net6.0\ref\Project1.dll
+C:\Users\Jachi\source\repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\arrowDown.xnb
+C:\Users\Jachi\source\repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\arrowLeft.xnb
+C:\Users\Jachi\source\repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\arrowRight.xnb
+C:\Users\Jachi\source\repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\arrowUp.xnb
