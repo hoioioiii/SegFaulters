@@ -301,8 +301,8 @@ namespace Project1
            ITERATE_MAP = new Dictionary<Keys, ICommand>();
             ITERATE_MAP.Add(Keys.T, new BlockPrevious());
             ITERATE_MAP.Add(Keys.Y, new BlockNext());
-            ITERATE_MAP.Add(Keys.U, new ItemPrevious());
-            ITERATE_MAP.Add(Keys.I, new ItemNext());
+            ITERATE_MAP.Add(Keys.I, new ItemyIterateForwardCommand());
+            ITERATE_MAP.Add(Keys.U, new ItemIterateBackCommand());
             ITERATE_MAP.Add(Keys.O, new EntityIterateBackCommand());
             ITERATE_MAP.Add(Keys.P, new EntityIterateForwardCommand());
 
