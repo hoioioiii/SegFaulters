@@ -55,6 +55,8 @@ namespace Project1
         {
             // TODO: Add your initialization logic here
             KeyboardState state = Keyboard.GetState();
+            ControllerList = new ArrayList();
+            ControllerList.Add(new KeyBoardController(this));
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
@@ -135,7 +137,7 @@ namespace Project1
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
-            HealthBarSprite.Draw();
+            //HealthBarSprite.Draw();
 
            
          
