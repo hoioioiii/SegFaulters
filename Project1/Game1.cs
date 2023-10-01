@@ -1,13 +1,22 @@
-﻿using Microsoft.Xna.Framework;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Content;
+using System.Collections;
 
 namespace Project1
 {
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        public static SpriteBatch _spriteBatch;
+        private ArrayList ControllerList;
+
+        // not used because I made the methods in player public static
+        //public Player player
 
         public Game1()
         {
@@ -16,9 +25,26 @@ namespace Project1
             IsMouseVisible = true;
         }
 
+        public void Quit() => Exit();
+
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            ControllerList = new ArrayList();
+            ControllerList.Add(new KeyBoardController(this));
+
+            KeyboardState state = Keyboard.GetState();
+
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+                Exit();
+
+            if (state.IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
+
+            //Player player = new Player();
+            Player.Initialize(_spriteBatch);
 
             base.Initialize();
         }
@@ -28,14 +54,22 @@ namespace Project1
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            //Content content = this.Content;
+            PlayerSpriteFactory.Instance.LoadAllTextures(Content);
+            Player.LoadContent(Content);
+            Sword.LoadContent(Content);
+            Boomerang.LoadContent(Content);
         }
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
             // TODO: Add your update logic here
+            foreach (IController controller in ControllerList)
+            {
+                controller.Update();
+            }
+
+            Player.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -44,7 +78,11 @@ namespace Project1
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            _spriteBatch.Begin();
+
+            Player.Draw(gameTime, _spriteBatch);
+
+            _spriteBatch.End();
 
             base.Draw(gameTime);
         }
