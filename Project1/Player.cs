@@ -52,7 +52,7 @@ namespace Project1
         public static Texture2D linkAttackDown;
 
         // attacking
-        private static bool isAttacking = false;
+        public static bool isAttacking = false;
         // play attack frame for ATTACK_SECONDS seconds
         private static float AttackTimer;
         
@@ -113,6 +113,8 @@ namespace Project1
             AttackTimer -= elapsedSeconds;
             DamageTimer -= elapsedSeconds;
             FlashTimer -= elapsedSeconds;
+
+            
             
             // rename to keyState
             KeyboardState state = Keyboard.GetState();
@@ -126,7 +128,8 @@ namespace Project1
             else
                 //System.Diagnostics.Debug.WriteLine("No Keys pressed");
                 isMoving = false;
-
+            
+            
 
             if (isAttacking)
             {
@@ -139,78 +142,6 @@ namespace Project1
             }
 
             
-            // else ifs used so link can only move in the cardinal directions
-            // Link can't move when attacking
-            if (!isAttacking)
-            {
-                if (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.N))
-                {
-                    // attack using his sword
-                    isAttacking = true;
-                    isAttackingWithSword = true;
-                    //sprite.Update(linkDirection, position);
-                }
-                else if (state.IsKeyDown(Keys.D1))
-                {
-                    // attack using his sword
-                    isAttacking = true;
-                    isAttackingWithBoomerang = true;
-                }
-                else if (state.IsKeyDown(Keys.D2))
-                {
-                    // attack using his sword
-                    isAttacking = true;
-                    isAttackingWithBow = true;
-                }
-
-
-                if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.A))
-                {
-                    position.X -= playerSpeed;
-                    isMoving = true;
-                    linkDirection = 4;
-                    sprite.Update(4, position);
-                }
-                else if (state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.S))
-                {
-                    position.Y += playerSpeed;
-                    isMoving = true;
-                    linkDirection = 3;
-                    sprite.Update(3, position);
-                }
-                else if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.W))
-                {
-                    position.Y -= playerSpeed;
-                    isMoving = true;
-                    linkDirection = 1;
-                    sprite.Update(1, position);
-                }
-                else if (state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D))
-                {
-                    position.X += playerSpeed;
-                    isMoving = true;
-                    linkDirection = 2;
-                    sprite.Update(2, position);
-                }
-            }
-
-            if (state.IsKeyDown(Keys.E))
-            {
-                isDamaged = true;
-                DamageInvincibility();
-            }
-            if (state.IsKeyDown(Keys.T) || state.IsKeyDown(Keys.Y))
-            {
-                // cycle between which block is currently being shown
-            }
-            if (state.IsKeyDown(Keys.U) || state.IsKeyDown(Keys.I))
-            {
-
-            }
-            if (state.IsKeyDown(Keys.O) || state.IsKeyDown(Keys.P))
-            {
-
-            }
         }
 
         public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -366,6 +297,59 @@ namespace Project1
                 isSecondFrame = !isSecondFrame;
                 FrameTimer = FRAMETIME;
             }
+        }
+
+
+        public static void attackSword()
+        {
+            isAttacking = true;
+            isAttackingWithSword = true;
+        }
+
+        public static void attackBoom()
+        {
+            isAttacking = true;
+            isAttackingWithBoomerang = true;
+        }
+
+        public static void attackBow()
+        {
+            isAttacking = true;
+            isAttackingWithBow = true;
+        }
+
+        public static void left() {
+            position.X -= playerSpeed;
+            isMoving = true;
+            linkDirection = 4;
+            sprite.Update(4, position);
+        }
+
+        public static void down() {
+            position.Y += playerSpeed;
+            isMoving = true;
+            linkDirection = 3;
+            sprite.Update(3, position);
+        }
+
+        public static void up() {
+            position.Y -= playerSpeed;
+            isMoving = true;
+            linkDirection = 1;
+            sprite.Update(1, position);
+        }
+
+        public static void right() {
+            position.X += playerSpeed;
+            isMoving = true;
+            linkDirection = 2;
+            sprite.Update(2, position);
+        }
+
+        public static void damage()
+        {
+            isDamaged = true;
+            DamageInvincibility();
         }
 
     }
