@@ -15,7 +15,7 @@ using System.Diagnostics;
 
 namespace Project1
 {
-    public class Boomerang : IItem
+    public class BoomerangItem : IItem
     {
 
         //Texture stores the texture alias for our animation
@@ -44,7 +44,7 @@ namespace Project1
 
 
 
-        public Boomerang()
+        public BoomerangItem()
         {
             //remove later:
             sprite = ItemSpriteFactory.Instance.CreateBoomerangSprite();
