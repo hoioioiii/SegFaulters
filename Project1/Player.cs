@@ -152,13 +152,13 @@ namespace Project1
                 }
                 else if (state.IsKeyDown(Keys.D1))
                 {
-                    // attack using his sword
+                    // attack using his 
                     isAttacking = true;
                     isAttackingWithBoomerang = true;
                 }
                 else if (state.IsKeyDown(Keys.D2))
                 {
-                    // attack using his sword
+                    // attack using his 
                     isAttacking = true;
                     isAttackingWithBow = true;
                 }
@@ -252,19 +252,41 @@ namespace Project1
                         switch (linkDirection)
                         {
                             case 1:
-                                Boomerang.ThrowBoomerang(position, linkDirection, spriteScale);
+                                Boomerang.Draw(position, linkDirection, spriteScale);
                                 sprite.Draw(spriteBatch, "attack");
                                 break;
                             case 2:
-                                Boomerang.ThrowBoomerang(position, linkDirection, spriteScale);
+                                Boomerang.Draw(position, linkDirection, spriteScale);
                                 sprite.Draw(spriteBatch, "attack");
                                 break;
                             case 3:
-                                Boomerang.ThrowBoomerang(position, linkDirection, spriteScale);
+                                Boomerang.Draw(position, linkDirection, spriteScale);
                                 sprite.Draw(spriteBatch, "attack");
                                 break;
                             case 4:
-                                Boomerang.ThrowBoomerang(position, linkDirection, spriteScale);
+                                Boomerang.Draw(position, linkDirection, spriteScale);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                        }
+                    }
+                    else if (isAttackingWithBow)
+                    {
+                        switch (linkDirection)
+                        {
+                            case 1:
+                                Arrow.Draw(position, linkDirection, spriteScale);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                            case 2:
+                                Arrow.Draw(position, linkDirection, spriteScale);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                            case 3:
+                                Arrow.Draw(position, linkDirection, spriteScale);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                            case 4:
+                                Arrow.Draw(position, linkDirection, spriteScale);
                                 sprite.Draw(spriteBatch, "attack");
                                 break;
                         }
@@ -336,6 +358,9 @@ namespace Project1
             {
                 isAttacking = false;
                 AttackTimer = ATTACK_SECONDS;
+                isAttackingWithBoomerang = false;
+                isAttackingWithBow = false;
+                isAttackingWithSword = false;
             }
         }
 

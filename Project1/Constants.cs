@@ -153,6 +153,9 @@ namespace Project1
         public const float FLASHTIME = 1 / FLASHES_PER_SECOND;
         public const float FRAMES_PER_SECOND = 10;
         public const float FRAMETIME = 1 / FRAMES_PER_SECOND;
+
+        //
+        public const float BOOMERANG_RANGE = 50;
     }
 }
 

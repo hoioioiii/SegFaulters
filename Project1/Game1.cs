@@ -54,6 +54,7 @@ namespace Project1
             Player.LoadContent(Content);
             Sword.LoadContent(Content);
             Boomerang.LoadContent(Content);
+            Arrow.LoadContent(Content);
         }
 
         protected override void Update(GameTime gameTime)

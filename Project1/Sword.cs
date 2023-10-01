@@ -33,15 +33,16 @@ namespace Project1
 
         public static void LoadContent(ContentManager content)
         {
-
             //Game = Game1.Game;
 
-            //attack using swordd
+            //attack using sword
             swordRight = content.Load<Texture2D>("swordRight");
             swordLeft = content.Load<Texture2D>("swordLeft");
             swordUp = content.Load<Texture2D>("swordUp");
             swordDown = content.Load<Texture2D>("swordDown");
         }
+
+
 
         public static void Draw(Vector2 position, int linkDirection)
         {
