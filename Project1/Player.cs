@@ -322,28 +322,28 @@ namespace Project1
             position.X -= playerSpeed;
             isMoving = true;
             linkDirection = 4;
-            sprite.Update(4, position);
+            sprite.Update(linkDirection, position);
         }
 
         public static void down() {
             position.Y += playerSpeed;
             isMoving = true;
             linkDirection = 3;
-            sprite.Update(3, position);
+            sprite.Update(linkDirection, position);
         }
 
         public static void up() {
             position.Y -= playerSpeed;
             isMoving = true;
             linkDirection = 1;
-            sprite.Update(1, position);
+            sprite.Update(linkDirection, position);
         }
 
         public static void right() {
             position.X += playerSpeed;
             isMoving = true;
             linkDirection = 2;
-            sprite.Update(2, position);
+            sprite.Update(linkDirection, position);
         }
 
         public static void damage()

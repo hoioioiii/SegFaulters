@@ -119,6 +119,12 @@ namespace Project1
             MOVE_MAP.Add(Keys.Up, new MoveUp());
             MOVE_MAP.Add(Keys.Left, new MoveLeft());
             MOVE_MAP.Add(Keys.Right, new MoveRight());
+
+            MOVE_MAP.Add(Keys.S, new MoveDown());
+            MOVE_MAP.Add(Keys.W, new MoveUp());
+            MOVE_MAP.Add(Keys.A, new MoveLeft());
+            MOVE_MAP.Add(Keys.D, new MoveRight());
+
             MOVE_MAP.Add(Keys.Z, new attackSword());
             MOVE_MAP.Add(Keys.N, new attackSword());
             MOVE_MAP.Add(Keys.E, new Damage());
