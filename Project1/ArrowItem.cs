@@ -15,7 +15,7 @@ using System.Diagnostics;
 
 namespace Project1
 {
-    public class Arrow : IItem
+    public class ArrowItem : IItem
     {
 
         //Texture stores the texture alias for our animation
@@ -44,7 +44,7 @@ namespace Project1
 
 
 
-        public Arrow()
+        public ArrowItem()
         {
             //remove later:
             sprite = ItemSpriteFactory.Instance.CreateArrowSprite();
