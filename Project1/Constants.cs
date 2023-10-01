@@ -118,19 +118,19 @@ namespace Project1
         public static int MAP_R = 1;
         public static int MAP_C = 1;
 
-        public static int BOMB_R = 1;
-        public static int BOMB_C = 4;
+        //public static int BOMB_R = 1;
+        //public static int BOMB_C = 4;
         public static int RUPEE_R = 1;
         public static int RUPEE_C = 2;
 
         public static int SWORD_R = 1;
         public static int SWORD_C = 4;
 
-        public static int ARROW_R = 1;
-        public static int ARROW_C = 4;
+        //public static int ARROW_R = 1;
+        //public static int ARROW_C = 4;
 
-        public static int BOW_R = 1;
-        public static int BOW_C = 4;
+        //public static int BOW_R = 1;
+        //public static int BOW_C = 4;
 
         public static int BOOMERANG_R = 1;
         public static int BOOMERANG_C = 4;
