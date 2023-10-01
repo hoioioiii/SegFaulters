@@ -279,6 +279,9 @@ namespace Project1
             MOVE_MAP.Add(Keys.Right, new MoveRight());
             MOVE_MAP.Add(Keys.E, new TakeDamage());
             MOVE_MAP.Add(Keys.R, new QuitGame());
+            MOVE_MAP.Add(Keys.D1, new attackBoomerang());
+            MOVE_MAP.Add(Keys.D2, new attackBow());
+            /*
             MOVE_MAP.Add(Keys.D0, new Item0());
             MOVE_MAP.Add(Keys.D1, new Item1());
             MOVE_MAP.Add(Keys.D2, new Item2());
@@ -289,6 +292,7 @@ namespace Project1
             MOVE_MAP.Add(Keys.D7, new Item7());
             MOVE_MAP.Add(Keys.D8, new Item8());
             MOVE_MAP.Add(Keys.D9, new Item9());
+            */
             //MOVE_MAP.Add(Keys.Tab, //Call Command State); //kyler- dont think we need a tab
 
         }
@@ -297,6 +301,7 @@ namespace Project1
         public void IteratorMap()
         {
             ITERATE_MAP = new Dictionary<Keys, ICommand>();
+            /*
             ITERATE_MAP.Add(Keys.T, new BlockPrevious());
             ITERATE_MAP.Add(Keys.Y, new BlockNext());
             ITERATE_MAP.Add(Keys.U, new ItemPrevious());
@@ -311,6 +316,7 @@ namespace Project1
             PREV_KEYBOARD_STATE = CURR_KEYBOARD_STATE;
 
             CURR_KEYBOARD_STATE = Keyboard.GetState();
+            
             GetInputType();
         }
     }

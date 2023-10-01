@@ -11,10 +11,13 @@ namespace Project1
 {
     public class PlayerSpriteFactory
     {
+      
+        private Texture2D[] link1SpriteStorage = new Texture2D[PLAYER_FRAMES];
+        private Texture2D[] link2SpriteStorage = new Texture2D[PLAYER_FRAMES];
+        private Texture2D[] linkAttackSpriteStorage = new Texture2D[PLAYER_FRAMES];
         
-        private Texture2D[] linkSheet = new Texture2D[LINK_C * LINK_R];
-        private Texture2D[] linkSheetAttack = new Texture2D[LINK_C * LINK_R];
-        private Texture2D[] linkSheetMove = new Texture2D[LINK_C * LINK_R];
+
+
         // More private Texture2Ds follow
         // ...
 
@@ -37,30 +40,37 @@ namespace Project1
             //add all frames to the arrays
             //anything in all caps still needs to be updates with the new sprite
             
-            linkSheet[0] = content.Load<Texture2D>("linkRight1");
-            linkSheet[1] = content.Load<Texture2D>("linkLeft1");
-            linkSheet[2] = content.Load<Texture2D>("linkUp1");
-            linkSheet[3] = content.Load<Texture2D>("linkDown1");
+            // still and movement
+            link1SpriteStorage[(int)DIRECTION.right] = content.Load<Texture2D>(assetName: "LinkRight1");
+            link1SpriteStorage[(int)DIRECTION.left] = content.Load<Texture2D>(assetName: "LinkLeft1");
+            link1SpriteStorage[(int)DIRECTION.up] = content.Load<Texture2D>(assetName: "LinkUp1");
+            link1SpriteStorage[(int)DIRECTION.down] = content.Load<Texture2D>(assetName: "LinkDown1");
 
             // movement only
-            linkSheetMove[0] = content.Load<Texture2D>("linkRight2");
-            linkSheetMove[1] = content.Load<Texture2D>("linkLeft2");
-            linkSheetMove[2] = content.Load<Texture2D>("linkUp2");
-            linkSheetMove[3] = content.Load<Texture2D>("linkDown2");
+            link2SpriteStorage[(int)DIRECTION.right] = content.Load<Texture2D>(assetName: "LinkRight2");
+            link2SpriteStorage[(int)DIRECTION.left] = content.Load<Texture2D>(assetName: "LinkLeft2");
+            link2SpriteStorage[(int)DIRECTION.up] = content.Load<Texture2D>(assetName: "LinkUp2");
+            link2SpriteStorage[(int)DIRECTION.down] = content.Load<Texture2D>(assetName: "LinkDown2");
 
             // Attack using weapon or item
-            linkSheetAttack[0] = content.Load<Texture2D>("linkAttackRight");
-            linkSheetAttack[1] = content.Load<Texture2D>("linkAttackLeft");
-            linkSheetAttack[2] = content.Load<Texture2D>("linkAttackUp");
-            linkSheetAttack[3] = content.Load<Texture2D>("linkAttackDown");
+            linkAttackSpriteStorage[(int)DIRECTION.right] = content.Load<Texture2D>(assetName: "LinkAttackRight");
+            linkAttackSpriteStorage[(int)DIRECTION.left] = content.Load<Texture2D>(assetName: "LinkAttackLeft");
+            linkAttackSpriteStorage[(int)DIRECTION.up] = content.Load<Texture2D>(assetName: "LinkAttackUp");
+            linkAttackSpriteStorage[(int)DIRECTION.down] = content.Load<Texture2D>(assetName: "LinkAttackDown");
 
+
+            // More Content.Load calls follow
+            //...
         }
-        
-       
-        public ISprite CreateLinkSheet()
+
+
+        public IPlayerSprite CreateLinkSprite()
         {
-            return new PlayerSprite(linkSheet, linkSheetMove, linkSheetAttack);
+            return new LinkSprite(link1SpriteStorage, link2SpriteStorage, linkAttackSpriteStorage);
         }
+
+        // More public ISprite returning methods follow
+        // ...
     }
 }
 

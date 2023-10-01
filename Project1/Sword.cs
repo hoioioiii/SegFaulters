@@ -26,19 +26,23 @@ namespace Project1
 
         private static int swordScale = 4;
 
-        private Game1 Game;
+        //private static int position;
+
+        //private Game1 Game;
 
 
-        public Sword(ContentManager content) {
+        public static void LoadContent(ContentManager content)
+        {
+            //Game = Game1.Game;
 
-            Game = Game1.Game;
-          
-            //attack using swordd
+            //attack using sword
             swordRight = content.Load<Texture2D>("swordRight");
             swordLeft = content.Load<Texture2D>("swordLeft");
             swordUp = content.Load<Texture2D>("swordUp");
             swordDown = content.Load<Texture2D>("swordDown");
         }
+
+
 
         public static void Draw(Vector2 position, int linkDirection)
         {
@@ -53,20 +57,20 @@ namespace Project1
                 case 2:
                     swordOffsetX = 50;
                     swordOffsetY = 25;
-                    DrawSword(swordUp, position, swordOffsetX, swordOffsetY);
+                    DrawSword(swordRight, position, swordOffsetX, swordOffsetY);
                     break;
                 case 3:
                     swordOffsetX = 25;
                     swordOffsetY = 60;
-                    DrawSword(swordUp, position, swordOffsetX, swordOffsetY);
+                    DrawSword(swordDown, position, swordOffsetX, swordOffsetY);
                     break;
                 case 4:
                     swordOffsetX = -50;
                     swordOffsetY = 25;
-                    DrawSword(swordUp, position, swordOffsetX, swordOffsetY);
+                    DrawSword(swordLeft, position, swordOffsetX, swordOffsetY);
                     break;
             }
-            
+
             // render attack texture to sprite
 
             // call method of attack used (e.g. sword or arrow)
@@ -109,6 +113,11 @@ namespace Project1
         }
 
         public void Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Draw()
         {
             throw new NotImplementedException();
         }

@@ -35,6 +35,7 @@ namespace Project1
 
         public Game1()
         {
+            
             _graphics = new GraphicsDeviceManager(this);
             
             Content.RootDirectory = "Content";
@@ -48,6 +49,8 @@ namespace Project1
 
 
         }
+
+        public void Quit() => Exit();
 
 
         //void Quit() => Exit();

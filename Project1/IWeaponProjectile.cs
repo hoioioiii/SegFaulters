@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 
 namespace Project1
 {
@@ -22,6 +23,8 @@ namespace Project1
         public void Update();
 
         public void Physics();
+
+        //public void Draw(Vector2 position, int direction, int userScale);
     }
 
 

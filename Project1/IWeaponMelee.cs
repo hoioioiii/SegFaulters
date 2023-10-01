@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project1
 {
-    internal interface IWeaponMelee
+    public interface IWeaponMelee
     {
 
         public void Attack();
@@ -21,5 +21,7 @@ namespace Project1
 
         public void Update();
 
+
+        public void Draw();
     }
 }
