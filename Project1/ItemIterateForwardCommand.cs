@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project1
 {
-    internal class EntityIterateForwardCommand : ICommand
+    internal class ItemIterateForwardCommand : ICommand
     {
         public void Execute()
         {
