@@ -9,6 +9,58 @@ namespace Project1
     internal class DirectionManager
     {
 
+        public static int FourDirMove(int pos, int direction)
+        {
+            //takes care of horizontal
+
+            if (direction % 2 == 0)
+            {
+                pos = moveX(pos, direction);
+            }
+            else {
+                pos = moveY(pos, direction);
+            }
+
+            return pos;
+        }
+
+        public static int moveY(int pos, int direction)
+        {
+
+            //moving down
+            if (direction > 2)
+            {
+
+                pos += 1;
+            }
+            else//moving up
+            {
+
+                pos += -1;
+            }
+            return pos;
+        }
+
+        public static int moveX(int pos, int direction)
+        {
+
+            //moving left
+            if (direction > 2)
+            {
+
+                pos += -1;
+            }
+            else//moving right
+            {
+                pos += 1;
+
+            }
+
+            return pos;
+
+        }
+
+
         // 1 : up
         //2: right
         //3:down
@@ -51,6 +103,46 @@ namespace Project1
             return y;
         }
 
+        public static int DirectionOffsetX(int pos, int direction)
+        {
+
+            if (direction > 2){
+
+                int offset = -1 * 30;
+                pos += offset;
+            }
+            else
+            {
+                int offset = 30;
+                pos += offset;
+            }
+
+            return pos;
+
+        }
+
+        public static int DirectionOffsetY(int pos, int direction)
+        {
+            if (direction == 0)
+            {
+                return pos;
+
+            }
+
+            if (direction < 2)
+            {
+
+                int offset = -1 * 30;
+                pos += offset;
+            }
+            else
+            {
+                int offset = 30;
+                pos += offset;
+            }
+
+            return pos;
+        }
 
 
 

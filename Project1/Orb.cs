@@ -11,11 +11,13 @@ namespace Project1
 
 
 
-    internal class Bomb : IWeaponMelee
+    internal class Orb : IWeaponMelee
     {
         private ISpriteWeapon sprite;
-        public Bomb() {
-            sprite = WeaponSpriteFactory.Instance.CreateBombSprite();
+        public Orb() {
+
+
+            sprite = WeaponSpriteFactory.Instance.CreateOrbSprite();
         }
         public void Attack()
         {

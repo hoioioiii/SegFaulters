@@ -17,7 +17,7 @@ namespace Project1
         private Texture2D[] ArrowSheet = new Texture2D[ARROW_C * ARROW_R];
         private Texture2D[] BombSheet = new Texture2D[BOMB_C * BOMB_R];
         private Texture2D[] BoomerangSheet = new Texture2D[BOOMERANG_C * BOOMERANG_R];
-        private Texture2D[] OrbSheet = new Texture2D[ORB_C * ORB_R];
+        private Texture2D[] OrbSheet = new Texture2D[1];
         // More private Texture2Ds follow
         // ...
 
@@ -51,23 +51,22 @@ namespace Project1
             //BowSheet[2] = content.Load<Texture2D>("bowLeft");
             //BowSheet[3] = content.Load<Texture2D>("bowRight");
 
-            //ArrowSheet[0] = content.Load<Texture2D>("arrowLeft");
-            //ArrowSheet[0] = content.Load<Texture2D>("arrowRight");
-            //ArrowSheet[0] = content.Load<Texture2D>("arrowUp");
-            //ArrowSheet[0] = content.Load<Texture2D>("arrowDown");
+            ArrowSheet[0] = content.Load<Texture2D>("arrowUp");
+            ArrowSheet[1] = content.Load<Texture2D>("arrowRight");
+            ArrowSheet[2] = content.Load<Texture2D>("arrowDown");
+            ArrowSheet[3] = content.Load<Texture2D>("arrowLeft");
+      
             //// Attack using weapon or item
             BombSheet[0] = content.Load<Texture2D>("ZeldaSpriteBomb");
             BombSheet[1] = content.Load<Texture2D>("ZeldaSpriteEnemyCloud");
 
-            //BoomerangSheet[0] = content.Load<Texture2D>("rang1");
-            //BoomerangSheet[1] = content.Load<Texture2D>("rang2");
-            //BoomerangSheet[2] = content.Load<Texture2D>("rang3");
-            //BoomerangSheet[3] = content.Load<Texture2D>("rang4");
+            BoomerangSheet[0] = content.Load<Texture2D>("boomerang1");
+            BoomerangSheet[1] = content.Load<Texture2D>("boomerang2");
+            BoomerangSheet[2] = content.Load<Texture2D>("boomerang3");
+            BoomerangSheet[3] = content.Load<Texture2D>("boomerang4");
 
             ////need the orbs still
-            //OrbSheet[0] = content.Load<Texture2D>("orb1");
-            //OrbSheet[1] = content.Load<Texture2D>("orb2");
-            //OrbSheet[2] = content.Load<Texture2D>("orb3");
+            OrbSheet[0] = content.Load<Texture2D>("orb");
 
         }
 
@@ -76,6 +75,22 @@ namespace Project1
         {
             return new BombSprite(BombSheet);
         }
+
+        public ISpriteWeapon CreateArrowSprite()
+        {
+            return new ArrowSprite(ArrowSheet);
+        }
+        public ISpriteWeapon CreateBoomerangeSprite()
+        {
+            return new BoomerangeSprite(BoomerangSheet);
+        }
+
+        public ISpriteWeapon CreateOrbSprite()
+        {
+            return new OrbSprite(OrbSheet);
+        }
+
+
     }
 
 }

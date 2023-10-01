@@ -81,13 +81,14 @@ namespace Project1
 
         private static IWeaponMelee weapon;
         private static IWeaponMelee spriteWeapon;
-
+        private static IWeaponMelee spriteBow;
         private static int onScreen;
 
 
         private static int posX;
         private static int posY;
 
+        private static int timeAllowed;
         private static bool remainOnScreen;
         //private Game1 game1;
 
@@ -96,7 +97,10 @@ namespace Project1
             posX = 0;
             posY = 0;
             remainOnScreen = false;
-         
+
+            timeAllowed = 1000;
+
+
         }
 
         public static void Initialize(SpriteBatch spriteBatch)
@@ -114,7 +118,7 @@ namespace Project1
             //create the link sprite
             sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
 
-            spriteWeapon = new Bomb();
+            weapon = new Bomb();
            
         }
 
@@ -265,10 +269,11 @@ namespace Project1
         public static void CheckOnScreen()
         {
             CheckTime();
-            if(onScreen > 1000)
+            if(onScreen > 10000)
             {
                 remainOnScreen = false;
             }
+
         }
 
         public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -320,59 +325,31 @@ namespace Project1
                     }
                     else if (isAttackingWithBoomerang)
                     {
-                        switch (linkDirection)
-                        {
-                            case 1:
-                                Boomerang.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                            case 2:
-                                Boomerang.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                            case 3:
-                                Boomerang.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                            case 4:
-                                Boomerang.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                        }
-                    }
-                    else if (isAttackingWithBow)
-                    {
-                        switch (linkDirection)
-                        {
-                            case 1:
-                                Arrow.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                            case 2:
-                                Arrow.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                            case 3:
-                                Arrow.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                            case 4:
-                                Arrow.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                        }
-                    }
-                    else if (isAttackingWithBomb)
-                    {
-                        spriteWeapon = new Bomb();
+                        weapon = new Orb();
+                        spriteWeapon = weapon;
                         remainOnScreen = true;
                         spriteWeapon.Attack();
                         spriteWeapon.Draw();
                         sprite.Draw(spriteBatch, "attack");
                     }
-
-
-
+                    else if (isAttackingWithBow)
+                    {
+                        weapon = new Arrow2();
+                        spriteWeapon = weapon;
+                        remainOnScreen = true;
+                        spriteWeapon.Attack();
+                        spriteWeapon.Draw();
+                        sprite.Draw(spriteBatch, "attack");
+                    }
+                    else if (isAttackingWithBomb)
+                    {
+                        weapon = new Bomb();
+                        spriteWeapon = weapon;
+                        remainOnScreen = true;
+                        spriteWeapon.Attack();
+                        spriteWeapon.Draw();
+                        sprite.Draw(spriteBatch, "attack");
+                    }
                 }
                 else
                 {

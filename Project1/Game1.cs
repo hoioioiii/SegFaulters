@@ -66,8 +66,8 @@ namespace Project1
             PlayerSpriteFactory.Instance.LoadAllTextures(Content);
             Player.LoadContent(Content);
             Sword.LoadContent(Content);
-            Boomerang.LoadContent(Content);
-            Arrow.LoadContent(Content);
+            
+            
         }
 
         protected override void Update(GameTime gameTime)
