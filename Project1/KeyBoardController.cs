@@ -143,6 +143,8 @@
 //            //ITERATE_MAP.Add(Keys.I, //Call Command State);)
 //            ITERATE_MAP.Add(Keys.O, new EntityIterateBackCommand());
 //            ITERATE_MAP.Add(Keys.P, new EntityIterateForwardCommand());
+//            ITERATE_MAP.Add(Keys.U, new ItemIterateBackCommand());
+//            ITERATE_MAP.Add(Keys.I, new ItemyIterateForwardCommand());
 
 //        }
 
