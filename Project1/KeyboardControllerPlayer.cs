@@ -24,7 +24,7 @@ namespace Project1
         private Dictionary<Keys, ICommand> ITERATE_MAP { get; set; }
 
         ArraySegment<Keys> GET_PRESSED;
-        public KeyBoardController(Game1 game1)
+        public KeyBoardControllerPlayer(Game1 game1)
         {
 
 
