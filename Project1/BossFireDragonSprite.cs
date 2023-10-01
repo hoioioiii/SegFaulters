@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static Project1.Constants;
@@ -23,6 +23,9 @@ namespace Project1
 
         private int pos_x { get; set; }
         private int pos_y { get; set; }
+
+        public static Vector2 positionVector { get; set; }
+        public static SpriteBatch spriteBatchforOrbs { get; set; }
 
         private int width;
         private int height;
@@ -57,6 +60,7 @@ namespace Project1
             Direction = 1;
             secTillDirChange = 1;
         }
+
         public void Update()
         {
 
@@ -85,6 +89,7 @@ namespace Project1
         }
         public void Move()
         {
+            positionVector = new Vector2(pos_x, pos_y);
             if (secondsPassed >= secTillDirChange)
             {
                 elapsedTime -= msecPerFrame;
@@ -98,7 +103,7 @@ namespace Project1
             {
                 ChangeDirection();
             }
-
+            
         }
 
         private void Animate()
@@ -112,10 +117,12 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            
             Animate();
             Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+            spriteBatchforOrbs = spriteBatch;
         }
     }
 }

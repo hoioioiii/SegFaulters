@@ -95,7 +95,7 @@ namespace Project1
 
             IListIterate ItemList = new ItemIterator(this);
 
-            
+
             //ENEMY = new Bat();
             //ENEMY = new BossAquaDragon();
             //ENEMY = new BossDino();
@@ -115,6 +115,7 @@ namespace Project1
             // TODO: use this.Content to load your game content here
             //Content content = this.Content;
             PlayerSpriteFactory.Instance.LoadAllTextures(Content);
+            WeaponSpriteFactory.Instance.LoadAllTextures(Content);
             Player.LoadContent(Content);
         }
 

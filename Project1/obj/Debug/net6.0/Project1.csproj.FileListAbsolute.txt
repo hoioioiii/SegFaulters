@@ -571,3 +571,14 @@ C:\Users\Ephratah\Source\Repos\Boioioiii\SegFaulters\Project1\obj\Debug\net6.0\r
 C:\Users\Ephratah\Source\Repos\Boioioiii\SegFaulters\Project1\obj\Debug\net6.0\Project1.pdb
 C:\Users\Ephratah\Source\Repos\Boioioiii\SegFaulters\Project1\obj\Debug\net6.0\Project1.genruntimeconfig.cache
 C:\Users\Ephratah\Source\Repos\Boioioiii\SegFaulters\Project1\obj\Debug\net6.0\ref\Project1.dll
+C:\Users\Ephratah\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\brick.xnb
+C:\Users\Ephratah\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\brick10.xnb
+C:\Users\Ephratah\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\brick2.xnb
+C:\Users\Ephratah\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\brick3.xnb
+C:\Users\Ephratah\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\brick4.xnb
+C:\Users\Ephratah\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\brick5.xnb
+C:\Users\Ephratah\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\brick6.xnb
+C:\Users\Ephratah\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\brick7.xnb
+C:\Users\Ephratah\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\brick8.xnb
+C:\Users\Ephratah\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\forest.xnb
+C:\Users\Ephratah\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\grass.xnb

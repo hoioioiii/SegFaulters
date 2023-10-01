@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -51,6 +51,10 @@ namespace Project1
 
         private ISprite sprite;
 
+        //Attacking tracker
+        private bool attacking;
+        private static float AttackTimer;
+
         public BossFireDragon()
 		{
             //remove later:
@@ -61,12 +65,15 @@ namespace Project1
             POS_X = SPRITE_X;
             POS_Y = SPRITE_Y;
             */
-
+            attacking = false;
             sprite = EnemySpriteFactory.Instance.CreateFireDragonSprite();
+            Attack();
         }
         public void Update()
         {
+           
             sprite.Update();
+            
             /*
             Move();
             CURRENT_FRAME += FRAME_SPD;
@@ -87,8 +94,31 @@ namespace Project1
         }
         public void Draw(SpriteBatch spriteBatch)
         {
+            if (attacking)
+            {
+                sprite.Draw(spriteBatch);
+                DrawOrbs(spriteBatch);
+            }
+            else
+            {
+                sprite.Draw(spriteBatch);
+            }
+        }
 
-            sprite.Draw(spriteBatch);
+        private void DrawOrbs(SpriteBatch spriteBatch)
+        {
+            // Texture2D[] orbTexture = WeaponSpriteFactory.Instance.GetOrbTextures();
+            Texture2D[] orbTexture = WeaponSpriteFactory.OrbSheet;
+            Vector2 PositionAtAttack = BossFireDragonSprite.positionVector;
+            Orbs orbs = new Orbs(orbTexture, PositionAtAttack);
+
+            orbs.Attack();
+
+            while (orbs.activeAttack)
+            {
+                orbs.Update();
+                orbs.Draw(spriteBatch, PositionAtAttack, 0, 0);
+            }
         }
 
         /*
@@ -131,8 +161,10 @@ namespace Project1
 
         public void Attack()
         {
-            throw new NotImplementedException();
+            attacking = true;
+
         }
+        // if 1 second has passed since attacking, revert attack state to false (allowing for other actions)
 
         public void ItemDrop()
         {

@@ -43,6 +43,10 @@ namespace Project1
         public void Draw(SpriteBatch spriteBatch)
         {
             IEnemy entitySprite = ENTITY[pointer];
+            if (pointer == 4)
+            {
+                entitySprite.Attack();
+            }
             entitySprite.Draw(spriteBatch);
 
         }
