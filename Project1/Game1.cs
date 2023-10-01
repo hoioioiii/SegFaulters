@@ -62,6 +62,7 @@ namespace Project1
             KeyboardState state = Keyboard.GetState();
             ControllerList = new ArrayList();
             ControllerList.Add(new KeyBoardController(this));
+            ControllerList.Add(new KeyboardControllerPlayer(this)); 
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
