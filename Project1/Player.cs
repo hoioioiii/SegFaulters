@@ -142,6 +142,81 @@ namespace Project1
             }
 
             
+<<<<<<< HEAD
+=======
+            // else ifs used so link can only move in the cardinal directions
+            // Link can't move when attacking
+            if (!isAttacking)
+            {
+                if (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.N))
+                {
+                    // attack using his sword
+                    isAttacking = true;
+                    isAttackingWithSword = true;
+                    //sprite.Update(linkDirection, position);
+                }
+                else if (state.IsKeyDown(Keys.D1))
+                {
+                    // attack using his 
+                    isAttacking = true;
+                    isAttackingWithBoomerang = true;
+                }
+                else if (state.IsKeyDown(Keys.D2))
+                {
+                    // attack using his 
+                    isAttacking = true;
+                    isAttackingWithBow = true;
+                }
+
+
+                if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.A))
+                {
+                    position.X -= playerSpeed;
+                    isMoving = true;
+                    linkDirection = 4;
+                    sprite.Update(4, position);
+                }
+                else if (state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.S))
+                {
+                    position.Y += playerSpeed;
+                    isMoving = true;
+                    linkDirection = 3;
+                    sprite.Update(3, position);
+                }
+                else if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.W))
+                {
+                    position.Y -= playerSpeed;
+                    isMoving = true;
+                    linkDirection = 1;
+                    sprite.Update(1, position);
+                }
+                else if (state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D))
+                {
+                    position.X += playerSpeed;
+                    isMoving = true;
+                    linkDirection = 2;
+                    sprite.Update(2, position);
+                }
+            }
+
+            if (state.IsKeyDown(Keys.E))
+            {
+                isDamaged = true;
+                DamageInvincibility();
+            }
+            if (state.IsKeyDown(Keys.T) || state.IsKeyDown(Keys.Y))
+            {
+                // cycle between which block is currently being shown
+            }
+            if (state.IsKeyDown(Keys.U) || state.IsKeyDown(Keys.I))
+            {
+
+            }
+            if (state.IsKeyDown(Keys.O) || state.IsKeyDown(Keys.P))
+            {
+
+            }
+>>>>>>> a30f1cc670f464c2321b12f75a6b89be240d5629
         }
 
         public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -183,19 +258,41 @@ namespace Project1
                         switch (linkDirection)
                         {
                             case 1:
-                                Boomerang.ThrowBoomerang(position, linkDirection, spriteScale);
+                                Boomerang.Draw(position, linkDirection, spriteScale);
                                 sprite.Draw(spriteBatch, "attack");
                                 break;
                             case 2:
-                                Boomerang.ThrowBoomerang(position, linkDirection, spriteScale);
+                                Boomerang.Draw(position, linkDirection, spriteScale);
                                 sprite.Draw(spriteBatch, "attack");
                                 break;
                             case 3:
-                                Boomerang.ThrowBoomerang(position, linkDirection, spriteScale);
+                                Boomerang.Draw(position, linkDirection, spriteScale);
                                 sprite.Draw(spriteBatch, "attack");
                                 break;
                             case 4:
-                                Boomerang.ThrowBoomerang(position, linkDirection, spriteScale);
+                                Boomerang.Draw(position, linkDirection, spriteScale);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                        }
+                    }
+                    else if (isAttackingWithBow)
+                    {
+                        switch (linkDirection)
+                        {
+                            case 1:
+                                Arrow.Draw(position, linkDirection, spriteScale);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                            case 2:
+                                Arrow.Draw(position, linkDirection, spriteScale);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                            case 3:
+                                Arrow.Draw(position, linkDirection, spriteScale);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                            case 4:
+                                Arrow.Draw(position, linkDirection, spriteScale);
                                 sprite.Draw(spriteBatch, "attack");
                                 break;
                         }
@@ -267,6 +364,9 @@ namespace Project1
             {
                 isAttacking = false;
                 AttackTimer = ATTACK_SECONDS;
+                isAttackingWithBoomerang = false;
+                isAttackingWithBow = false;
+                isAttackingWithSword = false;
             }
         }
 

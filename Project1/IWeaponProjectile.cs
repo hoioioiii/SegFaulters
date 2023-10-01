@@ -24,7 +24,7 @@ namespace Project1
 
         public void Physics();
 
-        public void Draw(Vector2 position, int direction, int userScale);
+        //public void Draw(Vector2 position, int direction, int userScale);
     }
 
 
