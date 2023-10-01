@@ -1,4 +1,4 @@
-﻿public class DeadPlayerState : IPlayerState
+public class DeadPlayerState : IPlayerState
 {
     private PlayerState player;
     //placeholder till connected with global health system
