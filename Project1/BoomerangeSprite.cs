@@ -53,27 +53,28 @@ namespace Project1
             onWayTime = 0;
         }
 
+        /*
+        * 
+        * set Boomerange
+        */
         public void setBang()
         {
             BangPlaced = true;
         }
+
+        /*
+        * 
+        * remove bommereange
+        */
         private void removeBang()
         {
             BangPlaced = false;
         }
 
-
-
-        //private bool waitExplode()
-        //{
-        //    elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-
-        //    if (elapsedTime > fps) {
-        //        return false;
-        //    }
-        //    return true;
-        //}
-
+        /*
+        * animate boomerange
+        * 
+        */
         private void UpdateFrames()
         {
             current_frame += 1;
@@ -85,6 +86,12 @@ namespace Project1
 
         }
 
+
+        /*
+        * 
+        * start boomerage
+        */
+
         public void Attack()
         {
 
@@ -93,6 +100,10 @@ namespace Project1
 
         }
 
+        /*
+        * 
+        * get boomerange infp
+        */
         private void DetermineWeaponState()
         {
             if (!BangPlaced)
@@ -102,23 +113,44 @@ namespace Project1
                 placeOffset();
             }
         }
+
+        /*
+        * 
+        * update animation and move
+        */
         public void Update()
         {
             UpdateFrames();
             Move();
 
         }
+
+        /*
+        * how far away to create create boomerange form user
+        * 
+        */
         private void placeOffset()
         {
             weaponX = DirectionManager.OffsetX(userX, direction);
             weaponY = DirectionManager.OffsetY(userY, direction);
         }
+
+        /*
+        * 
+        * draw bommer
+        */
         public void Draw(SpriteBatch spriteBatch)
         {
             Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
             Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width, height);
             spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
+
+
+        /*
+        * 
+        * get user pos
+        */
         private void GetUserPos()
         {
             Vector2 posVec = Player.getUserPos();
@@ -126,23 +158,40 @@ namespace Project1
             userY = (int)posVec.Y;
         }
 
+        /*
+        * get user direction
+        * 
+        */
         private void GetUserState()
         {
             direction = Player.getUserDirection();
 
         }
 
+        /*
+        * 
+        * ignore
+        */
         private void Load()
         {
             throw new NotImplementedException();
         }
 
+        /*
+        * get the time of which boomerange has been sent out from user
+        * 
+        */
         public void CheckTime()
         {
             onWayTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
 
         }
 
+
+        /*
+        * 
+        * change boomerange directions
+        */
         private void changeDirections()
         {
             switch (direction)
@@ -171,6 +220,10 @@ namespace Project1
 
         }
 
+        /*
+        * 
+        * move boomeange
+        */
         private void Move()
         {
 

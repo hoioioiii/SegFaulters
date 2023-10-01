@@ -53,37 +53,17 @@ namespace Project1
 
         public DogMonster()
 		{
-            //remove later:
-            /*
-            GameObject = Constants.GameObj;
-            ContentLoad = GameObject.Content;
-            Texture = Load();
-            POS_X = SPRITE_X;
-            POS_Y = SPRITE_Y;
-            */
 
             sprite = EnemySpriteFactory.Instance.CreateDogMonsterSprite();
         }
         public void Update()
         {
             sprite.Update();
-            /*
-            Move();
-            CURRENT_FRAME += FRAME_SPD;
-            if (CURRENT_FRAME >= TOTAL_FRAME)
-                CURRENT_FRAME = START_FRAME;
-            */
+        
         }
 
         private void Animate()
         {
-
-            //WIDTH = Texture.Width / Columns;
-            //HEIGHT = Texture.Height / Rows;
-
-            //ROW = (int)CURRENT_FRAME / Columns;
-            //COL = (int)CURRENT_FRAME % Columns;
-
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -96,10 +76,7 @@ namespace Project1
           */
         private void setFrames()
         {
-            //Rows = DM_R;
-            //Columns = DM_C;
-            //CURRENT_FRAME = START_FRAME;
-            //TOTAL_FRAME = Rows * Columns;
+            
         }
 
         /*
@@ -113,14 +90,6 @@ namespace Project1
 
         public void Move()
         {
-            //int DIR_X = RandomMove.RandMove();
-            //int DIR_Y = RandomMove.RandMove();
-
-            ////Add bounding constraints:
-
-            //POS_X += RandomMove.CheckBounds(DIR_X, POS_X, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            //POS_Y += RandomMove.CheckBounds(DIR_Y, POS_Y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-
 
         }
         public void Health()

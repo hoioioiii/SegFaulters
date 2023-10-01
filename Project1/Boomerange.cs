@@ -17,25 +17,41 @@ namespace Project1
         public Boomerange()
         {
 
-
             sprite = WeaponSpriteFactory.Instance.CreateBoomerangeSprite();
         }
+
+        /*
+         * Attack
+         */
         public void Attack()
         {
             sprite.Attack();
 
         }
 
+
+        /*
+         * Update
+         */
         public void Update()
         {
             sprite.Update();
         }
 
+
+        /*
+         * 
+         * Draw
+         */
         public void Draw()
         {
             sprite.Draw(Game1._spriteBatch);
         }
 
+        /*
+        * Ognore--------------------
+        * 
+        */
         public void Load()
         {
             throw new NotImplementedException();

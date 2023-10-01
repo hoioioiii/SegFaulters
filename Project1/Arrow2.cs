@@ -15,32 +15,45 @@ namespace Project1
     {
         private ISpriteWeapon sprite;
         public Arrow2()
-        {
-
+        { 
 
             sprite = WeaponSpriteFactory.Instance.CreateArrowSprite();
         }
+
+        /*
+         * Create Attack
+         */
         public void Attack()
         {
             sprite.Attack();
 
         }
 
+        /*
+         * Update
+         */
         public void Update()
         {
             sprite.Update();
         }
 
+        /*
+         * Draw the sprite
+         */
         public void Draw()
         {
             sprite.Draw(Game1._spriteBatch);
         }
 
+        /*
+         * Load the sprite
+         */
         public void Load()
         {
             throw new NotImplementedException();
         }
 
+        
         public void GetUserPos()
         {
             throw new NotImplementedException();

@@ -51,6 +51,11 @@ namespace Project1
             
 
         }
+
+
+        /*
+         * Update
+         */
         //change the current frame to the next frame
         public void Update()
         {
@@ -58,19 +63,16 @@ namespace Project1
             
         }
 
-        
+        /*
+        * Draw the sprite
+        */
+
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch);
             
 
         }
-
-        
-        
-
-
-
     }
 }
 

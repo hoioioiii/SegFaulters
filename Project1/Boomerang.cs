@@ -14,6 +14,11 @@ namespace Project1
 {
     internal class Boomerang : IWeaponProjectile
     {
+
+        /*
+         * 
+         * Ignore not used.
+         */
         private static Texture2D[] boomerangTex = new Texture2D[BOOMERANG_C];
         //private static Texture2D boomerangTex1;
         //private static Texture2D boomerangTex2;
@@ -47,6 +52,8 @@ namespace Project1
 
 
         }
+
+      
         public void Attack()
         {
             if (!activeAttack) {
@@ -56,7 +63,7 @@ namespace Project1
             }
         }
 
-
+        
         public static void LoadContent(ContentManager content)
         {
             boomerangTex[0] = content.Load<Texture2D>("boomerang1");

@@ -38,6 +38,10 @@ namespace Project1
             pos_x = SPRITE_X;
             pos_y = SPRITE_Y;
         }
+
+        /*
+        * Update
+        */
         public void Update()
         {
             
@@ -47,6 +51,9 @@ namespace Project1
                 current_frame = START_FRAME;
         }
 
+        /*
+         * Sprite Movement
+         */
         public void Move()
         {
             int DIR_X = RandomMove.RandMove();
@@ -59,6 +66,9 @@ namespace Project1
 
         }
 
+        /*
+         * Sprite Animation
+         */
         private void Animate()
         {
 
@@ -67,6 +77,9 @@ namespace Project1
 
         }
 
+        /*
+        * Draw the sprite
+        */
         public void Draw(SpriteBatch spriteBatch)
         {
             Animate();

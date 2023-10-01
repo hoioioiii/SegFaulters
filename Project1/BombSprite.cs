@@ -52,25 +52,42 @@ namespace Project1
 
         }
 
+        /*
+         * Place bomb
+         */
         public void setBomb()
         {
             bombPlaced = true;
         }
+
+        /*
+         * When to remove bomb
+         */
         private void removeBomb()
         {
             bombPlaced = false;
         }
+
+        /*
+         * Explosion is over indicator
+         */
         private void removeExplode()
         {
             explode = false;
         }
+
+        /*
+         * Next frame needs to explode
+         */
         private void setExplode()
         {
             explode = true;
         }
 
         
-
+        /*
+         * Give a wait time b4 explode animation
+         */
         private bool waitExplode()
         {
             elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
@@ -81,6 +98,10 @@ namespace Project1
             return true;
         }
 
+
+        /*
+         * Update explosion
+         */
         private void UpdateFrames()
         {
             if (!waitExplode())
@@ -95,6 +116,9 @@ namespace Project1
             }
         }
 
+        /*
+         * Place the bomb
+         */
         public void Attack()
         {
 
@@ -102,6 +126,10 @@ namespace Project1
             setBomb();
 
         }
+
+        /*
+         * Get bomb info 
+         */
 
         private void DetermineWeaponState()
         {
@@ -112,22 +140,41 @@ namespace Project1
             }
         }
 
+
+        /*
+         * Update bomb frams=es
+         */
         public void Update()
         {
             UpdateFrames();
 
         }
+
+
+        /*
+         * How far from user to place bomb
+         */
         private void placeOffset()
         {
             weaponX = DirectionManager.OffsetX(userX, direction);
             weaponY = DirectionManager.OffsetY(userY, direction);
         }
+
+
+        /*
+         * 
+         * Draw Bomb
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
                 Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
                 Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width, height);
                 spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
+
+        /*
+         * Get User Pos
+         */
         private void GetUserPos()
         {
             Vector2 posVec = Player.getUserPos();
@@ -135,6 +182,10 @@ namespace Project1
             userY = (int)posVec.Y;
         }
 
+
+        /*
+         * Get user direction
+         */
         private void GetUserState()
         {
             direction = Player.getUserDirection();

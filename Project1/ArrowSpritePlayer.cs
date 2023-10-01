@@ -50,41 +50,32 @@ namespace Project1
 
         }
 
+
+        /*
+         * Arrow has been created
+         */
         public void setArrow()
         {
             ArrowPlaced = true;
         }
+
+        /*
+         * To know when arrow should be removed
+         */
         private void removeArrow()
         {
             ArrowPlaced = false;
         }
 
-
-
-        //private bool waitExplode()
-        //{
-        //    elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-
-        //    if (elapsedTime > fps) {
-        //        return false;
-        //    }
-        //    return true;
-        //}
-
+        //ignore
         private void UpdateFrames()
         {
-            //if (!waitExplode())
-            //{
-            //    current_frame += 1;
-            //    setExplode();
-            //    if (current_frame >= total_frame) {
-            //        current_frame = 0;
-            //        removeBomb();
-            //        removeExplode();
-            //    }
-            //}
+       
         }
 
+        /*
+         * Attack
+         */
         public void Attack()
         {
 
@@ -93,6 +84,9 @@ namespace Project1
 
         }
 
+        /*
+         * Get info for weapon direction
+         */
         private void DetermineWeaponState()
         {
             if (!ArrowPlaced)
@@ -105,23 +99,37 @@ namespace Project1
 
 
 
-
+        /*
+         * Update movement
+         */
         public void Update()
         {
             Move();
 
         }
+
+        /*
+         * inital distiance away from user
+         */
         private void placeOffset()
         {
             weaponX = DirectionManager.OffsetX(userX, direction);
             weaponY = DirectionManager.OffsetY(userY, direction);
         }
+
+        /*
+         * Draw
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
             Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
             Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width, height);
             spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
+
+        /*
+         * Get user x and y at teh momemnt of attk
+         */
         private void GetUserPos()
         {
             Vector2 posVec = Player.getUserPos();
@@ -129,6 +137,11 @@ namespace Project1
             userY = (int)posVec.Y;
         }
 
+
+
+        /*
+         * Get user directions
+         */
         private void GetUserState()
         {
             direction = Player.getUserDirection();
@@ -156,6 +169,9 @@ namespace Project1
             throw new NotImplementedException();
         }
 
+        /*
+         * Arrow moves accross screen
+         */
         private void Move()
         {
             if (direction % 2 == 0)

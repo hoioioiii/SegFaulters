@@ -19,18 +19,7 @@ namespace Project1
         //Texture stores the texture alias for our animation
         private Texture2D Texture { get; set; }
 
-        //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
-
-        //Columns is the number of columns in the alias
-        private int Columns { get; set; }
-
-        //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private double CURRENT_FRAME;
-
-        //totalFrames keeps track of how many frames there are in total
-        private int TOTAL_FRAME;
-
+        
         //Remove later-------
         private Game1 GameObject;
         private ContentManager ContentLoad;
@@ -53,16 +42,14 @@ namespace Project1
 
         public BossAquaDragon()
 		{
-            //remove later:
-            /*
-            GameObject = Constants.GameObj;
-            ContentLoad = GameObject.Content;
-            Texture = Load();
-            POS_X = SPRITE_X;
-            POS_Y = SPRITE_Y;
-            */
+          
             sprite = EnemySpriteFactory.Instance.CreateBossAquaDragonSprite();
         }
+
+        /*
+        * 
+        * Update
+        */
         public void Update()
         {
             sprite.Update();
@@ -72,17 +59,19 @@ namespace Project1
             
         }
 
+        /*
+        * 
+        * Ignore
+        */
         private void Animate()
         {
-            /*
-            WIDTH = Texture.Width / Columns;
-            HEIGHT = Texture.Height / Rows;
-
-            ROW = (int)CURRENT_FRAME / Columns;
-            COL = (int)CURRENT_FRAME % Columns;
-            */
 
         }
+
+        /*
+        * 
+        * Draw
+        */
         public void Draw(SpriteBatch spriteBatch)
         {
 
@@ -90,20 +79,15 @@ namespace Project1
         }
 
         /*
-         * Responsible for setting the the frame numbers(r,c) of the sprite
+         * Ignore
          */
         private void setFrames()
         {
-            /*
-            Rows = AD_R;
-            Columns = AD_C;
-            CURRENT_FRAME = START_FRAME;
-            TOTAL_FRAME = Rows * Columns;
-            */
+       
         }
 
         /*
-         * Responsible for loading the sprite image
+         * ignore
          */
         public Texture2D Load()
         {
@@ -113,31 +97,38 @@ namespace Project1
             return ContentLoad.Load<Texture2D>(assetName: "AD");
             
         }
-
+        /*
+        * 
+        * ignore
+        */
         public void Move()
         {
-            /*
-            int DIR_X = RandomMove.RandMove();
-            int DIR_Y = RandomMove.RandMove();
-
-            //Add bounding constraints:
-
-            POS_X += RandomMove.CheckBounds(DIR_X, POS_X, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            POS_Y += RandomMove.CheckBounds(DIR_Y, POS_Y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-            */
-
+      
 
         }
+
+        /*
+        * health
+        * 
+        */
         public void Health()
         {
             throw new NotImplementedException();
         }
 
+        /*
+        * 
+        * ignore
+        */
         public void Attack()
         {
             throw new NotImplementedException();
         }
 
+        /*
+        * 
+        * ignore
+        */
         public void ItemDrop()
         {
             throw new NotImplementedException();

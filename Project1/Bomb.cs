@@ -19,22 +19,34 @@ namespace Project1
 
             sprite = WeaponSpriteFactory.Instance.CreateBombSprite();
         }
+
+        /**
+         * Attack
+         */
         public void Attack()
         {
             sprite.Attack();
             
         }
+        /*
+         * Update
+         */
 
         public void Update()
         {
             sprite.Update();
         }
 
+        /*
+         * Draw
+         */
         public void Draw()
         {
             sprite.Draw(Game1._spriteBatch);
         }
 
+
+        //Ignore-----------------------------fix later
         public void DetermineWeaponState()
         {
             throw new NotImplementedException();

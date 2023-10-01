@@ -37,7 +37,14 @@ namespace Project1
             total_frame = Rows * Columns;
             pos_x = SPRITE_X;
             pos_y = SPRITE_Y;
+
+            width = Texture[(int)current_frame].Width;
+            height = Texture[(int)current_frame].Height;
         }
+
+        /*
+         * Update
+         */
         public void Update()
         {
 
@@ -47,29 +54,30 @@ namespace Project1
                 current_frame = START_FRAME;
         }
 
+        /*
+         * Ignore
+         */
         public void Move()
-        {
-            int DIR_X = RandomMove.RandMove();
-            int DIR_Y = RandomMove.RandMove();
-
-            //Add bounding constraints:
-            pos_x += RandomMove.CheckBounds(DIR_X, pos_x, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            pos_y += RandomMove.CheckBounds(DIR_Y, pos_y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-
-
+        { 
         }
 
+        /*
+         * Ignore
+         */
         private void Animate()
         {
 
-            width = Texture[(int)current_frame].Width;
-            height = Texture[(int)current_frame].Height;
+            //width = Texture[(int)current_frame].Width;
+            //height = Texture[(int)current_frame].Height;
 
         }
 
+        /*
+         * Draw
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
-            Animate();
+            //Animate();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);

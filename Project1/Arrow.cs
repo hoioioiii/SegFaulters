@@ -12,6 +12,11 @@ using static Project1.Constants;
 
 namespace Project1
 {
+
+    /*
+     * 
+     * Ignore not using this
+     */
     internal class Arrow : IWeaponProjectile
     {
         

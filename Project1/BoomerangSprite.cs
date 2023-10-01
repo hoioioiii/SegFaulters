@@ -38,6 +38,11 @@ namespace Project1
             pos_x = SPRITE_X;
             pos_y = SPRITE_Y;
         }
+
+        /*
+        * 
+        * update
+        */
         public void Update()
         {
 
@@ -47,6 +52,10 @@ namespace Project1
                 current_frame = START_FRAME;
         }
 
+        /*
+        * 
+        * mvoe
+        */
         public void Move()
         {
             int DIR_X = RandomMove.RandMove();
@@ -58,7 +67,10 @@ namespace Project1
 
 
         }
-
+        /*
+        * animate
+        * 
+        */
         private void Animate()
         {
 
@@ -66,7 +78,10 @@ namespace Project1
             height = Texture[(int)current_frame].Height;
 
         }
-
+        /*
+        * 
+        * draw
+        */
         public void Draw(SpriteBatch spriteBatch)
         {
             Animate();

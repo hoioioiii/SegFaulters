@@ -50,7 +50,14 @@ namespace Project1
             pos_y = SPRITE_YE;
             elapsedTime = 0;
             msecPerFrame = 300;
+
+            width = Texture[(int)current_frame].Width;
+            height = Texture[(int)current_frame].Height;
         }
+
+        /*
+         * Update
+         */
         public void Update()
         {
             elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
@@ -60,6 +67,9 @@ namespace Project1
 
         }
 
+        /*
+         * Animation
+         */
         public void UpdateFrames()
         {
             if (elapsedTime >= msecPerFrame)
@@ -74,7 +84,9 @@ namespace Project1
 
 
 
-
+        /*
+         * Movement
+         */
         public void Move()
         {
             int DIR_X = RandomMove.RandMove();
@@ -87,6 +99,9 @@ namespace Project1
 
         }
 
+        /*
+         * Ignore
+         */
         private void Animate()
         {
 
@@ -96,9 +111,12 @@ namespace Project1
 
         }
 
+        /*
+         * Draw Sprite
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
-            Animate();
+            //Animate();
             Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
