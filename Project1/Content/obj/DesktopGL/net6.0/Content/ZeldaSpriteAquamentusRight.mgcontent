@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/ZeldaSpriteAquamentusRight.gif</SourceFile>
-  <SourceTime>2023-10-01T04:53:02.5311146-04:00</SourceTime>
-  <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/ZeldaSpriteAquamentusRight.xnb</DestFile>
-  <DestTime>2023-10-01T06:15:23.1431317-04:00</DestTime>
+  <SourceFile>C:/Users/tinal/source/repos/SegFinalMerge/Project1/Content/ZeldaSpriteAquamentusRight.gif</SourceFile>
+  <SourceTime>2023-10-01T07:35:05.7987289-04:00</SourceTime>
+  <DestFile>C:/Users/tinal/source/repos/SegFinalMerge/Project1/Content/bin/DesktopGL/Content/ZeldaSpriteAquamentusRight.xnb</DestFile>
+  <DestTime>2023-10-01T09:14:07.2027624-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

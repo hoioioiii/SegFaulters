@@ -28,6 +28,9 @@ namespace Project1
 
         public static int SPRITE_X = 350;
         public static int SPRITE_Y = 200;
+
+        public static int SPRITE_XE = 400;
+        public static int SPRITE_YE = 200;
         // damage
         public const float INVINCIBILITY_SECONDS = 1;
 

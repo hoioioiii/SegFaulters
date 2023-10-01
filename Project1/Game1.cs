@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using System.Collections;
 using static Project1.Constants;
+using System;
 
 namespace Project1
 {
@@ -16,6 +17,10 @@ namespace Project1
         private GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
         public static ContentManager contentLoader;
+
+        public static IEnvironment CurrentEnvironment;
+
+        private Texture2D _texture;
         //public static SpriteBatch _spriteBatch;
 
         // not used because I made the methods in player public static
@@ -30,7 +35,6 @@ namespace Project1
         public static IEnemy ENEMY;
         public static IItem Item;
 
-        private Texture2D _texture;
         private ArrayList ControllerList;
 
         public Game1()
@@ -100,26 +104,9 @@ namespace Project1
             IListIterate EntityList = new EnemyIterator(this);
 
             IListIterate ItemList = new ItemIterator(this);
+            IListIterate EnvironmentList = new EnvironmentIterator(this);
 
-            
-            //ENEMY = new Bat();
-            //ENEMY = new BossAquaDragon();
-            //ENEMY = new BossDino();
-            //ENEMY = new BossFireDragon();
-            //ENEMY = new DogMonster();
-            //ENEMY = new Flame();
-            //ENEMY = new Jelly();
-            //ENEMY = new Merchant();
-            //ENEMY = new OldMan();
-            //ENEMY = new Skeleton();
-            //ENEMY = new Snake();
-            //ENEMY = new SpikeCross();
-
-
-
-
-            // TODO: use this.Content to load your game content here
-            //Content content = this.Content;
+ 
             Sword.LoadContent(Content);
             Arrow.LoadContent(Content);
             Boomerang.LoadContent(Content); 
@@ -152,20 +139,12 @@ namespace Project1
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
-            //HealthBarSprite.Draw();
-
-           
-         
-           
 
             Player.Draw(gameTime, _spriteBatch);
 
-            
-
-
             ENEMY.Draw(_spriteBatch);
             Item.Draw(_spriteBatch);
-
+            CurrentEnvironment.Draw(_spriteBatch);
 
             _spriteBatch.End();
             base.Draw(gameTime);

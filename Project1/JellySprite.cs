@@ -26,8 +26,8 @@ namespace Project1
             Texture = spriteSheet;
             current_frame = START_FRAME;
             total_frame = JELLY_R * JELLY_C;
-            pos_x = SPRITE_X;
-            pos_y = SPRITE_Y;
+            pos_x = SPRITE_XE;
+            pos_y = SPRITE_YE;
         }
         public void Update()
         {

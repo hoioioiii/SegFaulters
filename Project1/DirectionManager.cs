@@ -104,6 +104,47 @@ namespace Project1
             return y;
         }
 
+        public static int DirectionOffsetX(int pos, int direction)
+        {
+
+            if (direction > 2)
+            {
+
+                int offset = -1 * 30;
+                pos += offset;
+            }
+            else
+            {
+                int offset = 30;
+                pos += offset;
+            }
+
+            return pos;
+
+        }
+
+        public static int DirectionOffsetY(int pos, int direction)
+        {
+            if (direction == 0)
+            {
+                return pos;
+
+            }
+
+            if (direction < 2)
+            {
+
+                int offset = -1 * 30;
+                pos += offset;
+            }
+            else
+            {
+                int offset = 30;
+                pos += offset;
+            }
+
+            return pos;
+        }
 
 
 

@@ -87,7 +87,7 @@ namespace Project1
 
         private static int onScreen;
 
-
+       
         private static int posX;
         private static int posY;
 
@@ -112,7 +112,7 @@ namespace Project1
             //create the link sprite
             sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
 
-            spriteWeapon = new Bomb();
+            weapon = new Bomb();
 
 
         }
@@ -341,54 +341,21 @@ namespace Project1
                     }
                     else if (isAttackingWithBoomerang)
                     {
-                        switch (linkDirection)
-                        {
-                            case 1:
-                                Boomerang.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                            case 2:
-                                Boomerang.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                            case 3:
-                                Boomerang.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                            case 4:
-                                Boomerang.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                        }
+
+                        Attack("boomerange");
+
+                        sprite.Draw(spriteBatch, "attack");
                     }
                     else if (isAttackingWithBow)
                     {
-                        switch (linkDirection)
-                        {
-                            case 1:
-                                Arrow.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                            case 2:
-                                Arrow.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                            case 3:
-                                Arrow.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                            case 4:
-                                Arrow.Draw(position, linkDirection, spriteScale);
-                                sprite.Draw(spriteBatch, "attack");
-                                break;
-                        }
+                        
+                        Attack("bow");
+                    
+                        sprite.Draw(spriteBatch, "attack");
                     }
                     else if (isAttackingWithBomb)
                     {
-                        spriteWeapon = new Bomb();
-                        remainOnScreen = true;
-                        spriteWeapon.Attack();
-                        spriteWeapon.Draw();
+                        Attack("bomb");
                         sprite.Draw(spriteBatch, "attack");
                     }
                 }
@@ -419,6 +386,41 @@ namespace Project1
                 }
             }
         }
+
+        public static void Attack(string weaponType)
+        {
+            switch (weaponType)
+            {
+                case "bomb":
+                    weapon = new Bomb();
+                    spriteWeapon = weapon;
+                    break;
+
+                case "bow":
+                    weapon = new Arrow2();
+                    spriteWeapon = weapon;
+                    break;
+
+                case "boomerange":
+                    weapon = new Boomerange();
+                    spriteWeapon = weapon;
+                    break;
+                case "orb":
+                    weapon = new Orb();
+                    spriteWeapon = weapon;
+                    break;
+
+            }
+            remainOnScreen = true;
+            spriteWeapon.Attack();
+            spriteWeapon.Draw();
+        }
+
+
+
+
+
+
         // if 1 second has passed since attacking, revert attack state to false (allowing for other actions)
         public static void WaitForAttack()
         {

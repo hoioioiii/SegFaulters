@@ -21,8 +21,8 @@ namespace Project1
         //totalFrames keeps track of how many frames there are in total
         private int total_frame { get; set; }
 
-        private int pos_x { get; set; }
-        private int pos_y { get; set; }
+        public static int pos_x;
+        public static int pos_y;
 
         private int width;
         private int height;
@@ -37,7 +37,7 @@ namespace Project1
         private int Direction;
         private int secondsPassed;
 
-
+        public static bool newAttack;
 
         public BossFireDragonSprite(Texture2D[] spriteSheet)
 		{
@@ -46,11 +46,11 @@ namespace Project1
             Columns = FD_C;
             current_frame = START_FRAME;
             total_frame = Rows * Columns;
-            pos_x = SPRITE_X;
-            pos_y = SPRITE_Y;
+            pos_x = SPRITE_XE;
+            pos_y = SPRITE_YE;
 
 
-
+            newAttack = true;
             elapsedTime = 0;
             msecPerFrame = 300;
 
@@ -116,6 +116,17 @@ namespace Project1
             Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+        }
+
+        public static Vector2 getUserPos()
+        {
+
+            return new Vector2(pos_x, pos_y);
+        }
+
+        public static int getUserDirection()
+        {
+            return 4;
         }
     }
 }

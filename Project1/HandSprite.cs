@@ -46,8 +46,8 @@ namespace Project1
             Columns = HAND_C;
             current_frame = START_FRAME;
             total_frame = 2;
-            pos_x = SPRITE_X;
-            pos_y = SPRITE_Y;
+            pos_x = SPRITE_XE;
+            pos_y = SPRITE_YE;
 
 
             elapsedTime = 0;

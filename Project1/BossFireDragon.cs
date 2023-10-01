@@ -38,7 +38,7 @@ namespace Project1
         //Remove later above--------------
 
 
-
+        private IWeaponMelee weapon;
         //Later create a animation tracker class:
         private int WIDTH;
         private int HEIGHT;
@@ -49,46 +49,67 @@ namespace Project1
         private int POS_X;
         private int POS_Y;
 
+        private int timeAllowed;
         private ISprite sprite;
-
+        private bool remainOnScreen;
+        private int onScreen;
         public BossFireDragon()
 		{
-            //remove later:
-            /*
-            GameObject = Constants.GameObj;
-            ContentLoad = GameObject.Content;
-            Texture = Load();
-            POS_X = SPRITE_X;
-            POS_Y = SPRITE_Y;
-            */
-
+            timeAllowed = 1000;
+            onScreen = 0;
+            remainOnScreen = false;
+            weapon = new Orb();
             sprite = EnemySpriteFactory.Instance.CreateFireDragonSprite();
         }
         public void Update()
         {
             sprite.Update();
-            /*
-            Move();
-            CURRENT_FRAME += FRAME_SPD;
-            if (CURRENT_FRAME >= TOTAL_FRAME)
-                CURRENT_FRAME = START_FRAME;
-            */
+
+           
+            if (remainOnScreen)
+            {
+                weapon.Update();
+            }
         }
 
         private void Animate()
         {
-
-            //WIDTH = Texture.Width / Columns;
-            //HEIGHT = Texture.Height / Rows;
-
-            //ROW = (int)CURRENT_FRAME / Columns;
-            //COL = (int)CURRENT_FRAME % Columns;
-
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-
+            
             sprite.Draw(spriteBatch);
+
+            Attack();
+
+            CheckOnScreen();
+
+            if (remainOnScreen)
+            {
+                weapon.Draw();
+            }
+            else
+            {
+                onScreen = 0;
+                remainOnScreen = false;
+            }
+
+        }
+
+        public void CheckTime()
+        {
+            onScreen += Game1.deltaTime.ElapsedGameTime.Milliseconds;
+        }
+
+
+        public void CheckOnScreen()
+        {
+            CheckTime();
+            if (onScreen > timeAllowed)
+            {
+                remainOnScreen = false;
+            }
+
         }
 
         /*
@@ -96,10 +117,7 @@ namespace Project1
          */
         private void setFrames()
         {
-            //Rows = FD_R;
-            //Columns = FD_C;
-            //CURRENT_FRAME = START_FRAME;
-            //TOTAL_FRAME = Rows * Columns;
+
         }
 
         /*
@@ -113,15 +131,7 @@ namespace Project1
 
         public void Move()
         {
-            //int DIR_X = RandomMove.RandMove();
-            //int DIR_Y = RandomMove.RandMove();
-
-            ////Add bounding constraints:
-
-            //POS_X += RandomMove.CheckBounds(DIR_X, POS_X, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            //POS_Y += RandomMove.CheckBounds(DIR_Y, POS_Y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-
-
+     
         }
 
         public void Health()
@@ -131,7 +141,12 @@ namespace Project1
 
         public void Attack()
         {
-            throw new NotImplementedException();
+            if (BossFireDragonSprite.newAttack)
+            {
+                remainOnScreen = true;
+                weapon.Attack();
+                weapon.Draw();
+            }
         }
 
         public void ItemDrop()

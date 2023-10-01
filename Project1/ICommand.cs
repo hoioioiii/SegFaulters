@@ -212,30 +212,6 @@ namespace Project1
 
         //block commands
 
-        public class BlockNext : ICommand
-        {
-            public BlockNext()
-            {
-                //constructor, nothing
-            }
-
-            public void Execute()
-            {
-
-            }
-        }
-        public class BlockPrevious : ICommand
-        {
-            public BlockPrevious()
-            {
-                //constructor, nothing
-            }
-
-            public void Execute()
-            {
-
-            }
-        }
 
         //item commands
 

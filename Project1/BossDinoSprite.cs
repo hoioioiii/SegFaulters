@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static Project1.Constants;
@@ -45,8 +46,8 @@ namespace Project1
             Columns = DINO_C;
             current_frame = 0;
             total_frame = 2;
-            pos_x = SPRITE_X;
-            pos_y = SPRITE_Y;
+            pos_x = SPRITE_XE;
+            pos_y = SPRITE_YE;
 
             elapsedTime = 0;
             msecPerFrame = 300;
@@ -77,6 +78,8 @@ namespace Project1
 
             if (current_frame >= total_frame)
                 current_frame = START_FRAME;
+
+            
         }
 
 

@@ -66,12 +66,10 @@ namespace Project1
         public void Update()
         {
             sprite.Update();
-            /*
-            Move();
-            CURRENT_FRAME += FRAME_SPD;
-            if (CURRENT_FRAME >= TOTAL_FRAME)
-                CURRENT_FRAME = START_FRAME;
-            */
+            
+          
+           
+            
         }
 
         private void Animate()
