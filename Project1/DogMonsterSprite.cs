@@ -32,7 +32,7 @@ namespace Project1
         private int msecPerFrame;
         private int secTillDirChange;
 
-        private int Direction;
+        public static int Direction;
         private int secondsPassed;
 
         private bool WalkDown;

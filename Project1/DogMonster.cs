@@ -49,6 +49,8 @@ namespace Project1
         private int POS_X;
         private int POS_Y;
 
+        private Boomerang boomerang;
+
         private ISprite sprite;
 
         public DogMonster()
@@ -61,7 +63,7 @@ namespace Project1
             POS_X = SPRITE_X;
             POS_Y = SPRITE_Y;
             */
-
+            Boomerang boomerang = new Boomerang(new Vector2(0,0), 0);
             sprite = EnemySpriteFactory.Instance.CreateDogMonsterSprite();
         }
         public void Update()
@@ -130,7 +132,7 @@ namespace Project1
 
         public void Attack()
         {
-            throw new NotImplementedException();
+            boomerang.Draw(new Vector2(POS_X, POS_Y), DogMonsterSprite.Direction, 1);
         }
 
         public void ItemDrop()

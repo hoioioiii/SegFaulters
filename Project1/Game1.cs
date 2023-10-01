@@ -89,7 +89,7 @@ namespace Project1
             
             //ENEMY = new Bat();
             //ENEMY = new BossAquaDragon();
-            //ENEMY = new BossDino();
+            ENEMY = new BossDino();
             //ENEMY = new BossFireDragon();
             //ENEMY = new DogMonster();
             //ENEMY = new Flame();
