@@ -4,15 +4,147 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/../../../../../OneDrive/Pictures/redbar.png</File>
-    <File>C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/emptyhealthbar2.png</File>
-    <File>C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/emptyhealthbar3.png</File>
-    <File>C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/redbaradjusted.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/bat1.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/bat2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/dino1.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/dino2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/dino3.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/dino4.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/dm1.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/dm2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/dm3.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/dm4.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/dm5.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/dm6.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/dm7.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/dm8.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/emptyhealthbar.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/emptyhealthbar2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/emptyhealthbar3.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/FD.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/fd1.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/fd2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/fd3.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/fd4.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/handLeft1.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/handLeft2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/handRight1.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/handRight2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/jelly1.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/jelly2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/jelly3.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/LinkAttackDown.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/LinkAttackLeft.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/LinkAttackRight.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/LinkAttackUp.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/linkDown1.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/linkDown2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/linkLeft1.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/linkLeft2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/linkRight1.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/linkRight2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/linkUp1.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/linkUp2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/linkWalkLeftSpritesheet.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/linkWalkRightSpritesheet.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/MERCHANT.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/redbar.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/redbaradjusted.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/skeleton1.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/skeleton2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/snakeLeft1.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/snakeLeft2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/snakeRight1.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/snakeRight2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/SPIKES.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/spikes1.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/spikes2.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/spikes3.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/spikes4.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/spikes5.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/spikes6.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/spikes7.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/swordDown.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/swordLeft.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/swordRight.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/swordUp.png</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteAquamentusLeft.gif</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteAquamentusRight.gif</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteFire.gif</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteLinkLeft.gif</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteLinkRight.gif</File>
+    <File>C:/Users/Jachi/source/repos/Boioioiii/SegFaulters/Project1/Content/../../../../../../OneDrive/Documents/Sprite Images/ZeldaSpriteOldMan.png</File>
   </SourceFiles>
   <DestFiles>
-    <File>redbar.png</File>
+    <File>bat1.png</File>
+    <File>bat2.png</File>
+    <File>dino1.png</File>
+    <File>dino2.png</File>
+    <File>dino3.png</File>
+    <File>dino4.png</File>
+    <File>dm1.png</File>
+    <File>dm2.png</File>
+    <File>dm3.png</File>
+    <File>dm4.png</File>
+    <File>dm5.png</File>
+    <File>dm6.png</File>
+    <File>dm7.png</File>
+    <File>dm8.png</File>
     <File>emptyhealthbar.png</File>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
+    <File>emptyhealthbar2.png</File>
+    <File>emptyhealthbar3.png</File>
+    <File>FD.png</File>
+    <File>fd1.png</File>
+    <File>fd2.png</File>
+    <File>fd3.png</File>
+    <File>fd4.png</File>
+    <File>handLeft1.png</File>
+    <File>handLeft2.png</File>
+    <File>handRight1.png</File>
+    <File>handRight2.png</File>
+    <File>jelly1.png</File>
+    <File>jelly2.png</File>
+    <File>jelly3.png</File>
+    <File>LinkAttackDown.png</File>
+    <File>LinkAttackLeft.png</File>
+    <File>LinkAttackRight.png</File>
+    <File>LinkAttackUp.png</File>
+    <File>linkDown1.png</File>
+    <File>linkDown2.png</File>
+    <File>linkLeft1.png</File>
+    <File>linkLeft2.png</File>
+    <File>linkRight1.png</File>
+    <File>linkRight2.png</File>
+    <File>linkUp1.png</File>
+    <File>linkUp2.png</File>
+    <File>linkWalkLeftSpritesheet.png</File>
+    <File>linkWalkRightSpritesheet.png</File>
+    <File>MERCHANT.png</File>
+    <File>redbar.png</File>
+    <File>redbaradjusted.png</File>
+    <File>skeleton1.png</File>
+    <File>skeleton2.png</File>
+    <File>snakeLeft1.png</File>
+    <File>snakeLeft2.png</File>
+    <File>snakeRight1.png</File>
+    <File>snakeRight2.png</File>
+    <File>SPIKES.png</File>
+    <File>spikes1.png</File>
+    <File>spikes2.png</File>
+    <File>spikes3.png</File>
+    <File>spikes4.png</File>
+    <File>spikes5.png</File>
+    <File>spikes6.png</File>
+    <File>spikes7.png</File>
+    <File>swordDown.png</File>
+    <File>swordLeft.png</File>
+    <File>swordRight.png</File>
+    <File>swordUp.png</File>
+    <File>ZeldaSpriteAquamentusLeft.gif</File>
+    <File>ZeldaSpriteAquamentusRight.gif</File>
+    <File>ZeldaSpriteFire.gif</File>
+    <File>ZeldaSpriteLinkLeft.gif</File>
+    <File>ZeldaSpriteLinkRight.gif</File>
+    <File>ZeldaSpriteOldMan.png</File>
   </DestFiles>
 </SourceFileCollection>
