@@ -58,6 +58,23 @@ namespace Project1
 
         }
 
+        public static IItem getCurrEnemy(Boolean back)
+        {
+            if (back)
+            {
+                moveBack();
+            }
+            else
+            {
+                moveForward();
+            }
+
+
+
+            return texture2D[pointer];
+        }
+
+
         public void moveBack()
         {
             if (pointer > 0)
