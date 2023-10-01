@@ -15,7 +15,7 @@ using System.Diagnostics;
 
 namespace Project1
 {
-    public class Sword : IItem
+    public class SwordItem : IItem
     {
 
         //Texture stores the texture alias for our animation
@@ -44,7 +44,7 @@ namespace Project1
 
 
 
-        public Sword()
+        public SwordItem()
         {
             //remove later:
             sprite = ItemSpriteFactory.Instance.CreateSwordSprite();
