@@ -861,3 +861,4 @@ D:\CSE3902\Projects\SegFaulters\SegFaulters\Project1\obj\Debug\net6.0\refint\Pro
 D:\CSE3902\Projects\SegFaulters\SegFaulters\Project1\obj\Debug\net6.0\Project1.pdb
 D:\CSE3902\Projects\SegFaulters\SegFaulters\Project1\obj\Debug\net6.0\Project1.genruntimeconfig.cache
 D:\CSE3902\Projects\SegFaulters\SegFaulters\Project1\obj\Debug\net6.0\ref\Project1.dll
+D:\CSE3902\Projects\SegFaulters\SegFaulters\Project1\bin\Debug\net6.0\Content\LevelBackground.xnb

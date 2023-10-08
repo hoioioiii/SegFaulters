@@ -113,6 +113,10 @@ namespace Project1
 
             PlayerSpriteFactory.Instance.LoadAllTextures(Content);
             Player.LoadContent(Content);
+
+            //Load background
+            LevelLoader.LoadContent(Content);
+            
         }
 
         protected override void Update(GameTime gameTime)
@@ -139,6 +143,7 @@ namespace Project1
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
+            LevelLoader.Draw(_spriteBatch);
 
             Player.Draw(gameTime, _spriteBatch);
 

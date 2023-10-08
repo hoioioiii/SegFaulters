@@ -73,6 +73,7 @@
     <File>D:/CSE3902/Projects/SegFaulters/SegFaulters/Project1/Content/jelly3.png</File>
     <File>D:/CSE3902/Projects/SegFaulters/SegFaulters/Project1/Content/KEESE_BAT.png</File>
     <File>D:/CSE3902/Projects/SegFaulters/SegFaulters/Project1/Content/key.png</File>
+    <File>D:/CSE3902/Projects/SegFaulters/SegFaulters/Project1/Content/LevelBackground.png</File>
     <File>D:/CSE3902/Projects/SegFaulters/SegFaulters/Project1/Content/LinkAttackDown.png</File>
     <File>D:/CSE3902/Projects/SegFaulters/SegFaulters/Project1/Content/LinkAttackLeft.png</File>
     <File>D:/CSE3902/Projects/SegFaulters/SegFaulters/Project1/Content/LinkAttackRight.png</File>
@@ -128,6 +129,7 @@
     <File>D:/CSE3902/Projects/SegFaulters/SegFaulters/Project1/Content/ZeldaSpriteOldMan.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
