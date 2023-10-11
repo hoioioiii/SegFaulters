@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Project1.Collision
+namespace Project1.Collision_Response
 {
-    internal class PlayerEnemyHandler
+    internal class DoorCollisionResponse
     {
     }
 }

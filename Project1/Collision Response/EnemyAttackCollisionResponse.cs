@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project1.Collision
 {
-    internal class AllCollisionHandler
+    internal class EnemyAttackCollisionResponse
     {
     }
 }

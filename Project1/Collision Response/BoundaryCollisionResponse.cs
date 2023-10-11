@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project1.Collision
 {
-    internal class PlayerBlockHandler
+    internal class BoundaryCollisionResponse
     {
         /* 
          * This class handles what happens when the player collisides with a block
