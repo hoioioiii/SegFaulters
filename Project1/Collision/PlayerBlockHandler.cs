@@ -3,16 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
 
 namespace Project1.Collision
 {
-    internal class CollisionResponse
+    internal class PlayerBlockHandler
     {
         /* 
-         * This class handles what happens when a collision is detected
+         * This class handles what happens when the player collisides with a block
          * 
          */
-
     }
 }
