@@ -9,8 +9,14 @@ namespace Project1.Collision
     internal class BoundaryCollisionResponse
     {
         /* 
-         * This class handles what happens when the player collisides with a block
-         * 
+         * There should be knockback applied to the target, moving them backwards from the direction they collided in
+         * This class handles what happens when the target collisides with a boundary
          */
+
+        // Knock back target (player or enemy)
+        void Knockback()
+        {
+
+        }
     }
 }
