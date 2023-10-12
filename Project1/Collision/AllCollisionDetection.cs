@@ -11,10 +11,12 @@ namespace Project1.Collision
          * Knock player back if collision is a wall or enemy (calculated in DirectionalCollsionDetection.cs, handled in collision response class)
          * Additional optimizations needed (like a quadtree)
          */
-        Rectangle playerRect;
+        
+        // player and enemy rects
+        Rectangle targetRects;
 
         // List of rectangles for collision boxes
-        Rectangle rect;
+        Rectangle staticRects;
 
         public void Update(GameTime gameTime)
         {
@@ -23,24 +25,35 @@ namespace Project1.Collision
             isColliding = DetectCollision(isColliding);
             /*
              * additional directional collision information required enemies, attacks and boundaries
-             * if (enemy || boundary){
              */
+            /*
+            if (enemy || boundary)
+            {
 
+            }
+            */
         }
 
-        #region Collision Detection (Rectangle intersect test)
         /*
-         * Detect collision
+         * Detect collision (Rectangle intersect test)
          * if collision is true and object is a wall or enemy, call DetectCollisionDirection()
          */
         bool DetectCollision(bool isColliding)
         {
 
-            isColliding = playerRect.Intersects(rect);
+            isColliding = targetRects.Intersects(staticRects);
 
             return isColliding;
         }
-        #endregion
-        
+
+        void boundaryOrDamageCheck()
+        {
+
+        }
+
+        void sendToCollisionRespose()
+        {
+
+        }
     }
 }
