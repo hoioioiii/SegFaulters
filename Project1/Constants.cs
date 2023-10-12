@@ -189,6 +189,14 @@ namespace Project1
         public const float BOOMERANG_RANGE = 50;
         public static int TRIFORCE_R = 1;
         public static int TRIFORCE_C = 2;
+
+        public enum CollisionType
+        {
+            ITEM,
+            DOOR,
+            BOUNDARY,
+            DAMAGE
+        }
     }
 }
 
