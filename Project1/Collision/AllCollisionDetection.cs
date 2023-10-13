@@ -95,10 +95,12 @@ namespace Project1.Collision
                 // top/bottom collision
                 if (positiveDirection)
                 {
+                    // bottom collision
 
                 } 
                 else
                 {
+                    // top collision
 
                 }
             }
@@ -107,15 +109,16 @@ namespace Project1.Collision
                 // left right collision
                 if (positiveDirection)
                 {
+                    // left collision
 
                 }
                 else
                 {
+                    // right collision
 
                 }
             }
 
-            //return DIRECTION.right;
         }
     }
 }
