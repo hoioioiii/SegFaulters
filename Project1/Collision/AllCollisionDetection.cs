@@ -28,7 +28,7 @@ namespace Project1.Collision
         // for each rect
         //Rectangle roomRect;
 
-        public void DetectAllCollisions()
+        public void DetectAllCollisions(CollisionType collisionType)
         {
             // pass in list of axis-alligned bounding rectangles
 
@@ -49,20 +49,23 @@ namespace Project1.Collision
                     if (isColliding)
                     {
                         // if the CollisionType is damage or boundary, directional collision check required
-                        if (target.CollisionType.DAMAGE || target.CollisionType.BOUNDARY)
+                        switch (collisionType)
                         {
-                            DetectCollisionDirection(target, roomRect);
-
-                            //sendToCollisionRespose
-                        }
-                        else if (target.CollisionType.ITEM)
-                        {
-                            //sendToCollisionRespose
-                        }
-                        else
-                        {
-                            // is door
-                            //sendToCollisionRespose
+                            case CollisionType.ITEM:
+                                //sendToCollisionRespose
+                                break;
+                            case CollisionType.DOOR:
+                                //sendToCollisionRespose
+                                break;
+                            case CollisionType.BOUNDARY:
+                                DetectCollisionDirection(target, roomRect);
+                                //sendToCollisionRespose
+                                break;
+                            case CollisionType.DAMAGE:
+                                DetectCollisionDirection(target, roomRect);
+                                //sendToCollisionRespose
+                                break;
+                            
                         }
                     }
 
@@ -88,7 +91,7 @@ namespace Project1.Collision
 
             positiveDirection = Vector2.Distance(new Vector2(targetRect.Center.X, targetRect.Center.Y), new Vector2(roomRect.Center.X, roomRect.Center.Y)) > 0;
 
-            Intersect(targetRect, roomRect, overlap);
+            Rectangle.Intersect(ref targetRect, ref roomRect, out overlap);
          
             if (overlap.Width > overlap.Height)
             {
