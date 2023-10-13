@@ -32,6 +32,12 @@ namespace Project1
                 }
             }
 
+            (int, int)[] blocksToLoad = new (int, int)[2];
+            blocksToLoad[0] = (2, 3);
+            blocksToLoad[1] = (5, 10);
+
+            LoadBlocks(blocksToLoad);
+
         }
 
         //loads blocks given data of row,col and the texture of the block
