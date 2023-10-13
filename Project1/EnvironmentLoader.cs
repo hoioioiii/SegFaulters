@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 
 namespace Project1
 {
+    //loads in the blocks needed for the level, and the correct background
     public class EnvironmentLoader
     {
         private static Texture2D levelBackground;
@@ -33,7 +34,7 @@ namespace Project1
 
         }
 
-        //loads blocks given dicitonary of row,col and the texture of the block
+        //loads blocks given data of row,col and the texture of the block
         private static void LoadBlocks((int,int)[] blocksToLoad)
         {
             blocksArray = new IEnvironment[blocksToLoad.Length];
