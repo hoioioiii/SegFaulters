@@ -10,7 +10,8 @@ namespace Project1
     {
         public void Execute()
         {
-            Game1.CurrentEnvironment = new CurrentBlock(EnvironmentIterator.getCurrEnemy(true));
+            //Game1.CurrentEnvironment = new CurrentBlock(EnvironmentIterator.getCurrEnemy(true));
+            EnvironmentIterator.moveBack();
         }
     }
 }

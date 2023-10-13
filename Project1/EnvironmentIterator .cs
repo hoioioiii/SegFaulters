@@ -25,7 +25,7 @@ namespace Project1
             Load();
             pointer = 0;
 
-            Game1.CurrentEnvironment = new CurrentBlock(texture2D[0]);
+            //Game1.CurrentEnvironment = new CurrentBlock(texture2D[0]);
         }
 
 
@@ -62,18 +62,8 @@ namespace Project1
 
         }
 
-        public static Texture2D getCurrEnemy(Boolean back)
+        public static Texture2D getCurrEnemy()
         {
-
-
-            if (back)
-            {
-                moveBack();
-            }
-            else
-            {
-                moveForward();
-            }
             return texture2D[pointer];
         }
 

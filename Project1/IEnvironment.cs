@@ -11,5 +11,6 @@ namespace Project1
     {
 
         public void Draw(SpriteBatch spriteBatch);
+        void Update();
     }
 }

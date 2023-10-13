@@ -18,8 +18,6 @@ namespace Project1
         public static SpriteBatch _spriteBatch;
         public static ContentManager contentLoader;
 
-        public static IEnvironment CurrentEnvironment;
-
         private Texture2D _texture;
         //public static SpriteBatch _spriteBatch;
 
@@ -27,12 +25,14 @@ namespace Project1
         //public Player player
 
         private IHealth HealthBarSprite;
-
+        private IEnvironment CurrentEnvironment;
 
         public static ContentManager ContentManager1;
         public static Game1 Game;
 
         public static IEnemy ENEMY;
+
+        public static IListIterate EnvironmentIterator;
         public static IItem Item;
 
         private ArrayList ControllerList;
@@ -49,8 +49,6 @@ namespace Project1
             //remove this later
             ContentManager1 = Content;
             Game = this;
-            
-
 
         }
 
@@ -104,9 +102,10 @@ namespace Project1
             IListIterate EntityList = new EnemyIterator(this);
 
             IListIterate ItemList = new ItemIterator(this);
-            IListIterate EnvironmentList = new EnvironmentIterator(this);
+            EnvironmentIterator = new EnvironmentIterator(this);
 
- 
+
+
             Sword.LoadContent(Content);
             Arrow.LoadContent(Content);
             Boomerang.LoadContent(Content); 
@@ -115,7 +114,7 @@ namespace Project1
             Player.LoadContent(Content);
 
             //Load background
-            LevelLoader.LoadContent(Content);
+            EnvironmentLoader.LoadContent(Content);
             
         }
 
@@ -135,6 +134,7 @@ namespace Project1
             
             Item.Update();
             ENEMY.Update();
+            EnvironmentLoader.Update();
             base.Update(gameTime);
         }
 
@@ -143,13 +143,13 @@ namespace Project1
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
-            LevelLoader.Draw(_spriteBatch);
+            EnvironmentLoader.Draw(_spriteBatch);
 
             Player.Draw(gameTime, _spriteBatch);
 
             ENEMY.Draw(_spriteBatch);
             Item.Draw(_spriteBatch);
-            CurrentEnvironment.Draw(_spriteBatch);
+            //CurrentEnvironment.Draw(_spriteBatch);
 
             _spriteBatch.End();
             base.Draw(gameTime);
