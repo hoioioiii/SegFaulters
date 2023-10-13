@@ -16,34 +16,80 @@ namespace Project1.Collision
         
         // player and enemy rects
         //list
-        List<Rectangle> targetRects = new List<Rectangle>();
+        List<Rectangle> enemyRects = new List<Rectangle>();
 
-        // for each rect
-        //Rectangle targetRect;
+        // player rect
+        Rectangle linkRect;
 
 
         // List of rectangles for collision boxes (not player/enemy)
         List<Rectangle> roomRects = new List<Rectangle>();
 
-        // for each rect
-        //Rectangle roomRect;
 
-        public void DetectAllCollisions(CollisionType collisionType)
+        #region Collision Detection (player & room enemies)
+        public void DetectAllCollisionsLink(CollisionType collisionType, Rectangle link)
         {
             // pass in list of axis-alligned bounding rectangles
 
             bool isColliding = false;
 
             /*
-             * additional directional collision information required enemies, attacks and boundaries
+             * additional directional collision information required for enemies, attacks and boundaries
              */
-            foreach (var target in targetRects)
+            
+            foreach (var roomRect in roomRects)
+            {
+                // check if player/enemy intersects a room rectangle
+                isColliding = link.Intersects(roomRect);
+                    
+                // if yes
+                if (isColliding)
+                {
+                    // if the CollisionType is damage or boundary, directional collision check required
+                    switch (collisionType)
+                    {
+                        case CollisionType.ITEM:
+                            //sendToCollisionRespose
+                            break;
+                        case CollisionType.DOOR:
+                            //sendToCollisionRespose
+                            break;
+                        case CollisionType.BOUNDARY:
+                            DetectCollisionDirection(link, roomRect);
+                            //sendToCollisionRespose
+                            break;
+                        case CollisionType.DAMAGE:
+                            DetectCollisionDirection(link, roomRect);
+                            //sendToCollisionRespose
+                            break;
+                            
+                    }
+                }
+
+                /*
+                * only one collision per frame 
+                * if object detects a collision, no more collisions allowed for that frame
+                */
+                if (isColliding) { break; }
+            }
+                            
+        }
+
+        public void DetectAllCollisionsEnemies(CollisionType collisionType)
+        {
+            // pass in list of axis-alligned bounding rectangles
+
+            bool isColliding = false;
+
+            /*
+             * additional directional collision information required for enemies, attacks and boundaries
+             */
+            foreach (var enemy in enemyRects)
             {
                 foreach (var roomRect in roomRects)
                 {
                     // check if player/enemy intersects a room rectangle
-                    isColliding = target.Intersects(roomRect);
-                    
+                    isColliding = enemy.Intersects(roomRect);
 
                     // if yes
                     if (isColliding)
@@ -51,34 +97,29 @@ namespace Project1.Collision
                         // if the CollisionType is damage or boundary, directional collision check required
                         switch (collisionType)
                         {
-                            case CollisionType.ITEM:
-                                //sendToCollisionRespose
-                                break;
-                            case CollisionType.DOOR:
-                                //sendToCollisionRespose
-                                break;
                             case CollisionType.BOUNDARY:
-                                DetectCollisionDirection(target, roomRect);
+                                DetectCollisionDirection(enemy, roomRect);
                                 //sendToCollisionRespose
                                 break;
                             case CollisionType.DAMAGE:
-                                DetectCollisionDirection(target, roomRect);
+                                DetectCollisionDirection(enemy, roomRect);
                                 //sendToCollisionRespose
                                 break;
-                            
+
                         }
                     }
 
-                   /*
-                    * only one collision per frame 
-                    * if object detects a collision, no more collisions allowed for that frame
-                    */
+                    /*
+                     * only one collision per frame 
+                     * if object detects a collision, no more collisions allowed for that frame
+                     */
                     if (isColliding) { break; }
                 }
-                
+
                 if (isColliding) { break; }
             }
         }
+        #endregion
 
         /*
          * Detect collision (Rectangle intersect test)
