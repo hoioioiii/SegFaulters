@@ -15,7 +15,9 @@ namespace Project1
         //tells us which directio it is facing
         public static int linkDirection = 2;
 
-        private static Texture2D[] stillFrames = new Texture2D[PLAYER_FRAMES];
+        public bool isDead { get; set; }
+
+        private static Texture2D[] stillFrames = new Texture2D[PLAYER_STILL_FRAMES];
         private static Texture2D[] movingFrames = new Texture2D[PLAYER_FRAMES];
         private static Texture2D[] attackFrames = new Texture2D[PLAYER_FRAMES];
 
@@ -29,6 +31,7 @@ namespace Project1
             stillFrames = one;
             movingFrames = two;
             attackFrames = attack;
+            isDead = false;
 
         }
 
@@ -70,29 +73,36 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch, string _type)
         {
-            setCurrentFrames(_type);
-            switch (linkDirection)
+            if(!Player.isDead) {
+                setCurrentFrames(_type);
+                switch (linkDirection)
+                {
+                    case 1:
+
+                        DrawLink(spriteBatch, (int)DIRECTION.up);
+                        break;
+                    case 2:
+
+                        DrawLink(spriteBatch, (int)DIRECTION.right);
+                        break;
+                    case 3:
+
+                        DrawLink(spriteBatch, (int)DIRECTION.down);
+                        break;
+                    case 4:
+
+                        DrawLink(spriteBatch, (int)DIRECTION.left);
+                        break;
+                    default:
+
+                        DrawLink(spriteBatch, (int)DIRECTION.right);
+                        break;
+                }
+            }
+            else
             {
-               case 1:
-                    
-                    DrawLink(spriteBatch, (int)DIRECTION.up);
-                    break;
-               case 2:
-         
-                    DrawLink(spriteBatch, (int)DIRECTION.right);
-                    break;
-               case 3:
-                    
-                    DrawLink(spriteBatch, (int)DIRECTION.down);
-                    break;
-               case 4:
-                    
-                    DrawLink(spriteBatch, (int)DIRECTION.left);
-                    break;
-               default:
-                    
-                    DrawLink(spriteBatch, (int)DIRECTION.right);
-                    break;
+                setCurrentFrames("still");
+                DrawLink(spriteBatch, DEAD);
             }
             
         }

@@ -151,11 +151,14 @@ namespace Project1
 
 
         public enum DIRECTION {right = 0, left = 1, up = 2, down = 3};
+        public static int DEAD = 4;
 
         public static int UP_DIRECTION_SPRITE = 2;
         public static int DOWN_DIRECTION_SPRITE = 0;
         public static int PLAYER_FRAMES = 4;
         public static int PLAYER_R = 1;
+
+        
 
         // for Link's sprite animation
         // how many animation frames per second, not the framerate of the game
@@ -184,6 +187,7 @@ namespace Project1
         //public const float FLASHTIME = 1 / FLASHES_PER_SECOND;
         public const float FRAMES_PER_SECOND = 10;
         public const float FRAMETIME = 1 / FRAMES_PER_SECOND;
+        public const int PLAYER_STILL_FRAMES = 5;
 
         //
         public const float BOOMERANG_RANGE = 50;

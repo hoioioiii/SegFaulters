@@ -28,6 +28,8 @@ namespace Project1
 
         private static bool isMoving = false;
 
+        public static bool isDead = false;
+
         private static int playerSpeed = 5;
 
         // scales the size of the sprite on screen
@@ -210,40 +212,52 @@ namespace Project1
 
                 if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.A))
                 {
-                    position.X -= playerSpeed;
-                    isMoving = true;
-                    linkDirection = 4;
+                    
+                    if (!isDead) {
+                        position.X -= playerSpeed;
+                        isMoving = true;
+                        linkDirection = 4;
 
-                    posX -= playerSpeed;
+                        posX -= playerSpeed;
 
 
-                    sprite.Update(4, position);
+                        sprite.Update(4, position);
+                    }
+                    
                 }
                 else if (state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.S))
                 {
-                    position.Y += playerSpeed;
-                    isMoving = true;
-                    linkDirection = 3;
-                    posX += playerSpeed;
-                    sprite.Update(3, position);
-
+                    if (!isDead)
+                    {
+                        position.Y += playerSpeed;
+                        isMoving = true;
+                        linkDirection = 3;
+                        posX += playerSpeed;
+                        sprite.Update(3, position);
+                    }
                 }
                 else if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.W))
                 {
-                    position.Y -= playerSpeed;
-                    isMoving = true;
-                    linkDirection = 1;
-                    posY -= playerSpeed;
-                    sprite.Update(1, position);
+                    if (!isDead)
+                    {
+                        position.Y -= playerSpeed;
+                        isMoving = true;
+                        linkDirection = 1;
+                        posY -= playerSpeed;
+                        sprite.Update(1, position);
+                    }
 
                 }
                 else if (state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D))
                 {
-                    position.X += playerSpeed;
-                    isMoving = true;
-                    linkDirection = 2;
-                    posY += playerSpeed;
-                    sprite.Update(2, position);
+                    if (!isDead)
+                    {
+                        position.X += playerSpeed;
+                        isMoving = true;
+                        linkDirection = 2;
+                        posY += playerSpeed;
+                        sprite.Update(2, position);
+                    }
 
                 }
             }
@@ -522,6 +536,12 @@ namespace Project1
 
         //        }
 
+        public static void dead()
+        {
+            isDead = true;
+            isAttacking = false;
+            isMoving = false;
+        }
         public static Vector2 getUserPos()
         {
 
@@ -531,6 +551,7 @@ namespace Project1
         public static int getUserDirection()
         {
             return linkDirection;
+
         }
 
     }

@@ -7,7 +7,10 @@ namespace Project1
 		{
 			if (!Player.isAttacking)
 			{
-				Player.down();
+				if (!Player.isDead)
+				{
+					Player.down();
+				}
 			}
 		}
 	}

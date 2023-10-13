@@ -1,23 +1,37 @@
-﻿<Properties StartupConfiguration="{13C446E3-FEB6-45F8-8905-75F180389DF0}|Default">
+﻿<Properties StartupConfiguration="{C8AAF6EC-62AC-43F7-8A22-6063F1E3DF59}|Default">
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Project1 PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench ActiveDocument="app.manifest">
+  <MonoDevelop.Ide.Workbench ActiveDocument="KeyBoardController.cs">
     <Files>
-      <File FileName="Program.cs" />
       <File FileName="Game1.cs" />
-      <File FileName="app.manifest" Line="1" Column="1" />
+      <File FileName="KeyBoardController.cs" Line="27" Column="26" />
+      <File FileName="MoveLeft.cs" />
+      <File FileName="MoveRight.cs" />
+      <File FileName="attackBoomerang.cs" />
+      <File FileName="Player.cs" />
+      <File FileName="Boomerang.cs" />
+      <File FileName="Damage.cs" />
+      <File FileName="LinkSprite.cs" />
+      <File FileName="Content/Content.mgcb" />
+      <File FileName="IPlayerSprite.cs" />
+      <File FileName="MoveUp.cs" />
+      <File FileName="IWeaponMelee.cs" />
+      <File FileName="IWeaponProjectile.cs" />
+      <File FileName="Sword.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Project1" selected="True" />
+          <Node name="Project1">
+            <Node name="Project1" selected="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Project1 PreferredExecutionTarget="MonoDevelop.Default" />
-  <MultiItemStartupConfigurations />
 </Properties>

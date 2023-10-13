@@ -12,7 +12,7 @@ namespace Project1
     public class PlayerSpriteFactory
     {
       
-        private Texture2D[] link1SpriteStorage = new Texture2D[PLAYER_FRAMES];
+        private Texture2D[] link1SpriteStorage = new Texture2D[PLAYER_STILL_FRAMES];
         private Texture2D[] link2SpriteStorage = new Texture2D[PLAYER_FRAMES];
         private Texture2D[] linkAttackSpriteStorage = new Texture2D[PLAYER_FRAMES];
         
@@ -41,6 +41,7 @@ namespace Project1
             link1SpriteStorage[(int)DIRECTION.left] = content.Load<Texture2D>(assetName: "LinkLeft1");
             link1SpriteStorage[(int)DIRECTION.up] = content.Load<Texture2D>(assetName: "LinkUp1");
             link1SpriteStorage[(int)DIRECTION.down] = content.Load<Texture2D>(assetName: "LinkDown1");
+            link1SpriteStorage[DEAD] = content.Load<Texture2D>(assetName: "deadZelda");
 
             // movement only
             link2SpriteStorage[(int)DIRECTION.right] = content.Load<Texture2D>(assetName: "LinkRight2");
