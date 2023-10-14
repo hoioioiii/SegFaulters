@@ -70,7 +70,7 @@ namespace Project1
 
         public static int BOW_R = 1;
         public static int BOW_C = 1;
-        public static int FD_R = 1;
+        public static int FD_TOTAL = 1;
         public static int FD_C = 4;
 
         public static int CLOCK_R = 1;
