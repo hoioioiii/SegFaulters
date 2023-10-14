@@ -14,9 +14,12 @@ namespace Project1.Collision
          */
 
         // Knock back target (player or enemy)
-        void Knockback()
+        void Knockback(Enum DIRECTION)
         {
-
+            switch(DIRECTION)
+            {
+                 
+            }
         }
     }
 }

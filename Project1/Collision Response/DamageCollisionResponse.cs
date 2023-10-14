@@ -26,5 +26,14 @@ namespace Project1.Collision
 
         }
 
+        /*
+         * Apply temporary invincibility to the target
+         * This way the target cannot be damaged every frame it is hitting the damager
+         */
+        void TemporaryInvincibility()
+        {
+
+        }
+
     }
 }

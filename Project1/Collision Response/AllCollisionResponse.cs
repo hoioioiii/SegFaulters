@@ -21,7 +21,7 @@ namespace Project1.Collision
             {
                case CollisionType.BOUNDARY:
 
-                   break;
+                    break;
                 case CollisionType.ITEM:
                     
                     break;
