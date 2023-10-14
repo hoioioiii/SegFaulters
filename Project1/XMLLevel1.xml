@@ -1,0 +1,619 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Level1 levelName="The Eagle">
+
+	<!--Information about blocks needed-->
+	<!--Information about walls needed-->
+	<!--recheck if there is actually a key in the first 5 rooms-->
+
+	<!-- MASTER ROOM -->
+	<!-- 12 harmless stone statues -->
+	<!-- north door is locked -->
+	<Room number="1">
+		<Enemies>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>4</DestinationRoom>
+					<!--locked room-->
+					<Locked>True</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>-1</DestinationRoom>
+					<!--entry room-->
+					<Locked>False</Locked>
+				</Door>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>3</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>2</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<StoneStatues numberOfStoneStatue="12">
+				<StoneStatue id="1" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="2" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="3" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="4" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="5" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="6" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="7" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="8" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="9" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="10" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="11" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="11" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="12" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+			</StoneStatues>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!-- 3 Keese enemies -->
+	<!-- 1 key -->
+	<Room number="2">
+		<Enemies>
+			<!--defeated with a single sword slash, sword beam, blue candle-->
+			<Keeses quantity ="3">
+				<Keese id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+			</Keeses>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+			<Doors>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>1</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Key xLoc="0" yLoc="0"></Key>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!-- 5 Stalfo enemies -->
+	<!-- 1 Stalfo holds a key -->
+	<Room number="3">
+		<Enemies>
+			<!--Easy to defeat with sword-->
+			<Stalfos quantity ="5">
+				<!-- Stalfo that holds a key -->
+				<Stalfo id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+						<DroppedItem Name="key" quantity="1"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="4" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="5" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+			</Stalfos>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+			<Doors>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>1</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+
+	<!--3 Stalfo enemies-->
+	<Room number="4">
+		<Enemies>
+			<!--Easy to defeat with sword-->
+			<Stalfos quantity ="3">
+				<Stalfo id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+			</Stalfos>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>5</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>1</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+
+	<!-- 5 Stalfo enemies -->
+	<!-- 1 Stalfo holds a key -->
+	<Room number="5">
+		<Enemies>
+			<!--Easy to defeat with sword-->
+			<Stalfos quantity ="5">
+				<!-- Stalfo that holds a key -->
+				<Stalfo id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+						<DroppedItem Name="key" quantity="1"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="4" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="5" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+			</Stalfos>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>9</DestinationRoom>
+					<!-- If you have bombs, blast to bypass a number of rooms-->
+					<Locked>True</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>4</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>6</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>7</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!--8 Keese enemies-->
+	<!--1 compass item-->
+	<!--secret wall to the north that blasts open with a bomb-->
+	<Room number="6">
+		<Enemies>
+			<!--defeated with a single sword slash, sword beam, blue candle-->
+			<Keeses quantity ="8">
+				<Keese id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="4" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="5" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="6" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="7" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="8" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+			</Keeses>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>13</DestinationRoom>
+					<!--secret wall-->
+					<Locked>True</Locked>
+				</Door>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>5</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Compass quantity="1"></Compass>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!--6 Keese enemies-->
+	<!--need to defeat all 6 Keese in order to return to the previous room-->
+	<!--use a key and head through the locked door ahead-->
+	<Room number="7">
+		<Enemies>
+			<!--defeated with a single sword slash, sword beam, blue candle-->
+			<Keeses quantity ="8">
+				<Keese id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="4" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="5" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="6" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+			</Keeses>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>8</DestinationRoom>
+					<Locked>True</Locked>
+				</Door>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>5</DestinationRoom>
+					<Locked>True</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+
+	<Room number="8">
+		<Enemies>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+			</Doors>
+
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+</Level1>
