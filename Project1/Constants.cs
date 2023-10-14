@@ -85,7 +85,7 @@ namespace Project1
         public static int FLAME_C = 1;
 
 
-        public static int HAND_R = 1;
+        public static int HAND_TOTAL = 1;
         public static int HAND_C = 4;
 
 

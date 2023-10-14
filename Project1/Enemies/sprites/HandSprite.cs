@@ -7,47 +7,46 @@ namespace Project1
 {
     public class HandSprite : ISprite
     {
-        private Texture2D[] Texture { get; set; }
-
-        //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
-
-        //Columns is the number of columns in the alias
-        private int Columns { get; set; }
+        private Texture2D[] Texture;
 
         //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private double current_frame { get; set; }
+        private int current_frame;
 
         //totalFrames keeps track of how many frames there are in total
-        private int total_frame { get; set; }
+        private int total_frame;
 
-        private int pos_x { get; set; }
-        private int pos_y { get; set; }
+        private int pos_x;
+        private int pos_y;
 
+
+
+
+        //factor out for animation class
         private int width;
         private int height;
-
-        private int row;
-        private int col;
-
-
         private int elapsedTime;
         private int msecPerFrame;
         private int secTillDirChange;
 
+        //factor out into direction
         private int Direction;
         private int secondsPassed;
 
         private bool left;
+
+        /*
+         * Initalize the sprite
+         */
         public HandSprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
-            Rows = HAND_R;
-            Columns = HAND_C;
+            
             current_frame = START_FRAME;
-            total_frame = 2;
-            pos_x = SPRITE_XE;
-            pos_y = SPRITE_YE;
+            total_frame = HAND_TOTAL;
+
+            //change later to XML
+            pos_x = SPRITE_X_START;
+            pos_y = SPRITE_Y_START;
 
 
             elapsedTime = 0;
@@ -55,7 +54,14 @@ namespace Project1
             left = true;
             Direction = 1;
             secTillDirChange = 1;
+
+            width = Texture[current_frame].Width;
+            height = Texture[current_frame].Height;
         }
+
+        /*
+         * Update the sprite
+         */
         public void Update()
         {
 
@@ -66,6 +72,9 @@ namespace Project1
 
         }
 
+        /*
+         * Animate the sprite
+         */
         public void UpdateFrames()
         {
             if (elapsedTime >= msecPerFrame)
@@ -77,9 +86,13 @@ namespace Project1
             if (current_frame >= total_frame)
                 current_frame = START_FRAME;
         }
+
+
+        /*
+         * Change the sprite direction -> factr out
+         */
         public void ChangeDirection()
         {
-
             this.Direction = Direction * -1;
 
             if (left)
@@ -95,6 +108,10 @@ namespace Project1
                 START_FRAME = 0;
             }
         }
+
+        /*
+         * Move the sprite -> factor out
+         */
         public void Move()
         {
             if (secondsPassed >= secTillDirChange)
@@ -110,23 +127,14 @@ namespace Project1
             {
                 ChangeDirection();
             }
-
         }
 
-        private void Animate()
-        {
-
-            width = Texture[(int)current_frame].Width;
-            height = Texture[(int)current_frame].Height;
-
-           
-
-        }
-
+        /*
+         * Draw Sprite -> factor out later
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
-            Animate();
-            Rectangle SOURCE_REC = new Rectangle(1, 1 * row, width, height);
+            Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
