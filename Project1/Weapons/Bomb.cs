@@ -11,7 +11,7 @@ namespace Project1
 
 
 
-    internal class Bomb : IWeaponMelee
+    internal class Bomb : IWeapon
     {
         private ISpriteWeapon sprite;
         public Bomb() {

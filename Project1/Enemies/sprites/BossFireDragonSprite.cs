@@ -7,33 +7,29 @@ namespace Project1
 {
     public class BossFireDragonSprite : ISprite
     {
-        private Texture2D[] Texture { get; set; }
+        private Texture2D[] Texture;
 
-        //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
-
-        //Columns is the number of columns in the alias
-        private int Columns { get; set; }
 
         //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private double current_frame { get; set; }
+        private int current_frame;
 
         //totalFrames keeps track of how many frames there are in total
-        private int total_frame { get; set; }
+        private int total_frame;
 
+        //Positon of Each Sprite
         public static int pos_x;
         public static int pos_y;
 
+        //Gonna find a diff way to do this 
         private int width;
         private int height;
 
-        private int row;
-        private int col;
-
+        //factor out into animation class
         private int elapsedTime;
         private int msecPerFrame;
         private int secTillDirChange;
 
+        //factor out into direction class
         private int Direction;
         private int secondsPassed;
 
@@ -42,21 +38,29 @@ namespace Project1
         public BossFireDragonSprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
-            Rows = FD_R;
-            Columns = FD_C;
             current_frame = START_FRAME;
-            total_frame = Rows * Columns;
-            pos_x = SPRITE_XE;
-            pos_y = SPRITE_YE;
+            pos_x = SPRITE_X_START;
+            pos_y = SPRITE_Y_START;
 
 
             newAttack = true;
+
+            //Factor out in animate class
             elapsedTime = 0;
             msecPerFrame = 300;
 
+            //factor out into direction class
             Direction = 1;
             secTillDirChange = 1;
+
+            //fix this later
+            width = Texture[current_frame].Width;
+            height = Texture[current_frame].Height;
         }
+
+        /*
+         * Update the sprite
+         */
         public void Update()
         {
 
@@ -67,6 +71,9 @@ namespace Project1
 
         }
 
+        /*
+         * Animate Sprite
+         */
         public void UpdateFrames()
         {
             if (elapsedTime >= msecPerFrame)
@@ -75,14 +82,23 @@ namespace Project1
                 current_frame += 1;
             }
 
-            if (current_frame >= total_frame)
+            if (current_frame >= FD_TOTAL)
                 current_frame = START_FRAME;
         }
+
+        /*
+         * Factor into direction manager
+         * 
+         */
         public void ChangeDirection()
         {
 
             this.Direction = Direction * -1;
         }
+
+        /*
+         * Moves dragon
+         */
         public void Move()
         {
             if (secondsPassed >= secTillDirChange)
@@ -101,31 +117,30 @@ namespace Project1
 
         }
 
-        private void Animate()
-        {
-
-            width = Texture[(int)current_frame].Width;
-            height = Texture[(int)current_frame].Height;
-
-         
-        }
-
+        /*
+         * Draw's Dragon
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
-            Animate();
             Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+            spriteBatch.Draw(Texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
+        /*
+         * Gets Dragons Position
+         */
         public static Vector2 getUserPos()
         {
-
             return new Vector2(pos_x, pos_y);
         }
 
+        /*
+         * Gets dragons Direction
+         */
         public static int getUserDirection()
         {
+            //Replace with the direction manager
             return 4;
         }
     }

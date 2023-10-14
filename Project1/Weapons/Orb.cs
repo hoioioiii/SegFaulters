@@ -11,7 +11,7 @@ namespace Project1
 
 
 
-    internal class Orb : IWeaponMelee
+    internal class Orb : IWeapon
     {
         private ISpriteWeapon sprite;
         public Orb()
