@@ -15,18 +15,18 @@ namespace Project1
         private Texture2D[] batSpritesheet = new Texture2D[BAT_C * BAT_TOTAL];
         //constants specify how mant frames there are for each sprite
         //make sure to edit the constants is constants.cs to reflect how many frames there are for each sprites
-        private Texture2D[] aquaDragonSpritesheet = new Texture2D[AD_C * AQUA_TOTAL];
-        private Texture2D[] dinoSpritesheet = new Texture2D[DINO_C * DINO_TOTAL];
-        private Texture2D[] fireDragonSpritesheet = new Texture2D[FD_C * FD_TOTAL];
-        private Texture2D[] dogMonsterSpritesheet = new Texture2D[DM_C * DM_TOTAL];
-        private Texture2D[] flameSpritesheet = new Texture2D[FLAME_C * FLAME_TOTAL];
-        private Texture2D[] handSpritesheet = new Texture2D[HAND_C * HAND_TOTAL];
-        private Texture2D[] jellySpritesheet = new Texture2D[JELLY_TOTAL * JELLY_R];
-        private Texture2D[] merchantSpritesheet = new Texture2D[MERCHANT_C * MERCHANT_TOTAL];
-        private Texture2D[] oldManSpritesheet = new Texture2D[OLDMAN_C * OLDMAN_TOTAL];
+        private Texture2D[] aquaDragonSpritesheet = new Texture2D[AQUA_TOTAL];
+        private Texture2D[] dinoSpritesheet = new Texture2D[DINO_TOTAL];
+        private Texture2D[] fireDragonSpritesheet = new Texture2D[FD_TOTAL];
+        private Texture2D[] dogMonsterSpritesheet = new Texture2D[DM_TOTAL];
+        private Texture2D[] flameSpritesheet = new Texture2D[FLAME_TOTAL];
+        private Texture2D[] handSpritesheet = new Texture2D[HAND_TOTAL];
+        private Texture2D[] jellySpritesheet = new Texture2D[JELLY_TOTAL];
+        private Texture2D[] merchantSpritesheet = new Texture2D[MERCHANT_TOTAL];
+        private Texture2D[] oldManSpritesheet = new Texture2D[OLDMAN_TOTAL];
         private Texture2D[] skeletonSpritesheet = new Texture2D[SKELETON_ARRAY];
-        private Texture2D[] snakeSpritesheet = new Texture2D[SNAKE_C * SNAKE_TOTAL];
-        private Texture2D[] spikeCrossSpritesheet = new Texture2D[SPIKE_C * SPIKE_R];
+        private Texture2D[] snakeSpritesheet = new Texture2D[SNAKE_TOTAL];
+        private Texture2D[] spikeCrossSpritesheet = new Texture2D[SPIKE_TOTAL];
 
         // More private Texture2Ds follow
         // ...
