@@ -22,7 +22,7 @@ namespace Project1
         private Texture2D[] flameSpritesheet = new Texture2D[FLAME_C * FLAME_TOTAL];
         private Texture2D[] handSpritesheet = new Texture2D[HAND_C * HAND_TOTAL];
         private Texture2D[] jellySpritesheet = new Texture2D[JELLY_TOTAL * JELLY_R];
-        private Texture2D[] merchantSpritesheet = new Texture2D[MERCHANT_C * MERCHANT_R];
+        private Texture2D[] merchantSpritesheet = new Texture2D[MERCHANT_C * MERCHANT_TOTAL];
         private Texture2D[] oldManSpritesheet = new Texture2D[OLDMAN_C * OLDMAN_R];
         private Texture2D[] skeletonSpritesheet = new Texture2D[SKELETON_ARRAY];
         private Texture2D[] snakeSpritesheet = new Texture2D[SNAKE_C * SNAKE_R];
