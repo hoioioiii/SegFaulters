@@ -7,43 +7,46 @@ namespace Project1
 {
     public class FlameSprite : ISprite
     {
-        private Texture2D[] Texture { get; set; }
+        private Texture2D[] Texture;
 
-        //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
 
-        //Columns is the number of columns in the alias
-        private int Columns { get; set; }
 
         //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private double current_frame { get; set; }
+        private int current_frame;
 
         //totalFrames keeps track of how many frames there are in total
-        private int total_frame { get; set; }
+        private int total_frame;
 
-        private int pos_x { get; set; }
-        private int pos_y { get; set; }
+        private int pos_x;
+        private int pos_y;
 
         private int width;
         private int height;
 
-        private int row;
-        private int col;
+        /*
+         * Initalize flame sprite
+         */
         public FlameSprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
-            Rows = FLAME_R;
-            Columns = FLAME_C;
             current_frame = START_FRAME;
-            total_frame = Rows * Columns;
-            pos_x = SPRITE_XE;
-            pos_y = SPRITE_YE;
+            pos_x = SPRITE_X_START;
+            pos_y = SPRITE_Y_START;
+            width = Texture[current_frame].Width;
+            height = Texture[current_frame].Height;
+
         }
+        /*
+         * Update
+         */
         public void Update()
         {
             Move();
         }
 
+        /*
+         * Movement- > optomize later
+         */
         public void Move()
         {
             int DIR_X = RandomMove.RandMove();
@@ -56,22 +59,15 @@ namespace Project1
 
         }
 
-        private void Animate()
-        {
-
-            width = Texture[(int)current_frame].Width;
-            height = Texture[(int)current_frame].Height;
-
-           
-
-        }
-
+     
+        /*
+         * Factor out into Draw class
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
-            Animate();
             Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+            spriteBatch.Draw(Texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
     }
 }
