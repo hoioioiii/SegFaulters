@@ -60,23 +60,23 @@ namespace Project1
         public static int BOMB_R = 1;
         public static int BOMB_C = 1;
         public static int BOMB_ARRAY = 2;
-        public static int AQUA_TOTAL = 1;
-        public static int AD_C = 2;
+        public static int AQUA_TOTAL = 2;
+        public static int AD_C = 1;
 
         public static int BOOM_R = 1;
         public static int BOOM_C = 1;
-        public static int DINO_TOTAL = 1;
-        public static int DINO_C = 4;
+        public static int DINO_TOTAL = 4;
+        public static int DINO_C = 1;
 
         public static int BOW_R = 1;
         public static int BOW_C = 1;
-        public static int FD_TOTAL = 1;
-        public static int FD_C = 4;
+        public static int FD_TOTAL = 4;
+        public static int FD_C = 1;
 
         public static int CLOCK_R = 1;
         public static int CLOCK_C = 1;
-        public static int DM_TOTAL = 1;
-        public static int DM_C = 8;
+        public static int DM_TOTAL = 8;
+        public static int DM_C = 1;
 
 
         public static int FAIRY_R = 1;
@@ -85,8 +85,8 @@ namespace Project1
         public static int FLAME_C = 1;
 
 
-        public static int HAND_TOTAL = 1;
-        public static int HAND_C = 4;
+        public static int HAND_TOTAL = 4;
+        public static int HAND_C = 1;
 
 
         public static int JELLY_R = 1;
@@ -100,8 +100,8 @@ namespace Project1
         public static int OLDMAN_TOTAL = 1;
         public static int OLDMAN_C = 1;
 
-        public static int SKELETON_TOTAL = 1;
-        public static int SKELETON_C = 2;
+        public static int SKELETON_TOTAL = 2;
+        public static int SKELETON_C = 1;
         public static int HEART_R = 1;
         public static int HEART_C = 2;
 
@@ -110,11 +110,11 @@ namespace Project1
         public static int HEART_CONTAINER_R = 1;
         public static int HEART_CONTAINER_C = 1;
 
-        public static int SNAKE_TOTAL = 1;
-        public static int SNAKE_C = 4;
+        public static int SNAKE_TOTAL = 4;
+        public static int SNAKE_C = 1;
 
-        public static int SPIKE_R = 1;
-        public static int SPIKE_C = 7;
+        public static int SPIKE_TOTAL = 7;
+        public static int SPIKE_C = 1;
         public static int KEY_R = 1;
         public static int KEY_C = 1;
 
