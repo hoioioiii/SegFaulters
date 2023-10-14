@@ -60,7 +60,7 @@ namespace Project1
         public static int BOMB_R = 1;
         public static int BOMB_C = 1;
         public static int BOMB_ARRAY = 2;
-        public static int AD_R = 1;
+        public static int AQUA_TOTAL = 1;
         public static int AD_C = 2;
 
         public static int BOOM_R = 1;

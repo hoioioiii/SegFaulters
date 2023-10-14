@@ -3,10 +3,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static Project1.Constants;
 
-namespace Project1
+namespace Project1.Enemies.sprites
 {
     public class BatSprite : ISprite
-	{
+    {
 
         //Gets the sprite frames
         private Texture2D[] Texture;
@@ -29,11 +29,11 @@ namespace Project1
         private int elapsedTime;
         private int msecPerFrame;
 
-     
+
         public BatSprite(Texture2D[] spriteSheet)
-		{
+        {
             Texture = spriteSheet;
-           
+
             current_frame = 0;
             total_frame = BAT_TOTAL;
             pos_x = SPRITE_X_START;
@@ -50,7 +50,7 @@ namespace Project1
          */
         public void Update()
         {
-            
+
             Move();
             UpdateFrames();
 
@@ -94,7 +94,7 @@ namespace Project1
             //Have this moved out to a draw sprite class to handle all drawings.
             Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+            spriteBatch.Draw(Texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
     }
