@@ -93,7 +93,7 @@ namespace Project1
         public static int JELLY_TOTAL = 3;
 
 
-        public static int MERCHANT_R = 1;
+        public static int MERCHANT_TOTAL = 1;
         public static int MERCHANT_C = 1;
 
 
