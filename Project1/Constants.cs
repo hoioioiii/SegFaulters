@@ -110,7 +110,7 @@ namespace Project1
         public static int HEART_CONTAINER_R = 1;
         public static int HEART_CONTAINER_C = 1;
 
-        public static int SNAKE_R = 1;
+        public static int SNAKE_TOTAL = 1;
         public static int SNAKE_C = 4;
 
         public static int SPIKE_R = 1;
