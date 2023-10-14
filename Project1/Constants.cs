@@ -100,7 +100,7 @@ namespace Project1
         public static int OLDMAN_TOTAL = 1;
         public static int OLDMAN_C = 1;
 
-        public static int SKELETON_R = 1;
+        public static int SKELETON_TOTAL = 1;
         public static int SKELETON_C = 2;
         public static int HEART_R = 1;
         public static int HEART_C = 2;
