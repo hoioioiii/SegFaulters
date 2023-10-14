@@ -29,8 +29,8 @@ namespace Project1
         public static int SPRITE_X = 350;
         public static int SPRITE_Y = 200;
 
-        public static int SPRITE_XE = 400;
-        public static int SPRITE_YE = 200;
+        public static int SPRITE_X_START = 400;
+        public static int SPRITE_Y_START = 200;
         // damage
         public const float INVINCIBILITY_SECONDS = 1;
 
@@ -52,54 +52,56 @@ namespace Project1
 
         public static int ARROW_R = 1;
         public static int ARROW_C = 4;
-        public static int BAT_R = 1;
-        public static int BAT_C = 2;
+
+
+        public static int BAT_TOTAL = 2;
+        public static int BAT_C = 1;//remove
 
         public static int BOMB_R = 1;
         public static int BOMB_C = 1;
         public static int BOMB_ARRAY = 2;
-        public static int AD_R = 1;
-        public static int AD_C = 2;
+        public static int AQUA_TOTAL = 2;
+        public static int AD_C = 1;
 
         public static int BOOM_R = 1;
         public static int BOOM_C = 1;
-        public static int DINO_R = 1;
-        public static int DINO_C = 4;
+        public static int DINO_TOTAL = 4;
+        public static int DINO_C = 1;
 
         public static int BOW_R = 1;
         public static int BOW_C = 1;
-        public static int FD_R = 1;
-        public static int FD_C = 4;
+        public static int FD_TOTAL = 4;
+        public static int FD_C = 1;
 
         public static int CLOCK_R = 1;
         public static int CLOCK_C = 1;
-        public static int DM_R = 1;
-        public static int DM_C = 8;
+        public static int DM_TOTAL = 8;
+        public static int DM_C = 1;
 
 
         public static int FAIRY_R = 1;
         public static int FAIRY_C = 2;
-        public static int FLAME_R = 1;
+        public static int FLAME_TOTAL = 1;
         public static int FLAME_C = 1;
 
 
-        public static int HAND_R = 1;
-        public static int HAND_C = 4;
+        public static int HAND_TOTAL = 4;
+        public static int HAND_C = 1;
 
 
         public static int JELLY_R = 1;
-        public static int JELLY_C = 3;
+        public static int JELLY_TOTAL = 3;
 
 
-        public static int MERCHANT_R = 1;
+        public static int MERCHANT_TOTAL = 1;
         public static int MERCHANT_C = 1;
 
 
-        public static int OLDMAN_R = 1;
+        public static int OLDMAN_TOTAL = 1;
         public static int OLDMAN_C = 1;
 
-        public static int SKELETON_R = 1;
-        public static int SKELETON_C = 2;
+        public static int SKELETON_TOTAL = 2;
+        public static int SKELETON_C = 1;
         public static int HEART_R = 1;
         public static int HEART_C = 2;
 
@@ -108,11 +110,11 @@ namespace Project1
         public static int HEART_CONTAINER_R = 1;
         public static int HEART_CONTAINER_C = 1;
 
-        public static int SNAKE_R = 1;
-        public static int SNAKE_C = 4;
+        public static int SNAKE_TOTAL = 4;
+        public static int SNAKE_C = 1;
 
-        public static int SPIKE_R = 1;
-        public static int SPIKE_C = 7;
+        public static int SPIKE_TOTAL = 7;
+        public static int SPIKE_C = 1;
         public static int KEY_R = 1;
         public static int KEY_C = 1;
 

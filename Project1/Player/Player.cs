@@ -89,8 +89,8 @@ namespace Project1
         // link only has two frames of animation
         private static bool isSecondFrame = false;
 
-        private static IWeaponMelee weapon;
-        private static IWeaponMelee spriteWeapon;
+        private static IWeapon weapon;
+        private static IWeapon spriteWeapon;
 
         private static int onScreen;
 

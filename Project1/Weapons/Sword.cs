@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1
 {
-    internal class Sword : IWeaponMelee
+    internal class Sword : IWeapon
     {
 
         private String userState;
