@@ -594,8 +594,558 @@
 		</Items>
 	</Room>
 
-
+	
+	<!--3 Gel enemies-->
+	<!--defeating 3 Gel enemies allows to push block in the center of the room-->
+	<!--after pushing block, it will unlock the secret door to the Old Man-->
 	<Room number="8">
+		<Enemies>
+			<!--defeated with virtually any weapon-->
+			<Gels quantity="3">
+				<Gel id="1" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+				<Gel id="2" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+				<Gel id="3" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+			</Gels>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="west" xLoc="0" yLoc="0"> 
+					<DestinationRoom>17</DestinationRoom> <!--secret: old man room-->
+					<Locked>True</Locked>
+				</Door>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>9</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+
+
+	<!--5 Gel enemies-->
+	<!--Dungeon Map item-->
+	<Room number="9">
+		<Enemies>
+			<!--defeated with virtually any weapon-->
+			<Gels quantity="5">
+				<Gel id="1" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+				<Gel id="2" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+				<Gel id="3" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+				<Gel id="4" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+				<Gel id="5" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+			</Gels>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>10</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>13</DestinationRoom>
+					<Locked>True</Locked>
+				</Door>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>8</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>5</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<DungeonMap quantity="1"></DungeonMap>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	
+	
+	<!--3 Stalfo enemies-->
+	<!--1 key item-->
+	<Room number="10">
+		<Enemies>
+			<!--Easy to defeat with sword-->
+			<Stalfos quantity ="3">
+				<Stalfo id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+			</Stalfos>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>11</DestinationRoom>
+					<Locked>True</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>9</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+			
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<key quantity="1"></key>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+
+
+	<!--3 Goriya enemies-->
+	<!--1 key item-->
+	<Room number="11">
+		<Enemies>
+			<!--take multiple hits to defeat-->
+			<Goriyas quantity ="3">
+				<Goriya id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Goriya>
+				<Goriya id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Goriya>
+				<Goriya id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Goriya>
+			</Goriyas>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>12</DestinationRoom>
+					<Locked>True</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>10</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<key quantity="1"></key>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!--4 Blade Traps-->
+	<!--1 staircase-->
+	<Room number="12">
+		<Enemies>
+			<!--CANNOT be defeated-->
+			<BladeTraps quantity="4">
+				<BladeTrap id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength> <!--not applicable-->
+						<Stamina>0</Stamina> 
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</BladeTrap>
+				<BladeTrap id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina><!--not applicable-->
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</BladeTrap>
+				<BladeTrap id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina><!--not applicable-->
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</BladeTrap>
+				<BladeTrap id="4" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina><!--not applicable-->
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</BladeTrap>
+			</BladeTraps>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>11</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+				<Staircase quantity="1" xLoc="" yLoc=""></Staircase>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+	
+	
+	<!--3 Goriya enemies-->
+	<!--1 boomerang item-->
+	<!--4 blocks-->
+	<Room number="13">
+		<Enemies>
+			<!--take multiple hits to defeat-->
+			<Goriyas quantity ="3">
+				<Goriya id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Goriya>
+				<Goriya id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Goriya>
+				<Goriya id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Goriya>
+			</Goriyas>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>9</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>14</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+				<Boomerang quantity="1" xLoc="0" yLoc="0">
+				</Boomerang>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!--3 Wallmaster enemies-->
+	<!--1 key item-->
+	<Room number="14">
+		<Enemies>
+			<Wallmaster quantity="3">
+				<!--if it grabs Link, it gets sent to Master/Main room 1-->
+				<Wallmaster id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Wallmaster>
+				<Wallmaster id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Wallmaster>
+				<Wallmaster id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Wallmaster>
+			</Wallmaster>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>15</DestinationRoom>
+					<Locked>True</Locked>
+				</Door>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>13</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<key quantity="1"></key>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!--1 Aquamentus enemy-->
+	<Room number="15">
+		<Enemies>
+			<!--sword beam / slash head to defeat-->
+			<Aquamentus quantity="1">
+				<Aquamentus id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<HeartContainer quantity="1" restore="50"></HeartContainer> <!-- increase overall life meter-->
+					</Drops>
+				</Aquamentus>
+			</Aquamentus>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>16</DestinationRoom>
+					<Locked>True</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>14</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+
+	<!--Triforce of Wisdom item-->
+	<!--no enemies-->
+	<Room number="16">
 		<Enemies>
 		</Enemies>
 
@@ -604,6 +1154,38 @@
 			</Walls>
 
 			<Doors>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>15</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<TriforceOfWisdom quantity ="4" restore="100"></TriforceOfWisdom> <!--healed to full health & warped to room1-->
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!--Secret room with old man-->
+	<!--no enemies, no items-->
+	<Room number="1">
+		<Enemies>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>8</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
 			</Doors>
 
 			<Blocks>
