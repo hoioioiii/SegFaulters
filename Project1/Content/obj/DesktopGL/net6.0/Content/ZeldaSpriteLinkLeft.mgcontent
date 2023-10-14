@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
   <SourceFile>E:/Jack/source/reops/SegFaulters/Project1/Content/ZeldaSpriteLinkLeft.gif</SourceFile>
   <SourceTime>2023-09-27T13:58:48.9919476-04:00</SourceTime>
   <DestFile>E:/Jack/source/reops/SegFaulters/Project1/Content/bin/DesktopGL/Content/ZeldaSpriteLinkLeft.xnb</DestFile>
   <DestTime>2023-10-11T14:26:00.630879-04:00</DestTime>
+=======
+  <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/ZeldaSpriteLinkLeft.gif</SourceFile>
+  <SourceTime>2023-09-29T22:54:52-04:00</SourceTime>
+  <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/ZeldaSpriteLinkLeft.xnb</DestFile>
+  <DestTime>2023-10-07T22:25:46.4597405-04:00</DestTime>
+>>>>>>> collision-detection
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

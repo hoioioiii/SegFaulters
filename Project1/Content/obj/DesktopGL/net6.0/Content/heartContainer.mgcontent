@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<<<<<<< HEAD
   <SourceFile>E:/Jack/source/reops/SegFaulters/Project1/Content/heartContainer.png</SourceFile>
   <SourceTime>2023-10-09T13:38:59.2286369-04:00</SourceTime>
   <DestFile>E:/Jack/source/reops/SegFaulters/Project1/Content/bin/DesktopGL/Content/heartContainer.xnb</DestFile>
   <DestTime>2023-10-11T14:25:59.6817845-04:00</DestTime>
+=======
+  <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/heartContainer.png</SourceFile>
+  <SourceTime>2023-10-01T05:11:11.5102726-04:00</SourceTime>
+  <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/heartContainer.xnb</DestFile>
+  <DestTime>2023-10-07T22:25:44.8408751-04:00</DestTime>
+>>>>>>> collision-detection
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
