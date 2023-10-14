@@ -1,13 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Level1 levelName="The Eagle">
 
-	<!--Information about blocks needed-->
-	<!--Information about walls needed-->
-	<!--recheck if there is actually a key in the first 5 rooms-->
-
 	<!-- MASTER ROOM -->
 	<!-- 12 harmless stone statues -->
+	<!--no enemies, no items-->
 	<!-- north door is locked -->
+	<!-- 14 walkable water blocks (CONFIRM THE QUANTITY) -->
 	<Room number="1">
 		<Enemies>
 		</Enemies>
@@ -16,14 +14,14 @@
 			<Walls>
 			</Walls>
 			<Doors>
-				<Door id="north" xLoc="0" yLoc="0">
-					<DestinationRoom>4</DestinationRoom>
+				<Door id="north" xLoc="0" yLoc="0">					
 					<!--locked room-->
+					<DestinationRoom>4</DestinationRoom>
 					<Locked>True</Locked>
 				</Door>
 				<Door id="south" xLoc="0" yLoc="0">
-					<DestinationRoom>-1</DestinationRoom>
 					<!--entry room-->
+					<DestinationRoom>-1</DestinationRoom>
 					<Locked>False</Locked>
 				</Door>
 				<Door id="east" xLoc="0" yLoc="0">
@@ -36,6 +34,22 @@
 				</Door>
 			</Doors>
 			<Blocks>
+				<WalkableWater quantity ="14">
+					<WalkableWater id="1" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="2" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="3" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="4" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="5" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="6" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="7" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="8" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="9" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="10" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="11" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="12" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="13" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="14" xLoc="0" yLoc="0"></WalkableWater>
+				</WalkableWater>
 			</Blocks>
 		</Environment>
 
@@ -121,6 +135,7 @@
 
 	<!-- 5 Stalfo enemies -->
 	<!-- 1 Stalfo holds a key -->
+	<!-- 12 water blocks-->
 	<Room number="3">
 		<Enemies>
 			<!--Easy to defeat with sword-->
@@ -200,6 +215,20 @@
 				</Door>
 			</Doors>
 			<Blocks>
+				<WaterBlock quantity="12">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="9" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="10" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="11" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="12" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -211,6 +240,7 @@
 
 
 	<!--3 Stalfo enemies-->
+	<!--6 water blocks-->
 	<Room number="4">
 		<Enemies>
 			<!--Easy to defeat with sword-->
@@ -268,6 +298,14 @@
 				</Door>
 			</Doors>
 			<Blocks>
+				<WaterBlock quantity="6">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -280,6 +318,7 @@
 
 	<!-- 5 Stalfo enemies -->
 	<!-- 1 Stalfo holds a key -->
+	<!-- 4 water blocks-->
 	<Room number="5">
 		<Enemies>
 			<!--Easy to defeat with sword-->
@@ -373,6 +412,12 @@
 			</Doors>
 
 			<Blocks>
+				<WaterBlock quantity="4">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -385,6 +430,7 @@
 	<!--8 Keese enemies-->
 	<!--1 compass item-->
 	<!--secret wall to the north that blasts open with a bomb-->
+	<!-- 4 water blocks-->
 	<Room number="6">
 		<Enemies>
 			<!--defeated with a single sword slash, sword beam, blue candle-->
@@ -489,6 +535,12 @@
 			</Doors>
 
 			<Blocks>
+				<WaterBlock quantity="4">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -502,6 +554,7 @@
 	<!--6 Keese enemies-->
 	<!--need to defeat all 6 Keese in order to return to the previous room-->
 	<!--use a key and head through the locked door ahead-->
+	<!--6 water blocks-->
 	<Room number="7">
 		<Enemies>
 			<!--defeated with a single sword slash, sword beam, blue candle-->
@@ -585,6 +638,14 @@
 			</Doors>
 
 			<Blocks>
+				<WaterBlock quantity="6">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -598,6 +659,7 @@
 	<!--3 Gel enemies-->
 	<!--defeating 3 Gel enemies allows to push block in the center of the room-->
 	<!--after pushing block, it will unlock the secret door to the Old Man-->
+	<!-- 1 water block-->
 	<Room number="8">
 		<Enemies>
 			<!--defeated with virtually any weapon-->
@@ -651,6 +713,9 @@
 			</Doors>
 
 			<Blocks>
+				<WaterBlock quantity="1">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -664,6 +729,7 @@
 
 	<!--5 Gel enemies-->
 	<!--Dungeon Map item-->
+	<!-- 10 water blocks-->
 	<Room number="9">
 		<Enemies>
 			<!--defeated with virtually any weapon-->
@@ -745,6 +811,18 @@
 			</Doors>
 
 			<Blocks>
+				<WaterBlock quantity="10">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="9" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="10" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -759,6 +837,7 @@
 	
 	<!--3 Stalfo enemies-->
 	<!--1 key item-->
+	<!--46 water (VERIFIY AMOUNT-->
 	<Room number="10">
 		<Enemies>
 			<!--Easy to defeat with sword-->
@@ -817,6 +896,54 @@
 			</Doors>
 			
 			<Blocks>
+				<Water quantity="46">
+					<Water id="1" xLoc="" yLoc=""></Water>
+					<Water id="2" xLoc="" yLoc=""></Water>
+					<Water id="3" xLoc="" yLoc=""></Water>
+					<Water id="4" xLoc="" yLoc=""></Water>
+					<Water id="5" xLoc="" yLoc=""></Water>
+					<Water id="6" xLoc="" yLoc=""></Water>
+					<Water id="7" xLoc="" yLoc=""></Water>
+					<Water id="8" xLoc="" yLoc=""></Water>
+					<Water id="9" xLoc="" yLoc=""></Water>
+					<Water id="10" xLoc="" yLoc=""></Water>
+					<Water id="11" xLoc="" yLoc=""></Water>
+					<Water id="12" xLoc="" yLoc=""></Water>
+					<Water id="13" xLoc="" yLoc=""></Water>
+					<Water id="14" xLoc="" yLoc=""></Water>
+					<Water id="15" xLoc="" yLoc=""></Water>
+					<Water id="16" xLoc="" yLoc=""></Water>
+					<Water id="17" xLoc="" yLoc=""></Water>
+					<Water id="18" xLoc="" yLoc=""></Water>
+					<Water id="19" xLoc="" yLoc=""></Water>
+					<Water id="20" xLoc="" yLoc=""></Water>
+					<Water id="21" xLoc="" yLoc=""></Water>
+					<Water id="22" xLoc="" yLoc=""></Water>
+					<Water id="23" xLoc="" yLoc=""></Water>
+					<Water id="24" xLoc="" yLoc=""></Water>
+					<Water id="25" xLoc="" yLoc=""></Water>
+					<Water id="26" xLoc="" yLoc=""></Water>
+					<Water id="27" xLoc="" yLoc=""></Water>
+					<Water id="28" xLoc="" yLoc=""></Water>
+					<Water id="29" xLoc="" yLoc=""></Water>
+					<Water id="30" xLoc="" yLoc=""></Water>
+					<Water id="31" xLoc="" yLoc=""></Water>
+					<Water id="32" xLoc="" yLoc=""></Water>
+					<Water id="33" xLoc="" yLoc=""></Water>
+					<Water id="34" xLoc="" yLoc=""></Water>
+					<Water id="35" xLoc="" yLoc=""></Water>
+					<Water id="36" xLoc="" yLoc=""></Water>
+					<Water id="37" xLoc="" yLoc=""></Water>
+					<Water id="38" xLoc="" yLoc=""></Water>
+					<Water id="39" xLoc="" yLoc=""></Water>
+					<Water id="40" xLoc="" yLoc=""></Water>
+					<Water id="41" xLoc="" yLoc=""></Water>
+					<Water id="42" xLoc="" yLoc=""></Water>
+					<Water id="43" xLoc="" yLoc=""></Water>
+					<Water id="44" xLoc="" yLoc=""></Water>
+					<Water id="45" xLoc="" yLoc=""></Water>
+					<Water id="46" xLoc="" yLoc=""></Water>
+				</Water>
 			</Blocks>
 		</Environment>
 
@@ -831,6 +958,7 @@
 
 	<!--3 Goriya enemies-->
 	<!--1 key item-->
+	<!-- 24 water blocks (CONFIRM IT)-->
 	<Room number="11">
 		<Enemies>
 			<!--take multiple hits to defeat-->
@@ -884,6 +1012,32 @@
 			</Doors>
 
 			<Blocks>
+				<Water quantity="24">
+					<Water id="1" xLoc="" yLoc=""></Water>
+					<Water id="2" xLoc="" yLoc=""></Water>
+					<Water id="3" xLoc="" yLoc=""></Water>
+					<Water id="4" xLoc="" yLoc=""></Water>
+					<Water id="5" xLoc="" yLoc=""></Water>
+					<Water id="6" xLoc="" yLoc=""></Water>
+					<Water id="7" xLoc="" yLoc=""></Water>
+					<Water id="8" xLoc="" yLoc=""></Water>
+					<Water id="9" xLoc="" yLoc=""></Water>
+					<Water id="10" xLoc="" yLoc=""></Water>
+					<Water id="11" xLoc="" yLoc=""></Water>
+					<Water id="12" xLoc="" yLoc=""></Water>
+					<Water id="13" xLoc="" yLoc=""></Water>
+					<Water id="14" xLoc="" yLoc=""></Water>
+					<Water id="15" xLoc="" yLoc=""></Water>
+					<Water id="16" xLoc="" yLoc=""></Water>
+					<Water id="17" xLoc="" yLoc=""></Water>
+					<Water id="18" xLoc="" yLoc=""></Water>
+					<Water id="19" xLoc="" yLoc=""></Water>
+					<Water id="20" xLoc="" yLoc=""></Water>
+					<Water id="21" xLoc="" yLoc=""></Water>
+					<Water id="22" xLoc="" yLoc=""></Water>
+					<Water id="23" xLoc="" yLoc=""></Water>
+					<Water id="24" xLoc="" yLoc=""></Water>
+				</Water>
 			</Blocks>
 		</Environment>
 
@@ -896,6 +1050,7 @@
 
 	<!--4 Blade Traps-->
 	<!--1 staircase-->
+	<!-- 8 water blocks-->
 	<Room number="12">
 		<Enemies>
 			<!--CANNOT be defeated-->
@@ -956,6 +1111,16 @@
 
 			<Blocks>
 				<Staircase quantity="1" xLoc="" yLoc=""></Staircase>
+				<WaterBlock quantity="8">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -1022,6 +1187,12 @@
 			</Doors>
 
 			<Blocks>
+				<WaterBlock quantity="4">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -1035,6 +1206,7 @@
 
 	<!--3 Wallmaster enemies-->
 	<!--1 key item-->
+	<!-- 18 water blocks-->
 	<Room number="14">
 		<Enemies>
 			<Wallmaster quantity="3">
@@ -1093,12 +1265,33 @@
 
 		<Items>
 			<key quantity="1"></key>
+			<WaterBlock quantity="18">
+				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="9" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="10" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="11" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="12" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="13" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="14" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="15" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="16" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="17" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="18" xLoc="0" yLoc="0"></WaterBlock>
+			</WaterBlock>
 			<Weapons>
 			</Weapons>
 		</Items>
 	</Room>
 
 	<!--1 Aquamentus enemy-->
+	<!-- 20 water blocks-->
 	<Room number="15">
 		<Enemies>
 			<!--sword beam / slash head to defeat-->
@@ -1133,6 +1326,28 @@
 			</Doors>
 
 			<Blocks>
+				<WaterBlock quantity="20">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="9" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="10" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="11" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="12" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="13" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="14" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="15" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="16" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="17" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="18" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="19" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="20" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -1145,6 +1360,7 @@
 
 	<!--Triforce of Wisdom item-->
 	<!--no enemies-->
+	<!--24 water blocks-->
 	<Room number="16">
 		<Enemies>
 		</Enemies>
@@ -1161,6 +1377,32 @@
 			</Doors>
 
 			<Blocks>
+				<WaterBlock quantity="24">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="9" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="10" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="11" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="12" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="13" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="14" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="15" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="16" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="17" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="18" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="19" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="20" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="21" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="22" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="23" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="24" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -1173,7 +1415,7 @@
 
 	<!--Secret room with old man-->
 	<!--no enemies, no items-->
-	<Room number="1">
+	<Room number="17">
 		<Enemies>
 		</Enemies>
 
