@@ -18,7 +18,7 @@ namespace Project1
         private Texture2D[] aquaDragonSpritesheet = new Texture2D[AD_C * AQUA_TOTAL];
         private Texture2D[] dinoSpritesheet = new Texture2D[DINO_C * DINO_TOTAL];
         private Texture2D[] fireDragonSpritesheet = new Texture2D[FD_C * FD_TOTAL];
-        private Texture2D[] dogMonsterSpritesheet = new Texture2D[DM_C * DM_R];
+        private Texture2D[] dogMonsterSpritesheet = new Texture2D[DM_C * DM_TOTAL];
         private Texture2D[] flameSpritesheet = new Texture2D[FLAME_C * FLAME_R];
         private Texture2D[] handSpritesheet = new Texture2D[HAND_C * HAND_R];
         private Texture2D[] jellySpritesheet = new Texture2D[JELLY_C * JELLY_R];

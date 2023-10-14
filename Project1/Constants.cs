@@ -75,7 +75,7 @@ namespace Project1
 
         public static int CLOCK_R = 1;
         public static int CLOCK_C = 1;
-        public static int DM_R = 1;
+        public static int DM_TOTAL = 1;
         public static int DM_C = 8;
 
 
