@@ -192,8 +192,10 @@ namespace Project1
 
         public enum CollisionType
         {
+            // Link only
             ITEM,
             DOOR,
+            // Link & enemies
             BOUNDARY,
             DAMAGE
         }

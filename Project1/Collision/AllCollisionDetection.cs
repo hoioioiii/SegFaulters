@@ -15,15 +15,22 @@ namespace Project1.Collision
          */
         
         // player and enemy rects
-        //list
+        // list
+        // refactor into entitiy
+        //List<IEnemy> enemyRects = new List<IEnemy>();
         List<Rectangle> enemyRects = new List<Rectangle>();
 
         // player rect
-        Rectangle linkRect;
+        // refactor to include interface
+        Player link;
 
 
         // List of rectangles for collision boxes (not player/enemy)
         List<Rectangle> roomRects = new List<Rectangle>();
+
+        List<Rectangle> itemRects = new List<Rectangle>();
+        List<Rectangle> doorRects = new List<Rectangle>();
+        List<Rectangle> damageRects = new List<Rectangle>();
 
 
         #region Collision Detection (player & room enemies)

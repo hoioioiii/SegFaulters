@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
-  <SourceFile>E:/Jack/source/reops/SegFaulters/Project1/Content/jelly1.png</SourceFile>
-  <SourceTime>2023-10-09T13:38:59.2305828-04:00</SourceTime>
-  <DestFile>E:/Jack/source/reops/SegFaulters/Project1/Content/bin/DesktopGL/Content/jelly1.xnb</DestFile>
-  <DestTime>2023-10-11T14:25:59.7316504-04:00</DestTime>
-=======
   <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/jelly1.png</SourceFile>
   <SourceTime>2023-10-01T04:53:02.5764292-04:00</SourceTime>
   <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/jelly1.xnb</DestFile>
-  <DestTime>2023-10-07T22:25:44.9215339-04:00</DestTime>
->>>>>>> collision-detection
+  <DestTime>2023-10-13T22:07:20.144738-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

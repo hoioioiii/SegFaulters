@@ -14,11 +14,7 @@ namespace Project1.Collision
          * This class handles what happens when the target collisides with a boundary
          */
 
-        // Knock back target (player or enemy)
-        void Knockback()
-        {
-
-        }
+        
 
         /*
         void Knockback(DIRECTION direction)
