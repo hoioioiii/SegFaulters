@@ -48,10 +48,10 @@ namespace Project1
         public void LoadAllTextures(ContentManager content)
         {
             //goombaSpriteSheet = content.Load<Texture2D>("goomba");
-            arrowSpriteStorage[0] = content.Load<Texture2D>(assetName: "arrowDown");
-            arrowSpriteStorage[1] = content.Load<Texture2D>(assetName: "arrowLeft");
-            arrowSpriteStorage[2] = content.Load<Texture2D>(assetName: "arrowUp");
-            arrowSpriteStorage[3] = content.Load<Texture2D>(assetName: "arrowRight");
+            arrowSpriteStorage[2] = content.Load<Texture2D>(assetName: "arrowDown");
+            arrowSpriteStorage[3] = content.Load<Texture2D>(assetName: "arrowLeft");
+            arrowSpriteStorage[0] = content.Load<Texture2D>(assetName: "arrowUp");
+            arrowSpriteStorage[1] = content.Load<Texture2D>(assetName: "arrowRight");
 
             bombSpriteStorage[0] = content.Load<Texture2D>(assetName: "bomb");
             boomerangSpriteStorage[0] = content.Load<Texture2D>(assetName: "boomerang_sheet");
@@ -74,10 +74,10 @@ namespace Project1
             triforceSpriteStorage[0] = content.Load<Texture2D>(assetName: "triforcePieceBlue");
             triforceSpriteStorage[1] = content.Load<Texture2D>(assetName: "triforcePieceGold");
 
-            swordSpriteStorage[0] = content.Load<Texture2D>(assetName: "swordDown");
-            swordSpriteStorage[1] = content.Load<Texture2D>(assetName: "swordLeft");
-            swordSpriteStorage[2] = content.Load<Texture2D>(assetName: "swordUp");
-            swordSpriteStorage[3] = content.Load<Texture2D>(assetName: "swordRight");
+            swordSpriteStorage[2] = content.Load<Texture2D>(assetName: "swordDown");
+            swordSpriteStorage[3] = content.Load<Texture2D>(assetName: "swordLeft");
+            swordSpriteStorage[0] = content.Load<Texture2D>(assetName: "swordUp");
+            swordSpriteStorage[1] = content.Load<Texture2D>(assetName: "swordRight");
 
 
             // More Content.Load calls follow

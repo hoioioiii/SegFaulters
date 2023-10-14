@@ -21,8 +21,7 @@ namespace Project1
         //totalFrames keeps track of how many frames there are in total
         private int total_frame { get; set; }
 
-        private int pos_x { get; set; }
-        private int pos_y { get; set; }
+        private static Vector2 position;
 
         private int width;
         private int height;
@@ -35,16 +34,13 @@ namespace Project1
             Columns = KEY_C;
             current_frame = START_FRAME;
             total_frame = Rows * Columns;
-            pos_x = SPRITE_X;
-            pos_y = SPRITE_Y;
+            position = Player.getUserPos();
         }
         public void Update()
         {
 
             //Move();
-            current_frame += FRAME_SPD;
-            if (current_frame >= total_frame)
-                current_frame = START_FRAME;
+            position = Player.getUserPos();
         }
 
         public void Move()
@@ -53,8 +49,7 @@ namespace Project1
             int DIR_Y = RandomMove.RandMove();
 
             //Add bounding constraints:
-            pos_x += RandomMove.CheckBounds(DIR_X, pos_x, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            pos_y += RandomMove.CheckBounds(DIR_Y, pos_y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
+            
 
 
         }
@@ -71,7 +66,7 @@ namespace Project1
         {
             Animate();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
-            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
+            Rectangle DEST_REC = new Rectangle((int)position.X, (int)position.Y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 

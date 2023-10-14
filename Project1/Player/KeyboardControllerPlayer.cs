@@ -133,7 +133,7 @@ namespace Project1
             MOVE_MAP.Add(Keys.D1, new attackBoomerang());
             MOVE_MAP.Add(Keys.D2, new attackBow());
             /*
-            MOVE_MAP.Add(Keys.D0, new Item0());
+            MOVE_MAP.Add(Keys.D0, new displayArrow());
             MOVE_MAP.Add(Keys.D1, new Item1());
             MOVE_MAP.Add(Keys.D2, new Item2());
             MOVE_MAP.Add(Keys.D3, new Item3());

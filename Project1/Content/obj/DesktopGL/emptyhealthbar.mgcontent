@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/emptyhealthbar.png</SourceFile>
-  <SourceTime>2023-10-01T04:53:02.572285-04:00</SourceTime>
-  <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/emptyhealthbar.xnb</DestFile>
-  <DestTime>2023-10-01T06:15:17.9151738-04:00</DestTime>
+  <SourceFile>/Users/dm/Projects/DrishtiTest/SegFaulters/Project1/Content/emptyhealthbar.png</SourceFile>
+  <SourceTime>2023-10-13T23:25:22.3775772-04:00</SourceTime>
+  <DestFile>/Users/dm/Projects/DrishtiTest/SegFaulters/Project1/Content/bin/DesktopGL/emptyhealthbar.xnb</DestFile>
+  <DestTime>2023-10-14T00:01:12.7061968-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
