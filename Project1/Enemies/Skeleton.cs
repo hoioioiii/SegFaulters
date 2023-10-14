@@ -16,8 +16,6 @@ namespace Project1
     public class Skeleton : IEnemy
 	{
 
-       
-
         private ISprite sprite;
 
 
@@ -26,22 +24,22 @@ namespace Project1
          */
         public Skeleton()
 		{
-          
-
+            
             sprite = EnemySpriteFactory.Instance.CreateSkeletonSprite();
         }
 
+
         /*
-         * Update Skeleton
+         * Update Skelly
          */
         public void Update()
         {
             sprite.Update();
-            
+           
         }
 
         /*
-         * Draw Skeleton
+         * Draw Skelly
          */
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -50,7 +48,7 @@ namespace Project1
         }
 
         /*
-         * Skeleton health ->later
+         * Add Heatth fot skeely
          */
         public void Health()
         {
@@ -58,7 +56,7 @@ namespace Project1
         }
 
         /*
-         * Skeleton Attack -> Later
+         * Skelly sttack
          */
         public void Attack()
         {
@@ -66,7 +64,7 @@ namespace Project1
         }
 
         /*
-         * Skeleton Item Drop
+         * Skelly dead item
          */
         public void ItemDrop()
         {

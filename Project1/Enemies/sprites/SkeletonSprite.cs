@@ -10,24 +10,29 @@ namespace Project1
         private Texture2D[] Texture;
 
 
+
         //curremtFrame is used to keep track of which frame of the animation we are currently on
         private int current_frame;
 
         //totalFrames keeps track of how many frames there are in total
         private int total_frame;
 
+        //sprite position
         private int pos_x;
         private int pos_y;
 
+
+        //factor out
         private int width;
         private int height;
 
+        //factor out
         private int elapsedTime;
         private int msecPerFrame;
 
 
         /*
-         * Initalize skeleton sprite
+         * Initalize Skelly
          */
         public SkeletonSprite(Texture2D[] spriteSheet)
 		{
@@ -42,14 +47,12 @@ namespace Project1
             elapsedTime = 0;
             msecPerFrame = 300;
 
-
             width = Texture[current_frame].Width;
             height = Texture[current_frame].Height;
         }
 
-
         /*
-         * Update skeleton
+         * Update skelly
          */
         public void Update()
         {
@@ -60,9 +63,8 @@ namespace Project1
 
         }
 
-
         /*
-         * Animate Skeleton
+         * Animate Skelly
          */
         public void UpdateFrames()
         {
@@ -78,7 +80,7 @@ namespace Project1
 
 
         /*
-         * sKELEMTON movement -> factor out
+         * Move skelly
          */
         public void Move()
         {
@@ -93,7 +95,7 @@ namespace Project1
         }
 
         /*
-         * Draw skeleton
+         * Draw Skelly
          */
         public void Draw(SpriteBatch spriteBatch)
         {
