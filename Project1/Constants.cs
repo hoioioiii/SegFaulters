@@ -29,8 +29,8 @@ namespace Project1
         public static int SPRITE_X = 350;
         public static int SPRITE_Y = 200;
 
-        public static int SPRITE_XE = 400;
-        public static int SPRITE_YE = 200;
+        public static int SPRITE_X_START = 400;
+        public static int SPRITE_Y_START = 200;
         // damage
         public const float INVINCIBILITY_SECONDS = 1;
 
@@ -52,8 +52,10 @@ namespace Project1
 
         public static int ARROW_R = 1;
         public static int ARROW_C = 4;
-        public static int BAT_R = 1;
-        public static int BAT_C = 2;
+
+
+        public static int BAT_TOTAL = 2;
+        public static int BAT_C = 1;//remove
 
         public static int BOMB_R = 1;
         public static int BOMB_C = 1;
