@@ -7,52 +7,42 @@ namespace Project1
 {
     public class BatSprite : ISprite
 	{
-        private Texture2D[] Texture { get; set; }
 
-        //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
+        //Gets the sprite frames
+        private Texture2D[] Texture;
 
-        //Columns is the number of columns in the alias
-        private int Columns { get; set; }
+        //current Frame is used to keep track of which frame of the animation we are currently on
+        private int current_frame;
 
-        //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private double current_frame { get; set; }
+        //totalFrames keeps track of how many sprite frames there are in total
+        private int total_frame;
 
-        //totalFrames keeps track of how many frames there are in total
-        private int total_frame { get; set; }
+        //Sprite position
+        private int pos_x;
+        private int pos_y;
 
-        private int pos_x { get; set; }
-        private int pos_y { get; set; }
-
+        //Width and Height of sprite frames
         private int width;
         private int height;
-            
-        private int row;
-        private int col;
 
+        //Used for animation purposes, will move moved out to a animation class in future
         private int elapsedTime;
         private int msecPerFrame;
 
-        /*
-        private int width;
-        private int height;
-        private int frameRow;
-        private int frameColumn;
-        */
+     
         public BatSprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
-            Rows = BAT_R;
-            Columns = BAT_C;
-            current_frame = START_FRAME;
-            total_frame = Rows * Columns;
-            pos_x = SPRITE_XE;
-            pos_y = SPRITE_YE;
+           
+            current_frame = 0;
+            total_frame = BAT_TOTAL;
+            pos_x = SPRITE_X_START;
+            pos_y = SPRITE_Y_START;
             elapsedTime = 0;
             msecPerFrame = 300;
 
-            width = Texture[(int)current_frame].Width;
-            height = Texture[(int)current_frame].Height;
+            width = Texture[current_frame].Width;
+            height = Texture[current_frame].Height;
         }
 
         /*
@@ -60,8 +50,7 @@ namespace Project1
          */
         public void Update()
         {
-            elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-
+            
             Move();
             UpdateFrames();
 
@@ -72,6 +61,7 @@ namespace Project1
          */
         public void UpdateFrames()
         {
+            elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
             if (elapsedTime >= msecPerFrame)
             {
                 elapsedTime -= msecPerFrame;
@@ -82,33 +72,18 @@ namespace Project1
                 current_frame = START_FRAME;
         }
 
-
-
         /*
          * Movement
          */
         public void Move()
         {
+            //Have this moved out to a random move class method.
             int DIR_X = RandomMove.RandMove();
             int DIR_Y = RandomMove.RandMove();
 
             //Add bounding constraints:
             pos_x += RandomMove.CheckBounds(DIR_X, pos_x, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
             pos_y += RandomMove.CheckBounds(DIR_Y, pos_y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-
-
-        }
-
-        /*
-         * Ignore
-         */
-        private void Animate()
-        {
-
-            width = Texture[(int)current_frame].Width;
-            height = Texture[(int)current_frame].Height;
-
-
         }
 
         /*
@@ -116,7 +91,7 @@ namespace Project1
          */
         public void Draw(SpriteBatch spriteBatch)
         {
-            //Animate();
+            //Have this moved out to a draw sprite class to handle all drawings.
             Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);

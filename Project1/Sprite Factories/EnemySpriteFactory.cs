@@ -12,7 +12,7 @@ namespace Project1
     public class EnemySpriteFactory
     {
         
-        private Texture2D[] batSpritesheet = new Texture2D[BAT_C * BAT_R];
+        private Texture2D[] batSpritesheet = new Texture2D[BAT_C * BAT_TOTAL];
         //constants specify how mant frames there are for each sprite
         //make sure to edit the constants is constants.cs to reflect how many frames there are for each sprites
         private Texture2D[] aquaDragonSpritesheet = new Texture2D[AD_C * AD_R];
