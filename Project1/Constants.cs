@@ -65,7 +65,7 @@ namespace Project1
 
         public static int BOOM_R = 1;
         public static int BOOM_C = 1;
-        public static int DINO_R = 1;
+        public static int DINO_TOTAL = 1;
         public static int DINO_C = 4;
 
         public static int BOW_R = 1;
