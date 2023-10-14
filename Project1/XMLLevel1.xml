@@ -1,5 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Level1 levelName="The Eagle">
+	
+	<!--LINK STATUS-->
+	<link>
+		<Stats>
+			<Health>0</Health>
+			<Attack>0</Attack>
+			<CritDamage>0</CritDamage>
+			<Crit>0</Crit>
+			<Stamina>0</Stamina>
+			<Speed>0</Speed>
+			<AttackSpeed>0</AttackSpeed>
+			<Defense>0</Defense>
+		</Stats>
+		
+		<Weapons>
+			<Sword>
+				<Damage>0</Damage>
+			</Sword>
+			<Boomerang>
+				<Damage>0</Damage>
+			</Boomerang>
+			<Bow>
+				<Damage>0</Damage>
+			</Bow>
+			<Bomb>
+				<Damage>0</Damage>
+			</Bomb>
+		</Weapons>
+	</link>
 
 	<!-- MASTER ROOM -->
 	<!-- 12 harmless stone statues -->
