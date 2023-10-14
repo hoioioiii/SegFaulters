@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Project1.Commands;
 using static Project1.ICommand;
 
 namespace Project1
@@ -130,8 +131,9 @@ namespace Project1
             MOVE_MAP.Add(Keys.N, new attackSword());
             MOVE_MAP.Add(Keys.E, new Damage());
             MOVE_MAP.Add(Keys.R, new QuitGame());
-            MOVE_MAP.Add(Keys.D1, new attackBoomerang());
-            MOVE_MAP.Add(Keys.D2, new attackBow());
+            MOVE_MAP.Add(Keys.I, new attackBoomerang());
+            MOVE_MAP.Add(Keys.U, new attackBow());
+            MOVE_MAP.Add(Keys.D0, new displayArrow());
             /*
             MOVE_MAP.Add(Keys.D0, new displayArrow());
             MOVE_MAP.Add(Keys.D1, new Item1());

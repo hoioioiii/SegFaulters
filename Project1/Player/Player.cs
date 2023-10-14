@@ -23,7 +23,7 @@ namespace Project1
         private int positionY = 300;
 
         //Item inventory map
-        public static int[] itemInventory = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,};
+        public static int[] itemInventory = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
         //Dictionary<string, int> itemInventory = new Dictionary<string, int>() { {"arrow", 0}, { "bomb", 0 }, { "boomerang", 0 }, { "bow", 0 }, { "clock", 0 }, { "fairy", 0 }, { "heart", 0 }, { "heartContainer", 0 }, { "key", 0 }, { "map", 0 }, { "rupee", 0 }, { "sword", 0 }, { "triforce", 0 }};
 
         //had to move this out of constants file due to it being an internal class
@@ -190,19 +190,19 @@ namespace Project1
                     isAttackingWithSword = true;
                     //sprite.Update(linkDirection, position);
                 }
-                else if (state.IsKeyDown(Keys.D1))
+                else if (state.IsKeyDown(Keys.I))
                 {
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBoomerang = true;
                 }
-                else if (state.IsKeyDown(Keys.D2))
+                else if (state.IsKeyDown(Keys.U))
                 {
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBow = true;
                 }
-                else if (state.IsKeyDown(Keys.D3))
+                else if (state.IsKeyDown(Keys.B))
                 {
                     // attack using his sword
                     isAttacking = true;
@@ -544,13 +544,14 @@ namespace Project1
         public static void PickUpItem(ITEMS itemToAdd)
         {
             itemInventory[(int)itemToAdd]++;
-            //code for potential dictionary implimentation
-            /*
-            if(itemInventory.Contains(itemToAdd))
-            {
-                itemInventory[itemToAdd]++;
-            }
-            */
         }
+
+        public static void UseItem(ITEMS itemToDelete)
+        {
+            if(itemInventory[(int)itemToDelete] > 0) {
+                itemInventory[(int)itemToDelete]--;
+            }
+        }
+
     }
 }
