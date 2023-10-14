@@ -81,7 +81,7 @@ namespace Project1
 
         public static int FAIRY_R = 1;
         public static int FAIRY_C = 2;
-        public static int FLAME_R = 1;
+        public static int FLAME_TOTAL = 1;
         public static int FLAME_C = 1;
 
 
