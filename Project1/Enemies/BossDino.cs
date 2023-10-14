@@ -15,78 +15,58 @@ using static Project1.Constants;
 namespace Project1
 {
 	public class BossDino : IEnemy
-	{
-
-        //Remove later-------
-        private Game1 GameObject;
-        private ContentManager ContentLoad;
-
-        //Remove later above--------------
+    { 
 
         private ISprite sprite;
 
-        //Later create a animation tracker class:
-        private int WIDTH;
-        private int HEIGHT;
-        private int ROW;
-        private int COL;
-
-        //Movement:
-        private int POS_X;
-        private int POS_Y;
-
+        /*
+         * Initialize Dino
+         */
         public BossDino()
 		{
-            //remove later:
-            GameObject = Constants.GameObj;
-            ContentLoad = GameObject.Content;
-            //Texture = Load();
-            POS_X = SPRITE_X;
-            POS_Y = SPRITE_Y;
 
             sprite = EnemySpriteFactory.Instance.CreateDinoSprite();
         }
+
+        /*
+         * Update Dino 
+         */
         public void Update()
         {
             sprite.Update();
             
         }
 
-        private void Animate()
-        {
-           
-
-        }
+        /*
+         * Draw Dino
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
-
             sprite.Draw(spriteBatch);
         }
-
+        
         /*
-         * Responsible for setting the the frame numbers(r,c) of the sprite
+         * Dino's health
+         * Future Implement
          */
-        private void setFrames()
-        {
-           
-        }
-
-     
-        public void Move()
-        {
-            
-        }
-
         public void Health()
         {
             throw new NotImplementedException();
         }
 
+        /*
+         * Dino's attack 
+         * Future Implement
+         */
         public void Attack()
         {
             throw new NotImplementedException();
         }
 
+        /*
+         * Dino death drop
+         * Future Implement
+         */
         public void ItemDrop()
         {
             throw new NotImplementedException();

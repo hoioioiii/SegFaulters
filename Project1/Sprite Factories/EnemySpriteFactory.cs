@@ -16,7 +16,7 @@ namespace Project1
         //constants specify how mant frames there are for each sprite
         //make sure to edit the constants is constants.cs to reflect how many frames there are for each sprites
         private Texture2D[] aquaDragonSpritesheet = new Texture2D[AD_C * AQUA_TOTAL];
-        private Texture2D[] dinoSpritesheet = new Texture2D[DINO_C * DINO_R];
+        private Texture2D[] dinoSpritesheet = new Texture2D[DINO_C * DINO_TOTAL];
         private Texture2D[] fireDragonSpritesheet = new Texture2D[FD_C * FD_R];
         private Texture2D[] dogMonsterSpritesheet = new Texture2D[DM_C * DM_R];
         private Texture2D[] flameSpritesheet = new Texture2D[FLAME_C * FLAME_R];
