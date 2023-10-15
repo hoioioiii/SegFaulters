@@ -1,5 +1,4 @@
 ﻿using System;
-<<<<<<< Updated upstream
 using static Project1.Constants;
 namespace Project1.Commands
 {
@@ -12,14 +11,6 @@ namespace Project1.Commands
 				ItemIterator.pointer = (int)ITEMS.Arrow;
                 Game1.Item = ItemIterator.getCurrItem();
             }
-=======
-namespace Project1.Commands
-{
-	public class displayArrow
-	{
-		public displayArrow()
-		{
->>>>>>> Stashed changes
 		}
 	}
 }
