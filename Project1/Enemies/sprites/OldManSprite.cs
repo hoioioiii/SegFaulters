@@ -35,7 +35,7 @@ namespace Project1
          
             pos_x = SPRITE_X_START;
             pos_y = SPRITE_Y_START;
-            width = Texture[(current_frame].Width;
+            width = Texture[current_frame].Width;
             height = Texture[current_frame].Height;
         }
         /*
