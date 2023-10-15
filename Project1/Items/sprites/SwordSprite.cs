@@ -5,7 +5,7 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    public class SwordSprite : ISprite
+    public class SwordSprite : IItemSprite
     {
         private Texture2D[] Texture { get; set; }
 
@@ -46,18 +46,8 @@ namespace Project1
             position = Player.getUserPos();
         }
 
-        public void Move()
-        {
-            int DIR_X = RandomMove.RandMove();
-            int DIR_Y = RandomMove.RandMove();
 
-            //Add bounding constraints:
-          
-
-
-        }
-
-        private void Animate()
+        private void setDimention()
         {
 
             width = Texture[(int)current_frame].Width;
@@ -67,9 +57,17 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Animate();
+            setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
             Rectangle DEST_REC = new Rectangle((int)position.X, (int)position.Y, width, height);
+            spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+        }
+
+        public void Draw(SpriteBatch spriteBatch, Vector2 location, int scale)
+        {
+            setDimention();
+            Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
+            Rectangle DEST_REC = new Rectangle((int)location.X, (int)location.Y, width * scale, height * scale);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 

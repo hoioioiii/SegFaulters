@@ -85,66 +85,66 @@ namespace Project1
         }
         
        
-        public ISprite CreateArrowSprite()
+        public IItemSprite CreateArrowSprite()
         {
             return new ArrowSprite(arrowSpriteStorage);
         }
-        public ISprite CreateBombSprite()
+        public IItemSprite CreateBombSprite()
         {           
             return new BombItemSprite(bombSpriteStorage);
         }
         
-        public ISprite CreateBoomerangSprite()
+        public IItemSprite CreateBoomerangSprite()
         {
             return new BoomerangSprite(boomerangSpriteStorage);
         }
 
-        public ISprite CreateBowSprite()
+        public IItemSprite CreateBowSprite()
         {
             return new BowSprite(bowSpriteStorage);
         }
 
-        public ISprite CreateClockSprite()
+        public IItemSprite CreateClockSprite()
         {
             return new ClockSprite(clockSpriteStorage);
         }
 
-        public ISprite CreateFairySprite()
+        public IItemSprite CreateFairySprite()
         {
             return new FairySprite(fairySpriteStorage);
         }
 
-        public ISprite CreateHeartSprite()
+        public IItemSprite CreateHeartSprite()
         {
             return new HeartSprite(heartSpriteStorage);
         }
 
-        public ISprite CreateHeartContainerSprite()
+        public IItemSprite CreateHeartContainerSprite()
         {
             return new HeartContainerSprite(heartContainerSpriteStorage);
         }
 
-        public ISprite CreateKeySprite()
+        public IItemSprite CreateKeySprite()
         {
             return new KeySprite(keySpriteStorage);
         }
 
-        public ISprite CreateMapSprite()
+        public IItemSprite CreateMapSprite()
         {
             return new MapSprite(mapSpriteStorage);
         }
 
-        public ISprite CreateRupeeSprite()
+        public IItemSprite CreateRupeeSprite()
         {
             return new RupeeSprite(rupeeSpriteStorage);
         }
 
-        public ISprite CreateTriforceSprite()
+        public IItemSprite CreateTriforceSprite()
         {
             return new TriforceSprite(triforceSpriteStorage);
         }
 
-        public ISprite CreateSwordSprite()
+        public IItemSprite CreateSwordSprite()
         {
             return new SwordSprite(swordSpriteStorage);
         }

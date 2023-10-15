@@ -35,6 +35,10 @@ namespace Project1
         public static IEnemy ENEMY;
         public static IItem Item;
 
+        //Example code for how to create a item in the environment:
+        //public static IItem testItem;
+        //public static Vector2 testLoc = new Vector2((float)SPRITE_X, (float)SPRITE_Y);
+
         private ArrayList ControllerList;
 
         public Game1()
@@ -106,6 +110,9 @@ namespace Project1
             IListIterate ItemList = new ItemIterator(this);
             IListIterate EnvironmentList = new EnvironmentIterator(this);
 
+            //Example code for how to create a item in the environment:
+            //testItem = new Triforce();
+
  
             Sword.LoadContent(Content);
             Arrow.LoadContent(Content);
@@ -128,7 +135,9 @@ namespace Project1
             //HealthBarSprite.HealthDamage(1);
             //HealthBarSprite.Update();
 
-            
+            //Example code for how to create an item in the environment:
+            //testItem.Update();
+
             Item.Update();
             ENEMY.Update();
             base.Update(gameTime);
@@ -144,6 +153,10 @@ namespace Project1
 
             ENEMY.Draw(_spriteBatch);
             Item.Draw(_spriteBatch);
+
+            //Example code for how to create an item in the environment:
+            //testItem.Draw(_spriteBatch, testLoc, 2);
+
             CurrentEnvironment.Draw(_spriteBatch);
 
             _spriteBatch.End();

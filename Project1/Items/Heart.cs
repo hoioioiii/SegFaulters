@@ -37,7 +37,7 @@ namespace Project1
         private Game1 GameObject;
         private ContentManager ContentLoad;
 
-        private ISprite sprite;
+        private IItemSprite sprite;
 
         //Remove later above--------------
 
@@ -67,7 +67,10 @@ namespace Project1
         }
 
 
-
+        public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
+        {
+            sprite.Draw(spriteBatch, location, spriteScale);
+        }
 
 
 

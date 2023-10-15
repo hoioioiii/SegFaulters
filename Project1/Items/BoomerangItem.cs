@@ -20,7 +20,7 @@ namespace Project1
 
        
 
-        private ISprite sprite;
+        private IItemSprite sprite;
 
        
 
@@ -46,9 +46,10 @@ namespace Project1
 
         }
 
-
-
-
+        public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
+        {
+            sprite.Draw(spriteBatch, location, spriteScale);
+        }
 
 
     }
