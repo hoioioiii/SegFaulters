@@ -10,7 +10,7 @@
 *.userosscache
 *.sln.docstates
 
-//files that could be corrupted
+# files that could be corrupted
 *.mgcontent
 .DS_Store
 *.mgstats
