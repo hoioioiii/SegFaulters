@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Project1.Collision_Response;
 using System;
 using System.Collections.Generic;
 using static Project1.Constants;
@@ -8,8 +9,8 @@ namespace Project1.Collision
     internal class AllCollisionDetection
     {
         /*
-         * Detect every object the player could be colliding with
-         * For each player, detect if colliding with list of colliders
+         * Detect every object the player/enemies could be colliding with
+         * For each player/enemy, detect if colliding with list of colliders
          * Walls, doors, enemies, items, etc.
          * Knock player back if collision is a wall or enemy (calculated in DirectionalCollsionDetection.cs, handled in collision response class)
          * Additional optimizations might be helpful (like a quadtree)
@@ -65,21 +66,21 @@ namespace Project1.Collision
                     {
                         case CollisionType.ITEM:
                             // TODO: change to entity
-                            AllCollisionResponse.ItemResponse();
+                            PlayerCollisionResponse.ItemResponse();
                             break;
                         case CollisionType.DOOR:
                             // TODO: get correct door transition
-                            AllCollisionResponse.DoorResponse();
+                            PlayerCollisionResponse.DoorResponse();
                             break;
                         case CollisionType.BOUNDARY:                          
                             DetectCollisionDirection(link, roomRect, collisionDirection);
                             // TODO: Pass in player entity
-                            AllCollisionResponse.BoundaryResponse(collisionDirection);
+                            PlayerCollisionResponse.BoundaryResponse(collisionDirection);
                             break;
                         case CollisionType.DAMAGE:
                             DetectCollisionDirection(link, roomRect, collisionDirection);
                             // TODO: Pass in player entity
-                            AllCollisionResponse.DamageResponse(collisionDirection);
+                            PlayerCollisionResponse.DamageResponse(collisionDirection);
                             break;                           
                     }
                 }
@@ -119,12 +120,12 @@ namespace Project1.Collision
                             case CollisionType.BOUNDARY:
                                 DetectCollisionDirection(enemy, roomRect, collisionDirection);
                                 // TODO: Pass in enemy entity
-                                AllCollisionResponse.BoundaryResponse(collisionDirection);
+                                EnemyCollisionResponse.BoundaryResponse(collisionDirection);
                                 break;
                             case CollisionType.DAMAGE:
                                 DetectCollisionDirection(enemy, roomRect, collisionDirection);
                                 // TODO: Pass in enemy entity
-                                AllCollisionResponse.DamageResponse(collisionDirection);
+                                EnemyCollisionResponse.DamageResponse(collisionDirection);
                                 break;
                         }
                     }
@@ -152,9 +153,7 @@ namespace Project1.Collision
         void DetectCollisionDirection(Rectangle targetRect, Rectangle roomRect, Enum collisionDirection)
         {
             Rectangle overlap = new Rectangle();
-            bool positiveDirection = true;
-
-            positiveDirection = Vector2.Distance(new Vector2(targetRect.Center.X, targetRect.Center.Y), new Vector2(roomRect.Center.X, roomRect.Center.Y)) > 0;
+            bool positiveDirection = Vector2.Distance(new Vector2(targetRect.Center.X, targetRect.Center.Y), new Vector2(roomRect.Center.X, roomRect.Center.Y)) > 0;
 
             Rectangle.Intersect(ref targetRect, ref roomRect, out overlap);
 
