@@ -15,6 +15,8 @@ namespace Project1.Collision
          * Send the collision type to be handled by the appropriate collision response class
          */
 
+        
+
         Player Link;
         /*
         // Not needed because AllCollisionDetection.cs already knows the collision type, it can just call the methods directly
@@ -44,7 +46,12 @@ namespace Project1.Collision
 
         #region Collision Responses
         /*
+         * Pass in item
+         * Call item to remove it from the room either
          * 
+         * Place it in Link's inventory or
+         * Change a value (like health)
+         * The last part will be done by the item entity class
          */
         public static void ItemResponse()
         {
@@ -52,7 +59,7 @@ namespace Project1.Collision
         }
 
         /*
-         * 
+         * Pass 
          */
         public static void DoorResponse()
         {
@@ -62,19 +69,19 @@ namespace Project1.Collision
         /*
          * 
          */
-        public static void BoundaryResponse(Enum DIRECTION)
+        public static void BoundaryResponse(Enum direction)
         {
             // need position and direction
-            Knockback();
+            Knockback(direction);
         }
 
         /*
          * 
          */
-        public static void DamageResponse(Enum DIRECTION)
+        public static void DamageResponse(Enum direction)
         {
             // need position and direction
-            Knockback();
+            Knockback(direction);
             ApplyDamage();
 
         }
@@ -83,10 +90,12 @@ namespace Project1.Collision
 
         #region Collision Response action methods
         /* Knock back target (player or enemy)
+         * Offset from current entity position
+         * 
          * TODO: need position and direction
          * what should be the knock back duration and speed?
          */
-        static void Knockback()
+        static void Knockback(Enum DIRECTION)
         {
             
         }
@@ -94,10 +103,11 @@ namespace Project1.Collision
         /*
          * Lower health variable of Link or enemy
          * Apply temporary invincibility so the entity can't take every frame
+         * Are there different damage amounts from different damage sources?
          */
         static void ApplyDamage()
         {
-
+             
         }
 
         #endregion

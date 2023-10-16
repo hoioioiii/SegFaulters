@@ -12,7 +12,7 @@ namespace Project1.Collision
          * For each player, detect if colliding with list of colliders
          * Walls, doors, enemies, items, etc.
          * Knock player back if collision is a wall or enemy (calculated in DirectionalCollsionDetection.cs, handled in collision response class)
-         * Additional optimizations needed (like a quadtree)
+         * Additional optimizations might be helpful (like a quadtree)
          */
 
         // player and enemy rects, the latter is a list
@@ -119,10 +119,12 @@ namespace Project1.Collision
                             case CollisionType.BOUNDARY:
                                 DetectCollisionDirection(enemy, roomRect, collisionDirection);
                                 // TODO: Pass in enemy entity
+                                AllCollisionResponse.BoundaryResponse(collisionDirection);
                                 break;
                             case CollisionType.DAMAGE:
                                 DetectCollisionDirection(enemy, roomRect, collisionDirection);
                                 // TODO: Pass in enemy entity
+                                AllCollisionResponse.DamageResponse(collisionDirection);
                                 break;
                         }
                     }

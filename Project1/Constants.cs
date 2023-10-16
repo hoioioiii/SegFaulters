@@ -199,6 +199,8 @@ namespace Project1
             BOUNDARY,
             DAMAGE
         }
+
+        public const int knockbackDistance = 10, knockbackDuration = 1, invincibilityDuration = 1;
     }
 }
 
