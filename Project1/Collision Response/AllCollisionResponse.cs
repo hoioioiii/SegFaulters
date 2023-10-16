@@ -14,7 +14,10 @@ namespace Project1.Collision
          * Handles all types of collisions
          * Send the collision type to be handled by the appropriate collision response class
          */
+
+        Player Link;
         /*
+        // Not needed because AllCollisionDetection.cs already knows the collision type, it can just call the methods directly
         public void CollisionT(CollisionType myColType)
         {
             
@@ -40,41 +43,59 @@ namespace Project1.Collision
         */
 
         #region Collision Responses
-        public void ItemResponse()
+        /*
+         * 
+         */
+        public static void ItemResponse()
         {
 
         }
 
-        public void DoorResponse()
+        /*
+         * 
+         */
+        public static void DoorResponse()
         {
 
         }
 
-        public void BoundaryResponse()
+        /*
+         * 
+         */
+        public static void BoundaryResponse(Enum DIRECTION)
         {
             // need position and direction
             Knockback();
         }
 
-        public void DamageResponse(Rectangle target)
+        /*
+         * 
+         */
+        public static void DamageResponse(Enum DIRECTION)
         {
             // need position and direction
             Knockback();
             ApplyDamage();
+
         }
         #endregion
 
 
         #region Collision Response action methods
-        // Knock back target (player or enemy)
-        // need position and direction
-        // knock back duration, 1 second?
-        void Knockback()
+        /* Knock back target (player or enemy)
+         * TODO: need position and direction
+         * what should be the knock back duration and speed?
+         */
+        static void Knockback()
         {
             
         }
 
-        void ApplyDamage()
+        /*
+         * Lower health variable of Link or enemy
+         * Apply temporary invincibility so the entity can't take every frame
+         */
+        static void ApplyDamage()
         {
 
         }
