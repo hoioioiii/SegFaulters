@@ -12,7 +12,8 @@ namespace Project1.Collision_Response
         #region Collision Responses
         /*
          * Pass in item
-         * Call item to remove it from the room either
+         * Call item to remove it from the room or
+         * call room manager to do it (which one should?)
          * 
          * Place it in Link's inventory or
          * Change a value (like health)
@@ -20,15 +21,16 @@ namespace Project1.Collision_Response
          */
         public static void ItemResponse(IItem item)
         {
-
+            // TODO: CALL ITEM INSTANCE/ROOM MANAGER
         }
 
         /*
-         * Pass 
+         * Pass in door
+         * Send to level loader which door it was
          */
         public static void DoorResponse(IDoor door)
         {
-
+            // TODO: CALL LEVEL LOADER
         }
 
         /*
@@ -36,8 +38,9 @@ namespace Project1.Collision_Response
          */
         public static void BoundaryResponse(Player link, DIRECTION direction)
         {
-            Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y); 
-            AllCollisionResponse.Knockback(playerPosition, direction, Player.playerSpeed);
+            // which variable holds player position?
+            Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y);
+            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, Player.playerSpeed);
         }
 
         /*
@@ -47,7 +50,7 @@ namespace Project1.Collision_Response
         {
             Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y);
             // Constant knockbackDistance
-            AllCollisionResponse.Knockback(playerPosition, direction, knockbackDistance);
+            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, knockbackDistance);
             AllCollisionResponse.ApplyDamage();
 
         }
