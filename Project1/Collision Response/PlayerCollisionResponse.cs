@@ -18,7 +18,7 @@ namespace Project1.Collision_Response
          * Change a value (like health)
          * The last part will be done by the item entity class
          */
-        public static void ItemResponse()
+        public static void ItemResponse(IItem item)
         {
 
         }
@@ -26,7 +26,7 @@ namespace Project1.Collision_Response
         /*
          * Pass 
          */
-        public static void DoorResponse()
+        public static void DoorResponse(IDoor door)
         {
 
         }
@@ -34,7 +34,7 @@ namespace Project1.Collision_Response
         /*
          * 
          */
-        public static void BoundaryResponse(Enum direction)
+        public static void BoundaryResponse(Player link, Enum direction)
         {
             // need position and direction
             AllCollisionResponse.Knockback(direction);
@@ -43,7 +43,7 @@ namespace Project1.Collision_Response
         /*
          * 
          */
-        public static void DamageResponse(Enum direction)
+        public static void DamageResponse(Player link, Enum direction)
         {
             // need position and direction
             AllCollisionResponse.Knockback(direction);

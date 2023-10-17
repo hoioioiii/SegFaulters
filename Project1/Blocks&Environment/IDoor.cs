@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1
 {
-    public interface IEnvironment
+    public interface IDoor
     {
         public Rectangle BoundingBox { get; set; }
         public void Draw(SpriteBatch spriteBatch);

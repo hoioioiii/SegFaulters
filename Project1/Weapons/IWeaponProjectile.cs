@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1
 {
     internal interface IWeaponProjectile
     {
-        
+        public Rectangle BoundingBox { get; set; }
+        public void Draw(SpriteBatch spriteBatch);
         public void Attack();
 
         public void Load();

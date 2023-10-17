@@ -2,12 +2,16 @@
 using Project1.Collision_Response;
 using System;
 using System.Collections.Generic;
+using System.Numerics;
 using static Project1.Constants;
+using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace Project1.Collision
 {
     internal class AllCollisionDetection
     {
+        // TODO: IMPLEMENT BOUNDING BOXES FOR INTERFACES AND CLASSES INHERTING THEM
+
         /*
          * Detect every object the player/enemies could be colliding with
          * For each player/enemy, detect if colliding with list of colliders
@@ -17,16 +21,10 @@ namespace Project1.Collision
          */
 
         // player and enemy rects, the latter is a list
-        // TODO: refactor into entity
-        //List<IEnemy> enemyRects = new List<IEnemy>();
-        List<Rectangle> enemyRects = new List<Rectangle>();
+        List<IEnemy> enemyRects = new List<IEnemy>();
+        //List<Rectangle> enemyRects = new List<Rectangle>();
 
-        // player rect
-        // TODO: refactor to include interface
         Player link;
-
-        // TODO: remove after rectangle implemented in player interface
-        Rectangle linkRect, enemyRect, weaponMeleeRect, weaponProjectileRect;
 
         #region Collision rectangles TODO: USE ENTITIES INSTEAD
         // TODO: ROOM MANAGER MUST GENERATE THESE LISTS ON NEW ROOM LOAD TO PASS INTO COLLISION
@@ -48,15 +46,18 @@ namespace Project1.Collision
          * List of rectangles for collision boxes for Link
          * Includes: Items, doors, boundaries, enemies, and non-Link damagers (attacks and enemies without health)
          */
-        List<IItem> roomItems = new List<IItem>();
-        //TODO: change to interface
-        List<Rectangle> roomDoors = new List<Rectangle>();
-        List<Rectangle> roomBoundaries = new List<Rectangle>();
+        List<IItem> roomItems = new List<IItem>();       
+        List<IDoor> roomDoors = new List<IDoor>();
+        List<IEnvironment> roomBoundaries = new List<IEnvironment>();
         List<IEnemy> roomEnemies = new List<IEnemy>();
+        //TODO: change to interface
+        List<Rectangle> enemyAttackInstances = new List<Rectangle>();
 
         /*
          * List of rectangles for collision boxes for enemies
          * Includes: Boundaries and Link's weapons 
+         * 
+         * TODO: Differentiate between whether weapons belong to Link or an enemy
          */
         List<IWeaponMelee> weaponMelees = new List<IWeaponMelee>();
         List<IWeaponProjectile> weaponProjectiles = new List<IWeaponProjectile>();
@@ -79,48 +80,54 @@ namespace Project1.Collision
                     
             foreach (var item in roomItems)
             {
-                // TODO: isColliding = link.Rectangle.Intersects(roomRect);
+                isColliding = link.BoundingBox.Intersects(item.BoundingBox);
                 if (isColliding)
                 {
-                    // TODO: change to entity
-                    PlayerCollisionResponse.ItemResponse();
+                    PlayerCollisionResponse.ItemResponse(item);
                 }                  
             }
             foreach (var door in roomDoors)
             {
-                // TODO: isColliding = link.Rectangle.Intersects(roomRect);
+                isColliding = link.BoundingBox.Intersects(door.BoundingBox);
                 if (isColliding)
                 {
-                    // TODO: get correct door transition
-                    PlayerCollisionResponse.DoorResponse();
+                    PlayerCollisionResponse.DoorResponse(door);
                 }               
             }
             foreach (var boundary in roomBoundaries)
             {
-                // TODO: isColliding = link.Rectangle.Intersects(roomRect);
+                isColliding = link.BoundingBox.Intersects(boundary.BoundingBox);
                 if (isColliding)
                 {
-                    DetectCollisionDirection(linkRect, boundary, collisionDirection);
-                    // TODO: Pass in player entity
-                    PlayerCollisionResponse.BoundaryResponse(collisionDirection);
+                    DetectCollisionDirection(link.BoundingBox, boundary.BoundingBox, collisionDirection);
+                    PlayerCollisionResponse.BoundaryResponse(link, collisionDirection);
                 }
             }
             foreach (var enemy in roomEnemies)
             {
-                // TODO: isColliding = link.Rectangle.Intersects(roomRect);
+                isColliding = link.BoundingBox.Intersects(enemy.BoundingBox);
                 if (isColliding)
                 {
-                    DetectCollisionDirection(linkRect, enemyRect, collisionDirection);
-                    // TODO: Pass in player entity
-                    PlayerCollisionResponse.DamageResponse(collisionDirection);
+                    DetectCollisionDirection(link.BoundingBox, enemy.BoundingBox, collisionDirection);
+                    PlayerCollisionResponse.DamageResponse(link, collisionDirection);
                 }
             }
-                /*
-                * only one collision per frame 
-                * if object detects a collision, no more collisions allowed for that frame
-                * might be worth removing
-                */
-                //if (isColliding) { break; }
+            foreach (var enemyAttack in enemyAttackInstances)
+            {
+                isColliding = link.BoundingBox.Intersects(enemyAttack);
+                if (isColliding)
+                {
+                    //TODO: change to interface
+                    DetectCollisionDirection(link.BoundingBox, enemyAttack, collisionDirection);
+                    PlayerCollisionResponse.DamageResponse(link, collisionDirection);
+                }
+            }
+            /*
+            * only one collision per frame 
+            * if object detects a collision, no more collisions allowed for that frame
+            * might be worth removing
+            */
+            //if (isColliding) { break; }
         }
 
         public void DetectAllCollisionsEnemiesEntity(CollisionType collisionType)
@@ -136,35 +143,35 @@ namespace Project1.Collision
             {
                 foreach (var boundary in roomBoundaries)
                 {
-                    // TODO: isColliding = link.Rectangle.Intersects(roomRect);
+                    isColliding = enemy.BoundingBox.Intersects(boundary.BoundingBox);
                     if (isColliding)
                     {
                         Enum collisionDirection = DIRECTION.left;
-                        DetectCollisionDirection(enemy, boundary, collisionDirection);
-                        // TODO: Pass in player entity
-                        PlayerCollisionResponse.BoundaryResponse(collisionDirection);
+                        DetectCollisionDirection(enemy.BoundingBox, boundary.BoundingBox, collisionDirection);
+
+                        EnemyCollisionResponse.BoundaryResponse(enemy, collisionDirection);
                     }
                 }
                 foreach (var weaponMelee in weaponMelees)
                 {
-                    // TODO: isColliding = link.Rectangle.Intersects(roomRect);
+                    isColliding = enemy.BoundingBox.Intersects(weaponMelee.BoundingBox);
                     if (isColliding)
                     {
                         Enum collisionDirection = DIRECTION.left;
-                        DetectCollisionDirection(enemy, weaponMeleeRect, collisionDirection);
-                        // TODO: Pass in player entity
-                        PlayerCollisionResponse.DamageResponse(collisionDirection);
+                        DetectCollisionDirection(enemy.BoundingBox, weaponMelee.BoundingBox, collisionDirection);
+
+                        EnemyCollisionResponse.DamageResponse(enemy, collisionDirection);
                     }
                 }
                 foreach (var weaponProjectile in weaponProjectiles)
                 {
-                    // TODO: isColliding = link.Rectangle.Intersects(roomRect);
+                    isColliding = enemy.BoundingBox.Intersects(weaponProjectile.BoundingBox);
                     if (isColliding)
                     {
                         Enum collisionDirection = DIRECTION.left;
-                        DetectCollisionDirection(enemy, weaponProjectileRect, collisionDirection);
+                        DetectCollisionDirection(enemy.BoundingBox, weaponProjectile.BoundingBox, collisionDirection);
                         // TODO: Pass in player entity
-                        PlayerCollisionResponse.DamageResponse(collisionDirection);
+                        EnemyCollisionResponse.DamageResponse(enemy, collisionDirection);
                     }
                 }
             }
@@ -173,6 +180,7 @@ namespace Project1.Collision
 
         /*
          * Change collisionDirection enum to correct direction
+         * 
          * Detect collision (Rectangle intersect test)
          * Determine whether distance between the rectangles is positive or negative
          * Get overlap rect
@@ -181,10 +189,10 @@ namespace Project1.Collision
          */
         void DetectCollisionDirection(Rectangle targetRect, Rectangle roomRect, Enum collisionDirection)
         {
-            Rectangle overlap = new Rectangle();
-            bool positiveDirection = Vector2.Distance(new Vector2(targetRect.Center.X, targetRect.Center.Y), new Vector2(roomRect.Center.X, roomRect.Center.Y)) > 0;
-
+            Rectangle overlap = new Rectangle();            
             Rectangle.Intersect(ref targetRect, ref roomRect, out overlap);
+
+            bool positiveDirection = Vector2.Distance(new Vector2(targetRect.Center.X, targetRect.Center.Y), new Vector2(roomRect.Center.X, roomRect.Center.Y)) > 0;
 
             if (overlap.Width > overlap.Height)
             {
@@ -231,7 +239,7 @@ namespace Project1.Collision
             {
                 // check if player/enemy intersects a room rectangle
                 isColliding = link.Intersects(roomRect);
-
+                /*
                 // if yes
                 if (isColliding)
                 {
@@ -260,7 +268,7 @@ namespace Project1.Collision
                             break;
                     }
                 }
-
+                */
                 /*
                 * only one collision per frame 
                 * if object detects a collision, no more collisions allowed for that frame
@@ -275,15 +283,16 @@ namespace Project1.Collision
         {
             // pass in list of axis-alligned bounding rectangles
 
-            bool isColliding = false;
+            //bool isColliding = false;
 
             /*
              * additional directional collision information required for enemies, attacks and boundaries
              */
-            foreach (var enemy in enemyRects)
+            //foreach (var enemy in enemyRects)
             {
-                foreach (var roomRect in roomCollisionRectsForEnemies)
+                //foreach (var roomRect in roomCollisionRectsForEnemies)
                 {
+                    /*
                     // check if player/enemy intersects a room rectangle
                     isColliding = enemy.Intersects(roomRect);
 
@@ -305,7 +314,7 @@ namespace Project1.Collision
                                 break;
                         }
                     }
-
+                    */
                     /*
                      * only one collision per frame 
                      * if object detects a collision, no more collisions allowed for that frame

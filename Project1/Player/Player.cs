@@ -26,13 +26,15 @@ namespace Project1
         private static IPlayerSprite sprite;
         private static SpriteBatch sprBatch;
 
+        public Rectangle BoundingBox { get; set; }
+
         private static bool isMoving = false;
 
         private static int playerSpeed = 5;
 
+        #region Sprites
         // scales the size of the sprite on screen
         private static int spriteScale = 4;
-
 
         // cardinal direction player is facing, starts with up on 1 and progresses clockwise (e.g. 4 is left-facing)
         private static int linkDirection = 2;
@@ -54,6 +56,7 @@ namespace Project1
         public static Texture2D linkAttackLeft;
         public static Texture2D linkAttackUp;
         public static Texture2D linkAttackDown;
+        #endregion
 
         // attacking
         public static bool isAttacking = false;

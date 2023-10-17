@@ -14,6 +14,7 @@ namespace Project1
 {
     internal class Boomerang : IWeaponProjectile
     {
+        public Rectangle BoundingBox { get; set; }
 
         /*
          * 
@@ -74,6 +75,7 @@ namespace Project1
 
         // userScale needed to 
         // GameTime gameTime may be needed
+        /*
         public static void Draw(Vector2 position, int direction, int userScale)
         {
             //float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -96,7 +98,12 @@ namespace Project1
 
             //}
         }
+        */
 
+        private void Draw()
+        {
+
+        }
         private static void DrawBoomerang(Vector2 position, Vector2 offset, int userScale)
         {
             for (int i = 0; i < BOOMERANG_RANGE * userScale; i++)
@@ -138,6 +145,11 @@ namespace Project1
         }
 
         public void Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
         {
             throw new NotImplementedException();
         }
