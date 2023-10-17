@@ -76,7 +76,7 @@ namespace Project1.Collision
             // check if player intersects a room rectangle
                 
             // if the CollisionType is damage or boundary, directional collision check required
-            Enum collisionDirection = DIRECTION.left;
+            DIRECTION collisionDirection = DIRECTION.left;
                     
             foreach (var item in roomItems)
             {
@@ -145,7 +145,7 @@ namespace Project1.Collision
                     isColliding = enemy.BoundingBox.Intersects(boundary.BoundingBox);
                     if (isColliding)
                     {
-                        Enum collisionDirection = DIRECTION.left;
+                        DIRECTION collisionDirection = DIRECTION.left;
                         DetectCollisionDirection(enemy.BoundingBox, boundary.BoundingBox, collisionDirection);
 
                         EnemyCollisionResponse.BoundaryResponse(enemy, collisionDirection);
@@ -156,7 +156,7 @@ namespace Project1.Collision
                     isColliding = enemy.BoundingBox.Intersects(weaponMelee.BoundingBox);
                     if (isColliding)
                     {
-                        Enum collisionDirection = DIRECTION.left;
+                        DIRECTION collisionDirection = DIRECTION.left;
                         DetectCollisionDirection(enemy.BoundingBox, weaponMelee.BoundingBox, collisionDirection);
 
                         EnemyCollisionResponse.DamageResponse(enemy, collisionDirection);
@@ -167,7 +167,7 @@ namespace Project1.Collision
                     isColliding = enemy.BoundingBox.Intersects(weaponProjectile.BoundingBox);
                     if (isColliding)
                     {
-                        Enum collisionDirection = DIRECTION.left;
+                        DIRECTION collisionDirection = DIRECTION.left;
                         DetectCollisionDirection(enemy.BoundingBox, weaponProjectile.BoundingBox, collisionDirection);
 
                         EnemyCollisionResponse.DamageResponse(enemy, collisionDirection);

@@ -30,7 +30,7 @@ namespace Project1
 
         private static bool isMoving = false;
 
-        private static int playerSpeed = 5;
+        public static int playerSpeed = 5;
 
         #region Sprites
         // scales the size of the sprite on screen

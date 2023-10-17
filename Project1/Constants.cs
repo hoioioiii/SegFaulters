@@ -200,7 +200,7 @@ namespace Project1
             DAMAGE
         }
 
-        public const int knockbackDistance = 10, knockbackDuration = 1, invincibilityDuration = 1;
+        public const int knockbackDistance = 5, knockbackDuration = 1, invincibilityDuration = 1;
     }
 }
 

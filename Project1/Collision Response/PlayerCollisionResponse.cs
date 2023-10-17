@@ -34,19 +34,20 @@ namespace Project1.Collision_Response
         /*
          * 
          */
-        public static void BoundaryResponse(Player link, Enum direction)
+        public static void BoundaryResponse(Player link, DIRECTION direction)
         {
-            // need position and direction
-            AllCollisionResponse.Knockback(direction);
+            Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y); 
+            AllCollisionResponse.Knockback(playerPosition, direction, Player.playerSpeed);
         }
 
         /*
          * 
          */
-        public static void DamageResponse(Player link, Enum direction)
+        public static void DamageResponse(Player link, DIRECTION direction)
         {
-            // need position and direction
-            AllCollisionResponse.Knockback(direction);
+            Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y);
+            // Constant knockbackDistance
+            AllCollisionResponse.Knockback(playerPosition, direction, knockbackDistance);
             AllCollisionResponse.ApplyDamage();
 
         }

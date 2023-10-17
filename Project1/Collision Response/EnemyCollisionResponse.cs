@@ -12,19 +12,21 @@ namespace Project1.Collision_Response
         /*
          * 
          */
-        public static void BoundaryResponse(IEnemy enemy, Enum direction)
+        public static void BoundaryResponse(IEnemy enemy, DIRECTION direction)
         {
-            // need position and direction
-            AllCollisionResponse.Knockback(direction);
+            // TODO: CHANGE TO ENEMY POSITION!
+            Vector2 enemyPosition = new Vector2(0 ,0);
+            AllCollisionResponse.Knockback(enemyPosition, direction, knockbackDistance);
         }
 
         /*
          * 
          */
-        public static void DamageResponse(IEnemy enemy, Enum direction)
+        public static void DamageResponse(IEnemy enemy, DIRECTION direction)
         {
-            // need position and direction
-            AllCollisionResponse.Knockback(direction);
+            // TODO: CHANGE TO ENEMY POSITION!
+            Vector2 enemyPosition = new Vector2(0, 0);
+            AllCollisionResponse.Knockback(enemyPosition, direction, knockbackDistance);
             AllCollisionResponse.ApplyDamage();
 
         }
