@@ -23,9 +23,12 @@ namespace Project1.Collision
 
         // player rect
         // TODO: refactor to include interface
-        //Player link;
+        Player link;
+        
+        // TODO: remove after rectangle implemented in player interface
+        Rectangle linkRect;
 
-        #region Collision rectangles
+        #region Collision rectangles TODO: USE ENTITIES INSTEAD
         // TODO: ROOM MANAGER MUST GENERATE THESE LISTS ON NEW ROOM LOAD TO PASS INTO COLLISION
         /*
          * List of rectangles for collision boxes for Link
@@ -40,8 +43,26 @@ namespace Project1.Collision
         List<Rectangle> roomCollisionRectsForEnemies = new List<Rectangle>();
         #endregion
 
-        #region Collision Detection (player & room enemies)
-        public void DetectAllCollisionsLink(CollisionType collisionType, Rectangle link)
+        #region Collision Entity Lists
+        /*
+         * List of rectangles for collision boxes for Link
+         * Includes: Items, doors, boundaries, enemies, and non-Link damagers (attacks and enemies without health)
+         */
+        List<IItem> roomItems = new List<IItem>();
+        //List<IDoor> roomDoors = new List<IDoor>();
+        //List<IBoundary> roomIBoundaries = new List<IBoundary>();
+        List<IEnemy> roomEnemies = new List<IEnemy>();
+
+        /*
+         * List of rectangles for collision boxes for enemies
+         * Includes: Boundaries and Link's weapons 
+         */
+        List<IWeaponMelee> weaponMelees = new List<IWeaponMelee>();
+        List<IWeaponProjectile> weaponProjectiles = new List<IWeaponProjectile>();
+        #endregion
+
+        #region Collision Detection Entities (player & room enemies)
+        public void DetectAllCollisionsLinkEntity(CollisionType collisionType, Player link)
         {
             // pass in list of axis-alligned bounding rectangles
 
@@ -54,8 +75,8 @@ namespace Project1.Collision
             foreach (var roomRect in roomCollisionRectsForLink)
             {
                 // check if player/enemy intersects a room rectangle
-                isColliding = link.Intersects(roomRect);
-                    
+                // TODO: isColliding = link.Rectangle.Intersects(roomRect);
+
                 // if yes
                 if (isColliding)
                 {
@@ -72,7 +93,157 @@ namespace Project1.Collision
                             // TODO: get correct door transition
                             PlayerCollisionResponse.DoorResponse();
                             break;
-                        case CollisionType.BOUNDARY:                          
+                        case CollisionType.BOUNDARY:
+                            DetectCollisionDirection(linkRect, roomRect, collisionDirection);
+                            // TODO: Pass in player entity
+                            PlayerCollisionResponse.BoundaryResponse(collisionDirection);
+                            break;
+                        case CollisionType.DAMAGE:
+                            DetectCollisionDirection(linkRect, roomRect, collisionDirection);
+                            // TODO: Pass in player entity
+                            PlayerCollisionResponse.DamageResponse(collisionDirection);
+                            break;
+                    }
+                }
+
+                /*
+                * only one collision per frame 
+                * if object detects a collision, no more collisions allowed for that frame
+                * might be worth removing
+                */
+                //if (isColliding) { break; }
+            }
+
+        }
+
+        public void DetectAllCollisionsEnemiesEntity(CollisionType collisionType)
+        {
+            // pass in list of axis-alligned bounding rectangles
+
+            bool isColliding = false;
+
+            /*
+             * additional directional collision information required for enemies, attacks and boundaries
+             */
+            foreach (var enemy in enemyRects)
+            {
+                foreach (var roomRect in roomCollisionRectsForEnemies)
+                {
+                    // check if player/enemy intersects a room rectangle
+                    isColliding = enemy.Intersects(roomRect);
+
+                    // if yes
+                    if (isColliding)
+                    {
+                        Enum collisionDirection = DIRECTION.left;
+                        switch (collisionType)
+                        {
+                            case CollisionType.BOUNDARY:
+                                DetectCollisionDirection(enemy, roomRect, collisionDirection);
+                                // TODO: Pass in enemy entity
+                                EnemyCollisionResponse.BoundaryResponse(collisionDirection);
+                                break;
+                            case CollisionType.DAMAGE:
+                                DetectCollisionDirection(enemy, roomRect, collisionDirection);
+                                // TODO: Pass in enemy entity
+                                EnemyCollisionResponse.DamageResponse(collisionDirection);
+                                break;
+                        }
+                    }
+
+                    /*
+                     * only one collision per frame 
+                     * if object detects a collision, no more collisions allowed for that frame
+                     * might be worth removing
+                     */
+                    //if (isColliding) { break; }
+                }
+
+            }
+        }
+        #endregion
+
+        
+
+        /*
+         * Change collisionDirection enum to correct direction
+         * Detect collision (Rectangle intersect test)
+         * Determine whether distance between the rectangles is positive or negative
+         * Get overlap rect
+         * If overlap rect's width > height, it's a top/bottom collision, otherwise left/right
+         * Use positive or negative direction to determine which side
+         */
+        void DetectCollisionDirection(Rectangle targetRect, Rectangle roomRect, Enum collisionDirection)
+        {
+            Rectangle overlap = new Rectangle();
+            bool positiveDirection = Vector2.Distance(new Vector2(targetRect.Center.X, targetRect.Center.Y), new Vector2(roomRect.Center.X, roomRect.Center.Y)) > 0;
+
+            Rectangle.Intersect(ref targetRect, ref roomRect, out overlap);
+
+            if (overlap.Width > overlap.Height)
+            {
+                // top/bottom collision
+                if (positiveDirection)
+                {
+                    // bottom collision
+                    collisionDirection = DIRECTION.down;
+                } 
+                else
+                {
+                    // top collision
+                    collisionDirection = DIRECTION.up;
+                }
+            }
+            else
+            {
+                // left right collision
+                if (positiveDirection)
+                {
+                    // left collision
+                    collisionDirection = DIRECTION.left;
+                }
+                else
+                {
+                    // right collision
+                    collisionDirection = DIRECTION.right;
+                }
+            }
+        }
+
+
+        #region OUTDATED, USES RECTS NOT ENTITIES! Collision Detection (player & room enemies)
+        public void DetectAllCollisionsLink(CollisionType collisionType, Rectangle link)
+        {
+            // pass in list of axis-alligned bounding rectangles
+
+            bool isColliding = false;
+
+            /*
+             * additional directional collision information required for enemies, attacks and boundaries
+             */
+
+            foreach (var roomRect in roomCollisionRectsForLink)
+            {
+                // check if player/enemy intersects a room rectangle
+                isColliding = link.Intersects(roomRect);
+
+                // if yes
+                if (isColliding)
+                {
+                    // if the CollisionType is damage or boundary, directional collision check required
+                    Enum collisionDirection = DIRECTION.left;
+
+                    switch (collisionType)
+                    {
+                        case CollisionType.ITEM:
+                            // TODO: change to entity
+                            PlayerCollisionResponse.ItemResponse();
+                            break;
+                        case CollisionType.DOOR:
+                            // TODO: get correct door transition
+                            PlayerCollisionResponse.DoorResponse();
+                            break;
+                        case CollisionType.BOUNDARY:
                             DetectCollisionDirection(link, roomRect, collisionDirection);
                             // TODO: Pass in player entity
                             PlayerCollisionResponse.BoundaryResponse(collisionDirection);
@@ -81,7 +252,7 @@ namespace Project1.Collision
                             DetectCollisionDirection(link, roomRect, collisionDirection);
                             // TODO: Pass in player entity
                             PlayerCollisionResponse.DamageResponse(collisionDirection);
-                            break;                           
+                            break;
                     }
                 }
 
@@ -141,50 +312,5 @@ namespace Project1.Collision
             }
         }
         #endregion
-
-        /*
-         * Change collisionDirection enum to correct direction
-         * Detect collision (Rectangle intersect test)
-         * Determine whether distance between the rectangles is positive or negative
-         * Get overlap rect
-         * If overlap rect's width > height, it's a top/bottom collision, otherwise left/right
-         * Use positive or negative direction to determine which side
-         */
-        void DetectCollisionDirection(Rectangle targetRect, Rectangle roomRect, Enum collisionDirection)
-        {
-            Rectangle overlap = new Rectangle();
-            bool positiveDirection = Vector2.Distance(new Vector2(targetRect.Center.X, targetRect.Center.Y), new Vector2(roomRect.Center.X, roomRect.Center.Y)) > 0;
-
-            Rectangle.Intersect(ref targetRect, ref roomRect, out overlap);
-
-            if (overlap.Width > overlap.Height)
-            {
-                // top/bottom collision
-                if (positiveDirection)
-                {
-                    // bottom collision
-                    collisionDirection = DIRECTION.down;
-                } 
-                else
-                {
-                    // top collision
-                    collisionDirection = DIRECTION.up;
-                }
-            }
-            else
-            {
-                // left right collision
-                if (positiveDirection)
-                {
-                    // left collision
-                    collisionDirection = DIRECTION.left;
-                }
-                else
-                {
-                    // right collision
-                    collisionDirection = DIRECTION.right;
-                }
-            }
-        }
     }
 }
