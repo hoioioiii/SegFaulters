@@ -14,14 +14,31 @@ namespace Project1.Collision
 
         #region Collision Response action methods
         /* Knock back target (player or enemy)
-         * Offset from current entity position
+         * Offset from current entity position, opposite the direction of collision
          * 
-         * TODO: need position and direction
+         * need position and direction
          * what should be the knock back duration and speed?
+         * How to make this an instance method?
          */
-        public static Vector2 Knockback(Enum DIRECTION)
+        public static Vector2 Knockback(Vector2 position, DIRECTION directon)
         {
-            return new Vector2(0, 0);
+            switch (directon)
+            {
+                case DIRECTION.left:
+                    position = position + new Vector2(knockbackDistance, 0);
+                    break;
+                case DIRECTION.right:
+                    position = position + new Vector2(-knockbackDistance, 0);
+                    break;
+                case DIRECTION.down:
+                    position = position + new Vector2(0, knockbackDistance);
+                    break;
+                case DIRECTION.up:
+                    position = position + new Vector2(0, -knockbackDistance);
+                    break;
+            }
+                      
+            return position;
         }
 
         /*
