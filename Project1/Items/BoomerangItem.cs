@@ -17,8 +17,8 @@ namespace Project1
 {
     public class BoomerangItem : IItem
     {
+        public Rectangle BoundingBox { get; set; }
 
-       
 
         private ISprite sprite;
 

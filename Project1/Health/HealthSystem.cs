@@ -14,6 +14,7 @@ using static Project1.ConstantClass;
 
 public class HealthSystem : IHealth
 {
+    
     public static float HealthCurrent;
     //private const float maxHealth = ConstantClass.maxHealth;
 
@@ -26,6 +27,7 @@ public class HealthSystem : IHealth
     Rectangle BarRectangle;
     Rectangle CoverRectangle;
 
+    public int Health { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     public HealthSystem()
     {

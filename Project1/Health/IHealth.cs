@@ -10,7 +10,7 @@ namespace Project1
 {
     internal interface IHealth
     {
-        public Rectangle BoundingBox { get; set; }
+        //public Rectangle BoundingBox { get; set; }
         public int Health { get; set; }
 
         public void LoadHealthBar();

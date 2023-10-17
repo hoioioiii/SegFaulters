@@ -26,6 +26,7 @@ namespace Project1
 
         //Columns is the number of columns in the alias
         private int Columns { get; set; }
+        public Rectangle BoundingBox { get; set; }
 
         //curremtFrame is used to keep track of which frame of the animation we are currently on
         private double CURRENT_FRAME;

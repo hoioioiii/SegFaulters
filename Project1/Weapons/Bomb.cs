@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1
@@ -13,6 +14,8 @@ namespace Project1
 
     internal class Bomb : IWeaponMelee
     {
+        public Rectangle BoundingBox { get; set; }
+
         private ISpriteWeapon sprite;
         public Bomb() {
 
@@ -63,6 +66,11 @@ namespace Project1
         }
 
         public void Load()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
         {
             throw new NotImplementedException();
         }

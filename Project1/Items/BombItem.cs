@@ -17,8 +17,8 @@ namespace Project1
 {
     public class BombItem : IItem
     {
+        public Rectangle BoundingBox { get; set; }
 
-     
 
         private ISprite sprite;
 

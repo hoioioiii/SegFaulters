@@ -15,7 +15,7 @@ namespace Project1
 {
     public class OldMan : IEnemy
 	{
-
+        public Rectangle BoundingBox { get; set; }
         //Texture stores the texture alias for our animation
         private Texture2D Texture { get; set; }
 

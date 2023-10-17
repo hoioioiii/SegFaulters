@@ -17,8 +17,8 @@ namespace Project1
 {
     public class Clock : IItem
     {
+        public Rectangle BoundingBox { get; set; }
 
-      
 
         //Remove later-------
         private Game1 GameObject;

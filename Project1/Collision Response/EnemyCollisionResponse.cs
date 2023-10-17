@@ -12,7 +12,7 @@ namespace Project1.Collision_Response
         /*
          * 
          */
-        public static void BoundaryResponse(Enum direction)
+        public static void BoundaryResponse(IEnemy enemy, Enum direction)
         {
             // need position and direction
             AllCollisionResponse.Knockback(direction);
@@ -21,7 +21,7 @@ namespace Project1.Collision_Response
         /*
          * 
          */
-        public static void DamageResponse(Enum direction)
+        public static void DamageResponse(IEnemy enemy, Enum direction)
         {
             // need position and direction
             AllCollisionResponse.Knockback(direction);

@@ -15,6 +15,7 @@ namespace Project1
 {
 	public class BossFireDragon : IEnemy
 	{
+        public Rectangle BoundingBox { get; set; }
 
         //Remove later-------
         private Game1 GameObject;

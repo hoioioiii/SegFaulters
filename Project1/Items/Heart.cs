@@ -17,7 +17,7 @@ namespace Project1
 {
     public class Heart : IItem
     {
-
+        public Rectangle BoundingBox { get; set; }
         //Texture stores the texture alias for our animation
         private Texture2D Texture { get; set; }
 

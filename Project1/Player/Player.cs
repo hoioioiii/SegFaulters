@@ -251,11 +251,12 @@ namespace Project1
                 }
             }
 
+            /*
             if (state.IsKeyDown(Keys.E))
             {
                 DamageInvincibility();
             }
-
+            */
             //Move(state);
 
             if (state.IsKeyDown(Keys.E))

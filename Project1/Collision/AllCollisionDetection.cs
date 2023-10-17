@@ -117,7 +117,6 @@ namespace Project1.Collision
                 isColliding = link.BoundingBox.Intersects(enemyAttack);
                 if (isColliding)
                 {
-                    //TODO: change to interface
                     DetectCollisionDirection(link.BoundingBox, enemyAttack, collisionDirection);
                     PlayerCollisionResponse.DamageResponse(link, collisionDirection);
                 }
@@ -170,7 +169,7 @@ namespace Project1.Collision
                     {
                         Enum collisionDirection = DIRECTION.left;
                         DetectCollisionDirection(enemy.BoundingBox, weaponProjectile.BoundingBox, collisionDirection);
-                        // TODO: Pass in player entity
+
                         EnemyCollisionResponse.DamageResponse(enemy, collisionDirection);
                     }
                 }
