@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/CSE3902/Projects/SegFaulters/SegFaulters/Project1/Content/triforcePieceGold.png</SourceFile>
-  <SourceTime>2023-10-08T14:29:48.3471898-04:00</SourceTime>
+  <SourceTime>2023-10-16T14:46:28.4756557-04:00</SourceTime>
   <DestFile>D:/CSE3902/Projects/SegFaulters/SegFaulters/Project1/Content/bin/DesktopGL/Content/triforcePieceGold.xnb</DestFile>
-  <DestTime>2023-10-08T14:32:05.0101404-04:00</DestTime>
+  <DestTime>2023-10-17T16:31:21.7129601-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

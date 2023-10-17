@@ -7,13 +7,12 @@ using System.Runtime.CompilerServices;
 
 namespace Project1
 {
-    //loads in the blocks needed for the level, and the correct background
-    public class EnvironmentLoader
+    //loads in the blocks needed for the level, the correct background, and the doors
+    public static class EnvironmentLoader
     {
         private static Texture2D levelBackground;
         private static Dictionary<(int, int), (int, int)> blockPositionDictionary;
         private static IEnvironment[] blocksArray;
-        private static Texture2D blockTexture;
 
         public static void LoadContent(ContentManager content)
         {
