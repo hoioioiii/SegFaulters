@@ -70,6 +70,18 @@ namespace Project1
         {
             throw new NotImplementedException();
         }
+
+        public Rectangle getPositionAndRectangle()
+        {
+            return sprite.GetRectangle().Item2;
+
+        }
+
+        public void setPosition(int x, int y)
+        {
+            sprite.setPos(x, y);
+
+        }
     }
 }
 

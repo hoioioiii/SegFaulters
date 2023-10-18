@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.Enemies;
 using static Project1.Constants;
 
 namespace Project1
@@ -8,31 +9,19 @@ namespace Project1
     public class HandSprite : ISprite
     {
         private Texture2D[] Texture;
-        private (Rectangle, Rectangle) rectangles;
-        //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private int current_frame;
 
-        //totalFrames keeps track of how many frames there are in total
-        private int total_frame;
 
+
+        //Keeps track of current position
         private int pos_x;
         private int pos_y;
 
 
+        private IDirectionStateManager direction_state_manager;
+        private IAnimation animation_manager;
+        private ITime time_manager;
 
-
-        //factor out for animation class
-        private int width;
-        private int height;
-        private int elapsedTime;
-        private int msecPerFrame;
-        private int secTillDirChange;
-
-        //factor out into direction
-        private int Direction;
-        private int secondsPassed;
-
-        private bool left;
+        private (Rectangle, Rectangle) rectangles;
 
         /*
          * Initalize the sprite
@@ -40,104 +29,55 @@ namespace Project1
         public HandSprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
-            
-            current_frame = START_FRAME;
-            total_frame = HAND_TOTAL;
 
-            //change later to XML
-            pos_x = SPRITE_X_START;
-            pos_y = SPRITE_Y_START;
+            //replace starting direction based on lvl loader info
+            direction_state_manager = new DirectionStateEnemy(Direction.Up);
+            time_manager = new TimeTracker(false);
+            animation_manager = new Animation(0, HAND_TOTAL, time_manager, direction_state_manager);
 
+            //this will be given by the room manager
+            setPos(SPRITE_X_START, SPRITE_Y_START);
 
-            elapsedTime = 0;
-            msecPerFrame = 300;
-            left = true;
-            Direction = 1;
-            secTillDirChange = 1;
-
-            width = Texture[current_frame].Width;
-            height = Texture[current_frame].Height;
         }
 
         /*
-         * Update the sprite
+         * Update Boss's animation and movement
          */
         public void Update()
         {
-
-            elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-            secondsPassed += Game1.deltaTime.ElapsedGameTime.Seconds;
             Move();
             UpdateFrames();
 
         }
 
         /*
-         * Animate the sprite
+         * Update Boss's frames
          */
         public void UpdateFrames()
         {
-            if (elapsedTime >= msecPerFrame)
-            {
-                elapsedTime -= msecPerFrame;
-                current_frame += 1;
-            }
-
-            if (current_frame >= total_frame)
-                current_frame = START_FRAME;
+            animation_manager.Animate();
         }
 
 
         /*
-         * Change the sprite direction -> factr out
-         */
-        public void ChangeDirection()
-        {
-            this.Direction = Direction * -1;
-
-            if (left)
-            {
-                left = false;
-                total_frame = 4;
-                START_FRAME = 2;
-            }
-            else
-            {
-                left = true;
-                total_frame = 2;
-                START_FRAME = 0;
-            }
-        }
-
-        /*
-         * Move the sprite -> factor out
+         * Move the boss
          */
         public void Move()
         {
-            if (secondsPassed >= secTillDirChange)
-            {
-                elapsedTime -= msecPerFrame;
-                ChangeDirection();
-                secondsPassed = 0;
-            }
-
-            pos_x += Direction;
-
-            if (pos_x >= SCREEN_WIDTH_UPPER || pos_x <= SCREEN_WIDTH_LOWER)
-            {
-                ChangeDirection();
-            }
+            //Movement will be fixed
+            Movement.HorizontalMovement(direction_state_manager, this, Direction.Right);
         }
 
         /*
-         * Draw Sprite -> factor out later
+         * Draw the Boss
          */
         public void Draw(SpriteBatch spriteBatch)
         {
             setRectangles();
-            spriteBatch.Draw(Texture[current_frame], rectangles.Item2, rectangles.Item1, Color.White);
+            spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
         }
 
+        //repeated code
         public void setPos(int x, int y)
         {
             pos_x = x; pos_y = y;
@@ -150,6 +90,8 @@ namespace Project1
 
         public void setRectangles()
         {
+            int height = Texture[animation_manager.getCurrentFrame()].Height;
+            int width = Texture[animation_manager.getCurrentFrame()].Width;
             rectangles.Item1 = new Rectangle(1, 1, width, height);
             rectangles.Item2 = new Rectangle(pos_x, pos_y, width, height);
         }
@@ -160,4 +102,45 @@ namespace Project1
         }
     }
 }
+
+/*
+        * Change the sprite direction -> factr out
+        */
+//public void ChangeDirection()
+//{
+//    this.Direction = Direction * -1;
+
+//    if (left)
+//    {
+//        left = false;
+//        total_frame = 4;
+//        START_FRAME = 2;
+//    }
+//    else
+//    {
+//        left = true;
+//        total_frame = 2;
+//        START_FRAME = 0;
+//    }
+//}
+
+/*
+ * Move the sprite -> factor out
+ */
+//public void Move()
+//{
+//    if (secondsPassed >= secTillDirChange)
+//    {
+//        elapsedTime -= msecPerFrame;
+//        ChangeDirection();
+//        secondsPassed = 0;
+//    }
+
+//    pos_x += Direction;
+
+//    if (pos_x >= SCREEN_WIDTH_UPPER || pos_x <= SCREEN_WIDTH_LOWER)
+//    {
+//        ChangeDirection();
+//    }
+//}
 

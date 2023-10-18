@@ -5,7 +5,7 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    public class SnakeSprite : ISprite
+    public class SnakeSprite : ISprite //Do this later, not lvvl 1 dungeon
     {
         private Texture2D[] Texture;
 
@@ -38,7 +38,7 @@ namespace Project1
         /*
          * Initalize snake
          */
-        public SnakeSprite(Texture2D[] spriteSheet)
+        public SnakeSprite(Texture2D[] spriteSheet)//Do this later
 		{
             Texture = spriteSheet;
             

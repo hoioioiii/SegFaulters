@@ -33,7 +33,7 @@ namespace Project1.Enemies.sprites
             //replace starting direction based on lvl loader info
             direction_state_manager = new DirectionStateEnemy(Direction.Up);
             time_manager = new TimeTracker(false);
-            animation_manager = new Animation(0,BAT_TOTAL,time_manager);
+            animation_manager = new Animation(0,BAT_TOTAL,time_manager,direction_state_manager);
 
             //this will be given by the room manager
             setPos(SPRITE_X_START, SPRITE_Y_START);

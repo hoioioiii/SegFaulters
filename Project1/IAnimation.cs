@@ -12,6 +12,8 @@ namespace Project1
 
         public int getCurrentFrame();
 
+        public void setTotalFrame(int frame);
+        public void setStartFrame(int frame);
 
     }
 }

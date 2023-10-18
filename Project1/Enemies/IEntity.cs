@@ -13,6 +13,11 @@ namespace Project1
 
         public void ItemDrop();
 
+        public Rectangle getPositionAndRectangle();
+
+
+        public void setPosition(int x, int y);
+        
     }
 }
 

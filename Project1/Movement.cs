@@ -33,7 +33,7 @@ namespace Project1
             Direction direct = direction_state.getDirection();
             bool isMoving = false;
 
-            if (direct != Direction.Up && direct != Direction.RIGHT)
+            if (direct != Direction.Up && direct != Direction.Down)
             {
                 direction_state.setDirection(start_direction);
             }
@@ -53,7 +53,7 @@ namespace Project1
             
             switch (direct)
             {
-                case Direction.RIGHT:
+                case Direction.Down:
                     return CheckBound(MoveDownOrRight(pos), SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);  
 
                 case Direction.Up:

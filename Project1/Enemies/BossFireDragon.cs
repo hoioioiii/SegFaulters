@@ -106,14 +106,30 @@ namespace Project1
          */
         public void Attack()
         {
+            //TODO:FIX LATER
             //change this to a state
-            if (BossFireDragonSprite.newAttack)
-            {
-                remainOnScreen = true;
-                weapon.Attack();
-                weapon.Draw();
-            }
+            //if (BossFireDragonSprite.newAttack)
+            //{
+            //    remainOnScreen = true;
+            //    weapon.Attack();
+            //    weapon.Draw();
+            //}
         }
+
+        //TODO: Fix later
+        //public Direction getDirection()
+        //{
+        //    return sprite.get
+
+        //}
+
+        //public Vector2 getPosition()
+        //{
+
+
+        //}
+
+
 
         /*
          * Drag item drop
@@ -122,6 +138,25 @@ namespace Project1
         {
             throw new NotImplementedException();
         }
+
+
+        public Rectangle getPositionAndRectangle()
+        {
+            return sprite.GetRectangle().Item2;
+
+        }
+
+        public void setPosition(int x, int y)
+        {
+            sprite.setPos(x, y);
+
+        }
+
+
+
+
+
+
     }
   
 }

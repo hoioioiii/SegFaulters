@@ -2,147 +2,85 @@ using System;
 using System.Runtime.CompilerServices;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.Enemies;
 using static Project1.Constants;
 
 namespace Project1
 {
     public class BossDinoSprite : ISprite
     {
+      
+
+
         private Texture2D[] Texture;
 
 
 
-        //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private int current_frame;
-
-        //totalFrames keeps track of how many frames there are in total
-        private int total_frame;
+        //Keeps track of current position
         private int pos_x;
         private int pos_y;
 
-        private int width;
-        private int height;
-        
 
-        //Gonna factor out into a Animation class
-        private int elapsedTime;
-        private int msecPerFrame;
-        private int secTillDirChange;
-
-
-        //Gonna factor out into Direction Manager
-        private int Direction;
-        private bool WalkDown;
-        private bool WalkUp;
-        private int secondsPassed;
-
+        private IDirectionStateManager direction_state_manager;
+        private IAnimation animation_manager;
+        private ITime time_manager;
 
         private (Rectangle, Rectangle) rectangles;
+
+
+        
         public BossDinoSprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
-            
-            
-            current_frame = START_FRAME;
-            
-            pos_x = SPRITE_X_START;
-            pos_y = SPRITE_Y_START;
 
-            //Factor out into Direction Manager
-            elapsedTime = 0;
-            msecPerFrame = 300;
+            //replace starting direction based on lvl loader info
+            direction_state_manager = new DirectionStateEnemy(Direction.Up);
+            time_manager = new TimeTracker(false);
+            animation_manager = new Animation(0, DINO_TOTAL, time_manager, direction_state_manager);
 
-            //This is handled by the direction Manager, change later
-            WalkDown = true;
-            Direction = 1;
-            secTillDirChange = 1;
-
-            //keeps track if frames width/height
-            width = Texture[current_frame].Width;
-            height = Texture[current_frame].Height;
+            //this will be given by the room manager
+            setPos(SPRITE_X_START, SPRITE_Y_START);
 
         }
 
         /*
-         * Update movement and animation
+         * Update Boss's animation and movement
          */
         public void Update()
         {
-
-            elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-            secondsPassed += Game1.deltaTime.ElapsedGameTime.Seconds;
             Move();
             UpdateFrames();
 
         }
 
         /*
-         * Update Animation
+         * Update Boss's frames
          */
         public void UpdateFrames()
         {
-            if (elapsedTime >= msecPerFrame)
-            {
-                elapsedTime -= msecPerFrame;
-                current_frame += 1;
-            }
-
-            if (current_frame >= DINO_TOTAL)
-                current_frame = START_FRAME;
-
-            
+            animation_manager.Animate();
         }
 
-        /*
-         * Going to be factored out in Direction Manager Class
-         */
-        public void ChangeDirection() {
-
-            this.Direction = Direction * -1;
-            
-            if (WalkDown)
-            {
-                WalkDown = false;
-                START_FRAME = UP_DIRECTION_SPRITE;
-                total_frame = 4;
-            }
-            else
-            {
-                WalkDown = true;
-                START_FRAME = DOWN_DIRECTION_SPRITE;
-                total_frame = 2;
-            }
-
-            current_frame = START_FRAME;
-        }
 
         /*
-         * Movement -> to be factored out into Movement Class
+         * Move the boss
          */
         public void Move()
         {
-            if (secondsPassed >= secTillDirChange)
-            {
-                elapsedTime -= msecPerFrame;
-                ChangeDirection();
-                secondsPassed = 0;
-            }
-
-            pos_y += Direction;
-
-            if(pos_y >= SCREEN_HEIGHT_UPPER || pos_y <= 0)
-            {
-                ChangeDirection();
-            }
+            //Movement will be fixed
+            Movement.HorizontalMovement(direction_state_manager, this, Direction.Right);
         }
 
-        //To be factored out into draw class.
+        /*
+         * Draw the Boss
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
             setRectangles();
-            spriteBatch.Draw(Texture[current_frame],rectangles.Item2 , rectangles.Item1, Color.White);
+            spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
         }
 
+        //repeated code
         public void setPos(int x, int y)
         {
             pos_x = x; pos_y = y;
@@ -155,6 +93,8 @@ namespace Project1
 
         public void setRectangles()
         {
+            int height = Texture[animation_manager.getCurrentFrame()].Height;
+            int width = Texture[animation_manager.getCurrentFrame()].Width;
             rectangles.Item1 = new Rectangle(1, 1, width, height);
             rectangles.Item2 = new Rectangle(pos_x, pos_y, width, height);
         }
@@ -163,6 +103,51 @@ namespace Project1
         {
             return rectangles;
         }
+
+        /*
+         * Going to be factored out in Direction Manager Class
+         */
+        //public void ChangeDirection() {
+
+        //    //this.Direction = Direction * -1;
+
+        //    //if (WalkDown)
+        //    //{
+        //    //    WalkDown = false;
+        //    //    START_FRAME = UP_DIRECTION_SPRITE;
+        //    //    total_frame = 4;
+        //    //}
+        //    //else
+        //    //{
+        //    //    WalkDown = true;
+        //    //    START_FRAME = DOWN_DIRECTION_SPRITE;
+        //    //    total_frame = 2;
+        //    //}
+
+        //    //current_frame = START_FRAME;
+        //}
+
+        /*
+         * Movement -> to be factored out into Movement Class
+         */
+        //public void Move()
+        //{
+        //    //if (secondsPassed >= secTillDirChange)
+        //    //{
+        //    //    elapsedTime -= msecPerFrame;
+        //    //    ChangeDirection();
+        //    //    secondsPassed = 0;
+        //    //}
+
+        //    //pos_y += Direction;
+
+        //    //if(pos_y >= SCREEN_HEIGHT_UPPER || pos_y <= 0)
+        //    //{
+        //    //    ChangeDirection();
+        //    //}
+
+
+        //}
     }
 }
 

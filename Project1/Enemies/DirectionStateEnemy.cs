@@ -30,9 +30,9 @@ namespace Project1.Enemies
             oppositeDirection = new Dictionary<Direction, Direction>
             {
                 { Direction.Left, Direction.Right },
-                { Direction.Up, Direction.RIGHT },
+                { Direction.Up, Direction.Down },
                 { Direction.Right, Direction.Left },
-                { Direction.RIGHT, Direction.Up }
+                { Direction.Down, Direction.Up }
             };
         }
 

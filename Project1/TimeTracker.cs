@@ -26,8 +26,6 @@ namespace Project1
             elapsedTime_milli = 0;
             elapsedTime_sec = 0;
             obj_weapon = is_weapon;
-           
-
 
         }
 
@@ -47,7 +45,6 @@ namespace Project1
 
         public void UpdateElaspedMilli()
         {
-
 
             elapsedTime_milli += getTimeMilli();
         }
@@ -73,6 +70,7 @@ namespace Project1
 
         public bool checkAnimationFrameTime()
         {
+            UpdateElaspedMilli();
            return elapsedTime_milli >= ms_per_frame_animation;
             
         }

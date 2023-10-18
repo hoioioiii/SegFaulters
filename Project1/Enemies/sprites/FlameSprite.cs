@@ -5,7 +5,7 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    public class FlameSprite : ISprite
+    public class FlameSprite : ISprite //Return to this later, not needed right now
     {
         private (Rectangle, Rectangle) rectangles;
         private Texture2D[] Texture;

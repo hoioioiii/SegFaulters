@@ -23,7 +23,7 @@ namespace Project1
             Left,
             Right,
             Up,
-            RIGHT
+            Down
         }
 
 

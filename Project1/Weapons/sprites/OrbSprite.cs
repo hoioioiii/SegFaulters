@@ -148,9 +148,17 @@ namespace Project1
         }
         private void GetUserPos()
         {
-            Vector2 posVec = BossFireDragonSprite.getUserPos();
-            userX = (int)posVec.X;
-            userY = (int)posVec.Y;
+
+            //FiXLater
+            ////change later
+            // int posVec = BossFireDragonSprite.getPos().Item1;
+            //userX = (int)posVec.X;
+            //userY = (int)posVec.Y;
+
+            //temp remove later
+            userX = 1;
+            userY = 1;
+
         }
 
         /*
@@ -196,7 +204,9 @@ namespace Project1
         }
         private void GetUserState()
         {
-            direction = BossFireDragonSprite.getUserDirection();
+            //TODO:FIX LATER
+            //direction = BossFireDragonSprite.getDirection();
+            direction = 1;
 
         }
         private void Load()
