@@ -35,6 +35,9 @@ namespace Project1
         private bool WalkDown;
         private bool WalkUp;
         private int secondsPassed;
+
+
+        private (Rectangle, Rectangle) rectangles;
         public BossDinoSprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
@@ -136,19 +139,29 @@ namespace Project1
         //To be factored out into draw class.
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle SOURCE_REC = new Rectangle(1,1, width, height);
-            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
+            
+            spriteBatch.Draw(Texture[current_frame], , SOURCE_REC, Color.White);
         }
 
         public void setPos(int x, int y)
         {
-            throw new NotImplementedException();
+            pos_x = x; pos_y = y;
         }
 
         public (int, int) getPos()
         {
-            throw new NotImplementedException();
+            return (pos_x, pos_y);
+        }
+
+        public void setRectangles()
+        {
+            rectangles.Item1 = new Rectangle(1, 1, width, height);
+            rectangles.Item2 = new Rectangle(pos_x, pos_y, width, height);
+        }
+
+        public (Rectangle, Rectangle) GetRectangle()
+        {
+            return rectangles;
         }
     }
 }
