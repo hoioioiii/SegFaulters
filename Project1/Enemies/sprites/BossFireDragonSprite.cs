@@ -143,6 +143,16 @@ namespace Project1
             //Replace with the direction manager
             return 4;
         }
+
+        public void setPos(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public (int, int) getPos()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

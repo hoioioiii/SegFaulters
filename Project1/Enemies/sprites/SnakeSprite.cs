@@ -136,9 +136,6 @@ namespace Project1
 
             width = Texture[(int)current_frame].Width;
             height = Texture[(int)current_frame].Height;
-
-           
-
         }
 
 
@@ -151,6 +148,16 @@ namespace Project1
             Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+        }
+
+        public void setPos(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public (int, int) getPos()
+        {
+            throw new NotImplementedException();
         }
     }
 }

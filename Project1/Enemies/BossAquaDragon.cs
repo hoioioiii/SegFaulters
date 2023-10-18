@@ -13,7 +13,7 @@ using System.Collections;
 using static Project1.Constants;
 namespace Project1
 {
-    public class BossAquaDragon : IEnemy
+    public class BossAquaDragon : IEntity
 	{
 
         //Texture stores the texture alias for our animation

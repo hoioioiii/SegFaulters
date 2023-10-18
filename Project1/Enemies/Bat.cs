@@ -15,7 +15,7 @@ using System.Diagnostics;
 
 namespace Project1
 {
-	public class Bat : IEnemy
+	public class Bat : IEntity
 	{
         private ISprite sprite;
 

@@ -73,6 +73,16 @@ namespace Project1
             spriteBatch.Draw(Texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
+        public void setPos(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public (int, int) getPos()
+        {
+            throw new NotImplementedException();
+        }
+
         //Need to add attack and position getter and stuff
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1
 {
-	public interface IEnemy
+	public interface IEntity
 	{
         void Update();
         void Draw(SpriteBatch spriteBatch);

@@ -14,7 +14,7 @@ using static Project1.Constants;
 
 namespace Project1
 {
-	public class BossDino : IEnemy
+	public class BossDino : IEntity
     { 
 
         private ISprite sprite;

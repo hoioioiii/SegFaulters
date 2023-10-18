@@ -8,95 +8,85 @@ namespace Project1.Enemies.sprites
     public class BatSprite : ISprite
     {
 
-        //Gets the sprite frames
+        //Gets the sprite frames: CHANGE LATER
         private Texture2D[] Texture;
-
-        //current Frame is used to keep track of which frame of the animation we are currently on
-        private int current_frame;
-
-        //totalFrames keeps track of how many sprite frames there are in total
-        private int total_frame;
 
         //Sprite position
         private int pos_x;
         private int pos_y;
 
-        //Width and Height of sprite frames
+        //Width and Height of sprite frames:change later
         private int width;
         private int height;
 
-        //Used for animation purposes, will move moved out to a animation class in future
-        private int elapsedTime;
-        private int msecPerFrame;
+       
+        private IDirectionStateManager direction_state_manager;
+        private IAnimation animation_manager;
+        private ITime time_manager;
 
+        private (Rectangle, Rectangle) rectangles;
 
         public BatSprite(Texture2D[] spriteSheet)
         {
             Texture = spriteSheet;
 
-            current_frame = 0;
-            total_frame = BAT_TOTAL;
-            pos_x = SPRITE_X_START;
-            pos_y = SPRITE_Y_START;
-            elapsedTime = 0;
-            msecPerFrame = 300;
+            //replace starting direction based on lvl loader info
+            direction_state_manager = new DirectionStateEnemy(Direction.Up);
+            time_manager = new TimeTracker(false);
+            animation_manager = new Animation(0,BAT_TOTAL,time_manager);
 
-            width = Texture[current_frame].Width;
-            height = Texture[current_frame].Height;
+            //this will be given by the room manager
+            setPos(SPRITE_X_START, SPRITE_Y_START);
+
+            //factor out later
+            width = Texture[animation_manager.getCurrentFrame()].Width;
+            height = Texture[animation_manager.getCurrentFrame()].Height;
         }
 
-        /*
-         * Update
-         */
         public void Update()
         {
-
             Move();
             UpdateFrames();
-
         }
 
-        /*
-         * Animation
-         */
         public void UpdateFrames()
         {
-            elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-            if (elapsedTime >= msecPerFrame)
-            {
-                elapsedTime -= msecPerFrame;
-                current_frame += 1;
-            }
-
-            if (current_frame >= total_frame)
-                current_frame = START_FRAME;
+            animation_manager.Animate();
         }
 
-        /*
-         * Movement
-         */
         public void Move()
         {
-            //Have this moved out to a random move class method.
-            int DIR_X = RandomMove.RandMove();
-            int DIR_Y = RandomMove.RandMove();
-
-            //Add bounding constraints:
-            pos_x += RandomMove.CheckBounds(DIR_X, pos_x, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            pos_y += RandomMove.CheckBounds(DIR_Y, pos_y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
+           //testing purposes-> remove later
+           // Movement.VerticalMovement(direction_state_manager,this, Direction.Up);
+            Movement.HorizontalMovement(direction_state_manager, this, Direction.Left);
         }
 
-        /*
-         * Draw Sprite
-         */
         public void Draw(SpriteBatch spriteBatch)
         {
-            //Have this moved out to a draw sprite class to handle all drawings.
-            Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
-            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
+            setRectangles();
+            spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item1, rectangles.Item2, Color.White);
         }
 
+        public void setPos(int x, int y)
+        {
+            pos_x = x; pos_y = y;
+        }
+
+        public (int,int) getPos() {
+            return (pos_x, pos_y);
+        }
+
+        public void setRectangles()
+        {
+            rectangles.Item1 = new Rectangle(1, 1, width, height);
+            rectangles.Item2 = new Rectangle(pos_x, pos_y, width, height);
+
+        }
+
+        public (Rectangle,Rectangle) GetRectangle()
+        {
+            return rectangles;
+        }
     }
 }
 

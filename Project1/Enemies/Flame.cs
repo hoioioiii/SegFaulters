@@ -13,7 +13,7 @@ using System.Collections;
 using static Project1.Constants;
 namespace Project1
 {
-	public class Flame : IEnemy
+	public class Flame : IEntity
 	{  
         private ISprite sprite;
 

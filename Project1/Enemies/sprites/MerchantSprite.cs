@@ -57,6 +57,16 @@ namespace Project1
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
+
+        public void setPos(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public (int, int) getPos()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
