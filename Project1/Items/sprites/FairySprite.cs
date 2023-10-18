@@ -26,7 +26,7 @@ namespace Project1
 
         private int width;
         private int height;
-
+        private (Rectangle, Rectangle) rectangles;
 
         public FairySprite(Texture2D[] spriteSheet)
         {

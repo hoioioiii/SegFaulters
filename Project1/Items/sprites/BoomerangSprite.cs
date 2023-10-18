@@ -27,7 +27,7 @@ namespace Project1
         private int width;
         private int height;
 
-
+        private (Rectangle, Rectangle) rectangles;
         public BoomerangSprite(Texture2D[] spriteSheet)
         {
             Texture = spriteSheet;

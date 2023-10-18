@@ -26,7 +26,7 @@ namespace Project1
 
         private int width;
         private int height;
-
+        private (Rectangle, Rectangle) rectangles;
 
         public ArrowSprite(Texture2D[] spriteSheet)
         {
@@ -85,7 +85,7 @@ namespace Project1
             Animate();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+            spriteBatch.Draw(Texture[(int)current_frame], , SOURCE_REC, Color.White);
         }
 
         public void setPos(int x, int y)
@@ -94,6 +94,16 @@ namespace Project1
         }
 
         public (int, int) getPos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void setRectangles()
+        {
+            throw new NotImplementedException();
+        }
+
+        public (Rectangle, Rectangle) GetRectangle()
         {
             throw new NotImplementedException();
         }
