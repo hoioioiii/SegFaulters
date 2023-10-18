@@ -17,7 +17,7 @@ namespace Project1
         private IAnimation animation_manager;
         private ITime time_manager;
         private IMove movement_manager;
-
+        private IEntityState state_manager;
         private (Rectangle, Rectangle) rectangles;
 
 
@@ -32,7 +32,7 @@ namespace Project1
             direction_state_manager = new DirectionStateEnemy(Direction.Up);
             time_manager = new TimeTracker(false);
             animation_manager = new Animation(0, FLAME_TOTAL, time_manager, direction_state_manager);
-
+            state_manager = new EntityState();
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
             movement_manager = new Movement(direction_state_manager, this, time_manager, SPRITE_X_START, SPRITE_Y_START, 0);
          

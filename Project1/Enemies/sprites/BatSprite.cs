@@ -21,6 +21,8 @@ namespace Project1.Enemies.sprites
         private IAnimation animation_manager;
         private ITime time_manager;
         private IMove movement_manager;
+        private IEntityState state_manager;
+
         private (Rectangle, Rectangle) rectangles;
 
         public BatSprite(Texture2D[] spriteSheet)
@@ -34,7 +36,7 @@ namespace Project1.Enemies.sprites
 
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
             movement_manager = new Movement(direction_state_manager,this,time_manager, SPRITE_X_START, SPRITE_Y_START,0);
-
+            state_manager = new EntityState();
             //factor out later
             width = Texture[animation_manager.getCurrentFrame()].Width;
             height = Texture[animation_manager.getCurrentFrame()].Height;

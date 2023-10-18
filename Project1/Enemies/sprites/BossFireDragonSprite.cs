@@ -19,7 +19,7 @@ namespace Project1
         private IMove movement_manager;
 
         private (Rectangle, Rectangle) rectangles;
-
+        private IEntityState state_manager;
         public BossFireDragonSprite(Texture2D[] spriteSheet)
         {
 
@@ -32,7 +32,7 @@ namespace Project1
             time_manager = new TimeTracker(false);
             animation_manager = new Animation(0, FD_TOTAL, time_manager, direction_state_manager);
 
-
+            state_manager = new EntityState();
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
             movement_manager = new Movement(direction_state_manager, this, time_manager, SPRITE_X_START, SPRITE_Y_START, 0);
 
