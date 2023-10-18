@@ -19,7 +19,11 @@ namespace Project1.Enemies.sprites
         private int width;
         private int height;
 
-       
+        //Test position
+        private double x;
+        private double y;
+        private double ang;
+
         private IDirectionStateManager direction_state_manager;
         private IAnimation animation_manager;
         private ITime time_manager;
@@ -41,6 +45,7 @@ namespace Project1.Enemies.sprites
             //factor out later
             width = Texture[animation_manager.getCurrentFrame()].Width;
             height = Texture[animation_manager.getCurrentFrame()].Height;
+            ang = 0;
         }
 
         public void Update()
@@ -56,7 +61,23 @@ namespace Project1.Enemies.sprites
 
         public void Move()
         {
-            Movement.WanderMove(direction_state_manager, this, time_manager);
+            //Movement.WanderMove(direction_state_manager, this, time_manager);
+            Movement.circularMovement(direction_state_manager,this,Direction.Up, ang);
+            ang += 0.1;
+            //x = (double)pos_x;
+            //y = (double)pos_y;
+
+            //int originX = 200;
+            //int originY = 200;
+
+            //double cos = Math.Cos(ang) * 10;
+            //double sin = Math.Sin(ang) * 10;
+
+            
+
+            
+            //pos_x = (int)(originX + cos);
+            //pos_y = (int)(originY + sin);
         }
 
         public void Draw(SpriteBatch spriteBatch)

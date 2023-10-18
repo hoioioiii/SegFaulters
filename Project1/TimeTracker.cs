@@ -75,7 +75,7 @@ namespace Project1
            return elapsedTime_milli >= ms_per_frame_animation;
             
         }
-
+        //check if direction change is needed for wandering movement
         public bool checkRandMovementTime()
         {
              if (elapsed_move__sec >= movement_timeframe_sec)
@@ -86,11 +86,13 @@ namespace Project1
             return false;
         }
 
+        //Set time for movement duration in 1 direction for wandering movement
         public void setRandMovementTimeFrame()
         {
            movement_timeframe_sec =  Random.RandomMilli();
         }
 
+        //Keeps track of the time spent moving
         public void updateElapsedMoveTime()
         {
             elapsed_move__sec += 1;

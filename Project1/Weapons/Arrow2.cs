@@ -9,8 +9,6 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Project1
 {
 
-
-
     internal class Arrow2 : IWeapon
     {
         private ISpriteWeapon sprite;

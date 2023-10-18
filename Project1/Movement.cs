@@ -12,8 +12,6 @@ namespace Project1
     internal class Movement
     {
 
-
-
         public static int MoveUpOrLeft(int pos)
         {
             return pos -=1;
@@ -109,10 +107,15 @@ namespace Project1
         }
 
 
-        public static void circularMovement(IDirectionStateManager direction_state, ISprite entityOb, Direction start_direction)
+        public static void circularMovement(IDirectionStateManager direction_state, ISprite entityOb, Direction start_direction, double ang)
         {
+            int originX = entityOb.getPos().Item1 - Random.RandomOriginOffset();
+            int originY = entityOb.getPos().Item2 - Random.RandomOriginOffset();
 
-         
+            double cos = Math.Cos(ang) * 10;
+            double sin = Math.Sin(ang) * 10;
+
+            entityOb.setPos((int)(originX + cos), (int)(originY + sin));
         }
 
 
@@ -157,10 +160,6 @@ namespace Project1
 
            
         }
-
-        
-
-
 
         public static void Stop(IDirectionStateManager direction_state, ISprite entityOb, Direction start_direction)
         {

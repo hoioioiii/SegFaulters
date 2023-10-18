@@ -16,7 +16,6 @@ namespace Project1
         private int pos_x;
         private int pos_y;
 
-
         private IDirectionStateManager direction_state_manager;
         private IAnimation animation_manager;
         private ITime time_manager;

@@ -29,6 +29,14 @@ namespace Project1
             return val;
         }
 
+        public static int RandomOriginOffset()
+        {
+            System.Random rand = new System.Random();
+            int val = rand.Next(-4, 4);
+
+            return val;
+        }
+
         public static Direction RandomDirection()
         {
             System.Random rand = new System.Random();
