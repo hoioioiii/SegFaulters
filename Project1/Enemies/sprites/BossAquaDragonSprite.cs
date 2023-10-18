@@ -62,7 +62,7 @@ namespace Project1
         public void Move()
         {
             //Movement will be fixed
-            //Movement.HorizontalMovement(direction_state_manager, this, Direction.Right);
+            movement_manager.HorizontalMovement(Direction.Left);
         }
 
         /*

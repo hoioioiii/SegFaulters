@@ -105,7 +105,7 @@ namespace Project1
         }
 
 
-        private void HorizontalMovement(Direction start_direction)
+        public void HorizontalMovement(Direction start_direction)
         {
            
             (int, int) pos_pair = entityObj.getPos();

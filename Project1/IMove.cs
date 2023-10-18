@@ -14,6 +14,8 @@ namespace Project1
         public void setPosition(int x, int y);
         public (int, int) getPosition();
 
+        public void HorizontalMovement(Direction start_direction);
+
 
     }
 }

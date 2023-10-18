@@ -31,7 +31,7 @@ namespace Project1
             //replace starting direction based on lvl loader info
             direction_state_manager = new DirectionStateEnemy(Direction.Up);
             time_manager = new TimeTracker(false);
-            animation_manager = new Animation(0, DM_TOTAL, time_manager, direction_state_manager);
+            animation_manager = new Animation(0, FLAME_TOTAL, time_manager, direction_state_manager);
 
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
             movement_manager = new Movement(direction_state_manager, this, time_manager, SPRITE_X_START, SPRITE_Y_START, 0);

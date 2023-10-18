@@ -84,11 +84,6 @@ namespace Project1
             sprite.setPos(x, y);
 
         }
-
-
-
-
-
     }
 }
 
