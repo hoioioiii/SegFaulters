@@ -14,7 +14,7 @@ namespace Project1
     {
 
         public static GameTime deltaTime;
-        //private GraphicsDeviceManager _graphics;
+        private GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
         public static ContentManager contentLoader;
 
@@ -39,9 +39,9 @@ namespace Project1
 
         public Game1()
         {
-            
-            
-            
+
+
+            _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             contentLoader = Content;
             IsMouseVisible = true;

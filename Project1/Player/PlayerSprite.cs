@@ -110,5 +110,15 @@ namespace Project1
         {
             throw new NotImplementedException();
         }
+
+        public void setRectangles()
+        {
+            throw new NotImplementedException();
+        }
+
+        public (Rectangle, Rectangle) GetRectangle()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

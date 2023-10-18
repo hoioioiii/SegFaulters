@@ -74,7 +74,7 @@ namespace Project1
         public void Draw(SpriteBatch spriteBatch)
         {
             setRectangles();
-            spriteBatch.Draw(Texture[current_frame], rectangles.Item2, rectangles.Item1, Color.White);
+            spriteBatch.Draw(Texture[(int)current_frame], rectangles.Item2, rectangles.Item1, Color.White);
         }
 
         public void setPos(int x, int y)
