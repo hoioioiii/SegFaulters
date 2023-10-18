@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/tinal/Source/Repos/Seg3.4/Project1/Content/swordDown.png</SourceFile>
-  <SourceTime>2023-10-14T18:29:00.7544197-04:00</SourceTime>
-  <DestFile>C:/Users/tinal/Source/Repos/Seg3.4/Project1/Content/bin/DesktopGL/Content/swordDown.xnb</DestFile>
-  <DestTime>2023-10-14T18:29:23.9656358-04:00</DestTime>
+  <SourceFile>C:/Users/tinal/source/repos/SegFinalMerge/Project1/Content/swordDown.png</SourceFile>
+  <SourceTime>2023-10-01T07:35:06.0880184-04:00</SourceTime>
+  <DestFile>C:/Users/tinal/source/repos/SegFinalMerge/Project1/Content/bin/DesktopGL/Content/swordDown.xnb</DestFile>
+  <DestTime>2023-10-01T09:14:07.1741071-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

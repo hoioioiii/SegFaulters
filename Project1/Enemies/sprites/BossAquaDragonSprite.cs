@@ -24,7 +24,6 @@ namespace Project1
         private int elapsedTime;
         private int msecPerFrame;
 
-        private (Rectangle, Rectangle) rectangles;
 
         /*
          * Initalize Boss Aqua Dragon
@@ -94,29 +93,20 @@ namespace Project1
          */
         public void Draw(SpriteBatch spriteBatch)
         {
-           
-            spriteBatch.Draw(Texture[current_frame], rectangles.Item1, rectangles.Item2, Color.White);
+            //Factor into draw class later
+            Rectangle SOURCE_REC = new Rectangle(1, 1 , width, height);
+            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
+            spriteBatch.Draw(Texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
         public void setPos(int x, int y)
         {
-            pos_x = x; pos_y = y;
+            throw new NotImplementedException();
         }
 
         public (int, int) getPos()
         {
-            return(pos_x, pos_y);
-        }
-
-        public void setRectangles()
-        {
-            rectangles.Item1 = new Rectangle(1, 1, width, height);
-            rectangles.Item2 = new Rectangle(pos_x, pos_y, width, height);
-        }
-
-        public (Rectangle, Rectangle) GetRectangle()
-        {
-            return rectangles;
+            throw new NotImplementedException();
         }
     }
 }
