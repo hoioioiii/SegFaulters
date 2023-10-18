@@ -9,6 +9,6 @@ namespace Project1
     //the actual room; uses environment, item, and enemy loader to load in the respective information 
     internal class Room
     {
-        public Room() { }
+        public Room() {}
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using static Project1.Constants;
 using System.Runtime.CompilerServices;
 
 namespace Project1
@@ -27,7 +28,7 @@ namespace Project1
                 {
                     //114, 75 is the starting point of the grid
                     //48 is the width/height of each block
-                    blockPositionDictionary.Add((row, col), (114 + 48 * (col), 75 + 48 * (row)));
+                    blockPositionDictionary.Add((row, col), (114 + BLOCK_DIMENSION * (col), 75 + BLOCK_DIMENSION * (row)));
                 }
             }
 
