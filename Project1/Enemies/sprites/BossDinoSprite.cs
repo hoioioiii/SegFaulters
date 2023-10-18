@@ -139,8 +139,8 @@ namespace Project1
         //To be factored out into draw class.
         public void Draw(SpriteBatch spriteBatch)
         {
-            
-            spriteBatch.Draw(Texture[current_frame], , SOURCE_REC, Color.White);
+            setRectangles();
+            spriteBatch.Draw(Texture[current_frame],rectangles.Item2 , rectangles.Item1, Color.White);
         }
 
         public void setPos(int x, int y)
