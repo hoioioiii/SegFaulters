@@ -17,49 +17,25 @@ namespace Project1
 {
     public class Fairy : IItem
     {
-
-  
-        //Remove later-------
-        private Game1 GameObject;
-        private ContentManager ContentLoad;
-
         private IItemSprite sprite;
-
-        //Remove later above--------------
-
-
-
-
         public Fairy()
         {
-            //remove later:
             sprite = ItemSpriteFactory.Instance.CreateFairySprite();
-
-
         }
-        //change the current frame to the next frame
         public void Update()
         {
             sprite.Update();
-
         }
-
 
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch);
-
-
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
         {
             sprite.Draw(spriteBatch, location, spriteScale);
         }
-
-
-
-
     }
 }
 

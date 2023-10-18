@@ -11,33 +11,22 @@ namespace Project1
 {
     public class Player
     {
-        // BUG SOLUTION 1.0
         public IPlayerState playerState { get; set; }
 
         private GraphicsDeviceManager _graphics;
-        //private static SpriteBatch _spriteBatch;
         private static ContentManager Content;
         private static Vector2 position;
 
-        private int positionX = 300;
-        private int positionY = 300;
-
-        //Item inventory 
         public static int[] itemInventory = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
         //this enum is used to access the invetory by item type:
         //public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12 };
 
         //Needed for link sprite to draw
         private static IPlayerSprite sprite;
-        private static SpriteBatch sprBatch;
 
         private static bool isMoving = false;
 
         private static int playerSpeed = 5;
-
-        // scales the size of the sprite on screen
-        private static int spriteScale = 4;
-
 
         // cardinal direction player is facing, starts with up on 1 and progresses clockwise (e.g. 4 is left-facing)
         private static int linkDirection = 2;
@@ -60,9 +49,8 @@ namespace Project1
         public static Texture2D linkAttackUp;
         public static Texture2D linkAttackDown;
 
-        // attacking
+        // attacking metrics
         public static bool isAttacking = false;
-        // play attack frame for ATTACK_SECONDS seconds
         private static float AttackTimer;
 
         // weapons
@@ -71,18 +59,16 @@ namespace Project1
         private static bool isAttackingWithBow = false;
         public static bool isAttackingWithBomb = false;
 
-        // damage
+        // Check damage cooldown period to get hit again
         private static bool isDamaged = false;
-        // Link cannot take damage for x seconds after getting hit
         private static float DamageTimer;
 
         // Link will flash after damaged, indicating temporary invincibility
         private static bool renderLink = true;
         private static float FlashTimer;
 
-        // for sprite animation
-        private static float FrameTimer;
         // how many animation frames per second, not the framerate of the game
+        private static float FrameTimer;
 
         // link only has two frames of animation
         private static bool isSecondFrame = false;
@@ -91,22 +77,20 @@ namespace Project1
         private static IWeapon spriteWeapon;
 
         private static int onScreen;
-
        
         private static int posX;
         private static int posY;
 
         private static bool remainOnScreen;
-        //private Game1 game1;
 
         public Player()
         {
             posX = 0;
             posY = 0;
             remainOnScreen = false;
-
         }
 
+        // initialize timing metrics for attacks and damage
         public static void Initialize()
         {
             FrameTimer = Constants.FRAMETIME;
@@ -114,12 +98,9 @@ namespace Project1
             DamageTimer = Constants.INVINCIBILITY_SECONDS;
             FlashTimer = Constants.FLASHTIME;
 
-            //create the link sprite
             sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
 
             weapon = new Bomb();
-
-
         }
 
         public static void LoadContent(ContentManager content)
@@ -141,43 +122,36 @@ namespace Project1
             linkAttackLeft = content.Load<Texture2D>("linkAttackLeft");
             linkAttackUp = content.Load<Texture2D>("linkAttackUp");
             linkAttackDown = content.Load<Texture2D>("linkAttackDown");
-
         }
        
 
         //change the current frame to the next frame
         public static void Update(GameTime gameTime)
         {
-            // timers for Update()
+            // update timers for attack, damage, flash
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             AttackTimer -= elapsedSeconds;
             DamageTimer -= elapsedSeconds;
             FlashTimer -= elapsedSeconds;
 
-            // rename to keyState
             KeyboardState state = Keyboard.GetState();
-            // Print to debug console currently pressed keys
             System.Text.StringBuilder sb = new StringBuilder();
+
+            //update keys being pressed
             foreach (var key in state.GetPressedKeys())
                 sb.Append("Key: ").Append(key).Append(" pressed ");
 
             if (sb.Length > 0)
                 System.Diagnostics.Debug.WriteLine(sb.ToString());
             else
-                //System.Diagnostics.Debug.WriteLine("No Keys pressed");
                 isMoving = false;
-            // Move our sprite based on arrow keys being pressed:
-
-
 
             if (isAttacking)
             {
                 WaitForAttack();
             }
 
-           // Move(keyState);
 
-            // else ifs used so link can only move in the cardinal directions
             // Link can't move when attacking
             if (!isAttacking)
             {
@@ -211,7 +185,6 @@ namespace Project1
                     isAttackingWithBow = false;
 
                 }
-
 
 
                 if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.A))
@@ -259,8 +232,6 @@ namespace Project1
                 DamageInvincibility();
             }
 
-            //Move(state);
-
             if (state.IsKeyDown(Keys.E))
             {
                 isDamaged = true;
@@ -283,8 +254,6 @@ namespace Project1
             {
                 spriteWeapon.Update();
             }
-
-
         }
 
         public static void CheckTime()
@@ -422,11 +391,6 @@ namespace Project1
             spriteWeapon.Draw();
         }
 
-
-
-
-
-
         // if 1 second has passed since attacking, revert attack state to false (allowing for other actions)
         public static void WaitForAttack()
         {
@@ -468,7 +432,6 @@ namespace Project1
                 FrameTimer = FRAMETIME;
             }
         }
-
 
         public static void attackSword()
         {
@@ -525,8 +488,6 @@ namespace Project1
             //isDamaged = true;
             DamageInvincibility();
         }
-
-        //        }
 
         public static Vector2 getUserPos()
         {

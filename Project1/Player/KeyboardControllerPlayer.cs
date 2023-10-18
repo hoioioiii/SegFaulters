@@ -15,11 +15,12 @@ namespace Project1
     internal class KeyboardControllerPlayer : IController
     {
         private Game1 GAME_OBJ;
+
+        //Keyboard states
         private KeyboardState CURR_KEYBOARD_STATE;
         private KeyboardState PREV_KEYBOARD_STATE;
 
-        //This is what we will end up using when we implement ICOMMAND
-        //private Dictionary<Keys, ICommand> MOVE_MAP { get; set; }
+        // Lists to register keys with commands
         private Dictionary<Keys, ICommand> MOVE_MAP { get; set; }
         private Dictionary<Keys, Keys> KEY_TO_KEY { get; set; }
 
@@ -28,38 +29,24 @@ namespace Project1
         ArraySegment<Keys> GET_PRESSED;
         public KeyboardControllerPlayer(Game1 game1)
         {
-
-
-            //Generate teh Double linked lists
-
-
-
-
-            //GENERATE MAPS:
+            //Generate maps for directions of player based off key input:
             GenerateKeyToKeyMap();
             GenerateMOVEMap();
-            IteratorMap();
 
             GAME_OBJ = game1;
-
         }
+
+        //Call execute function of command registered to key
         public void ActionBasedOnInput(Keys CLEAN_KEY)
         {
-
-
-
             if (MOVE_MAP.ContainsKey(CLEAN_KEY) && CURR_KEYBOARD_STATE.IsKeyDown(CLEAN_KEY))
             {
                 MOVE_MAP.GetValueOrDefault(CLEAN_KEY).Execute();
 
             }
-            else if (ITERATE_MAP.ContainsKey(CLEAN_KEY) && CURR_KEYBOARD_STATE.IsKeyDown(CLEAN_KEY))
-            {
-                ITERATE_MAP.GetValueOrDefault(CLEAN_KEY).Execute();
-            }
-
         }
 
+        //Iterate over pressed keys and calls their command
         public void GetInputType()
         {
             GET_PRESSED = CURR_KEYBOARD_STATE.GetPressedKeys();
@@ -68,13 +55,9 @@ namespace Project1
                 Keys CLEAN_KEY = CleanInput(key);
                 ActionBasedOnInput(CLEAN_KEY);
             }
-
-
         }
 
-        /*
-         * When there are multiple keys that produce the same input, reduce those keys to 1 tyoe of input when checking
-         */
+        //Generates key map where every key will be mapped to a unique type of input
         public void GenerateKeyToKeyMap()
         {
             KEY_TO_KEY = new Dictionary<Keys, Keys>();
@@ -82,7 +65,7 @@ namespace Project1
             KEY_TO_KEY.Add(Keys.W, Keys.Up);
             KEY_TO_KEY.Add(Keys.S, Keys.Down);
             KEY_TO_KEY.Add(Keys.D, Keys.Right);
-            //KEY_TO_KEY.Add(Keys.N, Keys.Z);
+            //KEY_TO_KEY.Add(Keys.N, Keys.Z); //Handled elsewhere, needs to be modified to be handled here
             KEY_TO_KEY.Add(Keys.Q, Keys.R);
             KEY_TO_KEY.Add(Keys.NumPad0, Keys.D0);
             KEY_TO_KEY.Add(Keys.NumPad1, Keys.D1);
@@ -96,6 +79,7 @@ namespace Project1
             KEY_TO_KEY.Add(Keys.NumPad9, Keys.D9);
         }
 
+        //Returns the unique type of input mapped to the input key
         public Keys CleanInput(Keys input)
         {
             if (!KEY_TO_KEY.ContainsKey(input))
@@ -113,7 +97,7 @@ namespace Project1
             return input;
         }
 
-
+        //Generates map where every move is mapped to a key
         public void GenerateMOVEMap()
         {
             MOVE_MAP = new Dictionary<Keys, ICommand>();
@@ -134,34 +118,6 @@ namespace Project1
             MOVE_MAP.Add(Keys.I, new attackBoomerang());
             MOVE_MAP.Add(Keys.U, new attackBow());
             MOVE_MAP.Add(Keys.D0, new displayArrow());
-            /*
-            MOVE_MAP.Add(Keys.D0, new displayArrow());
-            MOVE_MAP.Add(Keys.D1, new Item1());
-            MOVE_MAP.Add(Keys.D2, new Item2());
-            MOVE_MAP.Add(Keys.D3, new Item3());
-            MOVE_MAP.Add(Keys.D4, new Item4());
-            MOVE_MAP.Add(Keys.D5, new Item5());
-            MOVE_MAP.Add(Keys.D6, new Item6());
-            MOVE_MAP.Add(Keys.D7, new Item7());
-            MOVE_MAP.Add(Keys.D8, new Item8());
-            MOVE_MAP.Add(Keys.D9, new Item9());
-            */
-            //MOVE_MAP.Add(Keys.Tab, //Call Command State); //kyler- dont think we need a tab
-
-        }
-
-
-        public void IteratorMap()
-        {
-            ITERATE_MAP = new Dictionary<Keys, ICommand>();
-            /*
-            ITERATE_MAP.Add(Keys.T, new BlockPrevious());
-            ITERATE_MAP.Add(Keys.Y, new BlockNext());
-            ITERATE_MAP.Add(Keys.U, new ItemPrevious());
-            ITERATE_MAP.Add(Keys.I, new ItemNext());
-            ITERATE_MAP.Add(Keys.O, new EntityIterateBackCommand());
-            ITERATE_MAP.Add(Keys.P, new EntityIterateForwardCommand());
-            */
         }
 
         public void Update()

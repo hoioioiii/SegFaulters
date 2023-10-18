@@ -17,41 +17,26 @@ namespace Project1
 {
     public class BoomerangItem : IItem
     {
-
-       
-
         private IItemSprite sprite;
-
-       
-
         public BoomerangItem()
         {
-            //remove later:
             sprite = ItemSpriteFactory.Instance.CreateBoomerangSprite();
-
-
         }
-        //change the current frame to the next frame
+
         public void Update()
         {
             sprite.Update();
-
         }
-
 
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch);
-
-
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
         {
             sprite.Draw(spriteBatch, location, spriteScale);
         }
-
-
     }
 }
 

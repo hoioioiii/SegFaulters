@@ -17,44 +17,24 @@ namespace Project1
 {
     public class BombItem : IItem
     {
-
-     
-
         private IItemSprite sprite;
-
-     
         public BombItem()
         {
-            //remove later:
             sprite = ItemSpriteFactory.Instance.CreateBombSprite();
-
-
         }
-        /*
-         * Animation Update
-         */
         public void Update()
         {
             sprite.Update();
-
         }
-
-        /*
-         * Draw
-         */
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch);
-
-
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
         {
             sprite.Draw(spriteBatch, location, spriteScale);
         }
-
-
     }
 }
 
