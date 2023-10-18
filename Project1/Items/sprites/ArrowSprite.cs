@@ -7,22 +7,22 @@ namespace Project1
 {
     public class ArrowSprite : ISprite
     {
-        private Texture2D[] Texture { get; set; }
+        private Texture2D[] Texture;
 
         //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
+        private int Rows;
 
         //Columns is the number of columns in the alias
-        private int Columns { get; set; }
+        private int Columns;
 
         //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private double current_frame { get; set; }
+        private double current_frame;
 
         //totalFrames keeps track of how many frames there are in total
-        private int total_frame { get; set; }
+        private int total_frame;
 
-        private int pos_x { get; set; }
-        private int pos_y { get; set; }
+        private int pos_x;
+        private int pos_y;
 
         private int width;
         private int height;
@@ -65,47 +65,33 @@ namespace Project1
 
 
         }
-
-        /*
-         * Sprite Animation
-         */
-        private void Animate()
-        {
-
-            width = Texture[(int)current_frame].Width;
-            height = Texture[(int)current_frame].Height;
-
-        }
-
-        /*
-        * Draw the sprite
-        */
+      
         public void Draw(SpriteBatch spriteBatch)
         {
-            Animate();
-            Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
-            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture[(int)current_frame], , SOURCE_REC, Color.White);
+            setRectangles();
+            spriteBatch.Draw(Texture[(int)current_frame], rectangles.Item2, rectangles.Item1, Color.White);
         }
 
         public void setPos(int x, int y)
         {
-            throw new NotImplementedException();
+            pos_x = x; pos_y = y;
         }
 
         public (int, int) getPos()
         {
-            throw new NotImplementedException();
+            return (pos_x, pos_y);
         }
 
         public void setRectangles()
         {
-            throw new NotImplementedException();
+            rectangles.Item1 = new Rectangle(1, 1, width, height);
+            rectangles.Item2 = new Rectangle(pos_x, pos_y, width, height);
+
         }
 
         public (Rectangle, Rectangle) GetRectangle()
         {
-            throw new NotImplementedException();
+            return rectangles;
         }
     }
 }

@@ -69,20 +69,30 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            Animate();
-            Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
-            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+            setRectangles();
+            spriteBatch.Draw(Texture[(int)current_frame], rectangles.Item2, rectangles.Item1, Color.White);
         }
 
         public void setPos(int x, int y)
         {
-            throw new NotImplementedException();
+            pos_x = x; pos_y = y;
         }
 
         public (int, int) getPos()
         {
-            throw new NotImplementedException();
+            return (pos_x, pos_y);
+        }
+
+        public void setRectangles()
+        {
+            rectangles.Item1 = new Rectangle(1, 1, width, height);
+            rectangles.Item2 = new Rectangle(pos_x, pos_y, width, height);
+
+        }
+
+        public (Rectangle, Rectangle) GetRectangle()
+        {
+            return rectangles;
         }
     }
 }
