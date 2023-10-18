@@ -83,6 +83,15 @@ namespace Project1
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
+        public void setPos(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public (int, int) getPos()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
