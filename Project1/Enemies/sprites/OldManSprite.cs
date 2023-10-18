@@ -67,6 +67,7 @@ namespace Project1
          */
         public void Draw(SpriteBatch spriteBatch)
         {
+            
             spriteBatch.Draw(Texture[current_frame], rectangles.Item2, rectangles.Item1, Color.White);
         }
 
