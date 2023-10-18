@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project1
 {
-    internal interface ITime
+    public interface ITime
     {
 
         //public int getTimeMilli()

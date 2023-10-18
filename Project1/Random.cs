@@ -37,6 +37,14 @@ namespace Project1
             return val;
         }
 
+        public static int RandomRadius()
+        {
+            System.Random rand = new System.Random();
+            int val = rand.Next(5, 15);
+
+            return val;
+        }
+
         public static Direction RandomDirection()
         {
             System.Random rand = new System.Random();

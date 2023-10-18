@@ -12,14 +12,11 @@ namespace Project1
 
 
 
-        //Keeps track of current position
-        private int pos_x;
-        private int pos_y;
-
         public static bool newAttack;
         private IDirectionStateManager direction_state_manager;
         private IAnimation animation_manager;
         private ITime time_manager;
+        private IMove movement_manager;
 
         private (Rectangle, Rectangle) rectangles;
 
@@ -36,9 +33,9 @@ namespace Project1
             time_manager = new TimeTracker(false);
             animation_manager = new Animation(0, DM_TOTAL, time_manager, direction_state_manager);
 
-            //this will be given by the room manager
-            setPos(SPRITE_X_START, SPRITE_Y_START);
-
+            //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
+            movement_manager = new Movement(direction_state_manager, this, time_manager, SPRITE_X_START, SPRITE_Y_START, 0);
+         
         }
 
         /*
@@ -66,7 +63,7 @@ namespace Project1
         public void Move()
         {
             //Movement will be fixed
-            Movement.HorizontalMovement(direction_state_manager, this, Direction.Right);
+            //Movement.HorizontalMovement(direction_state_manager, this, Direction.Right);
         }
 
         /*
@@ -79,24 +76,26 @@ namespace Project1
         }
 
         //repeated code
+        public void setRectangles()
+        {
+            int x = movement_manager.getPosition().Item1;
+            int y = movement_manager.getPosition().Item2;
+            int height = Texture[animation_manager.getCurrentFrame()].Height;
+            int width = Texture[animation_manager.getCurrentFrame()].Width;
+            rectangles.Item1 = new Rectangle(1, 1, width, height);
+            rectangles.Item2 = new Rectangle(x, y, width, height);
+        }
+
+
         public void setPos(int x, int y)
         {
-            pos_x = x; pos_y = y;
+            movement_manager.setPosition(x, y);
         }
 
         public (int, int) getPos()
         {
-            return (pos_x, pos_y);
+            return movement_manager.getPosition();
         }
-
-        public void setRectangles()
-        {
-            int height = Texture[animation_manager.getCurrentFrame()].Height;
-            int width = Texture[animation_manager.getCurrentFrame()].Width;
-            rectangles.Item1 = new Rectangle(1, 1, width, height);
-            rectangles.Item2 = new Rectangle(pos_x, pos_y, width, height);
-        }
-
         public (Rectangle, Rectangle) GetRectangle()
         {
             return rectangles;

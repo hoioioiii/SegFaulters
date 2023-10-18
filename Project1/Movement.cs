@@ -9,20 +9,40 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    internal class Movement
+    public class Movement : IMove
     {
+        private IDirectionStateManager direction_state;
+        private ISprite entityObj;
+        private ITime time_manager;
+        private int pos_x;
+        private int pos_y;
+        private double angle;
+        private double speed;
 
-        public static int MoveUpOrLeft(int pos)
+
+        public Movement(IDirectionStateManager direction_state, ISprite entityObj, ITime time_manager, int x, int y, int spd) { 
+        
+            this.direction_state = direction_state;
+            this.entityObj = entityObj;
+            this.time_manager = time_manager;
+            this.pos_x = x;
+            this.pos_y = y;
+            this.angle = 0;
+            this.speed = spd;
+        }
+
+
+        private int MoveUpOrLeft(int pos)
         {
             return pos -=1;
         }
 
-        public static int MoveDownOrRight(int pos)
+        private int MoveDownOrRight(int pos)
         {
             return pos += 1;
         }
 
-        public static void VerticalMovement(IDirectionStateManager direction_state, ISprite entityObj, Direction start_direction)
+        private void VerticalMovement(Direction start_direction)
         {
             (int,int) pos_pair  = entityObj.getPos();
             (bool, int) update_pair = (false, pos_pair.Item2);
@@ -40,11 +60,11 @@ namespace Project1
             }           
 
             pos_pair.Item2 = update_pair.Item2;
-            updateMovement(isMoving, pos_pair, update_pair.Item1, direction_state, entityObj);
+            updateMovement(isMoving, pos_pair, update_pair.Item1);
 
         }
 
-        private static (bool,int) moveVertical(int pos, Direction direct)
+        private (bool,int) moveVertical(int pos, Direction direct)
         {
             switch (direct)
             {
@@ -57,7 +77,7 @@ namespace Project1
             return (false, pos);
         }
 
-        private static void updateMovement(bool canMove, (int, int) pos_pair,bool dir_flag, IDirectionStateManager direction_state, ISprite entityObj)
+        private void updateMovement(bool canMove, (int, int) pos_pair,bool dir_flag)
         {
             if (canMove)
             {
@@ -70,7 +90,7 @@ namespace Project1
         }
 
 
-        private static (bool,int) moveHorizontal(int pos, Direction direct)
+        private (bool,int) moveHorizontal(int pos, Direction direct)
         {
             switch (direct)
             {
@@ -85,7 +105,7 @@ namespace Project1
         }
 
 
-        public static void HorizontalMovement(IDirectionStateManager direction_state, ISprite entityObj, Direction start_direction)
+        private void HorizontalMovement(Direction start_direction)
         {
            
             (int, int) pos_pair = entityObj.getPos();
@@ -103,44 +123,23 @@ namespace Project1
                 update_pair = moveHorizontal(update_pair.Item2, direct);
             }
             pos_pair.Item1 = update_pair.Item2;
-            updateMovement(isMoving, pos_pair, update_pair.Item1, direction_state, entityObj);
+            updateMovement(isMoving, pos_pair, update_pair.Item1);
         }
 
-
-        public static void circularMovement(IDirectionStateManager direction_state, ISprite entityOb, Direction start_direction, double ang)
+        //can remove param later
+        public void circularMovement(Direction start_direction)
         {
-            int originX = entityOb.getPos().Item1 - Random.RandomOriginOffset();
-            int originY = entityOb.getPos().Item2 - Random.RandomOriginOffset();
+            angle += 0.1;
+            int originX = entityObj.getPos().Item1 - Random.RandomOriginOffset();
+            int originY = entityObj.getPos().Item2 - Random.RandomOriginOffset();
 
-            double cos = Math.Cos(ang) * 10;
-            double sin = Math.Sin(ang) * 10;
+            double cos = Math.Cos(angle) * Random.RandomRadius();
+            double sin = Math.Sin(angle) * Random.RandomRadius();
 
-            entityOb.setPos((int)(originX + cos), (int)(originY + sin));
+            entityObj.setPos((int)(originX + cos), (int)(originY + sin));
         }
 
-
-        public static void WandererMovement(IDirectionStateManager direction_state, ISprite entityOb, Direction start_direction)
-        { 
-            
-
-            switch (start_direction)
-            {
-                case Direction.Left:
-                    HorizontalMovement(direction_state, entityOb, Direction.Left);
-                    break;
-                case Direction.Up:
-                    VerticalMovement(direction_state, entityOb, Direction.Up);
-                    break;
-                case Direction.Down:
-                    VerticalMovement(direction_state, entityOb, Direction.Down);
-                    break;
-                case Direction.Right:
-                    HorizontalMovement(direction_state, entityOb, Direction.Right);
-                    break;
-            }
-        }
-
-        public static void WanderMove(IDirectionStateManager directionStateManager, ISprite entityObj, ITime time_manager)
+        public void WanderMove()
         {
             time_manager.setRandMovementTimeFrame();
             time_manager.updateElapsedMoveTime();
@@ -148,28 +147,64 @@ namespace Project1
             //means to change directions
             if (time_manager.checkRandMovementTime())
             {
-                directionStateManager.getRandomDirection();
+                direction_state.getRandomDirection();
 
             }
-            Movement.WandererMovement(directionStateManager, entityObj, directionStateManager.getDirection());
+            WandererMovement(direction_state.getDirection());
         }
 
+        private void WandererMovement(Direction start_direction)
+        { 
+            switch (start_direction)
+            {
+                case Direction.Left:
+                    HorizontalMovement(Direction.Left);
+                    break;
+                case Direction.Up:
+                    VerticalMovement(Direction.Up);
+                    break;
+                case Direction.Down:
+                    VerticalMovement(Direction.Down);
+                    break;
+                case Direction.Right:
+                    HorizontalMovement(Direction.Right);
+                    break;
+            }
+        }
 
-        public static void DiagonalMovement(IDirectionStateManager direction_state, ISprite entityOb, Direction start_direction)
-        {
+       
+
+
+        //public void DiagonalMovement(IDirectionStateManager direction_state, ISprite entityOb, Direction start_direction)
+        //{
 
            
+        //}
+
+        //public void Stop(IDirectionStateManager direction_state, ISprite entityOb, Direction start_direction)
+        //{
+        //    //change state of isMoving to false in enemy state
+        //}
+
+
+
+
+        public void setPosition(int x, int y)
+        {
+            this.pos_y = y;
+            this.pos_x = x;
+
         }
 
-        public static void Stop(IDirectionStateManager direction_state, ISprite entityOb, Direction start_direction)
+        public (int, int) getPosition()
         {
-            //change state of isMoving to false in enemy state
+            return (pos_x, pos_y);
         }
 
 
 
         //Checks the bounds for the screen or input. Will be replaced w collision stuff
-        private static (bool,int) CheckBound(int currPos, int UpperBound, int LowerBound)
+        private (bool,int) CheckBound(int currPos, int UpperBound, int LowerBound)
         {
            
             if (currPos >= UpperBound)
@@ -185,10 +220,12 @@ namespace Project1
             return (false, currPos);
         }
 
-        private static int fixPosition(int bound, int pos)
+        private int fixPosition(int bound, int pos)
         {
             return (pos + (bound - pos));
         }
+
+    
 
     }
 }
