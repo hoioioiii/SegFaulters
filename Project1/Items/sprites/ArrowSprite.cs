@@ -44,45 +44,29 @@ namespace Project1
             position = Player.getUserPos();
         }
 
-        /*
-        * Update
-        */
         public void Update()
         {
-
-            //Move();
             position = Player.getUserPos();
         }
 
-        /*
-         * Sprite Movement
-         */
         public void Move()
         {
             int DIR_X = RandomMove.RandMove();
             int DIR_Y = RandomMove.RandMove();
 
-            //Add bounding constraints:
+            //bounding constraints:
             pos_x += RandomMove.CheckBounds(DIR_X, pos_x, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
             pos_y += RandomMove.CheckBounds(DIR_Y, pos_y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-
-
         }
 
-        /*
-         * Sprite Animation
-         */
         private void setDimention()
         {
 
             width = Texture[(int)current_frame].Width;
             height = Texture[(int)current_frame].Height;
-
         }
 
-        /*
-        * Draw the sprite
-        */
+        // draw in Link's inventory
         public void Draw(SpriteBatch spriteBatch)
         {
             setDimention();
@@ -91,6 +75,7 @@ namespace Project1
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
+        // draw inside level loader
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int scale)
         {
             setDimention();
@@ -98,7 +83,6 @@ namespace Project1
             Rectangle DEST_REC = new Rectangle((int)location.X, (int)location.Y, width * scale, height * scale);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
-
     }
 }
 

@@ -28,13 +28,6 @@ namespace Project1
         ArraySegment<Keys> GET_PRESSED;
         public KeyBoardController(Game1 game1)
         {
-        
-
-              //Generate teh Double linked lists
-
-
-
-
               //GENERATE MAPS:
               GenerateKeyToKeyMap();
               GenerateMOVEMap();
@@ -46,8 +39,6 @@ namespace Project1
         public void ActionBasedOnInput(Keys CLEAN_KEY)
         {
 
-
-           
             if (MOVE_MAP.ContainsKey(CLEAN_KEY) && CURR_KEYBOARD_STATE.IsKeyDown(CLEAN_KEY) && PREV_KEYBOARD_STATE.IsKeyUp(CLEAN_KEY))
             {
                 MOVE_MAP.GetValueOrDefault(CLEAN_KEY).Execute();
@@ -57,7 +48,6 @@ namespace Project1
             {
                 ITERATE_MAP.GetValueOrDefault(CLEAN_KEY).Execute();
             }
-
         }
 
         public void GetInputType()

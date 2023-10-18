@@ -26,7 +26,6 @@ namespace Project1
         private int width;
         private int height;
 
-
         public TriforceSprite(Texture2D[] spriteSheet)
         {
             Texture = spriteSheet;
@@ -34,13 +33,14 @@ namespace Project1
             Columns = TRIFORCE_C;
             current_frame = START_FRAME;
             total_frame = Rows * Columns;
+
             position = Player.getUserPos();
         }
         public void Update()
         {
-
-            //Move();
             position = Player.getUserPos();
+
+            // move to next frame
             current_frame += FRAME_SPD;
             if (current_frame >= total_frame)
                 current_frame = START_FRAME;
@@ -48,12 +48,11 @@ namespace Project1
 
         private void setDimention()
         {
-
             width = Texture[(int)current_frame].Width;
             height = Texture[(int)current_frame].Height;
-
         }
 
+        // draw inside Link's inventory
         public void Draw(SpriteBatch spriteBatch)
         {
             setDimention();
@@ -62,6 +61,7 @@ namespace Project1
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
+        // draw inside level loader
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int scale)
         {
             setDimention();
