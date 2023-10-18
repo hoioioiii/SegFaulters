@@ -128,22 +128,13 @@ namespace Project1
 
         }
 
-        /*
-         * Animate snake
-         */
-        private void Animate()
-        {
-
-            width = Texture[(int)current_frame].Width;
-            height = Texture[(int)current_frame].Height;
-        }
-
-
+    
         /*
          * Draw snake
          */
         public void Draw(SpriteBatch spriteBatch)
         {
+            setRectangles();
             spriteBatch.Draw(Texture[current_frame], rectangles.Item2, rectangles.Item1, Color.White);
         }
 

@@ -183,7 +183,7 @@ namespace Project1
         //factor out into draw class
         public void Draw(SpriteBatch spriteBatch)
         {
-            
+            setRectangles();
             spriteBatch.Draw(Texture[current_frame], rectangles.Item2, rectangles.Item2, Color.White);
         }
 
