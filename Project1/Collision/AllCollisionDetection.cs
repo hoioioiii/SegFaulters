@@ -49,7 +49,6 @@ namespace Project1.Collision
         List<IItem> roomItems = new List<IItem>();       
         List<IDoor> roomDoors = new List<IDoor>();
         List<IEnvironment> roomBoundaries = new List<IEnvironment>();
-        List<IEnemy> roomEnemies = new List<IEnemy>();
         //TODO: change to interface
         List<Rectangle> enemyAttackInstances = new List<Rectangle>();
 
@@ -103,7 +102,7 @@ namespace Project1.Collision
                     PlayerCollisionResponse.BoundaryResponse(link, collisionDirection);
                 }
             }
-            foreach (var enemy in roomEnemies)
+            foreach (var enemy in enemyRects)
             {
                 isColliding = link.BoundingBox.Intersects(enemy.BoundingBox);
                 if (isColliding)
