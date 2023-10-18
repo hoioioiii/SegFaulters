@@ -115,6 +115,9 @@ namespace Project1
 
             //Load background
             EnvironmentLoader.LoadContent(Content);
+
+            //Load XML File
+            LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\SegFaulters\\Project1\\xmlTest.xml");
             
         }
 
