@@ -18,24 +18,24 @@ namespace Project1
         private KeyboardState CURR_KEYBOARD_STATE;
         private KeyboardState PREV_KEYBOARD_STATE;
 
-        //This is what we will end up using when we implement ICOMMAND
-        //private Dictionary<Keys, ICommand> MOVE_MAP { get; set; }
         private Dictionary<Keys, ICommand> MOVE_MAP { get; set; }
         private Dictionary<Keys, Keys> KEY_TO_KEY { get; set; }
 
         private Dictionary<Keys, ICommand> ITERATE_MAP { get; set; }
 
         ArraySegment<Keys> GET_PRESSED;
+
         public KeyBoardController(Game1 game1)
         {
-              //GENERATE MAPS:
-              GenerateKeyToKeyMap();
-              GenerateMOVEMap();
-              IteratorMap();
-
-                GAME_OBJ = game1;
+            //Generate maps for directions of player based off key input:
+            GenerateKeyToKeyMap();
+            GenerateMOVEMap();
+            IteratorMap();
+            GAME_OBJ = game1;
                 
         }
+
+        // Call execute function of command registered to key
         public void ActionBasedOnInput(Keys CLEAN_KEY)
         {
 
@@ -50,6 +50,8 @@ namespace Project1
             }
         }
 
+
+        //Iterate over pressed keys and calls their command
         public void GetInputType()
         {
             GET_PRESSED = CURR_KEYBOARD_STATE.GetPressedKeys();
@@ -62,9 +64,7 @@ namespace Project1
     
         }
 
-        /*
-         * When there are multiple keys that produce the same input, reduce those keys to 1 tyoe of input when checking
-         */
+        //Generates key map where every key will be mapped to a unique type of input
         public void GenerateKeyToKeyMap()
         {
             KEY_TO_KEY = new Dictionary<Keys, Keys>();
@@ -86,6 +86,7 @@ namespace Project1
             KEY_TO_KEY.Add(Keys.NumPad9, Keys.D9);
         }
 
+        //Returns the unique type of input mapped to the input key
         public Keys CleanInput(Keys input)
         {
             if (!KEY_TO_KEY.ContainsKey(input))
@@ -103,20 +104,23 @@ namespace Project1
            return input;
         }
 
-
+        //Generates map where every move is mapped to a key
         public void GenerateMOVEMap()
         {
             MOVE_MAP = new Dictionary<Keys, ICommand>();
             MOVE_MAP.Add(Keys.Down, new MoveDown());
+
+            //directions
             MOVE_MAP.Add(Keys.Up, new MoveUp());
             MOVE_MAP.Add(Keys.Left, new MoveLeft());
             MOVE_MAP.Add(Keys.Right, new MoveRight());
+            //damage
             MOVE_MAP.Add(Keys.E, new TakeDamage());
             MOVE_MAP.Add(Keys.R, new QuitGame());
-            //attack with boomerang and bow now uses I and U and bomb uses B
+            //weapon attacks
             MOVE_MAP.Add(Keys.I, new attackBoomerang());
             MOVE_MAP.Add(Keys.U, new attackBow());
-
+            //list of items to be displayed
             MOVE_MAP.Add(Keys.D0, new displayArrow());
             MOVE_MAP.Add(Keys.D1, new displayBomb());
             MOVE_MAP.Add(Keys.D2, new displayBow());
@@ -127,25 +131,9 @@ namespace Project1
             MOVE_MAP.Add(Keys.D7, new displayKey());
             MOVE_MAP.Add(Keys.D8, new displayMap());
             MOVE_MAP.Add(Keys.D9, new displayRupee());
-            //more than numeric keys so moved to minus and plus keys
             MOVE_MAP.Add(Keys.OemMinus, new displaySword());
             MOVE_MAP.Add(Keys.OemPlus, new displayTriforce());
-            /*
-            MOVE_MAP.Add(Keys.D0, new displayArrow());
-            MOVE_MAP.Add(Keys.D1, new Item1());
-            MOVE_MAP.Add(Keys.D2, new Item2());
-            MOVE_MAP.Add(Keys.D3, new Item3());
-            MOVE_MAP.Add(Keys.D4, new Item4());
-            MOVE_MAP.Add(Keys.D5, new Item5());
-            MOVE_MAP.Add(Keys.D6, new Item6());
-            MOVE_MAP.Add(Keys.D7, new Item7());
-            MOVE_MAP.Add(Keys.D8, new Item8());
-            MOVE_MAP.Add(Keys.D9, new Item9());
-            */
-            //MOVE_MAP.Add(Keys.Tab, //Call Command State); //kyler- dont think we need a tab
-
         }
-
 
         public void IteratorMap()
         {
@@ -153,15 +141,12 @@ namespace Project1
             
             ITERATE_MAP.Add(Keys.T, new BlockPrevious());
             ITERATE_MAP.Add(Keys.Y, new BlockNext());
-            /*
-            ITERATE_MAP.Add(Keys.I, new ItemIterateForwardCommand());
-            ITERATE_MAP.Add(Keys.U, new ItemIterateBackCommand());
-            */
             ITERATE_MAP.Add(Keys.O, new EntityIterateBackCommand());
             ITERATE_MAP.Add(Keys.P, new EntityIterateForwardCommand());
 
         }
 
+        //Updates keyboard state
         public void Update()
         {
             PREV_KEYBOARD_STATE = CURR_KEYBOARD_STATE;

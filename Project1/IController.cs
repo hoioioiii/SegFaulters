@@ -9,7 +9,6 @@ namespace Project1
 {
     internal interface IController
     {
-
         public void GetInputType();
 
         public void ActionBasedOnInput(Keys Cleaned_Key);

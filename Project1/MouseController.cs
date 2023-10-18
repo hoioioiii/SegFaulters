@@ -26,7 +26,6 @@ namespace Project1
                 action = new RoomIterateForward();
                 action.Execute();
             }
-
         }
 
         public void GetInputType()
