@@ -10,19 +10,19 @@ namespace Project1
         private Texture2D[] Texture { get; set; }
 
         //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
+        private int Rows;
 
         //Columns is the number of columns in the alias
-        private int Columns { get; set; }
+        private int Columns;
 
         //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private int current_frame { get; set; }
+        private int current_frame;
 
         //totalFrames keeps track of how many frames there are in total
-        private int total_frame { get; set; }
+        private int total_frame;
 
-        private int pos_x { get; set; }
-        private int pos_y { get; set; }
+        private int pos_x;
+        private int pos_y;
 
         private int width;
         private int height;
@@ -46,9 +46,9 @@ namespace Project1
         {
             
             //Move();
-            current_frame += FRAME_SPD;
-            if (current_frame >= total_frame)
-                current_frame = START_FRAME;
+            //current_frame += FRAME_SPD;
+            //if (current_frame >= total_frame)
+            //    current_frame = START_FRAME;
         }
 
         /*

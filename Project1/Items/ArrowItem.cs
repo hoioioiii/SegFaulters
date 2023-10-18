@@ -19,7 +19,7 @@ namespace Project1
     {
 
         //Texture stores the texture alias for our animation
-        private Texture2D Texture { get; set; }
+        private Texture2D Texture;
 
         //rows is the number of rows i the texture alias
         private int Rows { get; set; }
