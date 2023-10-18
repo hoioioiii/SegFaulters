@@ -64,7 +64,7 @@ namespace Project1.Enemies.sprites
         public void Draw(SpriteBatch spriteBatch)
         {
             setRectangles();
-            spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
+            spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item1, rectangles.Item2, Color.White);
         }
 
         public void setPos(int x, int y)
