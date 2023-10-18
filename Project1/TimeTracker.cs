@@ -15,7 +15,8 @@ namespace Project1
 
 
         private int elapsedTime_sec;
-
+        private int movement_timeframe_sec;
+        private int elapsed_move__sec;
         private int elapsedTime_milli;
 
         //bool to determine if object is weapon, might factor out to a subclass later
@@ -70,12 +71,29 @@ namespace Project1
 
         public bool checkAnimationFrameTime()
         {
-            UpdateElaspedMilli();
+           UpdateElaspedMilli();
            return elapsedTime_milli >= ms_per_frame_animation;
             
         }
 
+        public bool checkRandMovementTime()
+        {
+             if (elapsed_move__sec >= movement_timeframe_sec)
+            {
+                elapsed_move__sec = 0;
+                return true;
+            }
+            return false;
+        }
 
+        public void setRandMovementTimeFrame()
+        {
+           movement_timeframe_sec =  Random.RandomMilli();
+        }
 
+        public void updateElapsedMoveTime()
+        {
+            elapsed_move__sec += 1;
+        }
     }
 }

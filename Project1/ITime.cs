@@ -24,5 +24,11 @@ namespace Project1
         public void resetElaspedSec();
         public bool checkAnimationFrameTime();
 
+        //How long to to be moving in 1 direction before needing to either stop or change directions
+        public bool checkRandMovementTime();
+        public void setRandMovementTimeFrame();
+
+        public void updateElapsedMoveTime();
+
     }
 }

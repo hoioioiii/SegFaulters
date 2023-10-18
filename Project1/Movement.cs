@@ -12,10 +12,10 @@ namespace Project1
     internal class Movement
     {
 
+
+
         public static int MoveUpOrLeft(int pos)
         {
-
-            
             return pos -=1;
         }
 
@@ -27,9 +27,7 @@ namespace Project1
         public static void VerticalMovement(IDirectionStateManager direction_state, ISprite entityObj, Direction start_direction)
         {
             (int,int) pos_pair  = entityObj.getPos();
-            
             (bool, int) update_pair = (false, pos_pair.Item2);
-           
             Direction direct = direction_state.getDirection();
             bool isMoving = false;
 
@@ -50,7 +48,6 @@ namespace Project1
 
         private static (bool,int) moveVertical(int pos, Direction direct)
         {
-            
             switch (direct)
             {
                 case Direction.Down:
@@ -108,10 +105,7 @@ namespace Project1
                 update_pair = moveHorizontal(update_pair.Item2, direct);
             }
             pos_pair.Item1 = update_pair.Item2;
-
             updateMovement(isMoving, pos_pair, update_pair.Item1, direction_state, entityObj);
-
-
         }
 
 
@@ -123,9 +117,38 @@ namespace Project1
 
 
         public static void WandererMovement(IDirectionStateManager direction_state, ISprite entityOb, Direction start_direction)
-        {
+        { 
+            
 
-          
+            switch (start_direction)
+            {
+                case Direction.Left:
+                    HorizontalMovement(direction_state, entityOb, Direction.Left);
+                    break;
+                case Direction.Up:
+                    VerticalMovement(direction_state, entityOb, Direction.Up);
+                    break;
+                case Direction.Down:
+                    VerticalMovement(direction_state, entityOb, Direction.Down);
+                    break;
+                case Direction.Right:
+                    HorizontalMovement(direction_state, entityOb, Direction.Right);
+                    break;
+            }
+        }
+
+        public static void WanderMove(IDirectionStateManager directionStateManager, ISprite entityObj, ITime time_manager)
+        {
+            time_manager.setRandMovementTimeFrame();
+            time_manager.updateElapsedMoveTime();
+
+            //means to change directions
+            if (time_manager.checkRandMovementTime())
+            {
+                directionStateManager.getRandomDirection();
+
+            }
+            Movement.WandererMovement(directionStateManager, entityObj, directionStateManager.getDirection());
         }
 
 
@@ -135,10 +158,13 @@ namespace Project1
            
         }
 
+        
+
+
 
         public static void Stop(IDirectionStateManager direction_state, ISprite entityOb, Direction start_direction)
         {
-            
+            //change state of isMoving to false in enemy state
         }
 
 
@@ -156,7 +182,7 @@ namespace Project1
             {
                 return (true, fixPosition(LowerBound, currPos));
             }
-           
+
             return (false, currPos);
         }
 

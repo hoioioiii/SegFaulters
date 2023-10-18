@@ -56,9 +56,7 @@ namespace Project1.Enemies.sprites
 
         public void Move()
         {
-           //testing purposes-> remove later
-           // Movement.VerticalMovement(direction_state_manager,this, Direction.Up);
-            Movement.HorizontalMovement(direction_state_manager, this, Direction.Left);
+            Movement.WanderMove(direction_state_manager, this, time_manager);
         }
 
         public void Draw(SpriteBatch spriteBatch)

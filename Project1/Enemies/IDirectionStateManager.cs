@@ -11,5 +11,7 @@ namespace Project1.Enemies
         public void changeDirection();
 
         public void NeedDirectionUpdate(bool dir_flag);
+
+        public Direction getRandomDirection();
     }
 }

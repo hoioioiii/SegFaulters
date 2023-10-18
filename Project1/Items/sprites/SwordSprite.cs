@@ -49,14 +49,7 @@ namespace Project1
 
         public void Move()
         {
-            int DIR_X = RandomMove.RandMove();
-            int DIR_Y = RandomMove.RandMove();
-
-            //Add bounding constraints:
-            pos_x += RandomMove.CheckBounds(DIR_X, pos_x, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            pos_y += RandomMove.CheckBounds(DIR_Y, pos_y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-
-
+         
         }
 
         public void Draw(SpriteBatch spriteBatch)

@@ -60,8 +60,10 @@ namespace Project1.Enemies
 
         }
 
-
-
-
+        public Direction getRandomDirection()
+        {
+            setDirection(Random.RandomDirection());
+            return getDirection();
+        }
     }
 }
