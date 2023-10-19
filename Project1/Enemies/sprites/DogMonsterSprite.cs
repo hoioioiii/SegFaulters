@@ -115,9 +115,7 @@ namespace Project1
                     weapon.Attack(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, direction_state_manager.getDirection());
                     weapon.Draw();
                 }
-                
             }
-            
         }
 
 
