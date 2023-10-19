@@ -7,43 +7,47 @@ namespace Project1
 {
     public class BossAquaDragonSprite : ISprite
     {
-        private Texture2D[] Texture { get; set; }
+        private Texture2D[] Texture;
 
-        //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
+        //currentFrame is used to keep track of which frame of the animation we are currently on
+        private int current_frame;
 
-        //Columns is the number of columns in the alias
-        private int Columns { get; set; }
+        //Keeps track of current position
+        private int pos_x;
+        private int pos_y;
 
-        //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private double current_frame { get; set; }
-
-        //totalFrames keeps track of how many frames there are in total
-        private int total_frame { get; set; }
-
-        private int pos_x { get; set; }
-        private int pos_y { get; set; }
-
+        //Width and Height of sprite frame
         private int width;
         private int height;
 
+        //Time used for animation..factor into animation class later
         private int elapsedTime;
         private int msecPerFrame;
 
+
+        /*
+         * Initalize Boss Aqua Dragon
+         */
         public BossAquaDragonSprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
-            Rows = AD_R;
-            Columns = AD_C;
+           
             current_frame = START_FRAME;
-            total_frame = Rows * Columns;
-            pos_x = SPRITE_XE;
-            pos_y = SPRITE_YE;
-
+           
+            pos_x = SPRITE_X_START;
+            pos_y = SPRITE_Y_START;
 
             elapsedTime = 0;
             msecPerFrame = 300;
+
+            width = Texture[current_frame].Width;
+            height = Texture[current_frame].Height;
+
         }
+
+        /*
+         * Update Boss's animation and movement
+         */
         public void Update()
         {
             elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
@@ -53,6 +57,9 @@ namespace Project1
 
         }
 
+        /*
+         * Update Boss's frames
+         */
         public void UpdateFrames()
         {
             if (elapsedTime >= msecPerFrame)
@@ -61,11 +68,14 @@ namespace Project1
                 current_frame += 1;
             }
 
-            if (current_frame >= total_frame)
+            if (current_frame >= AQUA_TOTAL)
                 current_frame = START_FRAME;
         }
 
 
+        /*
+         * Move the boss
+         */
         public void Move()
         {
             int DIR_X = RandomMove.RandMove();
@@ -78,20 +88,15 @@ namespace Project1
 
         }
 
-        private void Animate()
-        {
-
-            width = Texture[(int)current_frame].Width;
-            height = Texture[(int)current_frame].Height;
-
-        }
-
+        /*
+         * Draw the Boss
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
-            Animate();
+            //Factor into draw class later
             Rectangle SOURCE_REC = new Rectangle(1, 1 , width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+            spriteBatch.Draw(Texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
     }
 }

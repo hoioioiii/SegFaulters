@@ -51,20 +51,27 @@ namespace Project1
 
         private ISprite sprite;
 
+        /*
+         * Initalize Dog Monster
+         */
         public DogMonster()
 		{
 
             sprite = EnemySpriteFactory.Instance.CreateDogMonsterSprite();
         }
+
+        /*
+         * Update Dog Monster
+         */
         public void Update()
         {
             sprite.Update();
         
         }
 
-        private void Animate()
-        {
-        }
+        /*
+         * Draw the Sprite
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
 
@@ -72,36 +79,24 @@ namespace Project1
         }
 
         /*
-          * Responsible for setting the the frame numbers(r,c) of the sprite
-          */
-        private void setFrames()
-        {
-            
-        }
-
-        /*
-         * Responsible for loading the sprite image
+         * Implement the Health
          */
-        public Texture2D Load()
-        {
-            //setFrames();
-            return ContentLoad.Load<Texture2D>(assetName: "DM");
-        }
-
-        public void Move()
-        {
-
-        }
         public void Health()
         {
             throw new NotImplementedException();
         }
 
+        /*
+         * Implement the Attack
+         */
         public void Attack()
         {
             throw new NotImplementedException();
         }
 
+        /*
+         * Item the Sprite drops when it dies.
+         */
         public void ItemDrop()
         {
             throw new NotImplementedException();

@@ -50,82 +50,55 @@ namespace Project1
         private int POS_Y;
 
         private ISprite sprite;
+
+        /*
+         * Initalize Spike
+         */
         public SpikeCross()
 		{
-
-            //remove later:
-            /*
-            GameObject = Constants.GameObj;
-            ContentLoad = GameObject.Content;
-            Texture = Load();
-            POS_X = SPRITE_X;
-            POS_Y = SPRITE_Y;
-            */
+            
             sprite = EnemySpriteFactory.Instance.CreateSpikeCrossSprite();
         }
        
-
+        /*
+         * Update Spike
+         */
         public void Update()
         {
             sprite.Update();
-            /*
-            Move();
-            CURRENT_FRAME += FRAME_SPD;
-            if (CURRENT_FRAME >= TOTAL_FRAME)
-                CURRENT_FRAME = START_FRAME;
-            */
+          
         }
-        private void Animate()
-        {
-
-            //WIDTH = Texture.Width / Columns;
-            //HEIGHT = Texture.Height / Rows;
-
-            //ROW = (int)CURRENT_FRAME / Columns;
-            //COL = (int)CURRENT_FRAME % Columns;
-
-        }
+      
+        /*
+         * Draw Spike
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
 
             sprite.Draw(spriteBatch);
         }
 
+     
         /*
-         * Responsible for setting the the frame numbers(r,c) of the sprite
+         * Spike Heath -> later
          */
-        private void setFrames()
-        {
-            //Rows = SPIKE_R;
-            //Columns = SPIKE_C;
-            //CURRENT_FRAME = START_FRAME;
-            //TOTAL_FRAME = Rows * Columns;
-        }
-
-        /*
-         * Responsible for loading the sprite image
-         */
-        public Texture2D Load()
-        {
-            //setFrames();
-            return ContentLoad.Load<Texture2D>(assetName: "SPIKES");
-        }
-
-        public void Move()
-        {
-           
-        }
-
         public void Health()
         {
             throw new NotImplementedException();
         }
 
+        /*
+         * 
+         * Spike aTTK -> LATER
+         */
         public void Attack()
         {
             throw new NotImplementedException();
         }
 
+        /*
+         * Spike item driop -> later
+         */
         public void ItemDrop()
         {
             throw new NotImplementedException();

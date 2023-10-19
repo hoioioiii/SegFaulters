@@ -1,0 +1,1472 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Level1 levelName="The Eagle">
+	
+	<!--LINK STATUS-->
+	<link>
+		<Stats>
+			<Health>0</Health>
+			<Attack>0</Attack>
+			<CritDamage>0</CritDamage>
+			<Crit>0</Crit>
+			<Stamina>0</Stamina>
+			<Speed>0</Speed>
+			<AttackSpeed>0</AttackSpeed>
+			<Defense>0</Defense>
+		</Stats>
+		
+		<Weapons>
+			<Sword>
+				<Damage>0</Damage>
+			</Sword>
+			<Boomerang>
+				<Damage>0</Damage>
+			</Boomerang>
+			<Arrow>
+				<Damage>0</Damage>
+			</Arrow>
+			<Bomb>
+				<Damage>0</Damage>
+			</Bomb>
+		</Weapons>
+	</link>
+
+	<!-- MASTER ROOM -->
+	<!-- 12 harmless stone statues -->
+	<!--no enemies, no items-->
+	<!-- north door is locked -->
+	<!-- 14 walkable water blocks (CONFIRM THE QUANTITY) -->
+	<Room number="1">
+		<Enemies>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">					
+					<!--locked room-->
+					<DestinationRoom>4</DestinationRoom>
+					<Locked>True</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<!--entry room-->
+					<DestinationRoom>-1</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>3</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>2</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+			<Blocks>
+				<WalkableWater quantity ="14">
+					<WalkableWater id="1" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="2" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="3" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="4" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="5" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="6" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="7" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="8" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="9" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="10" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="11" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="12" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="13" xLoc="0" yLoc="0"></WalkableWater>
+					<WalkableWater id="14" xLoc="0" yLoc="0"></WalkableWater>
+				</WalkableWater>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<StoneStatues numberOfStoneStatue="12">
+				<StoneStatue id="1" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="2" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="3" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="4" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="5" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="6" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="7" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="8" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="9" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="10" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="11" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="11" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+				<StoneStatue id="12" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+			</StoneStatues>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!-- 3 Keese enemies -->
+	<!-- 1 key -->
+	<Room number="2">
+		<Enemies>
+			<!--defeated with a single sword slash, sword beam, blue candle-->
+			<Keeses quantity ="3">
+				<Keese id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+			</Keeses>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+			<Doors>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>1</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Key xLoc="0" yLoc="0"></Key>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!-- 5 Stalfo enemies -->
+	<!-- 1 Stalfo holds a key -->
+	<!-- 12 water blocks-->
+	<Room number="3">
+		<Enemies>
+			<!--Easy to defeat with sword-->
+			<Stalfos quantity ="5">
+				<!-- Stalfo that holds a key -->
+				<Stalfo id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+						<DroppedItem Name="key" quantity="1"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="4" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="5" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+			</Stalfos>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+			<Doors>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>1</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+			<Blocks>
+				<WaterBlock quantity="12">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="9" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="10" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="11" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="12" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+
+	<!--3 Stalfo enemies-->
+	<!--6 water blocks-->
+	<Room number="4">
+		<Enemies>
+			<!--Easy to defeat with sword-->
+			<Stalfos quantity ="3">
+				<Stalfo id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+			</Stalfos>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>5</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>1</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+			<Blocks>
+				<WaterBlock quantity="6">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+
+	<!-- 5 Stalfo enemies -->
+	<!-- 1 Stalfo holds a key -->
+	<!-- 4 water blocks-->
+	<Room number="5">
+		<Enemies>
+			<!--Easy to defeat with sword-->
+			<Stalfos quantity ="5">
+				<!-- Stalfo that holds a key -->
+				<Stalfo id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+						<DroppedItem Name="key" quantity="1"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="4" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="5" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+			</Stalfos>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>9</DestinationRoom>
+					<!-- If you have bombs, blast to bypass a number of rooms-->
+					<Locked>True</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>4</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>6</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>7</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+				<WaterBlock quantity="4">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!--8 Keese enemies-->
+	<!--1 compass item-->
+	<!--secret wall to the north that blasts open with a bomb-->
+	<!-- 4 water blocks-->
+	<Room number="6">
+		<Enemies>
+			<!--defeated with a single sword slash, sword beam, blue candle-->
+			<Keeses quantity ="8">
+				<Keese id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="4" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="5" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="6" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="7" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="8" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+			</Keeses>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>13</DestinationRoom>
+					<!--secret wall-->
+					<Locked>True</Locked>
+				</Door>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>5</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+				<WaterBlock quantity="4">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Compass quantity="1"></Compass>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!--6 Keese enemies-->
+	<!--need to defeat all 6 Keese in order to return to the previous room-->
+	<!--use a key and head through the locked door ahead-->
+	<!--6 water blocks-->
+	<Room number="7">
+		<Enemies>
+			<!--defeated with a single sword slash, sword beam, blue candle-->
+			<Keeses quantity ="8">
+				<Keese id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="4" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="5" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+				<Keese id="6" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Keese>
+			</Keeses>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>8</DestinationRoom>
+					<Locked>True</Locked>
+				</Door>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>5</DestinationRoom>
+					<Locked>True</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+				<WaterBlock quantity="6">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	
+	<!--3 Gel enemies-->
+	<!--defeating 3 Gel enemies allows to push block in the center of the room-->
+	<!--after pushing block, it will unlock the secret door to the Old Man-->
+	<!-- 1 water block-->
+	<Room number="8">
+		<Enemies>
+			<!--defeated with virtually any weapon-->
+			<Gels quantity="3">
+				<Gel id="1" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+				<Gel id="2" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+				<Gel id="3" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+			</Gels>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="west" xLoc="0" yLoc="0"> 
+					<DestinationRoom>17</DestinationRoom> <!--secret: old man room-->
+					<Locked>True</Locked>
+				</Door>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>9</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+				<WaterBlock quantity="1">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+
+
+	<!--5 Gel enemies-->
+	<!--Dungeon Map item-->
+	<!-- 10 water blocks-->
+	<Room number="9">
+		<Enemies>
+			<!--defeated with virtually any weapon-->
+			<Gels quantity="5">
+				<Gel id="1" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+				<Gel id="2" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+				<Gel id="3" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+				<Gel id="4" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+				<Gel id="5" xLoc="" yLoc="">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Gel>
+			</Gels>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>10</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>13</DestinationRoom>
+					<Locked>True</Locked>
+				</Door>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>8</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>5</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+				<WaterBlock quantity="10">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="9" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="10" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<DungeonMap quantity="1"></DungeonMap>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	
+	
+	<!--3 Stalfo enemies-->
+	<!--1 key item-->
+	<!--46 water (VERIFIY AMOUNT-->
+	<Room number="10">
+		<Enemies>
+			<!--Easy to defeat with sword-->
+			<Stalfos quantity ="3">
+				<Stalfo id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+				<Stalfo id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					</Drops>
+				</Stalfo>
+			</Stalfos>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>11</DestinationRoom>
+					<Locked>True</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>9</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+			
+			<Blocks>
+				<Water quantity="46">
+					<Water id="1" xLoc="" yLoc=""></Water>
+					<Water id="2" xLoc="" yLoc=""></Water>
+					<Water id="3" xLoc="" yLoc=""></Water>
+					<Water id="4" xLoc="" yLoc=""></Water>
+					<Water id="5" xLoc="" yLoc=""></Water>
+					<Water id="6" xLoc="" yLoc=""></Water>
+					<Water id="7" xLoc="" yLoc=""></Water>
+					<Water id="8" xLoc="" yLoc=""></Water>
+					<Water id="9" xLoc="" yLoc=""></Water>
+					<Water id="10" xLoc="" yLoc=""></Water>
+					<Water id="11" xLoc="" yLoc=""></Water>
+					<Water id="12" xLoc="" yLoc=""></Water>
+					<Water id="13" xLoc="" yLoc=""></Water>
+					<Water id="14" xLoc="" yLoc=""></Water>
+					<Water id="15" xLoc="" yLoc=""></Water>
+					<Water id="16" xLoc="" yLoc=""></Water>
+					<Water id="17" xLoc="" yLoc=""></Water>
+					<Water id="18" xLoc="" yLoc=""></Water>
+					<Water id="19" xLoc="" yLoc=""></Water>
+					<Water id="20" xLoc="" yLoc=""></Water>
+					<Water id="21" xLoc="" yLoc=""></Water>
+					<Water id="22" xLoc="" yLoc=""></Water>
+					<Water id="23" xLoc="" yLoc=""></Water>
+					<Water id="24" xLoc="" yLoc=""></Water>
+					<Water id="25" xLoc="" yLoc=""></Water>
+					<Water id="26" xLoc="" yLoc=""></Water>
+					<Water id="27" xLoc="" yLoc=""></Water>
+					<Water id="28" xLoc="" yLoc=""></Water>
+					<Water id="29" xLoc="" yLoc=""></Water>
+					<Water id="30" xLoc="" yLoc=""></Water>
+					<Water id="31" xLoc="" yLoc=""></Water>
+					<Water id="32" xLoc="" yLoc=""></Water>
+					<Water id="33" xLoc="" yLoc=""></Water>
+					<Water id="34" xLoc="" yLoc=""></Water>
+					<Water id="35" xLoc="" yLoc=""></Water>
+					<Water id="36" xLoc="" yLoc=""></Water>
+					<Water id="37" xLoc="" yLoc=""></Water>
+					<Water id="38" xLoc="" yLoc=""></Water>
+					<Water id="39" xLoc="" yLoc=""></Water>
+					<Water id="40" xLoc="" yLoc=""></Water>
+					<Water id="41" xLoc="" yLoc=""></Water>
+					<Water id="42" xLoc="" yLoc=""></Water>
+					<Water id="43" xLoc="" yLoc=""></Water>
+					<Water id="44" xLoc="" yLoc=""></Water>
+					<Water id="45" xLoc="" yLoc=""></Water>
+					<Water id="46" xLoc="" yLoc=""></Water>
+				</Water>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<key quantity="1"></key>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+
+
+	<!--3 Goriya enemies-->
+	<!--1 key item-->
+	<!-- 24 water blocks (CONFIRM IT)-->
+	<Room number="11">
+		<Enemies>
+			<!--take multiple hits to defeat-->
+			<Goriyas quantity ="3">
+				<Goriya id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Goriya>
+				<Goriya id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Goriya>
+				<Goriya id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Goriya>
+			</Goriyas>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>12</DestinationRoom>
+					<Locked>True</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>10</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+				<Water quantity="24">
+					<Water id="1" xLoc="" yLoc=""></Water>
+					<Water id="2" xLoc="" yLoc=""></Water>
+					<Water id="3" xLoc="" yLoc=""></Water>
+					<Water id="4" xLoc="" yLoc=""></Water>
+					<Water id="5" xLoc="" yLoc=""></Water>
+					<Water id="6" xLoc="" yLoc=""></Water>
+					<Water id="7" xLoc="" yLoc=""></Water>
+					<Water id="8" xLoc="" yLoc=""></Water>
+					<Water id="9" xLoc="" yLoc=""></Water>
+					<Water id="10" xLoc="" yLoc=""></Water>
+					<Water id="11" xLoc="" yLoc=""></Water>
+					<Water id="12" xLoc="" yLoc=""></Water>
+					<Water id="13" xLoc="" yLoc=""></Water>
+					<Water id="14" xLoc="" yLoc=""></Water>
+					<Water id="15" xLoc="" yLoc=""></Water>
+					<Water id="16" xLoc="" yLoc=""></Water>
+					<Water id="17" xLoc="" yLoc=""></Water>
+					<Water id="18" xLoc="" yLoc=""></Water>
+					<Water id="19" xLoc="" yLoc=""></Water>
+					<Water id="20" xLoc="" yLoc=""></Water>
+					<Water id="21" xLoc="" yLoc=""></Water>
+					<Water id="22" xLoc="" yLoc=""></Water>
+					<Water id="23" xLoc="" yLoc=""></Water>
+					<Water id="24" xLoc="" yLoc=""></Water>
+				</Water>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<key quantity="1"></key>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!--4 Blade Traps-->
+	<!--1 staircase-->
+	<!-- 8 water blocks-->
+	<Room number="12">
+		<Enemies>
+			<!--CANNOT be defeated-->
+			<BladeTraps quantity="4">
+				<BladeTrap id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength> <!--not applicable-->
+						<Stamina>0</Stamina> 
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</BladeTrap>
+				<BladeTrap id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina><!--not applicable-->
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</BladeTrap>
+				<BladeTrap id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina><!--not applicable-->
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</BladeTrap>
+				<BladeTrap id="4" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina><!--not applicable-->
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</BladeTrap>
+			</BladeTraps>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>11</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+				<Staircase quantity="1" xLoc="" yLoc=""></Staircase>
+				<WaterBlock quantity="8">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+	
+	
+	<!--3 Goriya enemies-->
+	<!--1 boomerang item-->
+	<!--4 blocks-->
+	<Room number="13">
+		<Enemies>
+			<!--take multiple hits to defeat-->
+			<Goriyas quantity ="3">
+				<Goriya id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Goriya>
+				<Goriya id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Goriya>
+				<Goriya id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Goriya>
+			</Goriyas>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>9</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>14</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+				<WaterBlock quantity="4">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+				<Boomerang quantity="1" xLoc="0" yLoc="0">
+				</Boomerang>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!--3 Wallmaster enemies-->
+	<!--1 key item-->
+	<!-- 18 water blocks-->
+	<Room number="14">
+		<Enemies>
+			<Wallmaster quantity="3">
+				<!--if it grabs Link, it gets sent to Master/Main room 1-->
+				<Wallmaster id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Wallmaster>
+				<Wallmaster id="2" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Wallmaster>
+				<Wallmaster id="3" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+					</Drops>
+				</Wallmaster>
+			</Wallmaster>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>15</DestinationRoom>
+					<Locked>True</Locked>
+				</Door>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>13</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<key quantity="1"></key>
+			<WaterBlock quantity="18">
+				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="9" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="10" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="11" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="12" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="13" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="14" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="15" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="16" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="17" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="18" xLoc="0" yLoc="0"></WaterBlock>
+			</WaterBlock>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!--1 Aquamentus enemy-->
+	<!-- 20 water blocks-->
+	<Room number="15">
+		<Enemies>
+			<!--sword beam / slash head to defeat-->
+			<Aquamentus quantity="1">
+				<Aquamentus id="1" xLoc="0" yLoc="0">
+					<Stats>
+						<Health>0</Health>
+						<Strength>0</Strength>
+						<Stamina>0</Stamina>
+						<Damage>0</Damage>
+					</Stats>
+					<Drops>
+						<HeartContainer quantity="1" restore="50"></HeartContainer> <!-- increase overall life meter-->
+					</Drops>
+				</Aquamentus>
+			</Aquamentus>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>16</DestinationRoom>
+					<Locked>True</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>14</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+				<WaterBlock quantity="20">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="9" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="10" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="11" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="12" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="13" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="14" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="15" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="16" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="17" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="18" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="19" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="20" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+
+	<!--Triforce of Wisdom item-->
+	<!--no enemies-->
+	<!--24 water blocks-->
+	<Room number="16">
+		<Enemies>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>15</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+				<WaterBlock quantity="24">
+					<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="9" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="10" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="11" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="12" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="13" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="14" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="15" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="16" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="17" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="18" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="19" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="20" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="21" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="22" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="23" xLoc="0" yLoc="0"></WaterBlock>
+					<WaterBlock id="24" xLoc="0" yLoc="0"></WaterBlock>
+				</WaterBlock>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<TriforceOfWisdom quantity ="4" restore="100"></TriforceOfWisdom> <!--healed to full health & warped to room1-->
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+	<!--Secret room with old man-->
+	<!--no enemies, no items-->
+	<Room number="17">
+		<Enemies>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>8</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+			<Weapons>
+			</Weapons>
+		</Items>
+	</Room>
+
+</Level1>

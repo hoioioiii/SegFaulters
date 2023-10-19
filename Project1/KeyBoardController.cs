@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Project1.Commands;
 using static Project1.ICommand;
 
 namespace Project1
@@ -122,10 +123,25 @@ namespace Project1
             MOVE_MAP.Add(Keys.Right, new MoveRight());
             MOVE_MAP.Add(Keys.E, new TakeDamage());
             MOVE_MAP.Add(Keys.R, new QuitGame());
-            MOVE_MAP.Add(Keys.D1, new attackBoomerang());
-            MOVE_MAP.Add(Keys.D2, new attackBow());
+            //attack with boomerang and bow now uses I and U and bomb uses B
+            MOVE_MAP.Add(Keys.I, new attackBoomerang());
+            MOVE_MAP.Add(Keys.U, new attackBow());
+
+            MOVE_MAP.Add(Keys.D0, new displayArrow());
+            MOVE_MAP.Add(Keys.D1, new displayBomb());
+            MOVE_MAP.Add(Keys.D2, new displayBow());
+            MOVE_MAP.Add(Keys.D3, new displayClock());
+            MOVE_MAP.Add(Keys.D4, new displayFairy());
+            MOVE_MAP.Add(Keys.D5, new displayHeartContainer());
+            MOVE_MAP.Add(Keys.D6, new displayHeart());
+            MOVE_MAP.Add(Keys.D7, new displayKey());
+            MOVE_MAP.Add(Keys.D8, new displayMap());
+            MOVE_MAP.Add(Keys.D9, new displayRupee());
+            //more than numeric keys so moved to minus and plus keys
+            MOVE_MAP.Add(Keys.OemMinus, new displaySword());
+            MOVE_MAP.Add(Keys.OemPlus, new displayTriforce());
             /*
-            MOVE_MAP.Add(Keys.D0, new Item0());
+            MOVE_MAP.Add(Keys.D0, new displayArrow());
             MOVE_MAP.Add(Keys.D1, new Item1());
             MOVE_MAP.Add(Keys.D2, new Item2());
             MOVE_MAP.Add(Keys.D3, new Item3());
@@ -147,8 +163,10 @@ namespace Project1
             
             ITERATE_MAP.Add(Keys.T, new BlockPrevious());
             ITERATE_MAP.Add(Keys.Y, new BlockNext());
+            /*
             ITERATE_MAP.Add(Keys.I, new ItemIterateForwardCommand());
             ITERATE_MAP.Add(Keys.U, new ItemIterateBackCommand());
+            */
             ITERATE_MAP.Add(Keys.O, new EntityIterateBackCommand());
             ITERATE_MAP.Add(Keys.P, new EntityIterateForwardCommand());
 

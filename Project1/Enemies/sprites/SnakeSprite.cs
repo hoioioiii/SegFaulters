@@ -7,28 +7,22 @@ namespace Project1
 {
     public class SnakeSprite : ISprite
     {
-        private Texture2D[] Texture { get; set; }
+        private Texture2D[] Texture;
 
-        //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
 
-        //Columns is the number of columns in the alias
-        private int Columns { get; set; }
 
         //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private double current_frame { get; set; }
+        private double current_frame;
 
         //totalFrames keeps track of how many frames there are in total
-        private int total_frame { get; set; }
+        private int total_frame;
 
-        private int pos_x { get; set; }
-        private int pos_y { get; set; }
+        //factor all out into later classes
+        private int pos_x;
+        private int pos_y;
 
         private int width;
         private int height;
-
-        private int row;
-        private int col;
 
 
         private int elapsedTime;
@@ -41,22 +35,30 @@ namespace Project1
         private bool left;
 
 
+        /*
+         * Initalize snake
+         */
         public SnakeSprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
-            Rows = SNAKE_R;
-            Columns = SNAKE_C;
+            
             current_frame = START_FRAME;
-            total_frame = Rows * Columns;
-            pos_x = SPRITE_XE;
-            pos_y = SPRITE_YE;
+            total_frame = SNAKE_TOTAL;
+            pos_x = SPRITE_X_START;
+            pos_y = SPRITE_Y_START;
 
+
+            //factor out
             elapsedTime = 0;
             msecPerFrame = 300;
             left = true;
             Direction = 1;
             secTillDirChange = 1;
         }
+
+        /*
+         * Update snake
+         */
         public void Update()
         {
 
@@ -67,6 +69,9 @@ namespace Project1
 
         }
 
+        /*
+         * Animate snake
+         */
         public void UpdateFrames()
         {
             if (elapsedTime >= msecPerFrame)
@@ -78,6 +83,10 @@ namespace Project1
             if (current_frame >= total_frame)
                 current_frame = START_FRAME;
         }
+
+        /*
+         * Factor out to direction
+         */
         public void ChangeDirection()
         {
 
@@ -96,6 +105,11 @@ namespace Project1
                 START_FRAME = 0;
             }
         }
+
+
+        /*
+         * move snake
+         */
         public void Move()
         {
             if (secondsPassed >= secTillDirChange)
@@ -114,6 +128,9 @@ namespace Project1
 
         }
 
+        /*
+         * Animate snake
+         */
         private void Animate()
         {
 
@@ -124,6 +141,10 @@ namespace Project1
 
         }
 
+
+        /*
+         * Draw snake
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
             Animate();

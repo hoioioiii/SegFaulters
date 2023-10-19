@@ -12,7 +12,7 @@ namespace Project1
 
 
 
-    internal class Arrow2 : IWeaponMelee
+    internal class Arrow2 : IWeapon
     {
         private ISpriteWeapon sprite;
 

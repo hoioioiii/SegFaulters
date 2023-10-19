@@ -12,7 +12,7 @@ namespace Project1
 
 
 
-    internal class Bomb : IWeaponMelee
+    internal class Bomb : IWeapon
     {
         public Rectangle BoundingBox { get; set; }
 

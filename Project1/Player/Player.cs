@@ -22,6 +22,13 @@ namespace Project1
         private int positionX = 300;
         private int positionY = 300;
 
+        //Item inventory map
+        public static int[] itemInventory = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        //Dictionary<string, int> itemInventory = new Dictionary<string, int>() { {"arrow", 0}, { "bomb", 0 }, { "boomerang", 0 }, { "bow", 0 }, { "clock", 0 }, { "fairy", 0 }, { "heart", 0 }, { "heartContainer", 0 }, { "key", 0 }, { "map", 0 }, { "rupee", 0 }, { "sword", 0 }, { "triforce", 0 }};
+
+        //had to move this out of constants file due to it being an internal class
+        //public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12 };
+
         //Needed for link sprite to draw
         private static IPlayerSprite sprite;
         private static SpriteBatch sprBatch;
@@ -85,8 +92,8 @@ namespace Project1
         // link only has two frames of animation
         private static bool isSecondFrame = false;
 
-        private static IWeaponMelee weapon;
-        private static IWeaponMelee spriteWeapon;
+        private static IWeapon weapon;
+        private static IWeapon spriteWeapon;
 
         private static int onScreen;
 
@@ -141,6 +148,7 @@ namespace Project1
             linkAttackDown = content.Load<Texture2D>("linkAttackDown");
 
         }
+       
 
         //change the current frame to the next frame
         public static void Update(GameTime gameTime)
@@ -185,19 +193,19 @@ namespace Project1
                     isAttackingWithSword = true;
                     //sprite.Update(linkDirection, position);
                 }
-                else if (state.IsKeyDown(Keys.D1))
+                else if (state.IsKeyDown(Keys.I))
                 {
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBoomerang = true;
                 }
-                else if (state.IsKeyDown(Keys.D2))
+                else if (state.IsKeyDown(Keys.U))
                 {
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBow = true;
                 }
-                else if (state.IsKeyDown(Keys.D3))
+                else if (state.IsKeyDown(Keys.B))
                 {
                     // attack using his sword
                     isAttacking = true;
@@ -535,6 +543,18 @@ namespace Project1
         public static int getUserDirection()
         {
             return linkDirection;
+        }
+
+        public static void PickUpItem(ITEMS itemToAdd)
+        {
+            itemInventory[(int)itemToAdd]++;
+        }
+
+        public static void UseItem(ITEMS itemToDelete)
+        {
+            if(itemInventory[(int)itemToDelete] > 0) {
+                itemInventory[(int)itemToDelete]--;
+            }
         }
 
     }

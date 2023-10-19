@@ -12,7 +12,7 @@ namespace Project1
 
 
 
-    internal class Boomerange : IWeaponMelee
+    internal class Boomerange : IWeapon
     {
         private ISpriteWeapon sprite;
 

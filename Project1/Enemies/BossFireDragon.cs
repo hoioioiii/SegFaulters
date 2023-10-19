@@ -17,28 +17,18 @@ namespace Project1
 	{
         public Rectangle BoundingBox { get; set; }
 
-        //Remove later-------
-        private Game1 GameObject;
-        private ContentManager ContentLoad;
 
-        //Remove later above--------------
-
-
-        private IWeaponMelee weapon;
-        //Later create a animation tracker class:
-        private int WIDTH;
-        private int HEIGHT;
-        private int ROW;
-        private int COL;
-
-        //Movement:
-        private int POS_X;
-        private int POS_Y;
-
+        private IWeapon weapon;
+        
+        //May or may not keep
         private int timeAllowed;
         private ISprite sprite;
         private bool remainOnScreen;
         private int onScreen;
+
+        /*
+         * Initalize fire drag
+         */
         public BossFireDragon()
 		{
             timeAllowed = 1000;
@@ -47,25 +37,28 @@ namespace Project1
             weapon = new Orb();
             sprite = EnemySpriteFactory.Instance.CreateFireDragonSprite();
         }
+
+        /*
+         * Update Sprite
+         */
         public void Update()
         {
             sprite.Update();
 
-           
+           //May or may not keep
             if (remainOnScreen)
             {
                 weapon.Update();
             }
         }
 
-        private void Animate()
-        {
-        }
         public void Draw(SpriteBatch spriteBatch)
         {
             
             sprite.Draw(spriteBatch);
 
+
+            //Optomize this-----
             Attack();
 
             CheckOnScreen();
@@ -79,15 +72,17 @@ namespace Project1
                 onScreen = 0;
                 remainOnScreen = false;
             }
+            //optomize this later------
 
         }
 
+        //May or may not keep
         public void CheckTime()
         {
             onScreen += Game1.deltaTime.ElapsedGameTime.Milliseconds;
         }
 
-
+        //May or may not keep
         public void CheckOnScreen()
         {
             CheckTime();
@@ -107,24 +102,17 @@ namespace Project1
         }
 
         /*
-         * Responsible for loading the sprite image
+         * Drag Health
+         * Might change placement later
          */
-        public Texture2D Load()
-        {
-            //setFrames();
-            return ContentLoad.Load<Texture2D>(assetName: "FD");
-        }
-
-        public void Move()
-        {
-     
-        }
-
         public void Health()
         {
             throw new NotImplementedException();
         }
 
+        /*
+         * Fire Drag Attack
+         */
         public void Attack()
         {
             if (BossFireDragonSprite.newAttack)
@@ -135,6 +123,9 @@ namespace Project1
             }
         }
 
+        /*
+         * Drag item drop
+         */
         public void ItemDrop()
         {
             throw new NotImplementedException();

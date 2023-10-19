@@ -17,32 +17,14 @@ namespace Project1
 	{
         public Rectangle BoundingBox { get; set; }
         //Texture stores the texture alias for our animation
-        private Texture2D Texture { get; set; }
-
-        
-        //Remove later-------
-        private Game1 GameObject;
-        private ContentManager ContentLoad;
-
+        private Texture2D Texture;
         private ISprite sprite;
 
-        //Remove later above--------------
-
-
-
-        //Later create a animation tracker class:
-        private int WIDTH;
-        private int HEIGHT;
-        private int ROW;
-        private int COL;
-
-        //Movement:
-        private int POS_X;
-        private int POS_Y;
-
+        /*
+         * Initalize Boss Aqua Dragon
+         */
         public BossAquaDragon()
 		{
-          
             sprite = EnemySpriteFactory.Instance.CreateBossAquaDragonSprite();
         }
 
@@ -53,58 +35,15 @@ namespace Project1
         public void Update()
         {
             sprite.Update();
-            
-          
            
-            
         }
-
         /*
-        * 
-        * Ignore
-        */
-        private void Animate()
-        {
-
-        }
-
-        /*
-        * 
         * Draw
         */
         public void Draw(SpriteBatch spriteBatch)
         {
 
             sprite.Draw(spriteBatch);
-        }
-
-        /*
-         * Ignore
-         */
-        private void setFrames()
-        {
-       
-        }
-
-        /*
-         * ignore
-         */
-        public Texture2D Load()
-        {
-            /*
-            setFrames();
-            */
-            return ContentLoad.Load<Texture2D>(assetName: "AD");
-            
-        }
-        /*
-        * 
-        * ignore
-        */
-        public void Move()
-        {
-      
-
         }
 
         /*
@@ -118,7 +57,8 @@ namespace Project1
 
         /*
         * 
-        * ignore
+        * Have the Boss Aqua Dragon Attack
+        * Implement Later
         */
         public void Attack()
         {
@@ -127,7 +67,8 @@ namespace Project1
 
         /*
         * 
-        * ignore
+        * Have the Boss drop items
+        * Implement later
         */
         public void ItemDrop()
         {

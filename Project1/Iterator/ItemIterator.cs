@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static Project1.Constants;
 
 namespace Project1
 {
@@ -25,7 +26,7 @@ namespace Project1
         {
             //create iterator here  
             Load();
-            pointer = 0;
+            pointer = (int)ITEMS.Sword;
             GAME_OBJ = game1;
             Game1.Item = ENTITY[pointer];
         }
@@ -35,7 +36,7 @@ namespace Project1
             ENTITY = temp;
         }
         
-        public void Load()//this would not exist but instead call the enemy class
+        public void Load()
         {
             CreateList(texture2D);
         }
@@ -47,8 +48,9 @@ namespace Project1
 
         }
 
-        public static IItem getCurrEnemy(Boolean back)
+        public static IItem getCurrItem()
         {
+            /*
             if (back)
             {
                 moveBack();
@@ -57,8 +59,7 @@ namespace Project1
             {
                 moveForward();
             }
-
-
+            */
 
             return ENTITY[pointer];
         }

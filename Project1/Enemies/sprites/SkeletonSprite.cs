@@ -7,44 +7,53 @@ namespace Project1
 {
     public class SkeletonSprite : ISprite
     {
-        private Texture2D[] Texture { get; set; }
+        private Texture2D[] Texture;
 
-        //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
 
-        //Columns is the number of columns in the alias
-        private int Columns { get; set; }
 
         //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private int current_frame { get; set; }
+        private int current_frame;
 
         //totalFrames keeps track of how many frames there are in total
-        private int total_frame { get; set; }
+        private int total_frame;
 
-        private int pos_x { get; set; }
-        private int pos_y { get; set; }
+        //sprite position
+        private int pos_x;
+        private int pos_y;
 
+
+        //factor out
         private int width;
         private int height;
 
+        //factor out
         private int elapsedTime;
         private int msecPerFrame;
 
 
+        /*
+         * Initalize Skelly
+         */
         public SkeletonSprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
-            Rows = SKELETON_R;
-            Columns = SKELETON_C;
+            
             current_frame = START_FRAME;
-            total_frame = Rows * Columns;
-            pos_x = SPRITE_XE;
-            pos_y = SPRITE_YE;
+            total_frame = SKELETON_TOTAL;
+            pos_x = SPRITE_X_START;
+            pos_y = SPRITE_Y_START;
 
 
             elapsedTime = 0;
             msecPerFrame = 300;
+
+            width = Texture[current_frame].Width;
+            height = Texture[current_frame].Height;
         }
+
+        /*
+         * Update skelly
+         */
         public void Update()
         {
             elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
@@ -54,6 +63,9 @@ namespace Project1
 
         }
 
+        /*
+         * Animate Skelly
+         */
         public void UpdateFrames()
         {
             if (elapsedTime >= msecPerFrame)
@@ -66,6 +78,10 @@ namespace Project1
                 current_frame = START_FRAME;
         }
 
+
+        /*
+         * Move skelly
+         */
         public void Move()
         {
             int DIR_X = RandomMove.RandMove();
@@ -78,17 +94,11 @@ namespace Project1
 
         }
 
-        private void Animate()
-        {
-
-            width = Texture[current_frame].Width;
-            height = Texture[current_frame].Height;
-
-        }
-
+        /*
+         * Draw Skelly
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
-            Animate();
             Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[current_frame], DEST_REC, SOURCE_REC, Color.White);

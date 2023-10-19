@@ -54,82 +54,58 @@ namespace Project1
 
         public Jelly()
         {
-            //remove later:
-            /*
-            GameObject = Constants.GameObj;
-            ContentLoad = GameObject.Content;
-            Texture = Load();
-            POS_X = SPRITE_X;
-            POS_Y = SPRITE_Y;
-            */
+            
             sprite = EnemySpriteFactory.Instance.CreateJellySprite();
         }
+
+        /*
+         * Update the sprite
+         */
         public void Update()
         {
             sprite.Update();
            
         }
 
-        private void Animate()
-        {
-
-            //WIDTH = Texture.Width / Columns;
-            //HEIGHT = Texture.Height / Rows;
-
-            //ROW = (int)CURRENT_FRAME / Columns;
-            //COL = (int)CURRENT_FRAME % Columns;
-
-        }
+        /*
+         * Draw the sprite
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
 
             sprite.Draw(spriteBatch);
         }
 
-        /*
-         * Responsible for setting the the frame numbers(r,c) of the sprite
-         */
-        private void setFrames()
-        {
-            //Rows = JELLY_R;
-            //Columns = JELLY_C;
-            //CURRENT_FRAME = START_FRAME;
-            //TOTAL_FRAME = Rows * Columns;
-        }
 
         /*
-         * Responsible for loading the sprite image
+         * Move the sprite
          */
-        public Texture2D Load()
-        {
-            //setFrames();
-            return ContentLoad.Load<Texture2D>(assetName: "JELLY");
-        }
-
         public void Move()
         {
             sprite.Move();
-            //int DIR_X = RandomMove.RandMove();
-            //int DIR_Y = RandomMove.RandMove();
-
-            ////Add bounding constraints:
-
-            //POS_X += RandomMove.CheckBounds(DIR_X, POS_X, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            //POS_Y += RandomMove.CheckBounds(DIR_Y, POS_Y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-
 
         }
 
+        /*
+         * Sprite health -> later
+         */
         public void Health()
         {
             throw new NotImplementedException();
         }
 
+
+        /*
+         * Sprite attack -> later
+         */
         public void Attack()
         {
             throw new NotImplementedException();
         }
 
+        /*
+         * Sprite ItemDrop -> later
+         */
         public void ItemDrop()
         {
             throw new NotImplementedException();

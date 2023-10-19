@@ -40,38 +40,27 @@ namespace Project1
 
         private ISprite sprite;
 
-        //Remove later above--------------
-
-
-
-        //Later create a animation tracker class:
-        private int WIDTH;
-        private int HEIGHT;
-        private int ROW;
-        private int COL;
-
-        //Movement:
-        private int POS_X;
-        private int POS_Y;
-
+        /*
+         * Initalize Bat Features
+         */
         public Bat()
 		{
-            //remove later:
             sprite = EnemySpriteFactory.Instance.CreateBatSprite();
-       
 
         }
-        //change the current frame to the next frame
+
+        /*
+        * Update the Bat
+        */
         public void Update()
         {
             sprite.Update();
            
         }
 
-        private void Animate()
-        {
-           
-        }
+        /*
+         * Draw the Bat
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch);
@@ -79,42 +68,16 @@ namespace Project1
         }
 
         /*
-         * ignore
+         * Have Bat Attack
          */
-        private void setFrames()
-        {
-           
-        }
-
-        /*
-         * Remove later: ignore
-         */
-        public Texture2D Load()
-        {
-            
-            //setFrames();
-            return ContentLoad.Load<Texture2D>(assetName: "KEESE_BAT");
-           
-            
-        }
-
-        //ignore
-        public void Move()
-        {
-           
-
-        }
-
-        public void Health()
-        {
-            //Check health
-        }
-
         public void Attack()
         {
            //Attacks
         }
 
+        /*
+         * Have the Bat drop a Item
+         */
         public void ItemDrop()
         {
             //Items they drop
