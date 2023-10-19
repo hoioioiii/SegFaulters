@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Project1.Constants;
 
 namespace Project1
 {
@@ -21,7 +22,9 @@ namespace Project1
 
         public void Update();
 
-
+        public void Attack(int x, int y, Direction direct);
         public void Draw();
+
+        public bool finished();
     }
 }

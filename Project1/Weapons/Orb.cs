@@ -52,5 +52,25 @@ namespace Project1
         {
             throw new NotImplementedException();
         }
+
+        public void Update(int x, int y, Constants.Direction direct)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool finished()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Draw(int x, int y, Constants.Direction direct)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Attack(int x, int y, Constants.Direction direct)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

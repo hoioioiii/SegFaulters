@@ -20,6 +20,8 @@ namespace Project1
         public bool IsAlive();
 
         public void setIsAlive(bool update);
+        public void setNewAttack(bool update);
+        public bool startNewAttack();
 
     }
 }

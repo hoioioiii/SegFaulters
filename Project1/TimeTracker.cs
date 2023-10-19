@@ -18,6 +18,9 @@ namespace Project1
         private int movement_timeframe_sec;
         private int elapsed_move__sec;
         private int elapsedTime_milli;
+        private int attackDuration;
+        private int attackPerMovement;
+        private bool stopMoveTime;
 
         //bool to determine if object is weapon, might factor out to a subclass later
         private bool obj_weapon;
@@ -28,6 +31,14 @@ namespace Project1
             elapsedTime_sec = 0;
             obj_weapon = is_weapon;
 
+            //this is in milliseconds -> change out magic numbers later// may not be needed actually
+            attackDuration = 100;
+
+
+            //how long to move b4 commencing a attack -> change out magic numbers later
+            attackPerMovement = 100;
+
+            stopMoveTime = false;
         }
 
 
@@ -86,6 +97,17 @@ namespace Project1
             return false;
         }
 
+        public bool checkIfAttackTime()
+        {
+            if (elapsed_move__sec >= attackPerMovement)
+            {
+                elapsed_move__sec = 0;
+                stopMoveTime = true;
+                return true;
+            }
+            return false;
+        }
+
         //Set time for movement duration in 1 direction for wandering movement
         public void setRandMovementTimeFrame()
         {
@@ -95,7 +117,15 @@ namespace Project1
         //Keeps track of the time spent moving
         public void updateElapsedMoveTime()
         {
-            elapsed_move__sec += 1;
+            if(!stopMoveTime)
+            {
+                elapsed_move__sec += 1;
+            }
+        }
+
+        public void enableMoveTime()
+        {
+            stopMoveTime = false;
         }
     }
 }

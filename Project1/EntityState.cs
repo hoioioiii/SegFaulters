@@ -16,6 +16,7 @@ namespace Project1
 
         private bool moving;
 
+        private bool newAttack;
 
         public EntityState() { 
         
@@ -23,6 +24,7 @@ namespace Project1
             attacking = false;
             damaged = false;
             moving = true;
+            newAttack = false;
         }
         public bool IsAlive()
         {
@@ -64,6 +66,16 @@ namespace Project1
         public bool isDamaged()
         {
             return damaged;
+        }
+
+        public bool startNewAttack()
+        {
+            return newAttack;
+        }
+
+        public void setNewAttack(bool update)
+        {
+            newAttack = update;
         }
     }
 }
