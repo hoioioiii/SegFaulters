@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Project1.Collision_Response;
+using Project1.Weapons;
 using System;
 using System.Collections.Generic;
 using System.Numerics;

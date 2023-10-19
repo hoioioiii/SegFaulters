@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
   <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/fairy1.png</SourceFile>
   <SourceTime>2023-10-01T05:11:11.5078719-04:00</SourceTime>
   <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/fairy1.xnb</DestFile>
-  <DestTime>2023-10-16T20:03:04.6044408-04:00</DestTime>
-=======
-  <SourceFile>/Users/dm/Projects/DrishtiTest/SegFaulters/Project1/Content/fairy1.png</SourceFile>
-  <SourceTime>2023-10-13T23:25:22.3814533-04:00</SourceTime>
-  <DestFile>/Users/dm/Projects/DrishtiTest/SegFaulters/Project1/Content/bin/DesktopGL/Content/fairy1.xnb</DestFile>
-  <DestTime>2023-10-14T05:19:45.9901513-04:00</DestTime>
->>>>>>> Sprint3-Master
+  <DestTime>2023-10-18T23:57:27.4276603-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
