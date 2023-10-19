@@ -17,6 +17,7 @@ namespace Project1.Collision_Response
             // TODO: CHANGE TO ENEMY POSITION!
             Vector2 enemyPosition = new Vector2(0 ,0);
             enemyPosition = AllCollisionResponse.Knockback(enemyPosition, direction, knockbackDistance);
+            // TODO: Change enemy direction
         }
 
         /*
@@ -28,7 +29,6 @@ namespace Project1.Collision_Response
             Vector2 enemyPosition = new Vector2(0, 0);
             enemyPosition = AllCollisionResponse.Knockback(enemyPosition, direction, knockbackDistance);
             AllCollisionResponse.ApplyDamage();
-
         }
         #endregion
     }

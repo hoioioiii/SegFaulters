@@ -43,6 +43,7 @@ namespace Project1.Collision
         }
 
         /*
+         * Not until sprint4
          * Lower health variable of Link or enemy
          * Apply temporary invincibility so the entity can't take every frame
          * Are there different damage amounts from different damage sources?
