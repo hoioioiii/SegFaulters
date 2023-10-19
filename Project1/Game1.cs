@@ -66,7 +66,7 @@ namespace Project1
         //optomize, clean and fix
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            // Add your initialization logic here
             KeyboardState state = Keyboard.GetState();
             ControllerList = new ArrayList();
             ControllerList.Add(new KeyBoardController(this));
@@ -132,7 +132,7 @@ namespace Project1
                 controller.Update();
             }
             deltaTime = gameTime;
-            // TODO: Add your update logic here
+            // Add your update logic here
             Player.Update(gameTime);
             //HealthBarSprite.Update();
             //HealthBarSprite.HealthDamage(1);

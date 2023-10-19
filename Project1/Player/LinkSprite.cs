@@ -17,6 +17,7 @@ namespace Project1
         private Texture2D[] currentFrames = new Texture2D[PLAYER_FRAMES];
 
         private static Vector2 position;
+        private Rectangle rect;
 
         //Initialize Link's frame
         public LinkSprite(Texture2D[] still, Texture2D[] move, Texture2D[] attack)
@@ -59,7 +60,7 @@ namespace Project1
 
             DEST_REC = new Rectangle((int)position.X, (int)position.Y, currentFrames[direction].Width * spriteScale, currentFrames[direction].Height * spriteScale);
             SOURCE_REC = new Rectangle(0, 0, currentFrames[direction].Width, currentFrames[direction].Height);
-
+            rect = DEST_REC;
             sprBatch.Draw(currentFrames[direction], DEST_REC, SOURCE_REC, Color.White);
         }
 
@@ -92,5 +93,12 @@ namespace Project1
             }
             
         }
+
+        public Rectangle getRectangle()
+        {
+            return rect;
+
+        }
+
     }
 }

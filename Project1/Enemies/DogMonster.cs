@@ -15,6 +15,9 @@ namespace Project1
 {
 	public class DogMonster : IEntity
 	{
+        public Rectangle BoundingBox => getPositionAndRectangle();
+        //Texture stores the texture alias for our animation
+        
 
         private ISprite sprite;
 

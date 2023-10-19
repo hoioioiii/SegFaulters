@@ -15,7 +15,7 @@ namespace Project1
 {
     public class BossAquaDragon : IEntity
 	{
-
+        public Rectangle BoundingBox => getPositionAndRectangle();
         //Texture stores the texture alias for our animation
         private Texture2D Texture;
         private ISprite sprite;
@@ -76,7 +76,7 @@ namespace Project1
         }
 
 
-        public Rectangle getPositionAndRectangle()
+        private Rectangle getPositionAndRectangle()
         {
             return sprite.GetRectangle().Item2;
 

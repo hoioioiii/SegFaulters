@@ -15,9 +15,10 @@ namespace Project1
 {
     public class Skeleton : IEntity
 	{
+       
 
         private ISprite sprite;
-
+        public Rectangle BoundingBox => getPositionAndRectangle();
 
         /*
          * Initalize skeleton

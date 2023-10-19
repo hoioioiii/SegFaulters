@@ -9,5 +9,7 @@ namespace Project1
         void Update();
         public void Draw(SpriteBatch spriteBatch);
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale);
+
+        public Rectangle getRect();
     }
 }

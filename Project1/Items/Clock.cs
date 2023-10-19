@@ -18,7 +18,7 @@ namespace Project1
     public class Clock : IItem
     {
         private IItemSprite sprite;
-
+        public Rectangle BoundingBox => getRectangle();
         public Clock()
         {
             sprite = ItemSpriteFactory.Instance.CreateClockSprite();
@@ -36,6 +36,10 @@ namespace Project1
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
         {
             sprite.Draw(spriteBatch, location, spriteScale);
+        }
+        private Rectangle getRectangle()
+        {
+            return sprite.getRect();
         }
     }
 }

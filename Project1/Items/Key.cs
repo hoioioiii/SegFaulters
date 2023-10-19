@@ -18,6 +18,7 @@ namespace Project1
     public class Key : IItem
     {
         private IItemSprite sprite;
+        public Rectangle BoundingBox => getRectangle();
 
         public Key()
         {
@@ -37,6 +38,10 @@ namespace Project1
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
         {
             sprite.Draw(spriteBatch, location, spriteScale);
+        }
+        private Rectangle getRectangle()
+        {
+            return sprite.getRect();
         }
     }
 }

@@ -15,7 +15,8 @@ namespace Project1
 {
 	public class BossFireDragon : IEntity
 	{
-
+       
+        public Rectangle BoundingBox => getPositionAndRectangle();
 
         private IWeapon weapon;
         

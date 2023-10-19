@@ -12,7 +12,7 @@ namespace Project1
 {
     internal class Sword : IWeapon
     {
-
+        public Rectangle BoundingBox { get; set; }
         private String userState;
         private String weaponState;
 
@@ -118,6 +118,11 @@ namespace Project1
         }
 
         public void Draw()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
         {
             throw new NotImplementedException();
         }

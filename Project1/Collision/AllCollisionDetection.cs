@@ -22,7 +22,7 @@ namespace Project1.Collision
          */
 
         // player and enemy rects, the latter is a list
-        List<IEnemy> enemyRects = new List<IEnemy>();
+        List<IEntity> enemyRects = new List<IEntity>();
         //List<Rectangle> enemyRects = new List<Rectangle>();
 
         Player link;

@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1
@@ -14,6 +15,9 @@ namespace Project1
     internal class Orb : IWeapon
     {
         private ISpriteWeapon sprite;
+
+        public Rectangle BoundingBox { get; set; }
+
         public Orb()
         {
             sprite = WeaponSpriteFactory.Instance.CreateOrbSprite();
@@ -49,6 +53,11 @@ namespace Project1
         }
 
         public void DetermineWeaponState()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
         {
             throw new NotImplementedException();
         }
