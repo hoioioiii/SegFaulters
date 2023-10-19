@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/bat1.png</SourceFile>
-  <SourceTime>2023-10-17T20:09:27.5051185-04:00</SourceTime>
-  <DestFile>C:/Users/Jachi/source/repos/SegFaulters/Project1/Content/bin/DesktopGL/Content/bat1.xnb</DestFile>
-  <DestTime>2023-10-17T22:33:49.9582148-04:00</DestTime>
+  <SourceFile>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/bat1.png</SourceFile>
+  <SourceTime>2023-10-14T18:29:00.6067286-04:00</SourceTime>
+  <DestFile>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/bin/DesktopGL/Content/bat1.xnb</DestFile>
+  <DestTime>2023-10-19T15:38:44.5111483-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
