@@ -8,6 +8,7 @@ namespace Project1
 {
     internal class DirectionManager
     {
+        //may delete this class later
 
         public static int FourDirMove(int pos, int direction)
         {

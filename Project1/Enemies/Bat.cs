@@ -15,10 +15,10 @@ using System.Diagnostics;
 
 namespace Project1
 {
-	public class Bat : IEnemy
+	public class Bat : IEntity
 	{
         private ISprite sprite;
-
+        
         /*
          * Initalize Bat Features
          */
@@ -62,8 +62,18 @@ namespace Project1
             //Items they drop
         }
 
+        //fix later
+        public Rectangle getPositionAndRectangle()
+        {
+            return sprite.GetRectangle().Item2;
 
+        }
 
+        public void setPosition(int x, int y)
+        {
+           sprite.setPos(x, y);
+
+        }
     }
 }
 

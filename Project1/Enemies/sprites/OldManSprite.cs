@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.Enemies;
 using static Project1.Constants;
 
 namespace Project1
@@ -11,66 +12,93 @@ namespace Project1
 
 
 
-        //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private int current_frame;
-
-        
-
-        private int pos_x;
-        private int pos_y;
-
-        private int width;
-        private int height;
-
-    
+        private IDirectionStateManager direction_state_manager;
+        private IAnimation animation_manager;
+        private ITime time_manager;
+        private IMove movement_manager;
+        private IEntityState state_manager;
+        private (Rectangle, Rectangle) rectangles;
         /*
          * Initalize old man
          */
         public OldManSprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
-         
-            
-            current_frame = START_FRAME;
-         
-            pos_x = SPRITE_X_START;
-            pos_y = SPRITE_Y_START;
-            width = Texture[current_frame].Width;
-            height = Texture[current_frame].Height;
+
+            //replace starting direction based on lvl loader info
+            direction_state_manager = new DirectionStateEnemy(Direction.Up);
+            time_manager = new TimeTracker(false);
+            animation_manager = new Animation(0, MERCHANT_TOTAL, time_manager, direction_state_manager);
+            state_manager = new EntityState();
+            //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
+            movement_manager = new Movement(direction_state_manager, this, time_manager, SPRITE_X_START, SPRITE_Y_START, 0);
+
+
         }
+
         /*
-         * Update Old man->Maybe?
+         * Update Boss's animation and movement
          */
         public void Update()
         {
             Move();
+            UpdateFrames();
+
+        }
+
+        /*
+         * Update Boss's frames
+         */
+        public void UpdateFrames()
+        {
+            animation_manager.Animate();
         }
 
 
         /*
-         * Maybe.....
+         * Move the boss
          */
         public void Move()
         {
-            int DIR_X = RandomMove.RandMove();
-            int DIR_Y = RandomMove.RandMove();
-
-            //Add bounding constraints:
-            pos_x += RandomMove.CheckBounds(DIR_X, pos_x, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            pos_y += RandomMove.CheckBounds(DIR_Y, pos_y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-
-
+            //Movement will be fixed
+            //Movement.HorizontalMovement(direction_state_manager, this, Direction.Right);
         }
 
         /*
-         * Draw the sprite
+         * Draw the Boss
          */
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
-            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+            setRectangles();
+            spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
+        }
+
+        public void setRectangles()
+        {
+            int x = movement_manager.getPosition().Item1;
+            int y = movement_manager.getPosition().Item2;
+            int height = Texture[animation_manager.getCurrentFrame()].Height;
+            int width = Texture[animation_manager.getCurrentFrame()].Width;
+            rectangles.Item1 = new Rectangle(1, 1, width, height);
+            rectangles.Item2 = new Rectangle(x, y, width, height);
+        }
+
+
+        public void setPos(int x, int y)
+        {
+            movement_manager.setPosition(x, y);
+        }
+
+        public (int, int) getPos()
+        {
+            return movement_manager.getPosition();
+        }
+
+        public (Rectangle, Rectangle) GetRectangle()
+        {
+            return rectangles;
         }
     }
 }
+
 

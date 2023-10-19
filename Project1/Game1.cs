@@ -26,13 +26,13 @@ namespace Project1
         // not used because I made the methods in player public static
         //public Player player
 
-        private IHealth HealthBarSprite;
+        //private IHealth HealthBarSprite;
 
 
         public static ContentManager ContentManager1;
         public static Game1 Game;
 
-        public static IEnemy ENEMY;
+        public static IEntity ENEMY;
         public static IItem Item;
 
         //Example code for how to create a item in the environment:
@@ -43,9 +43,9 @@ namespace Project1
 
         public Game1()
         {
-            
+
+
             _graphics = new GraphicsDeviceManager(this);
-            
             Content.RootDirectory = "Content";
             contentLoader = Content;
             IsMouseVisible = true;
@@ -58,13 +58,12 @@ namespace Project1
 
         }
 
+        
         public void Quit() => Exit();
 
 
-        //void Quit() => Exit();
 
-
-
+        //optomize, clean and fix
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
@@ -96,6 +95,7 @@ namespace Project1
             base.Initialize();
         }
 
+        //clean
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -123,6 +123,8 @@ namespace Project1
             Player.LoadContent(Content);
         }
 
+
+        //clean up
         protected override void Update(GameTime gameTime)
         {
             foreach (IController controller in ControllerList)
@@ -144,6 +146,8 @@ namespace Project1
             base.Update(gameTime);
         }
 
+
+        //fix later
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);

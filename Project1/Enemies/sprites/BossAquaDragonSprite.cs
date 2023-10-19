@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.Enemies;
 using static Project1.Constants;
 
 namespace Project1
@@ -9,39 +10,31 @@ namespace Project1
     {
         private Texture2D[] Texture;
 
-        //currentFrame is used to keep track of which frame of the animation we are currently on
-        private int current_frame;
-
-        //Keeps track of current position
-        private int pos_x;
-        private int pos_y;
-
-        //Width and Height of sprite frame
-        private int width;
-        private int height;
-
-        //Time used for animation..factor into animation class later
-        private int elapsedTime;
-        private int msecPerFrame;
 
 
+        private IMove movement_manager;
+        private IDirectionStateManager direction_state_manager;
+        private IAnimation animation_manager;
+        private ITime time_manager;
+        private IEntityState state_manager;
+
+        private (Rectangle, Rectangle) rectangles;
         /*
          * Initalize Boss Aqua Dragon
          */
         public BossAquaDragonSprite(Texture2D[] spriteSheet)
 		{
             Texture = spriteSheet;
-           
-            current_frame = START_FRAME;
-           
-            pos_x = SPRITE_X_START;
-            pos_y = SPRITE_Y_START;
 
-            elapsedTime = 0;
-            msecPerFrame = 300;
+            //replace starting direction based on lvl loader info
+            direction_state_manager = new DirectionStateEnemy(Direction.Up);
+            time_manager = new TimeTracker(false);
+            animation_manager = new Animation(0, AQUA_TOTAL, time_manager, direction_state_manager);
+            state_manager = new EntityState();
 
-            width = Texture[current_frame].Width;
-            height = Texture[current_frame].Height;
+            //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
+            movement_manager = new Movement(direction_state_manager, this, time_manager, SPRITE_X_START, SPRITE_Y_START, 0);
+          
 
         }
 
@@ -50,8 +43,6 @@ namespace Project1
          */
         public void Update()
         {
-            elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-
             Move();
             UpdateFrames();
 
@@ -62,14 +53,7 @@ namespace Project1
          */
         public void UpdateFrames()
         {
-            if (elapsedTime >= msecPerFrame)
-            {
-                elapsedTime -= msecPerFrame;
-                current_frame += 1;
-            }
-
-            if (current_frame >= AQUA_TOTAL)
-                current_frame = START_FRAME;
+            animation_manager.Animate();
         }
 
 
@@ -78,14 +62,8 @@ namespace Project1
          */
         public void Move()
         {
-            int DIR_X = RandomMove.RandMove();
-            int DIR_Y = RandomMove.RandMove();
-
-            //Add bounding constraints:
-            pos_x += RandomMove.CheckBounds(DIR_X, pos_x, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            pos_y += RandomMove.CheckBounds(DIR_Y, pos_y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-
-
+            //Movement will be fixed
+            movement_manager.HorizontalMovement(Direction.Left);
         }
 
         /*
@@ -93,10 +71,35 @@ namespace Project1
          */
         public void Draw(SpriteBatch spriteBatch)
         {
-            //Factor into draw class later
-            Rectangle SOURCE_REC = new Rectangle(1, 1 , width, height);
-            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
+            setRectangles();
+            spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
+        }
+        
+        
+        public void setRectangles()
+        {
+            int x = movement_manager.getPosition().Item1;
+            int y = movement_manager.getPosition().Item2;
+            int height = Texture[animation_manager.getCurrentFrame()].Height;
+            int width = Texture[animation_manager.getCurrentFrame()].Width;
+            rectangles.Item1 = new Rectangle(1, 1, width, height);
+            rectangles.Item2 = new Rectangle(x, y, width, height);
+        }
+
+
+        public void setPos(int x, int y)
+        {
+            movement_manager.setPosition(x, y);
+        }
+
+        public (int, int) getPos()
+        {
+            return movement_manager.getPosition();
+        }
+
+        public (Rectangle, Rectangle) GetRectangle()
+        {
+            return rectangles;
         }
     }
 }

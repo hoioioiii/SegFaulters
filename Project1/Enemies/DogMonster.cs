@@ -13,7 +13,7 @@ using System.Collections;
 using static Project1.Constants;
 namespace Project1
 {
-	public class DogMonster : IEnemy
+	public class DogMonster : IEntity
 	{
 
         private ISprite sprite;
@@ -67,6 +67,21 @@ namespace Project1
         public void ItemDrop()
         {
             throw new NotImplementedException();
+        }
+
+
+
+
+        public Rectangle getPositionAndRectangle()
+        {
+            return sprite.GetRectangle().Item2;
+
+        }
+
+        public void setPosition(int x, int y)
+        {
+            sprite.setPos(x, y);
+
         }
     }
 }

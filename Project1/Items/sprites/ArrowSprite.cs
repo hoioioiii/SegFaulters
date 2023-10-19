@@ -5,31 +5,28 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    public class ArrowSprite : IItemSprite
+    public class ArrowSprite : ISprite
     {
         private Texture2D[] Texture { get; set; }
 
         //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
+        private int Rows;
 
         //Columns is the number of columns in the alias
-        private int Columns { get; set; }
+        private int Columns;
 
         //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private int current_frame { get; set; }
+        private int current_frame;
 
         //totalFrames keeps track of how many frames there are in total
-        private int total_frame { get; set; }
+        private int total_frame;
 
-        private int pos_x { get; set; }
-        private int pos_y { get; set; }
-
-        private static Vector2 position;
-
+        private int pos_x;
+        private int pos_y;
 
         private int width;
         private int height;
-
+        private (Rectangle, Rectangle) rectangles;
 
         public ArrowSprite(Texture2D[] spriteSheet)
         {
@@ -40,8 +37,6 @@ namespace Project1
             total_frame = Rows * Columns;
             pos_x = SPRITE_X;
             pos_y = SPRITE_Y;
-
-            position = Player.getUserPos();
         }
 
         /*
@@ -49,9 +44,11 @@ namespace Project1
         */
         public void Update()
         {
-
+            
             //Move();
-            position = Player.getUserPos();
+            //current_frame += FRAME_SPD;
+            //if (current_frame >= total_frame)
+            //    current_frame = START_FRAME;
         }
 
         /*
@@ -59,20 +56,13 @@ namespace Project1
          */
         public void Move()
         {
-            int DIR_X = RandomMove.RandMove();
-            int DIR_Y = RandomMove.RandMove();
-
-            //Add bounding constraints:
-            pos_x += RandomMove.CheckBounds(DIR_X, pos_x, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            pos_y += RandomMove.CheckBounds(DIR_Y, pos_y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-
-
+           
         }
 
         /*
          * Sprite Animation
          */
-        private void setDimention()
+        private void Animate()
         {
 
             width = Texture[(int)current_frame].Width;
@@ -85,20 +75,30 @@ namespace Project1
         */
         public void Draw(SpriteBatch spriteBatch)
         {
-            setDimention();
-            Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
-            Rectangle DEST_REC = new Rectangle((int)position.X, (int)position.Y, width, height);
-            spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+            setRectangles();
+            spriteBatch.Draw(Texture[current_frame], rectangles.Item2, rectangles.Item1, Color.White);
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 location, int scale)
+        public void setPos(int x, int y)
         {
-            setDimention();
-            Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
-            Rectangle DEST_REC = new Rectangle((int)location.X, (int)location.Y, width * scale, height * scale);
-            spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+            pos_x = x; pos_y = y;
         }
 
+        public (int, int) getPos()
+        {
+            return (pos_x, pos_y);
+        }
+
+        public void setRectangles()
+        {
+            rectangles.Item1 = new Rectangle(1, 1, width, height);
+            rectangles.Item2 = new Rectangle(pos_x, pos_y, width, height);
+        }
+
+        public (Rectangle, Rectangle) GetRectangle()
+        {
+            return rectangles;
+        }
     }
 }
 

@@ -13,7 +13,7 @@ using System.Collections;
 using static Project1.Constants;
 namespace Project1
 {
-    public class BossAquaDragon : IEnemy
+    public class BossAquaDragon : IEntity
 	{
 
         //Texture stores the texture alias for our animation
@@ -74,6 +74,22 @@ namespace Project1
         {
             throw new NotImplementedException();
         }
+
+
+        public Rectangle getPositionAndRectangle()
+        {
+            return sprite.GetRectangle().Item2;
+
+        }
+
+        public void setPosition(int x, int y)
+        {
+            sprite.setPos(x, y);
+
+        }
+
+
+
     }
 }
 
