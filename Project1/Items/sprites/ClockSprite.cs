@@ -44,8 +44,6 @@ namespace Project1
         }
         public void Update()
         {
-
-            //Move();
             position = Player.getUserPos();
         }
 
@@ -57,6 +55,7 @@ namespace Project1
 
         }
 
+        // draw in Link's inventory
         public void Draw(SpriteBatch spriteBatch)
         {
             setDimention();
@@ -65,6 +64,7 @@ namespace Project1
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
+        // draw inside level loader
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int scale)
         {
             setDimention();

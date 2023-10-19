@@ -38,8 +38,6 @@ namespace Project1
         }
         public void Update()
         {
-
-            //Move();
             position = Player.getUserPos();
             current_frame += FRAME_SPD;
             if (current_frame >= total_frame)
@@ -48,12 +46,12 @@ namespace Project1
 
         private void setDimention()
         {
-
             width = Texture[(int)current_frame].Width;
             height = Texture[(int)current_frame].Height;
 
         }
 
+        // draw inside Link's inventory
         public void Draw(SpriteBatch spriteBatch)
         {
             setDimention();
@@ -62,6 +60,7 @@ namespace Project1
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
+        // draw inside level loader
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int scale)
         {
             setDimention();

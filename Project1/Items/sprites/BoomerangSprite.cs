@@ -42,35 +42,19 @@ namespace Project1
 
             position = Player.getUserPos();
         }
-
-        /*
-        * 
-        * update
-        */
         public void Update()
         {
-
-            //Move();
             position = Player.getUserPos();
 
         }
 
-       
-        /*
-        * animate
-        * 
-        */
         private void setDimention()
         {
-
             width = Texture[(int)current_frame].Width;
             height = Texture[(int)current_frame].Height;
-
         }
-        /*
-        * 
-        * draw
-        */
+
+        // draw in Link's inventory
         public void Draw(SpriteBatch spriteBatch)
         {
             setDimention();
@@ -79,6 +63,7 @@ namespace Project1
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
+        // draw inside level loader
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int scale)
         {
             setDimention();
@@ -86,7 +71,6 @@ namespace Project1
             Rectangle DEST_REC = new Rectangle((int)location.X, (int)location.Y, width * scale, height * scale);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
-
     }
 }
 
