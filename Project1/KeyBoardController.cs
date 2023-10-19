@@ -120,6 +120,7 @@ namespace Project1
             //weapon attacks
             MOVE_MAP.Add(Keys.I, new attackBoomerang());
             MOVE_MAP.Add(Keys.U, new attackBow());
+
             //list of items to be displayed
             MOVE_MAP.Add(Keys.D0, new displayArrow());
             MOVE_MAP.Add(Keys.D1, new displayBomb());

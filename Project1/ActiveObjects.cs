@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Project1.Collision;
 
 namespace Project1
 {
@@ -13,6 +14,9 @@ namespace Project1
         private List<IItem>items;
         private List<IEntity> entities;
         private List<IWeapon> weapons;
+        private List<IDoor> doors;
+        private List<IEnvironment> blocks;
+        private List<Rectangle> walls;
         private Player link;
         
 
@@ -20,7 +24,10 @@ namespace Project1
             items = new List<IItem>();
             entities = new List<IEntity>();
             weapons = new List<IWeapon>();
-            
+            doors = new List<IDoor>();
+            blocks = new List<IEnvironment>();
+            walls = new List<Rectangle>();
+         
         }
 
         public void addLink(Player link)
@@ -31,6 +38,20 @@ namespace Project1
         public void addNewEntity(IEntity entity)
         {
             entities.Add(entity);
+        }
+
+        public void addNewWall(Rectangle wall)
+        {
+            walls.Add(wall);
+        }
+        public void addNewEnvironment(IEnvironment block)
+        {
+            blocks.Add(block);
+        }
+
+        public void addDoors(IDoor door)
+        {
+            doors.Add(door);
         }
 
         public void addNewItem(IItem item)
@@ -60,6 +81,24 @@ namespace Project1
         {
             return items;
         }
+
+        public List<IEnvironment> getEnvironmentList()
+        {
+            return blocks;
+        }
+        public List<IDoor> getDoorList()
+        {
+            return doors;
+        }
+
+        public List<Rectangle> getBoundarys()
+        {
+            return walls;
+        }
+
+
+
+
 
         public List<IWeapon> getWeaponList()
         {
@@ -92,8 +131,7 @@ namespace Project1
 
             UpdatePlayer();
 
-
-
+            AllCollisionDetection.DetectCollision(this);
         }
 
         private void UpdatePlayer()
