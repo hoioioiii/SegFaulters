@@ -2,9 +2,7 @@
 <Level1 levelName="The Eagle">
 	<Room number = "1">
 		<Enemies>
-			<Stalfos quantity ="2">
-				<!-- Stalfo that holds a key -->
-				<Stalfo id="1" xLoc="0" yLoc="0">
+				<Stalfo id="1" xLoc="6" yLoc="9">
 					<Stats>
 						<Health>0</Health>
 						<Strength>0</Strength>
@@ -17,7 +15,7 @@
 						<DroppedItem Name="key" quantity="1"></DroppedItem>
 					</Drops>
 				</Stalfo>
-				<Stalfo id="2" xLoc="0" yLoc="0">
+				<Stalfo id="2" xLoc="3" yLoc="2">
 					<Stats>
 						<Health>0</Health>
 						<Strength>0</Strength>
@@ -29,19 +27,16 @@
 						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
 					</Drops>
 				</Stalfo>
-			</Stalfos>
 		</Enemies>
 		<Environment>
 			<Walls>
 			</Walls>
 			<Doors>
 				<Door id="north" xLoc="0" yLoc="0">					
-					<!--locked room-->
 					<DestinationRoom>4</DestinationRoom>
 					<Locked>True</Locked>
 				</Door>
 				<Door id="south" xLoc="0" yLoc="0">
-					<!--entry room-->
 					<DestinationRoom>-1</DestinationRoom>
 					<Locked>False</Locked>
 				</Door>
@@ -55,14 +50,12 @@
 				</Door>
 			</Doors>
 			<Blocks>
-				<WalkableWater quantity ="2">
-					<WalkableWater id="1" xLoc="0" yLoc="0"></WalkableWater>
-					<WalkableWater id="2" xLoc="0" yLoc="0"></WalkableWater>
-				</WalkableWater>
+				<WalkableWater id="1" xLoc="2" yLoc="4"></WalkableWater>
+				<WalkableWater id="2" xLoc="4" yLoc="5"></WalkableWater>
 			</Blocks>
 		</Environment>
 		<Items>
-			<StoneStatues numberOfStoneStatue="12">
+			<StoneStatues numberOfStoneStatue="2">
 				<StoneStatue id="1" xLoc="0" yLoc="0" damage="0"></StoneStatue>
 				<StoneStatue id="2" xLoc="0" yLoc="0" damage="0"></StoneStatue>
 			</StoneStatues>
@@ -72,6 +65,19 @@
 	</Room>
 	<Room number = "2">
 		<Enemies>
+			<BigDragon id="1" xLoc="2" yLoc="1">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="bomba" quantity="0"></DroppedItem>
+					<DroppedItem Name="tuba" quantity="0"></DroppedItem>
+					<DroppedItem Name="pencil" quantity="1"></DroppedItem>
+				</Drops>
+			</BigDragon>
 		</Enemies>
 		<Environment>
 			<Walls>
