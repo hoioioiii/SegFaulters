@@ -59,9 +59,6 @@ namespace Project1.Enemies.sprites
         public void Attack()
         {
             //Check if enemy is currently attacking:
-            //Yes:
-                //
-
 
             //No:
             //We need to check the attack timer to see if we need to attack now

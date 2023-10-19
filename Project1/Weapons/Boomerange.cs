@@ -28,8 +28,6 @@ namespace Project1
             sprite.Attack();
 
         }
-
-
         /*
          * Update
          */
@@ -37,8 +35,6 @@ namespace Project1
         {
             sprite.Update();
         }
-
-
         /*
          * 
          * Draw

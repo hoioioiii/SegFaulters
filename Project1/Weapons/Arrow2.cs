@@ -14,7 +14,6 @@ namespace Project1
         private ISpriteWeapon sprite;
         public Arrow2()
         { 
-
             sprite = WeaponSpriteFactory.Instance.CreateArrowSprite();
         }
 

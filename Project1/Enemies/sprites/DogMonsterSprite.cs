@@ -19,6 +19,8 @@ namespace Project1
         private (Rectangle, Rectangle) rectangles;
         private IEntityState state_manager;
 
+        private IWeapon weapon;
+
         public DogMonsterSprite(Texture2D[] spriteSheet)
 		{
             newAttack = true;
@@ -29,7 +31,7 @@ namespace Project1
             direction_state_manager = new DirectionStateEnemy(Direction.Up);
             time_manager = new TimeTracker(false);
             animation_manager = new Animation(0, DM_TOTAL, time_manager, direction_state_manager);
-            
+            state_manager = new EntityState();
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
             movement_manager = new Movement(direction_state_manager, this, time_manager, SPRITE_X_START, SPRITE_Y_START, 0);
         }
@@ -39,7 +41,12 @@ namespace Project1
          */
         public void Update()
         {
-            Move();
+            if (state_manager.IsAlive())
+            {
+                Attack();
+                Move();
+            }
+
             UpdateFrames();
         }
 
@@ -51,14 +58,60 @@ namespace Project1
             animation_manager.Animate();
         }
 
+        public void Attack()
+        {
+            //Check if enemy is currently attacking:
+
+            if (!state_manager.IsAttacking())
+            {
+                if (time_manager.checkIfAttackTime())
+                {
+                    state_manager.setIsAttacking(true);
+                    state_manager.setIsMoving(false);
+                    state_manager.setNewAttack(true);
+                    EntityAttackAction();
+                }
+            }
+        }
+
+        private void EntityAttackAction()
+        {
+            //we can assume that we are here bc it is attacking
+            //Boomerange
+            //check if we need to start a new attack
+            
+            if (state_manager.startNewAttack())
+            {
+                //create weapons
+                state_manager.setNewAttack(false);
+            }
+            else
+            {
+                // means the entity is waiting for the weapon to comeback
+                //get weapon obj status of returned/finished) : place holder using state_isAttacking for now
+                //get weapon status of "finished" which means we need to be able to get access to the weapon obj
+                if (state_manager.IsAttacking())
+                {//if weapon is finished and returned to enetity
+                    //set move to true
+                    state_manager.setIsMoving(true);
+                    //set isAttacking to false;
+                    state_manager.setIsAttacking(false);
+                }
+                //dont do anything otherwise
+            }
+        }
+
 
         /*
          * Move the boss
          */
         public void Move()
         {
-            //Movement will be fixed
-            movement_manager.WanderMove();
+            if (!state_manager.IsAttacking())
+            {
+                //Movement will be fixed
+                movement_manager.WanderMove();
+            }
         }
 
         /*

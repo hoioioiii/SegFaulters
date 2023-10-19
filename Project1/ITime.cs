@@ -29,6 +29,6 @@ namespace Project1
         public void setRandMovementTimeFrame();
 
         public void updateElapsedMoveTime();
-
+        public bool checkIfAttackTime();
     }
 }

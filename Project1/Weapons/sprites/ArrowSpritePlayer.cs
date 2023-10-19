@@ -160,15 +160,7 @@ namespace Project1
                     current_frame = 3;
                     break;
             }
-
-
         }
-
-        private void Load()
-        {
-            throw new NotImplementedException();
-        }
-
         /*
          * Arrow moves accross screen
          */
