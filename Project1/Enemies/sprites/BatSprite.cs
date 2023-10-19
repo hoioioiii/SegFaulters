@@ -33,10 +33,12 @@ namespace Project1.Enemies.sprites
             direction_state_manager = new DirectionStateEnemy(Direction.Up);
             time_manager = new TimeTracker(false);
             animation_manager = new Animation(0,BAT_TOTAL,time_manager,direction_state_manager);
+            state_manager = new EntityState();
+
 
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
             movement_manager = new Movement(direction_state_manager,this,time_manager, SPRITE_X_START, SPRITE_Y_START,0);
-            state_manager = new EntityState();
+            
             //factor out later
             width = Texture[animation_manager.getCurrentFrame()].Width;
             height = Texture[animation_manager.getCurrentFrame()].Height;
@@ -45,19 +47,45 @@ namespace Project1.Enemies.sprites
 
         public void Update()
         {
-            Move();
+            if (state_manager.IsAlive()) {
+
+                Attack();
+                Move();
+            }
+
             UpdateFrames();
         }
 
+        public void Attack()
+        {
+            //Check if enemy is currently attacking:
+            //Yes:
+                //
+
+
+            //No:
+            //We need to check the attack timer to see if we need to attack now
+            //Set isAttack to true
+            //set isMoving to false
+        }
         public void UpdateFrames()
         {
-            animation_manager.Animate();
+            if (state_manager.IsAlive()) {
+                animation_manager.Animate();
+            }
+            else
+            {
+                //Do Item Drop
+            }
         }
 
         public void Move()
         {
-            //Movement.WanderMove(direction_state_manager, this, time_manager);
-            movement_manager.circularMovement(Direction.Up);
+            if(state_manager.isMoving()) {
+                //Movement.WanderMove(direction_state_manager, this, time_manager);
+                movement_manager.circularMovement(Direction.Up);
+            }
+            
         }
 
         public void Draw(SpriteBatch spriteBatch)

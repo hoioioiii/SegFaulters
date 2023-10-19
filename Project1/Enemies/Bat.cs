@@ -18,7 +18,7 @@ namespace Project1
 	public class Bat : IEntity
 	{
         private ISprite sprite;
-
+        
         /*
          * Initalize Bat Features
          */

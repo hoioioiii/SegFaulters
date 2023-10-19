@@ -19,7 +19,6 @@ namespace Project1
 
         public SpikeCrossSprite(Texture2D[] spriteSheet)
 		{
-
             Texture = spriteSheet;
 
             //replace starting direction based on lvl loader info
@@ -30,8 +29,6 @@ namespace Project1
 
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
             movement_manager = new Movement(direction_state_manager, this, time_manager, SPRITE_X_START, SPRITE_Y_START, 0);
-          
-            
         }
 
         /*
@@ -41,7 +38,6 @@ namespace Project1
         {
             Move();
             UpdateFrames();
-
         }
 
         /*
