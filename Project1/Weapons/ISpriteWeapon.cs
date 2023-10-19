@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
+using static Project1.Constants;
 
 namespace Project1
 {
@@ -15,9 +16,9 @@ namespace Project1
 
         //public void Load();
 
-        //public void GetUserPos();
+        public void GetUserPos(int x, int y);
 
-        //public void GetUserState();
+        public void GetUserState(Direction direct);
 
         //public void DetermineWeaponState();
 
@@ -29,7 +30,7 @@ namespace Project1
 
         public void Draw(SpriteBatch sprite);
 
-
+        public bool finished();
 
 
     }

@@ -97,15 +97,12 @@ namespace Project1
             }
         }
 
-
-
         /*
          * Update movement
          */
         public void Update()
         {
             Move();
-
         }
 
         /*
@@ -113,8 +110,8 @@ namespace Project1
          */
         private void placeOffset()
         {
-            weaponX = DirectionManager.OffsetX(userX, direction);
-            weaponY = DirectionManager.OffsetY(userY, direction);
+            weaponX = WeaponDirectionMovement.OffsetX(userX, direction);
+            weaponY = WeaponDirectionMovement.OffsetY(userY, direction);
         }
 
         /*
@@ -168,14 +165,29 @@ namespace Project1
         {
             if (direction % 2 == 0)
             {
-                weaponX = DirectionManager.FourDirMove(weaponX, direction);
+                weaponX = WeaponDirectionMovement.FourDirMove(weaponX, direction,1);
             }
             else
             {
-                weaponY = DirectionManager.FourDirMove(weaponY, direction);
+                weaponY = WeaponDirectionMovement.FourDirMove(weaponY, direction,1);
             }
 
 
+        }
+
+        public void GetUserPos(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetUserState(Constants.Direction direct)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool finished()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
-
+using static Project1.Constants;
 namespace Project1
 {
 
@@ -32,6 +32,8 @@ namespace Project1
         public void Update()
         {
             sprite.Update();
+            //GetUserPos();
+            //GetUserState();
         }
 
         /*
@@ -41,6 +43,7 @@ namespace Project1
         {
             sprite.Draw(Game1._spriteBatch);
         }
+        
 
         /*
          * Load the sprite
@@ -51,6 +54,21 @@ namespace Project1
         }
 
         
+        //public void GetUserPos(int x, int y)
+        //{
+            
+        //}
+
+        //public void GetUserState(Direction currUserDirection)
+        //{
+            
+        //}
+
+        public void DetermineWeaponState()
+        {
+            throw new NotImplementedException();
+        }
+
         public void GetUserPos()
         {
             throw new NotImplementedException();
@@ -61,7 +79,18 @@ namespace Project1
             throw new NotImplementedException();
         }
 
-        public void DetermineWeaponState()
+        public void Update(int x, int y, Direction direct)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool finished()
+        {
+            throw new NotImplementedException();
+        }
+
+      
+        public void Attack(int x, int y, Direction direct)
         {
             throw new NotImplementedException();
         }

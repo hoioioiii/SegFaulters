@@ -36,7 +36,7 @@ namespace Project1
 
 
             //how long to move b4 commencing a attack -> change out magic numbers later
-            attackPerMovement = 200;
+            attackPerMovement = 100;
 
             stopMoveTime = false;
         }
@@ -101,7 +101,8 @@ namespace Project1
         {
             if (elapsed_move__sec >= attackPerMovement)
             {
-                elapsed_move__sec = movement_timeframe_sec;
+                elapsed_move__sec = 0;
+                stopMoveTime = true;
                 return true;
             }
             return false;
@@ -116,8 +117,15 @@ namespace Project1
         //Keeps track of the time spent moving
         public void updateElapsedMoveTime()
         {
+            if(!stopMoveTime)
+            {
+                elapsed_move__sec += 1;
+            }
+        }
 
-            elapsed_move__sec += 1;
+        public void enableMoveTime()
+        {
+            stopMoveTime = false;
         }
     }
 }

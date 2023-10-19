@@ -9,7 +9,7 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    internal class BombSprite: ISpriteWeapon
+    internal class BombSprite : ISpriteWeapon
     {
         private Texture2D[] Texture { get; set; }
 
@@ -156,8 +156,8 @@ namespace Project1
          */
         private void placeOffset()
         {
-            weaponX = DirectionManager.OffsetX(userX, direction);
-            weaponY = DirectionManager.OffsetY(userY, direction);
+            weaponX = WeaponDirectionMovement.OffsetX(userX, direction);
+            weaponY = WeaponDirectionMovement.OffsetY(userY, direction);
         }
 
 
@@ -197,6 +197,21 @@ namespace Project1
         }
 
         private void Move()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetUserPos(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetUserState(Direction direct)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool finished()
         {
             throw new NotImplementedException();
         }

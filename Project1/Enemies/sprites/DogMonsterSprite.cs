@@ -43,7 +43,7 @@ namespace Project1
         {
             if (state_manager.IsAlive())
             {
-                Attack();
+                AttackUpdate();
                 Move();
             }
 
@@ -58,20 +58,26 @@ namespace Project1
             animation_manager.Animate();
         }
 
-        public void Attack()
+        public void AttackUpdate()
         {
             //Check if enemy is currently attacking:
 
-            if (!state_manager.IsAttacking())
+            if (state_manager.IsAttacking())
+            {
+                int x = movement_manager.getPosition().Item1;
+                int y = movement_manager.getPosition().Item2;
+                weapon.Update();
+            }
+            else
             {
                 if (time_manager.checkIfAttackTime())
                 {
                     state_manager.setIsAttacking(true);
                     state_manager.setIsMoving(false);
                     state_manager.setNewAttack(true);
-                    EntityAttackAction();
                 }
             }
+            
         }
 
         private void EntityAttackAction()
@@ -83,22 +89,35 @@ namespace Project1
             if (state_manager.startNewAttack())
             {
                 //create weapons
+                direction_state_manager.changeDirection();
+                weapon = new Boomerange();
                 state_manager.setNewAttack(false);
+                
+                //TODO:add item to active object list
             }
             else
             {
                 // means the entity is waiting for the weapon to comeback
                 //get weapon obj status of returned/finished) : place holder using state_isAttacking for now
                 //get weapon status of "finished" which means we need to be able to get access to the weapon obj
-                if (state_manager.IsAttacking())
+                if (weapon.finished())
                 {//if weapon is finished and returned to enetity
+                    state_manager.setIsAttacking(false);
                     //set move to true
                     state_manager.setIsMoving(true);
                     //set isAttacking to false;
-                    state_manager.setIsAttacking(false);
+                    time_manager.enableMoveTime();
+                    direction_state_manager.getRandomDirection();
+                    //TODO:remove the item from the active object list
                 }
-                //dont do anything otherwise
+                else
+                {
+                    weapon.Attack(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, direction_state_manager.getDirection());
+                    weapon.Draw();
+                }
+                
             }
+            
         }
 
 
@@ -107,7 +126,7 @@ namespace Project1
          */
         public void Move()
         {
-            if (!state_manager.IsAttacking())
+            if (state_manager.isMoving())
             {
                 //Movement will be fixed
                 movement_manager.WanderMove();
@@ -119,9 +138,14 @@ namespace Project1
          */
         public void Draw(SpriteBatch spriteBatch)
         {
+
             setRectangles();
             spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
+            if(state_manager.IsAttacking()) EntityAttackAction();
+
         }
+
+      
 
         public void setRectangles()
         {

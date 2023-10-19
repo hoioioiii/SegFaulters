@@ -9,7 +9,7 @@ namespace Project1
     internal interface IEntityState
     {
         public void setIsMoving(bool update);
-        public bool isMoving(bool v);
+        public bool isMoving();
         public void setDamaged(bool update);
         public bool isDamaged();
 
