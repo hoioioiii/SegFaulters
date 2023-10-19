@@ -15,9 +15,9 @@ namespace Project1
 {
     public class Jelly : IEntity
 	{
-       
+        
         private ISprite sprite;
-
+        public Rectangle BoundingBox => getPositionAndRectangle();
         public Jelly()
         {
             

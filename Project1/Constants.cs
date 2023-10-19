@@ -206,6 +206,18 @@ namespace Project1
         public const float BOOMERANG_RANGE = 50;
         public static int TRIFORCE_R = 1;
         public static int TRIFORCE_C = 2;
+
+        public enum CollisionType
+        {
+            // Link only
+            ITEM,
+            DOOR,
+            // Link & enemies
+            BOUNDARY,
+            DAMAGE
+        }
+
+        public const int knockbackDistance = 5, knockbackDuration = 1, invincibilityDuration = 1;
     }
 }
 

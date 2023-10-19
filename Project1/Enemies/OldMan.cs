@@ -15,8 +15,9 @@ namespace Project1
 {
     public class OldMan : IEntity
 	{
+       
         private ISprite sprite;
-
+        public Rectangle BoundingBox => getPositionAndRectangle();
 
         /*
          * Initalize OldMan

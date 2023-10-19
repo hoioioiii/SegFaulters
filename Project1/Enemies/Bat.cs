@@ -17,6 +17,10 @@ namespace Project1
 {
 	public class Bat : IEntity
 	{
+       
+
+        public Rectangle BoundingBox => getPositionAndRectangle();
+
         private ISprite sprite;
         
         /*
@@ -63,7 +67,7 @@ namespace Project1
         }
 
         //fix later
-        public Rectangle getPositionAndRectangle()
+        private Rectangle getPositionAndRectangle()
         {
             return sprite.GetRectangle().Item2;
 

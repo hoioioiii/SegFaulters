@@ -16,7 +16,7 @@ namespace Project1
     public class Hand : IEntity
     { 
         private ISprite sprite;
-
+        public Rectangle BoundingBox => getPositionAndRectangle();
         /*
          * Initalize Hand
          */

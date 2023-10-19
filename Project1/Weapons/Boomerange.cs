@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static Project1.Constants;
 namespace Project1
@@ -14,6 +15,8 @@ namespace Project1
     internal class Boomerange : IWeapon
     {
         private ISpriteWeapon sprite;
+
+        public Rectangle BoundingBox { get; set; }
         public Boomerange()
         {
 

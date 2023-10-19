@@ -12,7 +12,7 @@ namespace Project1
     public class Player
     {
         public IPlayerState playerState { get; set; }
-
+        public Rectangle BoundingBox => getPositionAndRectangle();
         private GraphicsDeviceManager _graphics;
         private static ContentManager Content;
         private static Vector2 position;
@@ -26,7 +26,7 @@ namespace Project1
 
         private static bool isMoving = false;
 
-        private static int playerSpeed = 5;
+        public static int playerSpeed = 5;
 
         // cardinal direction player is facing, starts with up on 1 and progresses clockwise (e.g. 4 is left-facing)
         private static int linkDirection = 2;
@@ -80,7 +80,7 @@ namespace Project1
        
         private static int posX;
         private static int posY;
-
+        private Rectangle rect;
         private static bool remainOnScreen;
 
         public Player()
@@ -102,6 +102,7 @@ namespace Project1
 
             weapon = new Bomb();
         }
+
 
         public static void LoadContent(ContentManager content)
         {
@@ -256,6 +257,10 @@ namespace Project1
             }
         }
 
+        public Rectangle getPositionAndRectangle()
+        {
+           return sprite.getRectangle();
+        }
         public static void CheckTime()
         {
             onScreen += Game1.deltaTime.ElapsedGameTime.Milliseconds;

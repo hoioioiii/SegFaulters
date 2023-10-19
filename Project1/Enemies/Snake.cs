@@ -15,6 +15,9 @@ namespace Project1
 {
 	public class Snake : IEntity
 	{
+        public Rectangle BoundingBox => getPositionAndRectangle();
+        //Texture stores the texture alias for our animation
+        private Texture2D Texture { get; set; }
 
         private ISprite sprite;
 

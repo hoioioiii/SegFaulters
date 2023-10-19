@@ -15,8 +15,8 @@ using static Project1.Constants;
 namespace Project1
 {
 	public class BossDino : IEntity
-    { 
-
+    {
+        public Rectangle BoundingBox => getPositionAndRectangle();
         private ISprite sprite;
 
         /*

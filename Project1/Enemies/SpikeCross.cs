@@ -15,7 +15,7 @@ namespace Project1
 {
 	public class SpikeCross : IEntity
 	{
-        
+        public Rectangle BoundingBox => getPositionAndRectangle();
         private ISprite sprite;
 
         /*

@@ -19,7 +19,8 @@ namespace Project1
      */
     internal class Arrow : IWeaponProjectile
     {
-        
+        public Rectangle BoundingBox { get; set; }
+
         private static Texture2D arrowLeft;
         private static Texture2D arrowRight;
         private static Texture2D arrowUp;
@@ -141,6 +142,11 @@ namespace Project1
         }
 
         public void Update()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
         {
             throw new NotImplementedException();
         }

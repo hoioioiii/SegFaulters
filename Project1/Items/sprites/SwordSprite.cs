@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static Project1.Constants;
@@ -25,6 +26,7 @@ namespace Project1
 
         private int width;
         private int height;
+        private Rectangle rect;
 
 
         public SwordSprite(Texture2D[] spriteSheet)
@@ -64,7 +66,12 @@ namespace Project1
             setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
             Rectangle DEST_REC = new Rectangle((int)location.X, (int)location.Y, width * scale, height * scale);
+            rect = DEST_REC;
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+        }
+        public Rectangle getRect()
+        {
+            return rect;
         }
 
     }

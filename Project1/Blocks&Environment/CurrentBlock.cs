@@ -13,6 +13,8 @@ namespace Project1
 
         private Texture2D texture;
 
+        public Rectangle BoundingBox { get; set; }
+
         public CurrentBlock(Texture2D text)
         {
             texture = text;

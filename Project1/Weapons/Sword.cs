@@ -12,7 +12,7 @@ namespace Project1
 {
     internal class Sword : IWeapon
     {
-
+        public Rectangle BoundingBox { get; set; }
         private String userState;
         private String weaponState;
 

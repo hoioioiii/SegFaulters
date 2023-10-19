@@ -18,6 +18,7 @@ namespace Project1
     public class HeartContainer : IItem
     {
         private IItemSprite sprite;
+        public Rectangle BoundingBox => getRectangle();
         public HeartContainer()
         {
             sprite = ItemSpriteFactory.Instance.CreateHeartContainerSprite();
@@ -38,6 +39,10 @@ namespace Project1
             sprite.Draw(spriteBatch, location, spriteScale);
         }
 
+        private Rectangle getRectangle()
+        {
+            return sprite.getRect();
+        }
     }
 }
 
