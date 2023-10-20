@@ -13,14 +13,12 @@ namespace Project1
         private static Room[] roomList;
         public static void Load(/* data */) {
             roomCount = 0; //load in total room count
-            roomList = new Room[roomCount];
             //LoadRooms(roomList, roomCount, data*)
         }
         private static void LoadRooms(Room[]roomList, int roomCount)
         {
             for (int i = 0; i < roomCount; i++)
             {
-                roomList[i] = new Room(/* data */); //data consists of the enemies and blocks in each room
             }
         }
     }

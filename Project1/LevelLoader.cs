@@ -17,7 +17,7 @@ namespace Project1
         private static Room[] roomList;
         private static (string, ((int, int), (string, int)[]))[] enemyArray; //(string enemyName, ((int posX, int posY), (string itemName, int quantity)[]))
         private static ((string, (int, bool))[],(string,(int, int))[]) environmentInfo; //(doorArray, blockArray)
-        private static int[] itemArray;
+        private static (string, (int, int))[] itemArray;//(string itemName,(int posX, posY))
         public static void Load(string xmlPath)
         {
             XmlDocument xmlDoc = new XmlDocument();
@@ -44,12 +44,11 @@ namespace Project1
                 XmlNode items = room.SelectSingleNode("Items");
 
                 parseEnemies(enemies);
-                printEnemies();
                 parseEnvironment(environment);
-                printEnvironment();
                 parseItems(items);
 
-                roomList[i] = new Room();// enemyArray, environmentArray, itemArray);
+                roomList[i] = new Room(enemyArray, environmentInfo, itemArray);// enemyArray, environmentInfo, itemArray);
+                roomList[i].print();
                 i++;
             }
         }
@@ -62,7 +61,7 @@ namespace Project1
                 Array.Clear(enemyArray);
 
             //get all the enemies needed to be loaded in
-
+ 
             XmlNodeList enemyList = enemies.ChildNodes;
             int enemyCount = enemyList.Count;
 
@@ -108,7 +107,7 @@ namespace Project1
             foreach(XmlNode door in doorList)
             {
                 string direction = door.Attributes["id"].Value;
-                int destinationRoom = int.Parse(door.SelectSingleNode("DestinationRoom").InnerText);
+                int destinationRoom = int.Parse(door.SelectSingleNode("DestinationRoom").InnerText) - 1;
                 bool isLocked = bool.Parse(door.SelectSingleNode("Locked").InnerText);
 
                 doorArray[i] = (direction, (destinationRoom, isLocked));
@@ -127,12 +126,22 @@ namespace Project1
                 blockArray[j] = (blockType, (posX, posY));
                 j++;
             }
-
+            //load info into environmentInfo
             environmentInfo = (doorArray,  blockArray);
         }
         private static void parseItems(XmlNode items)
         {
+            XmlNodeList itemList = items.ChildNodes;
+            itemArray = new (string, (int, int))[itemList.Count];
+            int i = 0;
+            foreach (XmlNode item in itemList) {
+                string itemName = item.Name;
+                int posX = int.Parse(item.Attributes["xLoc"].Value);
+                int posY = int.Parse(item.Attributes["yLoc"].Value);
 
+                itemArray[i] = (itemName, (posX, (posY)));
+                i++;
+            }
         }
 
         private static void loadRooms()
@@ -144,29 +153,7 @@ namespace Project1
         {
             roomCount = doc.GetElementsByTagName("Room").Count;
         }
-        private static void printEnemies()
-        {
-            for (int i = 0; i < enemyArray.Length; i++)
-            {
-                System.Diagnostics.Debug.Write("Name: " + enemyArray[i].Item1 + ", Location: " + enemyArray[i].Item2.Item1 + ", Items: ");
-                for (int j = 0; j < enemyArray[i].Item2.Item2.Length; j++)
-                {
-                    System.Diagnostics.Debug.Write(enemyArray[i].Item2.Item2[j] + " ");
-                }
-                System.Diagnostics.Debug.WriteLine("");
-            }
-        }
-
-        private static void printEnvironment()
-        {
-            int doorCount = environmentInfo.Item1.Length;
-            System.Diagnostics.Debug.WriteLine("Doors: ");
-            for (int i = 0; i < doorCount; i++)
-            {
-                System.Diagnostics.Debug.WriteLine("Direction: " + environmentInfo.Item1[i].Item1 + ", DestinationRoom: " + environmentInfo.Item1[i].Item2.Item1 + ", IsLocked: " + environmentInfo.Item1[i].Item2.Item2);
-            }
-            System.Diagnostics.Debug.WriteLine("");
-        }
+ 
         private static void sendInfo(/* data */)
         {
             //RoomLoader.Load(data)

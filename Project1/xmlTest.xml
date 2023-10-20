@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Level1 levelName="The Eagle">
-	<Room number = "1">
+	<link>
+		<Stats>
+			<Health>0</Health>
+			<Attack>0</Attack>
+			<CritDamage>0</CritDamage>
+			<Crit>0</Crit>
+			<Stamina>0</Stamina>
+			<Speed>0</Speed>
+			<AttackSpeed>0</AttackSpeed>
+			<Defense>0</Defense>
+		</Stats>
+
+		<Weapons>
+			<Sword>
+				<Damage>0</Damage>
+			</Sword>
+			<Boomerang>
+				<Damage>0</Damage>
+			</Boomerang>
+			<Arrow>
+				<Damage>0</Damage>
+			</Arrow>
+			<Bomb>
+				<Damage>0</Damage>
+			</Bomb>
+		</Weapons>
+	</link>
+	<Room number="0">
 		<Enemies>
-				<Stalfo id="1" xLoc="6" yLoc="9">
-					<Stats>
-						<Health>0</Health>
-						<Strength>0</Strength>
-						<Stamina>0</Stamina>
-						<Damage>0</Damage>
-					</Stats>
-					<Drops>
-						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
-						<DroppedItem Name="key" quantity="1"></DroppedItem>
-					</Drops>
-				</Stalfo>
-				<Stalfo id="2" xLoc="3" yLoc="2">
-					<Stats>
-						<Health>0</Health>
-						<Strength>0</Strength>
-						<Stamina>0</Stamina>
-						<Damage>0</Damage>
-					</Stats>
-					<Drops>
-						<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-						<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
-					</Drops>
-				</Stalfo>
 		</Enemies>
+
 		<Environment>
 			<Walls>
 			</Walls>
 			<Doors>
-				<Door id="north" xLoc="0" yLoc="0">					
+				<Door id="north" xLoc="0" yLoc="0">
 					<DestinationRoom>4</DestinationRoom>
 					<Locked>True</Locked>
 				</Door>
@@ -50,22 +53,43 @@
 				</Door>
 			</Doors>
 			<Blocks>
-				<WalkableWater id="1" xLoc="2" yLoc="4"></WalkableWater>
-				<WalkableWater id="2" xLoc="4" yLoc="5"></WalkableWater>
+				<WalkableWater id="1" xLoc="0" yLoc="0"></WalkableWater>
+				<WalkableWater id="2" xLoc="0" yLoc="0"></WalkableWater>
+				<WalkableWater id="3" xLoc="0" yLoc="0"></WalkableWater>
+				<WalkableWater id="4" xLoc="0" yLoc="0"></WalkableWater>
+				<WalkableWater id="5" xLoc="0" yLoc="0"></WalkableWater>
+				<WalkableWater id="6" xLoc="0" yLoc="0"></WalkableWater>
+				<WalkableWater id="7" xLoc="0" yLoc="0"></WalkableWater>
+				<WalkableWater id="8" xLoc="0" yLoc="0"></WalkableWater>
+				<WalkableWater id="9" xLoc="0" yLoc="0"></WalkableWater>
+				<WalkableWater id="10" xLoc="0" yLoc="0"></WalkableWater>
+				<WalkableWater id="11" xLoc="0" yLoc="0"></WalkableWater>
+				<WalkableWater id="12" xLoc="0" yLoc="0"></WalkableWater>
+				<WalkableWater id="13" xLoc="0" yLoc="0"></WalkableWater>
+				<WalkableWater id="14" xLoc="0" yLoc="0"></WalkableWater>
 			</Blocks>
 		</Environment>
+
 		<Items>
-			<StoneStatues numberOfStoneStatue="2">
-				<StoneStatue id="1" xLoc="0" yLoc="0" damage="0"></StoneStatue>
-				<StoneStatue id="2" xLoc="0" yLoc="0" damage="0"></StoneStatue>
-			</StoneStatues>
-			<Weapons>
-			</Weapons>
+			<StoneStatue id="1" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+			<StoneStatue id="2" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+			<StoneStatue id="3" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+			<StoneStatue id="4" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+			<StoneStatue id="5" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+			<StoneStatue id="6" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+			<StoneStatue id="7" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+			<StoneStatue id="8" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+			<StoneStatue id="9" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+			<StoneStatue id="10" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+			<StoneStatue id="11" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+			<StoneStatue id="11" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+			<StoneStatue id="12" xLoc="0" yLoc="0" damage="0"></StoneStatue>
 		</Items>
 	</Room>
-	<Room number = "2">
+
+	<Room number="1">
 		<Enemies>
-			<BigDragon id="1" xLoc="2" yLoc="1">
+			<Keese id="1" xLoc="0" yLoc="0">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -73,25 +97,206 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="bomba" quantity="0"></DroppedItem>
-					<DroppedItem Name="tuba" quantity="0"></DroppedItem>
-					<DroppedItem Name="pencil" quantity="1"></DroppedItem>
 				</Drops>
-			</BigDragon>
+			</Keese>
+			<Keese id="2" xLoc="0" yLoc="0">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+				</Drops>
+			</Keese>
+			<Keese id="3" xLoc="0" yLoc="0">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+				</Drops>
+			</Keese>
 		</Enemies>
+
 		<Environment>
 			<Walls>
 			</Walls>
 			<Doors>
-				
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>1</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
 			</Doors>
 			<Blocks>
-				
 			</Blocks>
 		</Environment>
+
 		<Items>
-			<Weapons>
-			</Weapons>
+			<Key xLoc="0" yLoc="0"></Key>
+		</Items>
+	</Room>
+
+	<Room number="2">
+		<Enemies>
+			<Stalfo id="1" xLoc="0" yLoc="0">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="key" quantity="1"></DroppedItem>
+				</Drops>
+			</Stalfo>
+			<Stalfo id="2" xLoc="0" yLoc="0">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+				</Drops>
+			</Stalfo>
+			<Stalfo id="3" xLoc="0" yLoc="0">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+				</Drops>
+			</Stalfo>
+			<Stalfo id="4" xLoc="0" yLoc="0">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+				</Drops>
+			</Stalfo>
+			<Stalfo id="5" xLoc="0" yLoc="0">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+				</Drops>
+			</Stalfo>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+			<Doors>
+				<Door id="west" xLoc="0" yLoc="0">
+					<DestinationRoom>1</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+			<Blocks>
+				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="9" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="10" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="11" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="12" xLoc="0" yLoc="0"></WaterBlock>
+			</Blocks>
+		</Environment>
+
+		<Items>
+		</Items>
+	</Room>
+
+	<Room number="3">
+		<Enemies>
+			<Stalfo id="1" xLoc="0" yLoc="0">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+				</Drops>
+			</Stalfo>
+			<Stalfo id="2" xLoc="0" yLoc="0">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+				</Drops>
+			</Stalfo>
+			<Stalfo id="3" xLoc="0" yLoc="0">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+				</Drops>
+			</Stalfo>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+			<Doors>
+				<Door id="north" xLoc="0" yLoc="0">
+					<DestinationRoom>5</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>1</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+			<Blocks>
+				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+			</Blocks>
+		</Environment>
+
+		<Items>
 		</Items>
 	</Room>
 </Level1>
