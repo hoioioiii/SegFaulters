@@ -9,7 +9,7 @@ using Project1.Collision;
 
 namespace Project1
 {
-    internal class ActiveObjects : IActiveObjects
+    public class ActiveObjects : IActiveObjects
     {
         private List<IItem>items;
         private List<IEntity> entities;

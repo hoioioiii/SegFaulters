@@ -95,15 +95,10 @@ namespace Project1.Collision
             // check if player intersects a room rectangle
                 
             // if the CollisionType is damage or boundary, directional collision check required
+            
             DIRECTION collisionDirection = DIRECTION.left;
 
-            #region Print to debug console currently pressed keys
-            System.Text.StringBuilder sb = new StringBuilder();
-            sb.Append(isColliding);
-
-            if (sb.Length > 0)
-                System.Diagnostics.Debug.WriteLine(sb.ToString());
-            #endregion
+            
 
             foreach (var item in roomItems)
             {
@@ -113,6 +108,7 @@ namespace Project1.Collision
                     PlayerCollisionResponse.ItemResponse(item);
                 }                  
             }
+            /*
             foreach (var door in roomDoors)
             {
                 isColliding = link.BoundingBox.Intersects(door.BoundingBox);
@@ -121,6 +117,7 @@ namespace Project1.Collision
                     PlayerCollisionResponse.DoorResponse(door);
                 }               
             }
+            */
             foreach (var boundary in roomBoundaries)
             {
                 isColliding = link.BoundingBox.Intersects(boundary.BoundingBox);
@@ -132,6 +129,13 @@ namespace Project1.Collision
             }
             foreach (var enemy in entities)
             {
+                #region Print to debug console
+                System.Text.StringBuilder sb = new StringBuilder();
+                sb.Append("isColliding: " + isColliding);
+
+                if (sb.Length > 0)
+                    System.Diagnostics.Debug.WriteLine(sb.ToString());
+                #endregion
                 isColliding = link.BoundingBox.Intersects(enemy.BoundingBox);
                 if (isColliding)
                 {

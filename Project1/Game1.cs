@@ -18,6 +18,8 @@ namespace Project1
         public static SpriteBatch _spriteBatch;
         public static ContentManager contentLoader;
 
+        public static IActiveObjects activeObj;
+
         private Texture2D _texture;
         //public static SpriteBatch _spriteBatch;
 
@@ -88,6 +90,7 @@ namespace Project1
 
             //Player player = new Player();
             Player.Initialize();
+            activeObj = new ActiveObjects();
 
             base.Initialize();
         }
@@ -146,6 +149,8 @@ namespace Project1
             Item.Update();
             ENEMY.Update();
             EnvironmentLoader.Update();
+            activeObj.Update();
+
             base.Update(gameTime);
         }
 
