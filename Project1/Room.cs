@@ -18,17 +18,18 @@ namespace Project1
             this.enemyArray = enemyArray;
             this.environmentInfo = environmentInfo;
             this.itemArray = itemArray;
+
+            print();
         }
 
         public void Load()
         {
-            System.Diagnostics.Debug.WriteLine("DegubChack3");
             LoadEnvironment();
             LoadEntity();
             LoadItems();
 
-            print();
         }
+
 
         private void LoadEnvironment()
         {
@@ -52,6 +53,7 @@ namespace Project1
             foreach ((string, ((int, int), (string, int)[])) enemyInfo in enemyArray)
             {
                 String name = enemyInfo.Item1;
+                System.Diagnostics.Debug.WriteLine("Enemy name: " + name);
                 (int, int) position = enemyInfo.Item2.Item1;
                 (string, int)[] items = enemyInfo.Item2.Item2;
                 EntityLoader.LoadEntities(Game1.GameObjManager, enemyInfo.Item1,  position, items);
@@ -79,14 +81,13 @@ namespace Project1
         }
         private void printEnemies()
         {
-            System.Diagnostics.Debug.Write("EnterEnemy");
             for (int i = 0; i < enemyArray.Length; i++)
             {
                 System.Diagnostics.Debug.Write("EnemyName: " + enemyArray[i].Item1 + ", Location: " + enemyArray[i].Item2.Item1 + ", Items: ");
-                //for (int j = 0; j < enemyArray[i].Item2.Item2.Length; j++)
-                //{
-                //    System.Diagnostics.Debug.Write(enemyArray[i].Item2.Item2[j] + " ");
-                //}
+                for (int j = 0; j < enemyArray[i].Item2.Item2.Length; j++)
+                {
+                    System.Diagnostics.Debug.Write(enemyArray[i].Item2.Item2[j] + " ");
+                }
                 System.Diagnostics.Debug.WriteLine("");
             }
 
