@@ -21,7 +21,8 @@ namespace Project1
             {
                 activeList.Add(i, false);
             }
-            activeList[2] = true;
+            activeList[0] = true;
+            DrawActiveRoom();
         }
 
         public static void SetActiveRoom(int roomId)
@@ -34,6 +35,7 @@ namespace Project1
                 }
             }
             activeList[roomId] = true;
+            DrawActiveRoom();
         }
         public static void IncrementActiveRoom()
         {
@@ -54,6 +56,7 @@ namespace Project1
             }
 
             activeList[n] = true;
+            DrawActiveRoom();
         }
         public static void DecrementActiveRoom()
         {
@@ -74,6 +77,7 @@ namespace Project1
             }
 
             activeList[n] = true;
+            DrawActiveRoom();
         }
 
         public static void DrawActiveRoom()
