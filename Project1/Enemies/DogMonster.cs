@@ -24,10 +24,10 @@ namespace Project1
         /*
          * Initalize Dog Monster
          */
-        public DogMonster()
+        public DogMonster((int, int) position, (String, int) items)
 		{
 
-            sprite = EnemySpriteFactory.Instance.CreateDogMonsterSprite();
+            sprite = EnemySpriteFactory.Instance.CreateDogMonsterSprite(position, items);
         }
 
         /*

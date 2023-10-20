@@ -20,11 +20,11 @@ namespace Project1
         /*
          * Initalize Hand
          */
-        public Hand()
+        public Hand((int, int) position, (String, int) items)
 		{
            
 
-            sprite = EnemySpriteFactory.Instance.CreateHandSprite();
+            sprite = EnemySpriteFactory.Instance.CreateHandSprite(position, items);
         }
 
         /*

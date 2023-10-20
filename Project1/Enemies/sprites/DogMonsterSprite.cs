@@ -21,8 +21,8 @@ namespace Project1
 
         private IWeapon weapon;
 
-        public DogMonsterSprite(Texture2D[] spriteSheet)
-		{
+        public DogMonsterSprite(Texture2D[] spriteSheet, (int, int) position, (String, int) items)
+        {
             newAttack = true;
 
             Texture = spriteSheet;
@@ -77,7 +77,7 @@ namespace Project1
                     state_manager.setNewAttack(true);
                 }
             }
-            
+
         }
 
         private void EntityAttackAction()
@@ -85,14 +85,14 @@ namespace Project1
             //we can assume that we are here bc it is attacking
             //Boomerange
             //check if we need to start a new attack
-            
+
             if (state_manager.startNewAttack())
             {
                 //create weapons
                 direction_state_manager.changeDirection();
                 weapon = new Boomerange();
                 state_manager.setNewAttack(false);
-                
+
                 //TODO:add item to active object list
             }
             else
@@ -142,11 +142,11 @@ namespace Project1
                 spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
                 if (state_manager.IsAttacking()) EntityAttackAction();
             }
-            
+
 
         }
 
-      
+
 
         public void setRectangles()
         {
