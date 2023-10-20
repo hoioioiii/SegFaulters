@@ -11,15 +11,8 @@ namespace Project1
     {
         private static int roomCount;
         private static Room[] roomList;
-        public static void Load(/* data */) {
-            roomCount = 0; //load in total room count
-            //LoadRooms(roomList, roomCount, data*)
-        }
-        private static void LoadRooms(Room[]roomList, int roomCount)
-        {
-            for (int i = 0; i < roomCount; i++)
-            {
-            }
+        public static void Load() {
+            
         }
     }
 }

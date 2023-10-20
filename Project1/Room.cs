@@ -19,6 +19,25 @@ namespace Project1
             this.itemArray = itemArray;
         }
 
+        public void Load()
+        {
+            LoadEnvironment();
+        }
+
+        private void LoadEnvironment()
+        {
+            (string, (int, int))[] blocks = environmentInfo.Item2;
+            (int, int)[] blocksToLoad = new (int, int)[blocks.Length];
+            for (int i = 0;i < blocks.Length; i++)
+            {
+                blocksToLoad[i] = blocks[i].Item2;
+            }
+            EnvironmentLoader.LoadBlocks(blocksToLoad);
+
+            (string, (int, bool))[] doors = environmentInfo.Item1;
+            //TODO: code door loading in, most of the code will be in environment loader
+        }
+        
         public void print()
         {
             printEnemies();

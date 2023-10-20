@@ -17,6 +17,7 @@ namespace Project1
 
         public static void LoadContent(ContentManager content)
         {
+            blocksArray = new IEnvironment[0];
             //load in background content
             levelBackground = content.Load<Texture2D>("LevelBackground");
 
@@ -31,17 +32,10 @@ namespace Project1
                     blockPositionDictionary.Add((row, col), (114 + BLOCK_DIMENSION * (col), 75 + BLOCK_DIMENSION * (row)));
                 }
             }
-
-            (int, int)[] blocksToLoad = new (int, int)[2];
-            blocksToLoad[0] = (2, 3);
-            blocksToLoad[1] = (5, 10);
-
-            LoadBlocks(blocksToLoad);
-
         }
 
         //loads blocks given data of row,col and the texture of the block
-        private static void LoadBlocks((int,int)[] blocksToLoad)
+        public static void LoadBlocks((int,int)[] blocksToLoad)
         {
             blocksArray = new IEnvironment[blocksToLoad.Length];
 
@@ -53,7 +47,7 @@ namespace Project1
                 blocksArray[i] = new CurrentBlock(texture, posX, posY);
             }
         }
-
+   
         public static void Update()
         {
             foreach (IEnvironment block in blocksArray) {

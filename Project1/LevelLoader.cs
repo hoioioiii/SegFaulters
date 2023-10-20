@@ -13,7 +13,7 @@ namespace Project1
     //reads the XML file and sends info to Room Loader
     public static class LevelLoader
     {
-        private static int roomCount;
+        public static int roomCount;
         private static Room[] roomList;
         private static (string, ((int, int), (string, int)[]))[] enemyArray; //(string enemyName, ((int posX, int posY), (string itemName, int quantity)[]))
         private static ((string, (int, bool))[],(string,(int, int))[]) environmentInfo; //(doorArray, blockArray)
@@ -27,6 +27,9 @@ namespace Project1
             roomList = new Room[roomCount];
 
             parseXML(xmlDoc);
+
+            RoomManager.Load();
+            RoomManager.DrawActiveRoom();
         }
         private static void parseXML(XmlDocument xmlDoc)
         {
@@ -48,7 +51,7 @@ namespace Project1
                 parseItems(items);
 
                 roomList[i] = new Room(enemyArray, environmentInfo, itemArray);// enemyArray, environmentInfo, itemArray);
-                roomList[i].print();
+                //roomList[i].print();
                 i++;
             }
         }
@@ -149,14 +152,13 @@ namespace Project1
             roomList = new Room[roomCount];
         }
 
+        public static void drawActiveRoom(int n)
+        {
+            roomList[n].Load();
+        }
         private static void getRoomCountFromXmlDoc(XmlDocument doc)
         {
             roomCount = doc.GetElementsByTagName("Room").Count;
-        }
- 
-        private static void sendInfo(/* data */)
-        {
-            //RoomLoader.Load(data)
         }
     }
 }
