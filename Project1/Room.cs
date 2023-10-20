@@ -65,16 +65,6 @@ namespace Project1
             }
         }
 
-
-
-
-
-
-
-
-
-
-
         public void print()
         {
             printEnemies();
@@ -92,6 +82,8 @@ namespace Project1
                 }
                 System.Diagnostics.Debug.WriteLine("");
             }
+
+            System.Diagnostics.Debug.WriteLine("help");
         }
 
         private void printEnvironment()

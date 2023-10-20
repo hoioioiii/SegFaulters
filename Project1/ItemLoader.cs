@@ -20,8 +20,6 @@ namespace Project1
           
                 IItem item = ItemInitializer.getInstance(itemString, pos);
                 Game1.GameObjManager.addNewItem(item);
-            
-      
         }
     }
 }

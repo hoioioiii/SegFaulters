@@ -30,6 +30,8 @@ namespace Project1
         public void addNewEnvironment(IEnvironment block);
         public void addDoors(IEnvironment door);
 
+        public void addLink(Player link);
+
         public void removeItem(IItem item);
 
         public void removeEntity(IEntity entity);
@@ -40,8 +42,7 @@ namespace Project1
         public List<IEnvironment> getDoorList();
         public List<Rectangle> getBoundarys();
         public void clearAll();
-
-
-
+        public void Update();
+        public void Draw();
     }
 }

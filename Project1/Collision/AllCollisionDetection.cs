@@ -86,14 +86,14 @@ namespace Project1.Collision
                 
             // if the CollisionType is damage or boundary, directional collision check required
             DIRECTION collisionDirection = DIRECTION.left;
-                    
+
             foreach (var item in roomItems)
             {
                 isColliding = link.BoundingBox.Intersects(item.BoundingBox);
                 if (isColliding)
                 {
                     PlayerCollisionResponse.ItemResponse(item);
-                }                  
+                }
             }
             foreach (var door in roomDoors)
             {

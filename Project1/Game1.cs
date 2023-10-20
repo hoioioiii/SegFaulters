@@ -90,8 +90,9 @@ namespace Project1
             //keep
             GameObjManager = new ActiveObjects();
 
-            //Player player = new Player();
+            
             Player.Initialize();
+            
 
             base.Initialize();
         }
@@ -124,6 +125,8 @@ namespace Project1
             //Load background
             EnvironmentLoader.LoadContent(Content);
 
+            
+
             //Load XML File
             LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
             //LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
@@ -146,10 +149,14 @@ namespace Project1
 
             //Example code for how to create an item in the environment:
             //testItem.Update();
-
+           
             Item.Update();
             ENEMY.Update();
             EnvironmentLoader.Update();
+
+            GameObjManager.Update();
+
+
             base.Update(gameTime);
         }
 
@@ -164,9 +171,11 @@ namespace Project1
 
             Player.Draw(gameTime, _spriteBatch);
 
-            ENEMY.Draw(_spriteBatch);
-            Item.Draw(_spriteBatch);
+            //ENEMY.Draw(_spriteBatch);
+            //Item.Draw(_spriteBatch);
             //CurrentEnvironment.Draw(_spriteBatch);
+            GameObjManager.Draw();
+
 
             _spriteBatch.End();
             base.Draw(gameTime);

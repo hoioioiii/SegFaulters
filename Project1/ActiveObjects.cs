@@ -29,7 +29,7 @@ namespace Project1
             walls = new List<Rectangle>();
         }
 
-        public void addLink(Player link)
+        public void addLink(Project1.Player link)
         {
             this.link = link;
         }
@@ -132,7 +132,7 @@ namespace Project1
 
             
 
-            AllCollisionDetection.DetectCollision(this);
+           //AllCollisionDetection.DetectCollision(this);
         }
 
         private void UpdatePlayer()
@@ -199,10 +199,10 @@ namespace Project1
 
         public void Draw()
         {
-            DrawPlayer();
-            DrawIWeapons();
+           // DrawPlayer();
+            //DrawIWeapons();
             DrawEnemies();
-            DrawItems();
+            //DrawItems();
         }
     }
 }

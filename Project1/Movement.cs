@@ -25,13 +25,20 @@ namespace Project1
             this.direction_state = direction_state;
             this.entityObj = entityObj;
             this.time_manager = time_manager;
-            this.pos_x = x;
-            this.pos_y = y;
+
+            MovementBasedGrid(x,y);
+            
             this.angle = 0;
             this.speed = spd;
         }
 
+        private void MovementBasedGrid(int x, int y)
+        {
 
+            (int, int) pos = PositionGrid.getPosBasedOnGrid(x, y);
+            this.pos_x = pos.Item1;
+            this.pos_y = pos.Item2;
+        }
         private int MoveUpOrLeft(int pos)
         {
             return pos -=1;

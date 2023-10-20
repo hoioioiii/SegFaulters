@@ -101,6 +101,8 @@ namespace Project1
             sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
 
             weapon = new Bomb();
+
+           
         }
 
 

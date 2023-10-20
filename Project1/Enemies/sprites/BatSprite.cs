@@ -36,6 +36,8 @@ namespace Project1.Enemies.sprites
             state_manager = new EntityState();
 
 
+            
+
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
             movement_manager = new Movement(direction_state_manager,this,time_manager, position.Item1, position.Item2,0);
             
