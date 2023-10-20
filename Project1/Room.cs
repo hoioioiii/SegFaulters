@@ -22,6 +22,7 @@ namespace Project1
         public void Load()
         {
             LoadEnvironment();
+            LoadEntity();
         }
 
         private void LoadEnvironment()
@@ -40,20 +41,14 @@ namespace Project1
 
         private void LoadEntity()
         {
-            //private static (string, ((int, int), (string, int)[]))[] enemyArray; //(string enemyName, ((int posX, int posY), (string itemName, int quantity)[]))
+            foreach ((string, ((int, int), (string, int)[])) enemyInfo in enemyArray)
+            {
+                String name = enemyInfo.Item1;
+                (int, int) position = enemyInfo.Item2.Item1;
+                (string, int)[] items = enemyInfo.Item2.Item2;
 
-            //name
-
-            //Start position
-
-            //ItemDropArray
-
-
-
-
-
-
-
+                EntityLoader.LoadEntities(Game1.GameObjManager, enemyInfo.Item1,  position, items);
+            }
         }
     
 
