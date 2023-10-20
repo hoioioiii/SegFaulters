@@ -12,14 +12,24 @@ namespace Project1
     public static class EnvironmentLoader
     {
         private static Texture2D levelBackground;
-        private static Dictionary<(int, int), (int, int)> blockPositionDictionary;
+        public static Dictionary<(int, int), (int, int)> blockPositionDictionary;
         private static IEnvironment[] blocksArray;
+        private static IEnvironment[] doorArray;
+        private static Texture2D[] doorSpriteArray;
 
         public static void LoadContent(ContentManager content)
         {
             blocksArray = new IEnvironment[0];
+            doorArray = new IEnvironment[0];
             //load in background content
             levelBackground = content.Load<Texture2D>("LevelBackground");
+
+            //load in door content
+            doorSpriteArray = new Texture2D[4];
+            doorSpriteArray[0] = content.Load<Texture2D>("DoorWEST");
+            doorSpriteArray[1] = content.Load<Texture2D>("DoorEAST");
+            doorSpriteArray[2] = content.Load<Texture2D>("DoorSOUTH");
+            doorSpriteArray[3] = content.Load<Texture2D>("DoorNORTH");
 
             blockPositionDictionary = new Dictionary<(int, int), (int, int)>(); //<(row, col), (posX, posY)>
             //load in blockPositionDictionary 7 rows x 12 columns
@@ -47,6 +57,18 @@ namespace Project1
                 blocksArray[i] = new CurrentBlock(texture, posX, posY);
             }
         }
+
+        public static void LoadDoors((string, (int, bool))[] doorsToLoad)
+        {
+            doorArray = new IEnvironment[doorsToLoad.Length];
+            for( int i = 0;i < doorsToLoad.Length;i++)
+            {
+                string direction = doorsToLoad[i].Item1;
+                int destinationRoom = doorsToLoad[i].Item2.Item1;
+                bool isLocked = doorsToLoad[i].Item2.Item2;
+                doorArray[i] = new Door(doorSpriteArray, direction, destinationRoom, isLocked);
+            }
+        }
    
         public static void Update()
         {
@@ -62,6 +84,10 @@ namespace Project1
             foreach (IEnvironment block in blocksArray)
             {
                 block.Draw(spriteBatch);
+            }
+            foreach (IEnvironment door in doorArray)
+            {
+                door.Draw(spriteBatch);
             }
         }
 

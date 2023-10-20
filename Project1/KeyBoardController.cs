@@ -145,6 +145,9 @@ namespace Project1
             ITERATE_MAP.Add(Keys.O, new EntityIterateBackCommand());
             ITERATE_MAP.Add(Keys.P, new EntityIterateForwardCommand());
 
+            ITERATE_MAP.Add(Keys.B, new RoomIterateBack());
+            ITERATE_MAP.Add(Keys.M, new RoomIterateForward());
+
         }
 
         //Updates keyboard state

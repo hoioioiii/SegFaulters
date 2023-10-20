@@ -18,6 +18,7 @@ namespace Project1
         public static SpriteBatch _spriteBatch;
         public static ContentManager contentLoader;
 
+        public static IActiveObjects GameObjManager;
         private Texture2D _texture;
         //public static SpriteBatch _spriteBatch;
 
@@ -86,6 +87,9 @@ namespace Project1
                 Exit();
             }
 
+            //keep
+            GameObjManager = new ActiveObjects();
+
             //Player player = new Player();
             Player.Initialize();
 
@@ -121,8 +125,8 @@ namespace Project1
             EnvironmentLoader.LoadContent(Content);
 
             //Load XML File
-            //LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\SegFaulters\\Project1\\xmlTest2.xml");
-            LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
+            LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
+            //LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
         }
 
 

@@ -201,8 +201,6 @@ namespace Project1
             return (pos_x, pos_y);
         }
 
-
-
         //Checks the bounds for the screen or input. Will be replaced w collision stuff
         private (bool,int) CheckBound(int currPos, int UpperBound, int LowerBound)
         {

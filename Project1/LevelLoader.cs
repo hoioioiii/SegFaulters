@@ -29,7 +29,6 @@ namespace Project1
             parseXML(xmlDoc);
 
             RoomManager.Load();
-            RoomManager.DrawActiveRoom();
         }
         private static void parseXML(XmlDocument xmlDoc)
         {

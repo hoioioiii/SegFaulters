@@ -230,7 +230,7 @@
 
 	<Room number="3">
 		<Enemies>
-			<Stalfo id="1" xLoc="0" yLoc="0">
+			<Stalfo id="1" xLoc="0" yLoc="3">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -242,7 +242,7 @@
 					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
-			<Stalfo id="2" xLoc="0" yLoc="0">
+			<Stalfo id="2" xLoc="2" yLoc="4">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -254,7 +254,7 @@
 					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
-			<Stalfo id="3" xLoc="0" yLoc="0">
+			<Stalfo id="3" xLoc="4" yLoc="3">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -282,12 +282,12 @@
 				</Door>
 			</Doors>
 			<Blocks>
-				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="1" xLoc="2" yLoc="5"></WaterBlock>
+				<WaterBlock id="2" xLoc="3" yLoc="5"></WaterBlock>
+				<WaterBlock id="3" xLoc="4" yLoc="5"></WaterBlock>
+				<WaterBlock id="4" xLoc="2" yLoc="6"></WaterBlock>
+				<WaterBlock id="5" xLoc="3" yLoc="6"></WaterBlock>
+				<WaterBlock id="6" xLoc="4" yLoc="6"></WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -297,7 +297,7 @@
 
 	<Room number="4">
 		<Enemies>
-			<Stalfo id="1" xLoc="0" yLoc="0">
+			<Stalfo id="1" xLoc="4" yLoc="3">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -310,7 +310,7 @@
 					<DroppedItem Name="key" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
-			<Stalfo id="2" xLoc="0" yLoc="0">
+			<Stalfo id="2" xLoc="2" yLoc="4">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -322,7 +322,7 @@
 					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
-			<Stalfo id="3" xLoc="0" yLoc="0">
+			<Stalfo id="3" xLoc="3" yLoc="6">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -334,7 +334,7 @@
 					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
-			<Stalfo id="4" xLoc="0" yLoc="0">
+			<Stalfo id="4" xLoc="2" yLoc="7">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -346,7 +346,7 @@
 					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
-			<Stalfo id="5" xLoc="0" yLoc="0">
+			<Stalfo id="5" xLoc="0" yLoc="8">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -383,20 +383,21 @@
 			</Doors>
 
 			<Blocks>
-				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="1" xLoc="2" yLoc="2"></WaterBlock>
+				<WaterBlock id="2" xLoc="4" yLoc="2"></WaterBlock>
+				<WaterBlock id="3" xLoc="2" yLoc="9"></WaterBlock>
+				<WaterBlock id="4" xLoc="4" yLoc="9"></WaterBlock>
 			</Blocks>
 		</Environment>
 
 		<Items>
+			<key quantity="1" xLoc="1" yLoc="6"></key>
 		</Items>
 	</Room>
 
 	<Room number="5">
 		<Enemies>
-			<Keese id="1" xLoc="0" yLoc="0">
+			<Keese id="1" xLoc="0" yLoc="3">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -406,7 +407,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="2" xLoc="0" yLoc="0">
+			<Keese id="2" xLoc="1" yLoc="10">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -416,7 +417,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="3" xLoc="0" yLoc="0">
+			<Keese id="3" xLoc="2" yLoc="6">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -426,7 +427,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="4" xLoc="0" yLoc="0">
+			<Keese id="4" xLoc="2" yLoc="8">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -436,7 +437,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="5" xLoc="0" yLoc="0">
+			<Keese id="5" xLoc="3" yLoc="10">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -446,7 +447,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="6" xLoc="0" yLoc="0">
+			<Keese id="6" xLoc="4" yLoc="6">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -456,7 +457,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="7" xLoc="0" yLoc="0">
+			<Keese id="7" xLoc="4" yLoc="8">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -466,7 +467,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="8" xLoc="0" yLoc="0">
+			<Keese id="8" xLoc="5" yLoc="10">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -494,21 +495,21 @@
 			</Doors>
 
 			<Blocks>
-				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="1" xLoc="1" yLoc="2"></WaterBlock>
+				<WaterBlock id="2" xLoc="1" yLoc="9"></WaterBlock>
+				<WaterBlock id="3" xLoc="5" yLoc="2"></WaterBlock>
+				<WaterBlock id="4" xLoc="5" yLoc="9"></WaterBlock>
 			</Blocks>
 		</Environment>
 
 		<Items>
-			<Compass quantity="1" xLoc="0" yLoc="0"></Compass>
+			<Compass quantity="1" xLoc="3" yLoc="10"></Compass>
 		</Items>
 	</Room>
 
 	<Room number="6">
 		<Enemies>
-			<Keese id="1" xLoc="0" yLoc="0">
+			<Keese id="1" xLoc="0" yLoc="8">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -518,7 +519,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="2" xLoc="0" yLoc="0">
+			<Keese id="2" xLoc="2" yLoc="3">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -528,7 +529,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="3" xLoc="0" yLoc="0">
+			<Keese id="3" xLoc="3" yLoc="0">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -538,7 +539,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="4" xLoc="0" yLoc="0">
+			<Keese id="4" xLoc="5" yLoc="1">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -548,7 +549,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="5" xLoc="0" yLoc="0">
+			<Keese id="5" xLoc="6" yLoc="8">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -558,7 +559,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="6" xLoc="0" yLoc="0">
+			<Keese id="6" xLoc="4" yLoc="3">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -586,12 +587,12 @@
 			</Doors>
 
 			<Blocks>
-				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="1" xLoc="2" yLoc="5"></WaterBlock>
+				<WaterBlock id="2" xLoc="3" yLoc="5"></WaterBlock>
+				<WaterBlock id="3" xLoc="4" yLoc="5"></WaterBlock>
+				<WaterBlock id="4" xLoc="2" yLoc="6"></WaterBlock>
+				<WaterBlock id="5" xLoc="3" yLoc="6"></WaterBlock>
+				<WaterBlock id="6" xLoc="4" yLoc="6"></WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -602,7 +603,7 @@
 
 	<Room number="7">
 		<Enemies>
-			<Gel id="1" xLoc="0" yLoc="0">
+			<Gel id="1" xLoc="4" yLoc="6">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -612,7 +613,7 @@
 				<Drops>
 				</Drops>
 			</Gel>
-			<Gel id="2" xLoc="0" yLoc="0">
+			<Gel id="2" xLoc="2" yLoc="7">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -622,7 +623,7 @@
 				<Drops>
 				</Drops>
 			</Gel>
-			<Gel id="3" xLoc="0" yLoc="0">
+			<Gel id="3" xLoc="0" yLoc="8">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -643,14 +644,14 @@
 					<DestinationRoom>17</DestinationRoom>
 					<Locked>True</Locked>
 				</Door>
-				<Door id="west" xLoc="0" yLoc="0">
+				<Door id="east" xLoc="0" yLoc="0">
 					<DestinationRoom>9</DestinationRoom>
 					<Locked>False</Locked>
 				</Door>
 			</Doors>
 
 			<Blocks>
-				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="1" xLoc="3" yLoc="5"></WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -661,7 +662,7 @@
 
 	<Room number="8">
 		<Enemies>
-			<Gel id="1" xLoc="0" yLoc="0">
+			<Gel id="1" xLoc="0" yLoc="4">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -671,7 +672,7 @@
 				<Drops>
 				</Drops>
 			</Gel>
-			<Gel id="2" xLoc="0" yLoc="0">
+			<Gel id="2" xLoc="2" yLoc="11">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -681,7 +682,7 @@
 				<Drops>
 				</Drops>
 			</Gel>
-			<Gel id="3" xLoc="0" yLoc="0">
+			<Gel id="3" xLoc="3" yLoc="8">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -691,7 +692,7 @@
 				<Drops>
 				</Drops>
 			</Gel>
-			<Gel id="4" xLoc="0" yLoc="0">
+			<Gel id="4" xLoc="5" yLoc="3">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -701,7 +702,7 @@
 				<Drops>
 				</Drops>
 			</Gel>
-			<Gel id="5" xLoc="0" yLoc="0">
+			<Gel id="5" xLoc="5" yLoc="8">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -736,21 +737,21 @@
 			</Doors>
 
 			<Blocks>
-				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="9" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="10" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="1" xLoc="1" yLoc="1"></WaterBlock>
+				<WaterBlock id="2" xLoc="1" yLoc="2"></WaterBlock>
+				<WaterBlock id="3" xLoc="1" yLoc="9"></WaterBlock>
+				<WaterBlock id="4" xLoc="1" yLoc="10"></WaterBlock>
+				<WaterBlock id="5" xLoc="3" yLoc="5"></WaterBlock>
+				<WaterBlock id="6" xLoc="3" yLoc="6"></WaterBlock>
+				<WaterBlock id="7" xLoc="5" yLoc="1"></WaterBlock>
+				<WaterBlock id="8" xLoc="5" yLoc="2"></WaterBlock>
+				<WaterBlock id="9" xLoc="5" yLoc="9"></WaterBlock>
+				<WaterBlock id="10" xLoc="5" yLoc="10"></WaterBlock>
 			</Blocks>
 		</Environment>
 
 		<Items>
-			<DungeonMap quantity="1" xLoc="0" yLoc="0"></DungeonMap>
+			<DungeonMap quantity="3" xLoc="0" yLoc="10"></DungeonMap>
 		</Items>
 	</Room>
 
@@ -758,7 +759,7 @@
 
 	<Room number="9">
 		<Enemies>
-			<Stalfo id="1" xLoc="0" yLoc="0">
+			<Stalfo id="1" xLoc="1" yLoc="1">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -770,7 +771,7 @@
 					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
-			<Stalfo id="2" xLoc="0" yLoc="0">
+			<Stalfo id="2" xLoc="1" yLoc="10">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -782,7 +783,7 @@
 					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
-			<Stalfo id="3" xLoc="0" yLoc="0">
+			<Stalfo id="3" xLoc="4" yLoc="8">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -812,51 +813,51 @@
 
 			<Blocks>
 				<Water id="1" xLoc="0" yLoc="0"></Water>
-				<Water id="2" xLoc="0" yLoc="0"></Water>
-				<Water id="3" xLoc="0" yLoc="0"></Water>
-				<Water id="4" xLoc="0" yLoc="0"></Water>
-				<Water id="5" xLoc="0" yLoc="0"></Water>
-				<Water id="6" xLoc="0" yLoc="0"></Water>
-				<Water id="7" xLoc="0" yLoc="0"></Water>
-				<Water id="8" xLoc="0" yLoc="0"></Water>
-				<Water id="9" xLoc="0" yLoc="0"></Water>
-				<Water id="10" xLoc="0" yLoc="0"></Water>
-				<Water id="11" xLoc="0" yLoc="0"></Water>
-				<Water id="12" xLoc="0" yLoc="0"></Water>
-				<Water id="13" xLoc="0" yLoc="0"></Water>
-				<Water id="14" xLoc="0" yLoc="0"></Water>
-				<Water id="15" xLoc="0" yLoc="0"></Water>
-				<Water id="16" xLoc="0" yLoc="0"></Water>
-				<Water id="17" xLoc="0" yLoc="0"></Water>
-				<Water id="18" xLoc="0" yLoc="0"></Water>
-				<Water id="19" xLoc="0" yLoc="0"></Water>
-				<Water id="20" xLoc="0" yLoc="0"></Water>
-				<Water id="21" xLoc="0" yLoc="0"></Water>
-				<Water id="22" xLoc="0" yLoc="0"></Water>
-				<Water id="23" xLoc="0" yLoc="0"></Water>
-				<Water id="24" xLoc="0" yLoc="0"></Water>
-				<Water id="25" xLoc="0" yLoc="0"></Water>
-				<Water id="26" xLoc="0" yLoc="0"></Water>
-				<Water id="27" xLoc="0" yLoc="0"></Water>
-				<Water id="28" xLoc="0" yLoc="0"></Water>
-				<Water id="29" xLoc="0" yLoc="0"></Water>
-				<Water id="30" xLoc="0" yLoc="0"></Water>
-				<Water id="31" xLoc="0" yLoc="0"></Water>
-				<Water id="32" xLoc="0" yLoc="0"></Water>
-				<Water id="33" xLoc="0" yLoc="0"></Water>
-				<Water id="34" xLoc="0" yLoc="0"></Water>
-				<Water id="35" xLoc="0" yLoc="0"></Water>
-				<Water id="36" xLoc="0" yLoc="0"></Water>
-				<Water id="37" xLoc="0" yLoc="0"></Water>
-				<Water id="38" xLoc="0" yLoc="0"></Water>
-				<Water id="39" xLoc="0" yLoc="0"></Water>
-				<Water id="40" xLoc="0" yLoc="0"></Water>
-				<Water id="41" xLoc="0" yLoc="0"></Water>
-				<Water id="42" xLoc="0" yLoc="0"></Water>
-				<Water id="43" xLoc="0" yLoc="0"></Water>
-				<Water id="44" xLoc="0" yLoc="0"></Water>
-				<Water id="45" xLoc="0" yLoc="0"></Water>
-				<Water id="46" xLoc="0" yLoc="0"></Water>
+				<Water id="2" xLoc="0" yLoc="1"></Water>
+				<Water id="3" xLoc="0" yLoc="2"></Water>
+				<Water id="4" xLoc="0" yLoc="3"></Water>
+				<Water id="5" xLoc="0" yLoc="4"></Water>
+				<Water id="6" xLoc="0" yLoc="7"></Water>
+				<Water id="7" xLoc="0" yLoc="8"></Water>
+				<Water id="8" xLoc="0" yLoc="9"></Water>
+				<Water id="9" xLoc="0" yLoc="10"></Water>
+				<Water id="10" xLoc="0" yLoc="11"></Water>
+				<Water id="11" xLoc="1" yLoc="0"></Water>
+				<Water id="12" xLoc="1" yLoc="4"></Water>
+				<Water id="13" xLoc="1" yLoc="9"></Water>
+				<Water id="14" xLoc="1" yLoc="11"></Water>
+				<Water id="15" xLoc="2" yLoc="0"></Water>
+				<Water id="16" xLoc="2" yLoc="2"></Water>
+				<Water id="17" xLoc="2" yLoc="4"></Water>
+				<Water id="18" xLoc="2" yLoc="6"></Water>
+				<Water id="19" xLoc="2" yLoc="7"></Water>
+				<Water id="20" xLoc="2" yLoc="9"></Water>
+				<Water id="21" xLoc="2" yLoc="11"></Water>
+				<Water id="22" xLoc="3" yLoc="2"></Water>
+				<Water id="23" xLoc="3" yLoc="4"></Water>
+				<Water id="24" xLoc="3" yLoc="7"></Water>
+				<Water id="25" xLoc="3" yLoc="9"></Water>
+				<Water id="26" xLoc="4" yLoc="0"></Water>
+				<Water id="28" xLoc="4" yLoc="2"></Water>
+				<Water id="29" xLoc="4" yLoc="4"></Water>
+				<Water id="30" xLoc="4" yLoc="5"></Water>
+				<Water id="31" xLoc="4" yLoc="7"></Water>
+				<Water id="32" xLoc="4" yLoc="9"></Water>
+				<Water id="33" xLoc="4" yLoc="11"></Water>
+				<Water id="34" xLoc="5" yLoc="0"></Water>
+				<Water id="35" xLoc="5" yLoc="2"></Water>
+				<Water id="36" xLoc="5" yLoc="7"></Water>
+				<Water id="37" xLoc="5" yLoc="11"></Water>
+				<Water id="38" xLoc="6" yLoc="0"></Water>
+				<Water id="39" xLoc="6" yLoc="1"></Water>
+				<Water id="40" xLoc="6" yLoc="2"></Water>
+				<Water id="41" xLoc="6" yLoc="3"></Water>
+				<Water id="42" xLoc="6" yLoc="4"></Water>
+				<Water id="43" xLoc="6" yLoc="7"></Water>
+				<Water id="44" xLoc="6" yLoc="8"></Water>
+				<Water id="45" xLoc="6" yLoc="9"></Water>
+				<Water id="46" xLoc="6" yLoc="10"></Water>
+				<Water id="47" xLoc="6" yLoc="11"></Water>
 			</Blocks>
 		</Environment>
 
@@ -868,7 +869,7 @@
 
 	<Room number="10">
 		<Enemies>
-			<Goriya id="1" xLoc="0" yLoc="0">
+			<Goriya id="1" xLoc="0" yLoc="8">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -878,7 +879,7 @@
 				<Drops>
 				</Drops>
 			</Goriya>
-			<Goriya id="2" xLoc="0" yLoc="0">
+			<Goriya id="2" xLoc="2" yLoc="4">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -888,7 +889,7 @@
 				<Drops>
 				</Drops>
 			</Goriya>
-			<Goriya id="3" xLoc="0" yLoc="0">
+			<Goriya id="3" xLoc="2" yLoc="7">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -916,35 +917,35 @@
 			</Doors>
 
 			<Blocks>
-				<Water id="1" xLoc="0" yLoc="0"></Water>
-				<Water id="2" xLoc="0" yLoc="0"></Water>
-				<Water id="3" xLoc="0" yLoc="0"></Water>
-				<Water id="4" xLoc="0" yLoc="0"></Water>
-				<Water id="5" xLoc="0" yLoc="0"></Water>
-				<Water id="6" xLoc="0" yLoc="0"></Water>
-				<Water id="7" xLoc="0" yLoc="0"></Water>
-				<Water id="8" xLoc="0" yLoc="0"></Water>
-				<Water id="9" xLoc="0" yLoc="0"></Water>
-				<Water id="10" xLoc="0" yLoc="0"></Water>
-				<Water id="11" xLoc="0" yLoc="0"></Water>
-				<Water id="12" xLoc="0" yLoc="0"></Water>
-				<Water id="13" xLoc="0" yLoc="0"></Water>
-				<Water id="14" xLoc="0" yLoc="0"></Water>
-				<Water id="15" xLoc="0" yLoc="0"></Water>
-				<Water id="16" xLoc="0" yLoc="0"></Water>
-				<Water id="17" xLoc="0" yLoc="0"></Water>
-				<Water id="18" xLoc="0" yLoc="0"></Water>
-				<Water id="19" xLoc="0" yLoc="0"></Water>
-				<Water id="20" xLoc="0" yLoc="0"></Water>
-				<Water id="21" xLoc="0" yLoc="0"></Water>
-				<Water id="22" xLoc="0" yLoc="0"></Water>
-				<Water id="23" xLoc="0" yLoc="0"></Water>
-				<Water id="24" xLoc="0" yLoc="0"></Water>
+				<Water id="1" xLoc="1 " yLoc="1"></Water>
+				<Water id="2" xLoc="1 " yLoc="2"></Water>
+				<Water id="3" xLoc="1 " yLoc="3"></Water>
+				<Water id="4" xLoc="1 " yLoc="8"></Water>
+				<Water id="5" xLoc="1 " yLoc="9"></Water>
+				<Water id="6" xLoc="1 " yLoc="10"></Water>
+				<Water id="7" xLoc="2" yLoc="1"></Water>
+				<Water id="8" xLoc="2" yLoc="10"></Water>
+				<Water id="9" xLoc="3" yLoc="1"></Water>
+				<Water id="10" xLoc="3" yLoc="3"></Water>
+				<Water id="11" xLoc="3" yLoc="4"></Water>
+				<Water id="12" xLoc="3" yLoc="5"></Water>
+				<Water id="13" xLoc="3" yLoc="6"></Water>
+				<Water id="14" xLoc="3" yLoc="7"></Water>
+				<Water id="15" xLoc="3" yLoc="8"></Water>
+				<Water id="16" xLoc="3" yLoc="10"></Water>
+				<Water id="17" xLoc="4" yLoc="1"></Water>
+				<Water id="18" xLoc="4" yLoc="10"></Water>
+				<Water id="19" xLoc="5" yLoc="1"></Water>
+				<Water id="20" xLoc="5" yLoc="2"></Water>
+				<Water id="21" xLoc="5" yLoc="3"></Water>
+				<Water id="22" xLoc="5" yLoc="8"></Water>
+				<Water id="23" xLoc="5" yLoc="9"></Water>
+				<Water id="24" xLoc="5" yLoc="10"></Water>
 			</Blocks>
 		</Environment>
 
 		<Items>
-			<key quantity="1" xLoc="0" yLoc="0"></key>
+			<key quantity="1" xLoc="1" yLoc="6"></key>
 		</Items>
 	</Room>
 
@@ -960,7 +961,7 @@
 				<Drops>
 				</Drops>
 			</BladeTrap>
-			<BladeTrap id="2" xLoc="0" yLoc="0">
+			<BladeTrap id="2" xLoc="6" yLoc="0">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -971,7 +972,7 @@
 				<Drops>
 				</Drops>
 			</BladeTrap>
-			<BladeTrap id="3" xLoc="0" yLoc="0">
+			<BladeTrap id="3" xLoc="0" yLoc="11">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -982,7 +983,7 @@
 				<Drops>
 				</Drops>
 			</BladeTrap>
-			<BladeTrap id="4" xLoc="0" yLoc="0">
+			<BladeTrap id="4" xLoc="6" yLoc="11">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -1000,22 +1001,22 @@
 			</Walls>
 
 			<Doors>
-				<Door id="west" xLoc="0" yLoc="0">
+				<Door id="east" xLoc="0" yLoc="0">
 					<DestinationRoom>11</DestinationRoom>
 					<Locked>False</Locked>
 				</Door>
 			</Doors>
 
 			<Blocks>
-				<Staircase quantity="1" xLoc="0" yLoc="0"></Staircase>
-				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
+				<Staircase quantity="1" xLoc="3" yLoc="6"></Staircase>
+				<WaterBlock id="1" xLoc="2" yLoc="5"></WaterBlock>
+				<WaterBlock id="2" xLoc="2" yLoc="7"></WaterBlock>
+				<WaterBlock id="3" xLoc="3" yLoc="4"></WaterBlock>
+				<WaterBlock id="4" xLoc="3" yLoc="8"></WaterBlock>
+				<WaterBlock id="5" xLoc="4" yLoc="5"></WaterBlock>
+				<WaterBlock id="6" xLoc="4" yLoc="7"></WaterBlock>
+				<WaterBlock id="7" xLoc="5" yLoc="6"></WaterBlock>
+				<WaterBlock id="8" xLoc="1" yLoc="6"></WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -1026,7 +1027,7 @@
 
 	<Room number="12">
 		<Enemies>
-			<Goriya id="1" xLoc="0" yLoc="0">
+			<Goriya id="1" xLoc="0" yLoc="3">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -1036,7 +1037,7 @@
 				<Drops>
 				</Drops>
 			</Goriya>
-			<Goriya id="2" xLoc="0" yLoc="0">
+			<Goriya id="2" xLoc="3" yLoc="11">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -1046,7 +1047,7 @@
 				<Drops>
 				</Drops>
 			</Goriya>
-			<Goriya id="3" xLoc="0" yLoc="0">
+			<Goriya id="3" xLoc="6" yLoc="3">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -1074,22 +1075,22 @@
 			</Doors>
 
 			<Blocks>
-				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="1" xLoc="2" yLoc="2"></WaterBlock>
+				<WaterBlock id="2" xLoc="4" yLoc="2"></WaterBlock>
+				<WaterBlock id="3" xLoc="2" yLoc="9"></WaterBlock>
+				<WaterBlock id="4" xLoc="4" yLoc="9"></WaterBlock>
 			</Blocks>
 		</Environment>
 
 		<Items>
-			<Boomerang quantity="1" xLoc="0" yLoc="0"></Boomerang>
+			<Boomerang quantity="1" xLoc="1" yLoc="6"></Boomerang>
 		</Items>
 	</Room>
 
 
 	<Room number="13">
 		<Enemies>
-			<Wallmaster id="1" xLoc="0" yLoc="0">
+			<Wallmaster id="1" xLoc="2" yLoc="0">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -1099,17 +1100,7 @@
 				<Drops>
 				</Drops>
 			</Wallmaster>
-			<Wallmaster id="2" xLoc="0" yLoc="0">
-				<Stats>
-					<Health>0</Health>
-					<Strength>0</Strength>
-					<Stamina>0</Stamina>
-					<Damage>0</Damage>
-				</Stats>
-				<Drops>
-				</Drops>
-			</Wallmaster>
-			<Wallmaster id="3" xLoc="0" yLoc="0">
+			<Wallmaster id="2" xLoc="5" yLoc="0">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -1137,24 +1128,24 @@
 			</Doors>
 
 			<Blocks>
-				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="9" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="10" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="11" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="12" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="13" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="14" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="15" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="16" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="17" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="18" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="1" xLoc="1" yLoc="1"></WaterBlock>
+				<WaterBlock id="2" xLoc="1" yLoc="3"></WaterBlock>
+				<WaterBlock id="3" xLoc="1" yLoc="5"></WaterBlock>
+				<WaterBlock id="4" xLoc="1" yLoc="6"></WaterBlock>
+				<WaterBlock id="5" xLoc="1" yLoc="8"></WaterBlock>
+				<WaterBlock id="6" xLoc="1" yLoc="10"></WaterBlock>
+				<WaterBlock id="7" xLoc="3" yLoc="1"></WaterBlock>
+				<WaterBlock id="8" xLoc="3" yLoc="3"></WaterBlock>
+				<WaterBlock id="9" xLoc="3" yLoc="5"></WaterBlock>
+				<WaterBlock id="10" xLoc="3" yLoc="6"></WaterBlock>
+				<WaterBlock id="11" xLoc="3" yLoc="8"></WaterBlock>
+				<WaterBlock id="12" xLoc="3" yLoc="10"></WaterBlock>
+				<WaterBlock id="13" xLoc="5" yLoc="1"></WaterBlock>
+				<WaterBlock id="14" xLoc="5" yLoc="3"></WaterBlock>
+				<WaterBlock id="15" xLoc="5" yLoc="5"></WaterBlock>
+				<WaterBlock id="16" xLoc="5" yLoc="6"></WaterBlock>
+				<WaterBlock id="17" xLoc="5" yLoc="8"></WaterBlock>
+				<WaterBlock id="18" xLoc="5" yLoc="10"></WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -1165,7 +1156,7 @@
 
 	<Room number="14">
 		<Enemies>
-			<Aquamentus id="1" xLoc="0" yLoc="0">
+			<Aquamentus id="1" xLoc="2" yLoc="9">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -1194,34 +1185,34 @@
 			</Doors>
 
 			<Blocks>
-				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="9" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="10" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="11" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="12" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="13" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="14" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="15" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="16" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="17" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="18" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="19" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="20" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="1" xLoc="0" yLoc="7"></WaterBlock>
+				<WaterBlock id="2" xLoc="0" yLoc="8"></WaterBlock>
+				<WaterBlock id="3" xLoc="0" yLoc="9"></WaterBlock>
+				<WaterBlock id="4" xLoc="0" yLoc="10"></WaterBlock>
+				<WaterBlock id="5" xLoc="0" yLoc="11"></WaterBlock>
+				<WaterBlock id="6" xLoc="1" yLoc="9"></WaterBlock>
+				<WaterBlock id="7" xLoc="1" yLoc="10"></WaterBlock>
+				<WaterBlock id="8" xLoc="1" yLoc="11"></WaterBlock>
+				<WaterBlock id="9" xLoc="2" yLoc="10"></WaterBlock>
+				<WaterBlock id="10" xLoc="2" yLoc="11"></WaterBlock>
+				<WaterBlock id="11" xLoc="4" yLoc="10"></WaterBlock>
+				<WaterBlock id="12" xLoc="4" yLoc="11"></WaterBlock>
+				<WaterBlock id="13" xLoc="5" yLoc="9"></WaterBlock>
+				<WaterBlock id="14" xLoc="5" yLoc="10"></WaterBlock>
+				<WaterBlock id="15" xLoc="5" yLoc="11"></WaterBlock>
+				<WaterBlock id="16" xLoc="6" yLoc="7"></WaterBlock>
+				<WaterBlock id="17" xLoc="6" yLoc="8"></WaterBlock>
+				<WaterBlock id="18" xLoc="6" yLoc="9"></WaterBlock>
+				<WaterBlock id="19" xLoc="6" yLoc="10"></WaterBlock>
+				<WaterBlock id="20" xLoc="6" yLoc="11"></WaterBlock>
 			</Blocks>
 		</Environment>
 
 		<Items>
 		</Items>
 	</Room>
-	
-	
+
+
 	<Room number="15">
 		<Enemies>
 		</Enemies>
@@ -1238,35 +1229,39 @@
 			</Doors>
 
 			<Blocks>
-				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="7" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="8" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="9" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="10" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="11" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="12" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="13" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="14" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="15" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="16" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="17" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="18" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="19" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="20" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="21" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="22" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="23" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="24" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="1" xLoc="1" yLoc="1"></WaterBlock>
+				<WaterBlock id="2" xLoc="1" yLoc="2"></WaterBlock>
+				<WaterBlock id="3" xLoc="1" yLoc="3"></WaterBlock>
+				<WaterBlock id="4" xLoc="1" yLoc="4"></WaterBlock>
+				<WaterBlock id="5" xLoc="1" yLoc="5"></WaterBlock>
+				<WaterBlock id="6" xLoc="1" yLoc="6"></WaterBlock>
+				<WaterBlock id="7" xLoc="1" yLoc="7"></WaterBlock>
+				<WaterBlock id="8" xLoc="1" yLoc="8"></WaterBlock>
+				<WaterBlock id="9" xLoc="1" yLoc="9"></WaterBlock>
+				<WaterBlock id="10" xLoc="1" yLoc="10"></WaterBlock>
+				<WaterBlock id="11" xLoc="5" yLoc="1"></WaterBlock>
+				<WaterBlock id="12" xLoc="5" yLoc="2"></WaterBlock>
+				<WaterBlock id="13" xLoc="5" yLoc="3"></WaterBlock>
+				<WaterBlock id="14" xLoc="5" yLoc="4"></WaterBlock>
+				<WaterBlock id="17" xLoc="5" yLoc="7"></WaterBlock>
+				<WaterBlock id="18" xLoc="5" yLoc="8"></WaterBlock>
+				<WaterBlock id="19" xLoc="5" yLoc="9"></WaterBlock>
+				<WaterBlock id="20" xLoc="5" yLoc="10"></WaterBlock>
+				<WaterBlock id="21" xLoc="2" yLoc="1"></WaterBlock>
+				<WaterBlock id="22" xLoc="2" yLoc="10"></WaterBlock>
+				<WaterBlock id="23" xLoc="4" yLoc="1"></WaterBlock>
+				<WaterBlock id="24" xLoc="4" yLoc="10"></WaterBlock>
+				<WaterBlock id="23" xLoc="3" yLoc="1"></WaterBlock>
+				<WaterBlock id="24" xLoc="3" yLoc="10"></WaterBlock>
+				<WaterBlock id="23" xLoc="2" yLoc="4"></WaterBlock>
+				<WaterBlock id="24" xLoc="2" yLoc="7"></WaterBlock>
+				<WaterBlock id="23" xLoc="3" yLoc="3"></WaterBlock>
+				<WaterBlock id="24" xLoc="3" yLoc="8"></WaterBlock>
 			</Blocks>
 		</Environment>
 
 		<Items>
-			<TriforceOfWisdom quantity ="4" xLoc ="0" yLoc ="0" restore="100"></TriforceOfWisdom>
+			<TriforceOfWisdom quantity ="4" xLoc ="3" yLoc ="5" restore="100"></TriforceOfWisdom>
 		</Items>
 	</Room>
 

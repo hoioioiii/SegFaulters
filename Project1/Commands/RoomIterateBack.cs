@@ -5,7 +5,7 @@ namespace Project1.Commands
 	{
         public void Execute()
         {
-            //Game1.Room = RoomIterator.getCurrItem(true);
+            RoomManager.DecrementActiveRoom();
         }
     }
 }
