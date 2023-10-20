@@ -55,6 +55,7 @@ namespace Project1
                 int posX = blockPositionDictionary[blocksToLoad[i]].Item1;
                 int posY = blockPositionDictionary[blocksToLoad[i]].Item2;
                 blocksArray[i] = new CurrentBlock(texture, posX, posY);
+                Game1.GameObjManager.addNewEnvironment(blocksArray[i]);
             }
         }
 
@@ -67,6 +68,7 @@ namespace Project1
                 int destinationRoom = doorsToLoad[i].Item2.Item1;
                 bool isLocked = doorsToLoad[i].Item2.Item2;
                 doorArray[i] = new Door(doorSpriteArray, direction, destinationRoom, isLocked);
+                Game1.GameObjManager.addDoors(doorArray[i]);
             }
         }
    
@@ -77,6 +79,7 @@ namespace Project1
             }
         }
 
+        //fix tom
         public static void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(levelBackground, new Rectangle(17, -22, levelBackground.Width * 3, levelBackground.Height * 3), Color.White);

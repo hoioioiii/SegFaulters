@@ -17,6 +17,7 @@ namespace Project1
         //public IItem getEnvironmentList();
 
         public List<IEntity> getEntityList();
+        
 
         public List<IWeapon> getWeaponList();
 
@@ -27,7 +28,7 @@ namespace Project1
         public void addNewWeapon(IWeapon weapon);
         public void addNewWall(Rectangle wall);
         public void addNewEnvironment(IEnvironment block);
-        public void addDoors(IDoor door);
+        public void addDoors(IEnvironment door);
 
         public void removeItem(IItem item);
 
@@ -36,7 +37,7 @@ namespace Project1
         public void removeWeapon(IWeapon weapon);
 
         public List<IEnvironment> getEnvironmentList();
-        public List<IDoor> getDoorList();
+        public List<IEnvironment> getDoorList();
         public List<Rectangle> getBoundarys();
         public void clearAll();
 
