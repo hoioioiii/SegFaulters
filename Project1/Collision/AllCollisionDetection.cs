@@ -1,9 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using Project1.Collision_Response;
 using Project1.Weapons;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Text;
 using static Project1.Constants;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 
@@ -63,6 +65,11 @@ namespace Project1.Collision
         List<IWeaponProjectile> weaponProjectiles = new List<IWeaponProjectile>();
         #endregion
 
+        public static void CallCollision()
+        {
+            Player player = new Player();
+        }
+
         #region Collision Detection Entities (player & room enemies)
         /*
          * Detect every object the player could be colliding with
@@ -73,11 +80,20 @@ namespace Project1.Collision
         {
             bool isColliding = false;
 
+
             // check if player intersects a room rectangle
                 
             // if the CollisionType is damage or boundary, directional collision check required
             DIRECTION collisionDirection = DIRECTION.left;
-                    
+
+            #region Print to debug console currently pressed keys
+            System.Text.StringBuilder sb = new StringBuilder();
+            sb.Append(isColliding);
+
+            if (sb.Length > 0)
+                System.Diagnostics.Debug.WriteLine(sb.ToString());
+            #endregion
+
             foreach (var item in roomItems)
             {
                 isColliding = link.BoundingBox.Intersects(item.BoundingBox);
@@ -128,6 +144,8 @@ namespace Project1.Collision
             */
             //if (isColliding) { break; }
         }
+
+        
 
         public void DetectAllCollisionsEnemiesEntity(CollisionType collisionType)
         {
@@ -224,6 +242,20 @@ namespace Project1.Collision
         }
 
         #region OUTDATED, USES RECTS NOT ENTITIES! Collision Detection (player & room enemies)
+        /*
+         * How to make this method that can take in and use lists with different interfaces? Is it even possible?
+         * See if it's possible to refactor this code into the class for next sprint.
+         */
+        private bool DetectCollisionOfType(List<object> colVars)
+        {
+            bool isColliding = false;
+            foreach (var colVar in colVars) { }
+
+            //isColliding = link.BoundingBox.Intersects(new Rectangle);
+
+            return isColliding;
+        }
+
         public void DetectAllCollisionsLink(CollisionType collisionType, Rectangle link)
         {
             // pass in list of axis-alligned bounding rectangles

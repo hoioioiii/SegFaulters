@@ -159,11 +159,11 @@ namespace Project1
             DamageTimer -= elapsedSeconds;
             FlashTimer -= elapsedSeconds;
 
-            // rename to keyState
-            KeyboardState state = Keyboard.GetState();
-            // Print to debug console currently pressed keys
+            KeyboardState keystate = Keyboard.GetState();
+
+            #region Print to debug console currently pressed keys
             System.Text.StringBuilder sb = new StringBuilder();
-            foreach (var key in state.GetPressedKeys())
+            foreach (var key in keystate.GetPressedKeys())
                 sb.Append("Key: ").Append(key).Append(" pressed ");
 
             if (sb.Length > 0)
@@ -171,9 +171,9 @@ namespace Project1
             else
                 //System.Diagnostics.Debug.WriteLine("No Keys pressed");
                 isMoving = false;
+            #endregion
+
             // Move our sprite based on arrow keys being pressed:
-
-
 
             if (isAttacking)
             {
@@ -186,26 +186,26 @@ namespace Project1
             // Link can't move when attacking
             if (!isAttacking)
             {
-                if (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.N))
+                if (keystate.IsKeyDown(Keys.Z) || keystate.IsKeyDown(Keys.N))
                 {
                     // attack using his sword
                     isAttacking = true;
                     isAttackingWithSword = true;
                     //sprite.Update(linkDirection, position);
                 }
-                else if (state.IsKeyDown(Keys.I))
+                else if (keystate.IsKeyDown(Keys.I))
                 {
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBoomerang = true;
                 }
-                else if (state.IsKeyDown(Keys.U))
+                else if (keystate.IsKeyDown(Keys.U))
                 {
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBow = true;
                 }
-                else if (state.IsKeyDown(Keys.B))
+                else if (keystate.IsKeyDown(Keys.B))
                 {
                     // attack using his sword
                     isAttacking = true;
@@ -219,7 +219,7 @@ namespace Project1
 
 
 
-                if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.A))
+                if (keystate.IsKeyDown(Keys.Left) || keystate.IsKeyDown(Keys.A))
                 {
                     position.X -= playerSpeed;
                     isMoving = true;
@@ -230,7 +230,7 @@ namespace Project1
 
                     sprite.Update(4, position);
                 }
-                else if (state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.S))
+                else if (keystate.IsKeyDown(Keys.Down) || keystate.IsKeyDown(Keys.S))
                 {
                     position.Y += playerSpeed;
                     isMoving = true;
@@ -239,7 +239,7 @@ namespace Project1
                     sprite.Update(3, position);
 
                 }
-                else if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.W))
+                else if (keystate.IsKeyDown(Keys.Up) || keystate.IsKeyDown(Keys.W))
                 {
                     position.Y -= playerSpeed;
                     isMoving = true;
@@ -248,7 +248,7 @@ namespace Project1
                     sprite.Update(1, position);
 
                 }
-                else if (state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D))
+                else if (keystate.IsKeyDown(Keys.Right) || keystate.IsKeyDown(Keys.D))
                 {
                     position.X += playerSpeed;
                     isMoving = true;
@@ -260,27 +260,27 @@ namespace Project1
             }
 
             /*
-            if (state.IsKeyDown(Keys.E))
+            if (keystate.IsKeyDown(Keys.E))
             {
                 DamageInvincibility();
             }
             */
-            //Move(state);
+            //Move(keystate);
 
-            if (state.IsKeyDown(Keys.E))
+            if (keystate.IsKeyDown(Keys.E))
             {
                 isDamaged = true;
                 DamageInvincibility();
             }
-            if (state.IsKeyDown(Keys.T) || state.IsKeyDown(Keys.Y))
+            if (keystate.IsKeyDown(Keys.T) || keystate.IsKeyDown(Keys.Y))
             {
                 // cycle between which block is currently being shown
             }
-            if (state.IsKeyDown(Keys.U) || state.IsKeyDown(Keys.I))
+            if (keystate.IsKeyDown(Keys.U) || keystate.IsKeyDown(Keys.I))
             {
 
             }
-            if (state.IsKeyDown(Keys.O) || state.IsKeyDown(Keys.P))
+            if (keystate.IsKeyDown(Keys.O) || keystate.IsKeyDown(Keys.P))
             {
 
             }
@@ -433,7 +433,7 @@ namespace Project1
 
 
 
-        // if 1 second has passed since attacking, revert attack state to false (allowing for other actions)
+        // if 1 second has passed since attacking, revert attack keystate to false (allowing for other actions)
         public static void WaitForAttack()
         {
             if (AttackTimer <= 0)

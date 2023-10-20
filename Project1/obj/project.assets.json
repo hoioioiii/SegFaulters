@@ -102,22 +102,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ephratah\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ephratah\\source\\repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj",
+      "projectUniqueName": "D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj",
       "projectName": "Project1",
-      "projectPath": "C:\\Users\\Ephratah\\source\\repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj",
-      "packagesPath": "C:\\Users\\Ephratah\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ephratah\\source\\repos\\Boioioiii\\SegFaulters\\Project1\\obj\\",
+      "projectPath": "D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Ephratah\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -166,7 +163,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.309/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }
