@@ -62,12 +62,14 @@ namespace Project1.Collision
          * TODO: Differentiate between whether weapons belong to Link or an enemy
          */
         List<IWeaponMelee> weaponMelees = new List<IWeaponMelee>();
-        List<IWeaponProjectile> weaponProjectiles = new List<IWeaponProjectile>();
+        //List<IWeaponProjectile> weaponProjectiles = new List<IWeaponProjectile>();
         #endregion
 
-        public static void CallCollision()
+        public static void CollisionTest(Player link)
         {
-            Player player = new Player();
+            bool isColliding = false;
+
+            Rectangle rect = new Rectangle();
         }
 
         #region Collision Detection Entities (player & room enemies)

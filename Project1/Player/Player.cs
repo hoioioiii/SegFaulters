@@ -159,6 +159,9 @@ namespace Project1
             DamageTimer -= elapsedSeconds;
             FlashTimer -= elapsedSeconds;
 
+            // call collision and pass in link
+
+
             KeyboardState keystate = Keyboard.GetState();
 
             #region Print to debug console currently pressed keys
