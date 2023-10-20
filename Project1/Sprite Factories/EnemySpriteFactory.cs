@@ -7,27 +7,38 @@ using System.Reflection.Metadata;
 using System.Xml.Linq;
 using static Project1.Constants;
 using Project1.Enemies.sprites;
+using System.Collections.Generic;
 
 namespace Project1
 {
     public class EnemySpriteFactory
     {
-        
-        private Texture2D[] batSpritesheet = new Texture2D[BAT_C * BAT_TOTAL];
+        private List<Texture2D[]> batStorage = new List<Texture2D[]>() {new Texture2D[BAT_FRAMES_U], new Texture2D[BAT_FRAMES_R], new Texture2D[BAT_FRAMES_D], new Texture2D[BAT_FRAMES_L], new Texture2D[BAT_FRAMES_DEATH] };
         //constants specify how mant frames there are for each sprite
         //make sure to edit the constants is constants.cs to reflect how many frames there are for each sprites
-        private Texture2D[] aquaDragonSpritesheet = new Texture2D[AQUA_TOTAL];
-        private Texture2D[] dinoSpritesheet = new Texture2D[DINO_TOTAL];
-        private Texture2D[] fireDragonSpritesheet = new Texture2D[FD_TOTAL];
-        private Texture2D[] dogMonsterSpritesheet = new Texture2D[DM_TOTAL];
-        private Texture2D[] flameSpritesheet = new Texture2D[FLAME_TOTAL];
-        private Texture2D[] handSpritesheet = new Texture2D[HAND_TOTAL];
-        private Texture2D[] jellySpritesheet = new Texture2D[JELLY_TOTAL];
-        private Texture2D[] merchantSpritesheet = new Texture2D[MERCHANT_TOTAL];
-        private Texture2D[] oldManSpritesheet = new Texture2D[OLDMAN_TOTAL];
-        private Texture2D[] skeletonSpritesheet = new Texture2D[SKELETON_ARRAY];
-        private Texture2D[] snakeSpritesheet = new Texture2D[SNAKE_TOTAL];
-        private Texture2D[] spikeCrossSpritesheet = new Texture2D[SPIKE_TOTAL];
+        private List<Texture2D[]> aquaDragonStorage = new List<Texture2D[]>() { new Texture2D[AQUA_FRAMES_U], new Texture2D[AQUA_FRAMES_R], new Texture2D[AQUA_FRAMES_D], new Texture2D[AQUA_FRAMES_L], new Texture2D[AQUA_FRAMES_DEATH]};
+
+        private List<Texture2D[]> dinoStorage = new List<Texture2D[]>() { new Texture2D[DINO_FRAMES_U], new Texture2D[DINO_FRAMES_R], new Texture2D[DINO_FRAMES_D], new Texture2D[DINO_FRAMES_L], new Texture2D[DINO_FRAMES_DEATH]};
+
+        private List<Texture2D[]> fireDinoStorage = new List<Texture2D[]>() { new Texture2D[FD_FRAMES_U], new Texture2D[FD_FRAMES_R], new Texture2D[FD_FRAMES_D], new Texture2D[FD_FRAMES_L], new Texture2D[FD_FRAMES_DEATH] };
+
+        private List<Texture2D[]> dogMonsterStorage = new List<Texture2D[]>() { new Texture2D[DM_FRAMES_U], new Texture2D[DM_FRAMES_R], new Texture2D[DM_FRAMES_D], new Texture2D[DM_FRAMES_L], new Texture2D[DM_FRAMES_DEATH] };
+
+        private List<Texture2D[]> flameStorage = new List<Texture2D[]>() { new Texture2D[FLAME_FRAMES_U], new Texture2D[FLAME_FRAMES_R], new Texture2D[FLAME_FRAMES_D], new Texture2D[FLAME_FRAMES_L], new Texture2D[FLAME_FRAMES_DEATH] };
+
+        private List<Texture2D[]> handStorage = new List<Texture2D[]>() { new Texture2D[HAND_FRAMES_U], new Texture2D[HAND_FRAMES_R], new Texture2D[HAND_FRAMES_D], new Texture2D[HAND_FRAMES_L], new Texture2D[HAND_FRAMES_DEATH]};
+
+        private List<Texture2D[]> jellyStorage = new List<Texture2D[]>() { new Texture2D[JELLY_FRAMES_U], new Texture2D[JELLY_FRAMES_R], new Texture2D[JELLY_FRAMES_D], new Texture2D[JELLY_FRAMES_L], new Texture2D[JELLY_FRAMES_DEATH] };
+
+        private List<Texture2D[]> merchantStorage = new List<Texture2D[]>() { new Texture2D[MERCHANT_FRAMES_U], new Texture2D[MERCHANT_FRAMES_R], new Texture2D[MERCHANT_FRAMES_D], new Texture2D[MERCHANT_FRAMES_L], new Texture2D[MERCHANT_FRAMES_DEATH] };
+
+        private List<Texture2D[]> oldManStorage = new List<Texture2D[]>() { new Texture2D[OLDMAN_FRAMES_U], new Texture2D[OLDMAN_FRAMES_R], new Texture2D[OLDMAN_FRAMES_D], new Texture2D[OLDMAN_FRAMES_L], new Texture2D[OLDMAN_FRAMES_DEATH] };
+
+        private List<Texture2D[]> skelatonStorage = new List<Texture2D[]>() { new Texture2D[SKEL_FRAMES_U], new Texture2D[SKEL_FRAMES_R], new Texture2D[SKEL_FRAMES_D], new Texture2D[SKEL_FRAMES_L], new Texture2D[SKEL_FRAMES_DEATH] };
+
+        private List<Texture2D[]> snakeStorage = new List<Texture2D[]>() { new Texture2D[SNAKE_FRAMES_U], new Texture2D[SNAKE_FRAMES_R], new Texture2D[SNAKE_FRAMES_D], new Texture2D[SNAKE_FRAMES_L], new Texture2D[SNAKE_FRAMES_DEATH] };
+
+        private List<Texture2D[]> spikeStorage = new List<Texture2D[]>() { new Texture2D[SPIKE_FRAMES_U], new Texture2D[SPIKE_FRAMES_R], new Texture2D[SPIKE_FRAMES_D], new Texture2D[SPIKE_FRAMES_L], new Texture2D[SPIKE_FRAMES_DEATH] };
 
         // More private Texture2Ds follow
         // ...
@@ -48,143 +59,289 @@ namespace Project1
 
         public void LoadAllTextures(ContentManager content)
         {
+            //REFERENCE: list index 0 = Up Frames, 1 = Right Frames, 2  = Down Frames, 3 = Left Frames
             //add all frames to the arrays
-            //anything in all caps still needs to be updates with the new sprite
-            batSpritesheet[0] = content.Load<Texture2D>(assetName: "bat1");
-            batSpritesheet[1] = content.Load<Texture2D>(assetName: "bat2");
+            //anything in all caps still needs to be updates with the new sprit
+
+            #region Bat Sprite Storage
+
+            for (int i = 0; i < 4; i++) {
+                batStorage[i][0] = content.Load<Texture2D>(assetName: "bat1");
+                batStorage[i][1] = content.Load<Texture2D>(assetName: "bat2");
+            }
+
+            #endregion
+
+            #region Aqua Dragon Storage
 
             //we can toss smthing else here
-            aquaDragonSpritesheet[0] = content.Load<Texture2D>(assetName: "ZeldaSpriteAquamentusLeft");
-            aquaDragonSpritesheet[1] = content.Load<Texture2D>(assetName: "ZeldaSpriteAquamentusRight");
+
+            aquaDragonStorage[(int)ENEMY_DIRECTION.right][0] = content.Load<Texture2D>(assetName: "aquaRight1");
+            aquaDragonStorage[(int)ENEMY_DIRECTION.right][1] = content.Load<Texture2D>(assetName: "aquaRight2");
+            aquaDragonStorage[(int)ENEMY_DIRECTION.left][0] = content.Load<Texture2D>(assetName: "aquaLeft1");
+            aquaDragonStorage[(int)ENEMY_DIRECTION.left][1] = content.Load<Texture2D>(assetName: "aquaLeft2");
+
+            aquaDragonStorage[(int)ENEMY_DIRECTION.up][0] = aquaDragonStorage[(int)ENEMY_DIRECTION.right][0];
+            aquaDragonStorage[(int)ENEMY_DIRECTION.up][1] = aquaDragonStorage[(int)ENEMY_DIRECTION.left][0];
+            aquaDragonStorage[(int)ENEMY_DIRECTION.up][2] = aquaDragonStorage[(int)ENEMY_DIRECTION.right][1];
+            aquaDragonStorage[(int)ENEMY_DIRECTION.up][3] = aquaDragonStorage[(int)ENEMY_DIRECTION.left][1];
+
+            aquaDragonStorage[(int)ENEMY_DIRECTION.down][0] = aquaDragonStorage[(int)ENEMY_DIRECTION.right][0];
+            aquaDragonStorage[(int)ENEMY_DIRECTION.down][1] = aquaDragonStorage[(int)ENEMY_DIRECTION.left][0];
+            aquaDragonStorage[(int)ENEMY_DIRECTION.down][2] = aquaDragonStorage[(int)ENEMY_DIRECTION.right][1];
+            aquaDragonStorage[(int)ENEMY_DIRECTION.down][3] = aquaDragonStorage[(int)ENEMY_DIRECTION.left][1];
+
+            #endregion
+
+            #region Dino Storage
+
+            //2 sprites for up and down, animation for left and right
+
+            dinoStorage[(int)ENEMY_DIRECTION.up][0] = content.Load<Texture2D>(assetName: "dinoTop1");
+            dinoStorage[(int)ENEMY_DIRECTION.up][1] = content.Load<Texture2D>(assetName: "dinoTop2");
+            dinoStorage[(int)ENEMY_DIRECTION.up][2] = content.Load<Texture2D>(assetName: "dinoTop3");
+            dinoStorage[(int)ENEMY_DIRECTION.down][0] = content.Load<Texture2D>(assetName: "dinoBottom1");
+            dinoStorage[(int)ENEMY_DIRECTION.down][1] = content.Load<Texture2D>(assetName: "dinoBottom2");
+            dinoStorage[(int)ENEMY_DIRECTION.down][2] = content.Load<Texture2D>(assetName: "dinoBottom2");
+            dinoStorage[(int)ENEMY_DIRECTION.left][0] = content.Load<Texture2D>(assetName: "dinoLeft1");
+            dinoStorage[(int)ENEMY_DIRECTION.left][1] = content.Load<Texture2D>(assetName: "dinoLeft2");
+            dinoStorage[(int)ENEMY_DIRECTION.left][2] = content.Load<Texture2D>(assetName: "dinoLeft3");
+            dinoStorage[(int)ENEMY_DIRECTION.right][0] = content.Load<Texture2D>(assetName: "dinoRight1");
+            dinoStorage[(int)ENEMY_DIRECTION.right][1] = content.Load<Texture2D>(assetName: "dinoRight2");
+            dinoStorage[(int)ENEMY_DIRECTION.right][2] = content.Load<Texture2D>(assetName: "dinoRight3");
 
 
-            dinoSpritesheet[0] = content.Load<Texture2D>(assetName: "dino1");
-            dinoSpritesheet[1] = content.Load<Texture2D>(assetName: "dino2");
-            dinoSpritesheet[2] = content.Load<Texture2D>(assetName: "dino3");
-            dinoSpritesheet[3] = content.Load<Texture2D>(assetName: "dino4");
+            #endregion
+
+            #region Fire Storage
+
+            //all for left, left animation for all 4
+
+            fireDinoStorage[(int)ENEMY_DIRECTION.left][0] = content.Load<Texture2D>(assetName: "fd1");
+            fireDinoStorage[(int)ENEMY_DIRECTION.left][1] = content.Load<Texture2D>(assetName: "fd2");
+            fireDinoStorage[(int)ENEMY_DIRECTION.left][2] = content.Load<Texture2D>(assetName: "fd3");
+            fireDinoStorage[(int)ENEMY_DIRECTION.left][3] = content.Load<Texture2D>(assetName: "fd4");
+            fireDinoStorage[(int)ENEMY_DIRECTION.right][0] = content.Load<Texture2D>(assetName: "fd1Right");
+            fireDinoStorage[(int)ENEMY_DIRECTION.right][1] = content.Load<Texture2D>(assetName: "fd2Right");
+            fireDinoStorage[(int)ENEMY_DIRECTION.right][2] = content.Load<Texture2D>(assetName: "fd3Right");
+            fireDinoStorage[(int)ENEMY_DIRECTION.right][3] = content.Load<Texture2D>(assetName: "fd4Right");
+
+            fireDinoStorage[(int)ENEMY_DIRECTION.up][0] = fireDinoStorage[(int)ENEMY_DIRECTION.right][0];
+            fireDinoStorage[(int)ENEMY_DIRECTION.up][1] = fireDinoStorage[(int)ENEMY_DIRECTION.left][0];
+            fireDinoStorage[(int)ENEMY_DIRECTION.up][2] = fireDinoStorage[(int)ENEMY_DIRECTION.right][1];
+            fireDinoStorage[(int)ENEMY_DIRECTION.up][3] = fireDinoStorage[(int)ENEMY_DIRECTION.left][1];
+            fireDinoStorage[(int)ENEMY_DIRECTION.up][4] = fireDinoStorage[(int)ENEMY_DIRECTION.right][2];
+            fireDinoStorage[(int)ENEMY_DIRECTION.up][5] = fireDinoStorage[(int)ENEMY_DIRECTION.left][2];
+            fireDinoStorage[(int)ENEMY_DIRECTION.up][6] = fireDinoStorage[(int)ENEMY_DIRECTION.right][3];
+            fireDinoStorage[(int)ENEMY_DIRECTION.up][7] = fireDinoStorage[(int)ENEMY_DIRECTION.left][3];
+
+            fireDinoStorage[(int)ENEMY_DIRECTION.down][0] = fireDinoStorage[(int)ENEMY_DIRECTION.right][0];
+            fireDinoStorage[(int)ENEMY_DIRECTION.down][1] = fireDinoStorage[(int)ENEMY_DIRECTION.left][0];
+            fireDinoStorage[(int)ENEMY_DIRECTION.down][2] = fireDinoStorage[(int)ENEMY_DIRECTION.right][1];
+            fireDinoStorage[(int)ENEMY_DIRECTION.down][3] = fireDinoStorage[(int)ENEMY_DIRECTION.left][1];
+            fireDinoStorage[(int)ENEMY_DIRECTION.down][4] = fireDinoStorage[(int)ENEMY_DIRECTION.right][2];
+            fireDinoStorage[(int)ENEMY_DIRECTION.down][5] = fireDinoStorage[(int)ENEMY_DIRECTION.left][2];
+            fireDinoStorage[(int)ENEMY_DIRECTION.down][6] = fireDinoStorage[(int)ENEMY_DIRECTION.right][3];
+            fireDinoStorage[(int)ENEMY_DIRECTION.down][7] = fireDinoStorage[(int)ENEMY_DIRECTION.left][3];
 
 
+            #endregion
 
-            fireDragonSpritesheet[0] = content.Load<Texture2D>(assetName: "fd1");
-            fireDragonSpritesheet[1] = content.Load<Texture2D>(assetName: "fd2");
-            fireDragonSpritesheet[2] = content.Load<Texture2D>(assetName: "fd3");
-            fireDragonSpritesheet[3] = content.Load<Texture2D>(assetName: "fd4");
+            #region Dog Monster
 
-
-            dogMonsterSpritesheet[0] = content.Load<Texture2D>(assetName: "dm1");
-            dogMonsterSpritesheet[1] = content.Load<Texture2D>(assetName: "dm2");
-            dogMonsterSpritesheet[2] = content.Load<Texture2D>(assetName: "dm3");
-            dogMonsterSpritesheet[3] = content.Load<Texture2D>(assetName: "dm4");
-            dogMonsterSpritesheet[4] = content.Load<Texture2D>(assetName: "dm5");
-            dogMonsterSpritesheet[5] = content.Load<Texture2D>(assetName: "dm6");
-            dogMonsterSpritesheet[6] = content.Load<Texture2D>(assetName: "dm7");
-            dogMonsterSpritesheet[7] = content.Load<Texture2D>(assetName: "dm8");
-           
-
-            flameSpritesheet[0] = content.Load<Texture2D>(assetName: "ZeldaSpriteFire");
+            dogMonsterStorage[(int)ENEMY_DIRECTION.up][0] = content.Load<Texture2D>(assetName: "dm3");
+            dogMonsterStorage[(int)ENEMY_DIRECTION.up][1] = content.Load<Texture2D>(assetName: "dm4");
+            dogMonsterStorage[(int)ENEMY_DIRECTION.down][0] = content.Load<Texture2D>(assetName: "dm1");
+            dogMonsterStorage[(int)ENEMY_DIRECTION.down][1] = content.Load<Texture2D>(assetName: "dm2");
+            dogMonsterStorage[(int)ENEMY_DIRECTION.left][0] = content.Load<Texture2D>(assetName: "dm5");
+            dogMonsterStorage[(int)ENEMY_DIRECTION.left][1] = content.Load<Texture2D>(assetName: "dm6");
+            dogMonsterStorage[(int)ENEMY_DIRECTION.right][0] = content.Load<Texture2D>(assetName: "dm7");
+            dogMonsterStorage[(int)ENEMY_DIRECTION.right][1] = content.Load<Texture2D>(assetName: "dm8");
 
 
+            #endregion
+
+            #region Flame Storage
+
+            for (int i = 0; i < 4; i++)
+            {
+                flameStorage[i][0] = content.Load<Texture2D>(assetName: "fire1");
+                flameStorage[i][1] = content.Load<Texture2D>(assetName: "fire2");
+            }
 
 
-            handSpritesheet[0] = content.Load<Texture2D>(assetName: "handLeft1");
-            handSpritesheet[1] = content.Load<Texture2D>(assetName: "handLeft2");
-            handSpritesheet[2] = content.Load<Texture2D>(assetName: "handRight1");
-            handSpritesheet[3] = content.Load<Texture2D>(assetName: "handRight2");
+            #endregion
 
-            jellySpritesheet[0] = content.Load<Texture2D>(assetName: "jelly1");
-            jellySpritesheet[1] = content.Load<Texture2D>(assetName: "jelly2");
-            jellySpritesheet[2] = content.Load<Texture2D>(assetName: "jelly3");
+            #region Hand Storage
 
-            merchantSpritesheet[0] = content.Load<Texture2D>(assetName: "MERCHANT");
+            handStorage[(int)ENEMY_DIRECTION.left][0] = content.Load<Texture2D>(assetName: "handLeftDown1");
+            handStorage[(int)ENEMY_DIRECTION.left][1] = content.Load<Texture2D>(assetName: "handLeftDown2");
+            handStorage[(int)ENEMY_DIRECTION.left][2] = content.Load<Texture2D>(assetName: "handLeftUp1");
+            handStorage[(int)ENEMY_DIRECTION.left][3] = content.Load<Texture2D>(assetName: "handLeftUp2 ");
 
-            oldManSpritesheet[0] = content.Load<Texture2D>(assetName: "ZeldaSpriteOldMan");
+            handStorage[(int)ENEMY_DIRECTION.right][0] = content.Load<Texture2D>(assetName: "handRightDown1");
+            handStorage[(int)ENEMY_DIRECTION.right][1] = content.Load<Texture2D>(assetName: "handRightDown2");
+            handStorage[(int)ENEMY_DIRECTION.right][2] = content.Load<Texture2D>(assetName: "handRightUp1");
+            handStorage[(int)ENEMY_DIRECTION.right][3] = content.Load<Texture2D>(assetName: "handRightUp2");
 
-            skeletonSpritesheet[0] = content.Load<Texture2D>(assetName: "skeleton1");
-            skeletonSpritesheet[1] = content.Load<Texture2D>(assetName: "skeleton2");
+            handStorage[(int)ENEMY_DIRECTION.up][0] = handStorage[(int)ENEMY_DIRECTION.right][0];
+            handStorage[(int)ENEMY_DIRECTION.up][1] = handStorage[(int)ENEMY_DIRECTION.left][0];
+            handStorage[(int)ENEMY_DIRECTION.up][2] = handStorage[(int)ENEMY_DIRECTION.right][1];
+            handStorage[(int)ENEMY_DIRECTION.up][3] = handStorage[(int)ENEMY_DIRECTION.left][1];
+            handStorage[(int)ENEMY_DIRECTION.up][4] = handStorage[(int)ENEMY_DIRECTION.right][2];
+            handStorage[(int)ENEMY_DIRECTION.up][5] = handStorage[(int)ENEMY_DIRECTION.left][2];
+            handStorage[(int)ENEMY_DIRECTION.up][6] = handStorage[(int)ENEMY_DIRECTION.right][3];
+            handStorage[(int)ENEMY_DIRECTION.up][7] = handStorage[(int)ENEMY_DIRECTION.left][3];
 
-            snakeSpritesheet[0] = content.Load<Texture2D>(assetName: "snakeLeft1");
-            snakeSpritesheet[1] = content.Load<Texture2D>(assetName: "snakeLeft2");
-            snakeSpritesheet[2] = content.Load<Texture2D>(assetName: "snakeRight1");
-            snakeSpritesheet[3] = content.Load<Texture2D>(assetName: "snakeRight2");
+            handStorage[(int)ENEMY_DIRECTION.down][0] = handStorage[(int)ENEMY_DIRECTION.right][0];
+            handStorage[(int)ENEMY_DIRECTION.down][1] = handStorage[(int)ENEMY_DIRECTION.left][0];
+            handStorage[(int)ENEMY_DIRECTION.down][2] = handStorage[(int)ENEMY_DIRECTION.right][1];
+            handStorage[(int)ENEMY_DIRECTION.down][3] = handStorage[(int)ENEMY_DIRECTION.left][1];
+            handStorage[(int)ENEMY_DIRECTION.down][4] = handStorage[(int)ENEMY_DIRECTION.right][2];
+            handStorage[(int)ENEMY_DIRECTION.down][5] = handStorage[(int)ENEMY_DIRECTION.left][2];
+            handStorage[(int)ENEMY_DIRECTION.down][6] = handStorage[(int)ENEMY_DIRECTION.right][3];
+            handStorage[(int)ENEMY_DIRECTION.down][7] = handStorage[(int)ENEMY_DIRECTION.left][3];
 
-            spikeCrossSpritesheet[0] = content.Load<Texture2D>(assetName: "spikes1");
-            spikeCrossSpritesheet[1] = content.Load<Texture2D>(assetName: "spikes2");
-            spikeCrossSpritesheet[2] = content.Load<Texture2D>(assetName: "spikes3");
-            spikeCrossSpritesheet[3] = content.Load<Texture2D>(assetName: "spikes4");
-            spikeCrossSpritesheet[4] = content.Load<Texture2D>(assetName: "spikes5");
-            spikeCrossSpritesheet[5] = content.Load<Texture2D>(assetName: "spikes6");
-            spikeCrossSpritesheet[6] = content.Load<Texture2D>(assetName: "spikes7");
+            #endregion
+
+            #region Jelly Storage
+
+            for (int i = 0; i < 4; i++)
+            {
+                jellyStorage[i][0] = content.Load<Texture2D>(assetName: "jelly1");
+                jellyStorage[i][1] = content.Load<Texture2D>(assetName: "jelly2");
+                jellyStorage[i][2] = content.Load<Texture2D>(assetName: "jelly3");
+            }
+
+            #endregion
+
+            #region Merchant Storage
+
+            for (int i = 0; i < 4; i++)
+            {
+                merchantStorage[i][0] = content.Load<Texture2D>(assetName: "merchant");
+            }
+
+            #endregion
+
+            #region Old Man Storage
+
+            for (int i = 0; i < 4; i++)
+            {
+                oldManStorage[i][0] = content.Load<Texture2D>(assetName: "ZeldaSpriteOldMan");
+            }
+
+            #endregion
+
+            #region Skelaton Storage
+
+            for (int i = 0; i < 4; i++)
+            {
+                skelatonStorage[i][0] = content.Load<Texture2D>(assetName: "skeleton1");
+                skelatonStorage[i][1] = content.Load<Texture2D>(assetName: "skeleton2");
+            }
+
+            #endregion
+
+            #region Snake Storage
+
+            snakeStorage[(int)ENEMY_DIRECTION.right][0] = content.Load<Texture2D>(assetName: "snakeRight1");
+            snakeStorage[(int)ENEMY_DIRECTION.right][1] = content.Load<Texture2D>(assetName: "snakeRight2");
+            snakeStorage[(int)ENEMY_DIRECTION.left][0] = content.Load<Texture2D>(assetName: "snakeLeft1");
+            snakeStorage[(int)ENEMY_DIRECTION.left][1] = content.Load<Texture2D>(assetName: "snakeLeft2");
+
+            snakeStorage[(int)ENEMY_DIRECTION.up][0] = snakeStorage[(int)ENEMY_DIRECTION.right][0];
+            snakeStorage[(int)ENEMY_DIRECTION.up][1] = snakeStorage[(int)ENEMY_DIRECTION.left][0];
+            snakeStorage[(int)ENEMY_DIRECTION.up][2] = snakeStorage[(int)ENEMY_DIRECTION.right][1];
+            snakeStorage[(int)ENEMY_DIRECTION.up][3] = snakeStorage[(int)ENEMY_DIRECTION.left][1];
+
+            snakeStorage[(int)ENEMY_DIRECTION.down][0] = snakeStorage[(int)ENEMY_DIRECTION.right][0];
+            snakeStorage[(int)ENEMY_DIRECTION.down][1] = snakeStorage[(int)ENEMY_DIRECTION.left][0];
+            snakeStorage[(int)ENEMY_DIRECTION.down][2] = snakeStorage[(int)ENEMY_DIRECTION.right][1];
+            snakeStorage[(int)ENEMY_DIRECTION.down][3] = snakeStorage[(int)ENEMY_DIRECTION.left][1];
+
+            #endregion
+
+            #region Spike Storage
+
+            for (int i = 0; i < 4; i++)
+            {
+                spikeStorage[i][0] = content.Load<Texture2D>(assetName: "BladeTrap");
+            }
+
+
+            #endregion
             //REFACTOR make things based on direction they are facing
 
             // More Content.Load calls follow
             //...
         }
-        
-       
+
+
         public ISprite CreateBatSprite()
         {
-            return new BatSprite(batSpritesheet);
+            return new BatSprite(batStorage);
         }
 
         public ISprite CreateBossAquaDragonSprite()
         {
            
-            return new BossAquaDragonSprite(aquaDragonSpritesheet);
+            return new BossAquaDragonSprite(aquaDragonStorage);
         }
 
         public ISprite CreateDinoSprite()
         {
-            return new BossDinoSprite(dinoSpritesheet);
+            return new BossDinoSprite(dinoStorage);
         }
 
         public ISprite CreateFireDragonSprite()
         {
-            return new BossFireDragonSprite(fireDragonSpritesheet);
+            return new BossFireDragonSprite(fireDragonStorage);
         }
 
         public ISprite CreateDogMonsterSprite()
         {
-            return new DogMonsterSprite(dogMonsterSpritesheet);
+            return new DogMonsterSprite(dogMonsterStorage);
         }
 
         public ISprite CreateFlameSprite()
         {
-            return new FlameSprite(flameSpritesheet);
+            return new FlameSprite(flameStorage);
         }
 
         public ISprite CreateHandSprite()
         {
-            return new HandSprite(handSpritesheet);
+            return new HandSprite(handStorage);
         }
 
         public ISprite CreateJellySprite()
         {
-            return new JellySprite(jellySpritesheet);
+            return new JellySprite(jellyStorage);
         }
 
         public ISprite CreateMerchantSprite()
         {
-            return new MerchantSprite(merchantSpritesheet);
+            return new MerchantSprite(merchantStorage);
         }
 
         public ISprite CreateOldManSprite()
         {
-            return new OldManSprite(oldManSpritesheet);
+            return new OldManSprite(oldManStorage);
         }
 
         public ISprite CreateSkeletonSprite()
         {
-            return new SkeletonSprite(skeletonSpritesheet);
+            return new SkeletonSprite(skeletonStorage);
         }
 
         public ISprite CreateSnakeSprite()
         {
-            return new SnakeSprite(snakeSpritesheet);
+            return new SnakeSprite(snakeStorage);
         }
 
         public ISprite CreateSpikeCrossSprite()
         {
-            return new SpikeCrossSprite(spikeCrossSpritesheet);
+            return new SpikeCrossSprite(spikeStorage);
         }
 
         // More public ISprite returning methods follow
