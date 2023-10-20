@@ -22,6 +22,7 @@ namespace Project1
         {
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
+            //xmlDoc.Load(xmlPath);
 
             getRoomCountFromXmlDoc(xmlDoc);
             roomList = new Room[roomCount];
@@ -29,6 +30,7 @@ namespace Project1
             parseXML(xmlDoc);
 
             RoomManager.Load();
+            
         }
         private static void parseXML(XmlDocument xmlDoc)
         {
@@ -58,11 +60,6 @@ namespace Project1
         //parses enemy info from xml doc, and make enemyArray out of it.
         private static void parseEnemies(XmlNode enemies)
         {
-            
-            //clear the enemyArray each time
-            if (enemyArray != null)
-                Array.Clear(enemyArray);
-
             //get all the enemies needed to be loaded in
  
             XmlNodeList enemyList = enemies.ChildNodes;
