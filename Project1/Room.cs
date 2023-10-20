@@ -18,8 +18,6 @@ namespace Project1
             this.enemyArray = enemyArray;
             this.environmentInfo = environmentInfo;
             this.itemArray = itemArray;
-
-            print();
         }
 
         public void Load()
@@ -28,6 +26,7 @@ namespace Project1
             LoadEntity();
             LoadItems();
 
+            print();
         }
 
 
@@ -53,7 +52,6 @@ namespace Project1
             foreach ((string, ((int, int), (string, int)[])) enemyInfo in enemyArray)
             {
                 String name = enemyInfo.Item1;
-                System.Diagnostics.Debug.WriteLine("Enemy name: " + name);
                 (int, int) position = enemyInfo.Item2.Item1;
                 (string, int)[] items = enemyInfo.Item2.Item2;
                 EntityLoader.LoadEntities(Game1.GameObjManager, enemyInfo.Item1,  position, items);
@@ -68,6 +66,7 @@ namespace Project1
             foreach ((string, (int, int)) item in itemArray)
             {
                 String name = item.Item1;
+                System.Diagnostics.Debug.WriteLine("ItemName: " + name);
                 (int, int) position = item.Item2;
                 ItemLoader.InitializeItemSprites(name, position);
             }
@@ -106,7 +105,7 @@ namespace Project1
             int blockCount = environmentInfo.Item2.Length;
             for (int j = 0; j < blockCount; j++)
             {
-                System.Diagnostics.Debug.WriteLine("BlockType: " + environmentInfo.Item2[j].Item1 + ", posX: " + environmentInfo.Item2[j].Item2.Item1 + ", posY: " + environmentInfo.Item2[j].Item2.Item1);
+                System.Diagnostics.Debug.WriteLine("BlockType: " + environmentInfo.Item2[j].Item1 + ", posX: " + environmentInfo.Item2[j].Item2.Item1 + ", posY: " + environmentInfo.Item2[j].Item2.Item2);
             }
         }
 
@@ -116,7 +115,7 @@ namespace Project1
             System.Diagnostics.Debug.WriteLine("Items: ");
             for (int i = 0; i < itemCount; i++)
             {
-                System.Diagnostics.Debug.WriteLine("Item name: " + itemArray[i].Item1 + ", posX: " + itemArray[i].Item2.Item1 + ", posY: " + itemArray[i].Item2.Item1);
+                System.Diagnostics.Debug.WriteLine("Item name: " + itemArray[i].Item1 + ", posX: " + itemArray[i].Item2.Item1 + ", posY: " + itemArray[i].Item2.Item2);
             }
             System.Diagnostics.Debug.WriteLine("");
         }
