@@ -230,7 +230,7 @@
 
 	<Room number="3">
 		<Enemies>
-			<Stalfo id="1" xLoc="0" yLoc="0">
+			<Stalfo id="1" xLoc="0" yLoc="3">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -242,7 +242,7 @@
 					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
-			<Stalfo id="2" xLoc="0" yLoc="0">
+			<Stalfo id="2" xLoc="2" yLoc="4">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -254,7 +254,7 @@
 					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
-			<Stalfo id="3" xLoc="0" yLoc="0">
+			<Stalfo id="3" xLoc="4" yLoc="3">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -282,12 +282,12 @@
 				</Door>
 			</Doors>
 			<Blocks>
-				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="5" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="6" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="1" xLoc="2" yLoc="5"></WaterBlock>
+				<WaterBlock id="2" xLoc="3" yLoc="5"></WaterBlock>
+				<WaterBlock id="3" xLoc="4" yLoc="5"></WaterBlock>
+				<WaterBlock id="4" xLoc="2" yLoc="6"></WaterBlock>
+				<WaterBlock id="5" xLoc="3" yLoc="6"></WaterBlock>
+				<WaterBlock id="6" xLoc="4" yLoc="6"></WaterBlock>
 			</Blocks>
 		</Environment>
 
@@ -297,7 +297,7 @@
 
 	<Room number="4">
 		<Enemies>
-			<Stalfo id="1" xLoc="0" yLoc="0">
+			<Stalfo id="1" xLoc="4" yLoc="3">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -310,7 +310,7 @@
 					<DroppedItem Name="key" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
-			<Stalfo id="2" xLoc="0" yLoc="0">
+			<Stalfo id="2" xLoc="2" yLoc="4">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -322,7 +322,7 @@
 					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
-			<Stalfo id="3" xLoc="0" yLoc="0">
+			<Stalfo id="3" xLoc="3" yLoc="6">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -334,7 +334,7 @@
 					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
-			<Stalfo id="4" xLoc="0" yLoc="0">
+			<Stalfo id="4" xLoc="2" yLoc="7">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -346,7 +346,7 @@
 					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
-			<Stalfo id="5" xLoc="0" yLoc="0">
+			<Stalfo id="5" xLoc="0" yLoc="8">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -383,20 +383,21 @@
 			</Doors>
 
 			<Blocks>
-				<WaterBlock id="1" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="2" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="3" xLoc="0" yLoc="0"></WaterBlock>
-				<WaterBlock id="4" xLoc="0" yLoc="0"></WaterBlock>
+				<WaterBlock id="1" xLoc="2" yLoc="2"></WaterBlock>
+				<WaterBlock id="2" xLoc="4" yLoc="2"></WaterBlock>
+				<WaterBlock id="3" xLoc="2" yLoc="9"></WaterBlock>
+				<WaterBlock id="4" xLoc="4" yLoc="9"></WaterBlock>
 			</Blocks>
 		</Environment>
 
 		<Items>
+			<key quantity="1" xLoc="1" yLoc="6"></key>
 		</Items>
 	</Room>
 
 	<Room number="5">
 		<Enemies>
-			<Keese id="1" xLoc="0" yLoc="0">
+			<Keese id="1" xLoc="0" yLoc="3">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -406,7 +407,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="2" xLoc="0" yLoc="0">
+			<Keese id="2" xLoc="1" yLoc="10">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -416,7 +417,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="3" xLoc="0" yLoc="0">
+			<Keese id="3" xLoc="2" yLoc="6">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -426,7 +427,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="4" xLoc="0" yLoc="0">
+			<Keese id="4" xLoc="2" yLoc="8">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -436,7 +437,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="5" xLoc="0" yLoc="0">
+			<Keese id="5" xLoc="3" yLoc="10">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -446,7 +447,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="6" xLoc="0" yLoc="0">
+			<Keese id="6" xLoc="4" yLoc="6">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -456,7 +457,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="7" xLoc="0" yLoc="0">
+			<Keese id="7" xLoc="4" yLoc="8">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
@@ -466,7 +467,7 @@
 				<Drops>
 				</Drops>
 			</Keese>
-			<Keese id="8" xLoc="0" yLoc="0">
+			<Keese id="8" xLoc="5" yLoc="10">
 				<Stats>
 					<Health>0</Health>
 					<Strength>0</Strength>
