@@ -136,10 +136,13 @@ namespace Project1
          */
         public void Draw(SpriteBatch spriteBatch)
         {
-
-            setRectangles();
-            spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
-            if(state_manager.IsAttacking()) EntityAttackAction();
+            if (state_manager.IsAlive())
+            {
+                setRectangles();
+                spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
+                if (state_manager.IsAttacking()) EntityAttackAction();
+            }
+            
 
         }
 

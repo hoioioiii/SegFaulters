@@ -37,6 +37,34 @@ namespace Project1
             (string, (int, bool))[] doors = environmentInfo.Item1;
             //TODO: code door loading in, most of the code will be in environment loader
         }
+
+        private void LoadEntity()
+        {
+            //private static (string, ((int, int), (string, int)[]))[] enemyArray; //(string enemyName, ((int posX, int posY), (string itemName, int quantity)[]))
+
+            //name
+
+            //Start position
+
+            //ItemDropArray
+
+
+
+
+
+
+
+        }
+    
+
+
+
+
+
+
+
+
+
         
         public void print()
         {
