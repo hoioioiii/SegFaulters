@@ -32,7 +32,7 @@ namespace Project1
         public static int RandomOriginOffset()
         {
             System.Random rand = new System.Random();
-            int val = rand.Next(-4, 4);
+            int val = rand.Next(-15, 15);
 
             return val;
         }
@@ -40,7 +40,7 @@ namespace Project1
         public static int RandomRadius()
         {
             System.Random rand = new System.Random();
-            int val = rand.Next(5, 15);
+            int val = rand.Next(0, 15);
 
             return val;
         }
