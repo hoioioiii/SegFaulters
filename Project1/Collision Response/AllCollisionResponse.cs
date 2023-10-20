@@ -12,7 +12,7 @@ namespace Project1.Collision
          */
 
 
-        #region Collision Response action methods
+
         /* Knock back target (player or enemy)
          * Offset from current entity position, opposite the direction of collision
          * 
@@ -38,7 +38,7 @@ namespace Project1.Collision
                     position = position + new Vector2(0, -knockbackDist);
                     break;
             }
-                      
+
             return position;
         }
 
@@ -50,9 +50,30 @@ namespace Project1.Collision
          */
         public static void ApplyDamage()
         {
-             
+
         }
 
-        #endregion
+        /* uses int instead of vector2
+        public static int Knockback(int positionX, int positionY, DIRECTION directon, int knockbackDist)
+        {
+            switch (directon)
+            {
+                case DIRECTION.left:
+                    positionX = positionX + knockbackDist;
+                    break;
+                case DIRECTION.right:
+                    positionX = positionX - knockbackDist;
+                    break;
+                case DIRECTION.down:
+                    positionY = positionY + knockbackDist;
+                    break;
+                case DIRECTION.up:
+                    positionY = positionY + -knockbackDist;
+                    break;
+            }
+
+            return position;
+        }
+        */
     }
 }

@@ -76,7 +76,7 @@ namespace Project1
         }
 
 
-        private Rectangle getPositionAndRectangle()
+        public Rectangle getPositionAndRectangle()
         {
             return sprite.GetRectangle().Item2;
 
@@ -87,8 +87,6 @@ namespace Project1
             sprite.setPos(x, y);
 
         }
-
-
 
     }
 }

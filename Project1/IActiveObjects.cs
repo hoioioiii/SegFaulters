@@ -41,7 +41,6 @@ namespace Project1
         public void clearAll();
 
         public void Update();
-
-
+        void Draw();
     }
 }

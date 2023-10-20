@@ -7,9 +7,6 @@ namespace Project1.Collision_Response
 {
     internal class PlayerCollisionResponse
     {
-        
-
-        #region Collision Responses
         /*
          * Pass in item
          * Call item to remove it from the room or
@@ -38,7 +35,6 @@ namespace Project1.Collision_Response
          */
         public static void BoundaryResponse(Player link, DIRECTION direction)
         {
-            // which variable holds player position?
             Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y);
             playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, Player.playerSpeed);
             link.setPosition((int)playerPosition.X, (int)playerPosition.Y);
@@ -50,11 +46,10 @@ namespace Project1.Collision_Response
         public static void DamageResponse(Player link, DIRECTION direction)
         {
             Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y);
-            // Constant knockbackDistance
-            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, knockbackDistance);
+            // Constant KNOCKBACK_DISTANCE
+            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, KNOCKBACK_DISTANCE);
             AllCollisionResponse.ApplyDamage();
-
-        }
-        #endregion
+            link.setPosition((int)playerPosition.X, (int)playerPosition.Y);
+        }       
     }
 }

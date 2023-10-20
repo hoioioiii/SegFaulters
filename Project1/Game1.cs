@@ -168,6 +168,7 @@ namespace Project1
             ENEMY.Draw(_spriteBatch);
             Item.Draw(_spriteBatch);
             //CurrentEnvironment.Draw(_spriteBatch);
+            activeObj.Draw();
 
             _spriteBatch.End();
             base.Draw(gameTime);

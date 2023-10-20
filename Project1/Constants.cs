@@ -26,7 +26,7 @@ namespace Project1
             Down
         }
 
-
+        public static int ENEMY_SPEED = 1;
 
         public static int SCREEN_WIDTH_UPPER = 600;
         public static int SCREEN_WIDTH_LOWER = 0;
@@ -215,7 +215,7 @@ namespace Project1
             DAMAGE
         }
 
-        public const int knockbackDistance = 5, knockbackDuration = 1, invincibilityDuration = 1;
+        public const int KNOCKBACK_DISTANCE = 5, knockbackDuration = 1, invincibilityDuration = 1;
     }
 }
 
