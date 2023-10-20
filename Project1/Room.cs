@@ -48,7 +48,7 @@ namespace Project1
         {
             for (int i = 0; i < enemyArray.Length; i++)
             {
-                System.Diagnostics.Debug.Write("Name: " + enemyArray[i].Item1 + ", Location: " + enemyArray[i].Item2.Item1 + ", Items: ");
+                System.Diagnostics.Debug.Write("Enemy Name: " + enemyArray[i].Item1 + ", Location: " + enemyArray[i].Item2.Item1 + ", Items: ");
                 for (int j = 0; j < enemyArray[i].Item2.Item2.Length; j++)
                 {
                     System.Diagnostics.Debug.Write(enemyArray[i].Item2.Item2[j] + " ");

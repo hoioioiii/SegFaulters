@@ -51,7 +51,7 @@ namespace Project1
                 parseItems(items);
 
                 roomList[i] = new Room(enemyArray, environmentInfo, itemArray);// enemyArray, environmentInfo, itemArray);
-                //roomList[i].print();
+                roomList[i].print();
                 i++;
             }
         }
