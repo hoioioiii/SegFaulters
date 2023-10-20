@@ -17,62 +17,36 @@ namespace Project1
 {
     public class ArrowItem : IItem
     {
-        public Rectangle BoundingBox { get; set; }
+        private IItemSprite sprite;
 
-        //Texture stores the texture alias for our animation
-        private Texture2D Texture { get; set; }
-
-        //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
-
-        //Columns is the number of columns in the alias
-        private int Columns { get; set; }
-
-        //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private double CURRENT_FRAME;
-
-        //totalFrames keeps track of how many frames there are in total
-        private int TOTAL_FRAME;
-
-        //Remove later-------
-        private Game1 GameObject;
-        private ContentManager ContentLoad;
-
-        private ISprite sprite;
-
-        //Remove later above--------------
-
-
-
+        public Rectangle BoundingBox => getRectangle();
 
         public ArrowItem()
         {
-            //remove later:
             sprite = ItemSpriteFactory.Instance.CreateArrowSprite();
-            
-
         }
 
-
-        /*
-         * Update
-         */
-        //change the current frame to the next frame
+        //Change the current frame to the next frame
         public void Update()
         {
             sprite.Update();
-            
         }
 
-        /*
-        * Draw the sprite
-        */
-
+        // Sprite for item in Link's inventory. Displaying link inventory
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch);
-            
+        }
 
+        // Sprite for items to be put into the level loader
+        public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
+        {
+            sprite.Draw(spriteBatch, location, spriteScale);
+        }
+
+        private Rectangle getRectangle()
+        {
+            return sprite.getRect();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Project1.Collision_Response
         /*
          * 
          */
-        public static void BoundaryResponse(IEnemy enemy, DIRECTION direction)
+        public static void BoundaryResponse(IEntity enemy, DIRECTION direction)
         {
             // TODO: CHANGE TO ENEMY POSITION!
             Vector2 enemyPosition = new Vector2(0 ,0);
@@ -23,7 +23,7 @@ namespace Project1.Collision_Response
         /*
          * 
          */
-        public static void DamageResponse(IEnemy enemy, DIRECTION direction)
+        public static void DamageResponse(IEntity enemy, DIRECTION direction)
         {
             // TODO: CHANGE TO ENEMY POSITION!
             Vector2 enemyPosition = new Vector2(0, 0);

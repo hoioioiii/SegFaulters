@@ -120,13 +120,13 @@ namespace Project1
         }
         private void placeOffset()
         {
-            weaponX_3 = DirectionManager.DirectionOffsetX(userX, 4);
-            weaponY_3 = DirectionManager.DirectionOffsetY(userY, 3);
+            weaponX_3 = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
+            weaponY_3 = WeaponDirectionMovement.DirectionOffsetY(userY, 3);
 
-            weaponX_2 = DirectionManager.DirectionOffsetX(userX, 4);
-            weaponY_2 = DirectionManager.DirectionOffsetY(userY, 0);
-            weaponX_1 = DirectionManager.DirectionOffsetX(userX, 4);
-            weaponY_1 = DirectionManager.DirectionOffsetY(userY, 1);
+            weaponX_2 = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
+            weaponY_2 = WeaponDirectionMovement.DirectionOffsetY(userY, 0);
+            weaponX_1 = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
+            weaponY_1 = WeaponDirectionMovement.DirectionOffsetY(userY, 1);
 
         }
 
@@ -148,9 +148,17 @@ namespace Project1
         }
         private void GetUserPos()
         {
-            Vector2 posVec = BossFireDragonSprite.getUserPos();
-            userX = (int)posVec.X;
-            userY = (int)posVec.Y;
+
+            //FiXLater
+            ////change later
+            // int posVec = BossFireDragonSprite.getPos().Item1;
+            //userX = (int)posVec.X;
+            //userY = (int)posVec.Y;
+
+            //temp remove later
+            userX = 1;
+            userY = 1;
+
         }
 
         /*
@@ -196,7 +204,9 @@ namespace Project1
         }
         private void GetUserState()
         {
-            direction = BossFireDragonSprite.getUserDirection();
+            //TODO:FIX LATER
+            //direction = BossFireDragonSprite.getDirection();
+            direction = 1;
 
         }
         private void Load()
@@ -213,6 +223,21 @@ namespace Project1
             filterMoveAll(1);
             filterMoveAll(2);
             filterMoveAll(3);
+        }
+
+        public void GetUserPos(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetUserState(Constants.Direction direct)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool finished()
+        {
+            throw new NotImplementedException();
         }
     }
 }

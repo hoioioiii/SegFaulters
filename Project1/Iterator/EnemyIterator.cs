@@ -17,7 +17,7 @@ namespace Project1
         public Texture2D[] texture2D;
 
 
-        public static IEnemy[] ENTITY;
+        public static IEntity[] ENTITY;
         Game1 GAME_OBJ;
         public static int pointer;
 
@@ -31,7 +31,7 @@ namespace Project1
         }
         public void CreateList(Texture2D[] ignore)
         {
-            IEnemy[] temp = { new Bat(), new BossAquaDragon(), new BossDino(), new BossFireDragon(), new DogMonster(), new Flame(), new Hand(), new Jelly(),new Merchant(),new OldMan(),new Skeleton(), new Snake(), new SpikeCross()}; 
+            IEntity[] temp = { new Bat(), new BossAquaDragon(), new BossDino(), new BossFireDragon(), new DogMonster(), new Flame(), new Hand(), new Jelly(),new Merchant(),new OldMan(),new Skeleton(), new Snake(), new SpikeCross()}; 
             ENTITY = temp;
         }
         
@@ -42,12 +42,12 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            IEnemy entitySprite = ENTITY[pointer];
+            IEntity entitySprite = ENTITY[pointer];
             entitySprite.Draw(spriteBatch);
 
         }
 
-        public static IEnemy getCurrEnemy(Boolean back)
+        public static IEntity getCurrEnemy(Boolean back)
         {
             if (back)
             {

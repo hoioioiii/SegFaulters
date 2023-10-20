@@ -13,10 +13,10 @@ using System.Collections;
 using static Project1.Constants;
 namespace Project1
 {
-	public class BossFireDragon : IEnemy
+	public class BossFireDragon : IEntity
 	{
-        public Rectangle BoundingBox { get; set; }
-
+       
+        public Rectangle BoundingBox => getPositionAndRectangle();
 
         private IWeapon weapon;
         
@@ -94,14 +94,6 @@ namespace Project1
         }
 
         /*
-         * Responsible for setting the the frame numbers(r,c) of the sprite
-         */
-        private void setFrames()
-        {
-
-        }
-
-        /*
          * Drag Health
          * Might change placement later
          */
@@ -115,13 +107,30 @@ namespace Project1
          */
         public void Attack()
         {
-            if (BossFireDragonSprite.newAttack)
-            {
-                remainOnScreen = true;
-                weapon.Attack();
-                weapon.Draw();
-            }
+            //TODO:FIX LATER
+            //change this to a state
+            //if (BossFireDragonSprite.newAttack)
+            //{
+            //    remainOnScreen = true;
+            //    weapon.Attack();
+            //    weapon.Draw();
+            //}
         }
+
+        //TODO: Fix later
+        //public Direction getDirection()
+        //{
+        //    return sprite.get
+
+        //}
+
+        //public Vector2 getPosition()
+        //{
+
+
+        //}
+
+
 
         /*
          * Drag item drop
@@ -130,6 +139,25 @@ namespace Project1
         {
             throw new NotImplementedException();
         }
+
+
+        public Rectangle getPositionAndRectangle()
+        {
+            return sprite.GetRectangle().Item2;
+
+        }
+
+        public void setPosition(int x, int y)
+        {
+            sprite.setPos(x, y);
+
+        }
+
+
+
+
+
+
     }
   
 }

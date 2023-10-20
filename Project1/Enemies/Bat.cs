@@ -15,31 +15,14 @@ using System.Diagnostics;
 
 namespace Project1
 {
-	public class Bat : IEnemy
+	public class Bat : IEntity
 	{
-        public Rectangle BoundingBox { get; set; }
+       
 
-        //Texture stores the texture alias for our animation
-        private Texture2D Texture { get; set; }
-
-        //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
-
-        //Columns is the number of columns in the alias
-        private int Columns { get; set; }
-
-        //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private double CURRENT_FRAME;
-
-        //totalFrames keeps track of how many frames there are in total
-        private int TOTAL_FRAME;
-
-        //Remove later-------
-        private Game1 GameObject;
-        private ContentManager ContentLoad;
+        public Rectangle BoundingBox => getPositionAndRectangle();
 
         private ISprite sprite;
-
+        
         /*
          * Initalize Bat Features
          */
@@ -83,8 +66,18 @@ namespace Project1
             //Items they drop
         }
 
+        //fix later
+        private Rectangle getPositionAndRectangle()
+        {
+            return sprite.GetRectangle().Item2;
 
+        }
 
+        public void setPosition(int x, int y)
+        {
+           sprite.setPos(x, y);
+
+        }
     }
 }
 

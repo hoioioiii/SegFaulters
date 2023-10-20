@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.Enemies;
 using static Project1.Constants;
 
 namespace Project1
@@ -9,184 +10,208 @@ namespace Project1
     {
         private Texture2D[] Texture;
 
-        //rows is the number of rows i the texture alias
+        public static bool newAttack;
+        private IDirectionStateManager direction_state_manager;
+        private IAnimation animation_manager;
+        private ITime time_manager;
+        private IMove movement_manager;
 
-        //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private int current_frame;
+        private (Rectangle, Rectangle) rectangles;
+        private IEntityState state_manager;
 
-        //Keeps track of bat position
-        private int pos_x;
-        private int pos_y;
-
-        //Keeps track of the width and height
-        private int width;
-        private int height;
-
-        //Factor out into animation class
-        private int elapsedTime;
-        private int msecPerFrame;
-        private int secTillDirChange;
-        private int total_frame;
-        //factor out to direction class
-        private int Direction;
-        private int secondsPassed;
-        private bool WalkDown;
-        private bool WalkLeft;
-        private bool Vertical;
-       
-        //factor out into movement class
-        private String[] MovementArray;
+        private IWeapon weapon;
 
         public DogMonsterSprite(Texture2D[] spriteSheet)
 		{
+            newAttack = true;
+
             Texture = spriteSheet;
-            
-            current_frame = START_FRAME;
-            total_frame = DM_TOTAL;
-           
-            pos_x = SPRITE_X_START;
-            pos_y = SPRITE_Y_START;
 
-            //factor all out
-            elapsedTime = 0;
-            msecPerFrame = 300;
-            WalkDown = true;
-            WalkLeft = true;
-            Vertical = false;
-            Direction = 1;
-            secTillDirChange = 1;
-
-
-            width = Texture[(int)current_frame].Width;
-            height = Texture[(int)current_frame].Height;
-
+            //replace starting direction based on lvl loader info
+            direction_state_manager = new DirectionStateEnemy(Direction.Up);
+            time_manager = new TimeTracker(false);
+            animation_manager = new Animation(0, DM_TOTAL, time_manager, direction_state_manager);
+            state_manager = new EntityState();
+            //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
+            movement_manager = new Movement(direction_state_manager, this, time_manager, SPRITE_X_START, SPRITE_Y_START, 0);
         }
 
-        
         /*
-         * Update the movement and animation
+         * Update Boss's animation and movement
          */
         public void Update()
         {
+            if (state_manager.IsAlive())
+            {
+                AttackUpdate();
+                Move();
+            }
 
-            elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-            secondsPassed += Game1.deltaTime.ElapsedGameTime.Seconds;
-            Move();
             UpdateFrames();
-
         }
 
-
-        //Update animation
+        /*
+         * Update Boss's frames
+         */
         public void UpdateFrames()
         {
-            if (elapsedTime >= msecPerFrame)
-            {
-                elapsedTime -= msecPerFrame;
-                current_frame += 1;
-            }
-
-            if (current_frame >= total_frame)
-                current_frame = START_FRAME;
+            animation_manager.Animate();
         }
 
-        //Factor out into Manager manager
-        public void ChangeDirectionX()
+        public void AttackUpdate()
         {
-            this.Direction = Direction * -1;
-            if (WalkLeft)
+            //Check if enemy is currently attacking:
+
+            if (state_manager.IsAttacking())
             {
-                WalkLeft = false;
-                START_FRAME = 4;
-                total_frame = 6;
+                int x = movement_manager.getPosition().Item1;
+                int y = movement_manager.getPosition().Item2;
+                weapon.Update();
             }
             else
             {
-                WalkLeft = true;
-                START_FRAME = 6;
-                total_frame = 8;
+                if (time_manager.checkIfAttackTime())
+                {
+                    state_manager.setIsAttacking(true);
+                    state_manager.setIsMoving(false);
+                    state_manager.setNewAttack(true);
+                }
             }
-
-            current_frame = START_FRAME;
+            
         }
 
-        //Factor out into Direction Manager
-        public void ChangeDirectionY()
+        private void EntityAttackAction()
         {
-            this.Direction = Direction * -1;
-            if (WalkDown)
+            //we can assume that we are here bc it is attacking
+            //Boomerange
+            //check if we need to start a new attack
+            
+            if (state_manager.startNewAttack())
             {
-                WalkDown = false;
-                START_FRAME = UP_DIRECTION_SPRITE;
-                total_frame = 4;
+                //create weapons
+                direction_state_manager.changeDirection();
+                weapon = new Boomerange();
+                state_manager.setNewAttack(false);
+                
+                //TODO:add item to active object list
             }
             else
             {
-                WalkDown = true;
-                START_FRAME = DOWN_DIRECTION_SPRITE;
-                total_frame = 2;
-            }
-
-            current_frame = START_FRAME;
-        }
-
-        //FACOR out into direction manager
-        public void ChangeDirectionPath()
-        {
-            if (Vertical)
-            {
-                Vertical = false;
-                WalkLeft = true;
-                ChangeDirectionX();
-            }
-            else
-            {
-                Vertical = true;
-                WalkDown = true;
-                ChangeDirectionY();
+                // means the entity is waiting for the weapon to comeback
+                //get weapon obj status of returned/finished) : place holder using state_isAttacking for now
+                //get weapon status of "finished" which means we need to be able to get access to the weapon obj
+                if (weapon.finished())
+                {//if weapon is finished and returned to enetity
+                    state_manager.setIsAttacking(false);
+                    //set move to true
+                    state_manager.setIsMoving(true);
+                    //set isAttacking to false;
+                    time_manager.enableMoveTime();
+                    direction_state_manager.getRandomDirection();
+                    //TODO:remove the item from the active object list
+                }
+                else
+                {
+                    weapon.Attack(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, direction_state_manager.getDirection());
+                    weapon.Draw();
+                }
             }
         }
 
-        //Factor out into movement class
+
+        /*
+         * Move the boss
+         */
         public void Move()
-        {   
-            if (elapsedTime >= msecPerFrame)
+        {
+            if (state_manager.isMoving())
             {
-                secTillDirChange += 1;
-
-                if (secTillDirChange > 3)
-                {
-                    ChangeDirectionPath();
-                    secTillDirChange = 0;
-                }  
-            }
-            if (Vertical)
-            {
-                pos_y += Direction;
-
-                if (pos_y >= SCREEN_HEIGHT_UPPER || pos_y <= SCREEN_HEIGHT_LOWER)
-                {
-                    ChangeDirectionY();
-                }
-            }
-            else
-            {
-                pos_x += Direction;
-
-                if (pos_x >= SCREEN_WIDTH_UPPER || pos_x <= SCREEN_WIDTH_LOWER)
-                {
-                    ChangeDirectionX();
-                }
+                //Movement will be fixed
+                movement_manager.WanderMove();
             }
         }
 
-        //factor out into draw class
+        /*
+         * Draw the Boss
+         */
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
-            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
+
+            setRectangles();
+            spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
+            if(state_manager.IsAttacking()) EntityAttackAction();
+
+        }
+
+      
+
+        public void setRectangles()
+        {
+            int x = movement_manager.getPosition().Item1;
+            int y = movement_manager.getPosition().Item2;
+            int height = Texture[animation_manager.getCurrentFrame()].Height;
+            int width = Texture[animation_manager.getCurrentFrame()].Width;
+            rectangles.Item1 = new Rectangle(1, 1, width, height);
+            rectangles.Item2 = new Rectangle(x, y, width, height);
+        }
+
+
+        public void setPos(int x, int y)
+        {
+            movement_manager.setPosition(x, y);
+        }
+
+        public (int, int) getPos()
+        {
+            return movement_manager.getPosition();
+        }
+
+        public (Rectangle, Rectangle) GetRectangle()
+        {
+            return rectangles;
         }
     }
 }
 
+
+
+
+////Factor out into Manager manager
+//public void ChangeDirectionX()
+//{
+//    this.Direction = Direction * -1;
+//    if (WalkLeft)
+//    {
+//        WalkLeft = false;
+//        START_FRAME = 4;
+//        total_frame = 6;
+//    }
+//    else
+//    {
+//        WalkLeft = true;
+//        START_FRAME = 6;
+//        total_frame = 8;
+//    }
+
+//    current_frame = START_FRAME;
+//}
+
+////Factor out into Direction Manager
+//public void ChangeDirectionY()
+//{
+//    this.Direction = Direction * -1;
+//    if (WalkDown)
+//    {
+//        WalkDown = false;
+//        START_FRAME = UP_DIRECTION_SPRITE;
+//        total_frame = 4;
+//    }
+//    else
+//    {
+//        WalkDown = true;
+//        START_FRAME = DOWN_DIRECTION_SPRITE;
+//        total_frame = 2;
+//    }
+
+//    current_frame = START_FRAME;
+//}

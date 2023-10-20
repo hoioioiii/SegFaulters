@@ -1,148 +1,140 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.Enemies;
 using static Project1.Constants;
 
 namespace Project1
 {
     public class BossFireDragonSprite : ISprite
     {
+
+
         private Texture2D[] Texture;
 
-
-        //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private int current_frame;
-
-        //totalFrames keeps track of how many frames there are in total
-        private int total_frame;
-
-        //Positon of Each Sprite
-        public static int pos_x;
-        public static int pos_y;
-
-        //Gonna find a diff way to do this 
-        private int width;
-        private int height;
-
-        //factor out into animation class
-        private int elapsedTime;
-        private int msecPerFrame;
-        private int secTillDirChange;
-
-        //factor out into direction class
-        private int Direction;
-        private int secondsPassed;
-
         public static bool newAttack;
+        private IDirectionStateManager direction_state_manager;
+        private IAnimation animation_manager;
+        private ITime time_manager;
+        private IMove movement_manager;
 
+        private (Rectangle, Rectangle) rectangles;
+        private IEntityState state_manager;
         public BossFireDragonSprite(Texture2D[] spriteSheet)
-		{
-            Texture = spriteSheet;
-            current_frame = START_FRAME;
-            pos_x = SPRITE_X_START;
-            pos_y = SPRITE_Y_START;
-
+        {
 
             newAttack = true;
 
-            //Factor out in animate class
-            elapsedTime = 0;
-            msecPerFrame = 300;
+            Texture = spriteSheet;
 
-            //factor out into direction class
-            Direction = 1;
-            secTillDirChange = 1;
+            //replace starting direction based on lvl loader info
+            direction_state_manager = new DirectionStateEnemy(Direction.Up);
+            time_manager = new TimeTracker(false);
+            animation_manager = new Animation(0, FD_TOTAL, time_manager, direction_state_manager);
 
-            //fix this later
-            width = Texture[current_frame].Width;
-            height = Texture[current_frame].Height;
+            state_manager = new EntityState();
+            //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
+            movement_manager = new Movement(direction_state_manager, this, time_manager, SPRITE_X_START, SPRITE_Y_START, 0);
+
+
         }
 
         /*
-         * Update the sprite
+         * Update Boss's animation and movement
          */
         public void Update()
         {
-
-            elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-            secondsPassed += Game1.deltaTime.ElapsedGameTime.Seconds;
             Move();
             UpdateFrames();
 
         }
 
         /*
-         * Animate Sprite
+         * Update Boss's frames
          */
         public void UpdateFrames()
         {
-            if (elapsedTime >= msecPerFrame)
-            {
-                elapsedTime -= msecPerFrame;
-                current_frame += 1;
-            }
-
-            if (current_frame >= FD_TOTAL)
-                current_frame = START_FRAME;
+            animation_manager.Animate();
         }
 
-        /*
-         * Factor into direction manager
-         * 
-         */
-        public void ChangeDirection()
-        {
-
-            this.Direction = Direction * -1;
-        }
 
         /*
-         * Moves dragon
+         * Move the boss
          */
         public void Move()
         {
-            if (secondsPassed >= secTillDirChange)
-            {
-                elapsedTime -= msecPerFrame;
-                ChangeDirection();
-                secondsPassed = 0;
-            }
-
-            pos_x += Direction;
-
-            if (pos_x >= SCREEN_WIDTH_UPPER || pos_x <= SCREEN_WIDTH_LOWER)
-            {
-                ChangeDirection();
-            }
-
+            //Movement will be fixed
+            movement_manager.HorizontalMovement(Direction.Left);
         }
 
         /*
-         * Draw's Dragon
+         * Draw the Boss
          */
         public void Draw(SpriteBatch spriteBatch)
         {
-            Rectangle SOURCE_REC = new Rectangle(1, 1, width, height);
-            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
-            spriteBatch.Draw(Texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
+            setRectangles();
+            spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
         }
 
-        /*
-         * Gets Dragons Position
-         */
-        public static Vector2 getUserPos()
+        public void setRectangles()
         {
-            return new Vector2(pos_x, pos_y);
+            int x = movement_manager.getPosition().Item1;
+            int y = movement_manager.getPosition().Item2;
+            int height = Texture[animation_manager.getCurrentFrame()].Height;
+            int width = Texture[animation_manager.getCurrentFrame()].Width;
+            rectangles.Item1 = new Rectangle(1, 1, width, height);
+            rectangles.Item2 = new Rectangle(x, y, width, height);
         }
 
-        /*
-         * Gets dragons Direction
-         */
-        public static int getUserDirection()
+
+        public void setPos(int x, int y)
         {
-            //Replace with the direction manager
-            return 4;
+            movement_manager.setPosition(x, y);
         }
+
+        public (int, int) getPos()
+        {
+            return movement_manager.getPosition();
+        }
+
+        public (Rectangle, Rectangle) GetRectangle()
+        {
+            return rectangles;
+        }
+
+        public Direction getDirection()
+        {
+            return direction_state_manager.getDirection();
+        }
+
     }
 }
 
+
+
+//public void ChangeDirection()
+//{
+
+//    this.Direction = Direction * -1;
+//}
+
+///*
+// * Moves dragon
+// */
+//public void Move()
+//{
+//    if (secondsPassed >= secTillDirChange)
+//    {
+//        elapsedTime -= msecPerFrame;
+//        ChangeDirection();
+//        secondsPassed = 0;
+//    }
+
+//    pos_x += Direction;
+
+//    if (pos_x >= SCREEN_WIDTH_UPPER || pos_x <= SCREEN_WIDTH_LOWER)
+//    {
+//        ChangeDirection();
+//    }
+
+//}

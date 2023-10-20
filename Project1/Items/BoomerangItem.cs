@@ -17,40 +17,31 @@ namespace Project1
 {
     public class BoomerangItem : IItem
     {
-        public Rectangle BoundingBox { get; set; }
-
-
-        private ISprite sprite;
-
-       
-
+        private IItemSprite sprite;
+        public Rectangle BoundingBox => getRectangle();
         public BoomerangItem()
         {
-            //remove later:
             sprite = ItemSpriteFactory.Instance.CreateBoomerangSprite();
-
-
         }
-        //change the current frame to the next frame
+
         public void Update()
         {
             sprite.Update();
-
         }
-
 
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch);
-
-
         }
 
-
-
-
-
-
+        public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
+        {
+            sprite.Draw(spriteBatch, location, spriteScale);
+        }
+        private Rectangle getRectangle()
+        {
+            return sprite.getRect();
+        }
     }
 }
 

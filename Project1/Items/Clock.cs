@@ -17,47 +17,30 @@ namespace Project1
 {
     public class Clock : IItem
     {
-        public Rectangle BoundingBox { get; set; }
-
-
-        //Remove later-------
-        private Game1 GameObject;
-        private ContentManager ContentLoad;
-
-        private ISprite sprite;
-
-        //Remove later above--------------
-
-
-
-
+        private IItemSprite sprite;
+        public Rectangle BoundingBox => getRectangle();
         public Clock()
         {
-            //remove later:
             sprite = ItemSpriteFactory.Instance.CreateClockSprite();
-
-
         }
-        //change the current frame to the next frame
         public void Update()
         {
             sprite.Update();
-
         }
-
 
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch);
-
-
         }
 
-
-
-
-
-
+        public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
+        {
+            sprite.Draw(spriteBatch, location, spriteScale);
+        }
+        private Rectangle getRectangle()
+        {
+            return sprite.getRect();
+        }
     }
 }
 

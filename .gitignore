@@ -14,7 +14,7 @@
 *.mgcontent
 .DS_Store
 *.mgstats
-obj/Debug/net6.0/**
+obj/Debug/net6.0/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs

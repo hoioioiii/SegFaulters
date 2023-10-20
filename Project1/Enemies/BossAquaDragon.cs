@@ -13,9 +13,9 @@ using System.Collections;
 using static Project1.Constants;
 namespace Project1
 {
-    public class BossAquaDragon : IEnemy
+    public class BossAquaDragon : IEntity
 	{
-        public Rectangle BoundingBox { get; set; }
+        public Rectangle BoundingBox => getPositionAndRectangle();
         //Texture stores the texture alias for our animation
         private Texture2D Texture;
         private ISprite sprite;
@@ -74,6 +74,22 @@ namespace Project1
         {
             throw new NotImplementedException();
         }
+
+
+        private Rectangle getPositionAndRectangle()
+        {
+            return sprite.GetRectangle().Item2;
+
+        }
+
+        public void setPosition(int x, int y)
+        {
+            sprite.setPos(x, y);
+
+        }
+
+
+
     }
 }
 

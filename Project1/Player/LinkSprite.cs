@@ -8,37 +8,31 @@ namespace Project1
 {
     public class LinkSprite : IPlayerSprite
     {
-
-        //scaling factor
         private static int spriteScale = 4;
-
-        //tells us which directio it is facing
         public static int linkDirection = 2;
 
         private static Texture2D[] stillFrames = new Texture2D[PLAYER_FRAMES];
         private static Texture2D[] movingFrames = new Texture2D[PLAYER_FRAMES];
         private static Texture2D[] attackFrames = new Texture2D[PLAYER_FRAMES];
-
         private Texture2D[] currentFrames = new Texture2D[PLAYER_FRAMES];
 
-        //store position
         private static Vector2 position;
+        private Rectangle rect;
 
-        public LinkSprite(Texture2D[] one, Texture2D[] two, Texture2D[] attack)
+        //Initialize Link's frame
+        public LinkSprite(Texture2D[] still, Texture2D[] move, Texture2D[] attack)
         {
-            stillFrames = one;
-            movingFrames = two;
+            stillFrames = still;
+            movingFrames = move;
             attackFrames = attack;
-
         }
 
+        //Update Link's direction and position
         public void Update(int direction, Vector2 pos)
         {
             linkDirection = direction;
             position = pos;
-          
         }
-
         private void setCurrentFrames(string type)
         {
             switch (type)
@@ -55,19 +49,22 @@ namespace Project1
                 default:
                     currentFrames = stillFrames;
                     break;
-
             }
         }
 
+        //Draw Link given the direction input
         private void DrawLink(SpriteBatch sprBatch, int direction)
         {
             Rectangle DEST_REC;
             Rectangle SOURCE_REC;
+
             DEST_REC = new Rectangle((int)position.X, (int)position.Y, currentFrames[direction].Width * spriteScale, currentFrames[direction].Height * spriteScale);
             SOURCE_REC = new Rectangle(0, 0, currentFrames[direction].Width, currentFrames[direction].Height);
+            rect = DEST_REC;
             sprBatch.Draw(currentFrames[direction], DEST_REC, SOURCE_REC, Color.White);
         }
 
+        //Decide the direction for Link's
         public void Draw(SpriteBatch spriteBatch, string _type)
         {
             setCurrentFrames(_type);
@@ -96,5 +93,12 @@ namespace Project1
             }
             
         }
+
+        public Rectangle getRectangle()
+        {
+            return rect;
+
+        }
+
     }
 }

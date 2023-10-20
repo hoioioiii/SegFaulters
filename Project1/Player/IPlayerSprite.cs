@@ -8,5 +8,7 @@ namespace Project1
     {
         void Update(int direction, Vector2 pos);
         public void Draw(SpriteBatch spriteBatch, string type);
+
+        public Rectangle getRectangle();
     }
 }

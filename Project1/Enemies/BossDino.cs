@@ -14,10 +14,9 @@ using static Project1.Constants;
 
 namespace Project1
 {
-	public class BossDino : IEnemy
-	{
-        public Rectangle BoundingBox { get; set; }
-
+	public class BossDino : IEntity
+    {
+        public Rectangle BoundingBox => getPositionAndRectangle();
         private ISprite sprite;
 
         /*
@@ -71,6 +70,19 @@ namespace Project1
         public void ItemDrop()
         {
             throw new NotImplementedException();
+        }
+
+
+        public Rectangle getPositionAndRectangle()
+        {
+            return sprite.GetRectangle().Item2;
+
+        }
+
+        public void setPosition(int x, int y)
+        {
+            sprite.setPos(x, y);
+
         }
     }
 }

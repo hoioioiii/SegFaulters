@@ -1,57 +1,75 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Project1
 {
-    internal class DirectionManager
+    internal class WeaponDirectionMovement
     {
+        //may delete this class later
 
-        public static int FourDirMove(int pos, int direction)
+        public static int FourDirMove(int pos, int direction, int modifer)
         {
             //takes care of horizontal
 
             if (direction % 2 == 0)
             {
-                pos = moveX(pos, direction);
+                pos = moveX(pos, direction, modifer);
             }
             else
             {
-                pos = moveY(pos, direction);
+                pos = moveY(pos, direction, modifer);
             }
 
             return pos;
         }
 
-        public static int moveY(int pos, int direction)
+        public static int moveY(int pos, int direction, int modifer)
         {
 
-            //moving down
-            if (direction > 2)
+            //moving down: 3
+            if (direction == 3)
             {
 
                 pos += 1;
             }
-            else//moving up
+            else if(direction == 1)//moving up
             {
 
                 pos += -1;
             }
             return pos;
         }
+        public static int ForwardBack(int pos, int direction, int mod)
+        {
+            if (direction == 1 || direction == 4)
+            {
 
-        public static int moveX(int pos, int direction)
+                pos -= 1 * mod;
+
+            }
+            else if (direction == 2 || direction == 3)
+            {
+                pos += 1 * mod;
+            }
+            return pos;
+
+        }
+
+
+        public static int moveX(int pos, int direction,int modifer)
         {
 
             //moving left
-            if (direction > 2)
+            if (direction == 4)
             {
 
-                pos += -1;
+                pos += -1 ;
             }
-            else//moving right
+            else if (direction == 2)//moving right
             {
                 pos += 1;
 
@@ -73,12 +91,12 @@ namespace Project1
                 //moving left
                 if (direction > 2)
                 {
-                    int offSet = -1 * 30;
+                    int offSet = -1 * 10;
                     x += offSet;
                 }
                 else//moving right
                 {
-                    int offSet = 70;
+                    int offSet = 5;
                     x += offSet;
                 }
             }
@@ -92,12 +110,12 @@ namespace Project1
                 //moving down
                 if (direction < 2)
                 {
-                    int offSet = -1 * 40;
+                    int offSet = -1 * 10;
                     y += offSet;
                 }
                 else//moving up
                 {
-                    int offSet = 70;
+                    int offSet = 40;
                     y += offSet;
                 }
             }
@@ -110,12 +128,12 @@ namespace Project1
             if (direction > 2)
             {
 
-                int offset = -1 * 30;
+                int offset = -1 * 10;
                 pos += offset;
             }
             else
             {
-                int offset = 30;
+                int offset = 10;
                 pos += offset;
             }
 
@@ -134,12 +152,12 @@ namespace Project1
             if (direction < 2)
             {
 
-                int offset = -1 * 30;
+                int offset = -1 * 10;
                 pos += offset;
             }
             else
             {
-                int offset = 30;
+                int offset = 10;
                 pos += offset;
             }
 

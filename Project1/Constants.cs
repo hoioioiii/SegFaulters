@@ -17,6 +17,17 @@ namespace Project1
 {
     public class Constants
     {
+
+        public enum Direction
+        {
+            Left,
+            Right,
+            Up,
+            Down
+        }
+
+
+
         public static int SCREEN_WIDTH_UPPER = 600;
         public static int SCREEN_WIDTH_LOWER = 0;
         public static int SCREEN_HEIGHT_UPPER = 400;
@@ -148,9 +159,7 @@ namespace Project1
         public static int LINK_X = 300;
         public static int LINK_Y = 300;
 
-
-
-
+        public static int BLOCK_DIMENSION = 48;
 
         public enum DIRECTION {right = 0, left = 1, up = 2, down = 3};
 

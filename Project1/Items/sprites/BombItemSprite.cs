@@ -5,7 +5,7 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    public class BombItemSprite : ISprite
+    public class BombItemSprite : IItemSprite
     {
         private Texture2D[] Texture { get; set; }
 
@@ -28,7 +28,7 @@ namespace Project1
 
         private int width;
         private int height;
-
+        private Rectangle rect;
 
         public BombItemSprite(Texture2D[] spriteSheet)
         {
@@ -39,48 +39,45 @@ namespace Project1
             total_frame = Rows * Columns;
             pos_x = SPRITE_X;
             pos_y = SPRITE_Y;
+            position = Player.getUserPos();
 
-            width = Texture[(int)current_frame].Width;
-            height = Texture[(int)current_frame].Height;
         }
 
-        /*
-         * Update
-         */
         public void Update()
         {
             position = Player.getUserPos();
         }
 
-        /*
-         * Ignore
-         */
-        public void Move()
-        { 
+        public Rectangle getRect()
+        {
+            return rect;
         }
-
-        /*
-         * Ignore
-         */
-        private void Animate()
+        private void setDimention()
         {
 
-            //width = Texture[(int)current_frame].Width;
-            //height = Texture[(int)current_frame].Height;
+            width = Texture[(int)current_frame].Width;
+            height = Texture[(int)current_frame].Height;
 
         }
 
-        /*
-         * Draw
-         */
+        // draw in Link's inventory
         public void Draw(SpriteBatch spriteBatch)
         {
-            //Animate();
+            setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
             Rectangle DEST_REC = new Rectangle((int)position.X, (int)position.Y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
+        // draw inside level loader
+        public void Draw(SpriteBatch spriteBatch, Vector2 location, int scale)
+        {
+            setDimention();
+            Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
+            Rectangle DEST_REC = new Rectangle((int)location.X, (int)location.Y, width * scale, height * scale);
+            rect = DEST_REC;
+            spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+        }
     }
 }
 

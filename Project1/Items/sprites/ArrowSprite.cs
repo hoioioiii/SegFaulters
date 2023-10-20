@@ -5,7 +5,7 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    public class ArrowSprite : ISprite
+    public class ArrowSprite : IItemSprite
     {
         private Texture2D[] Texture { get; set; }
 
@@ -26,7 +26,7 @@ namespace Project1
 
         private static Vector2 position;
 
-
+        private Rectangle rect;
         private int width;
         private int height;
 
@@ -44,55 +44,50 @@ namespace Project1
             position = Player.getUserPos();
         }
 
-        /*
-        * Update
-        */
         public void Update()
         {
-
-            //Move();
             position = Player.getUserPos();
         }
 
-        /*
-         * Sprite Movement
-         */
         public void Move()
         {
-            int DIR_X = RandomMove.RandMove();
-            int DIR_Y = RandomMove.RandMove();
+            //int DIR_X = RandomMove.RandMove();
+            //int DIR_Y = RandomMove.RandMove();
 
-            //Add bounding constraints:
-            pos_x += RandomMove.CheckBounds(DIR_X, pos_x, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            pos_y += RandomMove.CheckBounds(DIR_Y, pos_y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-
-
+            ////bounding constraints:
+            //pos_x += RandomMove.CheckBounds(DIR_X, pos_x, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
+            //pos_y += RandomMove.CheckBounds(DIR_Y, pos_y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
         }
 
-        /*
-         * Sprite Animation
-         */
-        private void Animate()
+        public Rectangle getRect()
+        {
+            return rect;
+        }
+
+        private void setDimention()
         {
 
             width = Texture[(int)current_frame].Width;
             height = Texture[(int)current_frame].Height;
-
         }
 
-        /*
-        * Draw the sprite
-        */
+        // draw in Link's inventory
         public void Draw(SpriteBatch spriteBatch)
         {
-            Animate();
+            setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
             Rectangle DEST_REC = new Rectangle((int)position.X, (int)position.Y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
+        // draw inside level loader
+        public void Draw(SpriteBatch spriteBatch, Vector2 location, int scale)
+        {
+            setDimention();
+            Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
+            Rectangle DEST_REC = new Rectangle((int)location.X, (int)location.Y, width * scale, height * scale);
+            rect = DEST_REC;
+            spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+        }
     }
 }
-
-
-

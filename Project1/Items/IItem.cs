@@ -6,10 +6,11 @@ namespace Project1
 {
 	public interface IItem
 	{
-        public Rectangle BoundingBox { get; set; }
+        Rectangle BoundingBox { get; }
 
         void Update();
         void Draw(SpriteBatch spriteBatch);
+        public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale);
     }
 }
 

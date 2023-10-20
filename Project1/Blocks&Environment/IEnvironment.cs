@@ -7,5 +7,6 @@ namespace Project1
     {
         public Rectangle BoundingBox { get; set; }
         public void Draw(SpriteBatch spriteBatch);
+        void Update();
     }
 }
