@@ -28,7 +28,7 @@ namespace Project1
                 case "north":
                     texture = textures[3];
                     xPos = 350;
-                    yPos = 15;
+                    yPos = 16;
                     break;
                 case "south":
                     texture = textures[2];
