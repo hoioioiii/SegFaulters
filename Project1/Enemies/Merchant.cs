@@ -23,7 +23,7 @@ namespace Project1
         /*
          * Initalize the merchant
          */
-        public Merchant((int, int) position, (String, int) items)
+        public Merchant((int, int) position, (String, int)[] items)
 		{
          
             sprite = EnemySpriteFactory.Instance.CreateMerchantSprite(position, items);

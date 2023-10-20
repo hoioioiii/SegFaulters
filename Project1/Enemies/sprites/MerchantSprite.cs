@@ -17,7 +17,7 @@ namespace Project1
         private IMove movement_manager;
         private (Rectangle, Rectangle) rectangles;
         private IEntityState state_manager;
-        public MerchantSprite(Texture2D[] spriteSheet, (int, int) position, (String, int) items)
+        public MerchantSprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
         {
             Texture = spriteSheet;
 

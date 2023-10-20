@@ -25,7 +25,7 @@ namespace Project1.Enemies.sprites
 
         private (Rectangle, Rectangle) rectangles;
 
-        public BatSprite(Texture2D[] spriteSheet, (int, int)position, (String, int) items)
+        public BatSprite(Texture2D[] spriteSheet, (int, int)position, (String, int)[] items)
         {
             Texture = spriteSheet;
 

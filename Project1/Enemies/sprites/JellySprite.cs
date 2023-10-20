@@ -19,7 +19,7 @@ namespace Project1
         /*
          * Initalize Jelly
          */
-        public JellySprite(Texture2D[] spriteSheet, (int, int) position, (String, int) items)
+        public JellySprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
         {
             Texture = spriteSheet;
 

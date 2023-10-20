@@ -23,7 +23,7 @@ namespace Project1
         /*
          * Initalize skeleton
          */
-        public Skeleton((int, int) position, (String, int) items)
+        public Skeleton((int, int) position, (String, int)[] items)
 		{
             
             sprite = EnemySpriteFactory.Instance.CreateSkeletonSprite(position, items);

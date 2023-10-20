@@ -21,7 +21,7 @@ namespace Project1
         /*
          * Initalize Spike
          */
-        public SpikeCross((int, int) position, (String, int) items)
+        public SpikeCross((int, int) position, (String, int)[] items)
 		{
             
             sprite = EnemySpriteFactory.Instance.CreateSpikeCrossSprite(position, items);

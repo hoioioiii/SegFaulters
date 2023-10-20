@@ -122,68 +122,68 @@ namespace Project1
         }
         
        
-        public ISprite CreateBatSprite((int, int) position, (String, int) items)
+        public ISprite CreateBatSprite((int, int) position, (String, int)[] items)
         {
             return new BatSprite(batSpritesheet, position, items);
         }
 
-        public ISprite CreateBossAquaDragonSprite((int, int) position, (String, int) items)
+        public ISprite CreateBossAquaDragonSprite((int, int) position, (String, int)[] items)
         {
            
             return new BossAquaDragonSprite(aquaDragonSpritesheet, position, items);
         }
 
-        public ISprite CreateDinoSprite((int, int) position, (String, int) items)
+        public ISprite CreateDinoSprite((int, int) position, (String, int)[] items)
         {
             return new BossDinoSprite(dinoSpritesheet, position, items);
         }
 
-        public ISprite CreateFireDragonSprite((int, int) position, (String, int) items)
+        public ISprite CreateFireDragonSprite((int, int) position, (String, int)[] items)
         {
             return new BossFireDragonSprite(fireDragonSpritesheet, position, items);
         }
 
-        public ISprite CreateDogMonsterSprite((int, int) position, (String, int) items)
+        public ISprite CreateDogMonsterSprite((int, int) position, (String, int)[] items)
         {
             return new DogMonsterSprite(dogMonsterSpritesheet, position, items);
         }
 
-        public ISprite CreateFlameSprite((int, int) position, (String, int) items)
+        public ISprite CreateFlameSprite((int, int) position, (String, int)[] items)
         {
             return new FlameSprite(flameSpritesheet, position, items);
         }
 
-        public ISprite CreateHandSprite((int, int) position, (String, int) items)
+        public ISprite CreateHandSprite((int, int) position, (String, int)[] items)
         {
             return new HandSprite(handSpritesheet, position, items);
         }
 
-        public ISprite CreateJellySprite((int, int) position, (String, int) items)
+        public ISprite CreateJellySprite((int, int) position, (String, int)[] items)
         {
             return new JellySprite(jellySpritesheet, position, items);
         }
 
-        public ISprite CreateMerchantSprite((int, int) position, (String, int) items)
+        public ISprite CreateMerchantSprite((int, int) position, (String, int)[] items)
         {
             return new MerchantSprite(merchantSpritesheet, position, items);
         }
 
-        public ISprite CreateOldManSprite((int, int) position, (String, int) items)
+        public ISprite CreateOldManSprite((int, int) position, (String, int)[] items)
         {
             return new OldManSprite(oldManSpritesheet, position, items);
         }
 
-        public ISprite CreateSkeletonSprite((int, int) position, (String, int) items)
+        public ISprite CreateSkeletonSprite((int, int) position, (String, int)[] items)
         {
             return new SkeletonSprite(skeletonSpritesheet, position, items);
         }
 
-        public ISprite CreateSnakeSprite((int, int) position, (String, int) items)
+        public ISprite CreateSnakeSprite((int, int) position, (String, int)[] items)
         {
             return new SnakeSprite(snakeSpritesheet, position, items);
         }
 
-        public ISprite CreateSpikeCrossSprite((int, int) position, (String, int) items)
+        public ISprite CreateSpikeCrossSprite((int, int) position, (String, int)[] items)
         {
             return new SpikeCrossSprite(spikeCrossSpritesheet, position, items);
         }

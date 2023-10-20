@@ -22,7 +22,7 @@ namespace Project1
         /*
          * Initalize OldMan
          */
-        public OldMan((int, int) position, (String, int) items)
+        public OldMan((int, int) position, (String, int)[] items)
 		{
             
             sprite = EnemySpriteFactory.Instance.CreateOldManSprite(position, items);

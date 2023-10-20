@@ -20,7 +20,7 @@ namespace Project1
         /*
          * Initalize Hand
          */
-        public Hand((int, int) position, (String, int) items)
+        public Hand((int, int) position, (String, int)[] items)
 		{
            
 

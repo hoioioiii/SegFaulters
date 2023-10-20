@@ -21,7 +21,7 @@ namespace Project1
         /*
          * Initalize old man
          */
-        public OldManSprite(Texture2D[] spriteSheet, (int, int) position, (String, int) items)
+        public OldManSprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
         {
             Texture = spriteSheet;
 

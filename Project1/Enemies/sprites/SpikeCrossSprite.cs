@@ -17,7 +17,7 @@ namespace Project1
         private IEntityState state_manager;
         private (Rectangle, Rectangle) rectangles;
 
-        public SpikeCrossSprite(Texture2D[] spriteSheet, (int, int) position, (String, int) items)
+        public SpikeCrossSprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
         {
             Texture = spriteSheet;
 

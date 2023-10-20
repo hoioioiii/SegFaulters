@@ -24,7 +24,7 @@ namespace Project1
         /*
          * Initalize Dog Monster
          */
-        public DogMonster((int, int) position, (String, int) items)
+        public DogMonster((int, int) position, (String, int)[] items)
 		{
 
             sprite = EnemySpriteFactory.Instance.CreateDogMonsterSprite(position, items);
