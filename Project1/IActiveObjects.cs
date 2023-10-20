@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace Project1
 {
-    internal interface IActiveObjects
+    public interface IActiveObjects
     {
 
         public List<IItem> getItemList();
@@ -39,6 +39,8 @@ namespace Project1
         public List<IDoor> getDoorList();
         public List<Rectangle> getBoundarys();
         public void clearAll();
+
+
 
     }
 }

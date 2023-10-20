@@ -22,6 +22,7 @@ namespace Project1
         public void Load()
         {
             LoadEnvironment();
+            LoadEntity();
         }
 
         private void LoadEnvironment()
@@ -38,6 +39,28 @@ namespace Project1
             //TODO: code door loading in, most of the code will be in environment loader
             EnvironmentLoader.LoadDoors(doors);
         }
+
+        private void LoadEntity()
+        {
+            foreach ((string, ((int, int), (string, int)[])) enemyInfo in enemyArray)
+            {
+                String name = enemyInfo.Item1;
+                (int, int) position = enemyInfo.Item2.Item1;
+                (string, int)[] items = enemyInfo.Item2.Item2;
+
+                EntityLoader.LoadEntities(Game1.GameObjManager, enemyInfo.Item1,  position, items);
+            }
+        }
+    
+
+
+
+
+
+
+
+
+
         
         public void print()
         {

@@ -9,7 +9,7 @@ using Project1.Collision;
 
 namespace Project1
 {
-    internal class ActiveObjects : IActiveObjects
+    public class ActiveObjects : IActiveObjects
     {
         private List<IItem>items;
         private List<IEntity> entities;
@@ -27,7 +27,6 @@ namespace Project1
             doors = new List<IDoor>();
             blocks = new List<IEnvironment>();
             walls = new List<Rectangle>();
-         
         }
 
         public void addLink(Player link)

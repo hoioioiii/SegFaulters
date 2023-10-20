@@ -18,6 +18,7 @@ namespace Project1
         public static SpriteBatch _spriteBatch;
         public static ContentManager contentLoader;
 
+        public static IActiveObjects GameObjManager;
         private Texture2D _texture;
         //public static SpriteBatch _spriteBatch;
 
@@ -85,6 +86,9 @@ namespace Project1
             {
                 Exit();
             }
+
+            //keep
+            GameObjManager = new ActiveObjects();
 
             //Player player = new Player();
             Player.Initialize();
