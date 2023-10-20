@@ -20,9 +20,9 @@ namespace Project1
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
 
-        public Key()
+        public Key((int, int) pos)
         {
-            sprite = ItemSpriteFactory.Instance.CreateKeySprite();
+            sprite = ItemSpriteFactory.Instance.CreateKeySprite(pos);
         }
 
         public void Update()

@@ -20,7 +20,8 @@ namespace Project1
 
         //totalFrames keeps track of how many frames there are in total
         private int total_frame { get; set; }
-
+        private int pos_x;
+        private int pos_y;
 
         private static Vector2 position;
 
@@ -28,14 +29,15 @@ namespace Project1
         private int height;
         private Rectangle rect;
 
-        public HeartContainerSprite(Texture2D[] spriteSheet)
+        public HeartContainerSprite(Texture2D[] spriteSheet, (int, int) pos)
         {
             Texture = spriteSheet;
             Rows = HEART_CONTAINER_R;
             Columns = HEART_CONTAINER_C;
             current_frame = START_FRAME;
             total_frame = Rows * Columns;
-           
+            pos_x = pos.Item1;
+            pos_y = pos.Item2;
             position = Player.getUserPos();
         }
         public void Update()
@@ -56,7 +58,7 @@ namespace Project1
         {
             setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
-            Rectangle DEST_REC = new Rectangle((int)position.X, (int)position.Y, width, height);
+            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 

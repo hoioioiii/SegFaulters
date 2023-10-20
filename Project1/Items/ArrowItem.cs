@@ -21,9 +21,9 @@ namespace Project1
 
         public Rectangle BoundingBox => getRectangle();
 
-        public ArrowItem()
+        public ArrowItem((int, int) pos)
         {
-            sprite = ItemSpriteFactory.Instance.CreateArrowSprite();
+            sprite = ItemSpriteFactory.Instance.CreateArrowSprite(pos);
         }
 
         //Change the current frame to the next frame
