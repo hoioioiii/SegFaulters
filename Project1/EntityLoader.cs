@@ -16,7 +16,7 @@ namespace Project1
         {
             GameOBJ = activeObjects;
             InitalizeEntity(name,position,items);
-            activeObjects.addNewEntity(currEntity);
+            GameOBJ.addNewEntity(currEntity);
         }
 
         private static void InitalizeEntity(String name,(int,int) position, (String, int)[] items)
@@ -69,6 +69,9 @@ namespace Project1
                     currEntity = new Merchant(position, items);
                     break;
                 case "Flame":
+                    currEntity = new Flame(position, items);
+                    break;
+                default:
                     currEntity = new Flame(position, items);
                     break;
             }
