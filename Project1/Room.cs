@@ -24,6 +24,7 @@ namespace Project1
 
         public void Load()
         {
+            Game1.GameObjManager.clearAll();
             LoadEnvironment();
             LoadEntity();
             LoadItems();
