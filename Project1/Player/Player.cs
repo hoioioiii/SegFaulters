@@ -532,5 +532,16 @@ namespace Project1
             }
         }
 
+        public void setPosition(int x, int y)
+        {
+            posX = x;
+            posY = y;            
+        }
+
+        public (int, int) getPosition()
+        {
+            return (posX, posY);
+        }
+
     }
 }

@@ -160,7 +160,7 @@ namespace Project1.Collision
 
         
 
-        public void DetectAllCollisionsEnemiesEntity(CollisionType collisionType)
+        private static void DetectAllCollisionsEnemiesEntity()
         {
             // pass in list of axis-alligned bounding rectangles
 

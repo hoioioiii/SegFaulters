@@ -16,7 +16,7 @@ namespace Project1
         private static Texture2D[] attackFrames = new Texture2D[PLAYER_FRAMES];
         private Texture2D[] currentFrames = new Texture2D[PLAYER_FRAMES];
 
-        private static Vector2 position;
+        private Vector2 position;
         private Rectangle rect;
 
         //Initialize Link's frame
@@ -100,5 +100,14 @@ namespace Project1
 
         }
 
+        public void setPosition(Vector2 pos)
+        {
+            this.position = pos;
+        }
+
+        public Vector2 getPosition()
+        {
+            return this.position;
+        }
     }
 }

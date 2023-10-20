@@ -122,7 +122,7 @@ namespace Project1
 
             //Load XML File
             //LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\SegFaulters\\Project1\\xmlTest2.xml");
-            LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
+            LevelLoader.Load("D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\xmlTest2.xml");
         }
 
 
