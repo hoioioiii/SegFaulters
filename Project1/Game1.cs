@@ -166,10 +166,6 @@ namespace Project1
 
             _spriteBatch.End();
             base.Draw(gameTime);
-
-
-
-           
         }
     }
 }

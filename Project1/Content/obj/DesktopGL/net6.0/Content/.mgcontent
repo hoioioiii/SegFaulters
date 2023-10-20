@@ -73,6 +73,7 @@
     <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/jelly3.png</File>
     <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/KEESE_BAT.png</File>
     <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/key.png</File>
+    <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/LevelBackground.png</File>
     <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/LinkAttackDown.png</File>
     <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/LinkAttackLeft.png</File>
     <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/LinkAttackRight.png</File>
@@ -128,6 +129,7 @@
     <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/ZeldaSpriteOldMan.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
