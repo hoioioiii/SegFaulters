@@ -31,7 +31,7 @@ namespace Project1
         }
         public void CreateList(Texture2D[] ignore)
         {
-            (String, int) items = ("Arrow", 0);
+            (String, int)[] items = { ("Arrow", 0) };
             (int, int) pos = (SPRITE_X_START, SPRITE_Y_START);
 
 

@@ -24,7 +24,7 @@ namespace Project1
         /*
          * Initalize flame sprite
          */
-        public FlameSprite(Texture2D[] spriteSheet, (int, int) position, (String, int) items)
+        public FlameSprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
         {
             Texture = spriteSheet;
 

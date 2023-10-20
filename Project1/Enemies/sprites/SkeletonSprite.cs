@@ -21,7 +21,7 @@ namespace Project1
         /*
          * Initalize Skelly
          */
-        public SkeletonSprite(Texture2D[] spriteSheet, (int, int) position, (String, int) items)
+        public SkeletonSprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
         {
 
             Texture = spriteSheet;

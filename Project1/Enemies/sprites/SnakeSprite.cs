@@ -39,7 +39,7 @@ namespace Project1
         /*
          * Initalize snake
          */
-        public SnakeSprite(Texture2D[] spriteSheet, (int, int) position, (String, int) items)
+        public SnakeSprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
         {
             Texture = spriteSheet;
             

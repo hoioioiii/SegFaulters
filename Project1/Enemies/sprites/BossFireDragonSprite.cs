@@ -20,7 +20,7 @@ namespace Project1
 
         private (Rectangle, Rectangle) rectangles;
         private IEntityState state_manager;
-        public BossFireDragonSprite(Texture2D[] spriteSheet, (int, int) position, (String, int) items)
+        public BossFireDragonSprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
         {
 
             newAttack = true;

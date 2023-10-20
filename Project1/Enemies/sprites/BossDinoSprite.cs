@@ -20,7 +20,7 @@ namespace Project1
         private IEntityState state_manager;
 
 
-        public BossDinoSprite(Texture2D[] spriteSheet, (int, int) position, (String, int) items)
+        public BossDinoSprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
         {
             Texture = spriteSheet;
 

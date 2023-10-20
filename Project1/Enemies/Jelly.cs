@@ -18,7 +18,7 @@ namespace Project1
         
         private ISprite sprite;
         public Rectangle BoundingBox => getPositionAndRectangle();
-        public Jelly((int, int) position, (String, int) items)
+        public Jelly((int, int) position, (String, int)[] items)
         {
             
             sprite = EnemySpriteFactory.Instance.CreateJellySprite(position, items);

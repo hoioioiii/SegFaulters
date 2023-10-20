@@ -22,7 +22,7 @@ namespace Project1
         /*
          * Initalize Boss Aqua Dragon
          */
-        public BossAquaDragonSprite(Texture2D[] spriteSheet, (int, int) position, (String, int) items)
+        public BossAquaDragonSprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
         {
             Texture = spriteSheet;
 

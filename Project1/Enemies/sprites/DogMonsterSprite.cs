@@ -21,7 +21,7 @@ namespace Project1
 
         private IWeapon weapon;
 
-        public DogMonsterSprite(Texture2D[] spriteSheet, (int, int) position, (String, int) items)
+        public DogMonsterSprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
         {
             newAttack = true;
 

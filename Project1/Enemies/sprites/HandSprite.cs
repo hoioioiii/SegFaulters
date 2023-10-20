@@ -22,7 +22,7 @@ namespace Project1
         /*
          * Initalize the sprite
          */
-        public HandSprite(Texture2D[] spriteSheet, (int, int) position, (String, int) items)
+        public HandSprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
         {
             Texture = spriteSheet;
 

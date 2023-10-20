@@ -29,7 +29,7 @@ namespace Project1
         /*
          * Initalize fire drag
          */
-        public BossFireDragon((int, int) position, (String, int) items)
+        public BossFireDragon((int, int) position, (String, int)[] items)
 		{
             timeAllowed = 1000;
             onScreen = 0;
