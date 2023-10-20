@@ -16,7 +16,7 @@ namespace Project1
         {
             //load in list of active rooms
             activeList = new Dictionary<int, bool>();
-            System.Diagnostics.Debug.WriteLine("Room Count: " + LevelLoader.roomCount);
+            
             for(int i = 0; i < LevelLoader.roomCount; i++)
             {
                 activeList.Add(i, false);
@@ -82,7 +82,8 @@ namespace Project1
 
         public static void DrawActiveRoom()
         {
-            for(int i = 0; i < activeList.Count; ++i)
+            System.Diagnostics.Debug.WriteLine("DegubChack1");
+            for (int i = 0; i < activeList.Count; ++i)
             {
                 if (activeList[i])
                 {

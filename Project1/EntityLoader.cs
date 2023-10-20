@@ -14,6 +14,7 @@ namespace Project1
         private static Dictionary<string, IEntity> mapToCreate;
         public static void LoadEntities(IActiveObjects activeObjects, String name, (int,int) position, (String, int)[] items)
         {
+
             GameOBJ = activeObjects;
             InitalizeEntity(name,position,items);
             GameOBJ.addNewEntity(currEntity);
@@ -21,6 +22,7 @@ namespace Project1
 
         private static void InitalizeEntity(String name,(int,int) position, (String, int)[] items)
         {
+            
             switch (name)
             {
                 case "Keese":

@@ -122,13 +122,13 @@ namespace Project1
         public void Update()
         {
 
-            UpdateItems();
+            //UpdateItems();
 
             UpdateEnemies();
 
-            UpdateIWeapons();
+            //UpdateIWeapons();
 
-            UpdatePlayer();
+            //UpdatePlayer();
 
             
 

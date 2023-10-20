@@ -58,6 +58,7 @@ namespace Project1
         //parses enemy info from xml doc, and make enemyArray out of it.
         private static void parseEnemies(XmlNode enemies)
         {
+            
             //clear the enemyArray each time
             if (enemyArray != null)
                 Array.Clear(enemyArray);
@@ -93,6 +94,8 @@ namespace Project1
                 //add to the enemy array
                 enemyArray[i] = new(name, ((posX, posY), droppedItemArray));
                 i++;
+
+               
             }
         }
         private static void parseEnvironment(XmlNode environment)

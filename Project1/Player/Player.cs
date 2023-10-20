@@ -217,7 +217,6 @@ namespace Project1
                     linkDirection = 1;
                     posY -= playerSpeed;
                     sprite.Update(1, position);
-
                 }
                 else if (state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D))
                 {
@@ -226,7 +225,6 @@ namespace Project1
                     linkDirection = 2;
                     posY += playerSpeed;
                     sprite.Update(2, position);
-
                 }
             }
 
@@ -356,7 +354,6 @@ namespace Project1
                         {
                             //tell sprite how to draw
                             sprite.Draw(spriteBatch, "still");
-
                         }
                     }
                     else
