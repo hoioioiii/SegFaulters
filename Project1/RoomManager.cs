@@ -21,7 +21,7 @@ namespace Project1
             {
                 activeList.Add(i, false);
             }
-            activeList[0] = true;
+            activeList[2] = true;
         }
 
         public static void SetActiveRoom(int roomId)
