@@ -17,14 +17,13 @@ namespace Project1
         private int posY;
 
         public CurrentBlock(Texture2D text, int posX, int posY)
-        public Rectangle BoundingBox { get; set; }
-
-        public CurrentBlock(Texture2D text)
         {
             texture = text;
             this.posX = posX;
             this.posY = posY;
         }
+        public Rectangle BoundingBox { get; set; }
+
 
         public void Update()
         {

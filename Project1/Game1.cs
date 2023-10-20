@@ -25,10 +25,11 @@ namespace Project1
         //public Player player
 
         //private IHealth HealthBarSprite;
-
+        public static IListIterate EnvironmentIterator;
 
         public static ContentManager ContentManager1;
         public static Game1 Game;
+
 
         public static IEntity ENEMY;
         public static IItem Item;
@@ -120,8 +121,8 @@ namespace Project1
             EnvironmentLoader.LoadContent(Content);
 
             //Load XML File
-            LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\SegFaulters\\Project1\\xmlTest2.xml");
-            
+            //LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\SegFaulters\\Project1\\xmlTest2.xml");
+            LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
         }
 
 
