@@ -21,10 +21,10 @@ namespace Project1
         /*
          * Initalize Spike
          */
-        public SpikeCross()
+        public SpikeCross((int, int) position, (String, int) items)
 		{
             
-            sprite = EnemySpriteFactory.Instance.CreateSpikeCrossSprite();
+            sprite = EnemySpriteFactory.Instance.CreateSpikeCrossSprite(position, items);
         }
        
         /*

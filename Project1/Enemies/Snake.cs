@@ -25,10 +25,10 @@ namespace Project1
         /*
          * Initalize snake
          */
-        public Snake()
+        public Snake((int, int) position, (String, int) items)
 		{
          
-            sprite = EnemySpriteFactory.Instance.CreateSnakeSprite();
+            sprite = EnemySpriteFactory.Instance.CreateSnakeSprite(position, items);
         }
 
        

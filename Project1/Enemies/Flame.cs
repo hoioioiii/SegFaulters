@@ -20,9 +20,9 @@ namespace Project1
         /*
          * Initalize the flame
          */
-        public Flame()
+        public Flame((int, int) position, (String, int) items)
 		{
-            sprite = EnemySpriteFactory.Instance.CreateFlameSprite();
+            sprite = EnemySpriteFactory.Instance.CreateFlameSprite(position, items);
         }
         
         /*

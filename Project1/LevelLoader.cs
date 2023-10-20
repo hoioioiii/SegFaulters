@@ -21,7 +21,7 @@ namespace Project1
         public static void Load(string xmlPath)
         {
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(xmlPath);
+            xmlDoc.Load("C:\\Users\\Jachi\\source\\repos\\SegFaulters\\Project1\\xmlTest2.xml");
 
             getRoomCountFromXmlDoc(xmlDoc);
             roomList = new Room[roomCount];

@@ -21,8 +21,8 @@ namespace Project1
 
         private IWeapon weapon;
 
-        public DogMonsterSprite(Texture2D[] spriteSheet)
-		{
+        public DogMonsterSprite(Texture2D[] spriteSheet, (int, int) position, (String, int) items)
+        {
             newAttack = true;
 
             Texture = spriteSheet;
@@ -33,7 +33,7 @@ namespace Project1
             animation_manager = new Animation(0, DM_TOTAL, time_manager, direction_state_manager);
             state_manager = new EntityState();
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
-            movement_manager = new Movement(direction_state_manager, this, time_manager, SPRITE_X_START, SPRITE_Y_START, 0);
+            movement_manager = new Movement(direction_state_manager, this, time_manager, position.Item1, position.Item2, 0);
         }
 
         /*
@@ -137,9 +137,12 @@ namespace Project1
         public void Draw(SpriteBatch spriteBatch)
         {
 
-            setRectangles();
-            spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
-            if(state_manager.IsAttacking()) EntityAttackAction();
+            if (state_manager.IsAlive())
+            {
+                setRectangles();
+                spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
+                if (state_manager.IsAttacking()) EntityAttackAction();
+            }
 
         }
 
