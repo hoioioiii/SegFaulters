@@ -85,68 +85,68 @@ namespace Project1
         }
         
        
-        public IItemSprite CreateArrowSprite()
+        public IItemSprite CreateArrowSprite((int, int) pos)
         {
-            return new ArrowSprite(arrowSpriteStorage);
+            return new ArrowSprite(arrowSpriteStorage,pos);
         }
-        public IItemSprite CreateBombSprite()
+        public IItemSprite CreateBombSprite((int, int) pos)
         {           
-            return new BombItemSprite(bombSpriteStorage);
+            return new BombItemSprite(bombSpriteStorage,pos);
         }
         
-        public IItemSprite CreateBoomerangSprite()
+        public IItemSprite CreateBoomerangSprite((int, int) pos)
         {
-            return new BoomerangSprite(boomerangSpriteStorage);
+            return new BoomerangSprite(boomerangSpriteStorage,pos);
         }
 
-        public IItemSprite CreateBowSprite()
+        public IItemSprite CreateBowSprite((int, int) pos)
         {
-            return new BowSprite(bowSpriteStorage);
+            return new BowSprite(bowSpriteStorage, pos);
         }
 
-        public IItemSprite CreateClockSprite()
+        public IItemSprite CreateClockSprite((int, int) pos)
         {
-            return new ClockSprite(clockSpriteStorage);
+            return new ClockSprite(clockSpriteStorage, pos);
         }
 
-        public IItemSprite CreateFairySprite()
+        public IItemSprite CreateFairySprite((int, int) pos)
         {
-            return new FairySprite(fairySpriteStorage);
+            return new FairySprite(fairySpriteStorage, pos);
         }
 
-        public IItemSprite CreateHeartSprite()
+        public IItemSprite CreateHeartSprite((int, int) pos)
         {
-            return new HeartSprite(heartSpriteStorage);
+            return new HeartSprite(heartSpriteStorage, pos);
         }
 
-        public IItemSprite CreateHeartContainerSprite()
+        public IItemSprite CreateHeartContainerSprite((int, int) pos)
         {
-            return new HeartContainerSprite(heartContainerSpriteStorage);
+            return new HeartContainerSprite(heartContainerSpriteStorage, pos);
         }
 
-        public IItemSprite CreateKeySprite()
+        public IItemSprite CreateKeySprite((int, int) pos)
         {
-            return new KeySprite(keySpriteStorage);
+            return new KeySprite(keySpriteStorage, pos);
         }
 
-        public IItemSprite CreateMapSprite()
+        public IItemSprite CreateMapSprite((int, int) pos)
         {
-            return new MapSprite(mapSpriteStorage);
+            return new MapSprite(mapSpriteStorage, pos);
         }
 
-        public IItemSprite CreateRupeeSprite()
+        public IItemSprite CreateRupeeSprite((int, int) pos)
         {
-            return new RupeeSprite(rupeeSpriteStorage);
+            return new RupeeSprite(rupeeSpriteStorage, pos);
         }
 
-        public IItemSprite CreateTriforceSprite()
+        public IItemSprite CreateTriforceSprite((int, int) pos)
         {
-            return new TriforceSprite(triforceSpriteStorage);
+            return new TriforceSprite(triforceSpriteStorage, pos);
         }
 
-        public IItemSprite CreateSwordSprite()
+        public IItemSprite CreateSwordSprite((int, int) pos)
         {
-            return new SwordSprite(swordSpriteStorage);
+            return new SwordSprite(swordSpriteStorage, pos);
         }
 
         // More public ISprite returning methods follow

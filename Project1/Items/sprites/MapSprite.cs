@@ -26,15 +26,20 @@ namespace Project1
         private int width;
         private int height;
         private Rectangle rect;
-
-        public MapSprite(Texture2D[] spriteSheet)
+        private int pos_x;
+        private int pos_y;
+        public MapSprite(Texture2D[] spriteSheet, (int, int) pos)
         {
+            pos_x = pos.Item1;
+            pos_y = pos.Item2;
             Texture = spriteSheet;
             Rows = MAP_R;
             Columns = MAP_C;
             current_frame = START_FRAME;
             total_frame = Rows * Columns;
             position = Player.getUserPos();
+            pos_x = pos.Item1;
+            pos_y = pos.Item2;
         }
         public void Update()
         {
@@ -55,7 +60,7 @@ namespace Project1
         {
             setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
-            Rectangle DEST_REC = new Rectangle((int)position.X, (int)position.Y, width, height);
+            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 

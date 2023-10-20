@@ -20,9 +20,9 @@ namespace Project1
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
 
-        public Rupee()
+        public Rupee((int, int) pos)
         {
-            sprite = ItemSpriteFactory.Instance.CreateRupeeSprite();
+            sprite = ItemSpriteFactory.Instance.CreateRupeeSprite(pos);
         }
 
         public void Update()

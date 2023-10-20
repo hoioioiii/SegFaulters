@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Content;
 
 namespace Project1
 {
@@ -23,6 +24,7 @@ namespace Project1
         {
             LoadEnvironment();
             LoadEntity();
+            LoadItems();
         }
 
         private void LoadEnvironment()
@@ -51,7 +53,17 @@ namespace Project1
                 EntityLoader.LoadEntities(Game1.GameObjManager, enemyInfo.Item1,  position, items);
             }
         }
-    
+
+        private void LoadItems()
+        {
+            //(string, (int, int))[] itemArray
+            foreach ((string, (int, int)) item in itemArray)
+            {
+                String name = item.Item1;
+                (int, int) position = item.Item2;
+                ItemLoader.InitializeItemSprites(name, position);
+            }
+        }
 
 
 
@@ -61,7 +73,8 @@ namespace Project1
 
 
 
-        
+
+
         public void print()
         {
             printEnemies();

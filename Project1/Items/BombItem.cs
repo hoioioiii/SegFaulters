@@ -21,9 +21,9 @@ namespace Project1
 
         public Rectangle BoundingBox => getRectangle();
 
-        public BombItem()
+        public BombItem((int, int) pos)
         {
-            sprite = ItemSpriteFactory.Instance.CreateBombSprite();
+            sprite = ItemSpriteFactory.Instance.CreateBombSprite(pos);
         }
         public void Update()
         {

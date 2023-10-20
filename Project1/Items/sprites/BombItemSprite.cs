@@ -30,15 +30,15 @@ namespace Project1
         private int height;
         private Rectangle rect;
 
-        public BombItemSprite(Texture2D[] spriteSheet)
+        public BombItemSprite(Texture2D[] spriteSheet,(int, int) pos)
         {
             Texture = spriteSheet;
             Rows = BOMB_R;
             Columns = BOMB_C;
             current_frame = START_FRAME;
             total_frame = Rows * Columns;
-            pos_x = SPRITE_X;
-            pos_y = SPRITE_Y;
+            pos_x = pos.Item1;
+            pos_y = pos.Item2;
             position = Player.getUserPos();
 
         }
@@ -65,7 +65,7 @@ namespace Project1
         {
             setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
-            Rectangle DEST_REC = new Rectangle((int)position.X, (int)position.Y, width, height);
+            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 

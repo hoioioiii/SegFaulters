@@ -32,7 +32,10 @@ namespace Project1
         }
         public void CreateList(Texture2D[] ignore)
         {
-            IItem[] temp = { new ArrowItem(), new BombItem(), new BoomerangItem(), new Bow(), new Clock(), new Fairy(), new Heart(), new HeartContainer(),new Key(),new Map(),new Rupee(), new SwordItem(), new Triforce()}; 
+            
+            int x = (int)Player.getUserPos().X;
+            int y = (int)Player.getUserPos().Y;
+            IItem[] temp = { new ArrowItem((x,y)), new BombItem((x, y)), new BoomerangItem((x, y)), new Bow((x, y)), new Clock((x, y)), new Fairy((x, y)), new Heart((x, y)), new HeartContainer((x, y)),new Key((x, y)),new Map((x, y)),new Rupee((x, y)), new SwordItem((x, y)), new Triforce((x, y)) }; 
             ENTITY = temp;
         }
         

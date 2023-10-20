@@ -17,7 +17,8 @@ namespace Project1
 
         //curremtFrame is used to keep track of which frame of the animation we are currently on
         private double current_frame { get; set; }
-
+        private int pos_x;
+        private int pos_y;
         //totalFrames keeps track of how many frames there are in total
         private int total_frame { get; set; }
 
@@ -27,7 +28,7 @@ namespace Project1
         private int height;
         private Rectangle rect;
 
-        public KeySprite(Texture2D[] spriteSheet)
+        public KeySprite(Texture2D[] spriteSheet, (int, int) pos)
         {
             Texture = spriteSheet;
             Rows = KEY_R;
@@ -35,6 +36,8 @@ namespace Project1
             current_frame = START_FRAME;
             total_frame = Rows * Columns;
             position = Player.getUserPos();
+            pos_x = pos.Item1;
+            pos_y = pos.Item2;
         }
         public void Update()
         {
@@ -63,7 +66,7 @@ namespace Project1
         {
             setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
-            Rectangle DEST_REC = new Rectangle((int)location.X, (int)location.Y, width * scale, height * scale);
+            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width * scale, height * scale);
             rect = DEST_REC;
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }

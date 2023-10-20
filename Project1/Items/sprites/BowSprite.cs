@@ -21,25 +21,25 @@ namespace Project1
         //totalFrames keeps track of how many frames there are in total
         private int total_frame { get; set; }
 
-        private int pos_x { get; set; }
-        private int pos_y { get; set; }
+        
 
         private static Vector2 position;
 
         private int width;
         private int height;
         private Rectangle rect;
+        private int pos_x;
+        private int pos_y;
 
-
-        public BowSprite(Texture2D[] spriteSheet)
+        public BowSprite(Texture2D[] spriteSheet, (int, int) pos)
         {
             Texture = spriteSheet;
             Rows = BOW_R;
             Columns = BOW_C;
             current_frame = START_FRAME;
             total_frame = Rows * Columns;
-            pos_x = SPRITE_X;
-            pos_y = SPRITE_Y;
+            pos_x = pos.Item1;
+            pos_y = pos.Item2;
             position = Player.getUserPos();
         }
         public void Update()
@@ -60,7 +60,7 @@ namespace Project1
         {
             setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
-            Rectangle DEST_REC = new Rectangle((int)position.X, (int)position.Y, width, height);
+            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 

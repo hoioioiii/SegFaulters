@@ -19,9 +19,9 @@ namespace Project1
     {
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
-        public Map()
+        public Map((int, int) pos)
         {
-            sprite = ItemSpriteFactory.Instance.CreateMapSprite();
+            sprite = ItemSpriteFactory.Instance.CreateMapSprite(pos);
         }
 
         public void Update()
