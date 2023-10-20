@@ -11,7 +11,7 @@ namespace Project1
      * This is to test the items
      * 
      */
-    internal interface IListIterate
+    public interface IListIterate
     {
         public void CreateList(Texture2D[] temp);
         //public void moveBack();

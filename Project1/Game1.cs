@@ -18,8 +18,6 @@ namespace Project1
         public static SpriteBatch _spriteBatch;
         public static ContentManager contentLoader;
 
-        public static IEnvironment CurrentEnvironment;
-
         private Texture2D _texture;
         //public static SpriteBatch _spriteBatch;
 
@@ -53,8 +51,6 @@ namespace Project1
             //remove this later
             ContentManager1 = Content;
             Game = this;
-            
-
 
         }
 
@@ -109,18 +105,23 @@ namespace Project1
             IListIterate EntityList = new EnemyIterator(this);
 
             IListIterate ItemList = new ItemIterator(this);
-            IListIterate EnvironmentList = new EnvironmentIterator(this);
+            EnvironmentIterator = new EnvironmentIterator(this);
 
-            //Example code for how to create a item in the environment:
-            //testItem = new Triforce();
 
- 
+
             Sword.LoadContent(Content);
             Arrow.LoadContent(Content);
             Boomerang.LoadContent(Content); 
 
             PlayerSpriteFactory.Instance.LoadAllTextures(Content);
             Player.LoadContent(Content);
+
+            //Load background
+            EnvironmentLoader.LoadContent(Content);
+
+            //Load XML File
+            LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\SegFaulters\\Project1\\xmlTest2.xml");
+            
         }
 
 
@@ -143,6 +144,7 @@ namespace Project1
 
             Item.Update();
             ENEMY.Update();
+            EnvironmentLoader.Update();
             base.Update(gameTime);
         }
 
@@ -153,16 +155,13 @@ namespace Project1
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
+            EnvironmentLoader.Draw(_spriteBatch);
 
             Player.Draw(gameTime, _spriteBatch);
 
             ENEMY.Draw(_spriteBatch);
             Item.Draw(_spriteBatch);
-
-            //Example code for how to create an item in the environment:
-            //testItem.Draw(_spriteBatch, testLoc, 2);
-
-            CurrentEnvironment.Draw(_spriteBatch);
+            //CurrentEnvironment.Draw(_spriteBatch);
 
             _spriteBatch.End();
             base.Draw(gameTime);

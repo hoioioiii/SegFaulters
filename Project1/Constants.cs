@@ -159,9 +159,7 @@ namespace Project1
         public static int LINK_X = 300;
         public static int LINK_Y = 300;
 
-
-
-
+        public static int BLOCK_DIMENSION = 48;
 
         public enum DIRECTION {right = 0, left = 1, up = 2, down = 3};
 
