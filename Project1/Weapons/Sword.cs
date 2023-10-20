@@ -141,5 +141,10 @@ namespace Project1
         {
             throw new NotImplementedException();
         }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
