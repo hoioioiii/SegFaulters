@@ -46,6 +46,10 @@
     <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/dm6.png</File>
     <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/dm7.png</File>
     <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/dm8.png</File>
+    <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/DoorEAST.png</File>
+    <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/DoorNORTH.png</File>
+    <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/DoorSOUTH.png</File>
+    <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/DoorWEST.png</File>
     <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/emptyhealthbar.png</File>
     <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/emptyhealthbar2.png</File>
     <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/emptyhealthbar3.png</File>
@@ -129,6 +133,10 @@
     <File>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/ZeldaSpriteOldMan.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
