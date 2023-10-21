@@ -19,13 +19,22 @@ namespace Project1
     {
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
+
+        public bool drawState { get; set; }
+        
+
+
+
         public Triforce((int, int) pos)
         {
+            drawState = true;
+            
             sprite = ItemSpriteFactory.Instance.CreateTriforceSprite(pos);
         }
 
         public void Update()
         {
+            
             sprite.Update();
         }
 
@@ -36,7 +45,10 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
         {
+            
             sprite.Draw(spriteBatch, location, spriteScale);
+            
+
         }
         private Rectangle getRectangle()
         {

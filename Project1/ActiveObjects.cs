@@ -193,7 +193,11 @@ namespace Project1
         {
             for (int i = 0; i < items.Count; i++)
             {
-                items[i].Draw(Game1._spriteBatch);
+                if (items[i].drawState)
+                {
+                    items[i].Draw(Game1._spriteBatch);
+                }
+                
             }
         }
 

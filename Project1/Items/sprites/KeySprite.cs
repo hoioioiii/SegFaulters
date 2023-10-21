@@ -73,7 +73,7 @@ namespace Project1
         }
         public Rectangle getRect()
         {
-            return new Rectangle(pos_x, pos_y, width, height);
+            return new Rectangle(pos_x, pos_y, width * 4, height * 4);
         }
     }
 }

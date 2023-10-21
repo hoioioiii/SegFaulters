@@ -19,8 +19,13 @@ namespace Project1
     {
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
+
+
+        public bool drawState { get; set; }
         public BoomerangItem((int, int) pos)
         {
+            drawState = true;
+            
             sprite = ItemSpriteFactory.Instance.CreateBoomerangSprite(pos);
         }
 
@@ -31,12 +36,16 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
+           
             sprite.Draw(spriteBatch);
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
         {
+           
             sprite.Draw(spriteBatch, location, spriteScale);
+            
+
         }
         private Rectangle getRectangle()
         {

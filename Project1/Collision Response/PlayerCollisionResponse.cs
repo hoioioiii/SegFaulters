@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Project1.Collision;
 using static Project1.Constants;
 
@@ -18,7 +19,8 @@ namespace Project1.Collision_Response
          */
         public static void ItemResponse(IItem item)
         {
-            // TODO: CALL ITEM INSTANCE/ROOM MANAGER
+            item.drawState = false;
+            
             
         }
 

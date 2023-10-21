@@ -104,7 +104,7 @@ namespace Project1
                 {
                     PlayerCollisionResponse.ItemResponse(item);
                 }
-                /*
+
                 #region Print to debug console
                 System.Text.StringBuilder sb = new StringBuilder();
                 sb.Append("isColliding: " + isColliding);
@@ -112,54 +112,54 @@ namespace Project1
                 if (sb.Length > 0)
                     System.Diagnostics.Debug.WriteLine(sb.ToString());
                 #endregion
-                */
-            }
-            
-            foreach (var door in roomDoors)
-            {
-                isColliding = Player.BoundingBox.Intersects(door.BoundingBox);
-                if (isColliding)
-                {
-                    PlayerCollisionResponse.DoorResponse(door);
-                }               
-            }
-            
-            foreach (var boundary in roomBoundaries)
-            {
-                isColliding = Player.BoundingBox.Intersects(boundary.BoundingBox);
-                if (isColliding)
-                {
-                    DetectCollisionDirection(Player.BoundingBox, boundary.BoundingBox, collisionDirection);
-                    PlayerCollisionResponse.BoundaryResponse(collisionDirection);
-                }
-                /*
-                #region Print to debug console
-                System.Text.StringBuilder sb = new StringBuilder();
-                sb.Append("isColliding: " + isColliding);
 
-                if (sb.Length > 0)
-                    System.Diagnostics.Debug.WriteLine(sb.ToString());
-                #endregion
-                */
             }
-            foreach (var enemy in entities)
-            {
+
+            //foreach (var door in roomDoors)
+            //{
+            //    isColliding = Player.BoundingBox.Intersects(door.BoundingBox);
+            //    if (isColliding)
+            //    {
+            //        PlayerCollisionResponse.DoorResponse(door);
+            //    }               
+            //}
+
+            //foreach (var boundary in roomBoundaries)
+            //{
+            //    isColliding = Player.BoundingBox.Intersects(boundary.BoundingBox);
+            //    if (isColliding)
+            //    {
+            //        DetectCollisionDirection(Player.BoundingBox, boundary.BoundingBox, collisionDirection);
+            //        PlayerCollisionResponse.BoundaryResponse(collisionDirection);
+            //    }
+            //    /*
+            //    #region Print to debug console
+            //    System.Text.StringBuilder sb = new StringBuilder();
+            //    sb.Append("isColliding: " + isColliding);
+
+            //    if (sb.Length > 0)
+            //        System.Diagnostics.Debug.WriteLine(sb.ToString());
+            //    #endregion
+            //    */
+            //}
+            //foreach (var enemy in entities)
+            //{
                 
-                isColliding = Player.BoundingBox.Intersects(enemy.BoundingBox);
-                if (isColliding)
-                {
-                    DetectCollisionDirection(Player.BoundingBox, enemy.BoundingBox, collisionDirection);
-                    //PlayerCollisionResponse.DamageResponse(collisionDirection);
-                    PlayerCollisionResponse.BoundaryResponse(collisionDirection);
-                }
-                #region Print to debug console
-                System.Text.StringBuilder sb = new StringBuilder();
-                sb.Append("isColliding: " + isColliding);
+            //    isColliding = Player.BoundingBox.Intersects(enemy.BoundingBox);
+            //    if (isColliding)
+            //    {
+            //        DetectCollisionDirection(Player.BoundingBox, enemy.BoundingBox, collisionDirection);
+            //        //PlayerCollisionResponse.DamageResponse(collisionDirection);
+            //        PlayerCollisionResponse.BoundaryResponse(collisionDirection);
+            //    }
+            //    #region Print to debug console
+            //    System.Text.StringBuilder sb = new StringBuilder();
+            //    sb.Append("isColliding: " + isColliding);
 
-                if (sb.Length > 0)
-                    System.Diagnostics.Debug.WriteLine(sb.ToString());
-                #endregion
-            }
+            //    if (sb.Length > 0)
+            //        System.Diagnostics.Debug.WriteLine(sb.ToString());
+            //    #endregion
+            //}
             //foreach (var enemyAttack in enemyAttackInstances)
             //{
             //    isColliding = link.BoundingBox.Intersects(enemyAttack);

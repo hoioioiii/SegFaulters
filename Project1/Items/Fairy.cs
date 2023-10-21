@@ -19,8 +19,11 @@ namespace Project1
     {
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
+        public bool drawState { get; set; }
         public Fairy((int, int) pos)
         {
+            drawState = true;
+          
             sprite = ItemSpriteFactory.Instance.CreateFairySprite(pos);
         }
         public void Update()
@@ -35,7 +38,10 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
         {
+           
             sprite.Draw(spriteBatch, location, spriteScale);
+            
+
         }
         private Rectangle getRectangle()
         {
