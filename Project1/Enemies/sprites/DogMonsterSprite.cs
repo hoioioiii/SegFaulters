@@ -33,7 +33,7 @@ namespace Project1
             animation_manager = new Animation(0, DM_TOTAL, time_manager, direction_state_manager);
             state_manager = new EntityState();
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
-            movement_manager = new Movement(direction_state_manager, this, time_manager, SPRITE_X_START, SPRITE_Y_START, 0);
+            movement_manager = new Movement(direction_state_manager, this, time_manager, position.Item1, position.Item2, 0);
         }
 
         /*
