@@ -64,14 +64,41 @@ namespace Project1
             doorArray = new IEnvironment[doorsToLoad.Length];
             for( int i = 0;i < doorsToLoad.Length;i++)
             {
-                string direction = doorsToLoad[i].Item1;
+                string directionString = doorsToLoad[i].Item1;
+                 DIRECTION directionEnum = DirectionToEnum(directionString);
                 int destinationRoom = doorsToLoad[i].Item2.Item1;
                 bool isLocked = doorsToLoad[i].Item2.Item2;
-                doorArray[i] = new Door(doorSpriteArray, direction, destinationRoom, isLocked);
+                doorArray[i] = new Door(doorSpriteArray, directionEnum, destinationRoom, isLocked);
                 Game1.GameObjManager.addDoors(doorArray[i]);
             }
         }
-   
+
+        private static DIRECTION DirectionToEnum(String directionString)
+        {
+            DIRECTION direction = DIRECTION.left;
+            switch(directionString)
+            {
+                case "north":
+                    direction = DIRECTION.up;
+                    break;
+                case "south":
+                    direction = DIRECTION.down;
+                    break;
+                case "west":
+                    direction = DIRECTION.left;
+                    break;
+                case "east":
+                    direction = DIRECTION.right;
+                    break;
+                default:
+                    break;
+            }
+            return direction;
+
+
+        }
+        
+
         public static void Update()
         {
             foreach (IEnvironment block in blocksArray) {

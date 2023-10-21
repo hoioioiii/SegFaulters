@@ -7,17 +7,14 @@ namespace Project1.Collision_Response
 {
     internal class EnemyCollisionResponse
     {
-        #region Collision Response Enemy
-
         /*
          * 
          */
         public static void BoundaryResponse(IEntity enemy, DIRECTION direction)
-        {
-            // TODO: CHANGE TO ENEMY POSITION!
-            Vector2 enemyPosition = new Vector2(0 ,0);
-            enemyPosition = AllCollisionResponse.Knockback(enemyPosition, direction, knockbackDistance);
-            // TODO: Change enemy direction
+        {           
+            Vector2 enemyPosition = new Vector2(enemy.getPositionAndRectangle().X, enemy.getPositionAndRectangle().Y);
+            enemyPosition = AllCollisionResponse.Knockback(enemyPosition, direction, ENEMY_SPEED);
+            enemy.setPosition((int)enemyPosition.X, (int)enemyPosition.Y);
         }
 
         /*
@@ -25,11 +22,10 @@ namespace Project1.Collision_Response
          */
         public static void DamageResponse(IEntity enemy, DIRECTION direction)
         {
-            // TODO: CHANGE TO ENEMY POSITION!
-            Vector2 enemyPosition = new Vector2(0, 0);
-            enemyPosition = AllCollisionResponse.Knockback(enemyPosition, direction, knockbackDistance);
+            Vector2 enemyPosition = new Vector2(enemy.getPositionAndRectangle().X, enemy.getPositionAndRectangle().Y);
+            enemyPosition = AllCollisionResponse.Knockback(enemyPosition, direction, KNOCKBACK_DISTANCE);
+            enemy.setPosition((int)enemyPosition.X, (int)enemyPosition.Y);
             AllCollisionResponse.ApplyDamage();
-        }
-        #endregion
+        }       
     }
 }

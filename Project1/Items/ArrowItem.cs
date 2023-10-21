@@ -21,27 +21,37 @@ namespace Project1
 
         public Rectangle BoundingBox => getRectangle();
 
+        public bool drawState { get; set; }
+
         public ArrowItem((int, int) pos)
         {
+            drawState = true;
+           
             sprite = ItemSpriteFactory.Instance.CreateArrowSprite(pos);
         }
 
         //Change the current frame to the next frame
         public void Update()
         {
+         
             sprite.Update();
         }
 
         // Sprite for item in Link's inventory. Displaying link inventory
         public void Draw(SpriteBatch spriteBatch)
         {
+          
             sprite.Draw(spriteBatch);
         }
 
         // Sprite for items to be put into the level loader
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
         {
+
+            
             sprite.Draw(spriteBatch, location, spriteScale);
+            
+            
         }
 
         private Rectangle getRectangle()

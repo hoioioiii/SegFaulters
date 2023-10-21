@@ -7,6 +7,8 @@ namespace Project1
 	public interface IItem
 	{
         Rectangle BoundingBox { get; }
+        public bool drawState { get; set; }
+      
 
         void Update();
         void Draw(SpriteBatch spriteBatch);

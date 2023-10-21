@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Content;
 using System.Collections;
 using static Project1.Constants;
 using System;
+using System.Text;
 
 namespace Project1
 {
@@ -23,7 +24,7 @@ namespace Project1
         //public static SpriteBatch _spriteBatch;
 
         // not used because I made the methods in player public static
-        //public Player player
+        public static Player player;
 
         //private IHealth HealthBarSprite;
         public static IListIterate EnvironmentIterator;
@@ -56,7 +57,7 @@ namespace Project1
 
         }
 
-        
+
         public void Quit() => Exit();
 
 
@@ -90,9 +91,9 @@ namespace Project1
             //keep
             GameObjManager = new ActiveObjects();
 
-            
+
+            player = new Player();
             Player.Initialize();
-            
 
             base.Initialize();
         }
@@ -117,7 +118,7 @@ namespace Project1
 
             Sword.LoadContent(Content);
             Arrow.LoadContent(Content);
-            Boomerang.LoadContent(Content); 
+            Boomerang.LoadContent(Content);
 
             PlayerSpriteFactory.Instance.LoadAllTextures(Content);
             Player.LoadContent(Content);
@@ -125,7 +126,7 @@ namespace Project1
             //Load background
             EnvironmentLoader.LoadContent(Content);
 
-            
+
 
             //Load XML File
             LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
@@ -149,13 +150,24 @@ namespace Project1
 
             //Example code for how to create an item in the environment:
             //testItem.Update();
-           
+
             Item.Update();
             ENEMY.Update();
             EnvironmentLoader.Update();
 
             GameObjManager.Update();
+            AllCollisionDetection.DetectCollision(GameObjManager);
 
+            /*
+            #region Print to debug console
+            System.Text.StringBuilder sb = new StringBuilder();
+            sb.Append("Player pos" + Player.getPosition());
+            //sb.Append((char)Player.getPosition().Item1, (char)Player.getPosition().Item2);
+
+            if (sb.Length > 0)
+                System.Diagnostics.Debug.WriteLine(sb.ToString());
+            #endregion
+            */
 
             base.Update(gameTime);
         }
@@ -170,6 +182,14 @@ namespace Project1
             EnvironmentLoader.Draw(_spriteBatch);
 
             Player.Draw(gameTime, _spriteBatch);
+
+            #region Debug Draw Link's bounding box
+            // Create the single-pixel texture
+            Texture2D pixel = new Texture2D(GraphicsDevice, 1, 1);
+            pixel.SetData<Color>(new Color[] { Color.White });
+
+            _spriteBatch.Draw(pixel, Player.BoundingBox, Color.White);
+            #endregion
 
             //ENEMY.Draw(_spriteBatch);
             //Item.Draw(_spriteBatch);

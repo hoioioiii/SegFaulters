@@ -10,7 +10,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-using static Project1.ConstantClass;
+//using static Project1.ConstantClass;
 
 public class HealthSystem : IHealth
 {

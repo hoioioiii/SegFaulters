@@ -6,16 +6,17 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using static Project1.Constants;
+using System;
 
 namespace Project1
 {
     public class Player
     {
         public IPlayerState playerState { get; set; }
-        public Rectangle BoundingBox => getPositionAndRectangle();
+        public static Rectangle BoundingBox;
         private GraphicsDeviceManager _graphics;
         private static ContentManager Content;
-        private static Vector2 position;
+        private static Vector2 position = RESPAWN_UP;
 
         public static int[] itemInventory = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
         //this enum is used to access the invetory by item type:
@@ -78,15 +79,15 @@ namespace Project1
 
         private static int onScreen;
        
-        private static int posX;
-        private static int posY;
-        private Rectangle rect;
+        //private static int posX;
+        //private static int posY;
+        //private Rectangle rect;
         private static bool remainOnScreen;
 
         public Player()
         {
-            posX = 0;
-            posY = 0;
+            //posX = 0;
+            //posY = 0;
             remainOnScreen = false;
         }
 
@@ -102,7 +103,7 @@ namespace Project1
 
             weapon = new Bomb();
 
-           
+            BoundingBox = new Rectangle(0, 0, LINK_BOUNDING_DIMENSION, LINK_BOUNDING_DIMENSION);
         }
 
 
@@ -137,17 +138,30 @@ namespace Project1
             DamageTimer -= elapsedSeconds;
             FlashTimer -= elapsedSeconds;
 
-            KeyboardState state = Keyboard.GetState();
-            System.Text.StringBuilder sb = new StringBuilder();
+            // set bounding box position to link position
+            BoundingBox.Location = new Point((int)position.X + 5, (int)position.Y + 20);
+            // move link to bounding box
+            sprite.Update(linkDirection, position);
+            // call collision and pass in link
 
-            //update keys being pressed
-            foreach (var key in state.GetPressedKeys())
+
+            KeyboardState keystate = Keyboard.GetState();
+
+            
+            #region Print to debug console currently pressed keys
+            System.Text.StringBuilder sb = new StringBuilder();
+            foreach (var key in keystate.GetPressedKeys())
                 sb.Append("Key: ").Append(key).Append(" pressed ");
 
             if (sb.Length > 0)
-                System.Diagnostics.Debug.WriteLine(sb.ToString());
+            {
+                //System.Diagnostics.Debug.WriteLine(sb.ToString());
+            }
             else
                 isMoving = false;
+            #endregion
+
+            // Move our sprite based on arrow keys being pressed:
 
             if (isAttacking)
             {
@@ -158,26 +172,26 @@ namespace Project1
             // Link can't move when attacking
             if (!isAttacking)
             {
-                if (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.N))
+                if (keystate.IsKeyDown(Keys.Z) || keystate.IsKeyDown(Keys.N))
                 {
                     // attack using his sword
                     isAttacking = true;
                     isAttackingWithSword = true;
                     //sprite.Update(linkDirection, position);
                 }
-                else if (state.IsKeyDown(Keys.I))
+                else if (keystate.IsKeyDown(Keys.I))
                 {
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBoomerang = true;
                 }
-                else if (state.IsKeyDown(Keys.U))
+                else if (keystate.IsKeyDown(Keys.U))
                 {
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBow = true;
                 }
-                else if (state.IsKeyDown(Keys.B))
+                else if (keystate.IsKeyDown(Keys.B))
                 {
                     // attack using his sword
                     isAttacking = true;
@@ -190,63 +204,71 @@ namespace Project1
                 }
 
 
-                if (state.IsKeyDown(Keys.Left) || state.IsKeyDown(Keys.A))
+
+                if (keystate.IsKeyDown(Keys.Left) || keystate.IsKeyDown(Keys.A))
                 {
                     position.X -= playerSpeed;
+                    position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
                     isMoving = true;
                     linkDirection = 4;
 
-                    posX -= playerSpeed;
+                    //posX -= playerSpeed;
 
 
                     sprite.Update(4, position);
                 }
-                else if (state.IsKeyDown(Keys.Down) || state.IsKeyDown(Keys.S))
+                else if (keystate.IsKeyDown(Keys.Down) || keystate.IsKeyDown(Keys.S))
                 {
                     position.Y += playerSpeed;
+                    position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
                     isMoving = true;
                     linkDirection = 3;
-                    posX += playerSpeed;
+                    //posX += playerSpeed;
                     sprite.Update(3, position);
 
                 }
-                else if (state.IsKeyDown(Keys.Up) || state.IsKeyDown(Keys.W))
+                else if (keystate.IsKeyDown(Keys.Up) || keystate.IsKeyDown(Keys.W))
                 {
                     position.Y -= playerSpeed;
+                    position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
                     isMoving = true;
                     linkDirection = 1;
-                    posY -= playerSpeed;
+                    //posY -= playerSpeed;
                     sprite.Update(1, position);
                 }
-                else if (state.IsKeyDown(Keys.Right) || state.IsKeyDown(Keys.D))
+                else if (keystate.IsKeyDown(Keys.Right) || keystate.IsKeyDown(Keys.D))
                 {
                     position.X += playerSpeed;
+                    position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
                     isMoving = true;
                     linkDirection = 2;
-                    posY += playerSpeed;
+                    //posY += playerSpeed;
                     sprite.Update(2, position);
                 }
             }
 
-            if (state.IsKeyDown(Keys.E))
+            /*
+            if (keystate.IsKeyDown(Keys.E))
             {
                 DamageInvincibility();
             }
+            */
+            //Move(keystate);
 
-            if (state.IsKeyDown(Keys.E))
+            if (keystate.IsKeyDown(Keys.E))
             {
                 isDamaged = true;
                 DamageInvincibility();
             }
-            if (state.IsKeyDown(Keys.T) || state.IsKeyDown(Keys.Y))
+            if (keystate.IsKeyDown(Keys.T) || keystate.IsKeyDown(Keys.Y))
             {
                 // cycle between which block is currently being shown
             }
-            if (state.IsKeyDown(Keys.U) || state.IsKeyDown(Keys.I))
+            if (keystate.IsKeyDown(Keys.U) || keystate.IsKeyDown(Keys.I))
             {
 
             }
-            if (state.IsKeyDown(Keys.O) || state.IsKeyDown(Keys.P))
+            if (keystate.IsKeyDown(Keys.O) || keystate.IsKeyDown(Keys.P))
             {
 
             }
@@ -257,7 +279,7 @@ namespace Project1
             }
         }
 
-        public Rectangle getPositionAndRectangle()
+        public static Rectangle getPositionAndRectangle()
         {
            return sprite.getRectangle();
         }
@@ -395,7 +417,12 @@ namespace Project1
             spriteWeapon.Draw();
         }
 
-        // if 1 second has passed since attacking, revert attack state to false (allowing for other actions)
+
+
+
+
+
+        // if 1 second has passed since attacking, revert attack keystate to false (allowing for other actions)
         public static void WaitForAttack()
         {
             if (AttackTimer <= 0)
@@ -458,6 +485,7 @@ namespace Project1
         public static void left()
         {
             position.X -= playerSpeed;
+            position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
             isMoving = true;
             linkDirection = 4;
             sprite.Update(4, position);
@@ -466,6 +494,7 @@ namespace Project1
         public static void down()
         {
             position.Y += playerSpeed;
+            position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
             isMoving = true;
             linkDirection = 3;
             sprite.Update(3, position);
@@ -474,6 +503,7 @@ namespace Project1
         public static void up()
         {
             position.Y -= playerSpeed;
+            position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
             isMoving = true;
             linkDirection = 1;
             sprite.Update(1, position);
@@ -482,6 +512,7 @@ namespace Project1
         public static void right()
         {
             position.X += playerSpeed;
+            position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
             isMoving = true;
             linkDirection = 2;
             sprite.Update(2, position);
@@ -514,6 +545,16 @@ namespace Project1
             if(itemInventory[(int)itemToDelete] > 0) {
                 itemInventory[(int)itemToDelete]--;
             }
+        }
+
+        public static void setPosition(Vector2 newPostion)
+        {
+            position = newPostion;
+        }
+
+        public static Vector2 getPosition()
+        {
+            return position;
         }
 
     }

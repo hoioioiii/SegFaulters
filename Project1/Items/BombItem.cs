@@ -21,22 +21,33 @@ namespace Project1
 
         public Rectangle BoundingBox => getRectangle();
 
+
+        public bool drawState { get; set; }
+
         public BombItem((int, int) pos)
         {
+            drawState = true;
+           
             sprite = ItemSpriteFactory.Instance.CreateBombSprite(pos);
         }
         public void Update()
         {
+         
             sprite.Update();
         }
         public void Draw(SpriteBatch spriteBatch)
         {
+            
             sprite.Draw(spriteBatch);
         }
 
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
         {
+
+         
             sprite.Draw(spriteBatch, location, spriteScale);
+            
+
         }
         private Rectangle getRectangle()
         {

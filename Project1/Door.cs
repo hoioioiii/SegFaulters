@@ -6,54 +6,63 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Project1.Constants;
 
 namespace Project1
 {
-    internal class Door : IEnvironment
+    public class Door : IEnvironment
     {
-        private string direction;
-        private int destinationRoom;
+        public DIRECTION direction { get; private set; }
+        public int destinationRoom { get; private set; }
         private bool isLocked;
         private Texture2D texture;
         private int xPos;
         private int yPos;
-        public Door(Texture2D[]textures, string direction, int destinationRoom, bool isLocked)
+
+        public Rectangle BoundingBox { get; private set; }
+        public Door(Texture2D[]textures, DIRECTION direction, int destinationRoom, bool isLocked)
         {
-            this.direction = direction;
-            this.destinationRoom = destinationRoom;
+            
+            this.destinationRoom = destinationRoom - 1;
             this.isLocked = isLocked;
 
             switch (direction)
             {
-                case "north":
+                case DIRECTION.up:
                     texture = textures[3];
                     xPos = 350;
                     yPos = 16;
+                    this.direction = DIRECTION.up;
                     break;
-                case "south":
+                case DIRECTION.down:
                     texture = textures[2];
                     xPos = 350;
                     yPos = 410;
+                    this.direction = DIRECTION.down;
                     break;
-                case "west":
+                case DIRECTION.left:
                     texture = textures[0];
                     xPos = 45;
                     yPos = 190;
+                    this.direction = DIRECTION.left;
                     break;
-                case "east":
+                case DIRECTION.right:
                     texture = textures[1];
                     xPos = 685;
                     yPos = 190;
+                    this.direction = DIRECTION.right;
                     break;
                 default:
                     break;
             }
         }
-        public Rectangle BoundingBox { get; set; }
+        
 
         public void Update() { }
         public void Draw(SpriteBatch spriteBatch) {
             double ratio = 1.3;
+            BoundingBox = new Rectangle(xPos, yPos, (int)(texture.Width * ratio), (int)(texture.Height * ratio));
+
             spriteBatch.Draw(texture, new Rectangle(xPos, yPos, (int)(texture.Width * ratio), (int)(texture.Height * ratio)), Color.White);
 
         }
