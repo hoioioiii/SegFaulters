@@ -244,7 +244,7 @@ namespace Project1
 
             roomDoors = GameOBJ.getDoorList();
             DetectAllCollisionsLinkEntity();
-           // DetectAllCollisionsEnemiesEntity();
+            DetectAllCollisionsEnemiesEntity();
         }
 
 
