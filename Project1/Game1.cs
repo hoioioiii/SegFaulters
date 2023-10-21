@@ -23,7 +23,7 @@ namespace Project1
         //public static SpriteBatch _spriteBatch;
 
         // not used because I made the methods in player public static
-        //public Player player
+        public static Player player;
 
         //private IHealth HealthBarSprite;
         public static IListIterate EnvironmentIterator;
@@ -91,8 +91,8 @@ namespace Project1
             GameObjManager = new ActiveObjects();
 
 
+            player = new Player();
             Player.Initialize();
-
 
             base.Initialize();
         }

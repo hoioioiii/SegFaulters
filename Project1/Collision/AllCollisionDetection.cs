@@ -1,12 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project1.Collision_Response;
 using Project1.Weapons;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Numerics;
 using System.Text;
 using static Project1.Constants;
+using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 
 namespace Project1.Collision
@@ -28,7 +31,8 @@ namespace Project1.Collision
         private static List<IEntity> entities;
         //List<Rectangle> entities = new List<Rectangle>();
 
-        private static Player link;
+        //private static Player link;
+
 
         #region Collision rectangles TODO: USE ENTITIES INSTEAD
         // TODO: ROOM MANAGER MUST GENERATE THESE LISTS ON NEW ROOM LOAD TO PASS INTO COLLISION
@@ -74,11 +78,41 @@ namespace Project1.Collision
         //List<IWeaponProjectile> weaponProjectiles = new List<IWeaponProjectile>();
         #endregion
 
-        public static void CollisionTest(Player link)
+        int rect1Pos;
+
+        public static void CollisionTestInitialize(Player link)
         {
+            
+
+            
+        }
+
+        public static void CollisionTestUpdate()
+        {
+            
+            
+            Rectangle rect1 = new Rectangle(50, 50, 50, 50);
+            Rectangle rect2 = new Rectangle(99, 99, 99, 99);
+            System.Console.WriteLine("New Rectangle: {0}", rect1);
+            System.Console.WriteLine("New Rectangle: {0}", rect2);
+
+
+
             bool isColliding = false;
 
-            Rectangle rect = new Rectangle();
+            isColliding = rect1.Intersects(rect2);
+            if (isColliding)
+            {
+                System.Console.WriteLine("Colliding New Rectangle");
+            }
+        }
+
+        public static void DrawCollisionTest(SpriteBatch spriteBatch) {
+            // Draw the big black rectangle
+            //spriteBatch.Draw(pixel, rect1, Color.Black);
+
+            // Draw the small rectangle that changes color on collision
+            //spriteBatch.Draw(pixel, rect2, smallRectangleColor);
         }
 
         #region Collision Detection Entities (player & room enemies)
@@ -102,33 +136,11 @@ namespace Project1.Collision
 
             foreach (var item in roomItems)
             {
-                isColliding = link.BoundingBox.Intersects(item.BoundingBox);
+                isColliding = Player.BoundingBox.Intersects(item.BoundingBox);
                 if (isColliding)
                 {
                     PlayerCollisionResponse.ItemResponse(item);
                 }
-            }
-            /*
-            foreach (var door in roomDoors)
-            {
-                isColliding = link.BoundingBox.Intersects(door.BoundingBox);
-                if (isColliding)
-                {
-                    PlayerCollisionResponse.DoorResponse(door);
-                }               
-            }
-            */
-            foreach (var boundary in roomBoundaries)
-            {
-                isColliding = link.BoundingBox.Intersects(boundary.BoundingBox);
-                if (isColliding)
-                {
-                    DetectCollisionDirection(link.BoundingBox, boundary.BoundingBox, collisionDirection);
-                    PlayerCollisionResponse.BoundaryResponse(link, collisionDirection);
-                }
-            }
-            foreach (var enemy in entities)
-            {
                 #region Print to debug console
                 System.Text.StringBuilder sb = new StringBuilder();
                 sb.Append("isColliding: " + isColliding);
@@ -136,12 +148,49 @@ namespace Project1.Collision
                 if (sb.Length > 0)
                     System.Diagnostics.Debug.WriteLine(sb.ToString());
                 #endregion
-                isColliding = link.BoundingBox.Intersects(enemy.BoundingBox);
+            }
+            
+            foreach (var door in roomDoors)
+            {
+                isColliding = Player.BoundingBox.Intersects(door.BoundingBox);
                 if (isColliding)
                 {
-                    DetectCollisionDirection(link.BoundingBox, enemy.BoundingBox, collisionDirection);
-                    PlayerCollisionResponse.DamageResponse(link, collisionDirection);
+                    PlayerCollisionResponse.DoorResponse(door);
+                }               
+            }
+            
+            foreach (var boundary in roomBoundaries)
+            {
+                isColliding = Player.BoundingBox.Intersects(boundary.BoundingBox);
+                if (isColliding)
+                {
+                    DetectCollisionDirection(Player.BoundingBox, boundary.BoundingBox, collisionDirection);
+                    PlayerCollisionResponse.BoundaryResponse(collisionDirection);
                 }
+                #region Print to debug console
+                System.Text.StringBuilder sb = new StringBuilder();
+                sb.Append("isColliding: " + isColliding);
+
+                if (sb.Length > 0)
+                    System.Diagnostics.Debug.WriteLine(sb.ToString());
+                #endregion
+            }
+            foreach (var enemy in entities)
+            {
+                
+                isColliding = Player.BoundingBox.Intersects(enemy.BoundingBox);
+                if (isColliding)
+                {
+                    DetectCollisionDirection(Player.BoundingBox, enemy.BoundingBox, collisionDirection);
+                    PlayerCollisionResponse.DamageResponse(collisionDirection);
+                }
+                #region Print to debug console
+                System.Text.StringBuilder sb = new StringBuilder();
+                sb.Append("isColliding: " + isColliding);
+
+                if (sb.Length > 0)
+                    System.Diagnostics.Debug.WriteLine(sb.ToString());
+                #endregion
             }
             //foreach (var enemyAttack in enemyAttackInstances)
             //{
@@ -215,7 +264,8 @@ namespace Project1.Collision
         public static void DetectCollision(IActiveObjects GameOBJ)
         {
             entities = GameOBJ.getEntityList();
-            link = GameOBJ.getLink();
+            //link = GameOBJ.getLink();
+            //Game1.Player();
             roomBoundaries = GameOBJ.getEnvironmentList();
             weapons = GameOBJ.getWeaponList();
             roomItems = GameOBJ.getItemList();

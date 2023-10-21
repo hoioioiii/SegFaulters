@@ -17,7 +17,7 @@ namespace Project1
 
         public void Update()
 		{
-            /*
+            
             if (Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
                 action = new RoomIterateBack();
@@ -27,7 +27,7 @@ namespace Project1
                 action = new RoomIterateForward();
                 action.Execute();
             }
-            */
+            
         }
 
         public void GetInputType()

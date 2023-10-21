@@ -19,6 +19,7 @@ namespace Project1.Collision_Response
         public static void ItemResponse(IItem item)
         {
             // TODO: CALL ITEM INSTANCE/ROOM MANAGER
+            
         }
 
         /*
@@ -28,28 +29,29 @@ namespace Project1.Collision_Response
         public static void DoorResponse(IEnvironment door)
         {
             // TODO: CALL LEVEL LOADER
+            
         }
 
         /*
          * 
          */
-        public static void BoundaryResponse(Player link, DIRECTION direction)
+        public static void BoundaryResponse(DIRECTION direction)
         {
             Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y);
             playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, Player.playerSpeed);
-            link.setPosition((int)playerPosition.X, (int)playerPosition.Y);
+            Player.setPosition((int)playerPosition.X, (int)playerPosition.Y);
         }
 
         /*
          * 
          */
-        public static void DamageResponse(Player link, DIRECTION direction)
+        public static void DamageResponse(DIRECTION direction)
         {
             Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y);
             // Constant KNOCKBACK_DISTANCE
             playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, KNOCKBACK_DISTANCE);
             AllCollisionResponse.ApplyDamage();
-            link.setPosition((int)playerPosition.X, (int)playerPosition.Y);
+            Player.setPosition((int)playerPosition.X, (int)playerPosition.Y);
         }       
     }
 }

@@ -23,7 +23,7 @@ namespace Project1
             //create iterator here
             GAME_OBJ = game1;
             Load();
-            pointer = 0;
+            pointer = 2;
 
             //Game1.CurrentEnvironment = new CurrentBlock(texture2D[0]);
         }

@@ -12,7 +12,7 @@ namespace Project1
     public class Player
     {
         public IPlayerState playerState { get; set; }
-        public Rectangle BoundingBox => getPositionAndRectangle();
+        public static Rectangle BoundingBox => getPositionAndRectangle();
         private GraphicsDeviceManager _graphics;
         private static ContentManager Content;
         private static Vector2 position;
@@ -267,7 +267,7 @@ namespace Project1
             }
         }
 
-        public Rectangle getPositionAndRectangle()
+        public static Rectangle getPositionAndRectangle()
         {
            return sprite.getRectangle();
         }
@@ -531,13 +531,13 @@ namespace Project1
             }
         }
 
-        public void setPosition(int x, int y)
+        public static void setPosition(int x, int y)
         {
             posX = x;
             posY = y;            
         }
 
-        public (int, int) getPosition()
+        public static (int, int) getPosition()
         {
             return (posX, posY);
         }
