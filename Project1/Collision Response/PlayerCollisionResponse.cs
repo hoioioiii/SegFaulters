@@ -31,8 +31,30 @@ namespace Project1.Collision_Response
          */
         public static void DoorResponse(IEnvironment door)
         {
-            // TODO: CALL LEVEL LOADER
-            
+            switch (door.direction)
+                {
+                    case DIRECTION.up:
+                    Player.setPosition(RESPAWN_UP);
+                        break;
+                    case DIRECTION.down:
+                    Player.setPosition(RESPAWN_DOWN);
+
+                    break;
+                    case DIRECTION.left:
+                    Player.setPosition(RESPAWN_LEFT);
+
+                    break;
+                    case DIRECTION.right:
+                    Player.setPosition(RESPAWN_RIGHT);
+
+                    break;
+                    default:
+                        break;
+                }
+
+            RoomManager.SetActiveRoom(door.destinationRoom);
+
+
         }
 
         /*
@@ -40,7 +62,7 @@ namespace Project1.Collision_Response
          */
         public static void BoundaryResponse(DIRECTION direction)
         {
-            //Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y);
+           
             Vector2 playerPosition = Player.getPosition();
 
             #region Print to debug console
@@ -51,7 +73,8 @@ namespace Project1.Collision_Response
                 System.Diagnostics.Debug.WriteLine(sb.ToString());
             #endregion
 
-            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, Player.playerSpeed);
+            //Player spd * 2 makes collison knockback seamless. 
+            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, Player.playerSpeed*2);
             Player.setPosition(playerPosition);
         }
 

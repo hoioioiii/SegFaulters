@@ -22,8 +22,11 @@ namespace Project1
             this.posX = posX;
             this.posY = posY;
         }
-        public Rectangle BoundingBox { get; set; }
+        public Rectangle BoundingBox { get; private set; }
 
+        public int destinationRoom { get; private set; }
+
+        public DIRECTION direction => throw new NotImplementedException();
 
         public void Update()
         {
@@ -31,7 +34,8 @@ namespace Project1
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, new Rectangle(posX, posY, BLOCK_DIMENSION, BLOCK_DIMENSION),Color.White);
+            BoundingBox = new Rectangle(posX, posY, BLOCK_DIMENSION, BLOCK_DIMENSION);
+            spriteBatch.Draw(texture, BoundingBox,Color.White);
         }
     }
 }

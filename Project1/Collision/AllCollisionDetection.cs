@@ -112,7 +112,7 @@ namespace Project1
                 if (sb.Length > 0)
                     System.Diagnostics.Debug.WriteLine(sb.ToString());
                 #endregion
-                */
+                
             }
             
             foreach (var door in roomDoors)
@@ -121,9 +121,10 @@ namespace Project1
                 if (isColliding)
                 {
                     PlayerCollisionResponse.DoorResponse(door);
-                }               
+                    break;
+                }            
             }
-            
+
             foreach (var boundary in roomBoundaries)
             {
                 isColliding = Player.BoundingBox.Intersects(boundary.BoundingBox);
@@ -141,28 +142,28 @@ namespace Project1
             //        System.Diagnostics.Debug.WriteLine(sb.ToString());
             //    #endregion
             //    */
-            //}
+            }
             //foreach (var enemy in entities)
             //{
-                
-                isColliding = Player.BoundingBox.Intersects(enemy.BoundingBox);
-                if (isColliding)
-                {
-                    collisionDirection = DetectCollisionDirection(Player.BoundingBox, enemy.BoundingBox, collisionDirection);
-                    //PlayerCollisionResponse.DamageResponse(collisionDirection);
 
-                    #region Print to debug console
-                    System.Text.StringBuilder sb = new StringBuilder();
-                    sb.Append("COLLISION DIRECTION: " + collisionDirection);
+            //    isColliding = Player.BoundingBox.Intersects(enemy.BoundingBox);
+            //    if (isColliding)
+            //    {
+            //        collisionDirection = DetectCollisionDirection(Player.BoundingBox, enemy.BoundingBox, collisionDirection);
+            //        //PlayerCollisionResponse.DamageResponse(collisionDirection);
 
-                    if (sb.Length > 0)
-                        System.Diagnostics.Debug.WriteLine(sb.ToString());
-                    #endregion
+            //        #region Print to debug console
+            //        System.Text.StringBuilder sb = new StringBuilder();
+            //        sb.Append("COLLISION DIRECTION: " + collisionDirection);
 
-                    PlayerCollisionResponse.DamageResponse(collisionDirection);
-                }
-                
-            }
+            //        if (sb.Length > 0)
+            //            System.Diagnostics.Debug.WriteLine(sb.ToString());
+            //        #endregion
+
+            //        PlayerCollisionResponse.DamageResponse(collisionDirection);
+            //    }
+
+            //}
             //foreach (var enemyAttack in enemyAttackInstances)
             //{
             //    isColliding = link.BoundingBox.Intersects(enemyAttack);
@@ -243,7 +244,7 @@ namespace Project1
 
             roomDoors = GameOBJ.getDoorList();
             DetectAllCollisionsLinkEntity();
-            DetectAllCollisionsEnemiesEntity();
+           // DetectAllCollisionsEnemiesEntity();
         }
 
 

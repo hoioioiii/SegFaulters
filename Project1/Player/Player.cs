@@ -103,7 +103,7 @@ namespace Project1
 
             weapon = new Bomb();
 
-            BoundingBox = new Rectangle(0, 0, BLOCK_DIMENSION, BLOCK_DIMENSION);
+            BoundingBox = new Rectangle(0, 0, LINK_BOUNDING_DIMENSION, LINK_BOUNDING_DIMENSION);
         }
 
 

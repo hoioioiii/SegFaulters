@@ -26,8 +26,11 @@ namespace Project1
             Down
         }
 
-        public static int roomBoundsMaxX = 640, roomBoundsMaxY = 345, roomBoundsMinX = 110, roomBoundsMinY = 53;
-
+        public static int roomBoundsMaxX = 660, roomBoundsMaxY = 360, roomBoundsMinX = 90, roomBoundsMinY = 53;
+        public static Vector2 RESPAWN_LEFT = new Vector2(roomBoundsMaxX * 7/8, roomBoundsMaxY/2);
+        public static Vector2 RESPAWN_RIGHT = new Vector2(roomBoundsMaxX * 1/ 8, roomBoundsMaxY / 2);
+        public static Vector2 RESPAWN_UP = new Vector2(roomBoundsMaxX /2, roomBoundsMaxY  * 7/ 8);
+        public static Vector2 RESPAWN_DOWN = new Vector2(roomBoundsMaxX / 2, roomBoundsMaxY * 1 / 8);
         public static int ENEMY_SPEED = 1;
 
         public static int SCREEN_WIDTH_UPPER = 600;
@@ -162,6 +165,8 @@ namespace Project1
         public static int LINK_Y = 300;
 
         public static int BLOCK_DIMENSION = 48;
+        public static int LINK_BOUNDING_DIMENSION = 40;
+
 
         public enum DIRECTION {right = 0, left = 1, up = 2, down = 3};
 
