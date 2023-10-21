@@ -78,7 +78,6 @@ namespace Project1
                     state_manager.setNewAttack(true);
                 }
             }
-
         }
 
         private void EntityAttackAction()
