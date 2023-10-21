@@ -76,9 +76,11 @@ namespace Project1
             switch (direct)
             {
                 case Direction.Down:
+                    
                     return CheckBound(MoveDownOrRight(pos), SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);  
 
                 case Direction.Up:
+                    
                     return CheckBound(MoveUpOrLeft(pos), SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
             }
             return (false, pos);
@@ -86,6 +88,7 @@ namespace Project1
 
         private void updateMovement(bool canMove, (int, int) pos_pair,bool dir_flag)
         {
+            
             if (canMove)
             {
                 direction_state.NeedDirectionUpdate(dir_flag);
@@ -93,6 +96,7 @@ namespace Project1
                 if (!dir_flag)
                 entityObj.setPos(pos_pair.Item1, pos_pair.Item2);
             }
+            
 
         }
 
@@ -102,9 +106,11 @@ namespace Project1
             switch (direct)
             {
                 case Direction.Right:
+                    
                     return CheckBound(MoveDownOrRight(pos), SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
 
                 case Direction.Left:
+                    
                     return CheckBound(MoveUpOrLeft(pos), SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
             }
             return (false, pos);
@@ -157,7 +163,11 @@ namespace Project1
                 direction_state.getRandomDirection();
 
             }
+            
             WandererMovement(direction_state.getDirection());
+            
+
+
         }
 
         private void WandererMovement(Direction start_direction)

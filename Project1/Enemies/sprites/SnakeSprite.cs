@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.Enemies;
@@ -8,161 +9,102 @@ namespace Project1
 {
     public class SnakeSprite : ISprite //Do this later, not lvvl 1 dungeon
     {
-        private Texture2D[] Texture;
-
-
-
-        //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private int current_frame;
-
-        //totalFrames keeps track of how many frames there are in total
-        private int total_frame;
-
-        //factor all out into later classes
-        private int pos_x;
-        private int pos_y;
-
-        private int width;
-        private int height;
-
-
-        private int elapsedTime;
-        private int msecPerFrame;
-        private int secTillDirChange;
-
-        private int Direction;
-        private int secondsPassed;
-
-        private bool left;
+        private List<Texture2D[]> Texture;
+        private IDirectionStateManager direction_state_manager;
+        private IAnimation animation_manager;
+        private ITime time_manager;
+        private IMove movement_manager;
+        private IEntityState state_manager;
         private (Rectangle, Rectangle) rectangles;
-
-        /*
-         * Initalize snake
-         */
-        public SnakeSprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
+        public SnakeSprite(List<Texture2D[]> spriteSheet, (int, int) position, (String, int)[] items)
         {
+
             Texture = spriteSheet;
-            
-            current_frame = START_FRAME;
-            total_frame = SNAKE_TOTAL;
-            pos_x = SPRITE_X_START;
-            pos_y = SPRITE_Y_START;
 
-
-            //factor out
-            elapsedTime = 0;
-            msecPerFrame = 300;
-            left = true;
-            Direction = 1;
-            secTillDirChange = 1;
-
+            //replace starting direction based on lvl loader info
+            direction_state_manager = new DirectionStateEnemy(Direction.Up);
+            time_manager = new TimeTracker(false);
+            animation_manager = new Animation(0, spriteSheet, time_manager, direction_state_manager);
+            state_manager = new EntityState();
+            //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
+            movement_manager = new Movement(direction_state_manager, this, time_manager, position.Item1, position.Item2, 0);
 
 
         }
 
         /*
-         * Update snake
+         * Update Boss's animation and movement
          */
         public void Update()
         {
-
-            elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-            secondsPassed += Game1.deltaTime.ElapsedGameTime.Seconds;
-            Move();
+            if (state_manager.IsAlive())
+            {
+                Move();
+            }
             UpdateFrames();
-
         }
 
         /*
-         * Animate snake
+         * Update Boss's frames
          */
         public void UpdateFrames()
         {
-            if (elapsedTime >= msecPerFrame)
-            {
-                elapsedTime -= msecPerFrame;
-                current_frame += 1;
-            }
-
-            if (current_frame >= total_frame)
-                current_frame = START_FRAME;
-        }
-
-        /*
-         * Factor out to direction
-         */
-        public void ChangeDirection()
-        {
-
-            this.Direction = Direction * -1;
-
-            if (left)
-            {
-                left = false;
-                total_frame = 4;
-                START_FRAME = 3;
-            }
-            else
-            {
-                left = true;
-                total_frame = 1;
-                START_FRAME = 0;
-            }
+            animation_manager.Animate();
         }
 
 
         /*
-         * move snake
+         * Move the boss
          */
         public void Move()
         {
-            if (secondsPassed >= secTillDirChange)
+            if (state_manager.isMoving())
             {
-                secondsPassed -= secTillDirChange;
-                ChangeDirection();
-                //secondsPassed = 0;
+                //Movement will be fixed
+                movement_manager.WanderMove();
             }
-
-            pos_x += Direction;
-
-            if (pos_x >= SCREEN_WIDTH_UPPER || pos_x <= SCREEN_WIDTH_LOWER)
-            {
-                ChangeDirection();
-            }
-
         }
 
-    
         /*
-         * Draw snake
+         * Draw the Boss
          */
         public void Draw(SpriteBatch spriteBatch)
         {
-            setRectangles();
-            spriteBatch.Draw(Texture[current_frame], rectangles.Item2, rectangles.Item1, Color.White);
+            if (state_manager.IsAlive())
+            {
+                setRectangles();
+                spriteBatch.Draw(animation_manager.sprite_frame, rectangles.Item2, rectangles.Item1, Color.White);
+
+            }
         }
+
+
+        public void setRectangles()
+        {
+            int x = movement_manager.getPosition().Item1;
+            int y = movement_manager.getPosition().Item2;
+            int height = animation_manager.sprite_frame.Height;
+            int width = animation_manager.sprite_frame.Width;
+            rectangles.Item1 = new Rectangle(1, 1, width, height);
+            rectangles.Item2 = new Rectangle(x, y, width, height);
+        }
+
 
         public void setPos(int x, int y)
         {
-            pos_x = x; pos_y = y;
+            movement_manager.setPosition(x, y);
         }
 
         public (int, int) getPos()
         {
-            return (pos_x, pos_y);
+            return movement_manager.getPosition();
         }
-
-        public void setRectangles()
-        {
-            rectangles.Item1 = new Rectangle(1, 1, width, height);
-            rectangles.Item2 = new Rectangle(pos_x, pos_y, width, height);
-        }
-
         public (Rectangle, Rectangle) GetRectangle()
         {
             return rectangles;
         }
     }
 }
+
 
 

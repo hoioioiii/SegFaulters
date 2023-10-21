@@ -2,6 +2,7 @@ using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static Project1.Constants;
+using System.Collections.Generic;
 
 namespace Project1.Enemies.sprites
 {
@@ -9,7 +10,7 @@ namespace Project1.Enemies.sprites
     {
 
         //Gets the sprite frames: CHANGE LATER
-        private Texture2D[] Texture;
+        private List<Texture2D[]> Texture;
 
 
         //Width and Height of sprite frames:change later
@@ -25,14 +26,14 @@ namespace Project1.Enemies.sprites
 
         private (Rectangle, Rectangle) rectangles;
 
-        public BatSprite(Texture2D[] spriteSheet, (int, int)position, (String, int)[] items)
+        public BatSprite(List<Texture2D[]> spriteSheet, (int, int)position, (String, int)[] items)
         {
             Texture = spriteSheet;
 
             //replace starting direction based on lvl loader info
             direction_state_manager = new DirectionStateEnemy(Direction.Up);
             time_manager = new TimeTracker(false);
-            animation_manager = new Animation(0,BAT_TOTAL,time_manager,direction_state_manager);
+            animation_manager = new Animation(0, spriteSheet, time_manager,direction_state_manager);
             state_manager = new EntityState();
 
 
@@ -42,8 +43,8 @@ namespace Project1.Enemies.sprites
             movement_manager = new Movement(direction_state_manager,this,time_manager, position.Item1, position.Item2,0);
             
             //factor out later
-            width = Texture[animation_manager.getCurrentFrame()].Width;
-            height = Texture[animation_manager.getCurrentFrame()].Height;
+            //width = Texture[animation_manager.getCurrentFrame()].Width;
+            //height = Texture[animation_manager.getCurrentFrame()].Height;
            
         }
 
@@ -91,9 +92,19 @@ namespace Project1.Enemies.sprites
             if (state_manager.IsAlive())
             {
                 setRectangles();
-                spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
+                spriteBatch.Draw(animation_manager.sprite_frame, rectangles.Item2, rectangles.Item1, Color.White);
             }
+        }
 
+
+        public void setRectangles()
+        {
+            int x = movement_manager.getPosition().Item1;
+            int y = movement_manager.getPosition().Item2;
+            int height = animation_manager.sprite_frame.Height;
+            int width = animation_manager.sprite_frame.Width;
+            rectangles.Item1 = new Rectangle(1, 1, width, height);
+            rectangles.Item2 = new Rectangle(x, y, width, height);
         }
 
         public void setPos(int x, int y)
@@ -105,13 +116,7 @@ namespace Project1.Enemies.sprites
             return movement_manager.getPosition();
         }
 
-        public void setRectangles()
-        {
-            int x = movement_manager.getPosition().Item1;
-            int y = movement_manager.getPosition().Item2;
-            rectangles.Item1 = new Rectangle(1, 1, width, height);
-            rectangles.Item2 = new Rectangle(x, y, width, height);
-        }
+       
 
         public (Rectangle,Rectangle) GetRectangle()
         {
