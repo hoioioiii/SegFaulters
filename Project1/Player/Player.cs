@@ -13,7 +13,7 @@ namespace Project1
     public class Player
     {
         public IPlayerState playerState { get; set; }
-        public static Rectangle BoundingBox => getPositionAndRectangle();
+        public static Rectangle BoundingBox;
         private GraphicsDeviceManager _graphics;
         private static ContentManager Content;
         private static Vector2 position;
@@ -103,7 +103,7 @@ namespace Project1
 
             weapon = new Bomb();
 
-           
+            BoundingBox = new Rectangle(0, 0, BLOCK_DIMENSION, BLOCK_DIMENSION);
         }
 
 
@@ -138,6 +138,10 @@ namespace Project1
             DamageTimer -= elapsedSeconds;
             FlashTimer -= elapsedSeconds;
 
+            // set bounding box position to link position
+            BoundingBox.Location = new Point((int)position.X + 5, (int)position.Y + 20);
+            // move link to bounding box
+            
             // call collision and pass in link
 
 
@@ -542,7 +546,7 @@ namespace Project1
 
         public static void setPosition(Vector2 newPostion)
         {
-            position = newPostion; 
+            position = newPostion;
         }
 
         public static Vector2 getPosition()

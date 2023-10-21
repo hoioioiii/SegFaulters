@@ -78,43 +78,6 @@ namespace Project1
         //List<IWeaponProjectile> weaponProjectiles = new List<IWeaponProjectile>();
         #endregion
 
-        int rect1Pos;
-
-        public static void CollisionTestInitialize(Player link)
-        {
-            
-
-            
-        }
-
-        public static void CollisionTestUpdate()
-        {
-            
-            
-            Rectangle rect1 = new Rectangle(50, 50, 50, 50);
-            Rectangle rect2 = new Rectangle(99, 99, 99, 99);
-            System.Console.WriteLine("New Rectangle: {0}", rect1);
-            System.Console.WriteLine("New Rectangle: {0}", rect2);
-
-
-
-            bool isColliding = false;
-
-            isColliding = rect1.Intersects(rect2);
-            if (isColliding)
-            {
-                System.Console.WriteLine("Colliding New Rectangle");
-            }
-        }
-
-        public static void DrawCollisionTest(SpriteBatch spriteBatch) {
-            // Draw the big black rectangle
-            //spriteBatch.Draw(pixel, rect1, Color.Black);
-
-            // Draw the small rectangle that changes color on collision
-            //spriteBatch.Draw(pixel, rect2, smallRectangleColor);
-        }
-
         #region Collision Detection Entities (player & room enemies)
         /*
          * Detect every object the player could be colliding with
@@ -186,7 +149,8 @@ namespace Project1
                 if (isColliding)
                 {
                     DetectCollisionDirection(Player.BoundingBox, enemy.BoundingBox, collisionDirection);
-                    PlayerCollisionResponse.DamageResponse(collisionDirection);
+                    //PlayerCollisionResponse.DamageResponse(collisionDirection);
+                    PlayerCollisionResponse.BoundaryResponse(collisionDirection);
                 }
                 #region Print to debug console
                 System.Text.StringBuilder sb = new StringBuilder();
