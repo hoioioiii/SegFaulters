@@ -27,6 +27,8 @@ namespace Project1
 
         public BoomerangSprite(Texture2D[] spriteSheet, (int, int) pos)
         {
+            pos_x = (int)Player.getUserPos().X;
+            pos_y = (int)Player.getUserPos().Y;
             Texture = spriteSheet;
             current_frame = START_FRAME;
             pos_x = pos.Item1;

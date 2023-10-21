@@ -58,6 +58,8 @@ namespace Project1
         // draw inside Link's inventory
         public void Draw(SpriteBatch spriteBatch)
         {
+            pos_x = (int)Player.getUserPos().X;
+            pos_y = (int)Player.getUserPos().Y;
             setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
