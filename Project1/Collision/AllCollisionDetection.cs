@@ -12,9 +12,9 @@ using static Project1.Constants;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 
-namespace Project1.Collision
+namespace Project1
 {
-    internal class AllCollisionDetection
+    public class AllCollisionDetection
     {
         // TODO: IMPLEMENT BOUNDING BOXES FOR INTERFACES AND CLASSES INHERTING THEM
 

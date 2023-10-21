@@ -155,6 +155,7 @@ namespace Project1
             EnvironmentLoader.Update();
 
             GameObjManager.Update();
+            AllCollisionDetection.DetectCollision(GameObjManager);
 
 
             base.Update(gameTime);
