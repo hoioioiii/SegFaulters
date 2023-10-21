@@ -90,6 +90,9 @@ namespace Project1
             //keep
             GameObjManager = new ActiveObjects();
 
+            
+            Player.Initialize();
+            
 
             base.Initialize();
         }
@@ -139,7 +142,7 @@ namespace Project1
             }
             deltaTime = gameTime;
             // Add your update logic here
-            //Player.Update(gameTime);
+            Player.Update(gameTime);
             //HealthBarSprite.Update();
             //HealthBarSprite.HealthDamage(1);
             //HealthBarSprite.Update();

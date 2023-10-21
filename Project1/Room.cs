@@ -26,17 +26,12 @@ namespace Project1
             LoadEnvironment();
             LoadEntity();
             LoadItems();
-            LoadLink();
+
             print();
         }
 
-        //TODO:Change Link initalization
-        private void LoadLink()
-        {
-            Game1.GameObjManager.addLink(new Player());
-        }
 
-            private void LoadEnvironment()
+        private void LoadEnvironment()
         {
             (string, (int, int))[] blocks = environmentInfo.Item2;
             (int, int)[] blocksToLoad = new (int, int)[blocks.Length];
@@ -45,8 +40,6 @@ namespace Project1
                 blocksToLoad[i] = blocks[i].Item2;
             }
             EnvironmentLoader.LoadBlocks(blocksToLoad);
-
-
 
             (string, (int, bool))[] doors = environmentInfo.Item1;
             //TODO: code door loading in, most of the code will be in environment loader
@@ -63,8 +56,7 @@ namespace Project1
                 (int, int) position = enemyInfo.Item2.Item1;
                 (string, int)[] items = enemyInfo.Item2.Item2;
                 EntityLoader.LoadEntities(Game1.GameObjManager, enemyInfo.Item1,  position, items);
-                
-                
+
                 System.Diagnostics.Debug.WriteLine("activeObj ara: " + Game1.GameObjManager.ToString());
             }
         }
