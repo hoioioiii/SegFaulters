@@ -26,7 +26,12 @@ namespace Project1
             Down
         }
 
+        //Directional Constants:
 
+        public static int UP = 0;
+        public static int RIGHT = 1;
+        public static int DOWN = 2;
+        public static int LEFT = 3;
 
         public static int SCREEN_WIDTH_UPPER = 600;
         public static int SCREEN_WIDTH_LOWER = 0;
@@ -60,59 +65,126 @@ namespace Project1
         /*
          * Bat sprite frames:
          */
+        /*
+                * Bat sprite frames:
+                */
+
+        public enum ENEMY_DIRECTION { up = 0, right = 1, down = 2, left = 3 };
 
         public static int ARROW_R = 1;
         public static int ARROW_C = 4;
 
 
         public static int BAT_TOTAL = 2;
-        public static int BAT_C = 1;//remove
+        public static int BAT_C = 1;
+        public static int BAT_FRAMES_U = 2;
+        public static int BAT_FRAMES_R = 2;
+        public static int BAT_FRAMES_L = 2;
+        public static int BAT_FRAMES_D = 2;
+        public static int BAT_FRAMES_DEATH = 1;
 
         public static int BOMB_R = 1;
         public static int BOMB_C = 1;
         public static int BOMB_ARRAY = 2;
+
+
         public static int AQUA_TOTAL = 2;
+        public static int AQUA_FRAMES_U = 4;
+        public static int AQUA_FRAMES_R = 2;
+        public static int AQUA_FRAMES_L = 2;
+        public static int AQUA_FRAMES_D = 4;
+        public static int AQUA_FRAMES_DEATH = 1;
+
         public static int AD_C = 1;
 
         public static int BOOM_R = 1;
         public static int BOOM_C = 1;
+
         public static int DINO_TOTAL = 4;
+        public static int DINO_FRAMES_U = 3;
+        public static int DINO_FRAMES_R = 3;
+        public static int DINO_FRAMES_L = 3;
+        public static int DINO_FRAMES_D = 3;
+        public static int DINO_FRAMES_DEATH = 1;
         public static int DINO_C = 1;
 
         public static int BOW_R = 1;
         public static int BOW_C = 1;
+
         public static int FD_TOTAL = 4;
-        public static int FD_C = 1;
+        public static int FD_FRAMES_U = 8;
+        public static int FD_FRAMES_R = 4;
+        public static int FD_FRAMES_L = 4;
+        public static int FD_FRAMES_D = 8;
+        public static int FD_FRAMES_DEATH = 1;
 
         public static int CLOCK_R = 1;
         public static int CLOCK_C = 1;
+
         public static int DM_TOTAL = 8;
+        public static int DM_FRAMES_U = 2;
+        public static int DM_FRAMES_R = 2;
+        public static int DM_FRAMES_L = 2;
+        public static int DM_FRAMES_D = 2;
+        public static int DM_FRAMES_DEATH = 1;
         public static int DM_C = 1;
 
 
         public static int FAIRY_R = 1;
         public static int FAIRY_C = 2;
-        public static int FLAME_TOTAL = 1;
+
+        public static int FLAME_TOTAL = 2;
+        public static int FLAME_FRAMES_U = 2;
+        public static int FLAME_FRAMES_R = 2;
+        public static int FLAME_FRAMES_L = 2;
+        public static int FLAME_FRAMES_D = 2;
+        public static int FLAME_FRAMES_DEATH = 1;
         public static int FLAME_C = 1;
 
 
         public static int HAND_TOTAL = 4;
+        public static int HAND_FRAMES_U = 8;
+        public static int HAND_FRAMES_R = 4;
+        public static int HAND_FRAMES_L = 4;
+        public static int HAND_FRAMES_D = 8;
+        public static int HAND_FRAMES_DEATH = 1;
         public static int HAND_C = 1;
 
 
         public static int JELLY_R = 1;
+        public static int JELLY_FRAMES_U = 3;
+        public static int JELLY_FRAMES_R = 3;
+        public static int JELLY_FRAMES_L = 3;
+        public static int JELLY_FRAMES_D = 3;
+        public static int JELLY_FRAMES_DEATH = 1;
         public static int JELLY_TOTAL = 3;
 
 
         public static int MERCHANT_TOTAL = 1;
+        public static int MERCHANT_FRAMES_U = 1;
+        public static int MERCHANT_FRAMES_R = 1;
+        public static int MERCHANT_FRAMES_L = 1;
+        public static int MERCHANT_FRAMES_D = 1;
+        public static int MERCHANT_FRAMES_DEATH = 1;
         public static int MERCHANT_C = 1;
 
 
         public static int OLDMAN_TOTAL = 1;
+        public static int OLDMAN_FRAMES_U = 1;
+        public static int OLDMAN_FRAMES_R = 1;
+        public static int OLDMAN_FRAMES_L = 1;
+        public static int OLDMAN_FRAMES_D = 1;
+        public static int OLDMAN_FRAMES_DEATH = 1;
         public static int OLDMAN_C = 1;
 
         public static int SKELETON_TOTAL = 2;
+        public static int SKEL_FRAMES_U = 2;
+        public static int SKEL_FRAMES_R = 2;
+        public static int SKEL_FRAMES_L = 2;
+        public static int SKEL_FRAMES_D = 2;
+        public static int SKEL_FRAMES_DEATH = 1;
         public static int SKELETON_C = 1;
+
         public static int HEART_R = 1;
         public static int HEART_C = 2;
 
@@ -122,10 +194,22 @@ namespace Project1
         public static int HEART_CONTAINER_C = 1;
 
         public static int SNAKE_TOTAL = 4;
+        public static int SNAKE_FRAMES_U = 4;
+        public static int SNAKE_FRAMES_R = 2;
+        public static int SNAKE_FRAMES_L = 2;
+        public static int SNAKE_FRAMES_D = 4;
+        public static int SNAKE_FRAMES_DEATH = 1;
         public static int SNAKE_C = 1;
 
         public static int SPIKE_TOTAL = 7;
+        public static int SPIKE_FRAMES_U = 1;
+        public static int SPIKE_FRAMES_R = 1;
+        public static int SPIKE_FRAMES_L = 1;
+        public static int SPIKE_FRAMES_D = 1;
+        public static int SPIKE_FRAMES_DEATH = 1;
         public static int SPIKE_C = 1;
+
+
         public static int KEY_R = 1;
         public static int KEY_C = 1;
 
@@ -216,6 +300,9 @@ namespace Project1
         }
 
         public const int knockbackDistance = 5, knockbackDuration = 1, invincibilityDuration = 1;
+
+
+        
     }
 }
 

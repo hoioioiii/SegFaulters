@@ -57,9 +57,7 @@ namespace Project1.Enemies
             {
                 changeDirection();
             }
-
         }
-
         public Direction getRandomDirection()
         {
             setDirection(Random.RandomDirection());
