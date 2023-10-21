@@ -26,6 +26,11 @@ namespace Project1
             Down
         }
 
+
+        public static int roomBoundsMaxX = 660, roomBoundsMaxY = 360, roomBoundsMinX = 90, roomBoundsMinY = 53;
+
+
+
         //Directional Constants:
 
         public static int UP = 0;
