@@ -63,7 +63,7 @@ namespace Project1.Collision_Response
         }
 
         /*
-         * 
+         * For boundary collision, can't move past/through
          */
         public static void BoundaryResponse(DIRECTION direction)
         {
@@ -78,18 +78,15 @@ namespace Project1.Collision_Response
                 System.Diagnostics.Debug.WriteLine(sb.ToString());
             #endregion
 
-            //Player spd * 2 makes collison knockback seamless. 
-            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, Player.playerSpeed*2);
+            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, Player.playerSpeed);
             Player.setPosition(playerPosition);
         }
 
         /*
-         * 
+         * Enemy collision, significant knockback & damage & temporary invincibility
          */
         public static void DamageResponse(DIRECTION direction)
         {
-            //Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y);
-            // Constant KNOCKBACK_DISTANCE
             Vector2 playerPosition = Player.getPosition();
             playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, KNOCKBACK_DISTANCE);
             AllCollisionResponse.ApplyDamage();

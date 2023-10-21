@@ -20,6 +20,7 @@ namespace Project1
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
 
+        private int positionX, positionY;
 
         public bool drawState { get; set; }
 
@@ -28,6 +29,8 @@ namespace Project1
             drawState = true;
             
             sprite = ItemSpriteFactory.Instance.CreateKeySprite(pos);
+            positionX = pos.Item1;
+            positionY = pos.Item2;
         }
 
         //Update Frames of the Item
@@ -58,6 +61,3 @@ namespace Project1
         }
     }
 }
-
-
-

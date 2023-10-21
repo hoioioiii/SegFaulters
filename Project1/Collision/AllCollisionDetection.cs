@@ -244,6 +244,8 @@ namespace Project1
 
             roomDoors = GameOBJ.getDoorList();
             DetectAllCollisionsLinkEntity();
+
+            // IS THIS MAKING THE GAME LAG?
             DetectAllCollisionsEnemiesEntity();
         }
 

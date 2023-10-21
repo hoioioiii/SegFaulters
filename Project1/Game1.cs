@@ -183,6 +183,7 @@ namespace Project1
 
             Player.Draw(gameTime, _spriteBatch);
 
+            /*
             #region Debug Draw Link's bounding box
             // Create the single-pixel texture
             Texture2D pixel = new Texture2D(GraphicsDevice, 1, 1);
@@ -190,6 +191,7 @@ namespace Project1
 
             _spriteBatch.Draw(pixel, Player.BoundingBox, Color.White);
             #endregion
+            */
 
             //ENEMY.Draw(_spriteBatch);
             Item.Draw(_spriteBatch);

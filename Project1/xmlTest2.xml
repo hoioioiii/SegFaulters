@@ -1299,4 +1299,27 @@
 		</Items>
 	</Room>
 
+	<Room number="18">
+		<Enemies>
+		</Enemies>
+
+		<Environment>
+			<Walls>
+			</Walls>
+
+			<Doors>
+				<Door id="east" xLoc="0" yLoc="0">
+					<DestinationRoom>8</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+			</Doors>
+
+			<Blocks>
+			</Blocks>
+		</Environment>
+
+		<Items>
+		</Items>
+	</Room>
+
 </Level1>

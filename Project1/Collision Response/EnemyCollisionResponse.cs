@@ -8,7 +8,7 @@ namespace Project1.Collision_Response
     internal class EnemyCollisionResponse
     {
         /*
-         * 
+         * For boundary collision, can't move past/through
          */
         public static void BoundaryResponse(IEntity enemy, DIRECTION direction)
         {           
@@ -18,7 +18,7 @@ namespace Project1.Collision_Response
         }
 
         /*
-         * 
+         * Enemy collision, significant knockback & damage & temporary invincibility
          */
         public static void DamageResponse(IEntity enemy, DIRECTION direction)
         {
