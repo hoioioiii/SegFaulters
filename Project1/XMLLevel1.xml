@@ -37,6 +37,130 @@
 	<!-- 14 walkable water blocks (CONFIRM THE QUANTITY) -->
 	<Room number="1">
 		<Enemies>
+			<Keese id="1" xLoc="16" yLoc="12">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+				</Drops>
+			</Keese>
+			<Stalfo id="1" xLoc="20" yLoc="12">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
+					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="key" quantity="1"></DroppedItem>
+				</Drops>
+			</Stalfo>
+			<Gel id="1" xLoc="24" yLoc="12">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+				</Drops>
+			</Gel>
+			<Goriya id="1" xLoc="28" yLoc="12">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+				</Drops>
+			</Goriya>
+			<BladeTrap id="1" xLoc="32" yLoc="12">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+				</Drops>
+			</BladeTrap>
+			<Wallmaster id="1" xLoc="4" yLoc="17">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+				</Drops>
+			</Wallmaster>
+			<Aquamentus id="1" xLoc="8" yLoc="17">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="heartContainer" quantity="1" restore="50"></DroppedItem>
+				</Drops>
+			</Aquamentus>
+			<Flame id="1" xLoc="12" yLoc="17">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+				</Drops>
+			</Flame>
+			<Snake id="1" xLoc="16" yLoc="17">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+				</Drops>
+			</Snake>
+			<Dino id="1" xLoc="20" yLoc="17">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+				</Drops>
+			</Dino>
+			<Merchant id="1" xLoc="24" yLoc="17">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+				</Drops>
+			</Merchant>
+			<Oldman id="1" xLoc="28" yLoc="17">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+				</Drops>
+			</Oldman>
 		</Enemies>
 
 		<Environment>
@@ -98,6 +222,20 @@
 				<StoneStatue id="11" xLoc="0" yLoc="0" damage="0"></StoneStatue>
 				<StoneStatue id="12" xLoc="0" yLoc="0" damage="0"></StoneStatue>
 			</StoneStatues>
+			<key quantity="1" xLoc="100" yLoc="100"></key>
+			<Compass quantity="1" xLoc="1" yLoc="7"></Compass>
+			<DungeonMap quantity="1" xLoc="4" yLoc="7"></DungeonMap>
+			<Boomerang quantity="1" xLoc="8" yLoc="7"></Boomerang>
+			<TriforceOfWisdom quantity ="1" xLoc ="12" yLoc ="7" restore="100"></TriforceOfWisdom>
+			<Arrow quantity="1" xLoc="16" yLoc="7"></Arrow>
+			<Bomb quantity="1" xLoc="20" yLoc="7"></Bomb>
+			<Bow quantity="1" xLoc="24" yLoc="7"></Bow>
+			<Clock quantity="1" xLoc="28" yLoc="7"></Clock>
+			<Arrow quantity="1" xLoc="32" yLoc="7"></Arrow>
+			<Fairy quantity="1" xLoc="36" yLoc="7"></Fairy>
+			<Heart quantity="1" xLoc="4" yLoc="12"></Heart>
+			<HeartContainer quantity="1" xLoc="8" yLoc="12"></HeartContainer>
+			<Rupee quantity="1" xLoc="12" yLoc="12"></Rupee>
 			<Weapons>
 			</Weapons>
 		</Items>
