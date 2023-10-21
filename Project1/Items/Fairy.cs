@@ -19,9 +19,9 @@ namespace Project1
     {
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
-        public Fairy()
+        public Fairy((int, int) pos)
         {
-            sprite = ItemSpriteFactory.Instance.CreateFairySprite();
+            sprite = ItemSpriteFactory.Instance.CreateFairySprite(pos);
         }
         public void Update()
         {

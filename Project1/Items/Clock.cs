@@ -19,9 +19,9 @@ namespace Project1
     {
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
-        public Clock()
+        public Clock((int, int) pos)
         {
-            sprite = ItemSpriteFactory.Instance.CreateClockSprite();
+            sprite = ItemSpriteFactory.Instance.CreateClockSprite(pos);
         }
         public void Update()
         {

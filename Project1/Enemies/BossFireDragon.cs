@@ -29,13 +29,13 @@ namespace Project1
         /*
          * Initalize fire drag
          */
-        public BossFireDragon()
+        public BossFireDragon((int, int) position, (String, int)[] items)
 		{
             timeAllowed = 1000;
             onScreen = 0;
             remainOnScreen = false;
             weapon = new Orb();
-            sprite = EnemySpriteFactory.Instance.CreateFireDragonSprite();
+            sprite = EnemySpriteFactory.Instance.CreateFireDragonSprite(position, items);
         }
 
         /*

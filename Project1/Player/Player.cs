@@ -101,6 +101,8 @@ namespace Project1
             sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
 
             weapon = new Bomb();
+
+           
         }
 
 
@@ -222,7 +224,6 @@ namespace Project1
                     linkDirection = 1;
                     posY -= playerSpeed;
                     sprite.Update(1, position);
-
                 }
                 else if (keystate.IsKeyDown(Keys.Right) || keystate.IsKeyDown(Keys.D))
                 {
@@ -231,7 +232,6 @@ namespace Project1
                     linkDirection = 2;
                     posY += playerSpeed;
                     sprite.Update(2, position);
-
                 }
             }
 
@@ -364,7 +364,6 @@ namespace Project1
                         {
                             //tell sprite how to draw
                             sprite.Draw(spriteBatch, "still");
-
                         }
                     }
                     else

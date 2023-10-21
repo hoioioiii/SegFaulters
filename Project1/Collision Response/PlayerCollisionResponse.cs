@@ -25,7 +25,7 @@ namespace Project1.Collision_Response
          * Pass in door
          * Send to level loader which door it was
          */
-        public static void DoorResponse(IDoor door)
+        public static void DoorResponse(IEnvironment door)
         {
             // TODO: CALL LEVEL LOADER
         }

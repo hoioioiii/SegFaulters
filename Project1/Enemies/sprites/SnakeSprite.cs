@@ -1,6 +1,7 @@
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.Enemies;
 using static Project1.Constants;
 
 namespace Project1
@@ -38,8 +39,8 @@ namespace Project1
         /*
          * Initalize snake
          */
-        public SnakeSprite(Texture2D[] spriteSheet)//Do this later
-		{
+        public SnakeSprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
+        {
             Texture = spriteSheet;
             
             current_frame = START_FRAME;
@@ -54,6 +55,9 @@ namespace Project1
             left = true;
             Direction = 1;
             secTillDirChange = 1;
+
+
+
         }
 
         /*

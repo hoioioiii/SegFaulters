@@ -25,7 +25,7 @@ namespace Project1.Enemies.sprites
 
         private (Rectangle, Rectangle) rectangles;
 
-        public BatSprite(Texture2D[] spriteSheet)
+        public BatSprite(Texture2D[] spriteSheet, (int, int)position, (String, int)[] items)
         {
             Texture = spriteSheet;
 
@@ -36,8 +36,10 @@ namespace Project1.Enemies.sprites
             state_manager = new EntityState();
 
 
+            
+
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
-            movement_manager = new Movement(direction_state_manager,this,time_manager, SPRITE_X_START, SPRITE_Y_START,0);
+            movement_manager = new Movement(direction_state_manager,this,time_manager, position.Item1, position.Item2,0);
             
             //factor out later
             width = Texture[animation_manager.getCurrentFrame()].Width;
@@ -48,7 +50,6 @@ namespace Project1.Enemies.sprites
         public void Update()
         {
             if (state_manager.IsAlive()) {
-
                 Attack();
                 Move();
             }
@@ -87,8 +88,12 @@ namespace Project1.Enemies.sprites
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            setRectangles();
-            spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
+            if (state_manager.IsAlive())
+            {
+                setRectangles();
+                spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
+            }
+
         }
 
         public void setPos(int x, int y)

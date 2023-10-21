@@ -7,6 +7,7 @@ using System.Reflection.Metadata;
 using System.Xml.Linq;
 using static Project1.Constants;
 using Project1.Enemies.sprites;
+using Microsoft.Xna.Framework;
 
 namespace Project1
 {
@@ -121,70 +122,70 @@ namespace Project1
         }
         
        
-        public ISprite CreateBatSprite()
+        public ISprite CreateBatSprite((int, int) position, (String, int)[] items)
         {
-            return new BatSprite(batSpritesheet);
+            return new BatSprite(batSpritesheet, position, items);
         }
 
-        public ISprite CreateBossAquaDragonSprite()
+        public ISprite CreateBossAquaDragonSprite((int, int) position, (String, int)[] items)
         {
            
-            return new BossAquaDragonSprite(aquaDragonSpritesheet);
+            return new BossAquaDragonSprite(aquaDragonSpritesheet, position, items);
         }
 
-        public ISprite CreateDinoSprite()
+        public ISprite CreateDinoSprite((int, int) position, (String, int)[] items)
         {
-            return new BossDinoSprite(dinoSpritesheet);
+            return new BossDinoSprite(dinoSpritesheet, position, items);
         }
 
-        public ISprite CreateFireDragonSprite()
+        public ISprite CreateFireDragonSprite((int, int) position, (String, int)[] items)
         {
-            return new BossFireDragonSprite(fireDragonSpritesheet);
+            return new BossFireDragonSprite(fireDragonSpritesheet, position, items);
         }
 
-        public ISprite CreateDogMonsterSprite()
+        public ISprite CreateDogMonsterSprite((int, int) position, (String, int)[] items)
         {
-            return new DogMonsterSprite(dogMonsterSpritesheet);
+            return new DogMonsterSprite(dogMonsterSpritesheet, position, items);
         }
 
-        public ISprite CreateFlameSprite()
+        public ISprite CreateFlameSprite((int, int) position, (String, int)[] items)
         {
-            return new FlameSprite(flameSpritesheet);
+            return new FlameSprite(flameSpritesheet, position, items);
         }
 
-        public ISprite CreateHandSprite()
+        public ISprite CreateHandSprite((int, int) position, (String, int)[] items)
         {
-            return new HandSprite(handSpritesheet);
+            return new HandSprite(handSpritesheet, position, items);
         }
 
-        public ISprite CreateJellySprite()
+        public ISprite CreateJellySprite((int, int) position, (String, int)[] items)
         {
-            return new JellySprite(jellySpritesheet);
+            return new JellySprite(jellySpritesheet, position, items);
         }
 
-        public ISprite CreateMerchantSprite()
+        public ISprite CreateMerchantSprite((int, int) position, (String, int)[] items)
         {
-            return new MerchantSprite(merchantSpritesheet);
+            return new MerchantSprite(merchantSpritesheet, position, items);
         }
 
-        public ISprite CreateOldManSprite()
+        public ISprite CreateOldManSprite((int, int) position, (String, int)[] items)
         {
-            return new OldManSprite(oldManSpritesheet);
+            return new OldManSprite(oldManSpritesheet, position, items);
         }
 
-        public ISprite CreateSkeletonSprite()
+        public ISprite CreateSkeletonSprite((int, int) position, (String, int)[] items)
         {
-            return new SkeletonSprite(skeletonSpritesheet);
+            return new SkeletonSprite(skeletonSpritesheet, position, items);
         }
 
-        public ISprite CreateSnakeSprite()
+        public ISprite CreateSnakeSprite((int, int) position, (String, int)[] items)
         {
-            return new SnakeSprite(snakeSpritesheet);
+            return new SnakeSprite(snakeSpritesheet, position, items);
         }
 
-        public ISprite CreateSpikeCrossSprite()
+        public ISprite CreateSpikeCrossSprite((int, int) position, (String, int)[] items)
         {
-            return new SpikeCrossSprite(spikeCrossSpritesheet);
+            return new SpikeCrossSprite(spikeCrossSpritesheet, position, items);
         }
 
         // More public ISprite returning methods follow

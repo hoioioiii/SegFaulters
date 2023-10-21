@@ -23,9 +23,9 @@ namespace Project1
         /*
          * Initalize Boss Aqua Dragon
          */
-        public BossAquaDragon()
+        public BossAquaDragon((int, int) position, (String, int)[] items)
 		{
-            sprite = EnemySpriteFactory.Instance.CreateBossAquaDragonSprite();
+            sprite = EnemySpriteFactory.Instance.CreateBossAquaDragonSprite(position, items);
         }
 
         /*

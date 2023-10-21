@@ -59,7 +59,7 @@ namespace Project1.Collision
         //List<Rectangle> enemyAttackInstances = new List<Rectangle>();
        
         private static List<IItem> roomItems;
-        private static List<IDoor> roomDoors;
+        private static List<IEnvironment> roomDoors;
         private static List<IEnvironment> roomBoundaries;
 
         private static List<IWeapon> weapons;
@@ -106,7 +106,7 @@ namespace Project1.Collision
                 if (isColliding)
                 {
                     PlayerCollisionResponse.ItemResponse(item);
-                }                  
+                }
             }
             /*
             foreach (var door in roomDoors)
@@ -219,6 +219,8 @@ namespace Project1.Collision
             roomBoundaries = GameOBJ.getEnvironmentList();
             weapons = GameOBJ.getWeaponList();
             roomItems = GameOBJ.getItemList();
+
+            roomDoors = GameOBJ.getDoorList();
             DetectAllCollisionsLinkEntity();
             DetectAllCollisionsEnemiesEntity();
         }

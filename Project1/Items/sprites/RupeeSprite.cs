@@ -22,13 +22,16 @@ namespace Project1
         private int total_frame { get; set; }
 
         private static Vector2 position;
-
+        private int pos_x;
+        private int pos_y;
         private int width;
         private int height;
         private Rectangle rect;
 
-        public RupeeSprite(Texture2D[] spriteSheet)
+        public RupeeSprite(Texture2D[] spriteSheet, (int, int) pos)
         {
+            pos_x = pos.Item1;
+            pos_y = pos.Item2;
             Texture = spriteSheet;
             Rows = RUPEE_R;
             Columns = RUPEE_C;
@@ -60,7 +63,7 @@ namespace Project1
         {
             setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
-            Rectangle DEST_REC = new Rectangle((int)position.X, (int)position.Y, width, height);
+            Rectangle DEST_REC = new Rectangle(pos_x,pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 

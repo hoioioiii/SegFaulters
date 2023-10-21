@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static Project1.Constants;
 
 namespace Project1
 {
@@ -15,7 +16,6 @@ namespace Project1
     {
 
         public Texture2D[] texture2D;
-
 
         public static IEntity[] ENTITY;
         Game1 GAME_OBJ;
@@ -31,7 +31,11 @@ namespace Project1
         }
         public void CreateList(Texture2D[] ignore)
         {
-            IEntity[] temp = { new Bat(), new BossAquaDragon(), new BossDino(), new BossFireDragon(), new DogMonster(), new Flame(), new Hand(), new Jelly(),new Merchant(),new OldMan(),new Skeleton(), new Snake(), new SpikeCross()}; 
+            (String, int)[] items = { ("Arrow", 0) };
+            (int, int) pos = (SPRITE_X_START, SPRITE_Y_START);
+
+
+            IEntity[] temp = { new Bat(pos, items), new BossAquaDragon(pos, items), new BossDino(pos, items), new BossFireDragon(pos, items), new DogMonster(pos, items), new Flame(pos, items), new Hand(pos, items), new Jelly(pos, items),new Merchant(pos, items),new OldMan(pos, items),new Skeleton(pos, items), new Snake(pos, items), new SpikeCross(pos, items) }; 
             ENTITY = temp;
         }
         

@@ -27,16 +27,18 @@ namespace Project1
 
         private int width;
         private int height;
+        private int pos_x;
+        private int pos_y;
 
-
-        public FairySprite(Texture2D[] spriteSheet)
+        public FairySprite(Texture2D[] spriteSheet, (int, int) pos)
         {
             Texture = spriteSheet;
             Rows = FAIRY_R;
             Columns = FAIRY_C;
             current_frame = START_FRAME;
             total_frame = Rows * Columns;
-
+            pos_x = pos.Item1;
+            pos_y = pos.Item2;
             position = Player.getUserPos();
         }
         public void Update()
@@ -63,7 +65,7 @@ namespace Project1
         {
             setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
-            Rectangle DEST_REC = new Rectangle((int)position.X, (int)position.Y, width, height);
+            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 

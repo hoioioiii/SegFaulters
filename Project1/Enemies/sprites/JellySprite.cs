@@ -19,8 +19,8 @@ namespace Project1
         /*
          * Initalize Jelly
          */
-        public JellySprite(Texture2D[] spriteSheet)
-		{
+        public JellySprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
+        {
             Texture = spriteSheet;
 
             //replace starting direction based on lvl loader info
@@ -29,7 +29,7 @@ namespace Project1
             animation_manager = new Animation(0, JELLY_TOTAL, time_manager, direction_state_manager);
             state_manager = new EntityState();
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
-            movement_manager = new Movement(direction_state_manager, this, time_manager, SPRITE_X_START, SPRITE_Y_START, 0);
+            movement_manager = new Movement(direction_state_manager, this, time_manager, position.Item1, position.Item2, 0);
 
 
         }
@@ -39,7 +39,10 @@ namespace Project1
          */
         public void Update()
         {
-            Move();
+            if (state_manager.IsAlive())
+            {
+                Move();
+            }
             UpdateFrames();
 
         }
@@ -58,8 +61,11 @@ namespace Project1
          */
         public void Move()
         {
-            //Movement will be fixed
-            movement_manager.WanderMove();
+            if (state_manager.isMoving())
+            {
+                //Movement will be fixed
+                movement_manager.WanderMove();
+            }
         }
 
         /*
@@ -67,8 +73,11 @@ namespace Project1
          */
         public void Draw(SpriteBatch spriteBatch)
         {
-            setRectangles();
-            spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
+            if (state_manager.IsAlive())
+            {
+                setRectangles();
+                spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
+            }
         }
 
         public void setRectangles()

@@ -26,9 +26,9 @@ namespace Project1
         /*
          * Initalize Bat Features
          */
-        public Bat()
+        public Bat((int, int) position, (String, int)[] items)
 		{
-            sprite = EnemySpriteFactory.Instance.CreateBatSprite();
+            sprite = EnemySpriteFactory.Instance.CreateBatSprite(position, items);
 
         }
 

@@ -19,9 +19,9 @@ namespace Project1
     {
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
-        public Triforce()
+        public Triforce((int, int) pos)
         {
-            sprite = ItemSpriteFactory.Instance.CreateTriforceSprite();
+            sprite = ItemSpriteFactory.Instance.CreateTriforceSprite(pos);
         }
 
         public void Update()

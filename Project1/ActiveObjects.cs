@@ -14,7 +14,7 @@ namespace Project1
         private List<IItem>items;
         private List<IEntity> entities;
         private List<IWeapon> weapons;
-        private List<IDoor> doors;
+        private List<IEnvironment> doors;
         private List<IEnvironment> blocks;
         private List<Rectangle> walls;
         private Player link;
@@ -24,13 +24,12 @@ namespace Project1
             items = new List<IItem>();
             entities = new List<IEntity>();
             weapons = new List<IWeapon>();
-            doors = new List<IDoor>();
+            doors = new List<IEnvironment>();
             blocks = new List<IEnvironment>();
             walls = new List<Rectangle>();
-         
         }
 
-        public void addLink(Player link)
+        public void addLink(Project1.Player link)
         {
             this.link = link;
         }
@@ -49,7 +48,7 @@ namespace Project1
             blocks.Add(block);
         }
 
-        public void addDoors(IDoor door)
+        public void addDoors(IEnvironment door)
         {
             doors.Add(door);
         }
@@ -86,7 +85,7 @@ namespace Project1
         {
             return blocks;
         }
-        public List<IDoor> getDoorList()
+        public List<IEnvironment> getDoorList()
         {
             return doors;
         }
@@ -127,11 +126,13 @@ namespace Project1
 
             UpdateEnemies();
 
-            UpdateIWeapons();
+            //UpdateIWeapons();
 
-            UpdatePlayer();
+            //UpdatePlayer();
 
-            AllCollisionDetection.DetectCollision(this);
+            
+
+           //AllCollisionDetection.DetectCollision(this);
         }
 
         private void UpdatePlayer()
@@ -157,7 +158,7 @@ namespace Project1
 
         private void UpdateItems()
         {
-            for (int i = 0; i < entities.Count; i++)
+            for (int i = 0; i < items.Count; i++)
             {
                 items[i].Update();
             }
@@ -198,8 +199,8 @@ namespace Project1
 
         public void Draw()
         {
-            DrawPlayer();
-            DrawIWeapons();
+           // DrawPlayer();
+            //DrawIWeapons();
             DrawEnemies();
             DrawItems();
         }

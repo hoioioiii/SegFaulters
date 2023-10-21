@@ -19,9 +19,9 @@ namespace Project1
     {
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
-        public HeartContainer()
+        public HeartContainer((int, int) pos)
         {
-            sprite = ItemSpriteFactory.Instance.CreateHeartContainerSprite();
+            sprite = ItemSpriteFactory.Instance.CreateHeartContainerSprite(pos);
         }
 
         public void Update()

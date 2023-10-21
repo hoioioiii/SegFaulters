@@ -18,6 +18,7 @@ namespace Project1
         public static SpriteBatch _spriteBatch;
         public static ContentManager contentLoader;
 
+        public static IActiveObjects GameObjManager;
         public static IActiveObjects activeObj;
 
         private Texture2D _texture;
@@ -88,7 +89,10 @@ namespace Project1
                 Exit();
             }
 
-            //Player player = new Player();
+            //keep
+            GameObjManager = new ActiveObjects();
+
+            
             Player.Initialize();
             activeObj = new ActiveObjects();
 
@@ -123,6 +127,8 @@ namespace Project1
             //Load background
             EnvironmentLoader.LoadContent(Content);
 
+            
+
             //Load XML File
             //LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\SegFaulters\\Project1\\xmlTest2.xml");
             LevelLoader.Load("D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\xmlTest2.xml");
@@ -145,7 +151,7 @@ namespace Project1
 
             //Example code for how to create an item in the environment:
             //testItem.Update();
-
+           
             Item.Update();
             ENEMY.Update();
             EnvironmentLoader.Update();
@@ -165,17 +171,13 @@ namespace Project1
 
             Player.Draw(gameTime, _spriteBatch);
 
-            ENEMY.Draw(_spriteBatch);
-            Item.Draw(_spriteBatch);
+            //ENEMY.Draw(_spriteBatch);
+            //Item.Draw(_spriteBatch);
             //CurrentEnvironment.Draw(_spriteBatch);
             activeObj.Draw();
 
             _spriteBatch.End();
             base.Draw(gameTime);
-
-
-
-           
         }
     }
 }

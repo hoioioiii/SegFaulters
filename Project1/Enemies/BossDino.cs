@@ -22,10 +22,10 @@ namespace Project1
         /*
          * Initialize Dino
          */
-        public BossDino()
+        public BossDino((int, int) position, (String, int)[] items)
 		{
 
-            sprite = EnemySpriteFactory.Instance.CreateDinoSprite();
+            sprite = EnemySpriteFactory.Instance.CreateDinoSprite(position, items);
         }
 
         /*
