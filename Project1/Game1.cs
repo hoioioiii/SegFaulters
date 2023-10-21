@@ -19,8 +19,6 @@ namespace Project1
         public static ContentManager contentLoader;
 
         public static IActiveObjects GameObjManager;
-        public static IActiveObjects activeObj;
-
         private Texture2D _texture;
         //public static SpriteBatch _spriteBatch;
 
@@ -58,7 +56,7 @@ namespace Project1
 
         }
 
-        
+
         public void Quit() => Exit();
 
 
@@ -92,9 +90,9 @@ namespace Project1
             //keep
             GameObjManager = new ActiveObjects();
 
-            
+
             Player.Initialize();
-            activeObj = new ActiveObjects();
+
 
             base.Initialize();
         }
@@ -119,7 +117,7 @@ namespace Project1
 
             Sword.LoadContent(Content);
             Arrow.LoadContent(Content);
-            Boomerang.LoadContent(Content); 
+            Boomerang.LoadContent(Content);
 
             PlayerSpriteFactory.Instance.LoadAllTextures(Content);
             Player.LoadContent(Content);
@@ -127,11 +125,11 @@ namespace Project1
             //Load background
             EnvironmentLoader.LoadContent(Content);
 
-            
+
 
             //Load XML File
-            //LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\SegFaulters\\Project1\\xmlTest2.xml");
-            LevelLoader.Load("D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\xmlTest2.xml");
+            LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
+            //LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
         }
 
 
@@ -151,12 +149,12 @@ namespace Project1
 
             //Example code for how to create an item in the environment:
             //testItem.Update();
-           
+
             Item.Update();
             ENEMY.Update();
             EnvironmentLoader.Update();
-            //activeObj.Update();
 
+            GameObjManager.Update();
 
 
             base.Update(gameTime);
@@ -176,7 +174,8 @@ namespace Project1
             //ENEMY.Draw(_spriteBatch);
             //Item.Draw(_spriteBatch);
             //CurrentEnvironment.Draw(_spriteBatch);
-            activeObj.Draw();
+            GameObjManager.Draw();
+
 
             _spriteBatch.End();
             base.Draw(gameTime);
