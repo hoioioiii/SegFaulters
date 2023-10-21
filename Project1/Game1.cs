@@ -155,7 +155,9 @@ namespace Project1
             Item.Update();
             ENEMY.Update();
             EnvironmentLoader.Update();
-            activeObj.Update();
+            //activeObj.Update();
+
+
 
             base.Update(gameTime);
         }

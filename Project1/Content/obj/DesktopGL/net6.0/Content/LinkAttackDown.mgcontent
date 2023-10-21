@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
   <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/LinkAttackDown.png</SourceFile>
   <SourceTime>2023-09-29T22:54:52-04:00</SourceTime>
   <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/LinkAttackDown.xnb</DestFile>
-  <DestTime>2023-10-21T00:14:53.7631635-04:00</DestTime>
-=======
-  <SourceFile>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/LinkAttackDown.png</SourceFile>
-  <SourceTime>2023-10-14T18:29:00.5957158-04:00</SourceTime>
-  <DestFile>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/bin/DesktopGL/Content/LinkAttackDown.xnb</DestFile>
-  <DestTime>2023-10-20T02:55:41.6091452-04:00</DestTime>
->>>>>>> Sprint3-Master
+  <DestTime>2023-10-21T00:21:49.932958-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
