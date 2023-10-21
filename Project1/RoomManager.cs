@@ -82,7 +82,7 @@ namespace Project1
 
         public static void DrawActiveRoom()
         {
-            System.Diagnostics.Debug.WriteLine("DegubChack1");
+            
             for (int i = 0; i < activeList.Count; ++i)
             {
                 if (activeList[i])

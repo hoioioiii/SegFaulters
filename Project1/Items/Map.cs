@@ -28,16 +28,19 @@ namespace Project1
             sprite = ItemSpriteFactory.Instance.CreateMapSprite(pos);
         }
 
+        //Update Frames of the Item
         public void Update()
         {
             sprite.Update();
         }
 
+        // Sprite for item in Link's inventory. Displaying link inventory
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch);
         }
 
+        // Sprite for items to be put into the level loader
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
         {
            
@@ -46,6 +49,8 @@ namespace Project1
             
 
         }
+
+        //Return bounding box of the item
         private Rectangle getRectangle()
         {
             return sprite.getRect();

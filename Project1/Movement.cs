@@ -76,16 +76,19 @@ namespace Project1
             switch (direct)
             {
                 case Direction.Down:
-                    return CheckBound(MoveDownOrRight(pos), SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);  
+                    
+                    return CheckBound(MoveDownOrRight(pos), roomBoundsMaxY, roomBoundsMinY);  
 
                 case Direction.Up:
-                    return CheckBound(MoveUpOrLeft(pos), SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
+                    
+                    return CheckBound(MoveUpOrLeft(pos), roomBoundsMaxY, roomBoundsMinY);
             }
             return (false, pos);
         }
 
         private void updateMovement(bool canMove, (int, int) pos_pair,bool dir_flag)
         {
+            
             if (canMove)
             {
                 direction_state.NeedDirectionUpdate(dir_flag);
@@ -93,6 +96,7 @@ namespace Project1
                 if (!dir_flag)
                 entityObj.setPos(pos_pair.Item1, pos_pair.Item2);
             }
+            
 
         }
 
@@ -102,10 +106,12 @@ namespace Project1
             switch (direct)
             {
                 case Direction.Right:
-                    return CheckBound(MoveDownOrRight(pos), SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
+                    
+                    return CheckBound(MoveDownOrRight(pos), roomBoundsMaxX, roomBoundsMinX);
 
                 case Direction.Left:
-                    return CheckBound(MoveUpOrLeft(pos), SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
+                    
+                    return CheckBound(MoveUpOrLeft(pos), roomBoundsMaxX, roomBoundsMinX);
             }
             return (false, pos);
 
@@ -137,13 +143,20 @@ namespace Project1
         public void circularMovement(Direction start_direction)
         {
             angle += 0.1;
-            int originX = entityObj.getPos().Item1 - Random.RandomOriginOffset();
-            int originY = entityObj.getPos().Item2 - Random.RandomOriginOffset();
+           
+                int x = entityObj.getPos().Item1;
+                int y = entityObj.getPos().Item2;
+                int originX = entityObj.getPos().Item1 - Random.RandomOriginOffset();
+                int originY = entityObj.getPos().Item2 - Random.RandomOriginOffset();
 
-            double cos = Math.Cos(angle) * Random.RandomRadius();
-            double sin = Math.Sin(angle) * Random.RandomRadius();
+                double cos = Math.Cos(angle) * Random.RandomRadius();
+                double sin = Math.Sin(angle) * Random.RandomRadius();
 
-            entityObj.setPos((int)(originX + cos), (int)(originY + sin));
+               (bool, int) positionX = CheckBound((int)(originX + cos), roomBoundsMaxX, roomBoundsMinX);
+               (bool, int) positionY = CheckBound((int)(originY + sin), roomBoundsMaxY, roomBoundsMinY);
+            
+            entityObj.setPos(positionX.Item2,positionY.Item2);
+            
         }
 
         public void WanderMove()
@@ -157,7 +170,11 @@ namespace Project1
                 direction_state.getRandomDirection();
 
             }
+            
             WandererMovement(direction_state.getDirection());
+            
+
+
         }
 
         private void WandererMovement(Direction start_direction)
@@ -214,20 +231,20 @@ namespace Project1
            
             if (currPos >= UpperBound)
             {
-                return (true,fixPosition(UpperBound, currPos));
+                return (true,fixPosition(UpperBound,LowerBound, currPos));
             }
 
             else if (currPos < LowerBound)
             {
-                return (true, fixPosition(LowerBound, currPos));
+                return (true, fixPosition(LowerBound,LowerBound, currPos));
             }
 
             return (false, currPos);
         }
 
-        private int fixPosition(int bound, int pos)
+        private int fixPosition(int boundUpper, int boundLower, int pos)
         {
-            return (pos + (bound - pos));
+            return Math.Clamp(pos, boundLower, boundUpper);
         }
 
     

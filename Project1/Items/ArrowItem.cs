@@ -30,7 +30,7 @@ namespace Project1
             sprite = ItemSpriteFactory.Instance.CreateArrowSprite(pos);
         }
 
-        //Change the current frame to the next frame
+        //Update Frames of the Item
         public void Update()
         {
          
@@ -54,6 +54,7 @@ namespace Project1
             
         }
 
+        //Return bounding box of the item
         private Rectangle getRectangle()
         {
             return sprite.getRect();

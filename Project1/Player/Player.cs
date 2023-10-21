@@ -401,11 +401,11 @@ namespace Project1
                     weapon = new Arrow2();
                     spriteWeapon = weapon;
                     break;
-
-                case "boomerange":
-                    weapon = new Boomerange();
-                    spriteWeapon = weapon;
-                    break;
+                //TODO:Reimplement later
+                //case "boomerange":
+                //    weapon = new Boomerange();
+                //    spriteWeapon = weapon;
+                //    break;
                 case "orb":
                     weapon = new Orb();
                     spriteWeapon = weapon;

@@ -10,24 +10,33 @@ namespace Project1
 	{
         private Game1 GAME_OBJ;
         private ICommand action;
+
+        private ButtonState prev_state;
         public MouseController(Game1 game1)
 		{
             GAME_OBJ = game1;
         }
 
         public void Update()
-		{/*
-            
+		{
+
+
+
+
             if (Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
+
+                
+
                 action = new RoomIterateBack();
                 action.Execute();
-            }else if(Mouse.GetState().RightButton == ButtonState.Pressed)
+            }
+            else if (Mouse.GetState().RightButton == ButtonState.Pressed)
             {
                 action = new RoomIterateForward();
                 action.Execute();
             }
-            */
+
         }
 
         public void GetInputType()

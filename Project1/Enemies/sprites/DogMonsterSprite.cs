@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.Enemies;
@@ -8,7 +9,7 @@ namespace Project1
 {
     public class DogMonsterSprite : ISprite
     {
-        private Texture2D[] Texture;
+        private List<Texture2D[]> Texture;
 
         public static bool newAttack;
         private IDirectionStateManager direction_state_manager;
@@ -21,16 +22,16 @@ namespace Project1
 
         private IWeapon weapon;
 
-        public DogMonsterSprite(Texture2D[] spriteSheet, (int, int) position, (String, int)[] items)
+        public DogMonsterSprite(List<Texture2D[]> spriteSheet, (int, int) position, (String, int)[] items)
         {
             newAttack = true;
 
             Texture = spriteSheet;
 
             //replace starting direction based on lvl loader info
-            direction_state_manager = new DirectionStateEnemy(Direction.Up);
+            direction_state_manager = new DirectionStateEnemy(Direction.Down);
             time_manager = new TimeTracker(false);
-            animation_manager = new Animation(0, DM_TOTAL, time_manager, direction_state_manager);
+            animation_manager = new Animation(0, spriteSheet, time_manager, direction_state_manager);
             state_manager = new EntityState();
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
             movement_manager = new Movement(direction_state_manager, this, time_manager, position.Item1, position.Item2, 0);
@@ -77,7 +78,6 @@ namespace Project1
                     state_manager.setNewAttack(true);
                 }
             }
-
         }
 
         private void EntityAttackAction()
@@ -90,6 +90,7 @@ namespace Project1
             {
                 //create weapons
                 direction_state_manager.changeDirection();
+                //direction_state_manager.NeedDirectionUpdate(true);
                 weapon = new Boomerange();
                 state_manager.setNewAttack(false);
 
@@ -139,21 +140,18 @@ namespace Project1
             if (state_manager.IsAlive())
             {
                 setRectangles();
-                spriteBatch.Draw(Texture[animation_manager.getCurrentFrame()], rectangles.Item2, rectangles.Item1, Color.White);
+                spriteBatch.Draw(animation_manager.sprite_frame, rectangles.Item2, rectangles.Item1, Color.White);
                 if (state_manager.IsAttacking()) EntityAttackAction();
             }
-
-
         }
-
 
 
         public void setRectangles()
         {
             int x = movement_manager.getPosition().Item1;
             int y = movement_manager.getPosition().Item2;
-            int height = Texture[animation_manager.getCurrentFrame()].Height;
-            int width = Texture[animation_manager.getCurrentFrame()].Width;
+            int height = animation_manager.sprite_frame.Height;
+            int width = animation_manager.sprite_frame.Width;
             rectangles.Item1 = new Rectangle(1, 1, width, height);
             rectangles.Item2 = new Rectangle(x, y, width, height);
         }

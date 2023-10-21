@@ -192,7 +192,7 @@ namespace Project1
             #endregion
 
             //ENEMY.Draw(_spriteBatch);
-            //Item.Draw(_spriteBatch);
+            Item.Draw(_spriteBatch);
             //CurrentEnvironment.Draw(_spriteBatch);
             GameObjManager.Draw();
 
