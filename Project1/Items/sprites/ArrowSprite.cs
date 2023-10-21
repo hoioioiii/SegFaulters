@@ -7,26 +7,20 @@ namespace Project1
 {
     public class ArrowSprite : IItemSprite
     {
+        //Stores all frames for the item
         private Texture2D[] Texture { get; set; }
-
-        //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
-
-        //Columns is the number of columns in the alias
-        private int Columns { get; set; }
-
+       
         //curremtFrame is used to keep track of which frame of the animation we are currently on
         private int current_frame { get; set; }
 
-        //totalFrames keeps track of how many frames there are in total
-        private int total_frame { get; set; }
-
+        //position specifed by XML
         private int pos_x { get; set; }
         private int pos_y { get; set; }
 
-        private static Vector2 position;
-
+        //bounding box
         private Rectangle rect;
+
+        //dimentions of sprite frame
         private int width;
         private int height;
 
@@ -34,36 +28,24 @@ namespace Project1
         public ArrowSprite(Texture2D[] spriteSheet, (int,int) pos)
         {
             Texture = spriteSheet;
-            Rows = ARROW_R;
-            Columns = ARROW_C;
             current_frame = START_FRAME;
-            total_frame = Rows * Columns;
             pos_x = pos.Item1;
             pos_y = pos.Item2;
-
-            position = Player.getUserPos();
         }
 
+        
         public void Update()
         {
-            position = Player.getUserPos();
+            //not animated so no animation code here
         }
 
-        public void Move()
-        {
-            //int DIR_X = RandomMove.RandMove();
-            //int DIR_Y = RandomMove.RandMove();
-
-            ////bounding constraints:
-            //pos_x += RandomMove.CheckBounds(DIR_X, pos_x, SCREEN_WIDTH_UPPER, SCREEN_WIDTH_LOWER);
-            //pos_y += RandomMove.CheckBounds(DIR_Y, pos_y, SCREEN_HEIGHT_UPPER, SCREEN_HEIGHT_LOWER);
-        }
-
+    
         public Rectangle getRect()
         {
             return rect;
         }
 
+        //Calulate dimensions of sprite frames
         private void setDimention()
         {
 

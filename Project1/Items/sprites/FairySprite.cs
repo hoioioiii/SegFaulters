@@ -7,51 +7,46 @@ namespace Project1
 {
     public class FairySprite : IItemSprite
     {
+
+        //Stores all frames for the item
         private Texture2D[] Texture { get; set; }
-
-        //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
-
-        //Columns is the number of columns in the alias
-        private int Columns { get; set; }
 
         //curremtFrame is used to keep track of which frame of the animation we are currently on
         private double current_frame { get; set; }
 
-        //totalFrames keeps track of how many frames there are in total
+        //totalFrames keeps track of how many frames there are for the item
         private int total_frame { get; set; }
 
+        //position specifed by XML
+        private int pos_x { get; set; }
+        private int pos_y { get; set; }
 
+        //bounding box
         private Rectangle rect;
-        private static Vector2 position;
 
+        //dimentions of sprite frame
         private int width;
         private int height;
-        private int pos_x;
-        private int pos_y;
+
 
         public FairySprite(Texture2D[] spriteSheet, (int, int) pos)
         {
             Texture = spriteSheet;
-            Rows = FAIRY_R;
-            Columns = FAIRY_C;
             current_frame = START_FRAME;
-            total_frame = Rows * Columns;
+            total_frame = FAIRY_TOTAL;
             pos_x = pos.Item1;
             pos_y = pos.Item2;
-            position = Player.getUserPos();
         }
+
         public void Update()
         {
-
-            //Move();
-            position = Player.getUserPos();
+            //updates for animation
             current_frame += FRAME_SPD;
             if (current_frame >= total_frame)
                 current_frame = START_FRAME;
         }
 
-       
+        //calculate dimension of current frame of sprite
         private void setDimention()
         {
 

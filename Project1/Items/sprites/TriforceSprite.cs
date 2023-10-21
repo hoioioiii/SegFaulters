@@ -7,42 +7,38 @@ namespace Project1
 {
     public class TriforceSprite : IItemSprite
     {
+        //Stores all frames for the item
         private Texture2D[] Texture { get; set; }
-
-        //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
-
-        //Columns is the number of columns in the alias
-        private int Columns { get; set; }
 
         //curremtFrame is used to keep track of which frame of the animation we are currently on
         private double current_frame { get; set; }
 
-        //totalFrames keeps track of how many frames there are in total
+        //totalFrames keeps track of how many frames there are in for this item
         private int total_frame { get; set; }
 
-        private static Vector2 position;
-        private int pos_x;
-        private int pos_y;
+        //position specifed by XML
+        private int pos_x { get; set; }
+        private int pos_y { get; set; }
+
+        //bounding box
+        private Rectangle rect;
+
+        //dimentions of sprite frame
         private int width;
         private int height;
-        private Rectangle rect;
+
+
         public TriforceSprite(Texture2D[] spriteSheet, (int, int) pos)
         {
             Texture = spriteSheet;
-            Rows = TRIFORCE_R;
-            Columns = TRIFORCE_C;
             current_frame = START_FRAME;
-            total_frame = Rows * Columns;
+            total_frame = TRIFORCE_TOTAL;
             pos_x = pos.Item1;
             pos_y = pos.Item2;
-            position = Player.getUserPos();
         }
         public void Update()
         {
-            position = Player.getUserPos();
-
-            // move to next frame
+            // code for animation
             current_frame += FRAME_SPD;
             if (current_frame >= total_frame)
                 current_frame = START_FRAME;
