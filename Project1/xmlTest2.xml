@@ -66,19 +66,7 @@
 		</Environment>
 
 		<Items>
-			<StoneStatue id="1" xLoc="0" yLoc="0" damage="0"></StoneStatue>
-			<StoneStatue id="2" xLoc="0" yLoc="0" damage="0"></StoneStatue>
-			<StoneStatue id="3" xLoc="0" yLoc="0" damage="0"></StoneStatue>
-			<StoneStatue id="4" xLoc="0" yLoc="0" damage="0"></StoneStatue>
-			<StoneStatue id="5" xLoc="0" yLoc="0" damage="0"></StoneStatue>
-			<StoneStatue id="6" xLoc="0" yLoc="0" damage="0"></StoneStatue>
-			<StoneStatue id="7" xLoc="0" yLoc="0" damage="0"></StoneStatue>
-			<StoneStatue id="8" xLoc="0" yLoc="0" damage="0"></StoneStatue>
-			<StoneStatue id="9" xLoc="0" yLoc="0" damage="0"></StoneStatue>
-			<StoneStatue id="10" xLoc="0" yLoc="0" damage="0"></StoneStatue>
-			<StoneStatue id="11" xLoc="0" yLoc="0" damage="0"></StoneStatue>
-			<StoneStatue id="11" xLoc="0" yLoc="0" damage="0"></StoneStatue>
-			<StoneStatue id="12" xLoc="0" yLoc="0" damage="0"></StoneStatue>
+			<key xLoc="200" yLoc="200"></key>
 		</Items>
 	</Room>
 

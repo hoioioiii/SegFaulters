@@ -122,7 +122,7 @@ namespace Project1
         public void Update()
         {
 
-            //UpdateItems();
+            UpdateItems();
 
             UpdateEnemies();
 
@@ -158,7 +158,7 @@ namespace Project1
 
         private void UpdateItems()
         {
-            for (int i = 0; i < entities.Count; i++)
+            for (int i = 0; i < items.Count; i++)
             {
                 items[i].Update();
             }
@@ -202,7 +202,7 @@ namespace Project1
            // DrawPlayer();
             //DrawIWeapons();
             DrawEnemies();
-            //DrawItems();
+            DrawItems();
         }
     }
 }

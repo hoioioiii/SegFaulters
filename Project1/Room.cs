@@ -69,7 +69,7 @@ namespace Project1
                 String name = item.Item1;
                 System.Diagnostics.Debug.WriteLine("ItemName: " + name);
                 (int, int) position = item.Item2;
-                ItemLoader.InitializeItemSprites(name, position);
+                ItemLoader.LoadAndInitializeItems(name, position, Game1.GameObjManager);
             }
         }
 
