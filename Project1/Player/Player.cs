@@ -88,10 +88,12 @@ namespace Project1
             posX = 0;
             posY = 0;
             remainOnScreen = false;
+
+            Initialize();
         }
 
         // initialize timing metrics for attacks and damage
-        public static void Initialize()
+        public void Initialize()
         {
             FrameTimer = Constants.FRAMETIME;
             AttackTimer = Constants.ATTACK_SECONDS;
@@ -106,7 +108,7 @@ namespace Project1
         }
 
 
-        public static void LoadContent(ContentManager content)
+        public void LoadContent(ContentManager content)
         {
             // still and movement
             linkRight1 = content.Load<Texture2D>("linkRight1");
@@ -129,7 +131,7 @@ namespace Project1
        
 
         //change the current frame to the next frame
-        public static void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
             // update timers for attack, damage, flash
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -261,13 +263,13 @@ namespace Project1
         {
            return sprite.getRectangle();
         }
-        public static void CheckTime()
+        public void CheckTime()
         {
             onScreen += Game1.deltaTime.ElapsedGameTime.Milliseconds;
         }
 
 
-        public static void CheckOnScreen()
+        public void CheckOnScreen()
         {
             CheckTime();
             if (onScreen > 1000)
@@ -276,7 +278,7 @@ namespace Project1
             }
         }
 
-        public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             // timer for Draw()
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -366,7 +368,7 @@ namespace Project1
             }
         }
 
-        public static void Attack(string weaponType)
+        public void Attack(string weaponType)
         {
             switch (weaponType)
             {
@@ -396,7 +398,7 @@ namespace Project1
         }
 
         // if 1 second has passed since attacking, revert attack state to false (allowing for other actions)
-        public static void WaitForAttack()
+        public void WaitForAttack()
         {
             if (AttackTimer <= 0)
             {
@@ -409,7 +411,7 @@ namespace Project1
         }
 
         // Link cannot take damage for x seconds after getting hit
-        public static void DamageInvincibility()
+        public void DamageInvincibility()
         {
             if (DamageTimer <= 0)
             {
@@ -428,7 +430,7 @@ namespace Project1
         }
 
         // if Timer > FRAMETIME, switch the frame
-        public static void CheckFrameTimer()
+        public void CheckFrameTimer()
         {
             if (FrameTimer <= 0)
             {
@@ -437,25 +439,25 @@ namespace Project1
             }
         }
 
-        public static void attackSword()
+        public void attackSword()
         {
             isAttacking = true;
             isAttackingWithSword = true;
         }
 
-        public static void attackBoom()
+        public void attackBoom()
         {
             isAttacking = true;
             isAttackingWithBoomerang = true;
         }
 
-        public static void attackBow()
+        public void attackBow()
         {
             isAttacking = true;
             isAttackingWithBow = true;
         }
 
-        public static void left()
+        public void left()
         {
             position.X -= playerSpeed;
             isMoving = true;
@@ -463,7 +465,7 @@ namespace Project1
             sprite.Update(4, position);
         }
 
-        public static void down()
+        public void down()
         {
             position.Y += playerSpeed;
             isMoving = true;
@@ -471,7 +473,7 @@ namespace Project1
             sprite.Update(3, position);
         }
 
-        public static void up()
+        public void up()
         {
             position.Y -= playerSpeed;
             isMoving = true;
@@ -479,7 +481,7 @@ namespace Project1
             sprite.Update(1, position);
         }
 
-        public static void right()
+        public void right()
         {
             position.X += playerSpeed;
             isMoving = true;
@@ -487,29 +489,29 @@ namespace Project1
             sprite.Update(2, position);
         }
 
-        public static void damage()
+        public void damage()
         {
             //isDamaged = true;
             DamageInvincibility();
         }
 
-        public static Vector2 getUserPos()
+        public Vector2 getUserPos()
         {
 
             return new Vector2(position.X, position.Y);
         }
 
-        public static int getUserDirection()
+        public int getUserDirection()
         {
             return linkDirection;
         }
 
-        public static void PickUpItem(ITEMS itemToAdd)
+        public void PickUpItem(ITEMS itemToAdd)
         {
             itemInventory[(int)itemToAdd]++;
         }
 
-        public static void UseItem(ITEMS itemToDelete)
+        public void UseItem(ITEMS itemToDelete)
         {
             if(itemInventory[(int)itemToDelete] > 0) {
                 itemInventory[(int)itemToDelete]--;

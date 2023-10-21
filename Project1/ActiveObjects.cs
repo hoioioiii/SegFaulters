@@ -29,7 +29,7 @@ namespace Project1
             walls = new List<Rectangle>();
         }
 
-        public void addLink(Project1.Player link)
+        public void addLink(Player link)
         {
             this.link = link;
         }
@@ -68,7 +68,11 @@ namespace Project1
             items.Clear();
             entities.Clear();
             weapons.Clear();
+            doors.Clear();
+           
         }
+
+        
 
         public Player getLink() { return link; }
         public List<IEntity> getEntityList()
@@ -128,7 +132,7 @@ namespace Project1
 
             //UpdateIWeapons();
 
-            //UpdatePlayer();
+            UpdatePlayer();
 
             
 
@@ -137,7 +141,7 @@ namespace Project1
 
         private void UpdatePlayer()
         {
-            //link.Update();
+            link.Update(Game1.deltaTime);
         }
 
         private void UpdateIWeapons()
@@ -168,8 +172,8 @@ namespace Project1
         private void DrawPlayer()
         {
           
-                //TODO:Fix later
-               // link.Draw(, Game1._spriteBatch);
+               
+               link.Draw(Game1.deltaTime, Game1._spriteBatch);
             
         }
 
@@ -199,7 +203,7 @@ namespace Project1
 
         public void Draw()
         {
-           // DrawPlayer();
+            DrawPlayer();
             //DrawIWeapons();
             DrawEnemies();
             DrawItems();
