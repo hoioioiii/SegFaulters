@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
+using System.Text;
 using static Project1.Constants;
 
 namespace Project1.Collision
@@ -27,17 +28,30 @@ namespace Project1.Collision
             {
                 case DIRECTION.left:
                     position = position + new Vector2(knockbackDist, 0);
+                    position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
                     break;
                 case DIRECTION.right:
                     position = position + new Vector2(-knockbackDist, 0);
+                    position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
                     break;
                 case DIRECTION.down:
                     position = position + new Vector2(0, knockbackDist);
+                    position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
                     break;
                 case DIRECTION.up:
                     position = position + new Vector2(0, -knockbackDist);
+                    position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
                     break;
             }
+
+            #region Print to debug console
+            System.Text.StringBuilder sb = new StringBuilder();
+            sb.Append("POSITION: " + position);
+
+            if (sb.Length > 0)
+                System.Diagnostics.Debug.WriteLine(sb.ToString());
+            #endregion
+
 
             return position;
         }
