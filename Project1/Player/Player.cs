@@ -141,7 +141,7 @@ namespace Project1
             // set bounding box position to link position
             BoundingBox.Location = new Point((int)position.X + 5, (int)position.Y + 20);
             // move link to bounding box
-            
+            sprite.Update(linkDirection, position);
             // call collision and pass in link
 
 
