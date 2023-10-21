@@ -217,7 +217,9 @@ namespace Project1
             DAMAGE
         }
 
-        public const int KNOCKBACK_DISTANCE = 5, knockbackDuration = 1, invincibilityDuration = 1;
+        // Knockback distance is used for collisions with enemies
+        // How far should it be?
+        public const int KNOCKBACK_DISTANCE = 30, knockbackDuration = 1, invincibilityDuration = 1;
     }
 }
 

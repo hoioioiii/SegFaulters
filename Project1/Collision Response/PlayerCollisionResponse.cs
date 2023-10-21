@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using Microsoft.Xna.Framework;
 using Project1.Collision;
 using static Project1.Constants;
@@ -39,6 +40,15 @@ namespace Project1.Collision_Response
         {
             //Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y);
             Vector2 playerPosition = Player.getPosition();
+
+            #region Print to debug console
+            System.Text.StringBuilder sb = new StringBuilder();
+            sb.Append("COLLISION DIRECTION: " + direction);
+
+            if (sb.Length > 0)
+                System.Diagnostics.Debug.WriteLine(sb.ToString());
+            #endregion
+
             playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, Player.playerSpeed);
             Player.setPosition(playerPosition);
         }

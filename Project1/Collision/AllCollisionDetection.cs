@@ -129,7 +129,7 @@ namespace Project1
                 isColliding = Player.BoundingBox.Intersects(boundary.BoundingBox);
                 if (isColliding)
                 {
-                    DetectCollisionDirection(Player.BoundingBox, boundary.BoundingBox, collisionDirection);
+                    collisionDirection = DetectCollisionDirection(Player.BoundingBox, boundary.BoundingBox, collisionDirection);
                     PlayerCollisionResponse.BoundaryResponse(collisionDirection);
                 }
                 /*
@@ -148,24 +148,27 @@ namespace Project1
                 isColliding = Player.BoundingBox.Intersects(enemy.BoundingBox);
                 if (isColliding)
                 {
-                    DetectCollisionDirection(Player.BoundingBox, enemy.BoundingBox, collisionDirection);
+                    collisionDirection = DetectCollisionDirection(Player.BoundingBox, enemy.BoundingBox, collisionDirection);
                     //PlayerCollisionResponse.DamageResponse(collisionDirection);
-                    PlayerCollisionResponse.BoundaryResponse(collisionDirection);
-                }
-                #region Print to debug console
-                System.Text.StringBuilder sb = new StringBuilder();
-                sb.Append("isColliding: " + isColliding);
 
-                if (sb.Length > 0)
-                    System.Diagnostics.Debug.WriteLine(sb.ToString());
-                #endregion
+                    #region Print to debug console
+                    System.Text.StringBuilder sb = new StringBuilder();
+                    sb.Append("COLLISION DIRECTION: " + collisionDirection);
+
+                    if (sb.Length > 0)
+                        System.Diagnostics.Debug.WriteLine(sb.ToString());
+                    #endregion
+
+                    PlayerCollisionResponse.DamageResponse(collisionDirection);
+                }
+                
             }
             //foreach (var enemyAttack in enemyAttackInstances)
             //{
             //    isColliding = link.BoundingBox.Intersects(enemyAttack);
             //    if (isColliding)
             //    {
-            //        DetectCollisionDirection(link.BoundingBox, enemyAttack, collisionDirection);
+            //        collisionDirection = DetectCollisionDirection(link.BoundingBox, enemyAttack, collisionDirection);
             //        PlayerCollisionResponse.DamageResponse(link, collisionDirection);
             //    }
             //}
@@ -179,7 +182,7 @@ namespace Project1
             //if (isColliding) { break; }
         }
 
-        
+
 
         private static void DetectAllCollisionsEnemiesEntity()
         {
@@ -198,7 +201,7 @@ namespace Project1
                     if (isColliding)
                     {
                         DIRECTION collisionDirection = DIRECTION.left;
-                        DetectCollisionDirection(enemy.BoundingBox, boundary.BoundingBox, collisionDirection);
+                        collisionDirection = DetectCollisionDirection(enemy.BoundingBox, boundary.BoundingBox, collisionDirection);
 
                         EnemyCollisionResponse.BoundaryResponse(enemy, collisionDirection);
                     }
@@ -209,7 +212,7 @@ namespace Project1
                     if (isColliding)
                     {
                         DIRECTION collisionDirection = DIRECTION.left;
-                        DetectCollisionDirection(enemy.BoundingBox, weapon.BoundingBox, collisionDirection);
+                        collisionDirection = DetectCollisionDirection(enemy.BoundingBox, weapon.BoundingBox, collisionDirection);
 
                         EnemyCollisionResponse.DamageResponse(enemy, collisionDirection);
                     }
@@ -220,7 +223,7 @@ namespace Project1
                 //    if (isColliding)
                 //    {
                 //        DIRECTION collisionDirection = DIRECTION.left;
-                //        DetectCollisionDirection(enemy.BoundingBox, weaponProjectile.BoundingBox, collisionDirection);
+                //        collisionDirection = DetectCollisionDirection(enemy.BoundingBox, weaponProjectile.BoundingBox, collisionDirection);
 
                 //        EnemyCollisionResponse.DamageResponse(enemy, collisionDirection);
                 //    }
@@ -253,21 +256,11 @@ namespace Project1
          * If overlap rect's width > height, it's a top/bottom collision, otherwise left/right
          * Use positive or negative direction to determine which side
          */
-        private static void DetectCollisionDirection(Rectangle targetRect, Rectangle roomRect, Enum collisionDirection)
+        private static DIRECTION DetectCollisionDirection(Rectangle targetRect, Rectangle roomRect, DIRECTION collisionDirection)
         {
-            #region Print to debug console
-            System.Text.StringBuilder sb = new StringBuilder();
-            sb.Append("DIRECTIONAL COLLISION");
-
-            if (sb.Length > 0)
-                System.Diagnostics.Debug.WriteLine(sb.ToString());
-            #endregion
-
             Rectangle overlap = new Rectangle();            
             Rectangle.Intersect(ref targetRect, ref roomRect, out overlap);
-
-            
-
+          
             if (overlap.Width > overlap.Height)
             {
                 bool positiveDirection = targetRect.Center.Y - roomRect.Center.Y > 0;
@@ -298,10 +291,13 @@ namespace Project1
                 {
                     // right collision
                     collisionDirection = DIRECTION.right;
+                    
                 }
             }
+
+            return collisionDirection;
             #region Print to debug console
-            //System.Text.StringBuilder sb = new StringBuilder();
+            System.Text.StringBuilder sb = new StringBuilder();
             sb.Append("COLLISION DIRECTION: " + collisionDirection);
 
             if (sb.Length > 0)

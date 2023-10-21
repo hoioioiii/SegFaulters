@@ -158,7 +158,7 @@ namespace Project1
             GameObjManager.Update();
             AllCollisionDetection.DetectCollision(GameObjManager);
 
-            
+            /*
             #region Print to debug console
             System.Text.StringBuilder sb = new StringBuilder();
             sb.Append("Player pos" + Player.getPosition());
@@ -167,7 +167,7 @@ namespace Project1
             if (sb.Length > 0)
                 System.Diagnostics.Debug.WriteLine(sb.ToString());
             #endregion
-            
+            */
 
             base.Update(gameTime);
         }

@@ -147,13 +147,16 @@ namespace Project1
 
             KeyboardState keystate = Keyboard.GetState();
 
+            
             #region Print to debug console currently pressed keys
             System.Text.StringBuilder sb = new StringBuilder();
             foreach (var key in keystate.GetPressedKeys())
                 sb.Append("Key: ").Append(key).Append(" pressed ");
 
             if (sb.Length > 0)
-                System.Diagnostics.Debug.WriteLine(sb.ToString());
+            {
+                //System.Diagnostics.Debug.WriteLine(sb.ToString());
+            }
             else
                 isMoving = false;
             #endregion
