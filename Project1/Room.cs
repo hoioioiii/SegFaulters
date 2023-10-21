@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1
 {
@@ -13,11 +16,16 @@ namespace Project1
         private (string, ((int, int), (string, int)[]))[] enemyArray; //(string enemyName, ((int posX, int posY), (string itemName, int quantity)[]))
         private ((string, (int, bool))[], (string, (int, int))[]) environmentInfo; //(doorArray, blockArray)
         private (string, (int, int))[] itemArray;//(string itemName,(int posX, posY))
+        private Rectangle[] wallArray;
         public Room((string, ((int, int), (string, int)[]))[] enemyArray, ((string, (int, bool))[], (string, (int, int))[]) environmentInfo, (string, (int, int))[] itemArray) 
         {
             this.enemyArray = enemyArray;
             this.environmentInfo = environmentInfo;
             this.itemArray = itemArray;
+            
+
+            //Rectangles For Walls
+            this.wallArray = new Rectangle[4];
         }
 
         public void Load()
@@ -26,8 +34,34 @@ namespace Project1
             LoadEnvironment();
             LoadEntity();
             LoadItems();
-
+            LoadWalls();
             print();
+        }
+
+        private void LoadWalls()
+        {
+
+            
+            
+            Rectangle topWall = new Rectangle(0, 0, 800, 75);
+            
+
+
+           
+            Rectangle LeftWall = new Rectangle(20, 0, 80, 800);
+            
+
+           
+            Rectangle RightWall = new Rectangle(700, 0, 80, 800);
+          
+
+           
+            Rectangle BotWall = new Rectangle(0, 405, 800, 75);
+
+            Game1.GameObjManager.addNewWall(topWall);
+            Game1.GameObjManager.addNewWall(BotWall);
+            Game1.GameObjManager.addNewWall(LeftWall);
+            Game1.GameObjManager.addNewWall(RightWall);
         }
 
 

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Project1.Collision;
 
 namespace Project1
@@ -185,7 +186,7 @@ namespace Project1
         {
             for (int i = 0; i < entities.Count; i++)
             {
-                entities[i].Draw(Game1._spriteBatch);
+                
             }
         }
 
@@ -193,7 +194,7 @@ namespace Project1
         {
             for (int i = 0; i < items.Count; i++)
             {
-                items[i].Draw(Game1._spriteBatch);
+                items[i].Draw(Game1._spriteBatch,new Vector2(200,300), 4);
             }
         }
 
@@ -203,6 +204,7 @@ namespace Project1
             //DrawIWeapons();
             DrawEnemies();
             DrawItems();
+            
         }
     }
 }

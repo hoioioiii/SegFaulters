@@ -178,7 +178,32 @@ namespace Project1
             pixel.SetData<Color>(new Color[] { Color.White });
 
             _spriteBatch.Draw(pixel, Player.BoundingBox, Color.White);
+
+
+
+            Texture2D wall1 = new Texture2D(GraphicsDevice, 1, 1);
+            wall1.SetData<Color>(new Color[] { Color.White });
+            Rectangle topWall = new Rectangle(0,0,800,75);
+            _spriteBatch.Draw(wall1, topWall, Color.White);
+
             
+            wall1.SetData<Color>(new Color[] { Color.Blue });
+            Rectangle LeftWall = new Rectangle(20, 0, 80, 800);
+            _spriteBatch.Draw(wall1, LeftWall, Color.White);
+
+            wall1.SetData<Color>(new Color[] { Color.Red });
+            Rectangle RightWall = new Rectangle(700, 0, 80, 800);
+            _spriteBatch.Draw(wall1, RightWall, Color.White);
+
+            wall1.SetData<Color>(new Color[] { Color.Yellow });
+            Rectangle BotWall = new Rectangle(0, 405, 800, 75);
+            _spriteBatch.Draw(wall1, BotWall, Color.White);
+
+
+
+
+
+
 
             //ENEMY.Draw(_spriteBatch);
             //Item.Draw(_spriteBatch);
