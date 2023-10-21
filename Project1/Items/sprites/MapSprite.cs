@@ -7,43 +7,35 @@ namespace Project1
 {
     public class MapSprite : IItemSprite
     {
+        //Stores all frames for the item
         private Texture2D[] Texture { get; set; }
 
-        //rows is the number of rows i the texture alias
-        private int Rows { get; set; }
-
-        //Columns is the number of columns in the alias
-        private int Columns { get; set; }
-
         //curremtFrame is used to keep track of which frame of the animation we are currently on
-        private double current_frame { get; set; }
+        private int current_frame { get; set; }
 
-        //totalFrames keeps track of how many frames there are in total
-        private int total_frame { get; set; }
+        //position specifed by XML
+        private int pos_x { get; set; }
+        private int pos_y { get; set; }
 
-        private static Vector2 position;
+        //bounding box
+        private Rectangle rect;
 
+        //dimentions of sprite frame
         private int width;
         private int height;
-        private Rectangle rect;
-        private int pos_x;
-        private int pos_y;
+
         public MapSprite(Texture2D[] spriteSheet, (int, int) pos)
         {
-            pos_x = pos.Item1;
+            pos_x = pos.Item2;
             pos_y = pos.Item2;
             Texture = spriteSheet;
-            Rows = MAP_R;
-            Columns = MAP_C;
             current_frame = START_FRAME;
-            total_frame = Rows * Columns;
-            position = Player.getUserPos();
-            pos_x = pos.Item1;
-            pos_y = pos.Item2;
+
         }
+
         public void Update()
         {
-            position = Player.getUserPos();
+            //non animated so no code goes here
         }
 
 
@@ -52,12 +44,15 @@ namespace Project1
 
             width = Texture[(int)current_frame].Width;
             height = Texture[(int)current_frame].Height;
-
         }
 
         // draw inside Link's inventory
         public void Draw(SpriteBatch spriteBatch)
         {
+
+            pos_x = (int)Player.getUserPos().X;
+            pos_y = (int)Player.getUserPos().Y;
+
             setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
             Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);

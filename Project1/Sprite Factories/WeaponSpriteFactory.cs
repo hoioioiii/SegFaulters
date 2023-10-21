@@ -98,8 +98,8 @@ namespace Project1
     public class WeaponSpriteFactory
     {
 
-        private Texture2D[] SwordSheet = new Texture2D[SWORD_C * SWORD_R];
-        private Texture2D[] BowSheet = new Texture2D[BOW_C * BOW_R];
+        private Texture2D[] SwordSheet = new Texture2D[SWORD_TOTAL];
+        private Texture2D[] BowSheet = new Texture2D[BOW_TOTAL];
         private Texture2D[] ArrowSheet = new Texture2D[4];
         private Texture2D[] BombSheet = new Texture2D[BOMB_ARRAY];
         private Texture2D[] BoomerangSheet = new Texture2D[BOOMERANG_C * BOOMERANG_R];
