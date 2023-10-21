@@ -172,6 +172,14 @@ namespace Project1
 
             Player.Draw(gameTime, _spriteBatch);
 
+            
+            // Create the single-pixel texture
+            Texture2D pixel = new Texture2D(GraphicsDevice, 1, 1);
+            pixel.SetData<Color>(new Color[] { Color.White });
+
+            _spriteBatch.Draw(pixel, Player.BoundingBox, Color.White);
+            
+
             //ENEMY.Draw(_spriteBatch);
             //Item.Draw(_spriteBatch);
             //CurrentEnvironment.Draw(_spriteBatch);

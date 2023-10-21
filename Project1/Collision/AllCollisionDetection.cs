@@ -141,6 +141,7 @@ namespace Project1
                 {
                     PlayerCollisionResponse.ItemResponse(item);
                 }
+                /*
                 #region Print to debug console
                 System.Text.StringBuilder sb = new StringBuilder();
                 sb.Append("isColliding: " + isColliding);
@@ -148,6 +149,7 @@ namespace Project1
                 if (sb.Length > 0)
                     System.Diagnostics.Debug.WriteLine(sb.ToString());
                 #endregion
+                */
             }
             
             foreach (var door in roomDoors)
@@ -167,6 +169,7 @@ namespace Project1
                     DetectCollisionDirection(Player.BoundingBox, boundary.BoundingBox, collisionDirection);
                     PlayerCollisionResponse.BoundaryResponse(collisionDirection);
                 }
+                /*
                 #region Print to debug console
                 System.Text.StringBuilder sb = new StringBuilder();
                 sb.Append("isColliding: " + isColliding);
@@ -174,6 +177,7 @@ namespace Project1
                 if (sb.Length > 0)
                     System.Diagnostics.Debug.WriteLine(sb.ToString());
                 #endregion
+                */
             }
             foreach (var enemy in entities)
             {
