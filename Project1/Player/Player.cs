@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using static Project1.Constants;
+using System;
 
 namespace Project1
 {
@@ -78,15 +79,15 @@ namespace Project1
 
         private static int onScreen;
        
-        private static int posX;
-        private static int posY;
-        private Rectangle rect;
+        //private static int posX;
+        //private static int posY;
+        //private Rectangle rect;
         private static bool remainOnScreen;
 
         public Player()
         {
-            posX = 0;
-            posY = 0;
+            //posX = 0;
+            //posY = 0;
             remainOnScreen = false;
         }
 
@@ -200,10 +201,11 @@ namespace Project1
                 if (keystate.IsKeyDown(Keys.Left) || keystate.IsKeyDown(Keys.A))
                 {
                     position.X -= playerSpeed;
+                    position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
                     isMoving = true;
                     linkDirection = 4;
 
-                    posX -= playerSpeed;
+                    //posX -= playerSpeed;
 
 
                     sprite.Update(4, position);
@@ -211,26 +213,29 @@ namespace Project1
                 else if (keystate.IsKeyDown(Keys.Down) || keystate.IsKeyDown(Keys.S))
                 {
                     position.Y += playerSpeed;
+                    position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
                     isMoving = true;
                     linkDirection = 3;
-                    posX += playerSpeed;
+                    //posX += playerSpeed;
                     sprite.Update(3, position);
 
                 }
                 else if (keystate.IsKeyDown(Keys.Up) || keystate.IsKeyDown(Keys.W))
                 {
                     position.Y -= playerSpeed;
+                    position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
                     isMoving = true;
                     linkDirection = 1;
-                    posY -= playerSpeed;
+                    //posY -= playerSpeed;
                     sprite.Update(1, position);
                 }
                 else if (keystate.IsKeyDown(Keys.Right) || keystate.IsKeyDown(Keys.D))
                 {
                     position.X += playerSpeed;
+                    position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
                     isMoving = true;
                     linkDirection = 2;
-                    posY += playerSpeed;
+                    //posY += playerSpeed;
                     sprite.Update(2, position);
                 }
             }
@@ -473,6 +478,7 @@ namespace Project1
         public static void left()
         {
             position.X -= playerSpeed;
+            position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
             isMoving = true;
             linkDirection = 4;
             sprite.Update(4, position);
@@ -481,6 +487,7 @@ namespace Project1
         public static void down()
         {
             position.Y += playerSpeed;
+            position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
             isMoving = true;
             linkDirection = 3;
             sprite.Update(3, position);
@@ -489,6 +496,7 @@ namespace Project1
         public static void up()
         {
             position.Y -= playerSpeed;
+            position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
             isMoving = true;
             linkDirection = 1;
             sprite.Update(1, position);
@@ -497,6 +505,7 @@ namespace Project1
         public static void right()
         {
             position.X += playerSpeed;
+            position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
             isMoving = true;
             linkDirection = 2;
             sprite.Update(2, position);
@@ -531,15 +540,14 @@ namespace Project1
             }
         }
 
-        public static void setPosition(int x, int y)
+        public static void setPosition(Vector2 newPostion)
         {
-            posX = x;
-            posY = y;            
+            position = newPostion; 
         }
 
-        public static (int, int) getPosition()
+        public static Vector2 getPosition()
         {
-            return (posX, posY);
+            return position;
         }
 
     }

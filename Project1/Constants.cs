@@ -26,6 +26,8 @@ namespace Project1
             Down
         }
 
+        public static int roomBoundsMaxX = 640, roomBoundsMaxY = 345, roomBoundsMinX = 110, roomBoundsMinY = 70;
+
         public static int ENEMY_SPEED = 1;
 
         public static int SCREEN_WIDTH_UPPER = 600;

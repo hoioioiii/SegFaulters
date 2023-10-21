@@ -37,9 +37,10 @@ namespace Project1.Collision_Response
          */
         public static void BoundaryResponse(DIRECTION direction)
         {
-            Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y);
+            //Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y);
+            Vector2 playerPosition = Player.getPosition();
             playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, Player.playerSpeed);
-            Player.setPosition((int)playerPosition.X, (int)playerPosition.Y);
+            Player.setPosition(playerPosition);
         }
 
         /*
@@ -47,11 +48,12 @@ namespace Project1.Collision_Response
          */
         public static void DamageResponse(DIRECTION direction)
         {
-            Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y);
+            //Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y);
             // Constant KNOCKBACK_DISTANCE
+            Vector2 playerPosition = Player.getPosition();
             playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, KNOCKBACK_DISTANCE);
             AllCollisionResponse.ApplyDamage();
-            Player.setPosition((int)playerPosition.X, (int)playerPosition.Y);
+            Player.setPosition(playerPosition);
         }       
     }
 }

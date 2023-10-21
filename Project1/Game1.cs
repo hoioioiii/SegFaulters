@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Content;
 using System.Collections;
 using static Project1.Constants;
 using System;
+using System.Text;
 
 namespace Project1
 {
@@ -157,6 +158,16 @@ namespace Project1
             GameObjManager.Update();
             AllCollisionDetection.DetectCollision(GameObjManager);
 
+            
+            #region Print to debug console
+            System.Text.StringBuilder sb = new StringBuilder();
+            sb.Append("Player pos" + Player.getPosition());
+            //sb.Append((char)Player.getPosition().Item1, (char)Player.getPosition().Item2);
+
+            if (sb.Length > 0)
+                System.Diagnostics.Debug.WriteLine(sb.ToString());
+            #endregion
+            
 
             base.Update(gameTime);
         }

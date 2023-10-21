@@ -291,13 +291,23 @@ namespace Project1
          */
         private static void DetectCollisionDirection(Rectangle targetRect, Rectangle roomRect, Enum collisionDirection)
         {
+            #region Print to debug console
+            System.Text.StringBuilder sb = new StringBuilder();
+            sb.Append("DIRECTIONAL COLLISION");
+
+            if (sb.Length > 0)
+                System.Diagnostics.Debug.WriteLine(sb.ToString());
+            #endregion
+
             Rectangle overlap = new Rectangle();            
             Rectangle.Intersect(ref targetRect, ref roomRect, out overlap);
 
-            bool positiveDirection = Vector2.Distance(new Vector2(targetRect.Center.X, targetRect.Center.Y), new Vector2(roomRect.Center.X, roomRect.Center.Y)) > 0;
+            
 
             if (overlap.Width > overlap.Height)
             {
+                bool positiveDirection = targetRect.Center.Y - roomRect.Center.Y > 0;
+
                 // top/bottom collision
                 if (positiveDirection)
                 {
@@ -312,6 +322,8 @@ namespace Project1
             }
             else
             {
+                bool positiveDirection = targetRect.Center.X - roomRect.Center.X > 0;
+
                 // left right collision
                 if (positiveDirection)
                 {
@@ -324,6 +336,13 @@ namespace Project1
                     collisionDirection = DIRECTION.right;
                 }
             }
+            #region Print to debug console
+            //System.Text.StringBuilder sb = new StringBuilder();
+            sb.Append("COLLISION DIRECTION: " + collisionDirection);
+
+            if (sb.Length > 0)
+                System.Diagnostics.Debug.WriteLine(sb.ToString());
+            #endregion
         }
 
         #region OUTDATED, USES RECTS NOT ENTITIES! Collision Detection (player & room enemies)
