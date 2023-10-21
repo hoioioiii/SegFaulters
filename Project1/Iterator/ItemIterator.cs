@@ -52,16 +52,7 @@ namespace Project1
 
         public static IItem getCurrItem()
         {
-            /*
-            if (back)
-            {
-                moveBack();
-            }
-            else
-            {
-                moveForward();
-            }
-            */
+   
 
             return ENTITY[pointer];
         }
