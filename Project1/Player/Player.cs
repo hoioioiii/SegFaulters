@@ -16,7 +16,7 @@ namespace Project1
         public static Rectangle BoundingBox;
         private GraphicsDeviceManager _graphics;
         private static ContentManager Content;
-        private static Vector2 position;
+        private static Vector2 position = RESPAWN_UP;
 
         public static int[] itemInventory = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
         //this enum is used to access the invetory by item type:

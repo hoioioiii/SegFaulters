@@ -34,23 +34,28 @@ namespace Project1.Collision_Response
             switch (door.direction)
                 {
                     case DIRECTION.up:
-                    Player.setPosition(RESPAWN_UP);
+                        Player.setPosition(RESPAWN_UP);
                         break;
                     case DIRECTION.down:
-                    Player.setPosition(RESPAWN_DOWN);
-
-                    break;
+                        Player.setPosition(RESPAWN_DOWN);
+                        break;
                     case DIRECTION.left:
-                    Player.setPosition(RESPAWN_LEFT);
-
-                    break;
+                        Player.setPosition(RESPAWN_LEFT);
+                        break;
                     case DIRECTION.right:
-                    Player.setPosition(RESPAWN_RIGHT);
-
-                    break;
+                        Player.setPosition(RESPAWN_RIGHT);
+                        break;
                     default:
                         break;
                 }
+
+            #region Print to debug console
+            System.Text.StringBuilder sb = new StringBuilder();
+            sb.Append("door direction: " + door.direction);
+
+            if (sb.Length > 0)
+                System.Diagnostics.Debug.WriteLine(sb.ToString());
+            #endregion
 
             RoomManager.SetActiveRoom(door.destinationRoom);
 

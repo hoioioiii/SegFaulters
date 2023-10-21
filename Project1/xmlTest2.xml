@@ -36,11 +36,11 @@
 			</Walls>
 			<Doors>
 				<Door id="north" xLoc="0" yLoc="0">
-					<DestinationRoom>4</DestinationRoom>
+					<DestinationRoom>3</DestinationRoom>
 					<Locked>True</Locked>
 				</Door>
 				<Door id="east" xLoc="0" yLoc="0">
-					<DestinationRoom>3</DestinationRoom>
+					<DestinationRoom>4</DestinationRoom>
 					<Locked>False</Locked>
 				</Door>
 				<Door id="west" xLoc="0" yLoc="0">

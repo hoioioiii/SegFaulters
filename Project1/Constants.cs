@@ -26,11 +26,15 @@ namespace Project1
             Down
         }
 
+        // used for clamping Link's position and keeping him contained in the level
         public static int roomBoundsMaxX = 660, roomBoundsMaxY = 360, roomBoundsMinX = 90, roomBoundsMinY = 53;
+        
+        // used for spawn and respawn after travelling through doors
         public static Vector2 RESPAWN_LEFT = new Vector2(roomBoundsMaxX * 7/8, roomBoundsMaxY/2);
         public static Vector2 RESPAWN_RIGHT = new Vector2(roomBoundsMaxX * 1/ 8, roomBoundsMaxY / 2);
         public static Vector2 RESPAWN_UP = new Vector2(roomBoundsMaxX /2, roomBoundsMaxY  * 7/ 8);
         public static Vector2 RESPAWN_DOWN = new Vector2(roomBoundsMaxX / 2, roomBoundsMaxY * 1 / 8);
+        
         public static int ENEMY_SPEED = 1;
 
         public static int SCREEN_WIDTH_UPPER = 600;

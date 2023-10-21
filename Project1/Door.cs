@@ -32,21 +32,25 @@ namespace Project1
                     texture = textures[3];
                     xPos = 350;
                     yPos = 16;
+                    this.direction = DIRECTION.up;
                     break;
                 case DIRECTION.down:
                     texture = textures[2];
                     xPos = 350;
                     yPos = 410;
+                    this.direction = DIRECTION.down;
                     break;
                 case DIRECTION.left:
                     texture = textures[0];
                     xPos = 45;
                     yPos = 190;
+                    this.direction = DIRECTION.left;
                     break;
                 case DIRECTION.right:
                     texture = textures[1];
                     xPos = 685;
                     yPos = 190;
+                    this.direction = DIRECTION.right;
                     break;
                 default:
                     break;
