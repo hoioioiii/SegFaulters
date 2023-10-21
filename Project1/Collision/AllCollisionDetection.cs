@@ -65,7 +65,7 @@ namespace Project1
         private static List<IItem> roomItems;
         private static List<IEnvironment> roomDoors;
         private static List<IEnvironment> roomBoundaries;
-
+        private static List<Rectangle> walls;
         private static List<IWeapon> weapons;
         ////TODO: change to interface
         /*
@@ -132,44 +132,64 @@ namespace Project1
             
             DIRECTION collisionDirection = DIRECTION.left;
 
-            
 
-            foreach (var item in roomItems)
-            {
-                isColliding = Player.BoundingBox.Intersects(item.BoundingBox);
-                if (isColliding)
-                {
-                    PlayerCollisionResponse.ItemResponse(item);
-                }
-                /*
-                #region Print to debug console
-                System.Text.StringBuilder sb = new StringBuilder();
-                sb.Append("isColliding: " + isColliding);
 
-                if (sb.Length > 0)
-                    System.Diagnostics.Debug.WriteLine(sb.ToString());
-                #endregion
-                */
-            }
-            
-            foreach (var door in roomDoors)
+            //foreach (var item in roomItems)
+            //{
+            //    isColliding = Player.BoundingBox.Intersects(item.BoundingBox);
+            //    if (isColliding)
+            //    {
+            //        PlayerCollisionResponse.ItemResponse(item);
+            //    }
+            //    /*
+            //    #region Print to debug console
+            //    System.Text.StringBuilder sb = new StringBuilder();
+            //    sb.Append("isColliding: " + isColliding);
+
+            //    if (sb.Length > 0)
+            //        System.Diagnostics.Debug.WriteLine(sb.ToString());
+            //    #endregion
+            //    */
+            //}
+
+            //foreach (var door in roomDoors)
+            //{
+            //    isColliding = Player.BoundingBox.Intersects(door.BoundingBox);
+            //    if (isColliding)
+            //    {
+            //        PlayerCollisionResponse.DoorResponse(door);
+            //    }               
+            //}
+
+            //foreach (var boundary in roomBoundaries)
+            //{
+            //    isColliding = Player.BoundingBox.Intersects(boundary.BoundingBox);
+            //    if (isColliding)
+            //    {
+            //        DetectCollisionDirection(Player.BoundingBox, boundary.BoundingBox, collisionDirection);
+            //        PlayerCollisionResponse.BoundaryResponse(collisionDirection);
+            //    }
+            //    /*
+            //    #region Print to debug console
+            //    System.Text.StringBuilder sb = new StringBuilder();
+            //    sb.Append("isColliding: " + isColliding);
+
+            //    if (sb.Length > 0)
+            //        System.Diagnostics.Debug.WriteLine(sb.ToString());
+            //    #endregion
+            //    */
+            //}
+
+            foreach (var boundary in walls)
             {
-                isColliding = Player.BoundingBox.Intersects(door.BoundingBox);
+                isColliding = Player.BoundingBox.Intersects(boundary);
                 if (isColliding)
                 {
-                    PlayerCollisionResponse.DoorResponse(door);
-                }               
-            }
-            
-            foreach (var boundary in roomBoundaries)
-            {
-                isColliding = Player.BoundingBox.Intersects(boundary.BoundingBox);
-                if (isColliding)
-                {
-                    DetectCollisionDirection(Player.BoundingBox, boundary.BoundingBox, collisionDirection);
+                    DetectCollisionDirection(Player.BoundingBox, boundary, collisionDirection);
                     PlayerCollisionResponse.BoundaryResponse(collisionDirection);
+
                 }
-                /*
+
                 #region Print to debug console
                 System.Text.StringBuilder sb = new StringBuilder();
                 sb.Append("isColliding: " + isColliding);
@@ -177,25 +197,26 @@ namespace Project1
                 if (sb.Length > 0)
                     System.Diagnostics.Debug.WriteLine(sb.ToString());
                 #endregion
-                */
-            }
-            foreach (var enemy in entities)
-            {
-                
-                isColliding = Player.BoundingBox.Intersects(enemy.BoundingBox);
-                if (isColliding)
-                {
-                    DetectCollisionDirection(Player.BoundingBox, enemy.BoundingBox, collisionDirection);
-                    PlayerCollisionResponse.DamageResponse(collisionDirection);
-                }
-                #region Print to debug console
-                System.Text.StringBuilder sb = new StringBuilder();
-                sb.Append("isColliding: " + isColliding);
 
-                if (sb.Length > 0)
-                    System.Diagnostics.Debug.WriteLine(sb.ToString());
-                #endregion
             }
+            //foreach (var enemy in entities)
+            //{
+
+            //    isColliding = Player.BoundingBox.Intersects(enemy.BoundingBox);
+            //    if (isColliding)
+            //    {
+            //        DetectCollisionDirection(Player.BoundingBox, enemy.BoundingBox, collisionDirection);
+            //        PlayerCollisionResponse.DamageResponse(collisionDirection);
+            //    }
+            //    #region Print to debug console
+            //    System.Text.StringBuilder sb = new StringBuilder();
+            //    sb.Append("isColliding: " + isColliding);
+
+            //    if (sb.Length > 0)
+            //        System.Diagnostics.Debug.WriteLine(sb.ToString());
+            //    #endregion
+            //}
+
             //foreach (var enemyAttack in enemyAttackInstances)
             //{
             //    isColliding = link.BoundingBox.Intersects(enemyAttack);
@@ -271,12 +292,13 @@ namespace Project1
             //link = GameOBJ.getLink();
             //Game1.Player();
             roomBoundaries = GameOBJ.getEnvironmentList();
+            walls = GameOBJ.getBoundarys();
             weapons = GameOBJ.getWeaponList();
             roomItems = GameOBJ.getItemList();
 
             roomDoors = GameOBJ.getDoorList();
             DetectAllCollisionsLinkEntity();
-            DetectAllCollisionsEnemiesEntity();
+            //DetectAllCollisionsEnemiesEntity();
         }
 
 

@@ -39,7 +39,10 @@ namespace Project1.Collision_Response
         {
             Vector2 playerPosition = new Vector2(Player.getUserPos().X, Player.getUserPos().Y);
             playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, Player.playerSpeed);
-            Player.setPosition((int)playerPosition.X, (int)playerPosition.Y);
+            //Player.setPosition((int)playerPosition.X, (int)playerPosition.Y);
+            Player.setPosition(0,0);
+          
+            System.Diagnostics.Debug.WriteLine(Player.getPosition().Item1);
         }
 
         /*

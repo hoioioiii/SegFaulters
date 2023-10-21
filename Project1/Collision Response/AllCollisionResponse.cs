@@ -25,17 +25,20 @@ namespace Project1.Collision
         {
             switch (directon)
             {
-                case DIRECTION.left:
-                    position = position + new Vector2(knockbackDist, 0);
-                    break;
-                case DIRECTION.right:
-                    position = position + new Vector2(-knockbackDist, 0);
-                    break;
-                case DIRECTION.down:
-                    position = position + new Vector2(0, knockbackDist);
-                    break;
-                case DIRECTION.up:
-                    position = position + new Vector2(0, -knockbackDist);
+                //case DIRECTION.left:
+                //    position = position + new Vector2(knockbackDist, 0);
+                //    break;
+                //case DIRECTION.right:
+                //    position = position + new Vector2(-knockbackDist, 0);
+                //    break;
+                //case DIRECTION.down:
+                //    position = position + new Vector2(0, knockbackDist);
+                //    break;
+                //case DIRECTION.up:
+                //    position = position + new Vector2(0, -knockbackDist);
+                //    break;
+                default:
+                    position = (new Vector2(0, 0));
                     break;
             }
 
