@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/fairy1.png</SourceFile>
-  <SourceTime>2023-10-14T18:29:00.6766217-04:00</SourceTime>
-  <DestFile>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/bin/DesktopGL/fairy1.xnb</DestFile>
-  <DestTime>2023-10-20T03:04:04.068118-04:00</DestTime>
+  <SourceFile>C:/Users/Jachi/source/repos/SegFaulters/segf4.1/Project1/Content/fairy1.png</SourceFile>
+  <SourceTime>2023-10-22T17:05:42.5671081-04:00</SourceTime>
+  <DestFile>C:/Users/Jachi/source/repos/SegFaulters/segf4.1/Project1/Content/bin/DesktopGL/fairy1.xnb</DestFile>
+  <DestTime>2023-10-22T17:54:21.6691344-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

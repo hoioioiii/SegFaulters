@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/DINO.png</SourceFile>
-  <SourceTime>2023-10-14T18:29:00.5922086-04:00</SourceTime>
-  <DestFile>C:/Users/tinal/source/repos/Seg3.4/Project1/Content/bin/DesktopGL/DINO.xnb</DestFile>
-  <DestTime>2023-10-20T03:04:03.9679026-04:00</DestTime>
+  <SourceFile>C:/Users/Jachi/source/repos/SegFaulters/segf4.1/Project1/Content/DINO.png</SourceFile>
+  <SourceTime>2023-10-22T17:05:42.5164633-04:00</SourceTime>
+  <DestFile>C:/Users/Jachi/source/repos/SegFaulters/segf4.1/Project1/Content/bin/DesktopGL/DINO.xnb</DestFile>
+  <DestTime>2023-10-22T17:54:21.5672588-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

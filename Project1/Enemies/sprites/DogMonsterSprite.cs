@@ -67,7 +67,12 @@ namespace Project1
             {
                 int x = movement_manager.getPosition().Item1;
                 int y = movement_manager.getPosition().Item2;
-                weapon.Update();
+
+                if (weapon!= null) //REMOVE LATER
+                {
+                    weapon.Update();
+                }
+                
             }
             else
             {
