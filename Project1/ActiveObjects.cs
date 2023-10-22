@@ -68,6 +68,8 @@ namespace Project1
             items.Clear();
             entities.Clear();
             weapons.Clear();
+           // doors.Clear();
+            blocks.Clear();
         }
 
         public Player getLink() { return link; }

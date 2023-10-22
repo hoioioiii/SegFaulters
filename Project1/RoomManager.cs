@@ -83,7 +83,7 @@ namespace Project1
         public static void DrawActiveRoom()
         {
             
-            for (int i = 0; i < activeList.Count; ++i)
+            for (int i = 0; i < activeList.Count-1; i++)
             {
                 if (activeList[i])
                 {
