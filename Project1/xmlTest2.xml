@@ -29,126 +29,7 @@
 	</link>
 	<Room number="0">
 		<Enemies>
-			<Keese id="1" xLoc="5" yLoc="1">
-				<Stats>
-					<Health>0</Health>
-					<Strength>0</Strength>
-					<Stamina>0</Stamina>
-					<Damage>0</Damage>
-				</Stats>
-				<Drops>
-				</Drops>
-			</Keese>
-			<Stalfo id="1" xLoc="0" yLoc="3">
-				<Stats>
-					<Health>0</Health>
-					<Strength>0</Strength>
-					<Stamina>0</Stamina>
-					<Damage>0</Damage>
-				</Stats>
-				<Drops>
-				</Drops>
-			</Stalfo>
-			<Gel id="1" xLoc="4" yLoc="6">
-				<Stats>
-					<Health>0</Health>
-					<Strength>0</Strength>
-					<Stamina>0</Stamina>
-					<Damage>0</Damage>
-				</Stats>
-				<Drops>
-				</Drops>
-			</Gel>
-			<BladeTrap id="1" xLoc="6" yLoc="0">
-				<Stats>
-					<Health>0</Health>
-					<Strength>0</Strength>
-					<Stamina>0</Stamina>
-\					<Damage>0</Damage>
-				</Stats>
-				<Drops>
-				</Drops>
-			</BladeTrap>
-			<Goriya id="1" xLoc="6" yLoc="3">
-				<Stats>
-					<Health>0</Health>
-					<Strength>0</Strength>
-					<Stamina>0</Stamina>
-					<Damage>0</Damage>
-				</Stats>
-				<Drops>
-				</Drops>
-			</Goriya>
-			<Aquamentus id="1" xLoc="10" yLoc="1">
-				<Stats>
-					<Health>0</Health>
-					<Strength>0</Strength>
-					<Stamina>0</Stamina>
-					<Damage>0</Damage>
-				</Stats>
-				<Drops>
-				</Drops>
-			</Aquamentus>
-			<Wallmaster id="1" xLoc="5" yLoc="0">
-				<Stats>
-					<Health>0</Health>
-					<Strength>0</Strength>
-					<Stamina>0</Stamina>
-					<Damage>0</Damage>
-				</Stats>
-				<Drops>
-				</Drops>
-			</Wallmaster>
-			<Snake id="1" xLoc="5" yLoc="0">
-				<Stats>
-					<Health>0</Health>
-					<Strength>0</Strength>
-					<Stamina>0</Stamina>
-					<Damage>0</Damage>
-				</Stats>
-				<Drops>
-				</Drops>
-			</Snake>
-			<OldMan id="1" xLoc="5" yLoc="0">
-				<Stats>
-					<Health>0</Health>
-					<Strength>0</Strength>
-					<Stamina>0</Stamina>
-					<Damage>0</Damage>
-				</Stats>
-				<Drops>
-				</Drops>
-			</OldMan>
-			<Merchant id="1" xLoc="5" yLoc="0">
-				<Stats>
-					<Health>0</Health>
-					<Strength>0</Strength>
-					<Stamina>0</Stamina>
-					<Damage>0</Damage>
-				</Stats>
-				<Drops>
-				</Drops>
-			</Merchant>
-			<Flame id="1" xLoc="5" yLoc="0">
-				<Stats>
-					<Health>0</Health>
-					<Strength>0</Strength>
-					<Stamina>0</Stamina>
-					<Damage>0</Damage>
-				</Stats>
-				<Drops>
-				</Drops>
-			</Flame>
-			<Dino id="1" xLoc="5" yLoc="0">
-				<Stats>
-					<Health>0</Health>
-					<Strength>0</Strength>
-					<Stamina>0</Stamina>
-					<Damage>0</Damage>
-				</Stats>
-				<Drops>
-				</Drops>
-			</Dino>
+			
 		</Enemies>
 
 		<Environment>
@@ -607,7 +488,7 @@
 					<DestinationRoom>13</DestinationRoom>
 					<Locked>True</Locked>
 				</Door>
-				<Door id="east" xLoc="0" yLoc="0">
+				<Door id="west" xLoc="0" yLoc="0">
 					<DestinationRoom>5</DestinationRoom>
 					<Locked>False</Locked>
 				</Door>
@@ -765,6 +646,10 @@
 				</Door>
 				<Door id="east" xLoc="0" yLoc="0">
 					<DestinationRoom>9</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>7</DestinationRoom>
 					<Locked>False</Locked>
 				</Door>
 			</Doors>
@@ -1189,6 +1074,10 @@
 				</Door>
 				<Door id="east" xLoc="0" yLoc="0">
 					<DestinationRoom>14</DestinationRoom>
+					<Locked>False</Locked>
+				</Door>
+				<Door id="south" xLoc="0" yLoc="0">
+					<DestinationRoom>6</DestinationRoom>
 					<Locked>False</Locked>
 				</Door>
 			</Doors>
