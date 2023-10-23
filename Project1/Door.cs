@@ -21,11 +21,10 @@ namespace Project1
 
         public Rectangle BoundingBox { get; private set; }
         public Door(Texture2D[]textures, DIRECTION direction, int destinationRoom, bool isLocked)
-        {
-            
+        {           
             this.destinationRoom = destinationRoom;
             this.isLocked = isLocked;
-
+             
             switch (direction)
             {
                 case DIRECTION.up:

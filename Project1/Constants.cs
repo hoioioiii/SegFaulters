@@ -31,9 +31,9 @@ namespace Project1
 
         // used for spawn and respawn after travelling through doors
         public static Vector2 RESPAWN_LEFT = new Vector2(roomBoundsMaxX * 7 / 8, roomBoundsMaxY / 2);
-        public static Vector2 RESPAWN_RIGHT = new Vector2(roomBoundsMaxX * 1 / 8, roomBoundsMaxY / 2);
+        public static Vector2 RESPAWN_RIGHT = new Vector2((int)(roomBoundsMaxX * 1.5) / 8, roomBoundsMaxY / 2);
         public static Vector2 RESPAWN_UP = new Vector2(roomBoundsMaxX / 2, roomBoundsMaxY * 7 / 8);
-        public static Vector2 RESPAWN_DOWN = new Vector2(roomBoundsMaxX / 2, roomBoundsMaxY * 1 / 8);
+        public static Vector2 RESPAWN_DOWN = new Vector2(roomBoundsMaxX / 2, (int)(roomBoundsMaxY * 1.5) / 8);
 
         public static int ENEMY_SPEED = 1;
 
