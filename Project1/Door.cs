@@ -23,7 +23,7 @@ namespace Project1
         public Door(Texture2D[]textures, DIRECTION direction, int destinationRoom, bool isLocked)
         {
             
-            this.destinationRoom = destinationRoom - 1;
+            this.destinationRoom = destinationRoom;
             this.isLocked = isLocked;
 
             switch (direction)

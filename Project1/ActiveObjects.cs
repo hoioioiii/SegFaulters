@@ -68,7 +68,7 @@ namespace Project1
             items.Clear();
             entities.Clear();
             weapons.Clear();
-           // doors.Clear();
+            doors.Clear();
             blocks.Clear();
         }
 
