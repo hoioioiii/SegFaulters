@@ -8,7 +8,7 @@ namespace Project1
 {
     public class LinkSprite : IPlayerSprite
     {
-        private static int spriteScale = 4;
+        private static int spriteScale = 3;
         public static int linkDirection = 2;
 
         private static Texture2D[] stillFrames = new Texture2D[PLAYER_FRAMES];

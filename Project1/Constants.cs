@@ -27,7 +27,7 @@ namespace Project1
         }
 
         // used for clamping Link's position and keeping him contained in the level
-        public static int roomBoundsMaxX = 660, roomBoundsMaxY = 360, roomBoundsMinX = 90, roomBoundsMinY = 53;
+        public static int roomBoundsMaxX = 660, roomBoundsMaxY = 365, roomBoundsMinX = 90, roomBoundsMinY = 53;
 
         // used for spawn and respawn after travelling through doors
         public static Vector2 RESPAWN_LEFT = new Vector2(roomBoundsMaxX * 7 / 8, roomBoundsMaxY / 2);
@@ -265,7 +265,7 @@ namespace Project1
         public static int LINK_Y = 300;
 
         public static int BLOCK_DIMENSION = 48;
-        public static int LINK_BOUNDING_DIMENSION = 40;
+        public static int LINK_BOUNDING_DIMENSION = 30;
 
 
 
