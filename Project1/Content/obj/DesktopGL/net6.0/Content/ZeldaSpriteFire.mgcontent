@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Jachi/source/repos/SegFaulters/segf4.1/Project1/Content/ZeldaSpriteFire.gif</SourceFile>
-  <SourceTime>2023-10-22T17:05:42.5214632-04:00</SourceTime>
-  <DestFile>C:/Users/Jachi/source/repos/SegFaulters/segf4.1/Project1/Content/bin/DesktopGL/Content/ZeldaSpriteFire.xnb</DestFile>
-  <DestTime>2023-10-22T17:08:18.6030397-04:00</DestTime>
+  <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/ZeldaSpriteFire.gif</SourceFile>
+  <SourceTime>2023-10-01T04:53:02.5311146-04:00</SourceTime>
+  <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/ZeldaSpriteFire.xnb</DestFile>
+  <DestTime>2023-10-23T19:11:00.2509229-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
