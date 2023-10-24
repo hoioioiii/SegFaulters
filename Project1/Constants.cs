@@ -276,6 +276,8 @@ namespace Project1
         public static int PLAYER_FRAMES = 4;
         public static int PLAYER_R = 1;
 
+        public enum WEAPONS { bomb = 0, bow = 1, boom = 2, orb = 3, sword = 4 };
+
         //items vars
         public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12 };
         public static int NUM_ITEMS = 13;

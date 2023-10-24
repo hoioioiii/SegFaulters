@@ -11,7 +11,7 @@ namespace Project1
     internal class ArrowSpritePlayer : ISpriteWeapon
     {
 
-        private Texture2D[] texture;
+        private Texture2D[] texture = new Texture2D[4];
         private int userX;
         private int userY;
         private int weaponX;

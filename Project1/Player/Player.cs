@@ -30,7 +30,7 @@ namespace Project1
         public static int playerSpeed = 5;
 
         // cardinal direction player is facing, starts with up on 1 and progresses clockwise (e.g. 4 is left-facing)
-        private static int linkDirection = 2;
+        private static int linkDirection = (int)DIRECTION.right;
 
         // frames used for still and animation
         public static Texture2D linkRight1;
@@ -74,6 +74,7 @@ namespace Project1
         // link only has two frames of animation
         private static bool isSecondFrame = false;
 
+        private static IWeapon[] weaponsArray = new IWeapon[4];
         private static IWeapon weapon;
         private static IWeapon spriteWeapon;
 
@@ -99,6 +100,13 @@ namespace Project1
             DamageTimer = Constants.INVINCIBILITY_SECONDS;
             FlashTimer = Constants.FLASHTIME;
 
+            //DEBUG: I can't get this to work :( its throwing errors in arrow files when I run
+            //IWeapon[] weaponsArray = { new Bomb(), new Arrow2(), new Boomerange(), new Orb()};
+            weaponsArray[0] = new Bomb();
+            //weaponsArray[1] = new Arrow2();
+            //weaponsArray[2] = new Boomerange();
+            //weaponsArray[3] = new Orb();
+
             sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
 
             weapon = new Bomb();
@@ -109,6 +117,8 @@ namespace Project1
 
         public static void LoadContent(ContentManager content)
         {
+            //Try getting rid of this and use only sprite factory stuff
+
             // still and movement
             linkRight1 = content.Load<Texture2D>("linkRight1");
             linkLeft1 = content.Load<Texture2D>("linkLeft1");
@@ -141,7 +151,7 @@ namespace Project1
             // set bounding box position to link position
             BoundingBox.Location = new Point((int)position.X + 5, (int)position.Y + 20);
             // move link to bounding box
-            sprite.Update(linkDirection, position);
+            //sprite.Update(linkDirection, position);
             // call collision and pass in link
 
 
@@ -210,21 +220,19 @@ namespace Project1
                     position.X -= playerSpeed;
                     position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
                     isMoving = true;
-                    linkDirection = 4;
+                    linkDirection = (int)DIRECTION.left;
 
                     //posX -= playerSpeed;
 
 
-                    sprite.Update(4, position);
                 }
                 else if (keystate.IsKeyDown(Keys.Down) || keystate.IsKeyDown(Keys.S))
                 {
                     position.Y += playerSpeed;
                     position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
                     isMoving = true;
-                    linkDirection = 3;
+                    linkDirection = (int)DIRECTION.down;
                     //posX += playerSpeed;
-                    sprite.Update(3, position);
 
                 }
                 else if (keystate.IsKeyDown(Keys.Up) || keystate.IsKeyDown(Keys.W))
@@ -232,18 +240,16 @@ namespace Project1
                     position.Y -= playerSpeed;
                     position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
                     isMoving = true;
-                    linkDirection = 1;
+                    linkDirection = (int)DIRECTION.up;
                     //posY -= playerSpeed;
-                    sprite.Update(1, position);
                 }
                 else if (keystate.IsKeyDown(Keys.Right) || keystate.IsKeyDown(Keys.D))
                 {
                     position.X += playerSpeed;
                     position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
                     isMoving = true;
-                    linkDirection = 2;
+                    linkDirection = (int)DIRECTION.right;
                     //posY += playerSpeed;
-                    sprite.Update(2, position);
                 }
             }
 
@@ -323,73 +329,82 @@ namespace Project1
                     {
                         switch (linkDirection)
                         {
+                            //get rid of the switch case since you can just
+                            //call draw with the direction variable
                             case 1:
                                 Sword.Draw(position, linkDirection);
-                                sprite.Draw(spriteBatch, "attack");
+                                sprite.Draw(spriteBatch, "attack", linkDirection, position);
                                 break;
                             case 2:
                                 Sword.Draw(position, linkDirection);
-                                sprite.Draw(spriteBatch, "attack");
+                                sprite.Draw(spriteBatch, "attack", linkDirection, position);
                                 break;
                             case 3:
                                 Sword.Draw(position, linkDirection);
-                                sprite.Draw(spriteBatch, "attack");
+                                sprite.Draw(spriteBatch, "attack", linkDirection, position);
                                 break;
                             case 4:
                                 Sword.Draw(position, linkDirection);
-                                sprite.Draw(spriteBatch, "attack");
+                                sprite.Draw(spriteBatch, "attack", linkDirection, position);
                                 break;
                         }
                     }
+                    //pass corresponding index of weapon to Attack() method so get
+                    //rid of these if branches
                     else if (isAttackingWithBoomerang)
                     {
 
                         Attack("boomerange");
 
-                        sprite.Draw(spriteBatch, "attack");
+                        sprite.Draw(spriteBatch, "attack", linkDirection, position);
                     }
                     else if (isAttackingWithBow)
                     {
                         
                         Attack("bow");
                     
-                        sprite.Draw(spriteBatch, "attack");
+                        sprite.Draw(spriteBatch, "attack", linkDirection, position);
                     }
                     else if (isAttackingWithBomb)
                     {
                         Attack("bomb");
-                        sprite.Draw(spriteBatch, "attack");
+                        sprite.Draw(spriteBatch, "attack", linkDirection, position);
                     }
                 }
                 else
                 {
                     if (isMoving)
                     {
+                        //can be condensed since it should default to still
+                        //when its is not on secondFrame && isMoving
                         CheckFrameTimer();
                         if (isSecondFrame)
                         {
                             //tell sprite how to draw
-                            sprite.Draw(spriteBatch, "move");
+                            sprite.Draw(spriteBatch, "move", linkDirection, position);
 
                         }
                         else
                         {
                             //tell sprite how to draw
-                            sprite.Draw(spriteBatch, "still");
+                            sprite.Draw(spriteBatch, "still", linkDirection, position);
                         }
                     }
                     else
                     {
                         //tell sprite how to draw
-                        sprite.Draw(spriteBatch, "still");
+                        sprite.Draw(spriteBatch, "still", linkDirection, position);
 
                     }
                 }
             }
         }
 
+        //change weaponType to index corressponding to array of weapon objects
         public static void Attack(string weaponType)
         {
+            //set spriteWeapon to element in weapon array to get rid of these
+            //if branches
             switch (weaponType)
             {
                 case "bomb":
@@ -484,38 +499,38 @@ namespace Project1
 
         public static void left()
         {
+            //does flipping the following two lines make link walk slower?
             position.X -= playerSpeed;
             position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
             isMoving = true;
-            linkDirection = 4;
-            sprite.Update(4, position);
+            linkDirection = (int)DIRECTION.left;
         }
 
         public static void down()
         {
+            //does flipping the following two lines make link walk slower?
             position.Y += playerSpeed;
             position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
             isMoving = true;
-            linkDirection = 3;
-            sprite.Update(3, position);
+            linkDirection = (int)DIRECTION.down;
         }
 
         public static void up()
         {
+            //does flipping the following two lines make link walk slower?
             position.Y -= playerSpeed;
             position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
             isMoving = true;
-            linkDirection = 1;
-            sprite.Update(1, position);
+            linkDirection = (int)DIRECTION.up;
         }
 
         public static void right()
         {
+            //does flipping the following two lines make link walk slower?
             position.X += playerSpeed;
             position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
             isMoving = true;
-            linkDirection = 2;
-            sprite.Update(2, position);
+            linkDirection = (int)DIRECTION.right;
         }
 
         public static void damage()
