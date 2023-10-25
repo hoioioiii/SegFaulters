@@ -10,6 +10,7 @@ namespace Project1
     internal class WeaponDirectionMovement
     {
         //may delete this class later
+        //NEED TO FIX WEAPON-DIRECT-MOVEMENT to reflect new linkdirection variable
 
         public static int FourDirMove(int pos, int direction, int modifer)
         {

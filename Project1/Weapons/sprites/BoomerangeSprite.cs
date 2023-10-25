@@ -54,8 +54,8 @@ namespace Project1
             offsetX = 0;
             offsetY = 0;
             mod = 1;
-            width = spriteSheet[0].Width;
-            height = spriteSheet[0].Height;
+            //width = spriteSheet[0].Width;
+            //height = spriteSheet[0].Height;
 
             awayfps = 10;
             onWayTime = 0;

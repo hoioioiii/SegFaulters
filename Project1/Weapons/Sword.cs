@@ -49,12 +49,12 @@ namespace Project1
             // Attacks
             switch (linkDirection)
             {
-                case 1:
+                case 2:
                     int swordOffsetX = 0;
                     int swordOffsetY = -50;
                     DrawSword(swordUp, position, swordOffsetX, swordOffsetY);
                     break;
-                case 2:
+                case 0:
                     swordOffsetX = 50;
                     swordOffsetY = 25;
                     DrawSword(swordRight, position, swordOffsetX, swordOffsetY);
@@ -64,7 +64,7 @@ namespace Project1
                     swordOffsetY = 60;
                     DrawSword(swordDown, position, swordOffsetX, swordOffsetY);
                     break;
-                case 4:
+                case 1:
                     swordOffsetX = -50;
                     swordOffsetY = 25;
                     DrawSword(swordLeft, position, swordOffsetX, swordOffsetY);

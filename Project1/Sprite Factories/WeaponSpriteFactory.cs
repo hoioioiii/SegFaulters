@@ -137,10 +137,10 @@ namespace Project1
             //BowSheet[2] = content.Load<Texture2D>("bowLeft");
             //BowSheet[3] = content.Load<Texture2D>("bowRight");
 
-            ArrowSheet[0] = content.Load<Texture2D>("arrowUp");
-            ArrowSheet[1] = content.Load<Texture2D>("arrowRight");
-            ArrowSheet[2] = content.Load<Texture2D>("arrowDown");
-            ArrowSheet[3] = content.Load<Texture2D>("arrowLeft");
+            ArrowSheet[(int)DIRECTION.up] = content.Load<Texture2D>("arrowUp");
+            ArrowSheet[(int)DIRECTION.right] = content.Load<Texture2D>("arrowRight");
+            ArrowSheet[(int)DIRECTION.down] = content.Load<Texture2D>("arrowDown");
+            ArrowSheet[(int)DIRECTION.left] = content.Load<Texture2D>("arrowLeft");
 
             //// Attack using weapon or item
             BombSheet[0] = content.Load<Texture2D>("ZeldaSpriteBomb");

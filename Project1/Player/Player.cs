@@ -74,8 +74,9 @@ namespace Project1
         // link only has two frames of animation
         private static bool isSecondFrame = false;
 
-        private static IWeapon[] weaponsArray = new IWeapon[4];
+        private static IWeapon[] weaponsArray;
         private static IWeapon weapon;
+        private static int currentWeaponIndex;
         private static IWeapon spriteWeapon;
 
         private static int onScreen;
@@ -100,9 +101,9 @@ namespace Project1
             DamageTimer = Constants.INVINCIBILITY_SECONDS;
             FlashTimer = Constants.FLASHTIME;
 
-            //DEBUG: I can't get this to work :( its throwing errors in arrow files when I run
-            //IWeapon[] weaponsArray = { new Bomb(), new Arrow2(), new Boomerange(), new Orb()};
-            weaponsArray[0] = new Bomb();
+            //IWeapon[] temp = { new Bomb(), new Arrow2(), new Boomerange()};
+            //weaponsArray = temp;
+            //weaponsArray[0] = new Bomb();
             //weaponsArray[1] = new Arrow2();
             //weaponsArray[2] = new Boomerange();
             //weaponsArray[3] = new Orb();
@@ -118,6 +119,9 @@ namespace Project1
         public static void LoadContent(ContentManager content)
         {
             //Try getting rid of this and use only sprite factory stuff
+
+            IWeapon[] temp = { new Bomb(), new Arrow2(), new Boomerange()};
+            weaponsArray = temp;
 
             // still and movement
             linkRight1 = content.Load<Texture2D>("linkRight1");
@@ -172,12 +176,12 @@ namespace Project1
             #endregion
 
             // Move our sprite based on arrow keys being pressed:
-
+            
             if (isAttacking)
             {
                 WaitForAttack();
             }
-
+            
 
             // Link can't move when attacking
             if (!isAttacking)
@@ -194,18 +198,21 @@ namespace Project1
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBoomerang = true;
+                    currentWeaponIndex = (int)WEAPONS.boom;
                 }
                 else if (keystate.IsKeyDown(Keys.U))
                 {
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBow = true;
+                    currentWeaponIndex = (int)WEAPONS.bow;
                 }
                 else if (keystate.IsKeyDown(Keys.B))
                 {
                     // attack using his sword
                     isAttacking = true;
                     isAttackingWithBomb = true;
+                    currentWeaponIndex = (int)WEAPONS.bomb;
 
                     isAttackingWithSword = false;
                     isAttackingWithBoomerang = false;
@@ -278,11 +285,12 @@ namespace Project1
             {
 
             }
-
+            
             if (remainOnScreen)
             {
                 spriteWeapon.Update();
             }
+            
         }
 
         public static Rectangle getPositionAndRectangle()
@@ -311,7 +319,7 @@ namespace Project1
             FrameTimer -= elapsedSeconds;
 
             CheckOnScreen();
-
+            
             if (remainOnScreen)
             {
                 spriteWeapon.Draw();
@@ -321,12 +329,17 @@ namespace Project1
                 onScreen = 0;
                 remainOnScreen = false;
             }
+            
             if (renderLink)
             {
                 if (isAttacking)
                 {
                     if (isAttackingWithSword)
                     {
+                        Sword.Draw(position, linkDirection);
+                        sprite.Draw(spriteBatch, "attack", linkDirection, position);
+
+                        /*
                         switch (linkDirection)
                         {
                             //get rid of the switch case since you can just
@@ -348,28 +361,38 @@ namespace Project1
                                 sprite.Draw(spriteBatch, "attack", linkDirection, position);
                                 break;
                         }
+                        */
                     }
                     //pass corresponding index of weapon to Attack() method so get
                     //rid of these if branches
+                    else
+                    {
+                        Attack(currentWeaponIndex);
+
+                        sprite.Draw(spriteBatch, "attack", linkDirection, position);
+
+                    }
+
+                    /*
                     else if (isAttackingWithBoomerang)
                     {
-
-                        Attack("boomerange");
+                        Attack((int)WEAPONS.boom);
 
                         sprite.Draw(spriteBatch, "attack", linkDirection, position);
                     }
                     else if (isAttackingWithBow)
                     {
                         
-                        Attack("bow");
+                        Attack((int)WEAPONS.bow);
                     
                         sprite.Draw(spriteBatch, "attack", linkDirection, position);
                     }
                     else if (isAttackingWithBomb)
                     {
-                        Attack("bomb");
+                        Attack((int)WEAPONS.bomb);
                         sprite.Draw(spriteBatch, "attack", linkDirection, position);
                     }
+                    */
                 }
                 else
                 {
@@ -389,6 +412,7 @@ namespace Project1
                             //tell sprite how to draw
                             sprite.Draw(spriteBatch, "still", linkDirection, position);
                         }
+                        
                     }
                     else
                     {
@@ -401,10 +425,15 @@ namespace Project1
         }
 
         //change weaponType to index corressponding to array of weapon objects
-        public static void Attack(string weaponType)
+        public static void Attack(int weaponType)
         {
             //set spriteWeapon to element in weapon array to get rid of these
             //if branches
+
+            //weapon = weaponsArray[weaponType];
+            spriteWeapon = weaponsArray[weaponType];
+
+            /*
             switch (weaponType)
             {
                 case "bomb":
@@ -427,6 +456,8 @@ namespace Project1
                     break;
 
             }
+            */
+
             remainOnScreen = true;
             spriteWeapon.Attack();
             spriteWeapon.Draw();
@@ -479,6 +510,7 @@ namespace Project1
             }
         }
 
+        //Command Functions
         public static void attackSword()
         {
             isAttacking = true;
@@ -489,12 +521,21 @@ namespace Project1
         {
             isAttacking = true;
             isAttackingWithBoomerang = true;
+            currentWeaponIndex = (int)WEAPONS.boom;
         }
 
         public static void attackBow()
         {
             isAttacking = true;
             isAttackingWithBow = true;
+            currentWeaponIndex = (int)WEAPONS.bow;
+        }
+
+        public static void attackBomb()
+        {
+            isAttacking = true;
+            isAttackingWithBomb = true;
+            currentWeaponIndex = (int)WEAPONS.bomb;
         }
 
         public static void left()
