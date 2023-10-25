@@ -12,30 +12,44 @@ namespace Project1
         private ICommand action;
 
         private ButtonState prev_state;
+        bool buttonDown; 
         public MouseController(Game1 game1)
 		{
             GAME_OBJ = game1;
+            buttonDown = false;
         }
 
         public void Update()
 		{
 
 
-
-
-            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+            // Update has been fixed to where if the mouse button is pressed, only one exectute is called and doesn't get called again until 
+            // all mouse buttons have been realeased. 
+            if(!buttonDown)
             {
+                if (Mouse.GetState().LeftButton == ButtonState.Pressed)
+                {
 
-                
 
-                action = new RoomIterateBack();
-                action.Execute();
-            }
-            else if (Mouse.GetState().RightButton == ButtonState.Pressed)
+
+                    action = new RoomIterateBack();
+                    action.Execute();
+                    buttonDown = true;
+                }
+                else if (Mouse.GetState().RightButton == ButtonState.Pressed)
+                {
+                    action = new RoomIterateForward();
+                    action.Execute();
+                    buttonDown = true;
+                }
+            } else
             {
-                action = new RoomIterateForward();
-                action.Execute();
+                if (Mouse.GetState().LeftButton == ButtonState.Released && Mouse.GetState().RightButton == ButtonState.Released)
+                {
+                    buttonDown = false;
+                }
             }
+           
 
         }
 
