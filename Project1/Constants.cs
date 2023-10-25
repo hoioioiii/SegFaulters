@@ -26,16 +26,18 @@ namespace Project1
             Down
         }
 
+        public static int FRAME_BUFFER = 320;
+
         // used for clamping Link's position and keeping him contained in the level
-        public static int roomBoundsMaxX = 660, roomBoundsMaxY = 365, roomBoundsMinX = 90, roomBoundsMinY = 53;
+        public static int roomBoundsMaxX = 660, roomBoundsMaxY = 365 + FRAME_BUFFER, roomBoundsMinX = 90, roomBoundsMinY = 53 + FRAME_BUFFER;
 
         // used for spawn and respawn after travelling through doors
-        public static Vector2 RESPAWN_LEFT = new Vector2(roomBoundsMaxX * 7 / 8, roomBoundsMaxY / 2);
-        public static Vector2 RESPAWN_RIGHT = new Vector2((int)(roomBoundsMaxX * 1.5) / 8, roomBoundsMaxY / 2);
-        public static Vector2 RESPAWN_UP = new Vector2(roomBoundsMaxX / 2, roomBoundsMaxY * 7 / 8);
-        public static Vector2 RESPAWN_DOWN = new Vector2(roomBoundsMaxX / 2, (int)(roomBoundsMaxY * 1.5) / 8);
+        public static Vector2 RESPAWN_LEFT = new Vector2((int)(roomBoundsMaxX * 7.8 / 8), (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
+        public static Vector2 RESPAWN_RIGHT = new Vector2((int)(roomBoundsMaxX * 1.3) / 8, (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
+        public static Vector2 RESPAWN_UP = new Vector2((roomBoundsMaxX - roomBoundsMinX) / 2 + roomBoundsMinX+ 5, roomBoundsMaxY - 10);
+        public static Vector2 RESPAWN_DOWN = new Vector2((roomBoundsMaxX - roomBoundsMinX) / 2 + roomBoundsMinX + 5, roomBoundsMinY + 10);
 
-        public static int ENEMY_SPEED = 1;
+        public static int ENEMY_SPEED = 11;
 
         public static int SCREEN_WIDTH_UPPER = 600;
         public static int SCREEN_WIDTH_LOWER = 0;

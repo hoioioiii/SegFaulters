@@ -12,10 +12,9 @@ namespace Project1
     public static class EnvironmentLoader
     {
         private static Texture2D levelBackground;
-        public static Dictionary<(int, int), (int, int)> blockPositionDictionary;
         private static IEnvironment[] blocksArray;
         private static IEnvironment[] doorArray;
-        private static Texture2D[] doorSpriteArray;
+        private static Texture2D[] doorSpriteArray;        
 
         public static void LoadContent(ContentManager content)
         {
@@ -30,18 +29,6 @@ namespace Project1
             doorSpriteArray[1] = content.Load<Texture2D>("DoorEAST");
             doorSpriteArray[2] = content.Load<Texture2D>("DoorSOUTH");
             doorSpriteArray[3] = content.Load<Texture2D>("DoorNORTH");
-
-            blockPositionDictionary = new Dictionary<(int, int), (int, int)>(); //<(row, col), (posX, posY)>
-            //load in blockPositionDictionary 7 rows x 12 columns
-            for (int row = 0; row < 7; row++) //per 7 rows
-            {
-                for(int col = 0; col < 12; col++) //12 columns
-                {
-                    //114, 75 is the starting point of the grid
-                    //48 is the width/height of each block
-                    blockPositionDictionary.Add((row, col), (114 + BLOCK_DIMENSION * (col), 75 + BLOCK_DIMENSION * (row)));
-                }
-            }
         }
 
         //loads blocks given data of row,col and the texture of the block
@@ -52,8 +39,10 @@ namespace Project1
             for (int i = 0; i < blocksToLoad.Length; i++)
             {
                 Texture2D texture = EnvironmentIterator.getCurrEnemy();
-                int posX = blockPositionDictionary[blocksToLoad[i]].Item1;
-                int posY = blockPositionDictionary[blocksToLoad[i]].Item2;
+                (int, int) pos = PositionGrid.getPosBasedOnGrid(blocksToLoad[i].Item1, blocksToLoad[i].Item2);
+                int posX = pos.Item1;
+                int posY = pos.Item2;
+
                 blocksArray[i] = new CurrentBlock(texture, posX, posY);
                 Game1.GameObjManager.addNewEnvironment(blocksArray[i]);
             }
@@ -109,7 +98,7 @@ namespace Project1
         //fix tom
         public static void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(levelBackground, new Rectangle(17, -22, levelBackground.Width * 3, levelBackground.Height * 3), Color.White);
+            spriteBatch.Draw(levelBackground, new Rectangle(17, -22 + FRAME_BUFFER, levelBackground.Width * 3, levelBackground.Height * 3), Color.White);
 
             foreach (IEnvironment block in blocksArray)
             {

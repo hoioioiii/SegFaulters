@@ -47,6 +47,7 @@ namespace Project1
 
 
             _graphics = new GraphicsDeviceManager(this);
+            _graphics.PreferredBackBufferHeight = (int)(480 * 1.75);
             Content.RootDirectory = "Content";
             contentLoader = Content;
             IsMouseVisible = true;
