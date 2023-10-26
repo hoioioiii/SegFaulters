@@ -32,6 +32,7 @@ namespace Project1
         // cardinal direction player is facing, starts with up on 1 and progresses clockwise (e.g. 4 is left-facing)
         private static int linkDirection = (int)DIRECTION.right;
 
+        /*
         // frames used for still and animation
         public static Texture2D linkRight1;
         public static Texture2D linkLeft1;
@@ -49,6 +50,7 @@ namespace Project1
         public static Texture2D linkAttackLeft;
         public static Texture2D linkAttackUp;
         public static Texture2D linkAttackDown;
+        */
 
         // attacking metrics
         public static bool isAttacking = false;
@@ -123,6 +125,7 @@ namespace Project1
             IWeapon[] temp = { new Bomb(), new Arrow2(), new Boomerange()};
             weaponsArray = temp;
 
+            /*
             // still and movement
             linkRight1 = content.Load<Texture2D>("linkRight1");
             linkLeft1 = content.Load<Texture2D>("linkLeft1");
@@ -140,6 +143,7 @@ namespace Project1
             linkAttackLeft = content.Load<Texture2D>("linkAttackLeft");
             linkAttackUp = content.Load<Texture2D>("linkAttackUp");
             linkAttackDown = content.Load<Texture2D>("linkAttackDown");
+            */
         }
        
 
@@ -186,6 +190,7 @@ namespace Project1
             // Link can't move when attacking
             if (!isAttacking)
             {
+                
                 if (keystate.IsKeyDown(Keys.Z) || keystate.IsKeyDown(Keys.N))
                 {
                     // attack using his sword
@@ -219,6 +224,7 @@ namespace Project1
                     isAttackingWithBow = false;
 
                 }
+                
 
                 /*
 
@@ -271,12 +277,13 @@ namespace Project1
             }
             */
             //Move(keystate);
-
+            //Is not always returning to display state at end
             if (keystate.IsKeyDown(Keys.E))
             {
                 isDamaged = true;
                 DamageInvincibility();
             }
+            
             if (keystate.IsKeyDown(Keys.T) || keystate.IsKeyDown(Keys.Y))
             {
                 // cycle between which block is currently being shown
@@ -582,7 +589,7 @@ namespace Project1
 
         public static void damage()
         {
-            //isDamaged = true;
+            isDamaged = true;
             DamageInvincibility();
         }
 

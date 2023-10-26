@@ -130,7 +130,8 @@ namespace Project1
             */
 
             //damage
-            MOVE_MAP.Add(Keys.E, new TakeDamage());
+            //not working, is not flashing
+            //MOVE_MAP.Add(Keys.E, new Damage());
             MOVE_MAP.Add(Keys.R, new QuitGame());
             //weapon attacks
             MOVE_MAP.Add(Keys.I, new attackBoomerang());
