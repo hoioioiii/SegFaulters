@@ -220,11 +220,12 @@ namespace Project1
 
                 }
 
-
+                /*
 
                 if (keystate.IsKeyDown(Keys.Left) || keystate.IsKeyDown(Keys.A))
                 {
                     position.X -= playerSpeed;
+                    //room boundary controller, roomBounds var may need to be changed to new values
                     position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
                     isMoving = true;
                     linkDirection = (int)DIRECTION.left;
@@ -258,6 +259,9 @@ namespace Project1
                     linkDirection = (int)DIRECTION.right;
                     //posY += playerSpeed;
                 }
+                */
+                
+                //move method to increment/decrement position depending on direction
             }
 
             /*
@@ -542,9 +546,11 @@ namespace Project1
         {
             //does flipping the following two lines make link walk slower?
             position.X -= playerSpeed;
+            //room boundary controller, roomBounds var may need to be changed to new values
             position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
             isMoving = true;
             linkDirection = (int)DIRECTION.left;
+
         }
 
         public static void down()

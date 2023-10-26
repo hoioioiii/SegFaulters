@@ -81,6 +81,7 @@ namespace Project1
         public static int MAP_TOTAL = 1;
         public static int SWORD_TOTAL = 1;
 
+        //Tina's direction references
         public static int UP = 0;
         public static int RIGHT = 1;
         public static int DOWN = 2;

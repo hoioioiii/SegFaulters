@@ -61,10 +61,14 @@ namespace Project1
         public void GenerateKeyToKeyMap()
         {
             KEY_TO_KEY = new Dictionary<Keys, Keys>();
+
+            //this was causing WASD to not work for some reason
+            /*
             KEY_TO_KEY.Add(Keys.A, Keys.Left);
             KEY_TO_KEY.Add(Keys.W, Keys.Up);
             KEY_TO_KEY.Add(Keys.S, Keys.Down);
             KEY_TO_KEY.Add(Keys.D, Keys.Right);
+            */
             //KEY_TO_KEY.Add(Keys.N, Keys.Z); //Handled elsewhere, needs to be modified to be handled here
             KEY_TO_KEY.Add(Keys.Q, Keys.R);
             KEY_TO_KEY.Add(Keys.NumPad0, Keys.D0);
@@ -101,15 +105,19 @@ namespace Project1
         public void GenerateMOVEMap()
         {
             MOVE_MAP = new Dictionary<Keys, ICommand>();
-            MOVE_MAP.Add(Keys.Down, new MoveDown());
-            MOVE_MAP.Add(Keys.Up, new MoveUp());
-            MOVE_MAP.Add(Keys.Left, new MoveLeft());
-            MOVE_MAP.Add(Keys.Right, new MoveRight());
 
+            
+            //the wasd keys don't work for some reason
             MOVE_MAP.Add(Keys.S, new MoveDown());
             MOVE_MAP.Add(Keys.W, new MoveUp());
             MOVE_MAP.Add(Keys.A, new MoveLeft());
             MOVE_MAP.Add(Keys.D, new MoveRight());
+
+            MOVE_MAP.Add(Keys.Down, new MoveDown());
+            MOVE_MAP.Add(Keys.Up, new MoveUp());
+            MOVE_MAP.Add(Keys.Left, new MoveLeft());
+            MOVE_MAP.Add(Keys.Right, new MoveRight());
+          
 
             MOVE_MAP.Add(Keys.Z, new attackSword());
             MOVE_MAP.Add(Keys.N, new attackSword());

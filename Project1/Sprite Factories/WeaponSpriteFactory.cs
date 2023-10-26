@@ -146,10 +146,10 @@ namespace Project1
             BombSheet[0] = content.Load<Texture2D>("ZeldaSpriteBomb");
             BombSheet[1] = content.Load<Texture2D>("ZeldaSpriteEnemyCloud");
 
-            BoomerangSheet[0] = content.Load<Texture2D>("boomerang1");
-            BoomerangSheet[1] = content.Load<Texture2D>("boomerang2");
-            BoomerangSheet[2] = content.Load<Texture2D>("boomerang3");
-            BoomerangSheet[3] = content.Load<Texture2D>("boomerang4");
+            BoomerangSheet[(int)DIRECTION.up] = content.Load<Texture2D>("boomerang1");
+            BoomerangSheet[(int)DIRECTION.right] = content.Load<Texture2D>("boomerang2");
+            BoomerangSheet[(int)DIRECTION.down] = content.Load<Texture2D>("boomerang3");
+            BoomerangSheet[(int)DIRECTION.left] = content.Load<Texture2D>("boomerang4");
 
             ////need the orbs still
             OrbSheet[0] = content.Load<Texture2D>("orb");

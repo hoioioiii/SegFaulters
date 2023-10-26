@@ -11,6 +11,7 @@ namespace Project1
     {
         //may delete this class later
         //NEED TO FIX WEAPON-DIRECT-MOVEMENT to reflect new linkdirection variable
+        //went from 1-4 to 0-3 for linkDirection variable
 
         public static int FourDirMove(int pos, int direction, int modifer)
         {
