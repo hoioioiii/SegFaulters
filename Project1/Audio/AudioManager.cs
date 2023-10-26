@@ -19,7 +19,7 @@ namespace Project1.Audio
 
             addUI = content.Load<SoundEffect>("Audio\\add ui");
 
-            //zeldaSound = content.Load<SoundEffect>("Audio\\do do do do do DO do do");
+            zeldaSound = content.Load<SoundEffect>("Audio\\zelda sound");
             //  Uncomment the following line will also loop the song
             //  MediaPlayer.IsRepeating = true;
             //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
@@ -29,15 +29,19 @@ namespace Project1.Audio
         {
             MediaPlayer.Play(BGM);
         }
+        public static void StopAllAudio()
+        {
+            MediaPlayer.Stop();
+        }
+
+        public static void ResumeMusic() 
+        {         
+            MediaPlayer.Resume();
+        }
 
         public static void PlaySoundEffect(SoundEffect SFX)
         {
             SFX.Play();
-        }
-
-        public static void StopAllAudio()
-        {
-
-        }
+        }      
     }
 }

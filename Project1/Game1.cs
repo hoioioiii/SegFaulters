@@ -130,6 +130,7 @@ namespace Project1
             //Load Music and start the BGM
             AudioManager.LoadContent(Content);
             AudioManager.PlayMusic();
+            //AudioManager.PlaySoundEffect();
 
             //Load XML File
             LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
