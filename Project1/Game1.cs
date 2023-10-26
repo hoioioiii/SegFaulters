@@ -8,6 +8,7 @@ using System.Collections;
 using static Project1.Constants;
 using System;
 using System.Text;
+using Project1.Audio;
 
 namespace Project1
 {
@@ -126,7 +127,9 @@ namespace Project1
             //Load background
             EnvironmentLoader.LoadContent(Content);
 
-
+            //Load Music and start the BGM
+            AudioManager.LoadContent(Content);
+            AudioManager.PlayMusic();
 
             //Load XML File
             LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
