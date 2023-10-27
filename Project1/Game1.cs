@@ -105,6 +105,7 @@ namespace Project1
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             WeaponSpriteFactory.Instance.LoadAllTextures(Content);
+            PlayerSpriteFactory.Instance.LoadAllTextures(Content);
             /**
              * 
              * Replace all sprites with proper sprites.
@@ -116,11 +117,11 @@ namespace Project1
 
 
 
-            Sword.LoadContent(Content);
-            Arrow.LoadContent(Content);
-            Boomerang.LoadContent(Content);
+            //Sword.LoadContent(Content);
+            //Arrow.LoadContent(Content);
+            //Boomerang.LoadContent(Content);
 
-            PlayerSpriteFactory.Instance.LoadAllTextures(Content);
+            
             Player.LoadContent(Content);
 
             //Load background
@@ -129,8 +130,8 @@ namespace Project1
 
 
             //Load XML File
-            LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
-            //LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
+            //LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
+            LevelLoader.Load("C:\\Users\\tinal\\Source\\Repos\\3.7\\Project1\\xmlTest2.xml");
         }
 
 

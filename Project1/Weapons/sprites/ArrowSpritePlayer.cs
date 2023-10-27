@@ -47,11 +47,11 @@ namespace Project1
             offsetX = 0;
             offsetY = 0;
 
-            //delete later
-            texture[(int)DIRECTION.up] = Game1.ContentManager1.Load<Texture2D>("arrowUp");
-            texture[(int)DIRECTION.right] = Game1.ContentManager1.Load<Texture2D>("arrowRight");
-            texture[(int)DIRECTION.down] = Game1.ContentManager1.Load<Texture2D>("arrowDown");
-            texture[(int)DIRECTION.left] = Game1.ContentManager1.Load<Texture2D>("arrowLeft");
+            ////delete later
+            //texture[(int)DIRECTION.up] = Game1.ContentManager1.Load<Texture2D>("arrowUp");
+            //texture[(int)DIRECTION.right] = Game1.ContentManager1.Load<Texture2D>("arrowRight");
+            //texture[(int)DIRECTION.down] = Game1.ContentManager1.Load<Texture2D>("arrowDown");
+            //texture[(int)DIRECTION.left] = Game1.ContentManager1.Load<Texture2D>("arrowLeft");
 
             width = texture[0].Width;
             height = texture[0].Height;

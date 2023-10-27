@@ -70,3 +70,211 @@ namespace Project1.Weapons.sprites
 }
 
 */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Metadata;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using static Project1.Constants;
+
+namespace Project1
+{
+    internal class SwordSpritePlayer : ISpriteWeapon
+    {
+
+        private Texture2D[] texture = new Texture2D[4];
+        private int userX;
+        private int userY;
+        private int weaponX;
+        private int weaponY;
+
+        public bool swordPlaced { get; private set; }
+        private int direction;
+        private int current_frame;
+        private int total_frame;
+
+        private int elapsedTime;
+        private int fps;
+
+        private int width;
+        private int height;
+
+        private int offsetX;
+        private int offsetY;
+
+
+
+        private bool isAttacking;
+
+        public SwordSpritePlayer(Texture2D[] spriteSheet)
+        {
+            texture = spriteSheet;
+            swordPlaced = false;
+            total_frame = 2;
+            current_frame = 0;
+
+          
+            offsetX = 0;
+            offsetY = 0;
+
+            ////delete later
+            //texture[(int)DIRECTION.up] = Game1.ContentManager1.Load<Texture2D>("arrowUp");
+            //texture[(int)DIRECTION.right] = Game1.ContentManager1.Load<Texture2D>("arrowRight");
+            //texture[(int)DIRECTION.down] = Game1.ContentManager1.Load<Texture2D>("arrowDown");
+            //texture[(int)DIRECTION.left] = Game1.ContentManager1.Load<Texture2D>("arrowLeft");
+
+            isAttacking = true;
+            
+
+        }
+
+
+        /*
+         * Arrow has been created
+         */
+        public void SetSword()
+        {
+            swordPlaced = true;
+        }
+
+        /*
+         * To know when sword should be removed from the active objects list
+         */
+        private void RemoveSword()
+        {
+            swordPlaced = false;
+        }
+
+        //ignore
+        private void UpdateFrames()
+        {
+
+        }
+
+        /*
+         * Attack
+         */
+        public void Attack()
+        {
+
+            DetermineWeaponState();
+            //SetSword();
+
+        }
+
+        /*
+         * Get info for weapon direction
+         */
+        private void DetermineWeaponState()
+        {
+                GetUserPos();
+                GetUserState();
+                placeOffset();
+                GetUserAttackingState();
+        }
+
+        /*
+         * Update movement
+         */
+        public void Update()
+        {
+            
+        }
+
+        /*
+         * inital distiance away from user
+         */
+        private void placeOffset()
+        {
+            weaponX = WeaponDirectionMovement.OffsetX(userX, direction);
+            weaponY = WeaponDirectionMovement.OffsetY(userY, direction);
+        }
+
+        /*
+         * Draw
+         */
+        public void Draw(SpriteBatch spriteBatch)
+        {
+
+            if (isAttacking)
+            {
+                width = texture[current_frame].Width;
+                height = texture[current_frame].Height;
+                //System.Diagnostics.Debug.WriteLine("X,Y", userX, userY);
+                Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
+                Rectangle DEST_REC = new Rectangle(weaponX,weaponY, width*4, height*4);
+                spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
+            }
+            else
+            {
+                //RemoveSword();
+            }
+            
+        }
+
+        /*
+         * Get user x and y at teh momemnt of attk
+         */
+        private void GetUserPos()
+        {
+            Vector2 posVec = Player.getUserPos();
+            userX = (int)posVec.X;
+            userY = (int)posVec.Y;
+        }
+
+
+
+        /*
+         * Get user directions -> change name
+         */
+        private void GetUserState()
+        {
+            direction = Player.getUserDirection();
+            current_frame = direction;
+
+            
+            //switch (direction)
+            //{
+            //    case 1:
+            //        current_frame = 0;
+            //        break;
+            //    case 2:
+            //        current_frame = 1;
+            //        break;
+            //    case 3:
+            //        current_frame = 2;
+            //        break;
+            //    case 4:
+            //        current_frame = 3;
+            //        break;
+            //}
+        }
+
+        private void GetUserAttackingState()
+        {
+            isAttacking = Player.getPlayerAttackingState();
+        }
+     
+
+        public void GetUserPos(int x, int y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void GetUserState(Constants.Direction direct)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool finished()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
+
+

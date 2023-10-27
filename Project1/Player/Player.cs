@@ -18,7 +18,7 @@ namespace Project1
         private static ContentManager Content;
         private static Vector2 position = RESPAWN_UP;
 
-        public static int[] itemInventory = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+        public static int[] itemInventory = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
         //this enum is used to access the invetory by item type:
         //public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12 };
 
@@ -77,19 +77,20 @@ namespace Project1
         private static bool isSecondFrame = false;
 
         private static IWeapon[] weaponsArray;
-        private static IWeapon weapon;
+        //private static IWeapon weapon;
         private static int currentWeaponIndex;
         private static IWeapon spriteWeapon;
 
         private static int onScreen;
-       
+
         //private static int posX;
         //private static int posY;
         //private Rectangle rect;
         private static bool remainOnScreen;
-
+        private static int damageFlash;
         public Player()
         {
+
             //posX = 0;
             //posY = 0;
             remainOnScreen = false;
@@ -102,7 +103,7 @@ namespace Project1
             AttackTimer = Constants.ATTACK_SECONDS;
             DamageTimer = Constants.INVINCIBILITY_SECONDS;
             FlashTimer = Constants.FLASHTIME;
-
+            damageFlash = 0;
             //IWeapon[] temp = { new Bomb(), new Arrow2(), new Boomerange()};
             //weaponsArray = temp;
             //weaponsArray[0] = new Bomb();
@@ -112,7 +113,7 @@ namespace Project1
 
             sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
 
-            weapon = new Bomb();
+            // weapon = new Bomb();
 
             BoundingBox = new Rectangle(0, 0, LINK_BOUNDING_DIMENSION, LINK_BOUNDING_DIMENSION);
         }
@@ -122,7 +123,7 @@ namespace Project1
         {
             //Try getting rid of this and use only sprite factory stuff
 
-            IWeapon[] temp = { new Bomb(), new Arrow2(), new Boomerange()};
+            IWeapon[] temp = { new Bomb(), new Arrow2(), new Boomerange(), new Sword() };
             weaponsArray = temp;
 
             /*
@@ -145,7 +146,7 @@ namespace Project1
             linkAttackDown = content.Load<Texture2D>("linkAttackDown");
             */
         }
-       
+
 
         //change the current frame to the next frame
         public static void Update(GameTime gameTime)
@@ -162,10 +163,16 @@ namespace Project1
             //sprite.Update(linkDirection, position);
             // call collision and pass in link
 
+            if (isDamaged)
+            {
+                DamageInvincibility();
+            }
+
+
 
             KeyboardState keystate = Keyboard.GetState();
 
-            
+
             #region Print to debug console currently pressed keys
             System.Text.StringBuilder sb = new StringBuilder();
             foreach (var key in keystate.GetPressedKeys())
@@ -180,22 +187,23 @@ namespace Project1
             #endregion
 
             // Move our sprite based on arrow keys being pressed:
-            
+
             if (isAttacking)
             {
                 WaitForAttack();
             }
-            
+
 
             // Link can't move when attacking
             if (!isAttacking)
             {
-                
+
                 if (keystate.IsKeyDown(Keys.Z) || keystate.IsKeyDown(Keys.N))
                 {
                     // attack using his sword
                     isAttacking = true;
                     isAttackingWithSword = true;
+                    currentWeaponIndex = (int)WEAPONS.sword;
                     //sprite.Update(linkDirection, position);
                 }
                 else if (keystate.IsKeyDown(Keys.I))
@@ -224,7 +232,7 @@ namespace Project1
                     isAttackingWithBow = false;
 
                 }
-                
+
 
                 /*
 
@@ -266,7 +274,7 @@ namespace Project1
                     //posY += playerSpeed;
                 }
                 */
-                
+
                 //move method to increment/decrement position depending on direction
             }
 
@@ -283,7 +291,7 @@ namespace Project1
                 isDamaged = true;
                 DamageInvincibility();
             }
-            
+
             if (keystate.IsKeyDown(Keys.T) || keystate.IsKeyDown(Keys.Y))
             {
                 // cycle between which block is currently being shown
@@ -296,21 +304,24 @@ namespace Project1
             {
 
             }
-            
-            if (remainOnScreen)
-            {
-                spriteWeapon.Update();
-            }
-            
+
+
+
+            //if (remainOnScreen)
+            //{
+            //    spriteWeapon.Update();
+            //}
+
         }
 
         public static Rectangle getPositionAndRectangle()
         {
-           return sprite.getRectangle();
+            return sprite.getRectangle();
         }
         public static void CheckTime()
         {
             onScreen += Game1.deltaTime.ElapsedGameTime.Milliseconds;
+            damageFlash += Game1.deltaTime.ElapsedGameTime.Milliseconds;
         }
 
 
@@ -330,7 +341,7 @@ namespace Project1
             FrameTimer -= elapsedSeconds;
 
             CheckOnScreen();
-            
+
             if (remainOnScreen)
             {
                 spriteWeapon.Draw();
@@ -340,49 +351,53 @@ namespace Project1
                 onScreen = 0;
                 remainOnScreen = false;
             }
-            
+
             if (renderLink)
             {
                 if (isAttacking)
                 {
-                    if (isAttackingWithSword)
-                    {
-                        Sword.Draw(position, linkDirection);
-                        sprite.Draw(spriteBatch, "attack", linkDirection, position);
 
-                        /*
-                        switch (linkDirection)
-                        {
-                            //get rid of the switch case since you can just
-                            //call draw with the direction variable
-                            case 1:
-                                Sword.Draw(position, linkDirection);
-                                sprite.Draw(spriteBatch, "attack", linkDirection, position);
-                                break;
-                            case 2:
-                                Sword.Draw(position, linkDirection);
-                                sprite.Draw(spriteBatch, "attack", linkDirection, position);
-                                break;
-                            case 3:
-                                Sword.Draw(position, linkDirection);
-                                sprite.Draw(spriteBatch, "attack", linkDirection, position);
-                                break;
-                            case 4:
-                                Sword.Draw(position, linkDirection);
-                                sprite.Draw(spriteBatch, "attack", linkDirection, position);
-                                break;
-                        }
-                        */
-                    }
-                    //pass corresponding index of weapon to Attack() method so get
-                    //rid of these if branches
-                    else
-                    {
-                        Attack(currentWeaponIndex);
+                    Attack(currentWeaponIndex);
 
-                        sprite.Draw(spriteBatch, "attack", linkDirection, position);
+                    sprite.Draw(spriteBatch, "attack", linkDirection, position);
+                    //if (isAttackingWithSword)
+                    //{
+                    //    //Sword.Draw(position, linkDirection);
+                    //    sprite.Draw(spriteBatch, "attack", linkDirection, position);
 
-                    }
+                    //    /*
+                    //    switch (linkDirection)
+                    //    {
+                    //        //get rid of the switch case since you can just
+                    //        //call draw with the direction variable
+                    //        case 1:
+                    //            Sword.Draw(position, linkDirection);
+                    //            sprite.Draw(spriteBatch, "attack", linkDirection, position);
+                    //            break;
+                    //        case 2:
+                    //            Sword.Draw(position, linkDirection);
+                    //            sprite.Draw(spriteBatch, "attack", linkDirection, position);
+                    //            break;
+                    //        case 3:
+                    //            Sword.Draw(position, linkDirection);
+                    //            sprite.Draw(spriteBatch, "attack", linkDirection, position);
+                    //            break;
+                    //        case 4:
+                    //            Sword.Draw(position, linkDirection);
+                    //            sprite.Draw(spriteBatch, "attack", linkDirection, position);
+                    //            break;
+                    //    }
+                    //    */
+                    //}
+                    ////pass corresponding index of weapon to Attack() method so get
+                    ////rid of these if branches
+                    //else
+                    //{
+                    //    //Attack(currentWeaponIndex);
+
+                    //    //sprite.Draw(spriteBatch, "attack", linkDirection, position);
+
+                    //}
 
                     /*
                     else if (isAttackingWithBoomerang)
@@ -423,7 +438,7 @@ namespace Project1
                             //tell sprite how to draw
                             sprite.Draw(spriteBatch, "still", linkDirection, position);
                         }
-                        
+
                     }
                     else
                     {
@@ -433,7 +448,9 @@ namespace Project1
                     }
                 }
             }
+            
         }
+    
 
         //change weaponType to index corressponding to array of weapon objects
         public static void Attack(int weaponType)
@@ -469,7 +486,7 @@ namespace Project1
             }
             */
 
-            remainOnScreen = true;
+            //remainOnScreen = true;
             spriteWeapon.Attack();
             spriteWeapon.Draw();
         }
@@ -495,20 +512,36 @@ namespace Project1
         // Link cannot take damage for x seconds after getting hit
         public static void DamageInvincibility()
         {
-            if (DamageTimer <= 0)
+            //if (DamageTimer <= 0)
+            //{
+            //    renderLink = true;
+            //    isDamaged = false;
+            //    DamageTimer = INVINCIBILITY_SECONDS;
+            //}
+            //else
+            //{
+            //    if (FlashTimer <= 0)
+            //    {
+            //        renderLink = !renderLink;
+            //        FlashTimer = FLASHTIME;
+            //    }
+            //}
+            
+            if (damageFlash <= 50)
+            {
+                CheckTime();
+                renderLink = false;
+                
+            }
+            else if (damageFlash > 10)
             {
                 renderLink = true;
                 isDamaged = false;
-                DamageTimer = INVINCIBILITY_SECONDS;
+                damageFlash = 0;
             }
-            else
-            {
-                if (FlashTimer <= 0)
-                {
-                    renderLink = !renderLink;
-                    FlashTimer = FLASHTIME;
-                }
-            }
+
+
+
         }
 
         // if Timer > FRAMETIME, switch the frame
@@ -595,7 +628,7 @@ namespace Project1
 
         public static Vector2 getUserPos()
         {
-
+            
             return new Vector2(position.X, position.Y);
         }
 
@@ -624,6 +657,11 @@ namespace Project1
         public static Vector2 getPosition()
         {
             return position;
+        }
+
+        public static bool getPlayerAttackingState()
+        {
+            return isAttacking;
         }
 
     }

@@ -98,7 +98,7 @@ namespace Project1
     public class WeaponSpriteFactory
     {
 
-        private Texture2D[] SwordSheet = new Texture2D[SWORD_TOTAL];
+        private Texture2D[] SwordSheet = new Texture2D[4];
         private Texture2D[] BowSheet = new Texture2D[BOW_TOTAL];
         private Texture2D[] ArrowSheet = new Texture2D[4];
         private Texture2D[] BombSheet = new Texture2D[BOMB_ARRAY];
@@ -136,6 +136,12 @@ namespace Project1
             //BowSheet[1] = content.Load<Texture2D>("bowDown");
             //BowSheet[2] = content.Load<Texture2D>("bowLeft");
             //BowSheet[3] = content.Load<Texture2D>("bowRight");
+
+            SwordSheet[(int)DIRECTION.up] = content.Load<Texture2D>("swordUp");
+            SwordSheet[(int)DIRECTION.right] = content.Load<Texture2D>("swordRight");
+            SwordSheet[(int)DIRECTION.down] = content.Load<Texture2D>("swordDown");
+            SwordSheet[(int)DIRECTION.left] = content.Load<Texture2D>("swordLeft");
+
 
             ArrowSheet[(int)DIRECTION.up] = content.Load<Texture2D>("arrowUp");
             ArrowSheet[(int)DIRECTION.right] = content.Load<Texture2D>("arrowRight");
@@ -176,6 +182,11 @@ namespace Project1
             return new OrbSprite(OrbSheet);
         }
 
+
+        public ISpriteWeapon CreateSwordSprite()
+        {
+            return new SwordSpritePlayer(SwordSheet);
+        }
 
     }
 
