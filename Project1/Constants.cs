@@ -18,6 +18,7 @@ namespace Project1
     public class Constants
     {
 
+        //Directions->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public enum Direction
         {
             Left,
@@ -26,77 +27,59 @@ namespace Project1
             Down
         }
 
-        public static int FRAME_BUFFER = 320;
+        public enum DIRECTION { right = 0, left = 1, up = 2, down = 3 };
 
-        // used for clamping Link's position and keeping him contained in the level
-        public static int roomBoundsMaxX = 660, roomBoundsMaxY = 365 + FRAME_BUFFER, roomBoundsMinX = 90, roomBoundsMinY = 53 + FRAME_BUFFER;
-
-        // used for spawn and respawn after travelling through doors
-        public static Vector2 RESPAWN_LEFT = new Vector2((int)(roomBoundsMaxX * 7.8 / 8), (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
-        public static Vector2 RESPAWN_RIGHT = new Vector2((int)(roomBoundsMaxX * 1.3) / 8, (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
-        public static Vector2 RESPAWN_UP = new Vector2((roomBoundsMaxX - roomBoundsMinX) / 2 + roomBoundsMinX+ 5, roomBoundsMaxY - 10);
-        public static Vector2 RESPAWN_DOWN = new Vector2((roomBoundsMaxX - roomBoundsMinX) / 2 + roomBoundsMinX + 5, roomBoundsMinY + 10);
-
-        public static int ENEMY_SPEED = 11;
-
-        public static int SCREEN_WIDTH_UPPER = 600;
-        public static int SCREEN_WIDTH_LOWER = 0;
-        public static int SCREEN_HEIGHT_UPPER = 400;
-        public static int SCREEN_HEIGHT_LOWER = 0;
-        public static Game1 GameObj = Game1.Game;
-
-        // attacking
-        public const float ATTACK_SECONDS = 0.5f;
-
-        public static int SPRITE_X = 350;
-        public static int SPRITE_Y = 200;
-
-        public static int SPRITE_X_START = 400;
-        public static int SPRITE_Y_START = 200;
-        // damage
-        public const float INVINCIBILITY_SECONDS = 1;
-
-        // Link will flash after damaged, indicating temporary invincibility
-        public const float FLASHES_PER_SECOND = 8;
-        public const float FLASHTIME = 1 / FLASHES_PER_SECOND;
-
-        /*
-         * Animations----------------------
-         * Link sprite constants:
-         */
-        public static int START_FRAME = 0;
-        public static double FRAME_SPD = .5 / 4;
-        public static int ENTITY_SPD = 2;
-
-        public static int FAIRY_TOTAL = 2;
-
-        public static int HEART_TOTAL = 2;
-        public static int RUPEE_TOTAL = 2;
-        public static int TRIFORCE_TOTAL = 2;
-        public static int ARROW_TOTAL = 1;
-        public static int BOMB_TOTAL = 1;
-        public static int BOOM_TOTAL = 1;
-        public static int BOW_TOTAL = 1;
-        public static int CLOCK_TOTAL = 1;
-        public static int HEART_CONTAINER_TOTAL = 1;
-        public static int KEY_TOTAL = 1;
-        public static int MAP_TOTAL = 1;
-        public static int SWORD_TOTAL = 1;
+        public static int UP_DIRECTION_SPRITE = 2;
+        public static int DOWN_DIRECTION_SPRITE = 0;
 
         public static int UP = 0;
         public static int RIGHT = 1;
         public static int DOWN = 2;
         public static int LEFT = 3;
 
-        /*
-         * Bat sprite frames:
-         */
-
         public enum ENEMY_DIRECTION { up = 0, right = 1, down = 2, left = 3 };
 
-        public static int ARROW_R = 1;
-        public static int ARROW_C = 4;
+        //Windows and frames metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int FRAME_BUFFER = 320;
 
+        public static int SCREEN_WIDTH_UPPER = 600;
+        public static int SCREEN_WIDTH_LOWER = 0;
+        public static int SCREEN_HEIGHT_UPPER = 400;
+        public static int SCREEN_HEIGHT_LOWER = 0;
+
+        public static int START_FRAME = 0;
+        public static double FRAME_SPD = .5 / 4;
+        public static int ENTITY_SPD = 2;
+
+        public const float FRAMES_PER_SECOND = 10;
+        public const float FRAMETIME = 1 / FRAMES_PER_SECOND;
+
+        public static Game1 GameObj = Game1.Game;
+
+        //Collision metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int roomBoundsMaxX = 660, roomBoundsMaxY = 365 + FRAME_BUFFER, roomBoundsMinX = 90, roomBoundsMinY = 53 + FRAME_BUFFER;
+
+        // used for spawn and respawn after travelling through doors
+        public static Vector2 RESPAWN_LEFT = new Vector2((int)(roomBoundsMaxX * 7.8 / 8), (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
+        public static Vector2 RESPAWN_RIGHT = new Vector2((int)(roomBoundsMaxX * 1.3) / 8, (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
+        public static Vector2 RESPAWN_UP = new Vector2((roomBoundsMaxX - roomBoundsMinX) / 2 + roomBoundsMinX + 5, roomBoundsMaxY - 10);
+        public static Vector2 RESPAWN_DOWN = new Vector2((roomBoundsMaxX - roomBoundsMinX) / 2 + roomBoundsMinX + 5, roomBoundsMinY + 10);
+        public enum CollisionType
+        {
+            // Link only
+            ITEM,
+            DOOR,
+            // Link & enemies
+            BOUNDARY,
+            DAMAGE
+        }
+
+        // Knockback distance is used for collisions with enemies
+        // How far should it be?
+        public const int KNOCKBACK_DISTANCE = 30, knockbackDuration = 1, invincibilityDuration = 1;
+
+        //Enemies metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int ENEMY_SPEED = 11;
 
         public static int BAT_TOTAL = 2;
         public static int BAT_C = 1;
@@ -106,22 +89,12 @@ namespace Project1
         public static int BAT_FRAMES_D = 2;
         public static int BAT_FRAMES_DEATH = 1;
 
-        public static int BOMB_R = 1;
-        public static int BOMB_C = 1;
-        public static int BOMB_ARRAY = 2;
-
-
         public static int AQUA_TOTAL = 2;
         public static int AQUA_FRAMES_U = 4;
         public static int AQUA_FRAMES_R = 2;
         public static int AQUA_FRAMES_L = 2;
         public static int AQUA_FRAMES_D = 4;
         public static int AQUA_FRAMES_DEATH = 1;
-
-        public static int AD_C = 1;
-
-        public static int BOOM_R = 1;
-        public static int BOOM_C = 1;
 
         public static int DINO_TOTAL = 4;
         public static int DINO_FRAMES_U = 3;
@@ -131,19 +104,6 @@ namespace Project1
         public static int DINO_FRAMES_DEATH = 1;
         public static int DINO_C = 1;
 
-        public static int BOW_R = 1;
-        public static int BOW_C = 1;
-
-        public static int FD_TOTAL = 4;
-        public static int FD_FRAMES_U = 8;
-        public static int FD_FRAMES_R = 4;
-        public static int FD_FRAMES_L = 4;
-        public static int FD_FRAMES_D = 8;
-        public static int FD_FRAMES_DEATH = 1;
-
-        public static int CLOCK_R = 1;
-        public static int CLOCK_C = 1;
-
         public static int DM_TOTAL = 8;
         public static int DM_FRAMES_U = 2;
         public static int DM_FRAMES_R = 2;
@@ -151,28 +111,6 @@ namespace Project1
         public static int DM_FRAMES_D = 2;
         public static int DM_FRAMES_DEATH = 1;
         public static int DM_C = 1;
-
-
-        public static int FAIRY_R = 1;
-        public static int FAIRY_C = 2;
-
-        public static int FLAME_TOTAL = 2;
-        public static int FLAME_FRAMES_U = 2;
-        public static int FLAME_FRAMES_R = 2;
-        public static int FLAME_FRAMES_L = 2;
-        public static int FLAME_FRAMES_D = 2;
-        public static int FLAME_FRAMES_DEATH = 1;
-        public static int FLAME_C = 1;
-
-
-        public static int HAND_TOTAL = 4;
-        public static int HAND_FRAMES_U = 8;
-        public static int HAND_FRAMES_R = 4;
-        public static int HAND_FRAMES_L = 4;
-        public static int HAND_FRAMES_D = 8;
-        public static int HAND_FRAMES_DEATH = 1;
-        public static int HAND_C = 1;
-
 
         public static int JELLY_R = 1;
         public static int JELLY_FRAMES_U = 3;
@@ -208,14 +146,6 @@ namespace Project1
         public static int SKEL_FRAMES_DEATH = 1;
         public static int SKELETON_C = 1;
 
-        public static int HEART_R = 1;
-        public static int HEART_C = 2;
-
-        public static int SKELETON_ARRAY = 2;
-
-        public static int HEART_CONTAINER_R = 1;
-        public static int HEART_CONTAINER_C = 1;
-
         public static int SNAKE_TOTAL = 4;
         public static int SNAKE_FRAMES_U = 4;
         public static int SNAKE_FRAMES_R = 2;
@@ -233,28 +163,106 @@ namespace Project1
         public static int SPIKE_C = 1;
 
 
+        //Player metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int LINK_R = 1;
+        public static int LINK_C = 4;
+
+        //Attacking metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public const float ATTACK_SECONDS = 0.5f;
+
+        //Sprite metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int SPRITE_X = 350;
+        public static int SPRITE_Y = 200;
+
+        public static int SPRITE_X_START = 400;
+        public static int SPRITE_Y_START = 200;
+
+        //Player metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public const float FLASHES_PER_SECOND = 8; //link flashes after damage
+        public const float FLASHTIME = 1 / FLASHES_PER_SECOND;
+        public const float INVINCIBILITY_SECONDS = 1; // after damage it goes invisible
+
+        //Items metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12 };
+        public static int NUM_ITEMS = 13;
+
+        public static int FAIRY_TOTAL = 2;
+        public static int HEART_TOTAL = 2;
+        public static int RUPEE_TOTAL = 2;
+        public static int TRIFORCE_TOTAL = 2;
+        public static int ARROW_TOTAL = 1;
+        public static int BOMB_TOTAL = 1;
+        public static int BOOM_TOTAL = 1;
+        public static int BOW_TOTAL = 1;
+        public static int CLOCK_TOTAL = 1;
+        public static int HEART_CONTAINER_TOTAL = 1;
+        public static int KEY_TOTAL = 1;
+        public static int MAP_TOTAL = 1;
+        public static int SWORD_TOTAL = 1;
+
+        public static int ARROW_R = 1;
+        public static int ARROW_C = 4;
+
+        public static int BOMB_R = 1;
+        public static int BOMB_C = 1;
+        public static int BOMB_ARRAY = 2;
+
+        public static int AD_C = 1;
+
+        public static int BOOM_R = 1;
+        public static int BOOM_C = 1;
+
+        public static int BOW_R = 1;
+        public static int BOW_C = 1;
+
+        public static int FD_TOTAL = 4;
+        public static int FD_FRAMES_U = 8;
+        public static int FD_FRAMES_R = 4;
+        public static int FD_FRAMES_L = 4;
+        public static int FD_FRAMES_D = 8;
+        public static int FD_FRAMES_DEATH = 1;
+
+        public static int CLOCK_R = 1;
+        public static int CLOCK_C = 1;
+
+        public static int FAIRY_R = 1;
+        public static int FAIRY_C = 2;
+
+        public static int FLAME_TOTAL = 2;
+        public static int FLAME_FRAMES_U = 2;
+        public static int FLAME_FRAMES_R = 2;
+        public static int FLAME_FRAMES_L = 2;
+        public static int FLAME_FRAMES_D = 2;
+        public static int FLAME_FRAMES_DEATH = 1;
+        public static int FLAME_C = 1;
+
+        public static int HAND_TOTAL = 4;
+        public static int HAND_FRAMES_U = 8;
+        public static int HAND_FRAMES_R = 4;
+        public static int HAND_FRAMES_L = 4;
+        public static int HAND_FRAMES_D = 8;
+        public static int HAND_FRAMES_DEATH = 1;
+        public static int HAND_C = 1;
+
+        public static int HEART_R = 1;
+        public static int HEART_C = 2;
+
+        public static int SKELETON_ARRAY = 2;
+
+        public static int HEART_CONTAINER_R = 1;
+        public static int HEART_CONTAINER_C = 1;
+
         public static int KEY_R = 1;
         public static int KEY_C = 1;
 
-
-        public static int LINK_R = 1;
-        public static int LINK_C = 4;
         public static int MAP_R = 1;
         public static int MAP_C = 1;
 
-        //public static int BOMB_R = 1;
-        //public static int BOMB_C = 4;
         public static int RUPEE_R = 1;
         public static int RUPEE_C = 2;
 
         public static int SWORD_R = 1;
         public static int SWORD_C = 4;
-
-        //public static int ARROW_R = 1;
-        //public static int ARROW_C = 4;
-
-        //public static int BOW_R = 1;
-        //public static int BOW_C = 4;
 
         public static int BOOMERANG_R = 1;
         public static int BOOMERANG_C = 4;
@@ -270,64 +278,13 @@ namespace Project1
         public static int LINK_BOUNDING_DIMENSION = 30;
 
 
-
-        public enum DIRECTION { right = 0, left = 1, up = 2, down = 3 };
-
-        public static int UP_DIRECTION_SPRITE = 2;
-        public static int DOWN_DIRECTION_SPRITE = 0;
         public static int PLAYER_FRAMES = 4;
         public static int PLAYER_R = 1;
 
-        //items vars
-        public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12 };
-        public static int NUM_ITEMS = 13;
-
-        // for Link's sprite animation
-        // how many animation frames per second, not the framerate of the game
-        //public const float FRAMES_PER_SECOND = 10;
-        //public const float FRAMETIME = 1 / FRAMES_PER_SECOND;
-
-        //public static int SCREEN_WIDTH_UPPER = 700;
-        //public static int SCREEN_WIDTH_LOWER = 0;
-        //public static int SCREEN_HEIGHT_UPPER = 400;
-        //public static int SCREEN_HEIGHT_LOWER = 0;
-
-
-        /*
-         * Link sprite constants:
-         */
-
-        //public enum DIRECTION {right = 0, left = 1, up = 2, down = 3};
-
-        //public static int PLAYER_FRAMES = 4;
-        //public static int PLAYER_R = 1;
-
-        //
-        //public const float INVINCIBILITY_SECONDS = 1;
-        //public const float ATTACK_SECONDS = 0.5f;
-        //public const float FLASHES_PER_SECOND = 8;
-        //public const float FLASHTIME = 1 / FLASHES_PER_SECOND;
-        public const float FRAMES_PER_SECOND = 10;
-        public const float FRAMETIME = 1 / FRAMES_PER_SECOND;
-
-        //
         public const float BOOMERANG_RANGE = 50;
         public static int TRIFORCE_R = 1;
         public static int TRIFORCE_C = 2;
 
-        public enum CollisionType
-        {
-            // Link only
-            ITEM,
-            DOOR,
-            // Link & enemies
-            BOUNDARY,
-            DAMAGE
-        }
-
-        // Knockback distance is used for collisions with enemies
-        // How far should it be?
-        public const int KNOCKBACK_DISTANCE = 30, knockbackDuration = 1, invincibilityDuration = 1;
     }
 }
 
