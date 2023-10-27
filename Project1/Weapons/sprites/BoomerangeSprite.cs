@@ -34,13 +34,16 @@ namespace Project1
         private int offsetX;
         private int offsetY;
 
-        private int onScreen;
+        
         private int onWayTime;
         private int awayfps;
         private int mod;
 
         private bool completed;
         private bool change;
+
+        private static int onScreen;
+        public static bool remainOnScreen { get; private set; }
         public BoomerangeSprite(Texture2D[] spriteSheet)
         {
             //needs to be refactored 

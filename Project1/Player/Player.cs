@@ -123,6 +123,7 @@ namespace Project1
         {
             //Try getting rid of this and use only sprite factory stuff
 
+            //update this to have only sword
             IWeapon[] temp = { new Bomb(), new Arrow2(), new Boomerange(), new Sword() };
             weaponsArray = temp;
 
@@ -197,7 +198,6 @@ namespace Project1
             // Link can't move when attacking
             if (!isAttacking)
             {
-
                 if (keystate.IsKeyDown(Keys.Z) || keystate.IsKeyDown(Keys.N))
                 {
                     // attack using his sword
@@ -220,7 +220,7 @@ namespace Project1
                     isAttackingWithBow = true;
                     currentWeaponIndex = (int)WEAPONS.bow;
                 }
-                else if (keystate.IsKeyDown(Keys.B))
+                else if (keystate.IsKeyDown(Keys.T))
                 {
                     // attack using his sword
                     isAttacking = true;
@@ -340,23 +340,23 @@ namespace Project1
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             FrameTimer -= elapsedSeconds;
 
-            CheckOnScreen();
+            //CheckOnScreen();
 
-            if (remainOnScreen)
-            {
-                spriteWeapon.Draw();
-            }
-            else
-            {
-                onScreen = 0;
-                remainOnScreen = false;
-            }
+            //if (remainOnScreen)
+            //{
+            //    spriteWeapon.Draw();
+            //}
+            //else
+            //{
+            //    onScreen = 0;
+            //    remainOnScreen = false;
+            //}
 
             if (renderLink)
             {
                 if (isAttacking)
                 {
-
+                    
                     Attack(currentWeaponIndex);
 
                     sprite.Draw(spriteBatch, "attack", linkDirection, position);
@@ -459,8 +459,10 @@ namespace Project1
             //if branches
 
             //weapon = weaponsArray[weaponType];
-            spriteWeapon = weaponsArray[weaponType];
 
+
+            //spriteWeapon = weaponsArray[weaponType];
+            spriteWeapon = new Bomb();
             /*
             switch (weaponType)
             {
@@ -487,8 +489,27 @@ namespace Project1
             */
 
             //remainOnScreen = true;
-            spriteWeapon.Attack();
-            spriteWeapon.Draw();
+            //spriteWeapon.Attack();
+            //spriteWeapon.Draw();
+
+
+            switch (weaponType)
+            {
+                case 0:
+                    //spriteWeapon.Attack();
+                    Game1.GameObjManager.addNewWeapon(spriteWeapon);
+                    break;
+                    //case 1:
+                    //    Game1.GameObjManager.addNewWeapon(new Arrow2());
+                    //    break;
+                    //case 2:
+                    //    Game1.GameObjManager.addNewWeapon(new Boomerange());
+                    //    break;
+            }
+
+
+
+
         }
 
 
@@ -539,9 +560,6 @@ namespace Project1
                 isDamaged = false;
                 damageFlash = 0;
             }
-
-
-
         }
 
         // if Timer > FRAMETIME, switch the frame

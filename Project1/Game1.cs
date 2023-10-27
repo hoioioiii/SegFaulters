@@ -40,6 +40,8 @@ namespace Project1
         //public static IItem testItem;
         //public static Vector2 testLoc = new Vector2((float)SPRITE_X, (float)SPRITE_Y);
 
+        //remove later
+        public static GameTime timeProj;
         private ArrayList ControllerList;
 
         public Game1()
@@ -88,6 +90,7 @@ namespace Project1
                 Exit();
             }
 
+            timeProj = new GameTime();
             //keep
             GameObjManager = new ActiveObjects();
 
@@ -142,6 +145,10 @@ namespace Project1
             {
                 controller.Update();
             }
+            
+         
+
+            //fix later
             deltaTime = gameTime;
             // Add your update logic here
             Player.Update(gameTime);

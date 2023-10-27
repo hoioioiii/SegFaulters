@@ -33,7 +33,8 @@ namespace Project1
         private int offsetX;
         private int offsetY;
 
-        private int onScreen;
+        private static int onScreen;
+        public static bool remainOnScreen { get; private set; }
 
         public ArrowSpritePlayer(Texture2D[] spriteSheet)
         {
