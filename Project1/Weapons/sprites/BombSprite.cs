@@ -35,7 +35,7 @@ namespace Project1
         private bool finishAndRemove;
         private TimeSpan time;
 
-        private static int onScreen1;
+        private static int onScreen;
         public static bool remainOnScreen { get; private set; }
         public BombSprite(Texture2D[] spriteSheet) {
             texture = spriteSheet;
@@ -43,14 +43,13 @@ namespace Project1
             explode = false;
             total_frame = 2;
             current_frame = 0;
-            fps = 300;
+            fps = 700;
             
-            onScreen1 = 0;
+            onScreen = 0;
             offsetX = 0; 
             offsetY = 0;
 
-            width = 30;
-            height= 40;
+            
             remainOnScreen = true;
             finishAndRemove = false;
 
@@ -90,7 +89,7 @@ namespace Project1
         private void removeBomb()
         {
             bombPlaced = false;
-            
+            finishAndRemove=true;
         }
 
         /*
@@ -122,6 +121,8 @@ namespace Project1
         }
             return true;
         }
+
+
 
 
         /*
@@ -181,6 +182,12 @@ namespace Project1
             weaponY = WeaponDirectionMovement.OffsetY(userY, direction);
         }
 
+        public void timer(GameTime gameTime)
+        {
+            onScreen += (int)gameTime.ElapsedGameTime.TotalMilliseconds;
+        }
+
+
 
         /*
          * 
@@ -188,23 +195,19 @@ namespace Project1
          */
         public void Draw(SpriteBatch spriteBatch)
         {
-            //CheckOnScreen();
-            //if (remainOnScreen)
-            //{
-            onScreen1 += (int)Game1.deltaTime.ElapsedGameTime.TotalMilliseconds;
-
-            Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
-            Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width, height);
-            spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
-
-     
-
-
-
-
-
-
-
+            onScreen += (int)Game1.deltaTime.ElapsedGameTime.TotalMilliseconds;
+            if (onScreen < 60000 && !finishAndRemove)
+            {
+                width = texture[current_frame].Width;
+                height = texture[current_frame].Height;
+                Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
+                Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width *3, height * 3);
+                spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
+            }
+            else
+            {
+                onScreen = 0;
+            }
         }
 
         /*
