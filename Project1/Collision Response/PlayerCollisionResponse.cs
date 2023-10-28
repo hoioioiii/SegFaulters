@@ -31,6 +31,11 @@ namespace Project1.Collision_Response
          */
         public static void DoorResponse(IEnvironment door)
         {
+            if (door.isDoorLocked())
+            {
+                return;
+            }
+            
             switch (door.direction)
                 {
                     case DIRECTION.up:

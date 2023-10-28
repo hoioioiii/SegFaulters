@@ -24,11 +24,16 @@ namespace Project1
             levelBackground = content.Load<Texture2D>("LevelBackground");
 
             //load in door content
-            doorSpriteArray = new Texture2D[4];
+            doorSpriteArray = new Texture2D[8];
             doorSpriteArray[0] = content.Load<Texture2D>("DoorWEST");
             doorSpriteArray[1] = content.Load<Texture2D>("DoorEAST");
             doorSpriteArray[2] = content.Load<Texture2D>("DoorSOUTH");
             doorSpriteArray[3] = content.Load<Texture2D>("DoorNORTH");
+            doorSpriteArray[4] = content.Load<Texture2D>("Locked DoorNORTH");
+            doorSpriteArray[5] = content.Load<Texture2D>("LockedDoorSOUTH");
+            doorSpriteArray[6] = content.Load<Texture2D>("LockedDoorWEST");
+            doorSpriteArray[7] = content.Load<Texture2D>("LockedDoorEAST");
+
         }
 
         //loads blocks given data of row,col and the texture of the block

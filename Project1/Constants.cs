@@ -61,7 +61,7 @@ namespace Project1
 
         // used for spawn and respawn after travelling through doors
         public static Vector2 RESPAWN_LEFT = new Vector2((int)(roomBoundsMaxX * 7.8 / 8), (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
-        public static Vector2 RESPAWN_RIGHT = new Vector2((int)(roomBoundsMaxX * 1.3) / 8, (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
+        public static Vector2 RESPAWN_RIGHT = new Vector2((int)(roomBoundsMaxX * 1.4) / 8, (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
         public static Vector2 RESPAWN_UP = new Vector2((roomBoundsMaxX - roomBoundsMinX) / 2 + roomBoundsMinX + 5, roomBoundsMaxY - 10);
         public static Vector2 RESPAWN_DOWN = new Vector2((roomBoundsMaxX - roomBoundsMinX) / 2 + roomBoundsMinX + 5, roomBoundsMinY + 10);
         public enum CollisionType

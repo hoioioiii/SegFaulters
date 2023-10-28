@@ -12,5 +12,6 @@ namespace Project1
         //Remove later
         public int destinationRoom { get;  }
         void Update();
+        public bool isDoorLocked();
     }
 }
