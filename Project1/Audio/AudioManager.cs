@@ -1,17 +1,18 @@
 ﻿using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
-using System;
+using static Project1.AudioConstants;
 
 namespace Project1.Audio
 {
     public class AudioManager
     {
         //BackGround Music
-        private static Song BGM;
+        //private static Song BGM;
 
         // Sound Effects
-        private static SoundEffect addUI, boomerang, cling, death, zeldaSound, dragon, dragon2, dragon3, enemyDie, fire, flame;
+        //private static SoundEffect addUI, boomerang, cling, death, zeldaSound, dragon, dragon2, dragon3, enemyDie, fire, flame;
+
 
         public static void LoadContent(ContentManager content)
         {
@@ -25,9 +26,10 @@ namespace Project1.Audio
             //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
         }
 
-        public static void PlayMusic()
+        public static void PlayMusic(Song music)
         {
-            MediaPlayer.Play(BGM);
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(music);
         }
         public static void StopAllAudio()
         {

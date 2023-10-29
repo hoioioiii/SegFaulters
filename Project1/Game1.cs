@@ -9,6 +9,7 @@ using static Project1.Constants;
 using System;
 using System.Text;
 using Project1.Audio;
+using static Project1.AudioConstants;
 
 namespace Project1
 {
@@ -129,7 +130,7 @@ namespace Project1
 
             //Load Music and start the BGM
             AudioManager.LoadContent(Content);
-            AudioManager.PlayMusic();
+            AudioManager.PlayMusic(BGM);
             //AudioManager.PlaySoundEffect();
 
             //Load XML File

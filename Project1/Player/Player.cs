@@ -428,7 +428,7 @@ namespace Project1
             if (AttackTimer <= 0)
             {
                 isAttacking = false;
-                AttackTimer = Constants.ATTACK_SECONDS;
+                AttackTimer = ATTACK_SECONDS;
                 isAttackingWithBoomerang = false;
                 isAttackingWithBow = false;
                 isAttackingWithSword = false;
