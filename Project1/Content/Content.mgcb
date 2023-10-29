@@ -179,7 +179,7 @@
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/add ui.wav
+/build:Audio/add ui.wav;Audio/addUI.wav
 
 #begin Audio/boomerang.wav
 /importer:WavImporter
@@ -227,7 +227,7 @@
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/enemy die.wav
+/build:Audio/enemy die.wav;Audio/enemyDie.wav
 
 #begin Audio/fire.wav
 /importer:WavImporter
@@ -245,7 +245,7 @@
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/item get.wav
+/build:Audio/item get.wav;Audio/item.wav
 
 #begin Audio/low health.wav
 /importer:WavImporter
@@ -281,13 +281,13 @@
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/subtract ui.wav
+/build:Audio/subtract ui.wav;Audio/subtractUI.wav
 
 #begin Audio/sword swing.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/sword swing.wav
+/build:Audio/sword swing.wav;Audio/sword.wav
 
 #begin bat1.png
 /importer:TextureImporter

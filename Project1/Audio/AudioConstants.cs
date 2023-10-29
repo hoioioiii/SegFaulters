@@ -11,15 +11,7 @@ namespace Project1
     public class AudioConstants
     {
         public static Song BGM;
-
-        public static SoundEffect addUI, boomerang, cling, death, zeldaSound, dragon, dragon2, dragon3, enemyDie, fire, flame, item,
-            lowHealth,
-            plus,
-            plusPlus,
-            secret,
-            stairs,
-            subtractUI,
-            sword;
+        public static SoundEffect addUI, boomerang, cling, death, zeldaSound, dragon, dragon2, dragon3, enemyDie, fire, flame, item, lowHealth, plus, plusPlus, secret, stairs, subtractUI, sword;
 
         public enum AudioFile
         {
