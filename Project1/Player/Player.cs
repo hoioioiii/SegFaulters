@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using static Project1.Constants;
 using System;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Project1
 {
@@ -177,6 +178,7 @@ namespace Project1
                     // attack using his sword
                     isAttacking = true;
                     isAttackingWithSword = true;
+                    AudioManager.PlaySoundEffect(sword);
                     //sprite.Update(linkDirection, position);
                 }
                 else if (keystate.IsKeyDown(Keys.I))
@@ -247,18 +249,11 @@ namespace Project1
                 }
             }
 
-            /*
-            if (keystate.IsKeyDown(Keys.E))
-            {
-                DamageInvincibility();
-            }
-            */
-            //Move(keystate);
-
             if (keystate.IsKeyDown(Keys.E))
             {
                 isDamaged = true;
                 DamageInvincibility();
+                AudioManager.PlaySoundEffect();
             }
             if (keystate.IsKeyDown(Keys.T) || keystate.IsKeyDown(Keys.Y))
             {

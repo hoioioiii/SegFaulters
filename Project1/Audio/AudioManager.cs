@@ -3,21 +3,19 @@ using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
 using static Project1.Constants;
 
-namespace Project1.Audio
+namespace Project1
 {
     public class AudioManager
     {
-        //BackGround Music
-        //private static Song BGM;
-
-        // Sound Effects
-        //private static SoundEffect addUI, boomerang, cling, death, zeldaSound, dragon, dragon2, dragon3, enemyDie, fire, flame;
-
-
+        /*
+         * Loads in sound files, held in Constants.cs
+         */
         public static void LoadContent(ContentManager content)
         {
+            // song used for background music
             BGM = content.Load<Song>("Audio\\04 Underworld BGM");
 
+            // sound effects
             addUI = content.Load<SoundEffect>("Audio\\add ui");
             boomerang = content.Load<SoundEffect>("Audio\\boomerang");
             death = content.Load<SoundEffect>("Audio\\death");
@@ -35,16 +33,15 @@ namespace Project1.Audio
             stairs = content.Load<SoundEffect>("Audio\\stairs");
             subtractUI = content.Load<SoundEffect>("Audio\\subtract ui");
             sword = content.Load<SoundEffect>("Audio\\sword");
+            puzzleSolved = content.Load<SoundEffect>("Audio\\puzzleSolved");
 
-            zeldaSound = content.Load<SoundEffect>("Audio\\zelda sound");
-            //  Uncomment the following line will also loop the song
-            //  MediaPlayer.IsRepeating = true;
+            MediaPlayer.IsRepeating = true;
             //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
         }
 
         public static void PlayMusic(Song music)
         {
-            MediaPlayer.IsRepeating = true;
+            //MediaPlayer.IsRepeating = true;
             MediaPlayer.Play(music);
         }
         public static void StopAllAudio()
