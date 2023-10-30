@@ -80,6 +80,7 @@ namespace Project1
         //private static IWeapon weapon;
         private static int currentWeaponIndex;
         private static IWeapon spriteWeapon;
+        private static IActiveObjects objManager;
 
         private static int onScreen;
 
@@ -110,6 +111,8 @@ namespace Project1
             //weaponsArray[1] = new Arrow2();
             //weaponsArray[2] = new Boomerange();
             //weaponsArray[3] = new Orb();
+
+            objManager = new ActiveObjects();
 
             sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
 
@@ -203,7 +206,7 @@ namespace Project1
                     // attack using his sword
                     isAttacking = true;
                     isAttackingWithSword = true;
-                    currentWeaponIndex = (int)WEAPONS.sword;
+                    //currentWeaponIndex = (int)WEAPONS.sword;
                     //sprite.Update(linkDirection, position);
                 }
                 else if (keystate.IsKeyDown(Keys.I))
@@ -211,21 +214,21 @@ namespace Project1
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBoomerang = true;
-                    currentWeaponIndex = (int)WEAPONS.boom;
+                    //currentWeaponIndex = (int)WEAPONS.boom;
                 }
                 else if (keystate.IsKeyDown(Keys.U))
                 {
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBow = true;
-                    currentWeaponIndex = (int)WEAPONS.bow;
+                    //currentWeaponIndex = (int)WEAPONS.bow;
                 }
                 else if (keystate.IsKeyDown(Keys.T))
                 {
                     // attack using his sword
                     isAttacking = true;
                     isAttackingWithBomb = true;
-                    currentWeaponIndex = (int)WEAPONS.bomb;
+                    //currentWeaponIndex = (int)WEAPONS.bomb;
 
                     isAttackingWithSword = false;
                     isAttackingWithBoomerang = false;
@@ -342,24 +345,23 @@ namespace Project1
 
             //CheckOnScreen();
 
-            //if (remainOnScreen)
-            //{
-            //    spriteWeapon.Draw();
-            //}
-            //else
-            //{
-            //    onScreen = 0;
-            //    remainOnScreen = false;
-            //}
+            //manage non persistent weapon
+            if (remainOnScreen)
+            {
+                spriteWeapon.Draw();
+            }
+            else
+            {
+                onScreen = 0;
+                remainOnScreen = false;
+            }
 
             if (renderLink)
             {
                 if (isAttacking)
                 {
-                    
-                    Attack(currentWeaponIndex);
+                    //DrawBasedOnAttackType(spriteBatch);
 
-                    sprite.Draw(spriteBatch, "attack", linkDirection, position);
                     //if (isAttackingWithSword)
                     //{
                     //    //Sword.Draw(position, linkDirection);
@@ -422,10 +424,15 @@ namespace Project1
                 }
                 else
                 {
+
+                    DrawBasedOnMovementType(spriteBatch);
+                    /*
                     if (isMoving)
                     {
                         //can be condensed since it should default to still
                         //when its is not on secondFrame && isMoving
+
+                        DrawBasedOnMove();
                         CheckFrameTimer();
                         if (isSecondFrame)
                         {
@@ -446,14 +453,79 @@ namespace Project1
                         sprite.Draw(spriteBatch, "still", linkDirection, position);
 
                     }
+                    */
                 }
             }
             
         }
-    
 
-        //change weaponType to index corressponding to array of weapon objects
-        public static void Attack(int weaponType)
+        //decide which method of drawing link should be used based on his current state
+        private static void DrawBasedOnMovementType(SpriteBatch spriteBatch)
+        {
+            if (isMoving)
+            {
+                CheckFrameTimer();
+                if (isSecondFrame)
+                {
+                    //tell sprite how to draw
+                    sprite.Draw(spriteBatch, "move", linkDirection, position);
+
+                }
+                else
+                {
+                    //tell sprite how to draw
+                    sprite.Draw(spriteBatch, "still", linkDirection, position);
+                }
+
+            }
+            else
+            {
+                //tell sprite how to draw
+                sprite.Draw(spriteBatch, "still", linkDirection, position);
+
+            }
+
+
+        }
+
+        //Decide which way to go about drawing based on which weapon needs to be drawn
+        //on the screen
+        private static void DrawBasedOnAttackType(SpriteBatch spriteBatch)
+        {
+            if (isAttackingWithSword)
+            {
+                //draw sword sprite according to link's position, does not persist on screen
+                DrawNonpersistantWeapon((int)WEAPONS.sword);
+
+            }
+            else if (isAttackingWithBoomerang)
+            {
+                //add weapon to manager so it'll stay on the screen
+                spriteWeapon = new Boomerange();
+                objManager.addNewWeapon(spriteWeapon);
+
+            }
+            else if (isAttackingWithBow)
+            {
+                // add weapon to manager so it'll stay on the screen
+                spriteWeapon = new Arrow2();
+                objManager.addNewWeapon(spriteWeapon);
+
+            }
+            else if (isAttackingWithBomb)
+            {
+                // add weapon to manager so it'll stay on the screen
+                spriteWeapon = new Bomb();
+                objManager.addNewWeapon(spriteWeapon);
+
+            }
+            //draw link with attack frames
+            sprite.Draw(spriteBatch, "attack", linkDirection, position);
+        }
+
+
+        //Draw a weapon that does not need to be persistent on screen
+        public static void DrawNonpersistantWeapon(int weaponType)
         {
             //set spriteWeapon to element in weapon array to get rid of these
             //if branches
@@ -577,32 +649,32 @@ namespace Project1
         {
             isAttacking = true;
             isAttackingWithSword = true;
+            //currentWeaponIndex = (int)WEAPONS.sword;
         }
 
         public static void attackBoom()
         {
             isAttacking = true;
             isAttackingWithBoomerang = true;
-            currentWeaponIndex = (int)WEAPONS.boom;
+            //currentWeaponIndex = (int)WEAPONS.boom;
         }
 
         public static void attackBow()
         {
             isAttacking = true;
             isAttackingWithBow = true;
-            currentWeaponIndex = (int)WEAPONS.bow;
+            //currentWeaponIndex = (int)WEAPONS.bow;
         }
 
         public static void attackBomb()
         {
             isAttacking = true;
             isAttackingWithBomb = true;
-            currentWeaponIndex = (int)WEAPONS.bomb;
+            //currentWeaponIndex = (int)WEAPONS.bomb;
         }
 
         public static void left()
         {
-            //does flipping the following two lines make link walk slower?
             position.X -= playerSpeed;
             //room boundary controller, roomBounds var may need to be changed to new values
             position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
@@ -613,8 +685,8 @@ namespace Project1
 
         public static void down()
         {
-            //does flipping the following two lines make link walk slower?
             position.Y += playerSpeed;
+            //room boundary controller, roomBounds var may need to be changed to new values
             position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
             isMoving = true;
             linkDirection = (int)DIRECTION.down;
@@ -622,8 +694,8 @@ namespace Project1
 
         public static void up()
         {
-            //does flipping the following two lines make link walk slower?
             position.Y -= playerSpeed;
+            //room boundary controller, roomBounds var may need to be changed to new values
             position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
             isMoving = true;
             linkDirection = (int)DIRECTION.up;
@@ -631,8 +703,8 @@ namespace Project1
 
         public static void right()
         {
-            //does flipping the following two lines make link walk slower?
             position.X += playerSpeed;
+            //room boundary controller, roomBounds var may need to be changed to new values
             position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
             isMoving = true;
             linkDirection = (int)DIRECTION.right;
