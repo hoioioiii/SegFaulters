@@ -100,6 +100,7 @@ namespace Project1
                 state_manager.setNewAttack(false);
 
                 //TODO:add item to active object list
+                Game1.GameObjManager.addNewWeapon(weapon);
             }
             else
             {
@@ -115,6 +116,7 @@ namespace Project1
                     time_manager.enableMoveTime();
                     direction_state_manager.getRandomDirection();
                     //TODO:remove the item from the active object list
+                    Game1.GameObjManager.removeWeapon(weapon);
                 }
                 else
                 {

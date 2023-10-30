@@ -23,7 +23,6 @@ namespace Project1.Enemies.sprites
         private ITime time_manager;
         private IMove movement_manager;
         private IEntityState state_manager;
-
         private (Rectangle, Rectangle) rectangles;
 
         public BatSprite(List<Texture2D[]> spriteSheet, (int, int)position, (String, int)[] items)
@@ -36,9 +35,6 @@ namespace Project1.Enemies.sprites
             animation_manager = new Animation(0, spriteSheet, time_manager,direction_state_manager);
             state_manager = new EntityState();
 
-
-            
-
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
             movement_manager = new Movement(direction_state_manager,this,time_manager, position.Item1, position.Item2,0);
             
@@ -50,7 +46,8 @@ namespace Project1.Enemies.sprites
 
         public void Update()
         {
-            if (state_manager.IsAlive()) {
+            if (state_manager.IsAlive())
+            {
                 Attack();
                 Move();
             }
@@ -69,7 +66,8 @@ namespace Project1.Enemies.sprites
         }
         public void UpdateFrames()
         {
-            if (state_manager.IsAlive()) {
+            if (state_manager.IsAlive())
+            {
                 animation_manager.Animate();
             }
             else
@@ -80,11 +78,12 @@ namespace Project1.Enemies.sprites
 
         public void Move()
         {
-            if(state_manager.isMoving()) {
+            if (state_manager.isMoving())
+            {
                 //Movement.WanderMove(direction_state_manager, this, time_manager);
                 movement_manager.circularMovement(Direction.Up);
             }
-            
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -112,13 +111,14 @@ namespace Project1.Enemies.sprites
             movement_manager.setPosition(x, y);
         }
 
-        public (int,int) getPos() {
+        public (int, int) getPos()
+        {
             return movement_manager.getPosition();
         }
 
-       
 
-        public (Rectangle,Rectangle) GetRectangle()
+
+        public (Rectangle, Rectangle) GetRectangle()
         {
             return rectangles;
         }
