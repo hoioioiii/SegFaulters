@@ -163,6 +163,14 @@ namespace Project1
         public static int SPIKE_C = 1;
 
 
+        public static int LARGER = 2;
+        public static int SMALLER = 4;
+
+
+
+
+
+
         //Player metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int LINK_R = 1;
         public static int LINK_C = 4;
@@ -284,6 +292,10 @@ namespace Project1
         public const float BOOMERANG_RANGE = 50;
         public static int TRIFORCE_R = 1;
         public static int TRIFORCE_C = 2;
+
+
+
+
 
     }
 }

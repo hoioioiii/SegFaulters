@@ -93,7 +93,7 @@ namespace Project1
             int y = movement_manager.getPosition().Item2;
             int height = animation_manager.sprite_frame.Height;
             int width = animation_manager.sprite_frame.Width;
-            rectangles.Item1 = new Rectangle(1, 1, width, height);
+            rectangles.Item1 = new Rectangle(1, 1, width , height);
             rectangles.Item2 = new Rectangle(x, y, width, height);
         }
 

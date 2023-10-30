@@ -50,7 +50,8 @@ namespace Project1.Enemies.sprites
 
         public void Update()
         {
-            if (state_manager.IsAlive()) {
+            if (state_manager.IsAlive())
+            {
                 Attack();
                 Move();
             }
@@ -103,8 +104,8 @@ namespace Project1.Enemies.sprites
             int y = movement_manager.getPosition().Item2;
             int height = animation_manager.sprite_frame.Height;
             int width = animation_manager.sprite_frame.Width;
-            rectangles.Item1 = new Rectangle(1, 1, width, height);
-            rectangles.Item2 = new Rectangle(x, y, width, height);
+            rectangles.Item1 = new Rectangle(0, 0, width, height);
+            rectangles.Item2 = new Rectangle(x,y, width * LARGER, height * LARGER);
         }
 
         public void setPos(int x, int y)
