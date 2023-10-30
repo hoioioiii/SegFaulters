@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/CSE3902/Projects/SegFaulters/Project1/Content/linkUp1.png</SourceFile>
-  <SourceTime>2023-10-20T00:04:12.9203171-04:00</SourceTime>
-  <DestFile>D:/CSE3902/Projects/SegFaulters/Project1/Content/bin/DesktopGL/Content/linkUp1.xnb</DestFile>
-  <DestTime>2023-10-28T18:49:35.5254974-04:00</DestTime>
+  <SourceFile>C:/Users/tinal/Source/Repos/3.7/Project1/Content/linkUp1.png</SourceFile>
+  <SourceTime>2023-10-25T14:07:11.8726436-04:00</SourceTime>
+  <DestFile>C:/Users/tinal/Source/Repos/3.7/Project1/Content/bin/DesktopGL/Content/linkUp1.xnb</DestFile>
+  <DestTime>2023-10-30T10:52:31.5793958-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
