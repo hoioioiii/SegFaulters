@@ -70,8 +70,5 @@ namespace Project1
         {
             return rectangles;
         }
-
-
-
     }
 }
