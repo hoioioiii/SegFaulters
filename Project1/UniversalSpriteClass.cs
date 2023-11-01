@@ -35,12 +35,22 @@ namespace Project1
             {
                 setRectangles();
                 spriteBatch.Draw(animation_manager.sprite_frame, rectangles.Item2, rectangles.Item1, Color.White);
-                if (state_manager.IsAttacking()) DrawAttack();
             }
         }
 
-        
-        public virtual void DrawAttack()
+        //used for entity's that have some sort of weapon/projectile
+        public void Draw(SpriteBatch spriteBatch, IWeapon weapon)
+        {
+            if (state_manager.IsAlive())
+            {
+                setRectangles();
+                spriteBatch.Draw(animation_manager.sprite_frame, rectangles.Item2, rectangles.Item1, Color.White);
+                if (state_manager.IsAttacking()) DrawAttack(weapon);
+            }
+        }
+
+
+        public virtual void DrawAttack(IWeapon weapon)
         {
             //null have each enemy implement their own
 
