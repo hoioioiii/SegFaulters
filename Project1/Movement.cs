@@ -12,7 +12,7 @@ namespace Project1
     public class Movement : IMove
     {
         private IDirectionStateManager direction_state;
-        private ISprite entityObj;
+        private IEntity entityObj;
         private ITime time_manager;
         private int pos_x;
         private int pos_y;
@@ -20,7 +20,7 @@ namespace Project1
         private double speed;
 
 
-        public Movement(IDirectionStateManager direction_state, ISprite entityObj, ITime time_manager, int x, int y, int spd) { 
+        public Movement(IDirectionStateManager direction_state, IEntity entityObj, ITime time_manager, int x, int y, int spd) { 
         
             this.direction_state = direction_state;
             this.entityObj = entityObj;
@@ -94,7 +94,7 @@ namespace Project1
                 direction_state.NeedDirectionUpdate(dir_flag);
 
                 if (!dir_flag)
-                entityObj.setPos(pos_pair.Item1, pos_pair.Item2);
+                entityObj.setPosition(pos_pair.Item1, pos_pair.Item2);
             }
             
 
@@ -155,7 +155,7 @@ namespace Project1
                (bool, int) positionX = CheckBound((int)(originX + cos), roomBoundsMaxX, roomBoundsMinX);
                (bool, int) positionY = CheckBound((int)(originY + sin), roomBoundsMaxY, roomBoundsMinY);
             
-            entityObj.setPos(positionX.Item2,positionY.Item2);
+            entityObj.setPosition(positionX.Item2,positionY.Item2);
             
         }
 

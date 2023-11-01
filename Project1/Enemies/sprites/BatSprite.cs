@@ -6,22 +6,17 @@ using System.Collections.Generic;
 
 namespace Project1.Enemies.sprites
 {
-    public class BatSprite : UniversalClassEntity
+    public class BatSprite : UniversalSpriteClass
     {
 
         
 
-        public BatSprite(List<Texture2D[]> spriteSheet, (int, int)position, (String, int)[] items):base(spriteSheet,position,items)
+        public BatSprite(List<Texture2D[]> spriteSheet, IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time):base(spriteSheet,animation,movement, state,direction, time)
         {
-           
+           animation.frame_list = spriteSheet;
         }
 
-        public override void MovementType()
-        {
-
-            //Movement.WanderMove(direction_state_manager, this, time_manager);
-            this.movement_manager.circularMovement(Direction.Right);
-        }
+        
 
        
     }

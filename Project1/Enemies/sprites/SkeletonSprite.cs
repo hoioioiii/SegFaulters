@@ -7,16 +7,16 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    public class SkeletonSprite : UniversalClassEntity
+    public class SkeletonSprite : UniversalSpriteClass
     {
         
         /*
          * Initalize Skelly
          */
-        public SkeletonSprite(List<Texture2D[]> spriteSheet, (int, int) position, (String, int)[] items): base(spriteSheet, position, items)
+        public SkeletonSprite(List<Texture2D[]> spriteSheet, IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time) : base(spriteSheet,animation, movement, state, direction, time)
         {
 
-            
+            animation.frame_list = spriteSheet;
 
 
         }

@@ -7,15 +7,15 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    public class OldManSprite : UniversalClassEntity
+    public class OldManSprite : UniversalSpriteClass
     {
         
         /*
          * Initalize old man
          */
-        public OldManSprite(List<Texture2D[]> spriteSheet, (int, int) position, (String, int)[] items): base(spriteSheet, position, items)
+        public OldManSprite(List<Texture2D[]> spriteSheet, IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time) : base(spriteSheet,animation, movement, state, direction, time)
         {
-           
+            animation.frame_list = spriteSheet;
         }
 
         

@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 namespace Project1.Enemies
 {
-    public class UniversalClassEntity :ISprite
+    public class UniversalClassEntity :IEntity
     {
-
+        public virtual Rectangle BoundingBox => throw new NotImplementedException();
         public IDirectionStateManager direction_state_manager;
         public IAnimation animation_manager;
         public ITime time_manager;
@@ -17,16 +17,16 @@ namespace Project1.Enemies
 
         private (Rectangle, Rectangle) rectangles;
 
-        public UniversalClassEntity(List<Texture2D[]> spriteSheet, (int, int) position, (string, int)[] items)
+        //Rectangle IEntity.BoundingBox => throw new NotImplementedException();
+
+        public UniversalClassEntity((int, int) position, (string, int)[] items)
         {
             
-
             //replace starting direction based on lvl loader info
             direction_state_manager = new DirectionStateEnemy(Direction.Up);
             time_manager = new TimeTracker(false);
-            animation_manager = new Animation(0, spriteSheet, time_manager, direction_state_manager);
+            animation_manager = new Animation(0, time_manager, direction_state_manager);
             state_manager = new EntityState();
-
             movement_manager = new Movement(direction_state_manager, this, time_manager, position.Item1, position.Item2, 0);
 
         }
@@ -57,6 +57,7 @@ namespace Project1.Enemies
         {
             if (state_manager.IsAlive())
             {
+                //sprite.animationManager
                 animation_manager.Animate();
             }
             else
@@ -81,39 +82,39 @@ namespace Project1.Enemies
             movement_manager.WanderMove();
         }
 
-        //Keep in Sprite
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            if (state_manager.IsAlive())
-            {
-                setRectangles();
-                spriteBatch.Draw(animation_manager.sprite_frame, rectangles.Item2, rectangles.Item1, Color.White);
-                if (state_manager.IsAttacking()) DrawAttack();
-            }
-        }
+        ////Keep in Sprite
+        //public void Draw(SpriteBatch spriteBatch)
+        //{
+        //    if (state_manager.IsAlive())
+        //    {
+        //        setRectangles();
+        //        spriteBatch.Draw(animation_manager.sprite_frame, rectangles.Item2, rectangles.Item1, Color.White);
+        //        if (state_manager.IsAttacking()) DrawAttack();
+        //    }
+        //}
 
-        //Keep in Sprite
-        public virtual void DrawAttack()
-        {
-            //null have each enemy implement their own
+        ////Keep in Sprite
+        //public virtual void DrawAttack()
+        //{
+        //    //null have each enemy implement their own
            
-        }
+        //}
 
 
         /// <summary>
         //Keep in sprite
         /// </summary>
-        public void setRectangles()
-        {
-            int x = movement_manager.getPosition().Item1;
-            int y = movement_manager.getPosition().Item2;
-            int height = animation_manager.sprite_frame.Height;
-            int width = animation_manager.sprite_frame.Width;
-            rectangles.Item1 = new Rectangle(1, 1, width, height);
-            rectangles.Item2 = new Rectangle(x, y, width, height);
-        }
+        //public void setRectangles()
+        //{
+        //    int x = movement_manager.getPosition().Item1;
+        //    int y = movement_manager.getPosition().Item2;
+        //    int height = animation_manager.sprite_frame.Height;
+        //    int width = animation_manager.sprite_frame.Width;
+        //    rectangles.Item1 = new Rectangle(1, 1, width, height);
+        //    rectangles.Item2 = new Rectangle(x, y, width, height);
+        //}
 
-        public void setPos(int x, int y)
+        public void setPosition(int x, int y)
         {
             movement_manager.setPosition(x, y);
         }
@@ -123,9 +124,18 @@ namespace Project1.Enemies
             return movement_manager.getPosition();
         }
 
-        public (Rectangle, Rectangle) GetRectangle()
+        //public virtual (Rectangle, Rectangle) GetRectangle()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
-            return rectangles;
+            throw new NotImplementedException();
         }
+
+        public virtual Rectangle GetPositionAndRectangle() { throw new NotImplementedException(); }
+
+
     }
 }

@@ -7,15 +7,15 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    public class FlameSprite : UniversalClassEntity //Return to this later, not needed right now
+    public class FlameSprite : UniversalSpriteClass //Return to this later, not needed right now
     {
         
         /*
          * Initalize flame sprite
          */
-        public FlameSprite(List<Texture2D[]> spriteSheet, (int, int) position, (String, int)[] items): base(spriteSheet, position, items)
+        public FlameSprite(List<Texture2D[]> spriteSheet, IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time) : base(spriteSheet,animation, movement, state, direction, time)
         {
-         
+            animation.frame_list = spriteSheet;
         }
 
        

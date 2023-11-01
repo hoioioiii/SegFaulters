@@ -11,7 +11,7 @@ namespace Project1
 {
     public class Animation : IAnimation
     {
-        List<Texture2D[]> frame_list;
+        
 
         private int curr_frame;
 
@@ -25,13 +25,14 @@ namespace Project1
         private int frame_direct;
 
         public Texture2D sprite_frame { get; private set; }
+        public List<Texture2D[]> frame_list { private get;  set; }
 
 
 
         //might change later according to new sprite factory
-        public Animation(int frame, List<Texture2D[]> spriteSheet, ITime time_manager, IDirectionStateManager direct_manager) { 
+        public Animation(int frame, ITime time_manager, IDirectionStateManager direct_manager) { 
            
-            this.frame_list = spriteSheet;
+            this.frame_list = null;
             //this.total_frame = total;
             this.curr_frame = frame;
             this.time_manager = time_manager;
@@ -39,8 +40,11 @@ namespace Project1
             this.start_frame = START_FRAME;
             this.direction_change = false;
             
+        }
+
+        public void PopulateFrames()
+        {
             getDirectionArray(direction_manager.getDirection());
-            
         }
 
         private void getDirectionArray(Direction direct)
@@ -76,6 +80,7 @@ namespace Project1
 
         public void Animate()
         {
+
             getDirectionArray(direction_manager.getDirection());
             if (this.time_manager.checkAnimationFrameTime())
             {

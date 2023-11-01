@@ -8,6 +8,7 @@ using System.Xml.Linq;
 using static Project1.Constants;
 using Project1.Enemies.sprites;
 using System.Collections.Generic;
+using Project1.Enemies;
 
 namespace Project1
 {
@@ -279,70 +280,70 @@ namespace Project1
         }
 
 
-        public ISprite CreateBatSprite((int, int) position, (String, int)[] items)
+        public ISprite CreateBatSprite(IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time)
         {
-            return new BatSprite(batStorage, position, items);
+            return new BatSprite(batStorage, animation,movement,direction,state,time);
         }
 
-        public ISprite CreateBossAquaDragonSprite((int, int) position, (String, int)[] items)
+        public ISprite CreateBossAquaDragonSprite(IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time)
         {
            
-            return new BossAquaDragonSprite(aquaDragonStorage, position, items);
+            return new BossAquaDragonSprite(aquaDragonStorage, animation, movement, direction, state, time);
         }
 
-        public ISprite CreateDinoSprite((int, int) position, (String, int)[] items)
+        public ISprite CreateDinoSprite(IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time)
         {
-            return new BossDinoSprite(dinoStorage, position, items);
+            return new BossDinoSprite(dinoStorage, animation, movement, direction, state, time);
         }
 
-        public ISprite CreateFireDragonSprite((int, int) position, (String, int)[] items)
+        public ISprite CreateFireDragonSprite(IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time)
         {
-            return new BossFireDragonSprite(fireDinoStorage, position, items);
+            return new BossFireDragonSprite(fireDinoStorage, animation, movement, direction, state, time);
         }
 
-        public ISprite CreateDogMonsterSprite((int, int) position, (String, int)[] items)
+        public ISprite CreateDogMonsterSprite(IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time)
         {
-            return new DogMonsterSprite(dogMonsterStorage, position, items);
+            return new DogMonsterSprite(dogMonsterStorage, animation, movement, direction, state, time);
         }
 
-        public ISprite CreateFlameSprite((int, int) position, (String, int)[] items)
+        public ISprite CreateFlameSprite(IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time)
         {
-            return new FlameSprite(flameStorage, position, items);
+            return new FlameSprite(flameStorage, animation, movement, direction, state, time);
         }
 
-        public ISprite CreateHandSprite((int, int) position, (String, int)[] items)
+        public ISprite CreateHandSprite(IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time)
         {
-            return new HandSprite(handStorage, position, items);
+            return new HandSprite(handStorage, animation, movement, direction, state, time);
         }
 
-        public ISprite CreateJellySprite((int, int) position, (String, int)[] items)
+        public ISprite CreateJellySprite(IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time)
         {
-            return new JellySprite(jellyStorage, position, items);
+            return new JellySprite(jellyStorage, animation, movement, direction, state, time);
         }
 
-        public ISprite CreateMerchantSprite((int, int) position, (String, int)[] items)
+        public ISprite CreateMerchantSprite(IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time)
         {
-            return new MerchantSprite(merchantStorage, position, items);
+            return new MerchantSprite(merchantStorage, animation, movement, direction, state, time);
         }
 
-        public ISprite CreateOldManSprite((int, int) position, (String, int)[] items)
+        public ISprite CreateOldManSprite(IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time)
         {
-            return new OldManSprite(oldManStorage, position, items);
+            return new OldManSprite(oldManStorage, animation, movement, direction, state, time);
         }
 
-        public ISprite CreateSkeletonSprite((int, int) position, (String, int)[] items)
+        public ISprite CreateSkeletonSprite(IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time)
         {
-            return new SkeletonSprite(skelatonStorage, position, items);
+            return new SkeletonSprite(skelatonStorage, animation, movement, direction, state, time);
         }
 
-        public ISprite CreateSnakeSprite((int, int) position, (String, int)[] items)
+        public ISprite CreateSnakeSprite(IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time)
         {
-            return new SnakeSprite(snakeStorage, position, items);
+            return new SnakeSprite(snakeStorage, animation, movement, direction, state, time);
         }
 
-        public ISprite CreateSpikeCrossSprite((int, int) position, (String, int)[] items)
+        public ISprite CreateSpikeCrossSprite(IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time)
         {
-            return new SpikeCrossSprite(spikeStorage, position, items);
+            return new SpikeCrossSprite(spikeStorage, animation, movement, direction, state, time);
         }
 
         // More public ISprite returning methods follow

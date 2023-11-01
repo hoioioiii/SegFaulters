@@ -7,12 +7,12 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    public class SnakeSprite : UniversalClassEntity //Do this later, not lvvl 1 dungeon
+    public class SnakeSprite : UniversalSpriteClass //Do this later, not lvvl 1 dungeon
     {
         
-        public SnakeSprite(List<Texture2D[]> spriteSheet, (int, int) position, (String, int)[] items): base(spriteSheet, position, items)
+        public SnakeSprite(List<Texture2D[]> spriteSheet, IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time) : base(spriteSheet,animation, movement, state, direction, time)
         {
-
+            animation.frame_list = spriteSheet;
         }
 
         

@@ -11,12 +11,14 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Content;
 using System.Collections;
 using static Project1.Constants;
+using Project1.Enemies;
+
 namespace Project1
 {
-	public class BossFireDragon : IEntity
+	public class BossFireDragon : UniversalClassEntity
 	{
        
-        public Rectangle BoundingBox => getPositionAndRectangle();
+        public override Rectangle BoundingBox => GetPositionAndRectangle();
 
         private IWeapon weapon;
         
@@ -29,93 +31,103 @@ namespace Project1
         /*
          * Initalize fire drag
          */
-        public BossFireDragon((int, int) position, (String, int)[] items)
-		{
+        public BossFireDragon((int, int) position, (String, int)[] items): base(position, items)
+        {
             timeAllowed = 1000;
             onScreen = 0;
             remainOnScreen = false;
             weapon = new Orb();
-            sprite = EnemySpriteFactory.Instance.CreateFireDragonSprite(position, items);
+            sprite = EnemySpriteFactory.Instance.CreateFireDragonSprite(animation_manager, movement_manager, direction_state_manager, state_manager, time_manager);
+        }
+        public override Rectangle GetPositionAndRectangle()
+        {
+            return sprite.GetRectangle().Item2;
+
         }
 
-        /*
-         * Update Sprite
-         */
-        public void Update()
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Update();
-
-           //May or may not keep
-            if (remainOnScreen)
-            {
-                weapon.Update();
-            }
-        }
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            
             sprite.Draw(spriteBatch);
 
-
-            //Optomize this-----
-            Attack();
-
-            CheckOnScreen();
-
-            if (remainOnScreen)
-            {
-                weapon.Draw();
-            }
-            else
-            {
-                onScreen = 0;
-                remainOnScreen = false;
-            }
-            //optomize this later------
-
         }
+        ///*
+        // * Update Sprite
+        // */
+        //public void Update()
+        //{
+        //    sprite.Update();
 
-        //May or may not keep
-        public void CheckTime()
-        {
-            onScreen += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-        }
+        //   //May or may not keep
+        //    if (remainOnScreen)
+        //    {
+        //        weapon.Update();
+        //    }
+        //}
 
-        //May or may not keep
-        public void CheckOnScreen()
-        {
-            CheckTime();
-            if (onScreen > timeAllowed)
-            {
-                remainOnScreen = false;
-            }
+        //public void Draw(SpriteBatch spriteBatch)
+        //{
 
-        }
+        //    sprite.Draw(spriteBatch);
 
-        /*
-         * Drag Health
-         * Might change placement later
-         */
-        public void Health()
-        {
-            throw new NotImplementedException();
-        }
 
-        /*
-         * Fire Drag Attack
-         */
-        public void Attack()
-        {
-            //TODO:FIX LATER
-            //change this to a state
-            //if (BossFireDragonSprite.newAttack)
-            //{
-            //    remainOnScreen = true;
-            //    weapon.Attack();
-            //    weapon.Draw();
-            //}
-        }
+        //    //Optomize this-----
+        //    Attack();
+
+        //    CheckOnScreen();
+
+        //    if (remainOnScreen)
+        //    {
+        //        weapon.Draw();
+        //    }
+        //    else
+        //    {
+        //        onScreen = 0;
+        //        remainOnScreen = false;
+        //    }
+        //    //optomize this later------
+
+        //}
+
+        ////May or may not keep
+        //public void CheckTime()
+        //{
+        //    onScreen += Game1.deltaTime.ElapsedGameTime.Milliseconds;
+        //}
+
+        ////May or may not keep
+        //public void CheckOnScreen()
+        //{
+        //    CheckTime();
+        //    if (onScreen > timeAllowed)
+        //    {
+        //        remainOnScreen = false;
+        //    }
+
+        //}
+
+        ///*
+        // * Drag Health
+        // * Might change placement later
+        // */
+        //public void Health()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        ///*
+        // * Fire Drag Attack
+        // */
+        //public void Attack()
+        //{
+        //    //TODO:FIX LATER
+        //    //change this to a state
+        //    //if (BossFireDragonSprite.newAttack)
+        //    //{
+        //    //    remainOnScreen = true;
+        //    //    weapon.Attack();
+        //    //    weapon.Draw();
+        //    //}
+        //}
 
         //TODO: Fix later
         //public Direction getDirection()
@@ -132,26 +144,26 @@ namespace Project1
 
 
 
-        /*
-         * Drag item drop
-         */
-        public void ItemDrop()
-        {
-            throw new NotImplementedException();
-        }
+        ///*
+        // * Drag item drop
+        // */
+        //public void ItemDrop()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
 
-        public Rectangle getPositionAndRectangle()
-        {
-            return sprite.GetRectangle().Item2;
+        //public Rectangle getPositionAndRectangle()
+        //{
+        //    return sprite.GetRectangle().Item2;
 
-        }
+        //}
 
-        public void setPosition(int x, int y)
-        {
-            sprite.setPos(x, y);
+        //public void setPosition(int x, int y)
+        //{
+        //    sprite.setPos(x, y);
 
-        }
+        //}
 
 
 

@@ -11,13 +11,15 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Content;
 using System.Collections;
 using static Project1.Constants;
+using Project1.Enemies;
+
 namespace Project1
 {
-	public class Snake : IEntity
+	public class Snake : UniversalClassEntity
 	{
-        public Rectangle BoundingBox => getPositionAndRectangle();
+        public override Rectangle BoundingBox => GetPositionAndRectangle();
         //Texture stores the texture alias for our animation
-        private Texture2D Texture { get; set; }
+        
 
         private ISprite sprite;
 
@@ -25,69 +27,79 @@ namespace Project1
         /*
          * Initalize snake
          */
-        public Snake((int, int) position, (String, int)[] items)
-		{
+        public Snake((int, int) position, (String, int)[] items): base(position, items)
+        {
          
-            sprite = EnemySpriteFactory.Instance.CreateSnakeSprite(position, items);
+            sprite = EnemySpriteFactory.Instance.CreateSnakeSprite(animation_manager, movement_manager, direction_state_manager, state_manager, time_manager);
         }
-
-       
-        /*
-         * Update snake
-         */
-        public void Update()
-        {
-            sprite.Update();
-         
-        }
-
-     /*
-      * Draw Snake
-      */
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            sprite.Draw(spriteBatch);
-        }
-
-   
-        /*
-         * Snake health
-         */
-        public void Health()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        /*
-         * 
-         * Snake attk
-         */
-        public void Attack()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        /*
-         * Snake item drop death
-         */
-        public void ItemDrop()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Rectangle getPositionAndRectangle()
+        public override Rectangle GetPositionAndRectangle()
         {
             return sprite.GetRectangle().Item2;
 
         }
 
-        public void setPosition(int x, int y)
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            sprite.setPos(x, y);
+            sprite.Draw(spriteBatch);
 
         }
+
+        //   /*
+        //    * Update snake
+        //    */
+        //   public void Update()
+        //   {
+        //       sprite.Update();
+
+        //   }
+
+        ///*
+        // * Draw Snake
+        // */
+        //   public void Draw(SpriteBatch spriteBatch)
+        //   {
+        //       sprite.Draw(spriteBatch);
+        //   }
+
+
+        //   /*
+        //    * Snake health
+        //    */
+        //   public void Health()
+        //   {
+        //       throw new NotImplementedException();
+        //   }
+
+
+        //   /*
+        //    * 
+        //    * Snake attk
+        //    */
+        //   public void Attack()
+        //   {
+        //       throw new NotImplementedException();
+        //   }
+
+
+        //   /*
+        //    * Snake item drop death
+        //    */
+        //   public void ItemDrop()
+        //   {
+        //       throw new NotImplementedException();
+        //   }
+
+        //   public Rectangle getPositionAndRectangle()
+        //   {
+        //       return sprite.GetRectangle().Item2;
+
+        //   }
+
+        //   public void setPosition(int x, int y)
+        //   {
+        //       sprite.setPos(x, y);
+
+        //   }
     }
 }
 
