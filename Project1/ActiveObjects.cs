@@ -14,7 +14,7 @@ namespace Project1
         private List<IItem>items;
         private List<IEntity> entities;
         private List<IWeapon> weapons;
-        private List<IEnvironment> doors;
+        private List<Door> doors;
         private List<IEnvironment> blocks;
         private List<Rectangle> walls;
         private Player link;
@@ -24,7 +24,7 @@ namespace Project1
             items = new List<IItem>();
             entities = new List<IEntity>();
             weapons = new List<IWeapon>();
-            doors = new List<IEnvironment>();
+            doors = new List<Door>();
             blocks = new List<IEnvironment>();
             walls = new List<Rectangle>();
         }
@@ -48,7 +48,7 @@ namespace Project1
             blocks.Add(block);
         }
 
-        public void addDoors(IEnvironment door)
+        public void addDoors(Door door)
         {
             doors.Add(door);
         }
@@ -87,7 +87,7 @@ namespace Project1
         {
             return blocks;
         }
-        public List<IEnvironment> getDoorList()
+        public List<Door> getDoorList()
         {
             return doors;
         }

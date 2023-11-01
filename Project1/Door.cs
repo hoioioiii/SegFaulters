@@ -18,17 +18,25 @@ namespace Project1
         public int destinationRoom { get; private set; }
         private bool isLocked;
         private Texture2D texture;
+        private Texture2D[] textures;
         private int xPos;
         private int yPos;
         private int width;
         private int height;
 
         public Rectangle BoundingBox { get; private set; }
-        public Door(Texture2D[]textures, DIRECTION direction, int destinationRoom, bool isLocked)
-        {           
+        public Door(Texture2D[] textures, DIRECTION direction, int destinationRoom, bool isLocked)
+        {
+            this.textures = textures;
             this.destinationRoom = destinationRoom;
             this.isLocked = isLocked;
-             
+            this.direction = direction;
+
+            setProperties();
+        }
+        
+        private void setProperties()
+        {
             switch (direction)
             {
                 //set respective scaling, and texture for the door depending on the direction, and if its locked or not.
@@ -76,7 +84,6 @@ namespace Project1
                     break;
             }
         }
-        
 
         public void Update() { }
         public void Draw(SpriteBatch spriteBatch) {
@@ -90,6 +97,12 @@ namespace Project1
         public bool isDoorLocked()
         {
             return isLocked;
+        }
+
+        public void UnlockDoor()
+        {
+            isLocked = false;
+            setProperties();
         }
     }
 }

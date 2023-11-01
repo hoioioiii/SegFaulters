@@ -28,7 +28,7 @@ namespace Project1
         public void addNewWeapon(IWeapon weapon);
         public void addNewWall(Rectangle wall);
         public void addNewEnvironment(IEnvironment block);
-        public void addDoors(IEnvironment door);
+        public void addDoors(Door door);
 
         public void addLink(Player link);
 
@@ -39,7 +39,7 @@ namespace Project1
         public void removeWeapon(IWeapon weapon);
 
         public List<IEnvironment> getEnvironmentList();
-        public List<IEnvironment> getDoorList();
+        public List<Door> getDoorList();
         public List<Rectangle> getBoundarys();
         public void clearAll();
         public void Update();

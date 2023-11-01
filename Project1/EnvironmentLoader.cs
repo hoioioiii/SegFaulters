@@ -13,13 +13,13 @@ namespace Project1
     {
         private static Texture2D levelBackground;
         private static IEnvironment[] blocksArray;
-        private static IEnvironment[] doorArray;
+        private static Door[] doorArray;
         private static Texture2D[] doorSpriteArray;        
 
         public static void LoadContent(ContentManager content)
         {
             blocksArray = new IEnvironment[0];
-            doorArray = new IEnvironment[0];
+            doorArray = new Door[0];
             //load in background content
             levelBackground = content.Load<Texture2D>("LevelBackground");
 
@@ -55,7 +55,7 @@ namespace Project1
 
         public static void LoadDoors((string, (int, bool))[] doorsToLoad)
         {
-            doorArray = new IEnvironment[doorsToLoad.Length];
+            doorArray = new Door[doorsToLoad.Length];
             for( int i = 0;i < doorsToLoad.Length;i++)
             {
                 string directionString = doorsToLoad[i].Item1;

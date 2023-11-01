@@ -37,9 +37,5 @@ namespace Project1
             BoundingBox = new Rectangle(posX, posY, BLOCK_DIMENSION, BLOCK_DIMENSION);
             spriteBatch.Draw(texture, BoundingBox,Color.White);
         }
-        public bool isDoorLocked()
-        {
-            return false;
-        }
     }
 }

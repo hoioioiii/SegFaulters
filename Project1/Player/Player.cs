@@ -540,11 +540,18 @@ namespace Project1
             itemInventory[(int)itemToAdd]++;
         }
 
-        public static void UseItem(ITEMS itemToDelete)
+        public static bool UseItem(ITEMS itemToDelete)
         {
+            bool didItemGetUsed;
             if(itemInventory[(int)itemToDelete] > 0) {
                 itemInventory[(int)itemToDelete]--;
+                didItemGetUsed = true; //if player has item, it got used.
+            } else
+            { 
+                didItemGetUsed = false; //if player does not have item, it did not get used.
             }
+
+            return didItemGetUsed;
         }
 
         public static void setPosition(Vector2 newPostion)

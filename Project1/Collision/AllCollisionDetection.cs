@@ -63,7 +63,7 @@ namespace Project1
         //List<Rectangle> enemyAttackInstances = new List<Rectangle>();
        
         private static List<IItem> roomItems;
-        private static List<IEnvironment> roomDoors;
+        private static List<Door> roomDoors;
         private static List<IEnvironment> roomBoundaries;
 
         private static List<IWeapon> weapons;
@@ -115,7 +115,7 @@ namespace Project1
                 
             }
             
-            foreach (var door in roomDoors)
+            foreach (Door door in roomDoors)
             {
                 isColliding = Player.BoundingBox.Intersects(door.BoundingBox);
                 if (isColliding)
