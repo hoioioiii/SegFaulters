@@ -8,6 +8,9 @@ namespace Project1
 {
     internal interface IEntityState
     {
+
+        public bool finished { get; }
+        public void SetFinished();
         public void setIsMoving(bool update);
         public bool isMoving();
         public void setDamaged(bool update);

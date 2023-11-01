@@ -18,6 +18,7 @@ namespace Project1
         private IAnimation animation_manager;
         private ITime time_manager;
         private IEntityState state_manager;
+        private (String, int)[] drops;
 
         private (Rectangle, Rectangle) rectangles;
         /*
@@ -35,7 +36,7 @@ namespace Project1
 
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
             movement_manager = new Movement(direction_state_manager, this, time_manager, position.Item1, position.Item2, 0);
-          
+            drops = items;
 
         }
 
@@ -44,9 +45,14 @@ namespace Project1
          */
         public void Update()
         {
+            //change .IS alive to {get;private set}
             if (state_manager.IsAlive())
             {
                 Move();
+            }
+            else if (!state_manager.finished && !state_manager.IsAlive())
+            {
+                ItemDrop();
             }
             UpdateFrames();
 
@@ -111,6 +117,25 @@ namespace Project1
         public (Rectangle, Rectangle) GetRectangle()
         {
             return rectangles;
+        }
+
+        public void ItemDrop()
+        {
+            //create new item
+            foreach ((String, int) itemType in drops){
+                CreateNumItem(itemType);
+            }
+            state_manager.SetFinished();
+        }
+
+        public void CreateNumItem((String,int) item)
+        {
+            for (int i = 0; i < item.Item2; i++)
+            {
+                int x = movement_manager.getPosition().Item1;
+                int y = movement_manager.getPosition().Item2;
+                ItemLoader.initItems(item.Item1, (x, y));
+            }
         }
     }
 }

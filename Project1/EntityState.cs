@@ -18,6 +18,7 @@ namespace Project1
 
         private bool newAttack;
 
+        public bool finished { get; private set; }
         public EntityState() { 
         
             alive = true;
@@ -25,6 +26,7 @@ namespace Project1
             damaged = false;
             moving = true;
             newAttack = false;
+            finished = false;
         }
         public bool IsAlive()
         {
@@ -76,6 +78,10 @@ namespace Project1
         public void setNewAttack(bool update)
         {
             newAttack = update;
+        }
+
+        public void SetFinished() {
+            finished = true;
         }
     }
 }

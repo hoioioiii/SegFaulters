@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static Project1.Constants;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Project1.Enemies.sprites
 {
@@ -23,8 +24,13 @@ namespace Project1.Enemies.sprites
         private ITime time_manager;
         private IMove movement_manager;
         private IEntityState state_manager;
-
+        
         private (Rectangle, Rectangle) rectangles;
+        private (String, int)[] drops;
+
+        //testing death and item drop
+        private int aliveTime = 300;
+        private int elaspedTime;
 
         public BatSprite(List<Texture2D[]> spriteSheet, (int, int)position, (String, int)[] items)
         {
@@ -36,27 +42,34 @@ namespace Project1.Enemies.sprites
             animation_manager = new Animation(0, spriteSheet, time_manager,direction_state_manager);
             state_manager = new EntityState();
 
-
-            
-
             //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
             movement_manager = new Movement(direction_state_manager,this,time_manager, position.Item1, position.Item2,0);
-            
+            drops = items;
+            elaspedTime = 0;
+           
             //factor out later
             //width = Texture[animation_manager.getCurrentFrame()].Width;
             //height = Texture[animation_manager.getCurrentFrame()].Height;
-           
+
         }
 
         public void Update()
         {
+            testDeath();
             if (state_manager.IsAlive())
             {
                 Attack();
                 Move();
             }
+            else if (!state_manager.finished)
+            {
+                ItemDrop();
+            }
+            
 
-            UpdateFrames();
+
+
+
         }
 
         public void Attack()
@@ -70,13 +83,17 @@ namespace Project1.Enemies.sprites
         }
         public void UpdateFrames()
         {
-            if (state_manager.IsAlive()) {
-                animation_manager.Animate();
-            }
-            else
-            {
-                //Do Item Drop
-            }
+            //if (state_manager.IsAlive())
+            //{
+            //    Move();
+            //}//move this to update
+            //else if (!state_manager.finished && !state_manager.IsAlive())
+            //{
+            //    ItemDrop();
+            //}
+
+            animation_manager.Animate();
+
         }
 
         public void Move()
@@ -90,6 +107,7 @@ namespace Project1.Enemies.sprites
 
         public void Draw(SpriteBatch spriteBatch)
         {
+
             if (state_manager.IsAlive())
             {
                 setRectangles();
@@ -123,6 +141,48 @@ namespace Project1.Enemies.sprites
         {
             return rectangles;
         }
+
+        public void ItemDrop()
+        {
+
+            System.Diagnostics.Debug.WriteLine("in item drop: " );
+            //create new item
+
+            //this is for testing purposes
+            CreateNumItem(("fairy",1));
+
+            //this is actual--------------------------
+            //foreach ((String, int) itemType in drops)
+            //{
+            //    CreateNumItem(itemType);
+            //}
+            state_manager.SetFinished();
+        }
+
+        public void CreateNumItem((String, int) item)
+        {
+            
+            for (int i = 0; i < item.Item2; i++)
+            {
+                int x = movement_manager.getPosition().Item1;
+                int y = movement_manager.getPosition().Item2;
+                ItemLoader.LoadAndInitializeItems(item.Item1, (x, y), Game1.GameObjManager);
+            }
+            
+        }
+
+        private void testDeath()
+        {
+            elaspedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
+
+            if (elaspedTime >= 500)
+            {
+                state_manager.setIsAlive(false);
+            }
+        }
+
+
+        
     }
 }
 
