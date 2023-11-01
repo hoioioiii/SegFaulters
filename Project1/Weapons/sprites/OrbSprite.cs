@@ -68,30 +68,6 @@ namespace Project1
 
 
 
-        //private bool waitExplode()
-        //{
-        //    elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-
-        //    if (elapsedTime > fps) {
-        //        return false;
-        //    }
-        //    return true;
-        //}
-
-        private void UpdateFrames()
-        {
-            //if (!waitExplode())
-            //{
-            //    current_frame += 1;
-            //    setExplode();
-            //    if (current_frame >= total_frame) {
-            //        current_frame = 0;
-            //        removeBomb();
-            //        removeExplode();
-            //    }
-            //}
-        }
-
         public void Attack()
         {
 
@@ -110,16 +86,20 @@ namespace Project1
             }
         }
 
-
-
-
         public void Update()
         {
+
+            //Get player position
             Move();
+
 
         }
         private void placeOffset()
         {
+            //change to constants
+            //Change offsets to consider player position
+            //Weapons 1,2,3 should be moved out to just weapon 1 x and weapon 2 x.
+            // Weapons 2 and 3 will be created as separete class orbs
             weaponX_3 = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
             weaponY_3 = WeaponDirectionMovement.DirectionOffsetY(userY, 3);
 
@@ -130,22 +110,31 @@ namespace Project1
 
         }
 
-        public void drawItem(int x, int y, SpriteBatch spriteBatch)
+        public void drawOrb(int x, int y, SpriteBatch spriteBatch)
         {
+           
             Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
             Rectangle DEST_REC = new Rectangle(x, y, width, height);
             spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
+            
         }
 
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            
-                drawItem(weaponX_1, weaponY_1, spriteBatch);
-                drawItem(weaponX_2, weaponY_2, spriteBatch);
-                drawItem(weaponX_3, weaponY_3, spriteBatch);
            
+            drawOrb(weaponX_1, weaponY_1, spriteBatch);
+            drawOrb(weaponX_2, weaponY_2, spriteBatch);
+            drawOrb(weaponX_3, weaponY_3, spriteBatch);
         }
+
+        //Method will get player postion and start moving towards player
+        private void SeekPlayer()
+        {
+
+        }
+
+
         private void GetUserPos()
         {
 
@@ -158,7 +147,6 @@ namespace Project1
             //temp remove later
             userX = 1;
             userY = 1;
-
         }
 
         /*
@@ -209,10 +197,16 @@ namespace Project1
             direction = 1;
 
         }
-        private void Load()
+
+        private void GetPlayerPosition()
         {
-            throw new NotImplementedException();
+         
+            //Pretend this returns a vector w player position
         }
+
+
+
+
         private void filterMoveAll(int orbNum)
         {
             filterMovementX(orbNum);

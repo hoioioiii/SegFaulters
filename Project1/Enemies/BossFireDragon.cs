@@ -107,6 +107,7 @@ namespace Project1
          */
         public void Attack()
         {
+            
             //TODO:FIX LATER
             //change this to a state
             //if (BossFireDragonSprite.newAttack)

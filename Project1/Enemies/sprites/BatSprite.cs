@@ -105,7 +105,7 @@ namespace Project1.Enemies.sprites
             int height = animation_manager.sprite_frame.Height;
             int width = animation_manager.sprite_frame.Width;
             rectangles.Item1 = new Rectangle(0, 0, width, height);
-            rectangles.Item2 = new Rectangle(x,y, width * LARGER, height * LARGER);
+            rectangles.Item2 = new Rectangle(x,y, height * LARGER, height * LARGER);
         }
 
         public void setPos(int x, int y)

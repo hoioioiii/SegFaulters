@@ -37,11 +37,6 @@ namespace Project1
             sprite.Draw(Game1._spriteBatch);
         }
 
-        public void Load()
-        {
-            throw new NotImplementedException();
-        }
-
         public void GetUserPos()
         {
             throw new NotImplementedException();
@@ -57,17 +52,8 @@ namespace Project1
             throw new NotImplementedException();
         }
 
-        public void Update(int x, int y, Constants.Direction direct)
-        {
-            throw new NotImplementedException();
-        }
 
         public bool finished()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Draw(int x, int y, Constants.Direction direct)
         {
             throw new NotImplementedException();
         }
@@ -77,9 +63,6 @@ namespace Project1
             throw new NotImplementedException();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }

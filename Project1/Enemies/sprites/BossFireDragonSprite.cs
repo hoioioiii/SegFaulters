@@ -14,6 +14,7 @@ namespace Project1
         private List<Texture2D[]> Texture;
 
         public static bool newAttack;
+        private static IWeapon weapon;
         private IDirectionStateManager direction_state_manager;
         private IAnimation animation_manager;
         private ITime time_manager;
@@ -83,9 +84,13 @@ namespace Project1
             {
                 setRectangles();
                 spriteBatch.Draw(animation_manager.sprite_frame, rectangles.Item2, rectangles.Item1, Color.White);
-
+                if (state_manager.IsAttacking()) EntityAttackAction();
             }
         }
+
+
+
+
 
 
         public void setRectangles()
@@ -119,6 +124,48 @@ namespace Project1
         {
             return direction_state_manager.getDirection();
         }
+
+        public void Attack()
+        {
+            if (state_manager.IsAttacking())
+            {
+
+
+
+            }
+
+
+        }
+
+        private void EntityAttackAction()
+        {
+            if (state_manager.startNewAttack())
+            {
+                //create weapons-> Might change too 3 orbs such that testing collision will be easier
+                weapon = new Orb();
+                state_manager.setNewAttack(false);
+                //TODO:add item to active object list
+            }
+            else
+            {
+                // means the entity is waiting for the weapon to comeback
+                //get weapon obj status of returned/finished) : place holder using state_isAttacking for now
+                //get weapon status of "finished" which means we need to be able to get access to the weapon obj
+                if (weapon.finished())
+                {
+                    state_manager.setIsAttacking(false);
+                    state_manager.setNewAttack(true);
+                }
+                else
+                {
+                    //This will be link's position
+                    weapon.Attack(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, direction_state_manager.getDirection());
+                    weapon.Draw();
+                }
+            }
+        }
+
+
 
     }
 }
