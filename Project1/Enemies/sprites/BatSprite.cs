@@ -65,10 +65,7 @@ namespace Project1.Enemies.sprites
             {
                 ItemDrop();
             }
-            
-
-
-
+           
 
         }
 
