@@ -190,19 +190,6 @@ namespace Project1
                 DamageInvincibility();
             }
 
-            if (keystate.IsKeyDown(Keys.T) || keystate.IsKeyDown(Keys.Y))
-            {
-                // cycle between which block is currently being shown
-            }
-            if (keystate.IsKeyDown(Keys.U) || keystate.IsKeyDown(Keys.I))
-            {
-
-            }
-            if (keystate.IsKeyDown(Keys.O) || keystate.IsKeyDown(Keys.P))
-            {
-
-            }
-
 
 
             if (remainOnScreen)
@@ -257,65 +244,6 @@ namespace Project1
                 {
                     DrawBasedOnAttackType(spriteBatch);
 
-                    //if (isAttackingWithSword)
-                    //{
-                    //    //Sword.Draw(position, linkDirection);
-                    //    sprite.Draw(spriteBatch, "attack", linkDirection, position);
-
-                    //    /*
-                    //    switch (linkDirection)
-                    //    {
-                    //        //get rid of the switch case since you can just
-                    //        //call draw with the direction variable
-                    //        case 1:
-                    //            Sword.Draw(position, linkDirection);
-                    //            sprite.Draw(spriteBatch, "attack", linkDirection, position);
-                    //            break;
-                    //        case 2:
-                    //            Sword.Draw(position, linkDirection);
-                    //            sprite.Draw(spriteBatch, "attack", linkDirection, position);
-                    //            break;
-                    //        case 3:
-                    //            Sword.Draw(position, linkDirection);
-                    //            sprite.Draw(spriteBatch, "attack", linkDirection, position);
-                    //            break;
-                    //        case 4:
-                    //            Sword.Draw(position, linkDirection);
-                    //            sprite.Draw(spriteBatch, "attack", linkDirection, position);
-                    //            break;
-                    //    }
-                    //    */
-                    //}
-                    ////pass corresponding index of weapon to Attack() method so get
-                    ////rid of these if branches
-                    //else
-                    //{
-                    //    //Attack(currentWeaponIndex);
-
-                    //    //sprite.Draw(spriteBatch, "attack", linkDirection, position);
-
-                    //}
-
-                    /*
-                    else if (isAttackingWithBoomerang)
-                    {
-                        Attack((int)WEAPONS.boom);
-
-                        sprite.Draw(spriteBatch, "attack", linkDirection, position);
-                    }
-                    else if (isAttackingWithBow)
-                    {
-                        
-                        Attack((int)WEAPONS.bow);
-                    
-                        sprite.Draw(spriteBatch, "attack", linkDirection, position);
-                    }
-                    else if (isAttackingWithBomb)
-                    {
-                        Attack((int)WEAPONS.bomb);
-                        sprite.Draw(spriteBatch, "attack", linkDirection, position);
-                    }
-                    */
                 }
                 else
                 {
@@ -416,7 +344,6 @@ namespace Project1
                     //    break;
             }
             */
-
 
 
         }
