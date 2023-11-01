@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1
 {
-    internal interface IAnimation
+    public interface IAnimation
     {
         public Texture2D sprite_frame { get;}
         public void Animate();

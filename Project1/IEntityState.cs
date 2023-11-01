@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project1
 {
-    internal interface IEntityState
+    public interface IEntityState
     {
         public void setIsMoving(bool update);
         public bool isMoving();

@@ -6,29 +6,20 @@ using System.Collections.Generic;
 
 namespace Project1.Enemies
 {
-    public class UniversalClassEntity : ISprite
+    public class UniversalClassEntity :ISprite
     {
 
-        //Gets the sprite frames: CHANGE LATER
-        private List<Texture2D[]> Texture;
-
-
-        //Width and Height of sprite frames:change later
-        private int width;
-        private int height;
-
-
-        private IDirectionStateManager direction_state_manager;
-        private IAnimation animation_manager;
-        private ITime time_manager;
+        public IDirectionStateManager direction_state_manager;
+        public IAnimation animation_manager;
+        public ITime time_manager;
         public IMove movement_manager;
-        private IEntityState state_manager;
+        public IEntityState state_manager;
 
         private (Rectangle, Rectangle) rectangles;
 
         public UniversalClassEntity(List<Texture2D[]> spriteSheet, (int, int) position, (string, int)[] items)
         {
-            Texture = spriteSheet;
+            
 
             //replace starting direction based on lvl loader info
             direction_state_manager = new DirectionStateEnemy(Direction.Up);
@@ -51,7 +42,7 @@ namespace Project1.Enemies
             UpdateFrames();
         }
 
-        public void Attack()
+        public virtual void Attack()
         {
             //Check if enemy is currently attacking:
 
@@ -59,6 +50,8 @@ namespace Project1.Enemies
             //We need to check the attack timer to see if we need to attack now
             //Set isAttack to true
             //set isMoving to false
+
+            //this is going to be for collision damage attack i think
         }
         public void UpdateFrames()
         {
@@ -85,19 +78,31 @@ namespace Project1.Enemies
 
         public virtual void MovementType()
         {
-            movement_manager.circularMovement(Direction.Up);
+            movement_manager.WanderMove();
         }
 
+        //Keep in Sprite
         public void Draw(SpriteBatch spriteBatch)
         {
             if (state_manager.IsAlive())
             {
                 setRectangles();
                 spriteBatch.Draw(animation_manager.sprite_frame, rectangles.Item2, rectangles.Item1, Color.White);
+                if (state_manager.IsAttacking()) DrawAttack();
             }
         }
 
+        //Keep in Sprite
+        public virtual void DrawAttack()
+        {
+            //null have each enemy implement their own
+           
+        }
 
+
+        /// <summary>
+        //Keep in sprite
+        /// </summary>
         public void setRectangles()
         {
             int x = movement_manager.getPosition().Item1;

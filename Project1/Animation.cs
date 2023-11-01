@@ -9,7 +9,7 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    internal class Animation : IAnimation
+    public class Animation : IAnimation
     {
         List<Texture2D[]> frame_list;
 
