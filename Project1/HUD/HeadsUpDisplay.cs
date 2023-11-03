@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1.HUD
@@ -11,11 +12,13 @@ namespace Project1.HUD
 
         private static bool isFullMenu;
 
-        public HeadsUpDisplay()
+        public HeadsUpDisplay(GraphicsDevice graphics, ContentManager content)
 		{
-            location = new LocationDisplay();
-            inventory = new InventoryDisplay();
-            health = new HealthDisplay();
+            isFullMenu = false;
+            location = new LocationDisplay(graphics);
+            inventory = new InventoryDisplay(graphics);
+            health = new HealthDisplay(graphics);
+
         }
 
         public void Update(bool fullMenu)

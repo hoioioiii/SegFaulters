@@ -8,6 +8,7 @@ using System.Collections;
 using static Project1.Constants;
 using System;
 using System.Text;
+using Project1.HUD;
 
 namespace Project1
 {
@@ -35,6 +36,8 @@ namespace Project1
 
         public static IEntity ENEMY;
         public static IItem Item;
+
+        public static IHUD hudDisplay;
 
         //Example code for how to create a item in the environment:
         //public static IItem testItem;
@@ -96,6 +99,8 @@ namespace Project1
             player = new Player();
             Player.Initialize();
 
+            //hudDisplay = new HeadsUpDisplay();
+
             base.Initialize();
         }
 
@@ -126,7 +131,7 @@ namespace Project1
 
             //Load background
             EnvironmentLoader.LoadContent(Content);
-
+            hudDisplay = new HeadsUpDisplay(GraphicsDevice, Content);
 
 
             //Load XML File
@@ -158,6 +163,8 @@ namespace Project1
 
             GameObjManager.Update();
             AllCollisionDetection.DetectCollision(GameObjManager);
+
+            hudDisplay.Update(false);
 
             /*
             #region Print to debug console
@@ -199,6 +206,7 @@ namespace Project1
             //CurrentEnvironment.Draw(_spriteBatch);
             GameObjManager.Draw();
 
+            hudDisplay.Draw(_spriteBatch);
 
             _spriteBatch.End();
             base.Draw(gameTime);
