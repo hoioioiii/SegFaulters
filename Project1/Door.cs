@@ -106,9 +106,33 @@ namespace Project1
         public void UnlockDoor()
         {
             LevelLoader.UnlockDoorFromRoom(RoomManager.getActiveRoomNumber(), direction);
-
+            DIRECTION directionInverse = GetInverseDirection(direction);
+            LevelLoader.UnlockDoorFromRoom(destinationRoom, directionInverse);
+            
+                
             isLocked = false;
             setProperties();
+        }
+
+        private DIRECTION GetInverseDirection(DIRECTION direction)
+        {
+            switch (direction)
+            {
+                case DIRECTION.up:
+                    return DIRECTION.down;
+                    break;
+                case DIRECTION.down:
+                    return DIRECTION.up;
+                    break;
+                case DIRECTION.left:
+                    return DIRECTION.right;
+                    break;
+                case DIRECTION.right:
+                    return DIRECTION.left;
+                    break;
+                default: return DIRECTION.down;
+                
+            }
         }
     }
 }

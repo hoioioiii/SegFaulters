@@ -278,7 +278,7 @@
 				</Door>
 				<Door id="south" xLoc="0" yLoc="0">
 					<DestinationRoom>1</DestinationRoom>
-					<Locked>False</Locked>
+					<Locked>true</Locked>
 				</Door>
 			</Doors>
 			<Blocks>
