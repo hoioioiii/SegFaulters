@@ -50,6 +50,8 @@ namespace Project1
 
 
             _graphics = new GraphicsDeviceManager(this);
+            //this is the height of the screen
+            //width should be 800
             _graphics.PreferredBackBufferHeight = (int)(480 * 1.75);
             Content.RootDirectory = "Content";
             contentLoader = Content;

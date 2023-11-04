@@ -15,9 +15,9 @@ namespace Project1.HUD
         public HeadsUpDisplay(GraphicsDevice graphics, ContentManager content)
 		{
             isFullMenu = false;
-            location = new LocationDisplay(graphics);
-            inventory = new InventoryDisplay(graphics);
-            health = new HealthDisplay(graphics);
+            location = new LocationDisplay(graphics, content);
+            inventory = new InventoryDisplay(graphics, content);
+            health = new HealthDisplay(graphics, content);
 
         }
 
