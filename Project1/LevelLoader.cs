@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Linq;
 using System.Web;
+using static Project1.Constants;
+
 
 
 namespace Project1
@@ -160,15 +162,17 @@ namespace Project1
             }
         }
 
-        private static void loadRooms()
+        public static void UnlockDoorFromRoom(int roomNumber, DIRECTION direction)
         {
-            roomList = new Room[roomCount];
+            roomList[roomNumber].UnlockDoor(direction);
         }
+
 
         public static void drawActiveRoom(int n)
         {
             roomList[n].Load();
         }
+
         private static void getRoomCountFromXmlDoc(XmlDocument doc)
         {
             roomCount = doc.GetElementsByTagName("Room").Count;

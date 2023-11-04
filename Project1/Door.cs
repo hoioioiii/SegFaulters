@@ -27,12 +27,15 @@ namespace Project1
         public Rectangle BoundingBox { get; private set; }
         public Door(Texture2D[] textures, DIRECTION direction, int destinationRoom, bool isLocked)
         {
+
             this.textures = textures;
             this.destinationRoom = destinationRoom;
             this.isLocked = isLocked;
             this.direction = direction;
 
             setProperties();
+
+            System.Diagnostics.Debug.WriteLine("Door instantiated; direction: " + direction);
         }
         
         private void setProperties()
@@ -86,6 +89,7 @@ namespace Project1
         }
 
         public void Update() { }
+
         public void Draw(SpriteBatch spriteBatch) {
             double ratio = 1.3;
             BoundingBox = new Rectangle(xPos, yPos, width, height);
@@ -101,6 +105,8 @@ namespace Project1
 
         public void UnlockDoor()
         {
+            LevelLoader.UnlockDoorFromRoom(RoomManager.getActiveRoomNumber(), direction);
+
             isLocked = false;
             setProperties();
         }

@@ -80,6 +80,17 @@ namespace Project1
             DrawActiveRoom();
         }
 
+        public static int getActiveRoomNumber()
+        {
+            for (int i =0; i < activeList.Count; i++)
+            {
+                if (activeList[i])
+                    return i;
+            }
+
+            return -1;
+        }
+
         public static void DrawActiveRoom()
         {
             

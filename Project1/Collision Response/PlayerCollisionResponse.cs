@@ -38,11 +38,7 @@ namespace Project1.Collision_Response
                 {
                     door.UnlockDoor();
                 }
-                else
-                {
-                    return;
-                }
-
+                return;
             }
             
             switch (door.direction)

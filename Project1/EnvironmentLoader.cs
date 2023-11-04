@@ -67,7 +67,7 @@ namespace Project1
             }
         }
 
-        private static DIRECTION DirectionToEnum(String directionString)
+        public static DIRECTION DirectionToEnum(String directionString)
         {
             DIRECTION direction = DIRECTION.left;
             switch(directionString)

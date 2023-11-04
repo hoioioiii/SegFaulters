@@ -4,12 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Content;
+using static Project1.Constants;
+
 
 namespace Project1
 {
+
     //the actual room; uses environment, item, and enemy loader to load in the respective information 
     internal class Room
     {
+        public DIRECTION direction { get; private set; }
+
         private (string, ((int, int), (string, int)[]))[] enemyArray; //(string enemyName, ((int posX, int posY), (string itemName, int quantity)[]))
         private ((string, (int, bool))[], (string, (int, int))[]) environmentInfo; //(doorArray, blockArray)
         private (string, (int, int))[] itemArray;//(string itemName,(int posX, posY))
@@ -26,8 +31,7 @@ namespace Project1
             LoadEnvironment();
             LoadEntity();
             LoadItems();
-
-            print();
+            //print();
         }
 
 
@@ -41,23 +45,19 @@ namespace Project1
             }
             EnvironmentLoader.LoadBlocks(blocksToLoad);
 
-            (string, (int, bool))[] doors = environmentInfo.Item1;
+            (string, (int, bool))[] doors = environmentInfo.Item1; //(direction,(destinationRoom, isLocked))
             //TODO: code door loading in, most of the code will be in environment loader
             EnvironmentLoader.LoadDoors(doors);
         }
 
         private void LoadEntity()
-        {
-            System.Diagnostics.Debug.WriteLine("DegubChack2 array length:" + enemyArray.Length);
-            
+        {            
             foreach ((string, ((int, int), (string, int)[])) enemyInfo in enemyArray)
             {
                 String name = enemyInfo.Item1;
                 (int, int) position = enemyInfo.Item2.Item1;
                 (string, int)[] items = enemyInfo.Item2.Item2;
                 EntityLoader.LoadEntities(Game1.GameObjManager, enemyInfo.Item1,  position, items);
-
-                System.Diagnostics.Debug.WriteLine("activeObj ara: " + Game1.GameObjManager.ToString());
             }
         }
 
@@ -67,19 +67,44 @@ namespace Project1
             foreach ((string, (int, int)) item in itemArray)
             {
                 String name = item.Item1;
-                System.Diagnostics.Debug.WriteLine("ItemName: " + name);
                 (int, int) position = item.Item2;
                 ItemLoader.LoadAndInitializeItems(name, position, Game1.GameObjManager);
             }
         }
 
+        //find the door that matches up with the door that wants to be changed, and unlock it within the room
+        public void UnlockDoor(DIRECTION doorToUnlockDirection)
+        {
+            (string, (int, bool))[] doors = environmentInfo.Item1; //(direction,(destinationRoom, isLocked))
+            for (int i = 0; i < doors.Length; i++)
+            {
+                (string, (int, bool)) door = doors[i];
+
+                DIRECTION direction = EnvironmentLoader.DirectionToEnum(door.Item1);
+                int destinationRoom = door.Item2.Item1;
+                bool isLocked = door.Item2.Item2;
+               
+
+                //if the door that is being unlocked is found,
+                if (doorToUnlockDirection == direction) {
+                    isLocked = false;
+                    door = (door.Item1, (destinationRoom, isLocked));
+                    doors[i] = door;
+                    environmentInfo.Item1 = doors;
+
+                    
+                    return;
+                }
+            }
+        }
+
         public void print()
         {
-            printEnemies();
-            printEnvironment();
-            printItems();
+            PrintEnemies();
+            PrintEnvironment();
+            PrintItems();
         }
-        private void printEnemies()
+        private void PrintEnemies()
         {
             for (int i = 0; i < enemyArray.Length; i++)
             {
@@ -90,11 +115,9 @@ namespace Project1
                 }
                 System.Diagnostics.Debug.WriteLine("");
             }
-
-            System.Diagnostics.Debug.WriteLine("help");
         }
 
-        private void printEnvironment()
+        private void PrintEnvironment()
         {
             int doorCount = environmentInfo.Item1.Length;
             System.Diagnostics.Debug.WriteLine("Doors: ");
@@ -110,7 +133,7 @@ namespace Project1
             }
         }
 
-        private void printItems()
+        private void PrintItems()
         {
             int itemCount = itemArray.Length;
             System.Diagnostics.Debug.WriteLine("Items: ");

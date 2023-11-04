@@ -105,13 +105,13 @@ namespace Project1
                     PlayerCollisionResponse.ItemResponse(item);
                 }
 
-                #region Print to debug console
+                /*#region Print to debug console
                 System.Text.StringBuilder sb = new StringBuilder();
                 sb.Append("isColliding: " + isColliding);
 
                 if (sb.Length > 0)
                     System.Diagnostics.Debug.WriteLine(sb.ToString());
-                #endregion
+                #endregion*/
                 
             }
             
