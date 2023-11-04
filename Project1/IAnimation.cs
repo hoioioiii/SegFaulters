@@ -7,15 +7,18 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1
 {
-    internal interface IAnimation
+    public interface IAnimation
     {
         public Texture2D sprite_frame { get;}
+        public List<Texture2D[]> frame_list{ set; }
         public void Animate();
-
+        public void PopulateFrames();
         public int getCurrentFrame();
 
         public void setTotalFrame(int frame);
         public void setStartFrame(int frame);
+
+       
 
     }
 }

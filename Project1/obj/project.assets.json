@@ -102,23 +102,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kyler\\.nuget\\packages\\": {},
-    "D:\\CSE3902\\Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\tinal\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CSE3902\\Projects\\SegFaulters\\Project1\\Project1.csproj",
+      "projectUniqueName": "C:\\Users\\tinal\\Source\\Repos\\3.7\\Project1\\Project1.csproj",
       "projectName": "Project1",
-      "projectPath": "D:\\CSE3902\\Projects\\SegFaulters\\Project1\\Project1.csproj",
-      "packagesPath": "C:\\Users\\kyler\\.nuget\\packages\\",
-      "outputPath": "D:\\CSE3902\\Projects\\SegFaulters\\Project1\\obj\\",
+      "projectPath": "C:\\Users\\tinal\\Source\\Repos\\3.7\\Project1\\Project1.csproj",
+      "packagesPath": "C:\\Users\\tinal\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tinal\\Source\\Repos\\3.7\\Project1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "D:\\CSE3902\\Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\kyler\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tinal\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

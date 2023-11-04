@@ -12,72 +12,88 @@ using Microsoft.Xna.Framework.Content;
 using System.Collections;
 using static Project1.Constants;
 using System.Diagnostics;
+using Project1.Enemies;
 
 namespace Project1
 {
-	public class Bat : IEntity
-	{
+	public class Bat : UniversalClassEntity
+    {
        
 
-        public Rectangle BoundingBox => getPositionAndRectangle();
+        public override Rectangle BoundingBox => GetPositionAndRectangle();
 
         private ISprite sprite;
         
         /*
          * Initalize Bat Features
          */
-        public Bat((int, int) position, (String, int)[] items)
-		{
-            sprite = EnemySpriteFactory.Instance.CreateBatSprite(position, items);
-
-        }
-
-        /*
-        * Update the Bat
-        */
-        public void Update()
+        public Bat((int, int) position, (String, int)[] items): base(position, items)
         {
-            sprite.Update();
-           
+
+            sprite = EnemySpriteFactory.Instance.CreateBatSprite(animation_manager,movement_manager,direction_state_manager,state_manager,time_manager);
+
         }
 
-        /*
-         * Draw the Bat
-         */
-        public void Draw(SpriteBatch spriteBatch)
+        public override void MovementType()
         {
-            sprite.Draw(spriteBatch);
-    
+
+            //Movement.WanderMove(direction_state_manager, this, time_manager);
+            this.movement_manager.circularMovement(Direction.Right);
         }
 
-        /*
-         * Have Bat Attack
-         */
-        public void Attack()
-        {
-           //Attacks
-        }
+        ///*
+        //* Update the Bat
+        //*/
+        //public void Update()
+        //{
+        //    sprite.Update();
 
-        /*
-         * Have the Bat drop a Item
-         */
-        public void ItemDrop()
-        {
-            //Items they drop
-        }
+        //}
+
+        //Might need this
+        ///*
+        // * Draw the Bat
+        // */
+        //public void Draw(SpriteBatch spriteBatch)
+        //{
+        //    sprite.Draw(spriteBatch);
+
+        //}
+
+        ///*
+        // * Have Bat Attack
+        // */
+        //public void Attack()
+        //{
+        //   //Attacks
+        //}
+
+        ///*
+        // * Have the Bat drop a Item
+        // */
+        //public void ItemDrop()
+        //{
+        //    //Items they drop
+        //}
 
         //fix later
-        public Rectangle getPositionAndRectangle()
+        public override Rectangle GetPositionAndRectangle()
         {
             return sprite.GetRectangle().Item2;
 
         }
 
-        public void setPosition(int x, int y)
+        public override void Draw(SpriteBatch spriteBatch)
         {
-           sprite.setPos(x, y);
+            sprite.Draw(spriteBatch);
 
         }
+
+        //public void setPosition(int x, int y)
+        //{
+        //   sprite.setPos(x, y);
+
+        //}
     }
 }
 

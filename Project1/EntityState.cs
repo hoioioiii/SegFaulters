@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Project1
 {
-    internal class EntityState : IEntityState
+    public class EntityState : IEntityState
     {
         private bool alive;
 
