@@ -37,14 +37,17 @@ namespace Project1
         }
 
         //loads blocks given data of row,col and the texture of the block
-        public static void LoadBlocks((int,int)[] blocksToLoad)
+        public static void LoadBlocks((string, (int,int))[] blocksToLoad)
         {
             blocksArray = new IEnvironment[blocksToLoad.Length];
 
             for (int i = 0; i < blocksToLoad.Length; i++)
             {
-                Texture2D texture = EnvironmentIterator.getCurrEnemy();
-                (int, int) pos = PositionGrid.getPosBasedOnGrid(blocksToLoad[i].Item1, blocksToLoad[i].Item2);
+                //Texture2D texture = EnvironmentIterator.getCurrEnemy();
+                Texture2D texture = EnvironmentIterator.GetTextureFromName(blocksToLoad[i].Item1);
+                (int, int) positionFromData = blocksToLoad[i].Item2;
+
+                (int, int) pos = PositionGrid.getPosBasedOnGrid(positionFromData.Item1, positionFromData.Item2);
                 int posX = pos.Item1;
                 int posY = pos.Item2;
 
@@ -67,7 +70,7 @@ namespace Project1
             }
         }
 
-        public static DIRECTION DirectionToEnum(String directionString)
+        public static DIRECTION DirectionToEnum(string directionString)
         {
             DIRECTION direction = DIRECTION.left;
             switch(directionString)
@@ -92,7 +95,6 @@ namespace Project1
 
         }
         
-
         public static void Update()
         {
             foreach (IEnvironment block in blocksArray) {

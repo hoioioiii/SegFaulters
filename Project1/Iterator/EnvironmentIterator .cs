@@ -54,6 +54,12 @@ namespace Project1
             CreateList(temp);
         }
 
+        //get the texture from the block name, given from the XML
+        public static Texture2D GetTextureFromName(string name)
+        {
+            return texture2D[2];
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             Texture2D drawItem = texture2D[pointer];

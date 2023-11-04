@@ -30,7 +30,6 @@ namespace Project1
 
         public void Update()
         {
-            texture = EnvironmentIterator.getCurrEnemy();
         }
         public void Draw(SpriteBatch spriteBatch)
         {

@@ -38,12 +38,12 @@ namespace Project1
         private void LoadEnvironment()
         {
             (string, (int, int))[] blocks = environmentInfo.Item2;
-            (int, int)[] blocksToLoad = new (int, int)[blocks.Length];
+            /*(int, int)[] blocksToLoad = new (int, int)[blocks.Length];
             for (int i = 0; i < blocks.Length; i++)
             {
                 blocksToLoad[i] = blocks[i].Item2;
-            }
-            EnvironmentLoader.LoadBlocks(blocksToLoad);
+            }*/
+            EnvironmentLoader.LoadBlocks(blocks);
 
             (string, (int, bool))[] doors = environmentInfo.Item1; //(direction,(destinationRoom, isLocked))
             //TODO: code door loading in, most of the code will be in environment loader
