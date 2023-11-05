@@ -84,11 +84,17 @@ namespace Project1
         //private Rectangle rect;
         private static bool remainOnScreen;
 
+
+        public static HealthSystemSprite healthSystem;
+
         public Player()
         {
             //posX = 0;
             //posY = 0;
             remainOnScreen = false;
+
+            //initial health for linkk
+            HealthSystemSprite healthSystem;
         }
 
         // initialize timing metrics for attacks and damage
@@ -104,6 +110,8 @@ namespace Project1
             weapon = new Bomb();
 
             BoundingBox = new Rectangle(0, 0, LINK_BOUNDING_DIMENSION, LINK_BOUNDING_DIMENSION);
+
+            healthSystem = new HealthSystemSprite();
         }
 
 
@@ -386,6 +394,8 @@ namespace Project1
                     }
                 }
             }
+
+            healthSystem.Draw(spriteBatch);
         }
 
         public static void Attack(string weaponType)
