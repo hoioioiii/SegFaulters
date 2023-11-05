@@ -91,5 +91,10 @@ namespace Project1
                 }
             }
         }
+
+        public static Dictionary<int, bool> GetActiveList()
+        {
+            return activeList;
+        }
     }
 }
