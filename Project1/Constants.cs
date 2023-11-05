@@ -37,6 +37,7 @@ namespace Project1
 
         public static int ENEMY_SPEED = 1;
 
+        // are the lower heights necessary?
         public static int SCREEN_WIDTH_UPPER = 600;
         public static int SCREEN_WIDTH_LOWER = 0;
         public static int SCREEN_HEIGHT_UPPER = 400;

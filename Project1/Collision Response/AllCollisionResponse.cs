@@ -22,9 +22,9 @@ namespace Project1.Collision
          * Knockback speed should be equal to speed of player or enemy
          * How to make this an instance method?
          */
-        public static Vector2 Knockback(Vector2 position, DIRECTION directon, int knockbackDist)
+        public static Vector2 Knockback(Vector2 position, DIRECTION direction, int knockbackDist)
         {
-            switch (directon)
+            switch (direction)
             {
                 case DIRECTION.left:
                     position = position + new Vector2(knockbackDist, 0);
