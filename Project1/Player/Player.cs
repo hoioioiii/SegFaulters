@@ -85,7 +85,7 @@ namespace Project1
         private static bool remainOnScreen;
 
 
-        public static HealthSystemSprite healthSystem;
+        public static Health.HealthSystemSprite healthSystem;
 
         public Player()
         {
@@ -94,7 +94,7 @@ namespace Project1
             remainOnScreen = false;
 
             //initial health for linkk
-            HealthSystemSprite healthSystem;
+            Health.HealthSystemSprite healthSystem;
         }
 
         // initialize timing metrics for attacks and damage
@@ -111,7 +111,7 @@ namespace Project1
 
             BoundingBox = new Rectangle(0, 0, LINK_BOUNDING_DIMENSION, LINK_BOUNDING_DIMENSION);
 
-            healthSystem = new HealthSystemSprite();
+            healthSystem = new Health.HealthSystemSprite();
         }
 
 

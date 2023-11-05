@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+﻿/*using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace Project1.Health
         public int fragments;
         public Heart(int fragments)
         {
-            this.fragments = fragments;
+            SetHeartFragment(fragments);
         }
 
         public void SetHeartFragment(int fragments)
@@ -21,7 +21,7 @@ namespace Project1.Health
             this.fragments = fragments;
         }
 
-        public int getFragmentAmount()
+        public int GetFragmentAmount()
         { return fragments; }
     }
-}
+}*/

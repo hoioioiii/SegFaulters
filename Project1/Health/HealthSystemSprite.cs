@@ -14,76 +14,90 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Formats.Asn1.AsnWriter;
 //using static Project1.ConstantClass;
-
-public class HealthSystemSprite //turn it into SpriteHealth
+namespace Project1.Health
 {
-    
-    public static int healthCurrent;
-
-    public static Texture2D fullHeart;
-
-    public static Texture2D halfHeart;
-    public static Texture2D emptyHeart;
-
-    public static List<HealthSystemSpriteManager> heartsList;
-    public static List<Texture2D> heartsFragments;
-
-    public HealthSystem healthSystem;
-    public HealthSystemSpriteManager heart;
-
-    public HealthSystemSprite()
+    public class HealthSystemSprite //turn it into SpriteHealth
     {
 
+        public static int healthCurrent;
 
-        heartsList = new List<HealthSystemSpriteManager>();
-        heartsFragments = new List<Texture2D>();
+        public static Texture2D fullHeart;
+        public static Texture2D halfHeart;
+        public static Texture2D emptyHeart;
 
-        LoadHearts();
+        public static List<IndividualHeart> heartsList;
+        public static List<Texture2D> heartsFragments;
 
-        HealthSystem healthSystem = new HealthSystem(3);
-        setHealthSystem(healthSystem);
-    }
+        public HealthSystem healthSystem;
+        public IndividualHeart heart;
 
-    public void setHealthSystem(HealthSystem healthSystem)
-    {
-        this.healthSystem = healthSystem;
-        createHeart(new Vector2(100, 200)).SetHeartFragment(0);
-        createHeart(new Vector2(100, 200)).SetHeartFragment(0);
-        createHeart(new Vector2(100, 200)).SetHeartFragment(0);
-    }
-
-    public void LoadHearts()
-    {
-        fullHeart = Game1.contentLoader.Load<Texture2D>("fullheart");
-        halfHeart = Game1.contentLoader.Load<Texture2D>("halfheart");
-        emptyHeart = Game1.contentLoader.Load<Texture2D>("emptyheart");
-
-        heartsFragments.Add(fullHeart);
-        heartsFragments.Add(halfHeart);
-        heartsFragments.Add(emptyHeart);
-    }
-
-    public HealthSystemSpriteManager createHeart(Vector2 position)
-    {
-        Texture2D currentHeart = heartsFragments[0];
-
-        heart = new HealthSystemSpriteManager(currentHeart, position, this);
-
-        heartsList.Add(heart);
-        return heart;
-    }
-
-
-    public void Draw(SpriteBatch spriteBatch)
-    {
-        float desiredWidth = 50; // The desired width for the sprite
-        float scale = desiredWidth / heartsList[0].heartTexture.Width;
-        
-        foreach (var heart in heartsList)
+        public HealthSystemSprite()
         {
-            spriteBatch.Draw(heart.heartTexture, heart.position, null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
+            //list of all types of hearts
+            heartsFragments = new List<Texture2D>();
+            LoadHearts();
+
+            //list of current Link's hearts
+            heartsList = new List<IndividualHeart>();
+
+            HealthSystem healthSystem = new HealthSystem(3); //3 hearts as starter
+            SetHealthSystem(healthSystem);
         }
+
+        public void SetHealthSystem(HealthSystem healthSystem)
+        {
+            this.healthSystem = healthSystem;
+            List<HealthSystem.Heart> hearts = healthSystem.GetHealthSystem();
+
+            //INITIAL POSITION TO BE CHANGED BY HUD 
+            Vector2 currHeartPosition = new Vector2(100, 200);
+
+            for (int i = 0;  i < hearts.Count; i++)
+            {
+                HealthSystem.Heart heart = hearts[i];
+                CreateHeart(currHeartPosition).SetHeartFragment(heart.GetFragmentAmount());
+                currHeartPosition += new Vector2(50, 0); //offset the next to the right
+            }
+        }
+
+        //Load all possible types of hearts
+        public void LoadHearts()
+        {
+            fullHeart = Game1.contentLoader.Load<Texture2D>("fullheart");
+            halfHeart = Game1.contentLoader.Load<Texture2D>("halfheart");
+            emptyHeart = Game1.contentLoader.Load<Texture2D>("emptyheart");
+
+            heartsFragments.Add(emptyHeart);
+            heartsFragments.Add(halfHeart);
+            heartsFragments.Add(fullHeart);
+
+        }
+
+        public IndividualHeart CreateHeart(Vector2 position)
+        {
+            Texture2D currentHeart = heartsFragments[0];
+
+            //Create a type heart (full, empty, half)
+            heart = new IndividualHeart(currentHeart, position, this);
+
+            //Add to Link's current hearts
+            heartsList.Add(heart);
+
+            return heart;
+        }
+
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            float desiredWidth = 50; // The desired width for the sprite
+            float scale = desiredWidth / heartsList[0].heartTexture.Width;
+
+            foreach (var heart in heartsList)
+            {
+                spriteBatch.Draw(heart.heartTexture, heart.position, null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
+            }
+        }
+
+
     }
-
-
 }
