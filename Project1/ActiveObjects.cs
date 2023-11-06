@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
@@ -18,7 +19,7 @@ namespace Project1
         private List<IEnvironment> blocks;
         private List<Rectangle> walls;
         private Player link;
-        
+        private ITime timeManager;
 
         public ActiveObjects() {
             items = new List<IItem>();
@@ -27,6 +28,9 @@ namespace Project1
             doors = new List<Door>();
             blocks = new List<IEnvironment>();
             walls = new List<Rectangle>();
+
+            ITime timeManager = new TimeTracker(true);
+
         }
 
         public void addLink(Project1.Player link)
@@ -128,13 +132,13 @@ namespace Project1
 
             UpdateEnemies();
 
-            //UpdateIWeapons();
+            UpdateIWeapons();
 
             //UpdatePlayer();
 
-            
 
-           //AllCollisionDetection.DetectCollision(this);
+
+            //AllCollisionDetection.DetectCollision(this);
         }
 
         private void UpdatePlayer()
@@ -177,8 +181,10 @@ namespace Project1
 
         private void DrawIWeapons()
         {
+            
             for (int i = 0; i < weapons.Count; i++)
             {
+                weapons[i].Attack();
                 weapons[i].Draw();
             }
         }
@@ -206,7 +212,7 @@ namespace Project1
         public void Draw()
         {
            // DrawPlayer();
-            //DrawIWeapons();
+            DrawIWeapons();
             DrawEnemies();
             DrawItems();
         }

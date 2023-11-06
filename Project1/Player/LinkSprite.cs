@@ -8,15 +8,19 @@ namespace Project1
 {
     public class LinkSprite : IPlayerSprite
     {
+        //Player.cs should own linkDirection, not the sprite class
         private static int spriteScale = 3;
-        public static int linkDirection = 2;
+        //public static int linkDirection = 0;
 
         private static Texture2D[] stillFrames = new Texture2D[PLAYER_FRAMES];
         private static Texture2D[] movingFrames = new Texture2D[PLAYER_FRAMES];
         private static Texture2D[] attackFrames = new Texture2D[PLAYER_FRAMES];
         private Texture2D[] currentFrames = new Texture2D[PLAYER_FRAMES];
 
-        private Vector2 position;
+        //Player.cs should own position as well
+        //private Vector2 position;
+
+        //Maybe needs to belong to Player.cs???
         private Rectangle rect;
 
         //Initialize Link's frame
@@ -28,11 +32,10 @@ namespace Project1
         }
 
         //Update Link's direction and position
-        public void Update(int direction, Vector2 pos)
+        public void Update()
         {
-            linkDirection = direction;
-            position = pos;
         }
+
         private void setCurrentFrames(string type)
         {
             switch (type)
@@ -53,7 +56,7 @@ namespace Project1
         }
 
         //Draw Link given the direction input
-        private void DrawLink(SpriteBatch sprBatch, int direction)
+        private void DrawLink(SpriteBatch sprBatch, int direction, Vector2 position)
         {
             Rectangle DEST_REC;
             Rectangle SOURCE_REC;
@@ -65,16 +68,17 @@ namespace Project1
         }
 
         //Decide the direction for Link's
-        public void Draw(SpriteBatch spriteBatch, string _type)
+        public void Draw(SpriteBatch spriteBatch, string _type, int direction, Vector2 location)
         {
             setCurrentFrames(_type);
+            /*
             switch (linkDirection)
             {
-               case 1:
+               case 2:
                     
                     DrawLink(spriteBatch, (int)DIRECTION.up);
                     break;
-               case 2:
+               case 0:
          
                     DrawLink(spriteBatch, (int)DIRECTION.right);
                     break;
@@ -82,7 +86,7 @@ namespace Project1
                     
                     DrawLink(spriteBatch, (int)DIRECTION.down);
                     break;
-               case 4:
+               case 1:
                     
                     DrawLink(spriteBatch, (int)DIRECTION.left);
                     break;
@@ -91,7 +95,9 @@ namespace Project1
                     DrawLink(spriteBatch, (int)DIRECTION.right);
                     break;
             }
-            
+            */
+            DrawLink(spriteBatch, direction, location);
+
         }
 
         public Rectangle getRectangle()
@@ -100,6 +106,7 @@ namespace Project1
 
         }
 
+        /*
         public void setPosition(Vector2 pos)
         {
             this.position = pos;
@@ -109,5 +116,6 @@ namespace Project1
         {
             return this.position;
         }
+        */
     }
 }

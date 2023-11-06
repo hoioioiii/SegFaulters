@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static Project1.Constants;
 
 namespace Project1
 {
     internal class ArrowSpritePlayer : ISpriteWeapon
     {
 
-        private Texture2D[] texture;
+        private Texture2D[] texture = new Texture2D[4];
         private int userX;
         private int userY;
         private int weaponX;
@@ -31,7 +33,8 @@ namespace Project1
         private int offsetX;
         private int offsetY;
 
-        private int onScreen;
+        private static int onScreen;
+        public static bool remainOnScreen { get; private set; }
 
         public ArrowSpritePlayer(Texture2D[] spriteSheet)
         {
@@ -44,6 +47,12 @@ namespace Project1
             onScreen = 0;
             offsetX = 0;
             offsetY = 0;
+
+            ////delete later
+            //texture[(int)DIRECTION.up] = Game1.ContentManager1.Load<Texture2D>("arrowUp");
+            //texture[(int)DIRECTION.right] = Game1.ContentManager1.Load<Texture2D>("arrowRight");
+            //texture[(int)DIRECTION.down] = Game1.ContentManager1.Load<Texture2D>("arrowDown");
+            //texture[(int)DIRECTION.left] = Game1.ContentManager1.Load<Texture2D>("arrowLeft");
 
             width = texture[0].Width;
             height = texture[0].Height;
@@ -142,6 +151,9 @@ namespace Project1
         private void GetUserState()
         {
             direction = Player.getUserDirection();
+            current_frame = direction;
+
+            /*
             switch (direction)
             {
                 case 1:
@@ -157,10 +169,12 @@ namespace Project1
                     current_frame = 3;
                     break;
             }
+            */
         }
         /*
          * Arrow moves accross screen
          */
+        //NEED TO FIX WEAPON-DIRECT-MOVEMENT to reflect new linkdirection variable
         private void Move()
         {
             if (direction % 2 == 0)

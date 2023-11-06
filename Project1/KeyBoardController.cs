@@ -68,10 +68,13 @@ namespace Project1
         public void GenerateKeyToKeyMap()
         {
             KEY_TO_KEY = new Dictionary<Keys, Keys>();
+
+            
             KEY_TO_KEY.Add(Keys.A, Keys.Left);
             KEY_TO_KEY.Add(Keys.W, Keys.Up);
             KEY_TO_KEY.Add(Keys.S, Keys.Down);
             KEY_TO_KEY.Add(Keys.D, Keys.Right);
+            
             KEY_TO_KEY.Add(Keys.N, Keys.Z);
             KEY_TO_KEY.Add(Keys.Q, Keys.R);
             KEY_TO_KEY.Add(Keys.NumPad0, Keys.D0);
@@ -108,14 +111,27 @@ namespace Project1
         public void GenerateMOVEMap()
         {
             MOVE_MAP = new Dictionary<Keys, ICommand>();
-            MOVE_MAP.Add(Keys.Down, new MoveDown());
 
+            /*
+             *The functionality for this has been moved to KeyboardControllerPLayer
+            //doesnt work
             //directions
             MOVE_MAP.Add(Keys.Up, new MoveUp());
             MOVE_MAP.Add(Keys.Left, new MoveLeft());
             MOVE_MAP.Add(Keys.Right, new MoveRight());
+            MOVE_MAP.Add(Keys.Down, new MoveDown());
+
+            //neither does this one
+            //directions
+            MOVE_MAP.Add(Keys.W, new MoveUp());
+            MOVE_MAP.Add(Keys.A, new MoveLeft());
+            MOVE_MAP.Add(Keys.D, new MoveRight());
+            MOVE_MAP.Add(Keys.S, new MoveDown());
+            */
+
             //damage
-            MOVE_MAP.Add(Keys.E, new TakeDamage());
+            //not working, is not flashing
+            //MOVE_MAP.Add(Keys.E, new Damage());
             MOVE_MAP.Add(Keys.R, new QuitGame());
             //weapon attacks
             MOVE_MAP.Add(Keys.I, new attackBoomerang());

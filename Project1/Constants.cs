@@ -20,6 +20,8 @@ namespace Project1
     public class Constants
     {
         public static Song BGM;
+
+        //Change this later to be all caps
         public static SoundEffect addUI, boomerang, cling, death, puzzleSolved, dragon, dragon2, dragon3, enemyDie, fire, flame, item, lowHealth, plus, plusPlus, secret, stairs, subtractUI, sword;
 
         //Directions->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -56,10 +58,11 @@ namespace Project1
         public static int ENTITY_SPD = 2;
 
         public const float FRAMES_PER_SECOND = 10;
-        public const float FRAMETIME = 1 / FRAMES_PER_SECOND;
+        public const float FRAMETIME = 1 / 10;
 
         public static Game1 GameObj = Game1.Game;
 
+      
         //Collision metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int roomBoundsMaxX = 660, roomBoundsMaxY = 365 + FRAME_BUFFER, roomBoundsMinX = 90, roomBoundsMinY = 53 + FRAME_BUFFER;
 
@@ -285,6 +288,39 @@ namespace Project1
         public static int PLAYER_FRAMES = 4;
         public static int PLAYER_R = 1;
 
+        public enum WEAPONS { bomb = 0, bow = 1, boom = 2, sword = 3 };
+
+        //items vars
+        
+
+        // for Link's sprite animation
+        // how many animation frames per second, not the framerate of the game
+        //public const float FRAMES_PER_SECOND = 10;
+        //public const float FRAMETIME = 1 / FRAMES_PER_SECOND;
+
+        //public static int SCREEN_WIDTH_UPPER = 700;
+        //public static int SCREEN_WIDTH_LOWER = 0;
+        //public static int SCREEN_HEIGHT_UPPER = 400;
+        //public static int SCREEN_HEIGHT_LOWER = 0;
+
+
+        /*
+         * Link sprite constants:
+         */
+
+        //public enum DIRECTION {right = 0, left = 1, up = 2, down = 3};
+
+        //public static int PLAYER_FRAMES = 4;
+        //public static int PLAYER_R = 1;
+
+        //
+        //public const float INVINCIBILITY_SECONDS = 1;
+        //public const float ATTACK_SECONDS = 0.5f;
+        //public const float FLASHES_PER_SECOND = 8;
+        //public const float FLASHTIME = 1 / FLASHES_PER_SECOND;
+
+
+        //
         public const float BOOMERANG_RANGE = 50;
         public static int TRIFORCE_R = 1;
         public static int TRIFORCE_C = 2;

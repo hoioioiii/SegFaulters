@@ -46,13 +46,13 @@ namespace Project1
         {
 
             
-            return Game1.deltaTime.ElapsedGameTime.Milliseconds; ;
+            return Game1.deltaTime.ElapsedGameTime.Milliseconds;
         }
 
 
         private int getTimeSeconds()
         {
-            return Game1.deltaTime.ElapsedGameTime.Seconds; ;
+            return Game1.deltaTime.ElapsedGameTime.Seconds;
         }
 
         public void UpdateElaspedMilli()

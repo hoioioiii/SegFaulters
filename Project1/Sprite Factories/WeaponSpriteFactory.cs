@@ -98,7 +98,7 @@ namespace Project1
     public class WeaponSpriteFactory
     {
 
-        private Texture2D[] SwordSheet = new Texture2D[SWORD_TOTAL];
+        private Texture2D[] SwordSheet = new Texture2D[4];
         private Texture2D[] BowSheet = new Texture2D[BOW_TOTAL];
         private Texture2D[] ArrowSheet = new Texture2D[4];
         private Texture2D[] BombSheet = new Texture2D[BOMB_ARRAY];
@@ -137,19 +137,25 @@ namespace Project1
             //BowSheet[2] = content.Load<Texture2D>("bowLeft");
             //BowSheet[3] = content.Load<Texture2D>("bowRight");
 
-            ArrowSheet[0] = content.Load<Texture2D>("arrowUp");
-            ArrowSheet[1] = content.Load<Texture2D>("arrowRight");
-            ArrowSheet[2] = content.Load<Texture2D>("arrowDown");
-            ArrowSheet[3] = content.Load<Texture2D>("arrowLeft");
+            SwordSheet[(int)DIRECTION.up] = content.Load<Texture2D>("swordUp");
+            SwordSheet[(int)DIRECTION.right] = content.Load<Texture2D>("swordRight");
+            SwordSheet[(int)DIRECTION.down] = content.Load<Texture2D>("swordDown");
+            SwordSheet[(int)DIRECTION.left] = content.Load<Texture2D>("swordLeft");
+
+
+            ArrowSheet[(int)DIRECTION.up] = content.Load<Texture2D>("arrowUp");
+            ArrowSheet[(int)DIRECTION.right] = content.Load<Texture2D>("arrowRight");
+            ArrowSheet[(int)DIRECTION.down] = content.Load<Texture2D>("arrowDown");
+            ArrowSheet[(int)DIRECTION.left] = content.Load<Texture2D>("arrowLeft");
 
             //// Attack using weapon or item
             BombSheet[0] = content.Load<Texture2D>("ZeldaSpriteBomb");
             BombSheet[1] = content.Load<Texture2D>("ZeldaSpriteEnemyCloud");
 
-            BoomerangSheet[0] = content.Load<Texture2D>("boomerang1");
-            BoomerangSheet[1] = content.Load<Texture2D>("boomerang2");
-            BoomerangSheet[2] = content.Load<Texture2D>("boomerang3");
-            BoomerangSheet[3] = content.Load<Texture2D>("boomerang4");
+            BoomerangSheet[(int)DIRECTION.up] = content.Load<Texture2D>("boomerang1");
+            BoomerangSheet[(int)DIRECTION.right] = content.Load<Texture2D>("boomerang2");
+            BoomerangSheet[(int)DIRECTION.down] = content.Load<Texture2D>("boomerang3");
+            BoomerangSheet[(int)DIRECTION.left] = content.Load<Texture2D>("boomerang4");
 
             ////need the orbs still
             OrbSheet[0] = content.Load<Texture2D>("orb");
@@ -176,6 +182,11 @@ namespace Project1
             return new OrbSprite(OrbSheet);
         }
 
+
+        public ISpriteWeapon CreateSwordSprite()
+        {
+            return new SwordSpritePlayer(SwordSheet);
+        }
 
     }
 

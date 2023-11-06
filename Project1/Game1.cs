@@ -40,6 +40,8 @@ namespace Project1
         //public static IItem testItem;
         //public static Vector2 testLoc = new Vector2((float)SPRITE_X, (float)SPRITE_Y);
 
+        //remove later
+        public static GameTime timeProj;
         private ArrayList ControllerList;
 
         public Game1()
@@ -89,6 +91,7 @@ namespace Project1
                 Exit();
             }
 
+            timeProj = new GameTime();
             //keep
             GameObjManager = new ActiveObjects();
 
@@ -106,6 +109,7 @@ namespace Project1
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             WeaponSpriteFactory.Instance.LoadAllTextures(Content);
+            PlayerSpriteFactory.Instance.LoadAllTextures(Content);
             /**
              * 
              * Replace all sprites with proper sprites.
@@ -117,11 +121,11 @@ namespace Project1
 
 
 
-            Sword.LoadContent(Content);
-            Arrow.LoadContent(Content);
-            Boomerang.LoadContent(Content);
+            //Sword.LoadContent(Content);
+            //Arrow.LoadContent(Content);
+            //Boomerang.LoadContent(Content);
 
-            PlayerSpriteFactory.Instance.LoadAllTextures(Content);
+            
             Player.LoadContent(Content);
 
             //Load background
@@ -133,8 +137,8 @@ namespace Project1
             //AudioManager.PlaySoundEffect();
 
             //Load XML File
-            LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
-            //LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
+            //LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
+            LevelLoader.Load("C:\\Users\\tinal\\Source\\Repos\\3.7\\Project1\\xmlTest2.xml");
         }
 
 
@@ -145,6 +149,10 @@ namespace Project1
             {
                 controller.Update();
             }
+            
+         
+
+            //fix later
             deltaTime = gameTime;
             // Add your update logic here
             Player.Update(gameTime);
