@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +23,9 @@ namespace Project1.Health
                 heartList.Add(individualHeart);
             }
 
-            heartList[heartList.Count - 1].SetHeartFragment(1); //testing purposes
-        }
+/*            DamageHealth(1);
+*//*            heartList[heartList.Count - 2].SetHeartFragment(1); //testing purposes
+*/        }
 
         public List<Heart> GetHealthSystem()
         {
@@ -49,7 +51,10 @@ namespace Project1.Health
                     break;
                 }
             }
-        }
+
+            //update current hearts
+/*            HealthSystemSprite.heartsList.Update();
+*/        }
 
         public class Heart
         {

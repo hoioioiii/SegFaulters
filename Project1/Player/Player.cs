@@ -86,6 +86,7 @@ namespace Project1
 
 
         public static Health.HealthSystemSprite healthSystem;
+        public static Health.HealthSystem testing;
 
         public Player()
         {
@@ -112,6 +113,10 @@ namespace Project1
             BoundingBox = new Rectangle(0, 0, LINK_BOUNDING_DIMENSION, LINK_BOUNDING_DIMENSION);
 
             healthSystem = new Health.HealthSystemSprite();
+
+            //           testing = new Health.HealthSystem(3);
+/*            healthSystem.DamageHealthUpdate(1);
+*/
         }
 
 
@@ -140,6 +145,7 @@ namespace Project1
         //change the current frame to the next frame
         public static void Update(GameTime gameTime)
         {
+
             // update timers for attack, damage, flash
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             AttackTimer -= elapsedSeconds;

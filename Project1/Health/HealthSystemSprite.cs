@@ -42,7 +42,9 @@ namespace Project1.Health
 
             HealthSystem healthSystem = new HealthSystem(3); //3 hearts as starter
             SetHealthSystem(healthSystem);
-        }
+
+/*            UpdateDamage(2);
+*/        }
 
         public void SetHealthSystem(HealthSystem healthSystem)
         {
@@ -58,7 +60,10 @@ namespace Project1.Health
                 CreateHeart(currHeartPosition).SetHeartFragment(heart.GetFragmentAmount());
                 currHeartPosition += new Vector2(50, 0); //offset the next to the right
             }
+
         }
+
+
 
         //Load all possible types of hearts
         public void LoadHearts()
@@ -86,7 +91,21 @@ namespace Project1.Health
             return heart;
         }
 
+        public void DamageHealthUpdate(int damageAmount)
+        {
+            List<HealthSystem.Heart> hearts = healthSystem.GetHealthSystem();
 
+            healthSystem.DamageHealth(damageAmount);
+
+            for (int i = 0; i < heartsList.Count; i++)
+            {
+                IndividualHeart currentHeart = heartsList[i];
+
+                HealthSystem.Heart heart = hearts[i];
+
+                currentHeart.SetHeartFragment(heart.GetFragmentAmount());
+            }
+        }
         public void Draw(SpriteBatch spriteBatch)
         {
             float desiredWidth = 50; // The desired width for the sprite
