@@ -63,6 +63,20 @@
 				<DragonBlock id="11" xLoc="5" yLoc="7"></DragonBlock>
 				<DragonBlock id="12" xLoc="5" yLoc="10"></DragonBlock>
 
+				<CarpetBlock id="1" xLoc="4" yLoc="5"></CarpetBlock>
+				<CarpetBlock id="1" xLoc="4" yLoc="6"></CarpetBlock>
+				<CarpetBlock id="1" xLoc="5" yLoc="3"></CarpetBlock>
+				<CarpetBlock id="1" xLoc="5" yLoc="5"></CarpetBlock>
+				<CarpetBlock id="1" xLoc="5" yLoc="6"></CarpetBlock>
+				<CarpetBlock id="1" xLoc="5" yLoc="8"></CarpetBlock>
+				<CarpetBlock id="1" xLoc="6" yLoc="3"></CarpetBlock>
+				<CarpetBlock id="1" xLoc="6" yLoc="4"></CarpetBlock>
+				<CarpetBlock id="1" xLoc="6" yLoc="5"></CarpetBlock>
+				<CarpetBlock id="1" xLoc="6" yLoc="6"></CarpetBlock>
+				<CarpetBlock id="1" xLoc="6" yLoc="7"></CarpetBlock>
+				<CarpetBlock id="1" xLoc="6" yLoc="8"></CarpetBlock>
+
+
 			</Blocks>
 		</Environment>
 
