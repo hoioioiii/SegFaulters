@@ -133,11 +133,11 @@ namespace Project1
 
             //Load background
             EnvironmentLoader.LoadContent(Content);
-            hudDisplay = new HeadsUpDisplay(GraphicsDevice, Content);
 
 
             //Load XML File
             LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
+            hudDisplay = new HeadsUpDisplay(GraphicsDevice, Content);
             //LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
         }
 
