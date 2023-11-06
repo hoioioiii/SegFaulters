@@ -12,11 +12,15 @@ using Microsoft.Xna.Framework.Content;
 using System.Collections;
 using static Project1.Game1;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 
 namespace Project1
 {
     public class Constants
     {
+        public static Song BGM;
+        public static SoundEffect addUI, boomerang, cling, death, puzzleSolved, dragon, dragon2, dragon3, enemyDie, fire, flame, item, lowHealth, plus, plusPlus, secret, stairs, subtractUI, sword;
 
         //Directions->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public enum Direction

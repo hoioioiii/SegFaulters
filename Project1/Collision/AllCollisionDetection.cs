@@ -24,6 +24,7 @@ namespace Project1
          * Walls, doors, enemies, items, etc.
          * Knock player back if collision is a wall or enemy (calculated in DirectionalCollsionDetection.cs, handled in collision response class)
          * Additional optimizations might be helpful (like a quadtree)
+         * There could've been more optimizations here but the grader said they weren't worth implementing
          */
 
         // player and enemy rects, the latter is a list

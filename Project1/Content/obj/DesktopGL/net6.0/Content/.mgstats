@@ -1,4 +1,5 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+<<<<<<< HEAD
 "C:/Users/tinal/source/repos/3.7/Project1/Content/arrowDown.gif","C:/Users/tinal/source/repos/3.7/Project1/Content/bin/DesktopGL/Content/arrowDown.xnb","TextureProcessor","Texture2DContent",71,405,0.1203602
 "C:/Users/tinal/source/repos/3.7/Project1/Content/arrowDown.png","C:/Users/tinal/source/repos/3.7/Project1/Content/bin/DesktopGL/Content/arrowDown.xnb","TextureProcessor","Texture2DContent",4252,405,0.0030894
 "C:/Users/tinal/source/repos/3.7/Project1/Content/arrowLeft.gif","C:/Users/tinal/source/repos/3.7/Project1/Content/bin/DesktopGL/Content/arrowLeft.xnb","TextureProcessor","Texture2DContent",67,405,0.0046365
@@ -66,3 +67,13 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "C:/Users/tinal/source/repos/3.7/Project1/Content/ZeldaSpriteLinkLeft.gif","C:/Users/tinal/source/repos/3.7/Project1/Content/bin/DesktopGL/Content/ZeldaSpriteLinkLeft.xnb","TextureProcessor","Texture2DContent",216,1045,0.0025857
 "C:/Users/tinal/source/repos/3.7/Project1/Content/ZeldaSpriteLinkRight.gif","C:/Users/tinal/source/repos/3.7/Project1/Content/bin/DesktopGL/Content/ZeldaSpriteLinkRight.xnb","TextureProcessor","Texture2DContent",215,1045,0.0023302
 "C:/Users/tinal/source/repos/3.7/Project1/Content/ZeldaSpriteOldMan.png","C:/Users/tinal/source/repos/3.7/Project1/Content/bin/DesktopGL/Content/ZeldaSpriteOldMan.xnb","TextureProcessor","Texture2DContent",182,1109,0.0022036
+=======
+"D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/arrowDown.gif","D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/arrowDown.xnb","TextureProcessor","Texture2DContent",71,405,0.0897929
+"D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/arrowDown.png","D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/arrowDown.xnb","TextureProcessor","Texture2DContent",4252,405,0.0015716
+"D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/arrowLeft.gif","D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/arrowLeft.xnb","TextureProcessor","Texture2DContent",67,405,0.0020724
+"D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/arrowLeft.png","D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/arrowLeft.xnb","TextureProcessor","Texture2DContent",4228,405,0.0014271
+"D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/arrowRight.gif","D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/arrowRight.xnb","TextureProcessor","Texture2DContent",67,405,0.0017158
+"D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/arrowRight.png","D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/arrowRight.xnb","TextureProcessor","Texture2DContent",4228,405,0.0013266
+"D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/arrowUp.gif","D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/arrowUp.xnb","TextureProcessor","Texture2DContent",72,405,0.001805
+"D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/arrowUp.png","D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/arrowUp.xnb","TextureProcessor","Texture2DContent",4242,405,0.0010857
+>>>>>>> 37b234816b36787a55414924528c52af4d172173
