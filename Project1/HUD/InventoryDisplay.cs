@@ -23,12 +23,17 @@ namespace Project1.HUD
         private int fullMenuOffset = 0;
         private int HUD_COUNT_OFFSET = HUD_HEIGHT / 4;
         private int ITEM_SPRITE_OFFSET = HUD_SECTION_WIDTH / 9;
+        private float keyLableOffsetX;
+        private float keyLableOffsetY;
         private bool reset = false;
+        private static USABLE_ITEM userSelectedItem = USABLE_ITEM.boomerang;
+        private static IItem[] selectedItemArray;
         private SpriteFont font;
         private int[] itemCount = {Player.itemInventory[(int)ITEMS.Rupee], Player.itemInventory[(int)ITEMS.Key] , Player.itemInventory[(int)ITEMS.Bomb]};
 
         public InventoryDisplay(GraphicsDevice graphics, ContentManager content)
 		{
+
             itemRect = new Texture2D(graphics, 1, 1);
             itemRect.SetData(new[] { Color.Blue });
 
@@ -53,9 +58,16 @@ namespace Project1.HUD
 
             itemInnerDestination = new Rectangle((int)coordInnerItem.X, (int)coordInnerItem.Y, (int)innerWidth, (int)innerHeight);
 
+            //necessary for logic to push HUD to bottom of screen durinf pause screen
             coordCountBase = new Vector2(HUD_SECTION_WIDTH, HUD_COUNT_OFFSET);
             font = content.Load<SpriteFont>("HUDFont");
+            //trying to call measureString only once since its an expensive operation
+            keyLableOffsetX = font.MeasureString("B").X / 2;
+            keyLableOffsetY = font.MeasureString("B").Y;
 
+            //create the selected item array
+            IItem[] tempSelectedItemArray = {new BoomerangItem(((int)coordCountBase.X, (int)coordCountBase.Y)), new BombItem(((int)coordCountBase.X, (int)coordCountBase.Y)), new Key(((int)coordCountBase.X, (int)coordCountBase.Y)), new SwordItem(((int)coordCountBase.X, (int)coordCountBase.Y))};
+            selectedItemArray = tempSelectedItemArray;
         }
 
         public void Update()
@@ -73,6 +85,16 @@ namespace Project1.HUD
                 reset = false;
             }
 
+            //Update item counts
+            itemCount[0] = Player.itemInventory[(int)ITEMS.Rupee];
+            itemCount[1] = Player.itemInventory[(int)ITEMS.Key];
+            itemCount[2] = Player.itemInventory[(int)ITEMS.Bomb];
+
+        }
+
+        public static void setSelectedItem(USABLE_ITEM type)
+        {
+            userSelectedItem = type;
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -80,7 +102,7 @@ namespace Project1.HUD
             //spriteBatch.Draw(countRect, coordCount, Color.White);
             IItem rupee = new Rupee(((int)coordCountBase.X, (int)coordCountBase.Y));
             IItem bomb = new BombItem(((int)coordCountBase.X, (int)coordCountBase.Y));
-            //IItem key = new Key(((int)coordCountBase.X, (int)coordCountBase.Y));
+
             float secondRectOffset = (HUD_SECTION_WIDTH / 3);
 
             Vector2 coordCount = coordCountBase;
@@ -116,6 +138,33 @@ namespace Project1.HUD
             itemInnerDestination2.X += (int)secondRectOffset;
             spriteBatch.Draw(innerItemRect, itemInnerDestination2, Color.Black);
 
+            //Add control labels to inventory boxes
+            Vector2 coordKeyLabel = new Vector2(itemDestination.X + (itemDestination.Width / 2) - keyLableOffsetX, itemDestination.Y - 5);
+            spriteBatch.DrawString(font, "B", coordKeyLabel, Color.White);
+            Vector2 coordKeyLabel2 = coordKeyLabel;
+            coordKeyLabel2.X += secondRectOffset;
+            spriteBatch.DrawString(font, "A", coordKeyLabel2, Color.White);
+
+            //Add default sword into item A box
+            IItem sword = new SwordItem(((int)coordCountBase.X, (int)coordCountBase.Y));
+            Vector2 swordSprite = coordKeyLabel2;
+            swordSprite.Y += keyLableOffsetY;
+            sword.Draw(spriteBatch, swordSprite, 2);
+
+            //Add selected item to item B box
+            //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, sword = 3};" enum from constants.cs for this 
+            //IItem selectedItem = new BoomerangItem(((int)coordCountBase.X, (int)coordCountBase.Y));
+            Vector2 selectedSprite = coordKeyLabel;
+            selectedSprite.Y += keyLableOffsetY;
+            selectedSprite.X -= (itemDestination.Width / 2);
+            selectedSprite.X += 3 * keyLableOffsetX;
+
+            //key was implemented weirdly so we have to pass location now rather than ealier
+            selectedItemArray[(int)USABLE_ITEM.key] = new Key(((int)selectedSprite.X, (int)selectedSprite.Y));
+
+            //display the selected item
+            IItem selectedItem = selectedItemArray[(int)userSelectedItem];
+            selectedItem.Draw(spriteBatch, selectedSprite, 2);
         }
     }
 }

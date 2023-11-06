@@ -14,6 +14,7 @@ namespace Project1.HUD
 {
 	public class LocationDisplay : IHUDEntity
     {
+        //Some of these should be static and aren't
         private Texture2D titleRect;
         private Texture2D positionRect;
         private Vector2 coordTitle;
@@ -31,7 +32,7 @@ namespace Project1.HUD
         private static int roomWidth = 42;
         private static int startingRoomX = (HUD_SECTION_WIDTH / 3) + 5;
         private static int totalRooms = 18;
-        private static int startingRoomY = mapStartY + (5 * mapRowHeight);
+        private int startingRoomY = mapStartY + (5 * mapRowHeight);
         private Vector2[] positionCoords;
 
         public LocationDisplay(GraphicsDevice graphics, ContentManager content)

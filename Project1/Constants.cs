@@ -54,6 +54,8 @@ namespace Project1
         public static int HUD_HEIGHT = SCREEN_HEIGHT / 3;
         //*
         public static int HUD_SECTION_WIDTH = SCREEN_WIDTH / 3;
+        //*
+        public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, sword = 3};
 
         public static int START_FRAME = 0;
         public static double FRAME_SPD = .5 / 4;
