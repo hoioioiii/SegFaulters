@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
@@ -15,9 +16,12 @@ namespace Project1
         private Texture2D texture;
         private int posX;
         private int posY;
+        private bool canCollide;
 
         public CurrentBlock(Texture2D text, int posX, int posY)
         {
+            canCollide = true;
+
             texture = text;
             this.posX = posX;
             this.posY = posY;
@@ -31,10 +35,26 @@ namespace Project1
         public void Update()
         {
         }
+
+        public void CanCollideFalse()
+        {
+            canCollide = false;
+        }
+
         public void Draw(SpriteBatch spriteBatch)
         {
-            BoundingBox = new Rectangle(posX, posY, BLOCK_DIMENSION, BLOCK_DIMENSION);
-            spriteBatch.Draw(texture, BoundingBox,Color.White);
+            if (canCollide)
+            {
+                BoundingBox = new Rectangle(posX, posY, BLOCK_DIMENSION, BLOCK_DIMENSION);
+                spriteBatch.Draw(texture, BoundingBox, Color.White);
+            }
+            else
+            {
+                Rectangle temp = new Rectangle(posX, posY, BLOCK_DIMENSION, BLOCK_DIMENSION);
+                spriteBatch.Draw(texture, temp, Color.White);
+            }
+
+
         }
     }
 }
