@@ -253,7 +253,7 @@ namespace Project1
             {
                 isDamaged = true;
                 DamageInvincibility();
-                AudioManager.PlaySoundEffect();
+                AudioManager.PlaySoundEffect(lowHealth);
             }
             if (keystate.IsKeyDown(Keys.T) || keystate.IsKeyDown(Keys.Y))
             {

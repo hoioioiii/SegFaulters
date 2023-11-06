@@ -205,6 +205,12 @@
 /processorParam:Quality=Best
 /build:Audio/do do do do do DO do do.wav;Audio/zelda sound.wav
 
+#begin Audio/do do do do do DO do do.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/do do do do do DO do do.wav
+
 #begin Audio/dragon.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
