@@ -13,8 +13,8 @@ namespace Project1.Health
     {
         public Texture2D heartTexture { get; set; }
         public Vector2 position;
-        public HealthSystemSprite healthSystem;
-        public IndividualHeart(Texture2D heart, Vector2 position, HealthSystemSprite healthSystem)
+        public HealthSystem healthSystem;
+        public IndividualHeart(Texture2D heart, Vector2 position, HealthSystem healthSystem)
         {
             this.heartTexture = heart;
             this.healthSystem = healthSystem;
@@ -26,11 +26,11 @@ namespace Project1.Health
         {
             Vector2 position = new Vector2(100, 200);
             float desiredWidth = 50; // The desired width for the sprite
-            float scale = desiredWidth / HealthSystemSprite.heartsFragments[0].Width;
+            float scale = desiredWidth / HealthSystem.heartsFragments[0].Width;
 
-            if (HealthSystemSprite.heartsList.Count > 0)
+            if (HealthSystem.heartsList.Count > 0)
             {
-                IndividualHeart previousHeart = HealthSystemSprite.heartsList[HealthSystemSprite.heartsList.Count - 1];
+                IndividualHeart previousHeart = HealthSystem.heartsList[HealthSystem.heartsList.Count - 1];
                 float newX = previousHeart.position.X + desiredWidth + 5; // Adjust the 5 to control the spacing
                 position = new Vector2(newX, position.Y);
             }
@@ -43,9 +43,9 @@ namespace Project1.Health
             //set heart to be full, half or empty
             switch (fragments)
             {
-                case 0: heartTexture = HealthSystemSprite.heartsFragments[0]; break; //empty
-                case 1: heartTexture = HealthSystemSprite.heartsFragments[1]; break; //half
-                case 2: heartTexture = HealthSystemSprite.heartsFragments[2]; break; //full
+                case 0: heartTexture = HealthSystem.heartsFragments[0]; break; //empty
+                case 1: heartTexture = HealthSystem.heartsFragments[1]; break; //half
+                case 2: heartTexture = HealthSystem.heartsFragments[2]; break; //full
             }
         }
     }

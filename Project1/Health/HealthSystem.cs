@@ -1,139 +1,175 @@
-﻿using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Project1.Health
 {
-    public class HealthSystem 
+    public class HealthSystem //turn it into SpriteHealth
     {
-        public int fragments;
-        public List<Heart> heartList;
-        public Heart individualHeart;
-        const int MAX_FRAGMENTS = 2;
-        public HealthSystem(int heartsAmount) 
-        { 
-            heartList = new List<Heart>();
 
-            //create heartAmount of hearts
-            for (int  i = 0; i < heartsAmount; i++) 
-            {
-                Heart individualHeart = new Heart(1); //start them as full
-                heartList.Add(individualHeart);
-            }
+        public static int healthCurrent;
 
-/*            DamageHealth(1);
-*//*            heartList[heartList.Count - 2].SetHeartFragment(1); //testing purposes
-*/        }
+        public static Texture2D fullHeart;
+        public static Texture2D halfHeart;
+        public static Texture2D emptyHeart;
 
-        public List<Heart> GetHealthSystem()
+        public static List<IndividualHeart> heartsList;
+        public static List<Texture2D> heartsFragments;
+
+        public HealthSystemManager healthSystem;
+        public IndividualHeart heart;
+
+        public HealthSystem()
         {
-            return heartList;
+            //list of all types of hearts
+            heartsFragments = new List<Texture2D>();
+            LoadHearts();
+
+            //list of current Link's hearts
+            heartsList = new List<IndividualHeart>();
+
+            //set up a health system that starts with 3 hearts
+            HealthSystemManager healthSystem = new HealthSystemManager(3);
+            SetHealthSystem(healthSystem);
         }
 
-        //damage of 2 empties a heart. UP TO CHANGE
-        public void DamageHealth(int damageAmount)
+        public void SetHealthSystem(HealthSystemManager healthSystem)
         {
-            for (int i = heartList.Count - 1; i >= 0; i--)
+            this.healthSystem = healthSystem;
+            List<HealthSystemManager.Heart> hearts = healthSystem.GetHealthSystem();
+
+            //INITIAL POSITION TO BE CHANGED BY HUD 
+            Vector2 currHeartPosition = new Vector2(100, 200);
+
+            for (int i = 0;  i < hearts.Count; i++)
             {
-                if (damageAmount <= 0)
-                {
-                    break;
-                }
-                Heart heart = heartList[i];
-
-                //heart can only handle partial damage
-                if (damageAmount > heart.GetFragmentAmount())
-                {
-                    damageAmount -= heart.GetFragmentAmount();
-                    heart.DamageHealth(heart.GetFragmentAmount());
-
-                }
-                else //heart can handle all damage
-                {
-                    heart.DamageHealth(damageAmount);
-                    break;
-                }
+                HealthSystemManager.Heart heart = hearts[i];
+                CreateHeart(currHeartPosition).SetHeartFragment(heart.GetFragmentAmount());
+                currHeartPosition += new Vector2(50, 0); //offset the next to the right
             }
 
-            //update current hearts
-/*            HealthSystemSprite.heartsList.Update();
-*/        }
+        }
+
+
+
+        //Load all possible types of hearts
+        public void LoadHearts()
+        {
+            fullHeart = Game1.contentLoader.Load<Texture2D>("fullheart");
+            halfHeart = Game1.contentLoader.Load<Texture2D>("halfheart");
+            emptyHeart = Game1.contentLoader.Load<Texture2D>("emptyheart");
+
+            heartsFragments.Add(emptyHeart);
+            heartsFragments.Add(halfHeart);
+            heartsFragments.Add(fullHeart);
+
+        }
+
+        public bool isDead()
+        {
+            List<HealthSystemManager.Heart> hearts = healthSystem.GetHealthSystem();
+
+            //update each heart texture based off its fragments
+            for (int i = 0; i < heartsList.Count; i++)
+            {
+               // IndividualHeart currentHeart = heartsList[i];
+
+                HealthSystemManager.Heart heart = hearts[i];
+
+                if (heart.GetFragmentAmount() >=1)
+                {
+                    return false;
+                }
+
+            }
+            return true;
+        }
+
+        public IndividualHeart CreateHeart(Vector2 position)
+        {
+            Texture2D currentHeart = heartsFragments[0];
+
+
+/*            // Find the last heart's position in the heartsList
+            Vector2 lastHeartPosition = Vector2.Zero;
+            if (heartsList.Count > 0)
+            {
+                lastHeartPosition = heartsList[heartsList.Count - 1].position;
+            }
+
+            int screenWidth = 800; // Replace with your target screen width
+
+            // Calculate the position for the new heart
+            float heartOffsetX = 50; // Adjust the horizontal offset as needed
+            Vector2 newHeartPosition = lastHeartPosition + new Vector2(heartOffsetX, 0);
+
+            // If the new position is beyond the screen bounds, place it below the last heart
+            if (newHeartPosition.X + currentHeart.Width * 0.5f > screenWidth)
+            {
+                newHeartPosition.X = lastHeartPosition.X;
+                newHeartPosition.Y += currentHeart.Height; // Adjust the vertical offset as needed
+            }
+*/
+
+            //Create a type heart (full, empty, half)
+            heart = new IndividualHeart(currentHeart, position, this);
+
+            //Add to Link's current hearts
+            heartsList.Add(heart);
+
+            return heart;
+        }
+
+        public void damageHealth(int damageAmount)
+        {
+            //update fragment quantity of all the hearts
+            healthSystem.DamageHealth(damageAmount);
+            Update();
+        }
 
         public void HealHealth(int healAmount)
         {
-            for (int i  = 0; i < heartList.Count; i++)
+            //update fragment quantity of all the hearts
+            healthSystem.HealHealth(healAmount);
+
+
+            for (int i = heartsList.Count; i < healthSystem.GetHealthSystem().Count; i++)
             {
-                Heart currHeart = heartList[i];
-                int missFragments = MAX_FRAGMENTS - currHeart.GetFragmentAmount();
-
-
-                if (healAmount <= 0)
-                {
-                    break;
-                }
-                //heart gets partially heal
-                if (healAmount > missFragments)
-                {
-                    healAmount -= missFragments;
-                    currHeart.HealHealth(missFragments);
-                }
-                else //heart gets fully heal
-                {
-                    currHeart.HealHealth(healAmount);
-                    break;
-                }
-
+                // Create a new heart for each additional heart in the health system
+                HealthSystemManager.Heart heart = healthSystem.GetHealthSystem()[i];
+                CreateHeart(new Vector2(100 + i * 50, 200)).SetHeartFragment(heart.GetFragmentAmount());
             }
-            //new heart must be added
-            if (healAmount > 0)
-            {
 
-            }
+
+            Update();
         }
 
-        public class Heart
+        public void Update()
         {
-            public int fragments;
-            public Heart(int fragments)
+            List<HealthSystemManager.Heart> hearts = healthSystem.GetHealthSystem();
+
+            //update each heart texture based off its fragments
+            for (int i = 0; i < heartsList.Count; i++)
             {
-                SetHeartFragment(fragments);
+                IndividualHeart currentHeart = heartsList[i];
+
+                HealthSystemManager.Heart heart = hearts[i];
+
+                currentHeart.SetHeartFragment(heart.GetFragmentAmount());
             }
 
-            public void SetHeartFragment(int fragments)
-            {
-                this.fragments = fragments;
-            }
 
-            public int GetFragmentAmount()
-            { return fragments; }
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            float desiredWidth = 50; // The desired width for the sprite
+            float scale = desiredWidth / heartsList[0].heartTexture.Width;
 
-            public void DamageHealth(int damageAmount)
+            foreach (var heart in heartsList)
             {
-                if (damageAmount >= fragments)
-                {
-                    fragments = 0;
-                } 
-                else
-                {
-                    fragments -= damageAmount;
-                }
-            }
-
-            public void HealHealth(int healAmount)
-            {
-                if (fragments + healAmount > MAX_FRAGMENTS)
-                {
-                    fragments = MAX_FRAGMENTS;
-                }
-                else
-                {
-                    fragments += healAmount;
-                }
+                spriteBatch.Draw(heart.heartTexture, heart.position, null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
             }
         }
+
 
     }
 }
