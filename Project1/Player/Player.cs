@@ -115,7 +115,7 @@ namespace Project1
             healthSystem = new Health.HealthSystemSprite();
 
             //           testing = new Health.HealthSystem(3);
-/*            healthSystem.DamageHealthUpdate(1);
+/*            healthSystem.Update(1);
 */
         }
 

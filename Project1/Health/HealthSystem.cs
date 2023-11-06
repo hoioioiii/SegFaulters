@@ -12,6 +12,7 @@ namespace Project1.Health
         public int fragments;
         public List<Heart> heartList;
         public Heart individualHeart;
+        const int MAX_FRAGMENTS = 2;
         public HealthSystem(int heartsAmount) 
         { 
             heartList = new List<Heart>();
@@ -19,7 +20,7 @@ namespace Project1.Health
             //create heartAmount of hearts
             for (int  i = 0; i < heartsAmount; i++) 
             {
-                Heart individualHeart = new Heart(2); //start them as full
+                Heart individualHeart = new Heart(1); //start them as full
                 heartList.Add(individualHeart);
             }
 
@@ -37,6 +38,10 @@ namespace Project1.Health
         {
             for (int i = heartList.Count - 1; i >= 0; i--)
             {
+                if (damageAmount <= 0)
+                {
+                    break;
+                }
                 Heart heart = heartList[i];
 
                 //heart can only handle partial damage
@@ -44,6 +49,7 @@ namespace Project1.Health
                 {
                     damageAmount -= heart.GetFragmentAmount();
                     heart.DamageHealth(heart.GetFragmentAmount());
+
                 }
                 else //heart can handle all damage
                 {
@@ -55,6 +61,38 @@ namespace Project1.Health
             //update current hearts
 /*            HealthSystemSprite.heartsList.Update();
 */        }
+
+        public void HealHealth(int healAmount)
+        {
+            for (int i  = 0; i < heartList.Count; i++)
+            {
+                Heart currHeart = heartList[i];
+                int missFragments = MAX_FRAGMENTS - currHeart.GetFragmentAmount();
+
+
+                if (healAmount <= 0)
+                {
+                    break;
+                }
+                //heart gets partially heal
+                if (healAmount > missFragments)
+                {
+                    healAmount -= missFragments;
+                    currHeart.HealHealth(missFragments);
+                }
+                else //heart gets fully heal
+                {
+                    currHeart.HealHealth(healAmount);
+                    break;
+                }
+
+            }
+            //new heart must be added
+            if (healAmount > 0)
+            {
+
+            }
+        }
 
         public class Heart
         {
@@ -81,6 +119,18 @@ namespace Project1.Health
                 else
                 {
                     fragments -= damageAmount;
+                }
+            }
+
+            public void HealHealth(int healAmount)
+            {
+                if (fragments + healAmount > MAX_FRAGMENTS)
+                {
+                    fragments = MAX_FRAGMENTS;
+                }
+                else
+                {
+                    fragments += healAmount;
                 }
             }
         }

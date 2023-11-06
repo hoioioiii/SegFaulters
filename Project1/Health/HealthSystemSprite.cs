@@ -40,11 +40,12 @@ namespace Project1.Health
             //list of current Link's hearts
             heartsList = new List<IndividualHeart>();
 
-            HealthSystem healthSystem = new HealthSystem(3); //3 hearts as starter
+            //set up a health system that starts with 3 hearts
+            HealthSystem healthSystem = new HealthSystem(3);
             SetHealthSystem(healthSystem);
 
-/*            UpdateDamage(2);
-*/        }
+            HealHeath(1);
+        }
 
         public void SetHealthSystem(HealthSystem healthSystem)
         {
@@ -91,12 +92,25 @@ namespace Project1.Health
             return heart;
         }
 
-        public void DamageHealthUpdate(int damageAmount)
+        public void damageHealth(int damageAmount)
+        {
+            //update fragment quantity of all the hearts
+            healthSystem.DamageHealth(damageAmount);
+            Update();
+        }
+
+        public void HealHeath(int healAmount)
+        {
+            //update fragment quantity of all the hearts
+            healthSystem.HealHealth(healAmount);
+            Update();
+        }
+
+        public void Update()
         {
             List<HealthSystem.Heart> hearts = healthSystem.GetHealthSystem();
 
-            healthSystem.DamageHealth(damageAmount);
-
+            //update each heart texture based off its fragments
             for (int i = 0; i < heartsList.Count; i++)
             {
                 IndividualHeart currentHeart = heartsList[i];
