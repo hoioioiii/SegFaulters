@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
   <SourceFile>C:/Users/tinal/source/repos/3.7/Project1/Content/heartBlue.png</SourceFile>
   <SourceTime>2023-10-25T14:07:11.8656441-04:00</SourceTime>
   <DestFile>C:/Users/tinal/source/repos/3.7/Project1/Content/bin/DesktopGL/Content/heartBlue.xnb</DestFile>
-  <DestTime>2023-11-05T23:44:55.8106876-05:00</DestTime>
-=======
-  <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/heartBlue.png</SourceFile>
-  <SourceTime>2023-10-01T05:11:11.5102726-04:00</SourceTime>
-  <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/heartBlue.xnb</DestFile>
-  <DestTime>2023-11-05T23:54:08.405456-05:00</DestTime>
->>>>>>> 37b234816b36787a55414924528c52af4d172173
+  <DestTime>2023-11-05T23:59:22.901607-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
