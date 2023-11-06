@@ -48,8 +48,11 @@ namespace Project1
             Texture2D block9 = GAME_OBJ.Content.Load<Texture2D>("forest");
             Texture2D block10 = GAME_OBJ.Content.Load<Texture2D>("brick10");
 
+            Texture2D block11 = GAME_OBJ.Content.Load<Texture2D>("brickDragon");
+            Texture2D block12 = GAME_OBJ.Content.Load<Texture2D>("brickFish");
+            Texture2D block13 = GAME_OBJ.Content.Load<Texture2D>("brickWater");
 
-            Texture2D[] temp = { block0, block1, block2, block3, block4, block5, block6, block7, block8, block9 };
+            Texture2D[] temp = { block0, block1, block2, block3, block4, block5, block6, block7, block8, block9, block10, block11, block12, block13};
 
             CreateList(temp);
         }
@@ -57,7 +60,23 @@ namespace Project1
         //get the texture from the block name, given from the XML
         public static Texture2D GetTextureFromName(string name)
         {
-            return texture2D[2];
+            switch (name)
+            {
+                case ("DragonBlock"):
+                    return texture2D[11];
+                case ("FishBlock"):
+                    return texture2D[12];
+                case ("CarpetBlock"):
+                    return texture2D[7];
+                case ("BrickBlock"):
+                    return texture2D[2];
+                case ("Water"):
+                    return texture2D[13];
+                case ("Staircase"):
+                    return texture2D[6];
+                default:
+                    return texture2D[10];
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)

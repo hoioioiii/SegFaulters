@@ -44,6 +44,7 @@ namespace Project1
             for (int i = 0; i < blocksToLoad.Length; i++)
             {
                 //Texture2D texture = EnvironmentIterator.getCurrEnemy();
+                String name = blocksToLoad[i].Item1;
                 Texture2D texture = EnvironmentIterator.GetTextureFromName(blocksToLoad[i].Item1);
                 (int, int) positionFromData = blocksToLoad[i].Item2;
 
@@ -51,7 +52,11 @@ namespace Project1
                 int posX = pos.Item1;
                 int posY = pos.Item2;
 
-                blocksArray[i] = new CurrentBlock(texture, posX, posY);
+                bool canCollide = true;
+                if (name == "CarpetBlock")
+                    canCollide = false;
+
+                blocksArray[i] = new CurrentBlock(texture, posX, posY, canCollide);
                 Game1.GameObjManager.addNewEnvironment(blocksArray[i]);
             }
         }
