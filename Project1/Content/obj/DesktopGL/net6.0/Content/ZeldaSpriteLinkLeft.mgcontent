@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/CSE3902/Projects/SegFaulters/Project1/Content/ZeldaSpriteLinkLeft.gif</SourceFile>
-  <SourceTime>2023-10-20T00:04:12.8755547-04:00</SourceTime>
-  <DestFile>D:/CSE3902/Projects/SegFaulters/Project1/Content/bin/DesktopGL/Content/ZeldaSpriteLinkLeft.xnb</DestFile>
-  <DestTime>2023-11-04T14:27:36.8264309-04:00</DestTime>
+  <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/ZeldaSpriteLinkLeft.gif</SourceFile>
+  <SourceTime>2023-09-29T22:54:52-04:00</SourceTime>
+  <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/ZeldaSpriteLinkLeft.xnb</DestFile>
+  <DestTime>2023-11-05T23:54:09.4687505-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

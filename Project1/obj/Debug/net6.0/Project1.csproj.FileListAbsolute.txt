@@ -2036,3 +2036,7 @@ C:\Users\tinal\Source\Repos\3.7\Project1\obj\Debug\net6.0\refint\Project1.dll
 C:\Users\tinal\Source\Repos\3.7\Project1\obj\Debug\net6.0\Project1.pdb
 C:\Users\tinal\Source\Repos\3.7\Project1\obj\Debug\net6.0\Project1.genruntimeconfig.cache
 C:\Users\tinal\Source\Repos\3.7\Project1\obj\Debug\net6.0\ref\Project1.dll
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\Locked DoorNORTH.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\LockedDoorEAST.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\LockedDoorSOUTH.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\LockedDoorWEST.xnb
