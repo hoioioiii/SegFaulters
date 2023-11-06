@@ -281,12 +281,6 @@
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Audio/subtract ui.wav;Audio/subtractUI.wav
-
-#begin Audio/subtract ui.wav
-/importer:WavImporter
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
 /build:Audio/subtract ui.wav
 
 #begin Audio/sword swing.wav
@@ -1854,6 +1848,13 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:triforcePieceGold.png
+
+#begin ZeldaFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:ZeldaFont.spritefont
 
 #begin ZeldaSpriteAquamentusLeft.gif
 /importer:TextureImporter

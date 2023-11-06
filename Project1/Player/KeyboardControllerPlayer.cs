@@ -133,8 +133,40 @@ namespace Project1
             PREV_KEYBOARD_STATE = CURR_KEYBOARD_STATE;
 
             CURR_KEYBOARD_STATE = Keyboard.GetState();
-            
+
+            CheckGameState();
             GetInputType();
+        }
+
+        private void CheckGameState()
+        {
+            if (!Game1.gameStatePlaying)
+            {
+
+                ChangeToSelectionKeys();
+
+
+            }
+            else
+            {
+                ChangeToMovementKeys();
+            }
+
+        }
+
+        private void ChangeToSelectionKeys()
+        {
+            MOVE_MAP[Keys.Up] = new PrevSelection();
+            MOVE_MAP[Keys.Down] = new NextSelection();
+            MOVE_MAP[Keys.Enter]= new ExecuteSelection();
+        }
+
+        private void ChangeToMovementKeys()
+        {
+            MOVE_MAP[Keys.Up] = new MoveUp();
+            MOVE_MAP[Keys.Down] = new MoveDown();
+
+            MOVE_MAP.Remove(Keys.Enter);
         }
     }
 }
