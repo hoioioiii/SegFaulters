@@ -19,6 +19,10 @@ namespace Project1.Enemies
 
         //Rectangle IEntity.BoundingBox => throw new NotImplementedException();
 
+
+        //testing death and item drop->remove later
+        private int elaspedTime;
+
         public UniversalClassEntity((int, int) position, (string, int)[] items)
         {
             
@@ -31,14 +35,21 @@ namespace Project1.Enemies
 
         }
 
+    
+
         public void Update()
         {
+            testDeath();
             if (state_manager.IsAlive())
             {
                 Attack();
                 Move();
-            }
 
+            }
+            else if (!state_manager.finished)
+            {
+                ItemDrop();
+            }
             UpdateFrames();
         }
 
@@ -136,6 +147,45 @@ namespace Project1.Enemies
 
         public virtual Rectangle GetPositionAndRectangle() { throw new NotImplementedException(); }
 
+        public void ItemDrop()
+        {
 
+            System.Diagnostics.Debug.WriteLine("in item drop: ");
+            //create new item
+
+            //this is for testing purposes
+            CreateNumItem(("fairy", 1));
+
+            //this is actual--------------------------
+            //foreach ((String, int) itemType in drops)
+            //{
+            //    CreateNumItem(itemType);
+            //}
+            state_manager.SetFinished();
+        }
+
+
+        public void CreateNumItem((String, int) item)
+        {
+
+            for (int i = 0; i < item.Item2; i++)
+            {
+                int x = movement_manager.getPosition().Item1;
+                int y = movement_manager.getPosition().Item2;
+                ItemLoader.LoadAndInitializeItems(item.Item1, (x, y), Game1.GameObjManager);
+            }
+
+        }
+
+        //this is only for testing purposes
+        private void testDeath()
+        {
+            elaspedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
+
+            if (elaspedTime >= 500)
+            {
+                state_manager.setIsAlive(false);
+            }
+        }
     }
 }
