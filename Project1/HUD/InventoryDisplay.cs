@@ -20,7 +20,7 @@ namespace Project1.HUD
         private Vector2 coordInnerItem;
         private Rectangle itemDestination;
         private Rectangle itemInnerDestination;
-        private int fullMenuOffset = 0;
+        private float fullMenuOffset = (SCREEN_HEIGHT / 3) * 2;
         private int HUD_COUNT_OFFSET = HUD_HEIGHT / 4;
         private int ITEM_SPRITE_OFFSET = HUD_SECTION_WIDTH / 9;
         private float keyLableOffsetX;
@@ -76,12 +76,16 @@ namespace Project1.HUD
             {
                 coordCountBase.Y += fullMenuOffset;
                 coordItem.Y += fullMenuOffset;
+                itemDestination.Y += (int)fullMenuOffset;
+                itemInnerDestination.Y += (int)fullMenuOffset;
                 reset = true;
             }
             else if (reset)
             {
                 coordCountBase.Y -= fullMenuOffset;
                 coordItem.Y -= fullMenuOffset;
+                itemDestination.Y -= (int)fullMenuOffset;
+                itemInnerDestination.Y -= (int)fullMenuOffset;
                 reset = false;
             }
 
@@ -94,6 +98,7 @@ namespace Project1.HUD
 
         public static void setSelectedItem(USABLE_ITEM type)
         {
+            //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, sword = 3};" enum from constants.cs for this
             userSelectedItem = type;
         }
 
@@ -152,8 +157,7 @@ namespace Project1.HUD
             sword.Draw(spriteBatch, swordSprite, 2);
 
             //Add selected item to item B box
-            //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, sword = 3};" enum from constants.cs for this 
-            //IItem selectedItem = new BoomerangItem(((int)coordCountBase.X, (int)coordCountBase.Y));
+            //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, sword = 3};" enum from constants.cs for this
             Vector2 selectedSprite = coordKeyLabel;
             selectedSprite.Y += keyLableOffsetY;
             selectedSprite.X -= (itemDestination.Width / 2);

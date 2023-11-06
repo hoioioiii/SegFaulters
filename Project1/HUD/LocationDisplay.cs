@@ -19,7 +19,7 @@ namespace Project1.HUD
         private Texture2D positionRect;
         private Vector2 coordTitle;
         private Vector2 coordMap;
-        private static int fullMenuOffset = 0;
+        private float fullMenuOffset = (SCREEN_HEIGHT / 3) * 2;
         private bool reset = false;
         private SpriteFont font;
         private int titleOffset;
@@ -33,7 +33,8 @@ namespace Project1.HUD
         private static int startingRoomX = (HUD_SECTION_WIDTH / 3) + 5;
         private static int totalRooms = 18;
         private int startingRoomY = mapStartY + (5 * mapRowHeight);
-        private Vector2[] positionCoords;
+        //holds the coordinates of the active green box for each room
+        public static Vector2[] positionCoords;
 
         public LocationDisplay(GraphicsDevice graphics, ContentManager content)
         {
@@ -64,22 +65,28 @@ namespace Project1.HUD
 
         public void Update()
         {
-            if(HeadsUpDisplay.IsFullMenuDisplay())
+            //update indicator based on which room we're in
+            activeRoomNumber = RoomManager.GetCurrentRoomIndex() % totalRooms;
+            positionDestination.X = (int)positionCoords[activeRoomNumber].X;
+            positionDestination.Y = (int)positionCoords[activeRoomNumber].Y;
+            //debug why we have to add mapDestination and positionDestination later
+            if (HeadsUpDisplay.IsFullMenuDisplay())
             {
                 coordTitle.Y += fullMenuOffset;
                 coordMap.Y += fullMenuOffset;
-                startingRoomY += fullMenuOffset;
+                mapDestination.Y += (int)fullMenuOffset;
+                startingRoomY += (int)fullMenuOffset;
+                positionDestination.Y += (int)fullMenuOffset;
                 reset = true;
             } else if(reset)
             {
                 coordTitle.Y -= fullMenuOffset;
                 coordMap.Y -= fullMenuOffset;
-                startingRoomY -= fullMenuOffset;
+                startingRoomY -= (int)fullMenuOffset;
+                mapDestination.Y -= (int)fullMenuOffset;
+                positionDestination.Y -= (int)fullMenuOffset;
                 reset = false;
             }
-            activeRoomNumber = RoomManager.GetCurrentRoomIndex() % totalRooms;
-            positionDestination.X = (int)positionCoords[activeRoomNumber].X;
-            positionDestination.Y = (int)positionCoords[activeRoomNumber].Y;
             
         }
 

@@ -16,7 +16,7 @@ namespace Project1.HUD
         private Texture2D healthRect;
         private Vector2 coordTitle;
         private Vector2 coordHealth;
-        private int fullMenuOffset = 0;
+        private float fullMenuOffset = (SCREEN_HEIGHT / 3) * 2;
         private bool reset = false;
         private SpriteFont font;
         private int titleOffset;
@@ -30,10 +30,6 @@ namespace Project1.HUD
             coordTitle = new Vector2((2 * HUD_SECTION_WIDTH) + titleOffset, 0);
             coordHealth = new Vector2(2 * HUD_SECTION_WIDTH, titleRect.Height);
             
-
-            //in Game1 constructor, graphic devicmanager.buffer
-            //private SpriteFont font = Content.Load<SpriteFont>("File");
-            //_spriteBatch.DrawString(font, "Credits \nMade By: Drishti Mittal \nSprites From: ", new Vector2(300, 400), Color.Black);
         }
 
         public void Update()
