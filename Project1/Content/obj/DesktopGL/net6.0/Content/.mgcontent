@@ -167,6 +167,7 @@
     <File>C:/Users/tinal/source/repos/3.7/Project1/Content/swordUp.png</File>
     <File>C:/Users/tinal/source/repos/3.7/Project1/Content/triforcePieceBlue.png</File>
     <File>C:/Users/tinal/source/repos/3.7/Project1/Content/triforcePieceGold.png</File>
+    <File>C:/Users/tinal/source/repos/3.7/Project1/Content/ZeldaFont.spritefont</File>
     <File>C:/Users/tinal/source/repos/3.7/Project1/Content/ZeldaSpriteAquamentusLeft.gif</File>
     <File>C:/Users/tinal/source/repos/3.7/Project1/Content/ZeldaSpriteAquamentusRight.gif</File>
     <File>C:/Users/tinal/source/repos/3.7/Project1/Content/ZeldaSpriteBomb.png</File>
@@ -210,6 +211,7 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File>Audio/sword.wav</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

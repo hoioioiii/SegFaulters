@@ -62,7 +62,7 @@ namespace Project1
 
         public static Game1 GameObj = Game1.Game;
 
-      
+
         //Collision metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int roomBoundsMaxX = 660, roomBoundsMaxY = 365 + FRAME_BUFFER, roomBoundsMinX = 90, roomBoundsMinY = 53 + FRAME_BUFFER;
 
@@ -291,7 +291,7 @@ namespace Project1
         public enum WEAPONS { bomb = 0, bow = 1, boom = 2, sword = 3 };
 
         //items vars
-        
+
 
         // for Link's sprite animation
         // how many animation frames per second, not the framerate of the game
@@ -332,6 +332,20 @@ namespace Project1
         public static int SMALLER_SIZE = 4;
 
 
+        //Game Over Screen
+        public static Vector2 CENTER = new Vector2(325, 400);
+        public static Vector2 RETRY_POSITION = new Vector2(325, 400);
+        public static Vector2 QUIT_POSITION = new Vector2(325, 500);
+        public static int SELECTION_OFFSET = 300;
+
+
+        //Option selection
+        public enum OPTION
+        {
+            RETRY,
+            QUIT
+
+        }
     }
 }
 
