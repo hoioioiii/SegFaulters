@@ -25,7 +25,7 @@ namespace Project1
         // * Form: (Source Rectangle, Destination Rectangle)
         // **/
         public (Microsoft.Xna.Framework.Rectangle, Microsoft.Xna.Framework.Rectangle) GetRectangle();
-
+        public (int,int) GetHeightAndWidthResized();
 
     }
 }

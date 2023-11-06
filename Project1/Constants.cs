@@ -325,6 +325,13 @@ namespace Project1
         public static int TRIFORCE_R = 1;
         public static int TRIFORCE_C = 2;
 
+
+
+        //Enemy Sprite Sizes 
+        public static int LARGER_SIZE = 2;
+        public static int SMALLER_SIZE = 4;
+
+
     }
 }
 

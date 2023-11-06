@@ -21,7 +21,14 @@ namespace Project1
             newAttack = true;
         }
 
-        
+        public override (int, int) GetHeightAndWidthResized()
+        {
+            int height = animation_manager.sprite_frame.Height / SMALLER_SIZE;
+            int width = animation_manager.sprite_frame.Width / SMALLER_SIZE;
+
+            return (width, height);
+
+        }
 
     }
 }

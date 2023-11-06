@@ -18,7 +18,8 @@ namespace Project1
             animation.frame_list = spriteSheet;
         }
 
-        
+    
+
     }
 }
 
