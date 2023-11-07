@@ -61,30 +61,56 @@ namespace Project1.Health
 
         public void HealHealth(int healAmount)
         {
-            for (int i  = 0; i < heartList.Count; i++)
+            for (int i = 0; i < heartList.Count; i++)
             {
-                if (healAmount <= 0)
+                //ADD NEW HEART
+                if (heartList[heartList.Count - 1].GetFragmentAmount() == MAX_FRAGMENTS)
                 {
-                    break;
+
                 }
 
                 Heart currHeart = heartList[i];
                 int missFragments = MAX_FRAGMENTS - currHeart.GetFragmentAmount();
 
-
-                //heart gets partially heal
-                if (healAmount > missFragments)
+                if (healAmount >= missFragments)
                 {
                     healAmount -= missFragments;
                     currHeart.HealHealth(missFragments);
                 }
-                else //heart gets fully heal
+                else
                 {
                     currHeart.HealHealth(healAmount);
+                    healAmount = 0;
                     break;
                 }
-
             }
+
+            /*            for (int i = 0; i < heartList.Count; i++)
+                        {
+                            if (healAmount <= 0)
+                            {
+                                break;
+                            }
+
+                            Heart currHeart = heartList[i];
+                            int missFragments = MAX_FRAGMENTS - currHeart.GetFragmentAmount();
+
+
+                            //heart gets partially heal
+                            if (healAmount > missFragments)
+                            {
+                                healAmount -= missFragments;
+                                currHeart.HealHealth(missFragments);
+                            }
+                            else //heart gets fully heal
+                            {
+                                currHeart.HealHealth(healAmount);
+                                break;
+                            }
+
+                        }*/
+            
+            
             while (healAmount > 0)
             {
                 if (healAmount >= MAX_FRAGMENTS)
