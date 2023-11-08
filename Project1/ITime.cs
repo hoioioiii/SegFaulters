@@ -33,5 +33,8 @@ namespace Project1
         public void enableMoveTime();
 
         public bool PaceTime(int pace);
+
+
+        public bool CreateAttackAqua();
     }
 }

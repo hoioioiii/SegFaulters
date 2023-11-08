@@ -143,25 +143,9 @@ namespace Project1
 
         }
 
-        public static int DirectionOffsetY(int pos, int direction)
+        public static int DirectionOffsetY(int pos)
         {
-            if (direction == 0)
-            {
-                return pos;
-
-            }
-
-            if (direction < 2)
-            {
-
-                int offset = -1 * 10;
-                pos += offset;
-            }
-            else
-            {
-                int offset = 10;
-                pos += offset;
-            }
+            //vibe
 
             return pos;
         }

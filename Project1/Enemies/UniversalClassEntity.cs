@@ -93,40 +93,7 @@ namespace Project1.Enemies
             movement_manager.WanderMove();
         }
 
-        ////Keep in Sprite
-        //public void Draw(SpriteBatch spriteBatch)
-        //{
-        //    if (state_manager.IsAlive())
-        //    {
-        //        setRectangles();
-        //        spriteBatch.Draw(animation_manager.sprite_frame, rectangles.Item2, rectangles.Item1, Color.White);
-        //        if (state_manager.IsAttacking()) DrawAttack();
-        //    }
-        //}
-
-        ////Keep in Sprite
-        //public virtual void DrawAttack()
-        //{
-        //    //null have each enemy implement their own
-           
-        //}
-
-
-        /// <summary>
-        //Keep in sprite
-        /// </summary>
-        //public void setRectangles()
-        //{
-        //    int x = movement_manager.getPosition().Item1;
-        //    int y = movement_manager.getPosition().Item2;
-        //    int height = animation_manager.sprite_frame.Height;
-        //    int width = animation_manager.sprite_frame.Width;
-        //    rectangles.Item1 = new Rectangle(1, 1, width, height);
-        //    rectangles.Item2 = new Rectangle(x, y, width, height);
-        //}
-
-        
-
+      
         public void setPosition(int x, int y)
         {
             movement_manager.setPosition(x, y);

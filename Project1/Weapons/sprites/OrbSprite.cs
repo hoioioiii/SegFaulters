@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,8 @@ namespace Project1
 
 
         private bool completed;
+        private ORB_DIRECTION orbType;
+
         public OrbSprite(Texture2D[] spriteSheet,(int,int) pos, ORB_DIRECTION orbType)
         {
             texture = spriteSheet;
@@ -48,6 +51,7 @@ namespace Project1
             onScreen = 0;
             offsetX = 0;
             offsetY = 0;
+            this.orbType = orbType;
 
             width = spriteSheet[0].Width;
             height = spriteSheet[0].Height;
@@ -59,6 +63,7 @@ namespace Project1
 
         public void setOrb()
         {
+            if(!completed)
             orbPlaced = true;
         }
         private void removeOrb()
@@ -106,7 +111,7 @@ namespace Project1
 
             if (!orbPlaced)
             {
-              //placeOffset();
+              placeOffset();
                
             }  
         }
@@ -116,25 +121,16 @@ namespace Project1
 
         public void Update()
         {
-            Move();
 
+            Move();
+           
         }
        
 
         private void placeOffset()
         {
-            //weaponX = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
-            //weaponY = WeaponDirectionMovement.DirectionOffsetY(userY, 3);
 
-
-            weaponX = userX;
-            weaponY = userY;
-
-            //weaponX_2 = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
-            //weaponY_2 = WeaponDirectionMovement.DirectionOffsetY(userY, 0);
-            //weaponX_1 = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
-            //weaponY_1 = WeaponDirectionMovement.DirectionOffsetY(userY, 1);
-
+            filterPlayerPosition();
         }
 
         public void drawItem(int x, int y, SpriteBatch spriteBatch)
@@ -148,29 +144,19 @@ namespace Project1
         public void Draw(SpriteBatch spriteBatch)
         {
 
-            
-            //if (orbPlaced)
-            //{
-            drawItem(weaponX, weaponY, spriteBatch);
 
-          //  }
-               
-                //drawItem(weaponX_2, weaponY_2, spriteBatch);
-                //drawItem(weaponX_3, weaponY_3, spriteBatch);
-           
+            Attack();
+            if (orbPlaced)
+            {
+                drawItem(weaponX, weaponY, spriteBatch);
+            }
+
+            //drawItem(weaponX_2, weaponY_2, spriteBatch);
+            //drawItem(weaponX_3, weaponY_3, spriteBatch);
+
         }
         private void GetUserPos()
         {
-
-            //FiXLater
-            ////change later
-            // int posVec = BossFireDragonSprite.getPos().Item1;
-            //userX = (int)posVec.X;
-            //userY = (int)posVec.Y;
-
-            //temp remove later
-            //userX = 1;
-            //userY = 1;
 
         }
 
@@ -178,55 +164,57 @@ namespace Project1
          * filters movement for each orb:
          * 
          */
-        private void filterMovementX(int orbNum)
+        private void filterMovementX()
         {
             weaponX += -1;
         
         }
 
-        private void filterMovementY(int orbNum)
+        private void filterMovementY(ORB_DIRECTION type)
         {
-
-            switch (orbNum)
+            //this is going to need to be based on hypotenus
+            switch (type)
             {
-                case 1:
+                case ORB_DIRECTION.TOP:
 
                     weaponY += -1;
                     break;
-                case 2:
+                case ORB_DIRECTION.MIDDLE:
                     weaponY += 0;
                     break;
-                case 3:
+                case ORB_DIRECTION.BOTTOM:
                     weaponY += 1;
                     break;
             }
         }
-        private void GetUserState()
-        {
-            //TODO:FIX LATER
-            //direction = BossFireDragonSprite.getDirection();
-            direction = 1;
+       
 
-        }
-        private void Load()
+        private void filterPlayerPosition()
         {
-            throw new NotImplementedException();
+            double playerY = (double)Player.getPositionAndRectangle().Location.Y;
+            int offset = 0;
+
+            if (Math.Floor(playerY/140) <= 0)
+            {
+                offset = -8;
+            }else if (Math.Floor(playerY / 140) > 1)
+                {
+                    offset = 8 ;
+            }
+
+
+            weaponY += offset;
         }
-        private void filterMoveAll(int orbNum)
+       
+        private void filterMoveAll(ORB_DIRECTION type)
         {
-            filterMovementX(orbNum);
-            filterMovementY(orbNum);
+            filterMovementX();
+            filterMovementY(type);
         }
         private void Move()
         {
-
-            userX += 1; 
-            userY += 1;
-            filterMoveAll(0);
+            filterMoveAll(orbType);
             checkFinish();
-            
-            //filterMoveAll(2);
-            //filterMoveAll(3);
         }
 
         public void GetUserPos(int x, int y)
@@ -248,7 +236,7 @@ namespace Project1
         {
             elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
 
-            if (elapsedTime >= 100)
+            if (elapsedTime >= 3000)
             {
                 removeOrb();
                 completed = true;

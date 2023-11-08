@@ -78,25 +78,11 @@ namespace Project1
         public override void Attack()
         {
 
-            if (state_manager.IsAttacking())
-            {
-                UpdateWeapons();
-            }
-            else
+            if (!state_manager.IsAttacking())
             {
                 PrepareAttack();
-                state_manager.setIsAttacking(true);
                 StartAttack();
             }
-
-            //this will fix the issue that im having, figure out hte correct placement to remove the need for this conditional.
-            if (!ended)
-            {
-                EndAttack();
-            }
-           // weapon = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
-
-
         }
 
 
@@ -109,49 +95,37 @@ namespace Project1
                 weapon[1] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
                 weapon[2] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
                 state_manager.setNewAttack(false);
-                //time_manager.enableMoveTime();
-                ended = false;
-            }
+                time_manager.enableMoveTime();
+                
+                foreach (IWeapon orb in weapon)
+                {
+                    Game1.GameObjManager.addNewWeapon(orb);
+                }
 
-        }
-
-        private bool CheckFinish()
-        {
-           foreach( IWeapon orb in weapon)
-            {
-                if (!orb.finished()) { return false; }
-            }
-
-            return true;
-        }
-
-        private void EndAttack()
-        {
-            // means the entity is waiting for the weapon to comeback
-            //get weapon obj status of returned/finished) : place holder using state_isAttacking for now
-            //get weapon status of "finished" which means we need to be able to get access to the weapon obj
-            if (CheckFinish())
-            {//if weapon is finished and returned to enetity
                 state_manager.setIsAttacking(false);
-                //set move to true
-                state_manager.setIsMoving(true);
-               
-                ended = true;
-                //TODO:remove the item from the active object list
-
-
 
             }
+
         }
+
+        
+
+        //this needs to be handled by a execute.
+        
 
         private void PrepareAttack()
         {
-            if (time_manager.checkIfAttackTime())
+            if (time_manager.checkIfAttackTime()) //time_manager.checkIfAttackTime())
             {
                 state_manager.setIsAttacking(true);
-                state_manager.setIsMoving(false);
                 state_manager.setNewAttack(true);
             }
+            else
+            {
+                state_manager.setNewAttack(false);
+            }
+
+
         }
     }
   
