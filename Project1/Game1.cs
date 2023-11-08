@@ -131,7 +131,7 @@ namespace Project1
             Boomerang.LoadContent(Content);
 
             //pause icon
-            GameStateManager.LoadContent(Content);
+            GameStateManager.LoadContent(GraphicsDevice, Content);
 
             PlayerSpriteFactory.Instance.LoadAllTextures(Content);
             Player.LoadContent(Content);
@@ -155,36 +155,47 @@ namespace Project1
                 controller.Update();
             }
             deltaTime = gameTime;
-            // Add your update logic here
-            Player.Update(gameTime);
-            //HealthBarSprite.Update();
-            //HealthBarSprite.HealthDamage(1);
-            //HealthBarSprite.Update();
+            if(GameStateManager.GameState == GameState.DefaultState)
+            {
+                // Add your update logic here
+                hudDisplay.Update(false);
+                Player.Update(gameTime);
 
-            //Example code for how to create an item in the environment:
-            //testItem.Update();
+                //HealthBarSprite.Update();
+                //HealthBarSprite.HealthDamage(1);
+                //HealthBarSprite.Update();
 
-            Item.Update();
-            ENEMY.Update();
-            EnvironmentLoader.Update();
+                //Example code for how to create an item in the environment:
+                //testItem.Update();
 
-            GameObjManager.Update();
-            AllCollisionDetection.DetectCollision(GameObjManager);
+                Item.Update();
+                ENEMY.Update();
+                EnvironmentLoader.Update();
+
+                GameObjManager.Update();
+                AllCollisionDetection.DetectCollision(GameObjManager);
+
+                //if it's paused, HUDdisplay needs to move down
+
+
+                /*
+                #region Print to debug console
+                System.Text.StringBuilder sb = new StringBuilder();
+                sb.Append("Player pos" + Player.getPosition());
+                //sb.Append((char)Player.getPosition().Item1, (char)Player.getPosition().Item2);
+
+                if (sb.Length > 0)
+                    System.Diagnostics.Debug.WriteLine(sb.ToString());
+                #endregion
+                */
+
+            } else if (GameStateManager.GameState == GameState.PausedState) 
+            {
+                hudDisplay.Update(true);
+            }
             
-            //if it's paused, HUDdisplay needs to move down
-            hudDisplay.Update(GameStateManager.GameState == GameState.PausedState);
 
-            /*
-            #region Print to debug console
-            System.Text.StringBuilder sb = new StringBuilder();
-            sb.Append("Player pos" + Player.getPosition());
-            //sb.Append((char)Player.getPosition().Item1, (char)Player.getPosition().Item2);
-
-            if (sb.Length > 0)
-                System.Diagnostics.Debug.WriteLine(sb.ToString());
-            #endregion
-            */
-
+            
             base.Update(gameTime);
         }
 
@@ -195,26 +206,33 @@ namespace Project1
             GraphicsDevice.Clear(Color.Black);
 
             _spriteBatch.Begin();
-            EnvironmentLoader.Draw(_spriteBatch);
-
-            Player.Draw(gameTime, _spriteBatch);
-
-            /*
-            #region Debug Draw Link's bounding box
-            // Create the single-pixel texture
-            Texture2D pixel = new Texture2D(GraphicsDevice, 1, 1);
-            pixel.SetData<Color>(new Color[] { Color.White });
-
-            _spriteBatch.Draw(pixel, Player.BoundingBox, Color.White);
-            #endregion
-            */
-
-            //ENEMY.Draw(_spriteBatch);
-            Item.Draw(_spriteBatch);
-            //CurrentEnvironment.Draw(_spriteBatch);
-            GameObjManager.Draw();
-
             hudDisplay.Draw(_spriteBatch);
+            if(GameStateManager.GameState == GameState.DefaultState)
+            {
+                EnvironmentLoader.Draw(_spriteBatch);
+
+                Player.Draw(gameTime, _spriteBatch);
+
+                /*
+                #region Debug Draw Link's bounding box
+                // Create the single-pixel texture
+                Texture2D pixel = new Texture2D(GraphicsDevice, 1, 1);
+                pixel.SetData<Color>(new Color[] { Color.White });
+
+                _spriteBatch.Draw(pixel, Player.BoundingBox, Color.White);
+                #endregion
+                */
+
+                //ENEMY.Draw(_spriteBatch);
+                Item.Draw(_spriteBatch);
+                //CurrentEnvironment.Draw(_spriteBatch);
+                GameObjManager.Draw();
+            } else if (GameStateManager.GameState == GameState.PausedState) {
+                GameStateManager.DrawGameState(_spriteBatch);
+            }
+            
+
+            
 
             _spriteBatch.End();
             base.Draw(gameTime);

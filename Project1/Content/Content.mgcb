@@ -193,6 +193,18 @@
 /processorParam:TextureFormat=Color
 /build:bat2.png
 
+#begin BigItemInventory.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:BigItemInventory.png
+
 #begin BladeTrap.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1634,6 +1646,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:skeleton2.png
+
+#begin smallItemBox.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:smallItemBox.png
 
 #begin SNAKE.png
 /importer:TextureImporter

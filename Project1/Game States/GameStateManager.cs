@@ -22,21 +22,12 @@ namespace Project1
         public static GameState GameState { get; set; }
         Texture2D pausebutton;
         private static Vector2 position;
+        public PausedScreen PausedScreen;
         public  GameStateManager() {
 
             GameState = GameState.DefaultState;
             paused = false;
-            //static location for pause button
-            //TODO: throw into constants 
-            position = new Vector2 (200, 200);
         }
-
-/*        public void UpdateGameState() {
-          //  TriforceState();
-          //  PausedState();
-          //  GameOverState();
-        }
-*/
 
         public void DrawGameState(SpriteBatch spritebatch)
         {
@@ -45,20 +36,30 @@ namespace Project1
                 case GameState.DefaultState:
                     break;
                 case GameState.PausedState:
-                    DrawPausedState(spritebatch);
+                    PausedScreen.Draw(spritebatch);
                     break;
             
             }
         }
 
-        private void DrawPausedState(SpriteBatch spritebatch)
+        public void UpdateGameState(SpriteBatch spritebatch)
         {
-            
+            switch (GameState)
+            {
+
+                case GameState.DefaultState:
+                    break;
+                case GameState.PausedState:
+                    //UpdatePausedState();
+                    break;
+
+            }
         }
 
-        public void LoadContent(ContentManager content)
+        public void LoadContent(GraphicsDevice graphics, ContentManager content)
         {
-           // Texture2D pausebutton = content.Load<Texture2D>(assetName: "PAUSEICON");
+           PausedScreen = new PausedScreen(graphics, content);
+           
 
         }
         private void PausedState()
@@ -70,13 +71,14 @@ namespace Project1
             if (paused) { GameState = GameState.PausedState; } else { GameState = GameState.DefaultState; }
         }
 
-        
 
+        #region triforce
         private void TriforceState()
         {
             //TODO: 
             //either make this a method that is checked in player or add a method in collision response
         }
+        #endregion
     }
 }
 
