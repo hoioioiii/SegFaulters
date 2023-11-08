@@ -52,7 +52,7 @@ namespace Project1
             width = spriteSheet[0].Width;
             height = spriteSheet[0].Height;
 
-
+            this.weaponX = pos.Item1; this.weaponY = pos.Item2;
             completed = false;
 
         }
@@ -102,11 +102,12 @@ namespace Project1
 
         private void DetermineWeaponState()
         {
+
+
             if (!orbPlaced)
             {
-             
-               placeOffset();
-                    
+              //placeOffset();
+               
             }  
         }
 
@@ -122,8 +123,12 @@ namespace Project1
 
         private void placeOffset()
         {
-            weaponX = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
-            weaponY = WeaponDirectionMovement.DirectionOffsetY(userY, 3);
+            //weaponX = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
+            //weaponY = WeaponDirectionMovement.DirectionOffsetY(userY, 3);
+
+
+            weaponX = userX;
+            weaponY = userY;
 
             //weaponX_2 = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
             //weaponY_2 = WeaponDirectionMovement.DirectionOffsetY(userY, 0);
@@ -135,7 +140,7 @@ namespace Project1
         public void drawItem(int x, int y, SpriteBatch spriteBatch)
         {
             Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
-            Rectangle DEST_REC = new Rectangle(x, y, width, height);
+            Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width, height);
             spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
@@ -143,12 +148,12 @@ namespace Project1
         public void Draw(SpriteBatch spriteBatch)
         {
 
+            
+            //if (orbPlaced)
+            //{
+            drawItem(weaponX, weaponY, spriteBatch);
 
-            if (orbPlaced)
-            {
-                drawItem(weaponX, weaponY, spriteBatch);
-
-            }
+          //  }
                
                 //drawItem(weaponX_2, weaponY_2, spriteBatch);
                 //drawItem(weaponX_3, weaponY_3, spriteBatch);
@@ -164,8 +169,8 @@ namespace Project1
             //userY = (int)posVec.Y;
 
             //temp remove later
-            userX = 1;
-            userY = 1;
+            //userX = 1;
+            //userY = 1;
 
         }
 
@@ -175,23 +180,8 @@ namespace Project1
          */
         private void filterMovementX(int orbNum)
         {
-            //sWITCH THIS BASED ON DIRECTION
-            switch (orbNum)
-            {
-                //this is orb 1
-                case 1:
-
-                    weaponX += -1;
-                    break;
-                //case 2:
-
-                //    weaponX_2 += -1;
-                //    break;
-                //case 3:
-
-                //    weaponX_3 += -1;
-                //    break;
-            }
+            weaponX += -1;
+        
         }
 
         private void filterMovementY(int orbNum)
@@ -203,12 +193,12 @@ namespace Project1
 
                     weaponY += -1;
                     break;
-                //case 2:
-                //    weaponY_2 += 0;
-                //    break;
-                //case 3:
-                //    weaponY_3 += 1;
-                //    break;
+                case 2:
+                    weaponY += 0;
+                    break;
+                case 3:
+                    weaponY += 1;
+                    break;
             }
         }
         private void GetUserState()
@@ -229,8 +219,12 @@ namespace Project1
         }
         private void Move()
         {
+
+            userX += 1; 
+            userY += 1;
+            filterMoveAll(0);
             checkFinish();
-            filterMoveAll(1);
+            
             //filterMoveAll(2);
             //filterMoveAll(3);
         }
@@ -254,11 +248,10 @@ namespace Project1
         {
             elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
 
-            if (elapsedTime >= 1000)
+            if (elapsedTime >= 100)
             {
                 removeOrb();
                 completed = true;
-
             }
         }
     }

@@ -55,9 +55,21 @@ namespace Project1
 
         public override void DrawAttack(IWeapon[] weapon)
         {
-            if (!CheckFinished(weapon))
-            {//This is soley for draw
-                LoopAttack(weapon);
+            //if (!CheckFinished(weapon))
+            //{//This is soley for draw
+            //    LoopAttack(weapon);
+            //}
+            LoopAttack(weapon);
+        }
+
+        public override void Draw(SpriteBatch spriteBatch, IWeapon[] weapon)
+        {
+            if (state_manager.IsAlive())
+            {
+                setRectangles();
+                spriteBatch.Draw(animation_manager.sprite_frame, base.rectangles.Item2, base.rectangles.Item1, Color.Black);
+                // if (state_manager.IsAttacking()) DrawAttack(weapon);
+                DrawAttack(weapon);
             }
         }
 

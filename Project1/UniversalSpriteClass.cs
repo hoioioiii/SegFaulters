@@ -19,7 +19,7 @@ namespace Project1
         public IMove movement_manager;
         public IEntityState state_manager;
 
-        private (Rectangle, Rectangle) rectangles;
+        public (Rectangle, Rectangle) rectangles;
         public UniversalSpriteClass(List<Texture2D[]> spriteSheet,IAnimation animation, IMove movement, IEntityState state, IDirectionStateManager direction, ITime time) {
         
             direction_state_manager = direction;
@@ -41,7 +41,7 @@ namespace Project1
         }
 
         //used for entity's that have some sort of weapon/projectile
-        public void Draw(SpriteBatch spriteBatch, IWeapon[] weapon)
+        public virtual void Draw(SpriteBatch spriteBatch, IWeapon[] weapon)
         {
             if (state_manager.IsAlive())
             {

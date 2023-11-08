@@ -20,11 +20,9 @@ namespace Project1
        
         public override Rectangle BoundingBox => GetPositionAndRectangle();
 
-        private IWeapon weaponTop;
-        private IWeapon weaponMiddle;
-        private IWeapon weaponBottom;
+       
         private bool ended;
-
+        private IWeapon[] weapon;
 
         //May or may not keep
         private int timeAllowed;
@@ -43,9 +41,10 @@ namespace Project1
             
             sprite = EnemySpriteFactory.Instance.CreateFireDragonSprite(animation_manager, movement_manager, direction_state_manager, state_manager, time_manager);
 
-            weaponTop = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
-            weaponMiddle = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
-            weaponBottom = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
+            weapon = new IWeapon[3];
+            weapon[0] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
+            weapon[1] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
+            weapon[2]= new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
             ended = false;
 
         }
@@ -57,7 +56,7 @@ namespace Project1
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch);
+            sprite.Draw(spriteBatch, weapon);
 
         }
 
@@ -69,9 +68,11 @@ namespace Project1
 
         private void UpdateWeapons()
         {
-            weaponTop.Update();
-            weaponMiddle.Update();
-            weaponBottom.Update();
+            foreach (IWeapon orb in weapon)
+            {
+                orb.Update();
+            }
+
         }
 
         public override void Attack()
@@ -79,16 +80,12 @@ namespace Project1
 
             if (state_manager.IsAttacking())
             {
-                int x = movement_manager.getPosition().Item1;
-                int y = movement_manager.getPosition().Item2;
-
                 UpdateWeapons();
-              
-
             }
             else
             {
                 PrepareAttack();
+                state_manager.setIsAttacking(true);
                 StartAttack();
             }
 
@@ -108,11 +105,11 @@ namespace Project1
             if (state_manager.startNewAttack())
             {
                 //direction_state_manager.NeedDirectionUpdate(true);
-                weaponTop = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
-                weaponMiddle = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
-                weaponBottom = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
+                weapon[0] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
+                weapon[1] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
+                weapon[2] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
                 state_manager.setNewAttack(false);
-                time_manager.enableMoveTime();
+                //time_manager.enableMoveTime();
                 ended = false;
             }
 
@@ -120,11 +117,12 @@ namespace Project1
 
         private bool CheckFinish()
         {
-            if (weaponTop.finished() && weaponMiddle.finished() && weaponBottom.finished())
-                return true;
-           
+           foreach( IWeapon orb in weapon)
+            {
+                if (!orb.finished()) { return false; }
+            }
 
-            return false;
+            return true;
         }
 
         private void EndAttack()
@@ -155,130 +153,6 @@ namespace Project1
                 state_manager.setNewAttack(true);
             }
         }
-
-
-
-
-        ///*
-        // * Update Sprite
-        // */
-        //public void Update()
-        //{
-        //    sprite.Update();
-
-        //   //May or may not keep
-        //    if (remainOnScreen)
-        //    {
-        //        weapon.Update();
-        //    }
-        //}
-
-        //public void Draw(SpriteBatch spriteBatch)
-        //{
-
-        //    sprite.Draw(spriteBatch);
-
-
-        //    //Optomize this-----
-        //    Attack();
-
-        //    CheckOnScreen();
-
-        //    if (remainOnScreen)
-        //    {
-        //        weapon.Draw();
-        //    }
-        //    else
-        //    {
-        //        onScreen = 0;
-        //        remainOnScreen = false;
-        //    }
-        //    //optomize this later------
-
-        //}
-
-        ////May or may not keep
-        //public void CheckTime()
-        //{
-        //    onScreen += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-        //}
-
-        ////May or may not keep
-        //public void CheckOnScreen()
-        //{
-        //    CheckTime();
-        //    if (onScreen > timeAllowed)
-        //    {
-        //        remainOnScreen = false;
-        //    }
-
-        //}
-
-        ///*
-        // * Drag Health
-        // * Might change placement later
-        // */
-        //public void Health()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        ///*
-        // * Fire Drag Attack
-        // */
-        //public void Attack()
-        //{
-        //    //TODO:FIX LATER
-        //    //change this to a state
-        //    //if (BossFireDragonSprite.newAttack)
-        //    //{
-        //    //    remainOnScreen = true;
-        //    //    weapon.Attack();
-        //    //    weapon.Draw();
-        //    //}
-        //}
-
-        //TODO: Fix later
-        //public Direction getDirection()
-        //{
-        //    return sprite.get
-
-        //}
-
-        //public Vector2 getPosition()
-        //{
-
-
-        //}
-
-
-
-        ///*
-        // * Drag item drop
-        // */
-        //public void ItemDrop()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-
-        //public Rectangle getPositionAndRectangle()
-        //{
-        //    return sprite.GetRectangle().Item2;
-
-        //}
-
-        //public void setPosition(int x, int y)
-        //{
-        //    sprite.setPos(x, y);
-
-        //}
-
-
-
-
-
-
     }
   
 }
