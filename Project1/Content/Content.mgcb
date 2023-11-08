@@ -925,6 +925,13 @@
 /processorParam:TextureFormat=Color
 /build:fd4Right.png
 
+#begin File.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:File.spritefont
+
 #begin fire1.gif
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1164,6 +1171,25 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:heartRed.png
+
+#begin HUDFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:HUDFont.spritefont
+
+#begin INVENTORYfont.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:INVENTORYfont.png
 
 #begin jelly1.png
 /importer:TextureImporter
@@ -1537,6 +1563,18 @@
 /processorParam:TextureFormat=Color
 /build:redbaradjusted.png
 
+#begin RoomSprite.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:RoomSprite.png
+
 #begin rupeeBlue.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1728,6 +1766,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:triforcePieceGold.png
+
+#begin USEBbuttonfont.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:USEBbuttonfont.png
 
 #begin ZeldaSpriteAquamentusLeft.gif
 /importer:TextureImporter
