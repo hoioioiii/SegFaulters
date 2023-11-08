@@ -31,5 +31,7 @@ namespace Project1
         public void updateElapsedMoveTime();
         public bool checkIfAttackTime();
         public void enableMoveTime();
+
+        public bool PaceTime(int pace);
     }
 }

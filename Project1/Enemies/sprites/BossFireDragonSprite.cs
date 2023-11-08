@@ -53,13 +53,13 @@ namespace Project1
 
 
 
-        //public override void DrawAttack(IWeapon[] weapon)
-        //{
-        //    if (!CheckFinished(weapon))
-        //    {//This is soley for draw
-        //        LoopAttack(weapon);
-        //    }
-        //}
+        public override void DrawAttack(IWeapon[] weapon)
+        {
+            if (!CheckFinished(weapon))
+            {//This is soley for draw
+                LoopAttack(weapon);
+            }
+        }
 
     }
 }

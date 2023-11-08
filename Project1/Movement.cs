@@ -18,7 +18,11 @@ namespace Project1
         private int pos_y;
         private double angle;
         private double speed;
+        private int directionIndicator;
 
+
+        //for testing purposes only:
+        private int elaspedTime;
 
         public Movement(IDirectionStateManager direction_state, IEntity entityObj, ITime time_manager, int x, int y, int spd) { 
         
@@ -30,6 +34,9 @@ namespace Project1
             
             this.angle = 0;
             this.speed = spd;
+            elaspedTime = 0;
+
+        directionIndicator = 1;
         }
 
         private void MovementBasedGrid(int x, int y)
@@ -197,20 +204,43 @@ namespace Project1
         }
 
        
+        public void LeftAndRight()
+        {
+
+            //factor out later
+            elaspedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
+            if (elaspedTime >= 1000)
+            {
+                directionIndicator *= -1;
+                elaspedTime = 0;
+            }
+
+            if (directionIndicator < 0)
+            {
+                PaceLeftToRight(Direction.Right);
+            }
+            else
+            {
+                PaceLeftToRight(Direction.Left);
+            }
 
 
-        //public void DiagonalMovement(IDirectionStateManager direction_state, ISprite entityOb, Direction start_direction)
-        //{
-
-           
-        //}
-
-        //public void Stop(IDirectionStateManager direction_state, ISprite entityOb, Direction start_direction)
-        //{
-        //    //change state of isMoving to false in enemy state
-        //}
+        }
 
 
+        private void PaceLeftToRight(Direction direct)
+        {
+
+            (int, int) pos_pair = entityObj.getPos();
+            (bool, int) update_pair = (false, pos_pair.Item1);
+
+            bool isMoving = true;
+
+            update_pair = moveHorizontal(update_pair.Item2, direct);
+            
+            pos_pair.Item1 = update_pair.Item2;
+            updateMovement(isMoving, pos_pair, update_pair.Item1);
+        }
 
 
         public void setPosition(int x, int y)

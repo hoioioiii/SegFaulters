@@ -23,6 +23,7 @@ namespace Project1
         private int current_frame;
         private int total_frame;
 
+
         private int elapsedTime;
         private int fps;
 
@@ -43,7 +44,7 @@ namespace Project1
             total_frame = 1;
             current_frame = 0;
             fps = 300;
-
+            elapsedTime = 0;
             onScreen = 0;
             offsetX = 0;
             offsetY = 0;
@@ -143,7 +144,7 @@ namespace Project1
         {
 
 
-            if (!orbPlaced)
+            if (orbPlaced)
             {
                 drawItem(weaponX, weaponY, spriteBatch);
 
@@ -251,12 +252,14 @@ namespace Project1
 
         private void checkFinish()
         {
-            
-           
+            elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
+
+            if (elapsedTime >= 1000)
+            {
                 removeOrb();
                 completed = true;
-            
 
+            }
         }
     }
 }

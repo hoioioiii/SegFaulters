@@ -46,7 +46,7 @@ namespace Project1
             weaponTop = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
             weaponMiddle = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
             weaponBottom = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
-
+            ended = false;
 
         }
         public override Rectangle GetPositionAndRectangle()
@@ -60,6 +60,12 @@ namespace Project1
             sprite.Draw(spriteBatch);
 
         }
+
+        public override void MovementType()
+        {
+            movement_manager.LeftAndRight();
+        }
+
 
         private void UpdateWeapons()
         {
@@ -107,6 +113,7 @@ namespace Project1
                 weaponBottom = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
                 state_manager.setNewAttack(false);
                 time_manager.enableMoveTime();
+                ended = false;
             }
 
         }
@@ -133,6 +140,9 @@ namespace Project1
                
                 ended = true;
                 //TODO:remove the item from the active object list
+
+
+
             }
         }
 

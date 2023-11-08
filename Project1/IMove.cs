@@ -16,6 +16,7 @@ namespace Project1
 
         public void HorizontalMovement(Direction start_direction);
 
+        public void LeftAndRight();
 
     }
 }

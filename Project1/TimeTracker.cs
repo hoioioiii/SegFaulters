@@ -127,5 +127,17 @@ namespace Project1
         {
             stopMoveTime = false;
         }
+
+        public bool PaceTime(int pace)
+        {
+            if (elapsed_move__sec >= pace)
+            {
+                elapsed_move__sec = 0;
+                return true;
+            }
+            return false;
+
+        }
+
     }
 }
