@@ -67,18 +67,22 @@
 		</Environment>
 
 		<Items>
-			<key xLoc="200" yLoc="200"></key>
-			<bomb xLoc="40" yLoc="50"></bomb>
-			<arrow xLoc="100" yLoc="50"></arrow>
-			<boomerang xLoc="400" yLoc="200"></boomerang>
-			<clock xLoc="50" yLoc="50"></clock>
-			<heartcontainer xLoc="20" yLoc="10"></heartcontainer>
-			<map xLoc="10" yLoc="30"></map>
-			<fairy xLoc="240" yLoc="300"></fairy>
-			<rupee xLoc="10" yLoc="20"></rupee>
-			<fairy xLoc="1" yLoc="1"></fairy>
-			<sword xLoc="500" yLoc="500"></sword>
-			<triforce xLoc="200" yLoc="200"></triforce>
+			<key xLoc="1" yLoc="6"></key>
+			<arrow xLoc="3" yLoc="7"></arrow>
+			
+			<bomb xLoc="6" yLoc="7"></bomb>
+			
+			<boomerang xLoc="2" yLoc="3"></boomerang>
+			<clock xLoc="2" yLoc="3"></clock>
+			<heartcontainer xLoc="4" yLoc="7"></heartcontainer>
+			<map xLoc="1" yLoc="4"></map>
+			<fairy xLoc="3" yLoc="2"></fairy>
+			<rupee xLoc="6" yLoc="5"></rupee>
+			<fairy xLoc="3" yLoc="4"></fairy>
+			<sword xLoc="6" yLoc="3"></sword>
+			<triforce xLoc="4" yLoc="8"></triforce>
+			
+			
 		</Items>
 	</Room>
 
