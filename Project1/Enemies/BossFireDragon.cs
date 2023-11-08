@@ -20,8 +20,12 @@ namespace Project1
        
         public override Rectangle BoundingBox => GetPositionAndRectangle();
 
-        private IWeapon weapon;
-        
+        private IWeapon weaponTop;
+        private IWeapon weaponMiddle;
+        private IWeapon weaponBottom;
+        private bool ended;
+
+
         //May or may not keep
         private int timeAllowed;
         private ISprite sprite;
@@ -36,8 +40,14 @@ namespace Project1
             timeAllowed = 1000;
             onScreen = 0;
             remainOnScreen = false;
-            weapon = new Orb();
+            
             sprite = EnemySpriteFactory.Instance.CreateFireDragonSprite(animation_manager, movement_manager, direction_state_manager, state_manager, time_manager);
+
+            weaponTop = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
+            weaponMiddle = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
+            weaponBottom = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
+
+
         }
         public override Rectangle GetPositionAndRectangle()
         {
@@ -50,6 +60,95 @@ namespace Project1
             sprite.Draw(spriteBatch);
 
         }
+
+        private void UpdateWeapons()
+        {
+            weaponTop.Update();
+            weaponMiddle.Update();
+            weaponBottom.Update();
+        }
+
+        public override void Attack()
+        {
+
+            if (state_manager.IsAttacking())
+            {
+                int x = movement_manager.getPosition().Item1;
+                int y = movement_manager.getPosition().Item2;
+
+                UpdateWeapons();
+              
+
+            }
+            else
+            {
+                PrepareAttack();
+                StartAttack();
+            }
+
+            //this will fix the issue that im having, figure out hte correct placement to remove the need for this conditional.
+            if (!ended)
+            {
+                EndAttack();
+            }
+           // weapon = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
+
+
+        }
+
+
+        private void StartAttack()
+        {
+            if (state_manager.startNewAttack())
+            {
+                //direction_state_manager.NeedDirectionUpdate(true);
+                weaponTop = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
+                weaponMiddle = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
+                weaponBottom = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
+                state_manager.setNewAttack(false);
+                time_manager.enableMoveTime();
+            }
+
+        }
+
+        private bool CheckFinish()
+        {
+            if (weaponTop.finished() && weaponMiddle.finished() && weaponBottom.finished())
+                return true;
+           
+
+            return false;
+        }
+
+        private void EndAttack()
+        {
+            // means the entity is waiting for the weapon to comeback
+            //get weapon obj status of returned/finished) : place holder using state_isAttacking for now
+            //get weapon status of "finished" which means we need to be able to get access to the weapon obj
+            if (CheckFinish())
+            {//if weapon is finished and returned to enetity
+                state_manager.setIsAttacking(false);
+                //set move to true
+                state_manager.setIsMoving(true);
+               
+                ended = true;
+                //TODO:remove the item from the active object list
+            }
+        }
+
+        private void PrepareAttack()
+        {
+            if (time_manager.checkIfAttackTime())
+            {
+                state_manager.setIsAttacking(true);
+                state_manager.setIsMoving(false);
+                state_manager.setNewAttack(true);
+            }
+        }
+
+
+
+
         ///*
         // * Update Sprite
         // */

@@ -39,7 +39,7 @@ namespace Project1.Enemies
 
         public void Update()
         {
-            testDeath();
+            //testDeath();
             if (state_manager.IsAlive())
             {
                 Attack();
@@ -124,6 +124,8 @@ namespace Project1.Enemies
         //    rectangles.Item1 = new Rectangle(1, 1, width, height);
         //    rectangles.Item2 = new Rectangle(x, y, width, height);
         //}
+
+        
 
         public void setPosition(int x, int y)
         {

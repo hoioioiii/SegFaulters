@@ -236,14 +236,14 @@ namespace Project1
 
         public static void DetectCollision(IActiveObjects GameOBJ)
         {
-            entities = GameOBJ.getEntityList();
+            entities = new List<IEntity>(GameOBJ.getEntityList());
             //link = GameOBJ.getLink();
             //Game1.Player();
-            roomBoundaries = GameOBJ.getEnvironmentList();
-            weapons = GameOBJ.getWeaponList();
-            roomItems = GameOBJ.getItemList();
+            roomBoundaries = new List<IEnvironment>(GameOBJ.getEnvironmentList());
+            weapons = new List<IWeapon>(GameOBJ.getWeaponList());
+            roomItems = new List<IItem>(GameOBJ.getItemList());
 
-            roomDoors = GameOBJ.getDoorList();
+            roomDoors = new List<Door>(GameOBJ.getDoorList());
             DetectAllCollisionsLinkEntity();
 
             // IS THIS MAKING THE GAME LAG?

@@ -39,7 +39,7 @@ namespace Project1
          */
         public void Update()
         {
-            
+
             sprite.Update();
         }
         /*
@@ -48,7 +48,7 @@ namespace Project1
          */
         public void Draw()
         {
-           
+
             sprite.Draw(Game1._spriteBatch);
         }
 
@@ -86,7 +86,7 @@ namespace Project1
             throw new NotImplementedException();
         }
 
-        
+
 
         public bool finished()
         {
@@ -95,7 +95,7 @@ namespace Project1
 
         public void Attack()
         {
-            throw new NotImplementedException();
+            sprite.Attack();
         }
 
         public void Draw(SpriteBatch spriteBatch)

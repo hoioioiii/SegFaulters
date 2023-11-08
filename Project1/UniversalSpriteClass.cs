@@ -41,7 +41,7 @@ namespace Project1
         }
 
         //used for entity's that have some sort of weapon/projectile
-        public void Draw(SpriteBatch spriteBatch, IWeapon weapon)
+        public void Draw(SpriteBatch spriteBatch, IWeapon[] weapon)
         {
             if (state_manager.IsAlive())
             {
@@ -52,7 +52,7 @@ namespace Project1
         }
 
 
-        public virtual void DrawAttack(IWeapon weapon)
+        public virtual void DrawAttack(IWeapon[] weapon)
         {
             //null have each enemy implement their own
 
@@ -84,5 +84,7 @@ namespace Project1
         {
             return rectangles;
         }
+
+    
     }
 }
