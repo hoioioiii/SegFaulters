@@ -50,16 +50,16 @@ namespace Project1
                 weapon[i].Draw();
             }
         }
-        
 
 
-        public override void DrawAttack(IWeapon[] weapon)
-        {
-            if (!CheckFinished(weapon))
-            {//This is soley for draw
-                LoopAttack(weapon);
-            }
-        }
+
+        //public override void DrawAttack(IWeapon[] weapon)
+        //{
+        //    if (!CheckFinished(weapon))
+        //    {//This is soley for draw
+        //        LoopAttack(weapon);
+        //    }
+        //}
 
     }
 }

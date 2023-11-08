@@ -21,9 +21,6 @@ namespace Project1
             //animation.frame_list = spriteSheet;
         }
 
-
-
-
         public override void DrawAttack(IWeapon[] weapon)
         {
 
@@ -58,6 +55,13 @@ namespace Project1
             //        weapon.Attack(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, direction_state_manager.getDirection());
             //        weapon.Draw();
             //    }
+
+
+            //if (!weapon[0].finished())
+            //{//This is soley for draw
+            //    weapon[0].Attack(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, direction_state_manager.getDirection());
+            //    weapon[0].Draw();
+            //}
 
 
             if (!weapon[0].finished())

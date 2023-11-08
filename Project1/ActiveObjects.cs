@@ -184,7 +184,8 @@ namespace Project1
             
             for (int i = 0; i < weapons.Count; i++)
             {
-                weapons[i].Attack();
+                //this is needed for bomb(the attack)
+                //weapons[i].Attack();
                 weapons[i].Draw();
             }
         }

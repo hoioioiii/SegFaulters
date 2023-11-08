@@ -11,6 +11,7 @@ namespace Project1
         //void Update();
         //void Move();
         public void Draw(SpriteBatch spriteBatch, IWeapon[] weapon);
+        //public void Draw(SpriteBatch spriteBatch, IWeapon weapon);
         public void Draw(SpriteBatch spriteBatch);
         //public void setPos(int x, int y);
 

@@ -34,16 +34,13 @@ namespace Project1
         private int offsetX;
         private int offsetY;
 
-        
+        private int onScreen;
         private int onWayTime;
         private int awayfps;
         private int mod;
 
         private bool completed;
         private bool change;
-
-        private static int onScreen;
-        public static bool remainOnScreen { get; private set; }
         public BoomerangeSprite(Texture2D[] spriteSheet)
         {
             //needs to be refactored 
@@ -57,8 +54,8 @@ namespace Project1
             offsetX = 0;
             offsetY = 0;
             mod = 1;
-            //width = spriteSheet[0].Width;
-            //height = spriteSheet[0].Height;
+            width = spriteSheet[0].Width;
+            height = spriteSheet[0].Height;
 
             awayfps = 10;
             onWayTime = 0;
@@ -176,7 +173,7 @@ namespace Project1
         public void GetUserState(Direction direct)
         {
 
-           
+
             switch (direct)
             {
                 case Direction.Up:
@@ -264,32 +261,29 @@ namespace Project1
                 {
                     onWayTime = 0;
                     change = true;
-                    
-                    mod = mod * -1; 
+
+                    mod = mod * -1;
                 }
             }
 
             if (direction % 2 == 0)
             {
-              weaponX = WeaponDirectionMovement.ForwardBack(weaponX, direction,mod);
+                weaponX = WeaponDirectionMovement.ForwardBack(weaponX, direction, mod);
 
-              if(change) checkFinish(weaponX, userX);
+                if (change) checkFinish(weaponX, userX);
             }
             else
             {
-                weaponY = WeaponDirectionMovement.ForwardBack(weaponY, direction,mod);
+                weaponY = WeaponDirectionMovement.ForwardBack(weaponY, direction, mod);
                 if (change) checkFinish(weaponY, userY);
             }
-
-
-
         }
 
         //this is going to be replaced by collision response
         private void checkFinish(int wPos, int userPos)
         {
             int check = Math.Abs(wPos - userPos);
-          
+
             //change later
             if (check <= 20)
             {

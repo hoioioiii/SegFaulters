@@ -15,11 +15,11 @@ using Project1.Enemies;
 
 namespace Project1
 {
-	public class DogMonster : UniversalClassEntity
-	{
+    public class DogMonster : UniversalClassEntity
+    {
         public override Rectangle BoundingBox => GetPositionAndRectangle();
         //Texture stores the texture alias for our animation
-        
+
 
         private ISprite sprite;
         private IWeapon[] weapon;
@@ -27,7 +27,7 @@ namespace Project1
         /*
          * Initalize Dog Monster
          */
-        public DogMonster((int, int) position, (String, int)[] items): base(position, items)
+        public DogMonster((int, int) position, (String, int)[] items) : base(position, items)
         {
 
             sprite = EnemySpriteFactory.Instance.CreateDogMonsterSprite(animation_manager, movement_manager, direction_state_manager, state_manager, time_manager);
@@ -57,7 +57,7 @@ namespace Project1
                 int x = movement_manager.getPosition().Item1;
                 int y = movement_manager.getPosition().Item2;
                 weapon[0].Update();
-                
+
             }
             else
             {
@@ -70,7 +70,9 @@ namespace Project1
             {
                 EndAttack();
             }
-             
+
+
+
         }
         private void StartAttack()
         {
@@ -81,9 +83,10 @@ namespace Project1
                 //direction_state_manager.NeedDirectionUpdate(true);
                 weapon[0] = new Boomerange();
                 state_manager.setNewAttack(false);
+                ended = false;
                 Game1.GameObjManager.addNewWeapon(weapon[0]);
             }
-            
+
         }
 
         private void EndAttack()
@@ -98,10 +101,11 @@ namespace Project1
                 state_manager.setIsMoving(true);
                 //set isAttacking to false;
                 time_manager.enableMoveTime();
-                
+
                 direction_state_manager.getRandomDirection();
                 ended = true;
                 //TODO:remove the item from the active object list
+                Game1.GameObjManager.removeWeapon(weapon[0]);
             }
         }
 
@@ -112,8 +116,11 @@ namespace Project1
                 state_manager.setIsAttacking(true);
                 state_manager.setIsMoving(false);
                 state_manager.setNewAttack(true);
+               
+
             }
         }
+
 
     }
 }

@@ -67,7 +67,7 @@ namespace Project1
             //remove this later
             ContentManager1 = Content;
             Game = this;
-            gameStatePlaying = false;
+            gameStatePlaying = true;
 
             //temp fix
             timer = 60 * 3;
