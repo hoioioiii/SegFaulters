@@ -182,7 +182,7 @@ namespace Project1
                 //testItem.Update();
 
                 Item.Update();
-                ENEMY.Update();
+                //ENEMY.Update();
                 EnvironmentLoader.Update();
 
                 GameObjManager.Update();
@@ -232,7 +232,7 @@ namespace Project1
                 */
 
                 //ENEMY.Draw(_spriteBatch);
-                Item.Draw(_spriteBatch);
+                //Item.Draw(_spriteBatch);
                 //CurrentEnvironment.Draw(_spriteBatch);
                 GameObjManager.Draw();
 
@@ -241,9 +241,6 @@ namespace Project1
             }
             else
             {
-
-
-
                 
                 if (timer <= 0)
                 {
