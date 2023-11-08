@@ -21,6 +21,7 @@ namespace Project1
         public static ContentManager contentLoader;
 
         public static IActiveObjects GameObjManager;
+        public static GameStateManager GameStateManager;
         private Texture2D _texture;
         //public static SpriteBatch _spriteBatch;
 
@@ -96,6 +97,7 @@ namespace Project1
 
             //keep
             GameObjManager = new ActiveObjects();
+            GameStateManager = new GameStateManager();
 
 
             player = new Player();
@@ -127,6 +129,9 @@ namespace Project1
             Sword.LoadContent(Content);
             Arrow.LoadContent(Content);
             Boomerang.LoadContent(Content);
+
+            //pause icon
+            GameStateManager.LoadContent(Content);
 
             PlayerSpriteFactory.Instance.LoadAllTextures(Content);
             Player.LoadContent(Content);
@@ -165,8 +170,9 @@ namespace Project1
 
             GameObjManager.Update();
             AllCollisionDetection.DetectCollision(GameObjManager);
-
-            hudDisplay.Update(false);
+            
+            //if it's paused, HUDdisplay needs to move down
+            hudDisplay.Update(GameStateManager.GameState == GameState.PausedState);
 
             /*
             #region Print to debug console

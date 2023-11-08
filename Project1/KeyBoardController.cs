@@ -134,6 +134,9 @@ namespace Project1
             MOVE_MAP.Add(Keys.D9, new displayRupee());
             MOVE_MAP.Add(Keys.OemMinus, new displaySword());
             MOVE_MAP.Add(Keys.OemPlus, new displayTriforce());
+
+            //pausing the game
+            MOVE_MAP.Add(Keys.OemPeriod, new PauseGame());
         }
 
         public void IteratorMap()
