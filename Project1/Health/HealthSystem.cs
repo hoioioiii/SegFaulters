@@ -10,11 +10,8 @@ using static Project1.Health.HealthSystemManager;
 
 namespace Project1.Health
 {
-    public class HealthSystem //turn it into SpriteHealth
+    public class HealthSystem
     {
-
-        public static int healthCurrent;
-
         public static Texture2D fullHeart;
         public static Texture2D halfHeart;
         public static Texture2D emptyHeart;
@@ -41,25 +38,26 @@ namespace Project1.Health
 
         public void SetHealthSystem(HealthSystemManager healthSystem)
         {
+            //HUD bounding box
             Vector2 boundingBoxUpperLeft = new Vector2(HUD_SECTION_WIDTH * 2, HUD_HEIGHT / 3);
             Vector2 boundingBoxLowerRight = new Vector2(SCREEN_WIDTH, HUD_HEIGHT);
             float rowColSize = 30f;
+            Vector2 currentHeartPosition = boundingBoxUpperLeft; // initial pos based off HUD
+            int colMax = (int)((boundingBoxLowerRight.X - boundingBoxUpperLeft.X) / rowColSize);
 
+            //list of hearts with amount of fragments each
             this.healthSystem = healthSystem;
             List<HealthSystemManager.Heart> hearts = healthSystem.GetHealthSystem();
-
-            Vector2 currentHeartPosition = boundingBoxUpperLeft;
-
-            int colMax = (int)((boundingBoxLowerRight.X - boundingBoxUpperLeft.X) / rowColSize);
 
             for (int i = 0; i < hearts.Count; i++)
             {
                 HealthSystemManager.Heart heart = hearts[i];
-
+                
+                //add heart with its respective fragments
                 CreateHeart(currentHeartPosition).SetHeartFragment(heart.GetFragmentAmount());
-
                 currentHeartPosition.X += rowColSize; // Offset the next heart to the right
 
+                //adjust heart to be inside HUD bounding box
                 if (currentHeartPosition.X >= boundingBoxLowerRight.X)
                 {
                     currentHeartPosition.X = boundingBoxUpperLeft.X;
@@ -78,28 +76,16 @@ namespace Project1.Health
             heartsFragments.Add(emptyHeart);
             heartsFragments.Add(halfHeart);
             heartsFragments.Add(fullHeart);
-
         }
 
         public bool IsDead()
         {
             List<HealthSystemManager.Heart> hearts = healthSystem.GetHealthSystem();
-            return (hearts[0].GetFragmentAmount() == 0);
+            return (hearts[0].GetFragmentAmount() == 0); //if first heart empty, link dead
+        }
 
-/*            for (int i = 0; i < heartsList.Count; i++)
-            {
-                // IndividualHeart currentHeart = heartsList[i];
-
-                HealthSystemManager.Heart heart = hearts[i];
-
-                if (heart.GetFragmentAmount() >= 1)
-                {
-                    return false;
-                }
-
-            }
-
-            return true;*/
+        public void PauseState(bool isGamePaused)
+        {
 
         }
 
@@ -110,7 +96,7 @@ namespace Project1.Health
             //Create a type heart (full, empty, half)
             heart = new IndividualHeart(currentHeart, position, this);
 
-            //Add to Link's current hearts
+            //Add to Link current hearts
             heartsList.Add(heart);
 
             return heart;
@@ -118,9 +104,8 @@ namespace Project1.Health
 
         public void DamageHealth(int damageAmount)
         {
-            //update fragment quantity of all the hearts
             healthSystem.DamageHealth(damageAmount);
-            Update();
+            Update(); //update fragment quantity of all the hearts
         }
 
         public void HealHealth(int healAmount)
@@ -134,7 +119,6 @@ namespace Project1.Health
 
             for (int i = heartsList.Count; i < healthSystem.GetHealthSystem().Count; i++)
             {
-                // Create a new heart for each additional heart in the health system
                 HealthSystemManager.Heart heart = healthSystem.GetHealthSystem()[i];
 
                 // Calculate the position based on the HUD bounding box
@@ -143,10 +127,11 @@ namespace Project1.Health
                     boundingBoxUpperLeft.Y + (i / (int)((boundingBoxLowerRight.X - boundingBoxUpperLeft.X) / rowColSize)) * rowColSize
                 );
 
+                // Add additional hearts
                 CreateHeart(newPosition).SetHeartFragment(heart.GetFragmentAmount());
             }
 
-            Update();
+            Update();//update fragment quantity of all the hearts
         }
 
 

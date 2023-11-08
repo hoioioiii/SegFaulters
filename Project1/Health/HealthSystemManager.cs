@@ -20,7 +20,7 @@ namespace Project1.Health
             //create heartAmount of hearts
             for (int  i = 0; i < heartsAmount; i++) 
             {
-                Heart individualHeart = new Heart(2); //start them as full
+                Heart individualHeart = new Heart(2); //start all hearts as full
                 heartList.Add(individualHeart);
             }
       }
@@ -30,13 +30,14 @@ namespace Project1.Health
             return heartList;
         }
 
-        //damage of 2 empties a heart. UP TO CHANGE
+        //attack = 1: takes half a heart
+        //attack = 2: takes an entire heart
         public void DamageHealth(int damageAmount)
         {
             for (int i = heartList.Count - 1; i >= 0; i--)
             {
                 if (damageAmount <= 0)
-                {
+                { //no damage need to be done
                     break;
                 }
                 Heart heart = heartList[i];
@@ -54,20 +55,14 @@ namespace Project1.Health
                     break;
                 }
             }
+       }
 
-            //update current hearts
-/*            HealthSystem.heartsList.Update();
-*/        }
-
+        //healAmount = 1: heal half a heart
+        //healAmount = 2: heal entire heart
         public void HealHealth(int healAmount)
         {
             for (int i = 0; i < heartList.Count; i++)
             {
-                //ADD NEW HEART
-                if (heartList[heartList.Count - 1].GetFragmentAmount() == MAX_FRAGMENTS)
-                {
-
-                }
 
                 Heart currHeart = heartList[i];
                 int missFragments = MAX_FRAGMENTS - currHeart.GetFragmentAmount();
@@ -85,32 +80,7 @@ namespace Project1.Health
                 }
             }
 
-            /*            for (int i = 0; i < heartList.Count; i++)
-                        {
-                            if (healAmount <= 0)
-                            {
-                                break;
-                            }
-
-                            Heart currHeart = heartList[i];
-                            int missFragments = MAX_FRAGMENTS - currHeart.GetFragmentAmount();
-
-
-                            //heart gets partially heal
-                            if (healAmount > missFragments)
-                            {
-                                healAmount -= missFragments;
-                                currHeart.HealHealth(missFragments);
-                            }
-                            else //heart gets fully heal
-                            {
-                                currHeart.HealHealth(healAmount);
-                                break;
-                            }
-
-                        }*/
-            
-            
+                     
             while (healAmount > 0)
             {
                 if (healAmount >= MAX_FRAGMENTS)
