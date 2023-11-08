@@ -22,7 +22,7 @@ namespace Project1.Health
         public HealthSystemManager healthSystem;
         public IndividualHeart heart;
 
-        public HealthSystem()
+        public HealthSystem(int amountHearts)
         {
             //list of all types of hearts
             heartsFragments = new List<Texture2D>();
@@ -31,15 +31,15 @@ namespace Project1.Health
             //list of current Link's hearts
             heartsList = new List<IndividualHeart>();
 
-            //set up a health system that starts with 3 hearts
-            HealthSystemManager healthSystem = new HealthSystemManager(3);
+            //set up a health system that starts with (amountHearts) hearts
+            HealthSystemManager healthSystem = new HealthSystemManager(amountHearts);
             SetHealthSystem(healthSystem);
         }
 
         public void SetHealthSystem(HealthSystemManager healthSystem)
         {
             //HUD bounding box
-            Vector2 boundingBoxUpperLeft = new Vector2(HUD_SECTION_WIDTH * 2, HUD_HEIGHT / 3);
+            Vector2 boundingBoxUpperLeft = new Vector2(HUD_SECTION_WIDTH * 2, (HUD_HEIGHT / 3));
             Vector2 boundingBoxLowerRight = new Vector2(SCREEN_WIDTH, HUD_HEIGHT);
             float rowColSize = 30f;
             Vector2 currentHeartPosition = boundingBoxUpperLeft; // initial pos based off HUD
@@ -82,11 +82,6 @@ namespace Project1.Health
         {
             List<HealthSystemManager.Heart> hearts = healthSystem.GetHealthSystem();
             return (hearts[0].GetFragmentAmount() == 0); //if first heart empty, link dead
-        }
-
-        public void PauseState(bool isGamePaused)
-        {
-
         }
 
         public IndividualHeart CreateHeart(Vector2 position)
@@ -158,7 +153,13 @@ namespace Project1.Health
 
             foreach (var heart in heartsList)
             {
-                spriteBatch.Draw(heart.heartTexture, heart.position, null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
+/*                float xCoord = heart.position.X;
+                if (reset == true)
+                {
+                    float yCoord = heart.position.Y + ((SCREEN_HEIGHT / 3) * 2);
+                }
+                Vector2 heartPosition = new Vector2(xCoord, yCoord);  */  
+                spriteBatch.Draw(heart.heartTexture, heart.position , null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
             }
         }
 
