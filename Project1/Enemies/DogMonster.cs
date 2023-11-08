@@ -22,7 +22,7 @@ namespace Project1
         
 
         private ISprite sprite;
-        private IWeapon weapon;
+        private IWeapon[] weapon;
         private bool ended;
         /*
          * Initalize Dog Monster
@@ -31,7 +31,8 @@ namespace Project1
         {
 
             sprite = EnemySpriteFactory.Instance.CreateDogMonsterSprite(animation_manager, movement_manager, direction_state_manager, state_manager, time_manager);
-            weapon = new Boomerange();
+            weapon = new IWeapon[1];
+            weapon[0] = new Boomerange();
             ended = false;
         }
         public override Rectangle GetPositionAndRectangle()
@@ -55,7 +56,7 @@ namespace Project1
             {
                 int x = movement_manager.getPosition().Item1;
                 int y = movement_manager.getPosition().Item2;
-                weapon.Update();
+                weapon[0].Update();
                 
             }
             else
@@ -70,8 +71,6 @@ namespace Project1
                 EndAttack();
             }
              
-            
-
         }
         private void StartAttack()
         {
@@ -80,8 +79,9 @@ namespace Project1
                 //create weapons
                 direction_state_manager.changeDirection();
                 //direction_state_manager.NeedDirectionUpdate(true);
-                weapon = new Boomerange();
+                weapon[0] = new Boomerange();
                 state_manager.setNewAttack(false);
+                Game1.GameObjManager.addNewWeapon(weapon[0]);
             }
             
         }
@@ -91,7 +91,7 @@ namespace Project1
             // means the entity is waiting for the weapon to comeback
             //get weapon obj status of returned/finished) : place holder using state_isAttacking for now
             //get weapon status of "finished" which means we need to be able to get access to the weapon obj
-            if (weapon.finished())
+            if (weapon[0].finished())
             {//if weapon is finished and returned to enetity
                 state_manager.setIsAttacking(false);
                 //set move to true
@@ -115,64 +115,6 @@ namespace Project1
             }
         }
 
-
-
-
-
-
-        ///*
-        // * Update Dog Monster
-        // */
-        //public void Update()
-        //{
-        //    sprite.Update();
-
-        //}
-
-        ///*
-        // * Draw the Sprite
-        // */
-        //public void Draw(SpriteBatch spriteBatch)
-        //{
-
-        //    sprite.Draw(spriteBatch);
-        //}
-
-        ///*
-        // * Implement the Health
-        // */
-        //public void Health()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        ///*
-        // * Implement the Attack
-        // */
-        //public void Attack()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        ///*
-        // * Item the Sprite drops when it dies.
-        // */
-        //public void ItemDrop()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Rectangle getPositionAndRectangle()
-        //{
-        //    return sprite.GetRectangle().Item2;
-
-        //}
-
-        //public void setPosition(int x, int y)
-        //{
-        //    sprite.setPos(x, y);
-
-        //}
     }
 }
 

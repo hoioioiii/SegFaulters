@@ -24,7 +24,7 @@ namespace Project1
 
 
 
-        public override void DrawAttack(IWeapon weapon)
+        public override void DrawAttack(IWeapon[] weapon)
         {
 
 
@@ -60,10 +60,10 @@ namespace Project1
             //    }
 
 
-            if (!weapon.finished())
+            if (!weapon[0].finished())
             {//This is soley for draw
-                weapon.Attack(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, direction_state_manager.getDirection());
-                weapon.Draw();
+                weapon[0].Attack(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, direction_state_manager.getDirection());
+                weapon[0].Draw();
             }
         }
 

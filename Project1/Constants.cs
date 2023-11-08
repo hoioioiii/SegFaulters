@@ -346,6 +346,16 @@ namespace Project1
             QUIT
 
         }
+
+
+        //For orbs
+
+        public enum ORB_DIRECTION
+        {
+            TOP,
+            MIDDLE,
+           BOTTOM
+        }
     }
 }
 
