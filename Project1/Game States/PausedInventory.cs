@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.HUD;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
@@ -19,6 +20,7 @@ namespace Project1
         Texture2D useBtext;
         Texture2D itemInventory;
         Texture2D smallItemBox;
+        Texture2D redItemSelector;
 
         private static int spriteScale;
 
@@ -35,13 +37,26 @@ namespace Project1
         private static int itemInventoryBoxTextOffsetY = 450;
 
         private static int itemInventoryBoxOffSet = 18;
+        private static int itemInventoryBoxOffSet2 = 4;
+        private static int itemInventoryBoxOffSet3 = 16;
+        private static int itemInventoryBoxScaleOffSet = 10;
 
         private static int inventoryboxWidth; 
         private static int inventoryboxHeight;
 
+        private static Vector2 selectedItemPosition;
+        private static int currentItemIndex = 0;
+
         int inventoryRows = 2;
         int inventoryCols = 4;
-        Texture2D test;
+        int selectorSmoother = 0;
+
+        Vector2 inventoryPosition;
+        Vector2 useBPosition;
+        Vector2 smallitemboxPosition;
+        Vector2 itemInventoryPosition;
+
+        private static List<(Vector2, inventoryItems)> itemLocations = new List<(Vector2, inventoryItems)>();
 
 
 
@@ -58,6 +73,7 @@ namespace Project1
             itemInventory = content.Load<Texture2D>(assetName: "BigItemInventory");
             inventoryboxWidth = (itemInventory.Width - 2) / 4; //either plus or  minus
             inventoryboxHeight = (itemInventory.Height - 2 ) / 2;
+            redItemSelector = content.Load<Texture2D>(assetName: "redItemSelector");
 
             //small item box
             smallItemBox = content.Load<Texture2D>(assetName: "smallItemBox");
@@ -67,7 +83,7 @@ namespace Project1
             //press B text
             useBtext = content.Load<Texture2D>(assetName: "USEBbuttonfont");
 
-            test = content.Load<Texture2D>(assetName: "bow");
+            
 
         }
         public void Draw(SpriteBatch spriteBatch)
@@ -75,10 +91,10 @@ namespace Project1
             //Static parts of the inventory         !TODO: change hardcoded positions!
             
             // Calculate the position for all textures and draw
-            Vector2 inventoryPosition = new Vector2(inventoryTextOffsetX, screenMaxHeight - inventoryTextOffsetY);
-            Vector2 useBPosition = new Vector2(useBtextOffsetX, screenMaxHeight - useBtextOffsetY);
-            Vector2 smallitemboxPosition = new Vector2(smallItemBoxTextOffsetX, screenMaxHeight - smallItemBoxTextOffsetY);
-            Vector2 itemInventoryPosition = new Vector2(itemInventoryBoxTextOffsetX, screenMaxHeight - itemInventoryBoxTextOffsetY);
+            inventoryPosition = new Vector2(inventoryTextOffsetX, screenMaxHeight - inventoryTextOffsetY);
+            useBPosition = new Vector2(useBtextOffsetX, screenMaxHeight - useBtextOffsetY);
+            smallitemboxPosition = new Vector2(smallItemBoxTextOffsetX, screenMaxHeight - smallItemBoxTextOffsetY);
+            itemInventoryPosition = new Vector2(itemInventoryBoxTextOffsetX, screenMaxHeight - itemInventoryBoxTextOffsetY);
 
             spriteBatch.Draw(inventoryText, new Rectangle((int)inventoryPosition.X, (int)inventoryPosition.Y, inventoryText.Width * spriteScale, inventoryText.Height * spriteScale), Color.White);
             spriteBatch.Draw(useBtext, new Rectangle((int)useBPosition.X, (int)useBPosition.Y, useBtext.Width * spriteScale, useBtext.Height * spriteScale), Color.White);
@@ -136,13 +152,44 @@ namespace Project1
                     }
                    // spriteBatch.Draw(test, new Rectangle(x, y, inventoryboxWidth * 2 - 10, inventoryboxHeight * 2 - 10), Color.White);
                     inventoryitem.Draw(spriteBatch, new Vector2(x, y), 2);
+                    itemLocations.Add((new Vector2(x, y), item));
                     break;
+                    
                 }
                 totalItems--;
             }
 
+            selectedItemPosition = itemLocations[currentItemIndex].Item1;
+            spriteBatch.Draw(redItemSelector, new Rectangle((int)selectedItemPosition.X - itemInventoryBoxOffSet2, (int)selectedItemPosition.Y - itemInventoryBoxOffSet2, redItemSelector.Width + itemInventoryBoxScaleOffSet, redItemSelector.Height + itemInventoryBoxScaleOffSet), Color.White);
+
+            drawSelectedItemToSmallBox(spriteBatch);
 
 
+
+
+        }
+
+        //depending on what the selector is hovering over, it will display on the small box
+        private void drawSelectedItemToSmallBox(SpriteBatch spriteBatch)
+        {
+            IItem smallboxinventoryitem = null;
+            Vector2 pos = new Vector2((int)smallitemboxPosition.X + itemInventoryBoxOffSet3, (int)smallitemboxPosition.Y + itemInventoryBoxOffSet3);
+            switch (itemLocations[currentItemIndex].Item2)
+            {
+                case inventoryItems.bow:
+                    smallboxinventoryitem = new Bow(((int)pos.X, (int)pos.Y));
+                    break;
+                case inventoryItems.boomerang:
+                    smallboxinventoryitem = new BoomerangItem(((int)pos.X, (int)pos.Y));
+                    break;
+                case inventoryItems.bomb:
+                    smallboxinventoryitem = new BombItem(((int)pos.X, (int)pos.Y));
+                    break;
+                case inventoryItems.key:
+                    smallboxinventoryitem = new Key(((int)pos.X, (int)pos.Y));
+                    break;
+            }
+            smallboxinventoryitem.Draw(spriteBatch, pos, 3);
         }
 
         //function that gets the number of items and which ones so Draw can have the correct sprite to create
@@ -177,6 +224,37 @@ namespace Project1
         public void Update()
         {
             
+        }
+
+        //moves the selector, makes sure it loops back to the other side 
+        //selector smoother is so it doesnt update crazy fast between the controller checks
+        public void moveSelectorLeft()
+        {
+            if(selectorSmoother == 9)
+            {
+                if (currentItemIndex == 0)
+                {
+                    currentItemIndex = itemLocations.Count - 1;
+                }
+                currentItemIndex--;
+                selectorSmoother = 0;
+            }
+            selectorSmoother++;
+        }
+
+        //moves the selector, makes sure it loops back to the other side 
+        public void moveSelectorRight()
+        {
+            if(selectorSmoother == 9)
+            {
+                if (currentItemIndex == itemLocations.Count - 1)
+                {
+                    currentItemIndex = 0;
+                }
+                currentItemIndex++;
+                selectorSmoother = 0;
+            }
+            selectorSmoother++;
         }
     }
     public enum inventoryItems { bomb, boomerang, key, bow }

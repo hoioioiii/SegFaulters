@@ -22,7 +22,7 @@ namespace Project1
         public static GameState GameState { get; set; }
         Texture2D pausebutton;
         private static Vector2 position;
-        public PausedScreen PausedScreen;
+        public static PausedScreen PausedScreen { get; set; }
         public  GameStateManager() {
 
             GameState = GameState.DefaultState;
