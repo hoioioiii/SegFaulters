@@ -190,7 +190,7 @@ namespace Project1
         {
             GraphicsDevice.Clear(Color.Black);
 
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(transformMatrix: camera.Transform);
             EnvironmentLoader.Draw(_spriteBatch);
 
             Player.Draw(gameTime, _spriteBatch);

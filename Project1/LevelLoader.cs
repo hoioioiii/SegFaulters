@@ -20,8 +20,14 @@ namespace Project1
         private static (string, (int, int))[] itemArray;//(string itemName,(int posX, posY))
         public static void Load(string xmlPath)
         {
+            string relativePath = "..\\..\\..\\xmlTest2.xml";
+
+            string fullPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load("/Users/dm/Documents/Projects3902/SegFaulters/Project1/xmlTest2.xml");
+            xmlDoc.Load(fullPath);
+
+            
+            //xmlDoc.Load("/Users/dm/Documents/Projects3902/SegFaulters/Project1/xmlTest2.xml");
             //xmlDoc.Load(xmlPath);
 
             getRoomCountFromXmlDoc(xmlDoc);

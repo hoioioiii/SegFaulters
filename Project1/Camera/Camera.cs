@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using static Project1.Constants;
 
 namespace Project1
@@ -13,10 +14,22 @@ namespace Project1
     {
         public Matrix Transform { get; set; }
 
+        /*
+         * Used to test the camera following the player
+         */
         public void Follow(Rectangle target)
         {
-            Transform = Matrix.CreateTranslation(-target.Center.X, target.Center.Y, 0);
+            var position = Matrix.CreateTranslation(
+                -target.Center.X - (target.Width / 2), 
+                -target.Center.Y - (target.Height / 2), 
+                0);
 
+            var offset = Matrix.CreateTranslation(
+                SCREEN_WIDTH_UPPER / 2,
+                SCREEN_HEIGHT_UPPER / 2,
+                0);
+
+            Transform = position * offset;
         }
 
         public void RoomTransitionCamera(Vector2 camPos, DIRECTION direction)
