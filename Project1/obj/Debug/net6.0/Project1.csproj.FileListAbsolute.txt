@@ -1843,7 +1843,6 @@ C:\Users\jackd\source\repos\hoioioiii\SegFaulters\Project1\obj\Debug\net6.0\refi
 C:\Users\jackd\source\repos\hoioioiii\SegFaulters\Project1\obj\Debug\net6.0\Project1.pdb
 C:\Users\jackd\source\repos\hoioioiii\SegFaulters\Project1\obj\Debug\net6.0\Project1.genruntimeconfig.cache
 C:\Users\jackd\source\repos\hoioioiii\SegFaulters\Project1\obj\Debug\net6.0\ref\Project1.dll
-=======
 D:\CSE3902\Projects\SegFaulters\Project1\obj\Debug\net6.0\Project1.dll
 D:\CSE3902\Projects\SegFaulters\Project1\obj\Debug\net6.0\refint\Project1.dll
 D:\CSE3902\Projects\SegFaulters\Project1\obj\Debug\net6.0\Project1.pdb

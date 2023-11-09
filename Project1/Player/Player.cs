@@ -425,8 +425,8 @@ namespace Project1
             
         }
 
-        //decide which method of drawing link should be used based on his current state
-        private static void DrawBasedOnMovementType(SpriteBatch spriteBatch)
+//decide which method of drawing link should be used based on his current state
+private static void DrawBasedOnMovementType(SpriteBatch spriteBatch)
         {
             if (isMoving)
             {
@@ -520,7 +520,7 @@ namespace Project1
                     break;
 
             }
-            */
+            
 
             //remainOnScreen = true;
             //spriteWeapon.Attack();

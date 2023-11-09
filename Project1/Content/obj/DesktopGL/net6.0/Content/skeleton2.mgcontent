@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<<<<<<< HEAD
-  <SourceFile>C:/Users/jackd/source/repos/hoioioiii/SegFaulters/Project1/Content/skeleton2.png</SourceFile>
-  <SourceTime>2023-11-04T17:18:53.9270038-04:00</SourceTime>
-  <DestFile>C:/Users/jackd/source/repos/hoioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/skeleton2.xnb</DestFile>
-  <DestTime>2023-11-05T12:02:04.514789-05:00</DestTime>
-=======
-  <SourceFile>C:/Users/tinal/source/repos/3.7/Project1/Content/skeleton2.png</SourceFile>
-  <SourceTime>2023-11-06T01:12:52.8551182-05:00</SourceTime>
-  <DestFile>C:/Users/tinal/source/repos/3.7/Project1/Content/bin/DesktopGL/Content/skeleton2.xnb</DestFile>
-  <DestTime>2023-11-06T01:13:01.0901003-05:00</DestTime>
->>>>>>> Sprint4-master
+  <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/skeleton2.png</SourceFile>
+  <SourceTime>2023-10-21T06:19:49.8295454-04:00</SourceTime>
+  <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/skeleton2.xnb</DestFile>
+  <DestTime>2023-11-09T17:55:17.1448687-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
