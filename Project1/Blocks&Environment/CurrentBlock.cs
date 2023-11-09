@@ -18,9 +18,13 @@ namespace Project1
         private int posY;
         private bool canCollide;
 
+        private Rectangle tempBoundingBox;
+
         public CurrentBlock(Texture2D text, int posX, int posY, bool canCollide)
         {
-            canCollide = true;
+            tempBoundingBox = new Rectangle(posX, posY, BLOCK_DIMENSION, BLOCK_DIMENSION);
+            if (canCollide)
+                BoundingBox = tempBoundingBox;
 
             texture = text;
             this.posX = posX;
@@ -43,18 +47,7 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (canCollide)
-            {
-                BoundingBox = new Rectangle(posX, posY, BLOCK_DIMENSION, BLOCK_DIMENSION);
-                spriteBatch.Draw(texture, BoundingBox, Color.White);
-            }
-            else
-            {
-                Rectangle temp = new Rectangle(posX, posY, BLOCK_DIMENSION, BLOCK_DIMENSION);
-                spriteBatch.Draw(texture, temp, Color.White);
-            }
-
-
+            spriteBatch.Draw(texture, tempBoundingBox, Color.White);
         }
     }
 }
