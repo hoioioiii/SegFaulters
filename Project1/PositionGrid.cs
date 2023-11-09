@@ -10,6 +10,13 @@ namespace Project1
     internal class PositionGrid
     {
         private static Dictionary<(int, int), (int, int)> gridDict;
+    //private int bufferX, bufferY;
+    //public PositionGrid(int bufferX, int bufferY)
+    //{
+    //    this.bufferX = bufferX;
+    //    this.bufferY = bufferY;
+    //}
+        
         public static (int, int) getPosBasedOnGrid(int x, int y)
         {
             createMap();
@@ -27,7 +34,7 @@ namespace Project1
                 {
                     //114, 75 is the starting point of the grid
                     //48 is the width/height of each block
-                    gridDict.Add((row, col), (112 + BLOCK_DIMENSION * (col), 73 + FRAME_BUFFER +BLOCK_DIMENSION * (row)));
+                    gridDict.Add((row, col), (112 + FRAME_BUFFER_X + BLOCK_DIMENSION * (col), 73 + FRAME_BUFFER_Y + BLOCK_DIMENSION * (row)));
                 }
             }
 

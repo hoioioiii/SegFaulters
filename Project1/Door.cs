@@ -49,8 +49,8 @@ namespace Project1
                         texture = textures[4];
                     else
                         texture = textures[3];
-                    xPos = 350;
-                    yPos = 14 + FRAME_BUFFER;
+                    xPos = 350 + FRAME_BUFFER_X;
+                    yPos = 14 + FRAME_BUFFER_Y;
                     this.direction = DIRECTION.up;
                     break;
                 case DIRECTION.down:
@@ -59,8 +59,8 @@ namespace Project1
                         texture = textures[5];
                     else
                         texture = textures[2];
-                    xPos = 352;
-                    yPos = 409 + FRAME_BUFFER;
+                    xPos = 352 + FRAME_BUFFER_X;
+                    yPos = 409 + FRAME_BUFFER_Y;
                     this.direction = DIRECTION.down;
                     break;
                 case DIRECTION.left:
@@ -69,8 +69,8 @@ namespace Project1
                         texture = textures[6];
                     else
                         texture = textures[0];
-                    xPos = 53;
-                    yPos = 190 + FRAME_BUFFER;
+                    xPos = 53 + FRAME_BUFFER_X;
+                    yPos = 190 + FRAME_BUFFER_Y;
                     this.direction = DIRECTION.left;
                     break;
                 case DIRECTION.right:
@@ -79,8 +79,8 @@ namespace Project1
                         texture = textures[7];
                     else
                         texture = textures[1];
-                    xPos = 688;
-                    yPos = 190 + FRAME_BUFFER;
+                    xPos = 688 + FRAME_BUFFER_X;
+                    yPos = 190 + FRAME_BUFFER_Y;
                     this.direction = DIRECTION.right;
                     break;
                 default:

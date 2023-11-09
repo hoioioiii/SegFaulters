@@ -112,7 +112,7 @@ namespace Project1
         //fix tom
         public static void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(levelBackground, new Rectangle(17, -22 + FRAME_BUFFER, levelBackground.Width * 3, levelBackground.Height * 3), Color.White);
+            spriteBatch.Draw(levelBackground, new Rectangle(17 + FRAME_BUFFER_X, -22 + FRAME_BUFFER_Y, levelBackground.Width * 3, levelBackground.Height * 3), Color.White);
 
             foreach (IEnvironment block in blocksArray)
             {
