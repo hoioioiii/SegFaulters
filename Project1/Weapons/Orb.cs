@@ -17,10 +17,12 @@ namespace Project1
         private ISpriteWeapon sprite;
 
         public Rectangle BoundingBox { get; set; }
+        public int attackStat { get; private set; }
 
         public Orb((int,int) pos, ORB_DIRECTION positionDirection)
         {
             sprite = WeaponSpriteFactory.Instance.CreateOrbSprite((pos.Item1,pos.Item2),positionDirection);
+            attackStat = 4;
         }
         public void Attack()
         {

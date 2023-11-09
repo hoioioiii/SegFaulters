@@ -25,22 +25,17 @@ namespace Project1
         private int current_frame;
         private int total_frame;
 
-        private int elapsedTime;
-        private int fps;
-
         private int width;
         private int height;
 
-        private int offsetX;
-        private int offsetY;
-
-        private int onScreen;
-        private int onWayTime;
-        private int awayfps;
+        private int onWayTime; 
         private int mod;
 
         private bool completed;
         private bool change;
+        
+
+
         public BoomerangeSprite(Texture2D[] spriteSheet)
         {
             //needs to be refactored 
@@ -48,16 +43,12 @@ namespace Project1
             BangPlaced = false;
             total_frame = 4;
             current_frame = 0;
-            fps = 300;
-
-            onScreen = 0;
-            offsetX = 0;
-            offsetY = 0;
+        
             mod = 1;
             width = spriteSheet[0].Width;
             height = spriteSheet[0].Height;
 
-            awayfps = 10;
+            
             onWayTime = 0;
             change = false;
             completed = false;
