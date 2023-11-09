@@ -59,8 +59,8 @@ namespace Project1
         {
             if (!activeAttack) {
                 this.activeAttack = true;
-                
-                
+
+                AudioManager.PlaySoundEffect(boomerang);
             }
         }
 
