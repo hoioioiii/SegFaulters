@@ -69,9 +69,15 @@ namespace Project1
         // draw inside level loader
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int scale)
         {
+            //setDimention();
+            //Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
+            //Rectangle DEST_REC = new Rectangle((int)location.X, (int)location.Y, width * scale, height * scale);
+            //rect = DEST_REC;
+            //spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
+
             setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
-            Rectangle DEST_REC = new Rectangle((int)location.X, (int)location.Y, width * scale, height * scale);
+            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width * scale, height * scale);
             rect = DEST_REC;
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }

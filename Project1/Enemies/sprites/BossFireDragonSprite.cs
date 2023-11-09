@@ -7,146 +7,62 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    public class BossFireDragonSprite : ISprite
+    public class BossFireDragonSprite : UniversalSpriteClass
     {
 
 
-        private List<Texture2D[]> Texture;
+       
 
         public static bool newAttack;
-        private IDirectionStateManager direction_state_manager;
-        private IAnimation animation_manager;
-        private ITime time_manager;
-        private IMove movement_manager;
-
-        private (Rectangle, Rectangle) rectangles;
-        private IEntityState state_manager;
-        public BossFireDragonSprite(List<Texture2D[]> spriteSheet, (int, int) position, (String, int)[] items)
+      
+        public BossFireDragonSprite(List<Texture2D[]> spriteSheet, IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time) : base(spriteSheet,animation, movement, state, direction, time)
         {
-
+            animation.frame_list = spriteSheet;
             newAttack = true;
+        }
 
-            Texture = spriteSheet;
+        public override (int, int) GetHeightAndWidthResized()
+        {
+            int height = animation_manager.sprite_frame.Height / SMALLER_SIZE;
+            int width = animation_manager.sprite_frame.Width / SMALLER_SIZE;
 
-            //replace starting direction based on lvl loader info
-            direction_state_manager = new DirectionStateEnemy(Direction.Up);
-            time_manager = new TimeTracker(false);
-            animation_manager = new Animation(0, spriteSheet, time_manager, direction_state_manager);
-
-            state_manager = new EntityState();
-            //PARM VALUES WILL CHANGE BASED ON ROOM LOADER
-            movement_manager = new Movement(direction_state_manager, this, time_manager, position.Item1, position.Item2, 0);
-
+            return (width, height);
 
         }
 
-        /*
-         * Update Boss's animation and movement
-         */
-        public void Update()
+        private bool CheckFinished(IWeapon[] weapon)
         {
-            if (state_manager.IsAlive())
+            
+
+            for(int i = 0; i < weapon.Length; i++)
             {
-                Move();
+                if (!weapon[i].finished()) return false;
+               
             }
-            UpdateFrames();
-
+            return true;
         }
 
-        /*
-         * Update Boss's frames
-         */
-        public void UpdateFrames()
+        private void LoopAttack(IWeapon[] weapon)
         {
-            animation_manager.Animate();
-        }
-
-
-        /*
-         * Move the boss
-         */
-        public void Move()
-        {
-            if (state_manager.isMoving())
+            for (int i = 0; i < weapon.Length; i++)
             {
-                //Movement will be fixed
-                movement_manager.HorizontalMovement(Direction.Left);
-            }
-        }
-
-        /*
-         * Draw the Boss
-         */
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            if (state_manager.IsAlive())
-            {
-                setRectangles();
-                spriteBatch.Draw(animation_manager.sprite_frame, rectangles.Item2, rectangles.Item1, Color.White);
-
+                weapon[i].Attack();
+                weapon[i].Draw();
             }
         }
 
 
-        public void setRectangles()
-        {
-            int x = movement_manager.getPosition().Item1;
-            int y = movement_manager.getPosition().Item2;
-            int height = animation_manager.sprite_frame.Height;
-            int width = animation_manager.sprite_frame.Width;
-            rectangles.Item1 = new Rectangle(1, 1, width, height);
-            rectangles.Item2 = new Rectangle(x, y, width, height);
-        }
 
-
-        public void setPos(int x, int y)
-        {
-            movement_manager.setPosition(x, y);
-        }
-
-        public (int, int) getPos()
-        {
-            return movement_manager.getPosition();
-        }
-
-        public (Rectangle, Rectangle) GetRectangle()
-        {
-            return rectangles;
-        }
-
-        public Direction getDirection()
-        {
-            return direction_state_manager.getDirection();
-        }
+        //public override void DrawAttack(IWeapon[] weapon)
+        //{
+        //    if (!CheckFinished(weapon))
+        //    {//This is soley for draw
+        //        LoopAttack(weapon);
+        //    }
+        //}
 
     }
 }
 
 
 
-//public void ChangeDirection()
-//{
-
-//    this.Direction = Direction * -1;
-//}
-
-///*
-// * Moves dragon
-// */
-//public void Move()
-//{
-//    if (secondsPassed >= secTillDirChange)
-//    {
-//        elapsedTime -= msecPerFrame;
-//        ChangeDirection();
-//        secondsPassed = 0;
-//    }
-
-//    pos_x += Direction;
-
-//    if (pos_x >= SCREEN_WIDTH_UPPER || pos_x <= SCREEN_WIDTH_LOWER)
-//    {
-//        ChangeDirection();
-//    }
-
-//}

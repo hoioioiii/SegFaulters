@@ -8,6 +8,7 @@ using System.Collections;
 using static Project1.Constants;
 using System;
 using System.Text;
+using System.Threading;
 
 namespace Project1
 {
@@ -44,11 +45,21 @@ namespace Project1
         public static GameTime timeProj;
         private ArrayList ControllerList;
 
+
+
+        //Manages game over or playing
+        public static bool gameStatePlaying;
+        public static OptionSelector selectionManager;
+        private SpriteFont font;
+        private int timer;
+
         public Game1()
         {
 
 
             _graphics = new GraphicsDeviceManager(this);
+            selectionManager = new OptionSelector();
+            _graphics.PreferredBackBufferHeight = (int)(480 * 1.75);
             Content.RootDirectory = "Content";
             contentLoader = Content;
             IsMouseVisible = true;
@@ -56,7 +67,10 @@ namespace Project1
             //remove this later
             ContentManager1 = Content;
             Game = this;
+            gameStatePlaying = true;
 
+            //temp fix
+            timer = 60 * 3;
         }
 
 
@@ -90,14 +104,13 @@ namespace Project1
                 Exit();
             }
 
-            timeProj = new GameTime();
             //keep
             GameObjManager = new ActiveObjects();
 
-
+            timeProj = new GameTime();
             player = new Player();
             Player.Initialize();
-
+           
             base.Initialize();
         }
 
@@ -105,6 +118,7 @@ namespace Project1
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            font = Content.Load<SpriteFont>("ZeldaFont");
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             WeaponSpriteFactory.Instance.LoadAllTextures(Content);
@@ -130,8 +144,13 @@ namespace Project1
             //Load background
             EnvironmentLoader.LoadContent(Content);
 
+            //Load Music and start the BGM
+            AudioManager.LoadContent(Content);
+            AudioManager.PlayMusic(BGM);
+            //AudioManager.PlaySoundEffect();
 
 
+            
             //Load XML File
             //LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
             LevelLoader.Load("C:\\Users\\tinal\\Source\\Repos\\3.7\\Project1\\xmlTest2.xml");
@@ -141,42 +160,51 @@ namespace Project1
         //clean up
         protected override void Update(GameTime gameTime)
         {
+
+            
+            
             foreach (IController controller in ControllerList)
             {
                 controller.Update();
             }
-            
-         
 
             //fix later
             deltaTime = gameTime;
-            // Add your update logic here
-            Player.Update(gameTime);
-            //HealthBarSprite.Update();
-            //HealthBarSprite.HealthDamage(1);
-            //HealthBarSprite.Update();
+            if (gameStatePlaying)
+            {
+                // Add your update logic here
+                Player.Update(gameTime);
+                //HealthBarSprite.Update();
+                //HealthBarSprite.HealthDamage(1);
+                //HealthBarSprite.Update();
 
-            //Example code for how to create an item in the environment:
-            //testItem.Update();
+                //Example code for how to create an item in the environment:
+                //testItem.Update();
 
-            Item.Update();
-            ENEMY.Update();
-            EnvironmentLoader.Update();
+                Item.Update();
+                //ENEMY.Update();
+                EnvironmentLoader.Update();
 
-            GameObjManager.Update();
-            AllCollisionDetection.DetectCollision(GameObjManager);
+                GameObjManager.Update();
+                AllCollisionDetection.DetectCollision(GameObjManager);
 
-            /*
-            #region Print to debug console
-            System.Text.StringBuilder sb = new StringBuilder();
-            sb.Append("Player pos" + Player.getPosition());
-            //sb.Append((char)Player.getPosition().Item1, (char)Player.getPosition().Item2);
+                /*
+                #region Print to debug console
+                System.Text.StringBuilder sb = new StringBuilder();
+                sb.Append("Player pos" + Player.getPosition());
+                //sb.Append((char)Player.getPosition().Item1, (char)Player.getPosition().Item2);
 
-            if (sb.Length > 0)
-                System.Diagnostics.Debug.WriteLine(sb.ToString());
-            #endregion
-            */
-
+                if (sb.Length > 0)
+                    System.Diagnostics.Debug.WriteLine(sb.ToString());
+                #endregion
+                */
+            }
+            else
+            {
+                timer--;
+            }
+            
+            
             base.Update(gameTime);
         }
 
@@ -185,30 +213,57 @@ namespace Project1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
             _spriteBatch.Begin();
-            EnvironmentLoader.Draw(_spriteBatch);
+            if (gameStatePlaying)
+            {
+                
+                EnvironmentLoader.Draw(_spriteBatch);
 
-            Player.Draw(gameTime, _spriteBatch);
+                Player.Draw(gameTime, _spriteBatch);
 
-            /*
-            #region Debug Draw Link's bounding box
-            // Create the single-pixel texture
-            Texture2D pixel = new Texture2D(GraphicsDevice, 1, 1);
-            pixel.SetData<Color>(new Color[] { Color.White });
+                /*
+                #region Debug Draw Link's bounding box
+                // Create the single-pixel texture
+                Texture2D pixel = new Texture2D(GraphicsDevice, 1, 1);
+                pixel.SetData<Color>(new Color[] { Color.White });
 
-            _spriteBatch.Draw(pixel, Player.BoundingBox, Color.White);
-            #endregion
-            */
+                _spriteBatch.Draw(pixel, Player.BoundingBox, Color.White);
+                #endregion
+                */
 
-            //ENEMY.Draw(_spriteBatch);
-            Item.Draw(_spriteBatch);
-            //CurrentEnvironment.Draw(_spriteBatch);
-            GameObjManager.Draw();
+                //ENEMY.Draw(_spriteBatch);
+                //Item.Draw(_spriteBatch);
+                //CurrentEnvironment.Draw(_spriteBatch);
+                GameObjManager.Draw();
 
 
+               
+            }
+            else
+            {
+                
+                if (timer <= 0)
+                {
+                    GameOverScreens.DrawOptionsScreen(_spriteBatch, font);
+                }
+                else
+                {
+                    
+                    GameOverScreens.DrawGameOverScreen(_spriteBatch, font);
+                }
+                
+                
+            
+                
+             
+
+
+            }
             _spriteBatch.End();
             base.Draw(gameTime);
         }
+
+
+
     }
 }

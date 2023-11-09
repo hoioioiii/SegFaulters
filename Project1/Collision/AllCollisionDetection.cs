@@ -24,6 +24,7 @@ namespace Project1
          * Walls, doors, enemies, items, etc.
          * Knock player back if collision is a wall or enemy (calculated in DirectionalCollsionDetection.cs, handled in collision response class)
          * Additional optimizations might be helpful (like a quadtree)
+         * There could've been more optimizations here but the grader said they weren't worth implementing
          */
 
         // player and enemy rects, the latter is a list
@@ -63,7 +64,7 @@ namespace Project1
         //List<Rectangle> enemyAttackInstances = new List<Rectangle>();
        
         private static List<IItem> roomItems;
-        private static List<IEnvironment> roomDoors;
+        private static List<Door> roomDoors;
         private static List<IEnvironment> roomBoundaries;
 
         private static List<IWeapon> weapons;
@@ -105,17 +106,17 @@ namespace Project1
                     PlayerCollisionResponse.ItemResponse(item);
                 }
 
-                #region Print to debug console
+                /*#region Print to debug console
                 System.Text.StringBuilder sb = new StringBuilder();
                 sb.Append("isColliding: " + isColliding);
 
                 if (sb.Length > 0)
                     System.Diagnostics.Debug.WriteLine(sb.ToString());
-                #endregion
+                #endregion*/
                 
             }
             
-            foreach (var door in roomDoors)
+            foreach (Door door in roomDoors)
             {
                 isColliding = Player.BoundingBox.Intersects(door.BoundingBox);
                 if (isColliding)
@@ -235,14 +236,14 @@ namespace Project1
 
         public static void DetectCollision(IActiveObjects GameOBJ)
         {
-            entities = GameOBJ.getEntityList();
+            entities = new List<IEntity>(GameOBJ.getEntityList());
             //link = GameOBJ.getLink();
             //Game1.Player();
-            roomBoundaries = GameOBJ.getEnvironmentList();
-            weapons = GameOBJ.getWeaponList();
-            roomItems = GameOBJ.getItemList();
+            roomBoundaries = new List<IEnvironment>(GameOBJ.getEnvironmentList());
+            weapons = new List<IWeapon>(GameOBJ.getWeaponList());
+            roomItems = new List<IItem>(GameOBJ.getItemList());
 
-            roomDoors = GameOBJ.getDoorList();
+            roomDoors = new List<Door>(GameOBJ.getDoorList());
             DetectAllCollisionsLinkEntity();
 
             // IS THIS MAKING THE GAME LAG?

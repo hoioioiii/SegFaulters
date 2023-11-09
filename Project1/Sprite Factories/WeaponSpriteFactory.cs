@@ -177,9 +177,9 @@ namespace Project1
             return new BoomerangeSprite(BoomerangSheet);
         }
 
-        public ISpriteWeapon CreateOrbSprite()
+        public ISpriteWeapon CreateOrbSprite((int,int) pos, ORB_DIRECTION type)
         {
-            return new OrbSprite(OrbSheet);
+            return new OrbSprite(OrbSheet, pos, type);
         }
 
 

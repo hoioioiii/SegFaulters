@@ -11,78 +11,91 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Content;
 using System.Collections;
 using static Project1.Constants;
+using Project1.Enemies;
+
 namespace Project1
 {
-    public class Merchant : IEntity
+    public class Merchant : UniversalClassEntity
 	{
         
 
         private ISprite sprite;
-        public Rectangle BoundingBox => getPositionAndRectangle();
+        public override Rectangle BoundingBox => GetPositionAndRectangle();
 
         /*
          * Initalize the merchant
          */
-        public Merchant((int, int) position, (String, int)[] items)
-		{
+        public Merchant((int, int) position, (String, int)[] items): base(position, items)
+        {
          
-            sprite = EnemySpriteFactory.Instance.CreateMerchantSprite(position, items);
+            sprite = EnemySpriteFactory.Instance.CreateMerchantSprite(animation_manager, movement_manager, direction_state_manager, state_manager, time_manager);
         }
 
-        /*
-         * 
-         * Update the merchant
-         */
-        public void Update()
-        {
-            sprite.Update();
-         
-        }
-
-       /*
-        * Draw the merchant
-        */
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            sprite.Draw(spriteBatch);
-        }
-
-      
-        /*
-         * Merchant health -> maybe?
-         */
-        public void Health()
-        {
-            throw new NotImplementedException();
-        }
-
-        /*
-         *prob not  -> Maybe?
-         */
-        public void Attack()
-        {
-            throw new NotImplementedException();
-        }
-
-        /*
-         * Maybe?
-         */
-        public void ItemDrop()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Rectangle getPositionAndRectangle()
+        public override Rectangle GetPositionAndRectangle()
         {
             return sprite.GetRectangle().Item2;
 
         }
 
-        public void setPosition(int x, int y)
+        public override void Draw(SpriteBatch spriteBatch)
         {
-            sprite.setPos(x, y);
+            sprite.Draw(spriteBatch);
 
         }
+        // /*
+        //  * 
+        //  * Update the merchant
+        //  */
+        // public void Update()
+        // {
+        //     sprite.Update();
+
+        // }
+
+        ///*
+        // * Draw the merchant
+        // */
+        // public void Draw(SpriteBatch spriteBatch)
+        // {
+        //     sprite.Draw(spriteBatch);
+        // }
+
+
+        // /*
+        //  * Merchant health -> maybe?
+        //  */
+        // public void Health()
+        // {
+        //     throw new NotImplementedException();
+        // }
+
+        // /*
+        //  *prob not  -> Maybe?
+        //  */
+        // public void Attack()
+        // {
+        //     throw new NotImplementedException();
+        // }
+
+        // /*
+        //  * Maybe?
+        //  */
+        // public void ItemDrop()
+        // {
+        //     throw new NotImplementedException();
+        // }
+
+        // public Rectangle getPositionAndRectangle()
+        // {
+        //     return sprite.GetRectangle().Item2;
+
+        // }
+
+        // public void setPosition(int x, int y)
+        // {
+        //     sprite.setPos(x, y);
+
+        // }
     }
 }
 

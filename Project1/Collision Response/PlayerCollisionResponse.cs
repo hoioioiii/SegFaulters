@@ -29,8 +29,18 @@ namespace Project1.Collision_Response
          * Pass in door
          * Send to level loader which door it was
          */
-        public static void DoorResponse(IEnvironment door)
+        public static void DoorResponse(Door door)
         {
+            if (door.isDoorLocked())//if locked
+            {
+                bool didItemGetUsed = Player.UseItem(ITEMS.Key); //use key
+                if (didItemGetUsed) //if player does have key
+                {
+                    door.UnlockDoor();
+                }
+                return;
+            }
+            
             switch (door.direction)
                 {
                     case DIRECTION.up:

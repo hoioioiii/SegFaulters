@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using static Project1.Constants;
 namespace Project1
 {
     internal class OrbSprite : ISpriteWeapon
@@ -15,14 +15,8 @@ namespace Project1
         private int userX;
         private int userY;
 
-        private int weaponX_1;
-        private int weaponY_1;
-
-        private int weaponX_2;
-        private int weaponY_2;
-
-        private int weaponX_3;
-        private int weaponY_3;
+        private int weaponX;
+        private int weaponY;
 
         private bool orbPlaced;
         private int direction;
@@ -40,7 +34,9 @@ namespace Project1
 
         private int onScreen;
 
-        public OrbSprite(Texture2D[] spriteSheet)
+
+        private bool completed;
+        public OrbSprite(Texture2D[] spriteSheet,(int,int) pos, ORB_DIRECTION orbType)
         {
             texture = spriteSheet;
             orbPlaced = false;
@@ -54,6 +50,9 @@ namespace Project1
 
             width = spriteSheet[0].Width;
             height = spriteSheet[0].Height;
+
+
+            completed = false;
 
         }
 
@@ -104,10 +103,10 @@ namespace Project1
         {
             if (!orbPlaced)
             {
-                GetUserPos();
-                GetUserState();
-                placeOffset();
-            }
+             
+               placeOffset();
+                    
+            }  
         }
 
 
@@ -118,15 +117,17 @@ namespace Project1
             Move();
 
         }
+       
+
         private void placeOffset()
         {
-            weaponX_3 = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
-            weaponY_3 = WeaponDirectionMovement.DirectionOffsetY(userY, 3);
+            weaponX = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
+            weaponY = WeaponDirectionMovement.DirectionOffsetY(userY, 3);
 
-            weaponX_2 = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
-            weaponY_2 = WeaponDirectionMovement.DirectionOffsetY(userY, 0);
-            weaponX_1 = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
-            weaponY_1 = WeaponDirectionMovement.DirectionOffsetY(userY, 1);
+            //weaponX_2 = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
+            //weaponY_2 = WeaponDirectionMovement.DirectionOffsetY(userY, 0);
+            //weaponX_1 = WeaponDirectionMovement.DirectionOffsetX(userX, 4);
+            //weaponY_1 = WeaponDirectionMovement.DirectionOffsetY(userY, 1);
 
         }
 
@@ -140,10 +141,16 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            
-                drawItem(weaponX_1, weaponY_1, spriteBatch);
-                drawItem(weaponX_2, weaponY_2, spriteBatch);
-                drawItem(weaponX_3, weaponY_3, spriteBatch);
+
+
+            if (!orbPlaced)
+            {
+                drawItem(weaponX, weaponY, spriteBatch);
+
+            }
+               
+                //drawItem(weaponX_2, weaponY_2, spriteBatch);
+                //drawItem(weaponX_3, weaponY_3, spriteBatch);
            
         }
         private void GetUserPos()
@@ -167,21 +174,22 @@ namespace Project1
          */
         private void filterMovementX(int orbNum)
         {
+            //sWITCH THIS BASED ON DIRECTION
             switch (orbNum)
             {
                 //this is orb 1
                 case 1:
 
-                    weaponX_1 += -1;
+                    weaponX += -1;
                     break;
-                case 2:
+                //case 2:
 
-                    weaponX_2 += -1;
-                    break;
-                case 3:
+                //    weaponX_2 += -1;
+                //    break;
+                //case 3:
 
-                    weaponX_3 += -1;
-                    break;
+                //    weaponX_3 += -1;
+                //    break;
             }
         }
 
@@ -192,14 +200,14 @@ namespace Project1
             {
                 case 1:
 
-                    weaponY_1 += -1;
+                    weaponY += -1;
                     break;
-                case 2:
-                    weaponY_2 += 0;
-                    break;
-                case 3:
-                    weaponY_3 += 1;
-                    break;
+                //case 2:
+                //    weaponY_2 += 0;
+                //    break;
+                //case 3:
+                //    weaponY_3 += 1;
+                //    break;
             }
         }
         private void GetUserState()
@@ -220,9 +228,10 @@ namespace Project1
         }
         private void Move()
         {
+            checkFinish();
             filterMoveAll(1);
-            filterMoveAll(2);
-            filterMoveAll(3);
+            //filterMoveAll(2);
+            //filterMoveAll(3);
         }
 
         public void GetUserPos(int x, int y)
@@ -237,7 +246,17 @@ namespace Project1
 
         public bool finished()
         {
-            throw new NotImplementedException();
+            return completed;
+        }
+
+        private void checkFinish()
+        {
+            
+           
+                removeOrb();
+                completed = true;
+            
+
         }
     }
 }

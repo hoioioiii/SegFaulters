@@ -7,6 +7,11 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Linq;
+using System.Web;
+using static Project1.Constants;
+
+
 
 namespace Project1
 {
@@ -21,7 +26,18 @@ namespace Project1
         public static void Load(string xmlPath)
         {
             XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load("/Users/dm/Documents/Projects3902/SegFaulters/Project1/xmlTest2.xml");
+
+            //old way of referencing xml was copyying local full path, have updated it to where it is relative to remote using System.IO.Path.Combine
+
+            // xmlDoc.Load("D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\xmlTest2.xml");
+        
+
+            string relativePath = "..\\..\\..\\xmlTest2.xml";
+
+            string fullPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
+
+            xmlDoc.Load(fullPath);
+
             //xmlDoc.Load(xmlPath);
 
             getRoomCountFromXmlDoc(xmlDoc);
@@ -146,15 +162,17 @@ namespace Project1
             }
         }
 
-        private static void loadRooms()
+        public static void UnlockDoorFromRoom(int roomNumber, DIRECTION direction)
         {
-            roomList = new Room[roomCount];
+            roomList[roomNumber].UnlockDoor(direction);
         }
+
 
         public static void drawActiveRoom(int n)
         {
             roomList[n].Load();
         }
+
         private static void getRoomCountFromXmlDoc(XmlDocument doc)
         {
             roomCount = doc.GetElementsByTagName("Room").Count;

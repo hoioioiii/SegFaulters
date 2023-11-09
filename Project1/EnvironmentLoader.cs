@@ -12,60 +12,63 @@ namespace Project1
     public static class EnvironmentLoader
     {
         private static Texture2D levelBackground;
-        public static Dictionary<(int, int), (int, int)> blockPositionDictionary;
         private static IEnvironment[] blocksArray;
-        private static IEnvironment[] doorArray;
+        private static Door[] doorArray;
         private static Texture2D[] doorSpriteArray;
 
         public static void LoadContent(ContentManager content)
         {
             blocksArray = new IEnvironment[0];
-            doorArray = new IEnvironment[0];
+            doorArray = new Door[0];
             //load in background content
             levelBackground = content.Load<Texture2D>("LevelBackground");
 
             //load in door content
-            doorSpriteArray = new Texture2D[4];
+            doorSpriteArray = new Texture2D[8];
             doorSpriteArray[0] = content.Load<Texture2D>("DoorWEST");
             doorSpriteArray[1] = content.Load<Texture2D>("DoorEAST");
             doorSpriteArray[2] = content.Load<Texture2D>("DoorSOUTH");
             doorSpriteArray[3] = content.Load<Texture2D>("DoorNORTH");
+            doorSpriteArray[4] = content.Load<Texture2D>("Locked DoorNORTH");
+            doorSpriteArray[5] = content.Load<Texture2D>("LockedDoorSOUTH");
+            doorSpriteArray[6] = content.Load<Texture2D>("LockedDoorWEST");
+            doorSpriteArray[7] = content.Load<Texture2D>("LockedDoorEAST");
 
-            blockPositionDictionary = new Dictionary<(int, int), (int, int)>(); //<(row, col), (posX, posY)>
-            //load in blockPositionDictionary 7 rows x 12 columns
-            for (int row = 0; row < 7; row++) //per 7 rows
-            {
-                for(int col = 0; col < 12; col++) //12 columns
-                {
-                    //114, 75 is the starting point of the grid
-                    //48 is the width/height of each block
-                    blockPositionDictionary.Add((row, col), (114 + BLOCK_DIMENSION * (col), 75 + BLOCK_DIMENSION * (row)));
-                }
-            }
         }
 
         //loads blocks given data of row,col and the texture of the block
-        public static void LoadBlocks((int,int)[] blocksToLoad)
+        public static void LoadBlocks((string, (int, int))[] blocksToLoad)
         {
             blocksArray = new IEnvironment[blocksToLoad.Length];
 
             for (int i = 0; i < blocksToLoad.Length; i++)
             {
-                Texture2D texture = EnvironmentIterator.getCurrEnemy();
-                int posX = blockPositionDictionary[blocksToLoad[i]].Item1;
-                int posY = blockPositionDictionary[blocksToLoad[i]].Item2;
-                blocksArray[i] = new CurrentBlock(texture, posX, posY);
+                //Texture2D texture = EnvironmentIterator.getCurrEnemy();
+                String name = blocksToLoad[i].Item1;
+                Texture2D texture = EnvironmentIterator.GetTextureFromName(blocksToLoad[i].Item1);
+                (int, int) positionFromData = blocksToLoad[i].Item2;
+
+                (int, int) pos = PositionGrid.getPosBasedOnGrid(positionFromData.Item1, positionFromData.Item2);
+                int posX = pos.Item1;
+                int posY = pos.Item2;
+
+                //temporary solution, may need refactor later
+                bool canCollide = true;
+                if (name == "CarpetBlock" || name == "BlackRoom")
+                    canCollide = false;
+
+                blocksArray[i] = new CurrentBlock(texture, posX, posY, canCollide, name);
                 Game1.GameObjManager.addNewEnvironment(blocksArray[i]);
             }
         }
 
         public static void LoadDoors((string, (int, bool))[] doorsToLoad)
         {
-            doorArray = new IEnvironment[doorsToLoad.Length];
-            for( int i = 0;i < doorsToLoad.Length;i++)
+            doorArray = new Door[doorsToLoad.Length];
+            for (int i = 0; i < doorsToLoad.Length; i++)
             {
                 string directionString = doorsToLoad[i].Item1;
-                 DIRECTION directionEnum = DirectionToEnum(directionString);
+                DIRECTION directionEnum = DirectionToEnum(directionString);
                 int destinationRoom = doorsToLoad[i].Item2.Item1;
                 bool isLocked = doorsToLoad[i].Item2.Item2;
                 doorArray[i] = new Door(doorSpriteArray, directionEnum, destinationRoom, isLocked);
@@ -73,10 +76,10 @@ namespace Project1
             }
         }
 
-        private static DIRECTION DirectionToEnum(String directionString)
+        public static DIRECTION DirectionToEnum(string directionString)
         {
             DIRECTION direction = DIRECTION.left;
-            switch(directionString)
+            switch (directionString)
             {
                 case "north":
                     direction = DIRECTION.up;
@@ -97,11 +100,11 @@ namespace Project1
 
 
         }
-        
 
         public static void Update()
         {
-            foreach (IEnvironment block in blocksArray) {
+            foreach (IEnvironment block in blocksArray)
+            {
                 block.Update();
             }
         }
@@ -109,7 +112,7 @@ namespace Project1
         //fix tom
         public static void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(levelBackground, new Rectangle(17, -22, levelBackground.Width * 3, levelBackground.Height * 3), Color.White);
+            spriteBatch.Draw(levelBackground, new Rectangle(17, -22 + FRAME_BUFFER, levelBackground.Width * 3, levelBackground.Height * 3), Color.White);
 
             foreach (IEnvironment block in blocksArray)
             {

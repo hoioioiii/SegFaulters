@@ -27,7 +27,7 @@ namespace Project1
                 {
                     //114, 75 is the starting point of the grid
                     //48 is the width/height of each block
-                    gridDict.Add((row, col), (114 + BLOCK_DIMENSION * (col), 75 + BLOCK_DIMENSION * (row)));
+                    gridDict.Add((row, col), (112 + BLOCK_DIMENSION * (col), 73 + FRAME_BUFFER +BLOCK_DIMENSION * (row)));
                 }
             }
 

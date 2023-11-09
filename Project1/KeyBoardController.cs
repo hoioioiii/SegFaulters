@@ -69,12 +69,11 @@ namespace Project1
         {
             KEY_TO_KEY = new Dictionary<Keys, Keys>();
 
-            
             KEY_TO_KEY.Add(Keys.A, Keys.Left);
             KEY_TO_KEY.Add(Keys.W, Keys.Up);
             KEY_TO_KEY.Add(Keys.S, Keys.Down);
             KEY_TO_KEY.Add(Keys.D, Keys.Right);
-            
+
             KEY_TO_KEY.Add(Keys.N, Keys.Z);
             KEY_TO_KEY.Add(Keys.Q, Keys.R);
             KEY_TO_KEY.Add(Keys.NumPad0, Keys.D0);
@@ -170,10 +169,11 @@ namespace Project1
         public void Update()
         {
             PREV_KEYBOARD_STATE = CURR_KEYBOARD_STATE;
-
             CURR_KEYBOARD_STATE = Keyboard.GetState();
-            
+           
             GetInputType();
         }
+
+     
     }
 }

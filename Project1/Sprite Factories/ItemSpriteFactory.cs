@@ -19,7 +19,7 @@ namespace Project1
         private Texture2D[] bowSpriteStorage = new Texture2D[BOW_TOTAL];
         private Texture2D[] clockSpriteStorage = new Texture2D[CLOCK_TOTAL];
         private Texture2D[] fairySpriteStorage = new Texture2D[FAIRY_TOTAL];
-        private Texture2D[] heartSpriteStorage = new Texture2D[HEART_TOTAL];
+        public static Texture2D[] heartSpriteStorage = new Texture2D[HEART_TOTAL];
         private Texture2D[] heartContainerSpriteStorage = new Texture2D[HEART_CONTAINER_TOTAL];
         private Texture2D[] keySpriteStorage = new Texture2D[KEY_TOTAL];
         private Texture2D[] mapSpriteStorage = new Texture2D[MAP_TOTAL];

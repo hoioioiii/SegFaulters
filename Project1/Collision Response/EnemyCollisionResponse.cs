@@ -12,7 +12,7 @@ namespace Project1.Collision_Response
          */
         public static void BoundaryResponse(IEntity enemy, DIRECTION direction)
         {           
-            Vector2 enemyPosition = new Vector2(enemy.getPositionAndRectangle().X, enemy.getPositionAndRectangle().Y);
+            Vector2 enemyPosition = new Vector2(enemy.GetPositionAndRectangle().X, enemy.GetPositionAndRectangle().Y);
             enemyPosition = AllCollisionResponse.Knockback(enemyPosition, direction, ENEMY_SPEED);
             enemy.setPosition((int)enemyPosition.X, (int)enemyPosition.Y);
         }
@@ -22,7 +22,7 @@ namespace Project1.Collision_Response
          */
         public static void DamageResponse(IEntity enemy, DIRECTION direction)
         {
-            Vector2 enemyPosition = new Vector2(enemy.getPositionAndRectangle().X, enemy.getPositionAndRectangle().Y);
+            Vector2 enemyPosition = new Vector2(enemy.GetPositionAndRectangle().X, enemy.GetPositionAndRectangle().Y);
             enemyPosition = AllCollisionResponse.Knockback(enemyPosition, direction, KNOCKBACK_DISTANCE);
             enemy.setPosition((int)enemyPosition.X, (int)enemyPosition.Y);
             AllCollisionResponse.ApplyDamage();
