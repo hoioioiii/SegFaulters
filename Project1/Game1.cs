@@ -32,6 +32,7 @@ namespace Project1
         public static ContentManager ContentManager1;
         public static Game1 Game;
 
+        private Camera camera;
 
         public static IEntity ENEMY;
         public static IItem Item;
@@ -127,6 +128,8 @@ namespace Project1
             
             Player.LoadContent(Content);
 
+            camera = new Camera();
+
             //Load background
             EnvironmentLoader.LoadContent(Content);
 
@@ -152,6 +155,7 @@ namespace Project1
             deltaTime = gameTime;
             // Add your update logic here
             Player.Update(gameTime);
+            camera.Follow(Player.BoundingBox);
             //HealthBarSprite.Update();
             //HealthBarSprite.HealthDamage(1);
             //HealthBarSprite.Update();

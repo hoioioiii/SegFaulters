@@ -13,6 +13,12 @@ namespace Project1
     {
         public Matrix Transform { get; set; }
 
+        public void Follow(Rectangle target)
+        {
+            Transform = Matrix.CreateTranslation(-target.Center.X, target.Center.Y, 0);
+
+        }
+
         public void RoomTransitionCamera(Vector2 camPos, DIRECTION direction)
         {
             //var position = Matrix.CreateTranslation(0,0,0);

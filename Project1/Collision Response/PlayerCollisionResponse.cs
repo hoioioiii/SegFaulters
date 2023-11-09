@@ -49,6 +49,7 @@ namespace Project1.Collision_Response
                         break;
                 }
 
+            /*
             #region Print to debug console
             System.Text.StringBuilder sb = new StringBuilder();
             sb.Append("door direction: " + door.direction);
@@ -56,6 +57,7 @@ namespace Project1.Collision_Response
             if (sb.Length > 0)
                 System.Diagnostics.Debug.WriteLine(sb.ToString());
             #endregion
+            */
 
             RoomManager.SetActiveRoom(door.destinationRoom);
 
