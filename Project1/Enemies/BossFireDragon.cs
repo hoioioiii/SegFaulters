@@ -31,6 +31,7 @@ namespace Project1
         private ISprite sprite;
         private bool remainOnScreen;
         private int onScreen;
+        private int lastDragonSoundPlayed;
 
         /*
          * Initalize fire drag
@@ -47,7 +48,7 @@ namespace Project1
             weaponMiddle = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
             weaponBottom = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
 
-
+            lastDragonSoundPlayed = 1;
         }
         public override Rectangle GetPositionAndRectangle()
         {
@@ -74,9 +75,7 @@ namespace Project1
             if (state_manager.IsAttacking())
             {
                 int x = movement_manager.getPosition().Item1;
-                int y = movement_manager.getPosition().Item2;
-
-                AudioManager.PlaySoundEffect(dragon);
+                int y = movement_manager.getPosition().Item2;             
 
                 UpdateWeapons();
             }
@@ -101,6 +100,27 @@ namespace Project1
         {
             if (state_manager.startNewAttack())
             {
+                #region playSound
+                switch (lastDragonSoundPlayed)
+                {
+                    case 1:
+                        AudioManager.PlaySoundEffect(dragon);
+                        lastDragonSoundPlayed = 2;
+                        break;
+                    case 2:
+                        AudioManager.PlaySoundEffect(dragon2);
+                        lastDragonSoundPlayed = 3;
+                        break;
+                    case 3:
+                        AudioManager.PlaySoundEffect(dragon3);
+                        lastDragonSoundPlayed = 1;
+                        break;
+                    default:
+                        AudioManager.PlaySoundEffect(dragon);
+                        break;
+                }             
+                #endregion
+
                 //direction_state_manager.NeedDirectionUpdate(true);
                 weaponTop = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
                 weaponMiddle = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);

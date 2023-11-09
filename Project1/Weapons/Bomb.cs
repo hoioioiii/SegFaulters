@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using static Project1.Constants;
 
 namespace Project1
 {
@@ -29,7 +30,7 @@ namespace Project1
         public void Attack()
         {
             sprite.Attack();
-            
+            AudioManager.PlaySoundEffect(bombBlow);
         }
         /*
          * Update

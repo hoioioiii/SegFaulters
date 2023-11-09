@@ -57,10 +57,11 @@ namespace Project1
       
         public void Attack()
         {
+            
             if (!activeAttack) {
                 this.activeAttack = true;
 
-                AudioManager.PlaySoundEffect(boomerang);
+                
             }
         }
 

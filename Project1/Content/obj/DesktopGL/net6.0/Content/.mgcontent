@@ -31,6 +31,14 @@
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/flame.wav</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/item get.wav</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/low health.wav</File>
+    <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/LOZ_Arrow_Boomerang.wav</File>
+    <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/LOZ_Bomb_Blow.wav</File>
+    <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/LOZ_Bomb_Drop.wav</File>
+    <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/LOZ_Door_Unlock.wav</File>
+    <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/LOZ_Get_Heart.wav</File>
+    <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/LOZ_Get_Item.wav</File>
+    <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/LOZ_Get_Rupee.wav</File>
+    <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/LOZ_Link_Hurt.wav</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/plus plus.wav</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/plus.wav</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/secret revealed.wav</File>
@@ -204,6 +212,14 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File>Audio/item.wav</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

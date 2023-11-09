@@ -21,8 +21,6 @@ namespace Project1.Collision_Response
         public static void ItemResponse(IItem item)
         {
             item.drawState = false;
-            
-            
         }
 
         /*
@@ -37,6 +35,7 @@ namespace Project1.Collision_Response
                 if (didItemGetUsed) //if player does have key
                 {
                     door.UnlockDoor();
+                    AudioManager.PlaySoundEffect(doorUnlock);
                 }
                 return;
             }

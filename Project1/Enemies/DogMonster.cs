@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Content;
 using System.Collections;
 using static Project1.Constants;
 using Project1.Enemies;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Project1
 {
@@ -24,6 +25,8 @@ namespace Project1
         private ISprite sprite;
         private IWeapon[] weapon;
         private bool ended;
+        private SoundEffectInstance tempBoomerangSFX;
+
         /*
          * Initalize Dog Monster
          */
@@ -85,6 +88,12 @@ namespace Project1
                 state_manager.setNewAttack(false);
                 ended = false;
                 Game1.GameObjManager.addNewWeapon(weapon[0]);
+
+                
+                tempBoomerangSFX = boomerang.CreateInstance();
+                tempBoomerangSFX.IsLooped = true;
+                tempBoomerangSFX.Play();
+                
             }
 
         }
@@ -106,6 +115,8 @@ namespace Project1
                 ended = true;
                 //TODO:remove the item from the active object list
                 Game1.GameObjManager.removeWeapon(weapon[0]);
+
+                tempBoomerangSFX.Stop();
             }
         }
 

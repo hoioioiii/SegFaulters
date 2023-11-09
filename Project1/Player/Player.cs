@@ -716,6 +716,8 @@ namespace Project1
         {
             isDamaged = true;
             DamageInvincibility();
+
+            AudioManager.PlaySoundEffect(linkHurt);
         }
 
         public static Vector2 getUserPos()

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
 using static Project1.Constants;
+using System;
 
 namespace Project1
 {
@@ -17,15 +18,22 @@ namespace Project1
 
             // sound effects
             addUI = content.Load<SoundEffect>("Audio\\add ui");
-            boomerang = content.Load<SoundEffect>("Audio\\boomerang");
+            bombBlow = content.Load<SoundEffect>("Audio\\LOZ_Bomb_Blow");
+            bombDrop = content.Load<SoundEffect>("Audio\\LOZ_Bomb_Drop");
+            boomerang = content.Load<SoundEffect>("Audio\\LOZ_Arrow_Boomerang");
             death = content.Load<SoundEffect>("Audio\\death");
             dragon = content.Load<SoundEffect>("Audio\\dragon");
             dragon2 = content.Load<SoundEffect>("Audio\\dragon2");
             dragon3 = content.Load<SoundEffect>("Audio\\dragon3");
+            doorUnlock = content.Load<SoundEffect>("Audio\\LOZ_Door_Unlock");
             enemyDie = content.Load<SoundEffect>("Audio\\enemy die");
             fire = content.Load<SoundEffect>("Audio\\fire");
             flame = content.Load<SoundEffect>("Audio\\flame");
-            item = content.Load<SoundEffect>("Audio\\item");
+            bigItemGet = content.Load<SoundEffect>("Audio\\item");
+            smallItemGet = content.Load<SoundEffect>("Audio\\LOZ_Get_Item");
+            heartGet = content.Load<SoundEffect>("Audio\\LOZ_Get_Heart");
+            rupeeGet = content.Load<SoundEffect>("Audio\\LOZ_Get_Rupee");
+            linkHurt = content.Load<SoundEffect>("Audio\\LOZ_Link_Hurt");
             lowHealth = content.Load<SoundEffect>("Audio\\low health");
             plus = content.Load<SoundEffect>("Audio\\plus");
             plusPlus = content.Load<SoundEffect>("Audio\\plus plus");
@@ -56,7 +64,14 @@ namespace Project1
 
         public static void PlaySoundEffect(SoundEffect SFX)
         {
-            SFX.Play();
+            try
+            {
+                SFX.Play();               
+            }
+            catch (Exception e)
+            {
+
+            }
         }      
     }
 }
