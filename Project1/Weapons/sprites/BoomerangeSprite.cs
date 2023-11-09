@@ -6,6 +6,7 @@ using System.Net.Security;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using static Project1.Constants;
 
@@ -41,6 +42,9 @@ namespace Project1
 
         private bool completed;
         private bool change;
+
+        private SoundEffectInstance tempBoomerangSFX;
+
         public BoomerangeSprite(Texture2D[] spriteSheet)
         {
             //needs to be refactored 
@@ -116,6 +120,10 @@ namespace Project1
             if (!BangPlaced)
             {
                 placeOffset();
+
+                tempBoomerangSFX = boomerang.CreateInstance();
+                tempBoomerangSFX.IsLooped = true;
+                tempBoomerangSFX.Play();
             }
         }
 
@@ -288,6 +296,7 @@ namespace Project1
             if (check <= 20)
             {
                 removeBang();
+                tempBoomerangSFX.Stop();
                 completed = true;
             }
 

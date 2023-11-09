@@ -21,12 +21,10 @@ namespace Project1
         public override Rectangle BoundingBox => GetPositionAndRectangle();
         //Texture stores the texture alias for our animation
 
-
         private ISprite sprite;
         private IWeapon[] weapon;
         private bool ended;
-        private SoundEffectInstance tempBoomerangSFX;
-
+        
         /*
          * Initalize Dog Monster
          */
@@ -41,15 +39,12 @@ namespace Project1
         public override Rectangle GetPositionAndRectangle()
         {
             return sprite.GetRectangle().Item2;
-
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, weapon);
-
         }
-
 
         public override void Attack()
         {
@@ -73,9 +68,6 @@ namespace Project1
             {
                 EndAttack();
             }
-
-
-
         }
         private void StartAttack()
         {
@@ -87,13 +79,7 @@ namespace Project1
                 weapon[0] = new Boomerange();
                 state_manager.setNewAttack(false);
                 ended = false;
-                Game1.GameObjManager.addNewWeapon(weapon[0]);
-
-                
-                tempBoomerangSFX = boomerang.CreateInstance();
-                tempBoomerangSFX.IsLooped = true;
-                tempBoomerangSFX.Play();
-                
+                Game1.GameObjManager.addNewWeapon(weapon[0]);   
             }
 
         }
@@ -114,9 +100,7 @@ namespace Project1
                 direction_state_manager.getRandomDirection();
                 ended = true;
                 //TODO:remove the item from the active object list
-                Game1.GameObjManager.removeWeapon(weapon[0]);
-
-                tempBoomerangSFX.Stop();
+                Game1.GameObjManager.removeWeapon(weapon[0]);               
             }
         }
 
@@ -127,12 +111,8 @@ namespace Project1
                 state_manager.setIsAttacking(true);
                 state_manager.setIsMoving(false);
                 state_manager.setNewAttack(true);
-               
-
             }
         }
-
-
     }
 }
 
