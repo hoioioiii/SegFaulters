@@ -13,29 +13,16 @@ namespace Project1
     {
 
         private Texture2D[] texture;
-        private int userX;
-        private int userY;
-
         private int weaponX;
         private int weaponY;
 
         private bool orbPlaced;
-        private int direction;
         private int current_frame;
-        private int total_frame;
-
 
         private int elapsedTime;
-        private int fps;
 
         private int width;
         private int height;
-
-        private int offsetX;
-        private int offsetY;
-
-        private int onScreen;
-
 
         private bool completed;
         private ORB_DIRECTION orbType;
@@ -43,25 +30,22 @@ namespace Project1
         public OrbSprite(Texture2D[] spriteSheet,(int,int) pos, ORB_DIRECTION orbType)
         {
             texture = spriteSheet;
-            orbPlaced = false;
-            total_frame = 1;
             current_frame = 0;
-            fps = 300;
             elapsedTime = 0;
-            onScreen = 0;
-            offsetX = 0;
-            offsetY = 0;
-            this.orbType = orbType;
 
             width = spriteSheet[0].Width;
             height = spriteSheet[0].Height;
 
-            this.weaponX = pos.Item1; this.weaponY = pos.Item2;
+            this.orbType = orbType;
+            this.weaponX = pos.Item1; 
+            this.weaponY = pos.Item2;
+
+            orbPlaced = false;
             completed = false;
 
         }
 
-        public void setOrb()
+        private void setOrb()
         {
             if(!completed)
             orbPlaced = true;
@@ -69,32 +53,6 @@ namespace Project1
         private void removeOrb()
         {
             orbPlaced = false;
-        }
-
-
-
-        //private bool waitExplode()
-        //{
-        //    elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-
-        //    if (elapsedTime > fps) {
-        //        return false;
-        //    }
-        //    return true;
-        //}
-
-        private void UpdateFrames()
-        {
-            //if (!waitExplode())
-            //{
-            //    current_frame += 1;
-            //    setExplode();
-            //    if (current_frame >= total_frame) {
-            //        current_frame = 0;
-            //        removeBomb();
-            //        removeExplode();
-            //    }
-            //}
         }
 
         public void Attack()
@@ -107,12 +65,9 @@ namespace Project1
 
         private void DetermineWeaponState()
         {
-
-
             if (!orbPlaced)
             {
-              placeOffset();
-               
+              placeOffset(); 
             }  
         }
 
@@ -121,9 +76,7 @@ namespace Project1
 
         public void Update()
         {
-
             Move();
-           
         }
        
 
@@ -133,31 +86,21 @@ namespace Project1
             filterPlayerPosition();
         }
 
-        public void drawItem(int x, int y, SpriteBatch spriteBatch)
+        private void drawItem(int x, int y, SpriteBatch spriteBatch)
         {
             Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
-            Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width, height);
+            Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width * LARGER_SIZE, height * LARGER_SIZE);
             spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
-
             Attack();
             if (orbPlaced)
             {
                 drawItem(weaponX, weaponY, spriteBatch);
             }
-
-            //drawItem(weaponX_2, weaponY_2, spriteBatch);
-            //drawItem(weaponX_3, weaponY_3, spriteBatch);
-
-        }
-        private void GetUserPos()
-        {
-
         }
 
         /*
@@ -173,37 +116,41 @@ namespace Project1
         private void filterMovementY(ORB_DIRECTION type)
         {
             //this is going to need to be based on hypotenus
+           int offset = filterPlayerPosition();
             switch (type)
             {
                 case ORB_DIRECTION.TOP:
 
-                    weaponY += -1;
+                    weaponY += -1 * offset;
                     break;
                 case ORB_DIRECTION.MIDDLE:
-                    weaponY += 0;
+                    weaponY += 0 * offset;
                     break;
                 case ORB_DIRECTION.BOTTOM:
-                    weaponY += 1;
+                    weaponY += 2 * offset;
                     break;
             }
         }
        
 
-        private void filterPlayerPosition()
+        private int filterPlayerPosition()
         {
-            double playerY = (double)Player.getPositionAndRectangle().Location.Y;
+            int playerY = (int)Player.getPositionAndRectangle().Location.Y;
             int offset = 0;
 
-            if (Math.Floor(playerY/140) <= 0)
+            //Change in the future:
+
+            if(playerY < weaponY)
             {
-                offset = -8;
-            }else if (Math.Floor(playerY / 140) > 1)
-                {
-                    offset = 8 ;
+                offset = -1;
             }
+            else
+            {
+                offset = 1;
 
+            }
+            return offset;
 
-            weaponY += offset;
         }
        
         private void filterMoveAll(ORB_DIRECTION type)
@@ -217,6 +164,50 @@ namespace Project1
             checkFinish();
         }
 
+        
+
+        public bool finished()
+        {
+            return completed;
+        }
+
+        private bool FinishConditions()
+        {
+            
+            //If it collides with a wall,
+            if (CheckBoundary(weaponX, roomBoundsMaxX, roomBoundsMinX) || CheckBoundary(weaponY, roomBoundsMaxY, roomBoundsMinY))
+            {
+                return true;
+            }
+
+            //if the time slot is up
+            elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
+            if (elapsedTime >= 5000)
+            {
+                return true; 
+            }
+            return false;
+        }
+
+        private bool CheckBoundary(int pos, int upperBound, int lowerBound)
+        {
+            if((pos >= upperBound) || (pos <= lowerBound))
+            {
+                return true;
+            }
+            return false;
+        }
+
+       
+        private void checkFinish()
+        { 
+            if (FinishConditions())
+            {
+                removeOrb();
+                completed = true;
+            }
+        }
+
         public void GetUserPos(int x, int y)
         {
             throw new NotImplementedException();
@@ -225,22 +216,6 @@ namespace Project1
         public void GetUserState(Constants.Direction direct)
         {
             throw new NotImplementedException();
-        }
-
-        public bool finished()
-        {
-            return completed;
-        }
-
-        private void checkFinish()
-        {
-            elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-
-            if (elapsedTime >= 3000)
-            {
-                removeOrb();
-                completed = true;
-            }
         }
     }
 }

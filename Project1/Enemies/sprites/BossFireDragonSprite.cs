@@ -30,44 +30,42 @@ namespace Project1
 
         }
 
-        private bool CheckFinished(IWeapon[] weapon)
-        {
-            
-
-            for(int i = 0; i < weapon.Length; i++)
-            {
-                if (!weapon[i].finished()) return false;
+        //private bool CheckFinished(IWeapon[] weapon)
+        //{
+        //    for(int i = 0; i < weapon.Length; i++)
+        //    {
+        //        if (!weapon[i].finished()) return false;
                
-            }
-            return true;
-        }
+        //    }
+        //    return true;
+        //}
 
-        private void LoopAttack(IWeapon[] weapon)
-        {
-            for (int i = 0; i < weapon.Length; i++)
-            {
-                weapon[i].Attack();
-                weapon[i].Draw();
-            }
-        }
+        //private void LoopAttack(IWeapon[] weapon)
+        //{
+        //    for (int i = 0; i < weapon.Length; i++)
+        //    {
+        //        weapon[i].Attack();
+        //        weapon[i].Draw();
+        //    }
+        //}
 
 
 
-        public override void DrawAttack(IWeapon[] weapon)
-        {
-            if (!CheckFinished(weapon))
-            {//This is soley for draw
-                LoopAttack(weapon);
-            }
-           // LoopAttack(weapon);
-        }
+        //public override void DrawAttack(IWeapon[] weapon)
+        //{
+        //    if (!CheckFinished(weapon))
+        //    {
+        //        LoopAttack(weapon);
+        //    }
+         
+        //}
 
         public override void Draw(SpriteBatch spriteBatch, IWeapon[] weapon)
         {
             if (state_manager.IsAlive())
             {
                 setRectangles();
-                spriteBatch.Draw(animation_manager.sprite_frame, base.rectangles.Item2, base.rectangles.Item1, Color.Black);
+                spriteBatch.Draw(animation_manager.sprite_frame, base.rectangles.Item2, base.rectangles.Item1, Color.White);
             }
         }
 

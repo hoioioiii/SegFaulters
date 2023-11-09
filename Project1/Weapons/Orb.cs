@@ -34,9 +34,6 @@ namespace Project1
             {
                 Game1.GameObjManager.removeWeapon(this);
             }
-            
-
-
         }
 
         public void Draw()

@@ -18,9 +18,25 @@ namespace Project1
         private List<Door> doors;
         private List<IEnvironment> blocks;
         private List<Rectangle> walls;
+
+        private List<IItem> removeItemsList;
+        private List<IEntity> removeEntityList;
+        private List<IWeapon> removeWeaponList;
+
+        private List<IItem> addItemsList;
+        private List<IEntity> addEntitiesList;
+        private List<IWeapon> addWeaponsList;
+        private List<Door> addDoorsList;
+        private List<IEnvironment> addBlocksList;
+        private List<Rectangle> addWallsList;
+
+
+
         private Player link;
         private ITime timeManager;
 
+        private bool DrawState;
+        private bool UpdateState;
         public ActiveObjects() {
             items = new List<IItem>();
             entities = new List<IEntity>();
@@ -29,8 +45,21 @@ namespace Project1
             blocks = new List<IEnvironment>();
             walls = new List<Rectangle>();
 
+            removeEntityList = new List<IEntity>();
+            removeItemsList = new List<IItem>();
+            removeWeaponList = new List<IWeapon>();
+
+            addDoorsList = new List<Door>();
+            addItemsList = new List<IItem> ();
+            addEntitiesList = new List<IEntity>();
+            addWeaponsList = new List<IWeapon>();
+            addBlocksList = new List<IEnvironment> ();
+            addWallsList = new List<Rectangle> ();
+
             ITime timeManager = new TimeTracker(true);
 
+            DrawState = false;
+            UpdateState = true;
         }
 
         public void addLink(Project1.Player link)
@@ -40,32 +69,91 @@ namespace Project1
 
         public void addNewEntity(IEntity entity)
         {
-            entities.Add(entity);
+            addEntitiesList.Add(entity);
         }
 
         public void addNewWall(Rectangle wall)
         {
-            walls.Add(wall);
+            addWallsList.Add(wall);
         }
         public void addNewEnvironment(IEnvironment block)
         {
-            blocks.Add(block);
+            addBlocksList.Add(block);
         }
 
         public void addDoors(Door door)
         {
-            doors.Add(door);
+            addDoorsList.Add(door);
         }
 
         public void addNewItem(IItem item)
         {
-            items.Add(item);
+            addItemsList.Add(item);
         }
 
         public void addNewWeapon(IWeapon weapon)
         {
-           weapons.Add(weapon);
+           addWeaponsList.Add(weapon);
         }
+
+        private void addAllItems()
+        {
+            foreach(IItem item in addItemsList)
+            {
+                items.Add(item);
+            }
+        }
+
+        private void addAllEntities()
+        {
+            foreach (IEntity entity in addEntitiesList)
+            {
+                entities.Add(entity);
+            }
+        }
+
+        private void addAllWeapons()
+        {
+            foreach (IWeapon weapon in addWeaponsList)
+            {
+                weapons.Add(weapon);
+            }
+        }
+
+        private void addAllWalls()
+        {
+            foreach (Rectangle wall in addWallsList)
+            {
+                walls.Add(wall);
+            }
+        }
+
+        private void addAllDoors()
+        {
+            foreach (Door door in addDoorsList)
+            {
+                doors.Add(door);
+            }
+        }
+
+        private void addAllBlocks()
+        {
+            foreach (IEnvironment environment in addBlocksList)
+            {
+                blocks.Add(environment);
+            }
+        }
+
+        public void setAllObjects()
+        {
+            addAllWeapons();
+            addAllWalls();
+            addAllBlocks();
+            addAllDoors();
+            addAllEntities();
+            addAllItems();
+        }
+
 
         public void clearAll()
         {
@@ -75,6 +163,27 @@ namespace Project1
             doors.Clear();
             blocks.Clear();
         }
+
+        public void ClearAddingLists()
+        {
+            addBlocksList.Clear();
+            addWeaponsList.Clear();
+            addWallsList.Clear();
+            addEntitiesList.Clear();
+            addDoorsList.Clear();
+            addItemsList.Clear();
+
+            
+            
+        }
+
+        public void ClearRemovingLists()
+        {
+            removeItemsList.Clear();
+            removeWeaponList.Clear();
+            removeEntityList.Clear();
+        }
+        
 
         public Player getLink() { return link; }
         public List<IEntity> getEntityList()
@@ -101,121 +210,168 @@ namespace Project1
             return walls;
         }
 
-
-
-
-
         public List<IWeapon> getWeaponList()
         {
             return weapons;
         }
 
-        public void removeEntity(IEntity entity)
+        public void RemoveDead()
         {
-            entities.Remove(entity);
+            removeAllItems();
+            removeAllWeapons();
+            removeAllEntities();
         }
+
+        private void removeAllEntities()
+        {
+            //Removes all the entities that need to be removed.
+            foreach (IEntity entity in removeEntityList)
+            {
+                entities.Remove(entity);
+            }
+        }
+
+        private void removeAllItems( )
+        {
+            foreach (IItem item in removeItemsList)
+            {
+                items.Remove(item);
+            }
+           
+        }
+        private void removeAllWeapons()
+        {
+            foreach (IWeapon weapon in removeWeaponList)
+            {
+                weapons.Remove(weapon);
+            }
+        }
+
+      
 
         public void removeItem(IItem item)
         {
-            items.Remove(item);
+            removeItemsList.Add(item);
+        }
+
+        public void removeEntity(IEntity entity)
+        {
+            removeEntityList.Add(entity);
         }
 
         public void removeWeapon(IWeapon weapon)
         {
-            weapons.Remove(weapon);
-        }
-
-        public void Update()
-        {
-
-            UpdateItems();
-
-            UpdateEnemies();
-
-            UpdateIWeapons();
-
-            //UpdatePlayer();
-
-
-
-            //AllCollisionDetection.DetectCollision(this);
-        }
-
-        private void UpdatePlayer()
-        {
-            //link.Update();
-        }
-
-        private void UpdateIWeapons()
-        {
-            for (int i = 0; i < weapons.Count; i++)
-            {
-                weapons[i].Update();
-            }
-        }
-
-        private void UpdateEnemies()
-        {
-            for (int i = 0; i < entities.Count; i++)
-            {
-                entities[i].Update();
-            }
-        }
-
-        private void UpdateItems()
-        {
-            for (int i = 0; i < items.Count; i++)
-            {
-                items[i].Update();
-            }
-        }
-
-
-        private void DrawPlayer()
-        {
-          
-                //TODO:Fix later
-               // link.Draw(, Game1._spriteBatch);
-            
-        }
-
-        private void DrawIWeapons()
-        {
-            
-            for (int i = 0; i < weapons.Count; i++)
-            {
-                //this is needed for bomb(the attack)
-                //weapons[i].Attack();
-                weapons[i].Draw();
-            }
-        }
-
-        private void DrawEnemies()
-        {
-            for (int i = 0; i < entities.Count; i++)
-            {
-                entities[i].Draw(Game1._spriteBatch);
-            }
-        }
-
-        private void DrawItems()
-        {
-            for (int i = 0; i < items.Count; i++)
-            {
-                if (items[i].drawState)
-                {
-                    items[i].Draw(Game1._spriteBatch, new Vector2(100, 100), 1);
-                }
-                
-            }
-        }
-
-        public void Draw()
-        {
-           // DrawPlayer();
-            DrawIWeapons();
-            DrawEnemies();
-            DrawItems();
+           removeWeaponList.Add(weapon);
         }
     }
 }
+
+//public void Update()
+//{
+
+//    if (!DrawState)
+//    {
+//        setAllObjects();
+//        ClearAddingLists();
+//        UpdateState = true;
+//        UpdateItems();
+//        UpdateEnemies();
+//        UpdateIWeapons();
+//    }
+
+//    RemoveDead();
+//    ClearRemovingLists();
+
+//    UpdateState = false;
+
+//    //UpdatePlayer();
+//    //AllCollisionDetection.DetectCollision(this);
+//}
+
+
+
+
+
+//private void UpdatePlayer()
+//{
+//    //link.Update();
+//}
+
+//private void UpdateIWeapons()
+//{
+//    for (int i = 0; i < weapons.Count; i++)
+//    {
+//        weapons[i].Update();
+//    }
+//}
+
+//private void UpdateEnemies()
+//{
+//    for (int i = 0; i < entities.Count; i++)
+//    {
+//        entities[i].Update();
+//    }
+//}
+
+//private void UpdateItems()
+//{
+//    for (int i = 0; i < items.Count; i++)
+//    {
+//        items[i].Update();
+//    }
+//}
+
+
+//private void DrawPlayer()
+//{
+
+//        //TODO:Fix later
+//       // link.Draw(, Game1._spriteBatch);
+
+//}
+
+//private void DrawIWeapons()
+//{
+
+//    for (int i = 0; i < weapons.Count; i++)
+//    {
+//        //this is needed for bomb(the attack)
+//        //weapons[i].Attack();
+//        weapons[i].Draw();
+//    }
+//}
+
+//private void DrawEnemies()
+//{
+//    for (int i = 0; i < entities.Count; i++)
+//    {
+//        entities[i].Draw(Game1._spriteBatch);
+//    }
+//}
+
+//private void DrawItems()
+//{
+//    for (int i = 0; i < items.Count; i++)
+//    {
+//        if (items[i].drawState)
+//        {
+//            items[i].Draw(Game1._spriteBatch, new Vector2(100, 100), 1);
+//        }
+//    }
+//}
+
+//public void Draw()
+//{
+
+//    if (!UpdateState)
+//    {
+//        DrawState = true;
+//        DrawIWeapons();
+//        DrawEnemies();
+//        DrawItems();
+
+//    }
+//    DrawState = false;
+//   // DrawPlayer();
+//}
+

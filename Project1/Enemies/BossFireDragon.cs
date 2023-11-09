@@ -42,9 +42,7 @@ namespace Project1
             sprite = EnemySpriteFactory.Instance.CreateFireDragonSprite(animation_manager, movement_manager, direction_state_manager, state_manager, time_manager);
 
             weapon = new IWeapon[3];
-            weapon[0] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
-            weapon[1] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
-            weapon[2]= new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
+            CreateOrbs();
             ended = false;
 
         }
@@ -56,7 +54,7 @@ namespace Project1
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch, weapon);
+            sprite.Draw(spriteBatch);
 
         }
 
@@ -66,23 +64,14 @@ namespace Project1
         }
 
 
-        private void UpdateWeapons()
-        {
-            foreach (IWeapon orb in weapon)
-            {
-                orb.Update();
-            }
-
-        }
-
         public override void Attack()
         {
-
             if (!state_manager.IsAttacking())
             {
                 PrepareAttack();
                 StartAttack();
             }
+            
         }
 
 
@@ -90,28 +79,33 @@ namespace Project1
         {
             if (state_manager.startNewAttack())
             {
-                //direction_state_manager.NeedDirectionUpdate(true);
-                weapon[0] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
-                weapon[1] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
-                weapon[2] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
+
+                CreateOrbs();
+                //Game1.GameObjManager.addNewWeapon(weapon[0]);
                 state_manager.setNewAttack(false);
                 time_manager.enableMoveTime();
-                
+
                 foreach (IWeapon orb in weapon)
                 {
                     Game1.GameObjManager.addNewWeapon(orb);
                 }
 
                 state_manager.setIsAttacking(false);
-
             }
 
         }
 
-        
+        private void CreateOrbs()
+        {
+            
+            weapon[0] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
+            weapon[1] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
+            weapon[2] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
+        }
+
 
         //this needs to be handled by a execute.
-        
+
 
         private void PrepareAttack()
         {
@@ -124,8 +118,6 @@ namespace Project1
             {
                 state_manager.setNewAttack(false);
             }
-
-
         }
     }
   
