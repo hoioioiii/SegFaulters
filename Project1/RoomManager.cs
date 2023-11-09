@@ -30,9 +30,13 @@ namespace Project1
         public static void SetActiveRoom(int roomId)
         {
 
-            FRAME_BUFFER_Y -= 100;
-            roomBoundsMaxX = 660 + FRAME_BUFFER_X; roomBoundsMaxY = 365 + FRAME_BUFFER_Y;  roomBoundsMinX = 90 + FRAME_BUFFER_X; roomBoundsMinY = 53 + FRAME_BUFFER_Y;
-
+            //FRAME_BUFFER_Y -= 100;
+            //FRAME_BUFFER_X += 100;
+            //roomBoundsMaxX = 660 + FRAME_BUFFER_X; roomBoundsMaxY = 365 + FRAME_BUFFER_Y;  roomBoundsMinX = 90 + FRAME_BUFFER_X; roomBoundsMinY = 53 + FRAME_BUFFER_Y;
+            //RESPAWN_LEFT = new Vector2(roomBoundsMaxX - 20, (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
+            //RESPAWN_RIGHT = new Vector2(roomBoundsMinX + 20, (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
+            //RESPAWN_UP = new Vector2((roomBoundsMaxX - roomBoundsMinX) / 2 + roomBoundsMinX + 5, roomBoundsMaxY - 10);
+            //RESPAWN_DOWN = new Vector2((roomBoundsMaxX - roomBoundsMinX) / 2 + roomBoundsMinX + 5, roomBoundsMinY + 10);
 
 
             PositionGrid.Update();
@@ -111,5 +115,7 @@ namespace Project1
                 }
             }
         }
+
+
     }
 }
