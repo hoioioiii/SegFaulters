@@ -20,11 +20,9 @@ namespace Project1
        
         public override Rectangle BoundingBox => GetPositionAndRectangle();
 
-        private IWeapon weaponTop;
-        private IWeapon weaponMiddle;
-        private IWeapon weaponBottom;
+       
         private bool ended;
-
+        private IWeapon[] weapon;
 
         //May or may not keep
         private int timeAllowed;
@@ -43,10 +41,9 @@ namespace Project1
             
             sprite = EnemySpriteFactory.Instance.CreateFireDragonSprite(animation_manager, movement_manager, direction_state_manager, state_manager, time_manager);
 
-            weaponTop = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
-            weaponMiddle = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
-            weaponBottom = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
-
+            weapon = new IWeapon[3];
+            CreateOrbs();
+            ended = false;
 
         }
         public override Rectangle GetPositionAndRectangle()
@@ -61,39 +58,20 @@ namespace Project1
 
         }
 
-        private void UpdateWeapons()
+        public override void MovementType()
         {
-            weaponTop.Update();
-            weaponMiddle.Update();
-            weaponBottom.Update();
+            movement_manager.LeftAndRight();
         }
+
 
         public override void Attack()
         {
-
-            if (state_manager.IsAttacking())
-            {
-                int x = movement_manager.getPosition().Item1;
-                int y = movement_manager.getPosition().Item2;
-
-                UpdateWeapons();
-              
-
-            }
-            else
+            if (!state_manager.IsAttacking())
             {
                 PrepareAttack();
                 StartAttack();
             }
-
-            //this will fix the issue that im having, figure out hte correct placement to remove the need for this conditional.
-            if (!ended)
-            {
-                EndAttack();
-            }
-           // weapon = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
-
-
+            
         }
 
 
@@ -101,174 +79,46 @@ namespace Project1
         {
             if (state_manager.startNewAttack())
             {
-                //direction_state_manager.NeedDirectionUpdate(true);
-                weaponTop = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
-                weaponMiddle = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
-                weaponBottom = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
+
+                CreateOrbs();
+                //Game1.GameObjManager.addNewWeapon(weapon[0]);
                 state_manager.setNewAttack(false);
                 time_manager.enableMoveTime();
-            }
 
-        }
+                foreach (IWeapon orb in weapon)
+                {
+                    Game1.GameObjManager.addNewWeapon(orb);
+                }
 
-        private bool CheckFinish()
-        {
-            if (weaponTop.finished() && weaponMiddle.finished() && weaponBottom.finished())
-                return true;
-           
-
-            return false;
-        }
-
-        private void EndAttack()
-        {
-            // means the entity is waiting for the weapon to comeback
-            //get weapon obj status of returned/finished) : place holder using state_isAttacking for now
-            //get weapon status of "finished" which means we need to be able to get access to the weapon obj
-            if (CheckFinish())
-            {//if weapon is finished and returned to enetity
                 state_manager.setIsAttacking(false);
-                //set move to true
-                state_manager.setIsMoving(true);
-               
-                ended = true;
-                //TODO:remove the item from the active object list
             }
+
         }
+
+        private void CreateOrbs()
+        {
+            
+            weapon[0] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
+            weapon[1] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
+            weapon[2] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
+        }
+
+
+        //this needs to be handled by a execute.
+
 
         private void PrepareAttack()
         {
-            if (time_manager.checkIfAttackTime())
+            if (time_manager.checkIfAttackTime()) //time_manager.checkIfAttackTime())
             {
                 state_manager.setIsAttacking(true);
-                state_manager.setIsMoving(false);
                 state_manager.setNewAttack(true);
             }
+            else
+            {
+                state_manager.setNewAttack(false);
+            }
         }
-
-
-
-
-        ///*
-        // * Update Sprite
-        // */
-        //public void Update()
-        //{
-        //    sprite.Update();
-
-        //   //May or may not keep
-        //    if (remainOnScreen)
-        //    {
-        //        weapon.Update();
-        //    }
-        //}
-
-        //public void Draw(SpriteBatch spriteBatch)
-        //{
-
-        //    sprite.Draw(spriteBatch);
-
-
-        //    //Optomize this-----
-        //    Attack();
-
-        //    CheckOnScreen();
-
-        //    if (remainOnScreen)
-        //    {
-        //        weapon.Draw();
-        //    }
-        //    else
-        //    {
-        //        onScreen = 0;
-        //        remainOnScreen = false;
-        //    }
-        //    //optomize this later------
-
-        //}
-
-        ////May or may not keep
-        //public void CheckTime()
-        //{
-        //    onScreen += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-        //}
-
-        ////May or may not keep
-        //public void CheckOnScreen()
-        //{
-        //    CheckTime();
-        //    if (onScreen > timeAllowed)
-        //    {
-        //        remainOnScreen = false;
-        //    }
-
-        //}
-
-        ///*
-        // * Drag Health
-        // * Might change placement later
-        // */
-        //public void Health()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        ///*
-        // * Fire Drag Attack
-        // */
-        //public void Attack()
-        //{
-        //    //TODO:FIX LATER
-        //    //change this to a state
-        //    //if (BossFireDragonSprite.newAttack)
-        //    //{
-        //    //    remainOnScreen = true;
-        //    //    weapon.Attack();
-        //    //    weapon.Draw();
-        //    //}
-        //}
-
-        //TODO: Fix later
-        //public Direction getDirection()
-        //{
-        //    return sprite.get
-
-        //}
-
-        //public Vector2 getPosition()
-        //{
-
-
-        //}
-
-
-
-        ///*
-        // * Drag item drop
-        // */
-        //public void ItemDrop()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-
-        //public Rectangle getPositionAndRectangle()
-        //{
-        //    return sprite.GetRectangle().Item2;
-
-        //}
-
-        //public void setPosition(int x, int y)
-        //{
-        //    sprite.setPos(x, y);
-
-        //}
-
-
-
-
-
-
     }
   
 }

@@ -13,9 +13,7 @@ namespace Project1
         public List<IItem> getItemList();
 
         public Player getLink();
-        //change to add environment blocks
-        //public IItem getEnvironmentList();
-
+      
         public List<IEntity> getEntityList();
         
 
@@ -42,7 +40,14 @@ namespace Project1
         public List<Door> getDoorList();
         public List<Rectangle> getBoundarys();
         public void clearAll();
-        public void Update();
-        public void Draw();
+       
+
+        public void RemoveDead();
+        public void ClearRemovingLists();
+        public void ClearAddingLists();
+        public void setAllObjects();
+
+
+
     }
 }

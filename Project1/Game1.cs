@@ -21,6 +21,11 @@ namespace Project1
         public static ContentManager contentLoader;
 
         public static IActiveObjects GameObjManager;
+        public static IDraw DrawManager;
+        public static IUpdate UpdateManager;
+
+
+
         private Texture2D _texture;
         //public static SpriteBatch _spriteBatch;
 
@@ -106,6 +111,9 @@ namespace Project1
 
             //keep
             GameObjManager = new ActiveObjects();
+            UpdateManager = new UpdateManager();
+            DrawManager = new DrawManager();
+
 
             timeProj = new GameTime();
             player = new Player();
@@ -132,13 +140,6 @@ namespace Project1
             IListIterate ItemList = new ItemIterator(this);
             EnvironmentIterator = new EnvironmentIterator(this);
 
-
-
-            //Sword.LoadContent(Content);
-            //Arrow.LoadContent(Content);
-            //Boomerang.LoadContent(Content);
-
-            
             Player.LoadContent(Content);
 
             //Load background
@@ -185,7 +186,9 @@ namespace Project1
                 //ENEMY.Update();
                 EnvironmentLoader.Update();
 
-                GameObjManager.Update();
+                /*GameObjManager.Update()*/;
+
+                UpdateManager.Update();
                 AllCollisionDetection.DetectCollision(GameObjManager);
 
                 /*
@@ -234,8 +237,9 @@ namespace Project1
                 //ENEMY.Draw(_spriteBatch);
                 //Item.Draw(_spriteBatch);
                 //CurrentEnvironment.Draw(_spriteBatch);
-                GameObjManager.Draw();
+                //GameObjManager.Draw();
 
+                DrawManager.Draw();
 
                
             }

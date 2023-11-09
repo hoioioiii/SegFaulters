@@ -99,10 +99,23 @@ namespace Project1
 
         public bool checkIfAttackTime()
         {
+            elapsed_move__sec += 1;
             if (elapsed_move__sec >= attackPerMovement)
             {
                 elapsed_move__sec = 0;
                 stopMoveTime = true;
+                return true;
+            }
+            return false;
+        }
+
+        public bool CreateAttackAqua()
+        {
+            elapsed_move__sec += 1;
+            if (elapsed_move__sec >= 100)
+            {
+                elapsed_move__sec = 0;
+                
                 return true;
             }
             return false;
@@ -127,5 +140,17 @@ namespace Project1
         {
             stopMoveTime = false;
         }
+
+        public bool PaceTime(int pace)
+        {
+            if (elapsed_move__sec >= pace)
+            {
+                elapsed_move__sec = 0;
+                return true;
+            }
+            return false;
+
+        }
+
     }
 }

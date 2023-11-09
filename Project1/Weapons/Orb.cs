@@ -30,6 +30,10 @@ namespace Project1
         public void Update()
         {
             sprite.Update();
+            if (sprite.finished())
+            {
+                Game1.GameObjManager.removeWeapon(this);
+            }
         }
 
         public void Draw()
