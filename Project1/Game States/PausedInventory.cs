@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Schema;
 using static Project1.Constants;
+using static Project1.ICommand;
 
 namespace Project1
 {
@@ -33,7 +34,7 @@ namespace Project1
         private static int itemInventoryBoxTextOffsetX = 400;
         private static int itemInventoryBoxTextOffsetY = 450;
 
-        private static int itemInventoryBoxOffSet = 14;
+        private static int itemInventoryBoxOffSet = 18;
 
         private static int inventoryboxWidth; 
         private static int inventoryboxHeight;
@@ -84,9 +85,11 @@ namespace Project1
             spriteBatch.Draw(smallItemBox, new Rectangle((int)smallitemboxPosition.X, (int)smallitemboxPosition.Y, smallItemBox.Width * spriteScale, smallItemBox.Height * spriteScale), Color.White);
             spriteBatch.Draw(itemInventory, new Rectangle((int)itemInventoryPosition.X, (int)itemInventoryPosition.Y, itemInventory.Width * spriteScale, itemInventory.Height * spriteScale), Color.White);
 
+            List<inventoryItems> listOfItems = new List<inventoryItems>();
+            var temp = getTotalNumOfItems();
+            int totalItems = temp.Item1;
+            listOfItems = temp.Item2;
 
-            int numOfInts = 3;                    
-            int totalItems = 8;
             int maxItems = inventoryRows * inventoryCols;
             for (int i = 0; i < maxItems; i++)
             {
@@ -101,7 +104,40 @@ namespace Project1
                 }
                 int x = (int)itemInventoryPosition.X + (col * inventoryboxWidth * spriteScale) + itemInventoryBoxOffSet;
                 int y = (int)itemInventoryPosition.Y + (row * inventoryboxHeight * spriteScale) + itemInventoryBoxOffSet;
-                spriteBatch.Draw(test, new Rectangle(x, y, inventoryboxWidth *2  , inventoryboxHeight *2 ), Color.White);
+
+                
+                foreach (var item in listOfItems)
+                {
+                    //change or put each draw in each else if
+                    IItem inventoryitem = null;
+
+                    if (item == inventoryItems.boomerang)
+                    {
+                        inventoryitem = new BoomerangItem((x, y));
+                        listOfItems.Remove(item);
+                        
+
+                    } else if(item == inventoryItems.bomb)
+                    {
+                        inventoryitem = new BombItem((x, y));
+                        listOfItems.Remove(item);
+                        
+                    } else if( item == inventoryItems.bow)
+                    {
+                        inventoryitem = new Bow((x, y));
+                        listOfItems.Remove(item);
+                       
+
+                    } else if (item == inventoryItems.key)
+                    {
+                        inventoryitem = new Key((x, y));
+                        listOfItems.Remove(item);
+                        
+                    }
+                   // spriteBatch.Draw(test, new Rectangle(x, y, inventoryboxWidth * 2 - 10, inventoryboxHeight * 2 - 10), Color.White);
+                    inventoryitem.Draw(spriteBatch, new Vector2(x, y), 2);
+                    break;
+                }
                 totalItems--;
             }
 
@@ -109,22 +145,33 @@ namespace Project1
 
         }
 
-        public void getItems()
+        //function that gets the number of items and which ones so Draw can have the correct sprite to create
+        public (int, List<inventoryItems>) getTotalNumOfItems() 
         {
+            int num = 0;
+            List<inventoryItems> list = new List<inventoryItems>();
             if (Player.itemInventory[(int)ITEMS.Bow] > 0)
             {
-
-            } else if(Player.itemInventory[(int)ITEMS.Bomb] > 0)
-            {
-
-            } else if (Player.itemInventory[(int)ITEMS.Key] > 0)
-            {
-
+                num++;
+                list.Add(inventoryItems.bow);
             }
-            else if (Player.itemInventory[(int)ITEMS.Boomerang] > 0)
+            if (Player.itemInventory[(int)ITEMS.Bomb] > 0)
             {
-
+                num++;
+                list.Add(inventoryItems.bomb);
             }
+            if (Player.itemInventory[(int)ITEMS.Key] > 0)
+            {
+                num++;
+                list.Add(inventoryItems.key);
+            }
+            if (Player.itemInventory[(int)ITEMS.Boomerang] > 0)
+            {
+                num++;
+                list.Add(inventoryItems.boomerang);
+            }
+
+            return (num, list);
         }
 
         public void Update()
@@ -132,4 +179,5 @@ namespace Project1
             
         }
     }
+    public enum inventoryItems { bomb, boomerang, key, bow }
 }
