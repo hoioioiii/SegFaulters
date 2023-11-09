@@ -7,25 +7,17 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    internal class PositionGrid
+    internal static class PositionGrid
     {
         private static Dictionary<(int, int), (int, int)> gridDict;
-    //private int bufferX, bufferY;
-    //public PositionGrid(int bufferX, int bufferY)
-    //{
-    //    this.bufferX = bufferX;
-    //    this.bufferY = bufferY;
-    //}
         
         public static (int, int) getPosBasedOnGrid(int x, int y)
         {
-            createMap();
             return gridDict.GetValueOrDefault((x, y));
         }
 
-        private static void createMap()
+        public static void createMap()
         {
-
             gridDict = new Dictionary<(int, int), (int, int)>(); //<(row, col), (posX, posY)>
             //load in blockPositionDictionary 7 rows x 12 columns
             for (int row = 0; row < 7; row++) //per 7 rows
@@ -37,8 +29,12 @@ namespace Project1
                     gridDict.Add((row, col), (112 + FRAME_BUFFER_X + BLOCK_DIMENSION * (col), 73 + FRAME_BUFFER_Y + BLOCK_DIMENSION * (row)));
                 }
             }
-
-
         }
+        
+        public static void Update()
+        {
+            createMap();
+        }
+
     }
 }

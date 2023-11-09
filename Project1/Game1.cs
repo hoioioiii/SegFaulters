@@ -117,6 +117,9 @@ namespace Project1
         //clean
         protected override void LoadContent()
         {
+            //make the grid
+            PositionGrid.createMap();
+
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("ZeldaFont");
             ItemSpriteFactory.Instance.LoadAllTextures(Content);

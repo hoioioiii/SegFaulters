@@ -29,6 +29,8 @@ namespace Project1
 
         public static void SetActiveRoom(int roomId)
         {
+            FRAME_BUFFER_X += 100;
+            PositionGrid.Update();
             for(int i = 0; i < activeList.Count; i++)
             {
                 if (activeList[i])
