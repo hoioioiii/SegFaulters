@@ -12,6 +12,8 @@ namespace Project1
     {
         private static Dictionary<int, bool> activeList;
         
+        //Have Room manager own their own Active GAME oBJECT MANAGER
+
         public static void Load()
         {
             //load in list of active rooms
