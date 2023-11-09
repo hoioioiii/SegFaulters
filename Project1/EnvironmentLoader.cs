@@ -14,7 +14,7 @@ namespace Project1
         private static Texture2D levelBackground;
         private static IEnvironment[] blocksArray;
         private static Door[] doorArray;
-        private static Texture2D[] doorSpriteArray;        
+        private static Texture2D[] doorSpriteArray;
 
         public static void LoadContent(ContentManager content)
         {
@@ -37,13 +37,14 @@ namespace Project1
         }
 
         //loads blocks given data of row,col and the texture of the block
-        public static void LoadBlocks((string, (int,int))[] blocksToLoad)
+        public static void LoadBlocks((string, (int, int))[] blocksToLoad)
         {
             blocksArray = new IEnvironment[blocksToLoad.Length];
 
             for (int i = 0; i < blocksToLoad.Length; i++)
             {
                 //Texture2D texture = EnvironmentIterator.getCurrEnemy();
+                String name = blocksToLoad[i].Item1;
                 Texture2D texture = EnvironmentIterator.GetTextureFromName(blocksToLoad[i].Item1);
                 (int, int) positionFromData = blocksToLoad[i].Item2;
 
@@ -51,7 +52,11 @@ namespace Project1
                 int posX = pos.Item1;
                 int posY = pos.Item2;
 
-                blocksArray[i] = new CurrentBlock(texture, posX, posY);
+                bool canCollide = true;
+                if (name == "CarpetBlock")
+                    canCollide = false;
+
+                blocksArray[i] = new CurrentBlock(texture, posX, posY, canCollide);
                 Game1.GameObjManager.addNewEnvironment(blocksArray[i]);
             }
         }
@@ -59,10 +64,10 @@ namespace Project1
         public static void LoadDoors((string, (int, bool))[] doorsToLoad)
         {
             doorArray = new Door[doorsToLoad.Length];
-            for( int i = 0;i < doorsToLoad.Length;i++)
+            for (int i = 0; i < doorsToLoad.Length; i++)
             {
                 string directionString = doorsToLoad[i].Item1;
-                 DIRECTION directionEnum = DirectionToEnum(directionString);
+                DIRECTION directionEnum = DirectionToEnum(directionString);
                 int destinationRoom = doorsToLoad[i].Item2.Item1;
                 bool isLocked = doorsToLoad[i].Item2.Item2;
                 doorArray[i] = new Door(doorSpriteArray, directionEnum, destinationRoom, isLocked);
@@ -73,7 +78,7 @@ namespace Project1
         public static DIRECTION DirectionToEnum(string directionString)
         {
             DIRECTION direction = DIRECTION.left;
-            switch(directionString)
+            switch (directionString)
             {
                 case "north":
                     direction = DIRECTION.up;
@@ -94,10 +99,11 @@ namespace Project1
 
 
         }
-        
+
         public static void Update()
         {
-            foreach (IEnvironment block in blocksArray) {
+            foreach (IEnvironment block in blocksArray)
+            {
                 block.Update();
             }
         }

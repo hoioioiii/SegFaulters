@@ -18,7 +18,7 @@ namespace Project1
         private int posY;
         private bool canCollide;
 
-        public CurrentBlock(Texture2D text, int posX, int posY)
+        public CurrentBlock(Texture2D text, int posX, int posY, bool canCollide)
         {
             canCollide = true;
 
