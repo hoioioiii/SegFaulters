@@ -313,6 +313,18 @@
 /processorParam:TextureFormat=Color
 /build:bat2.png
 
+#begin BlackRoom.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:BlackRoom.png
+
 #begin BladeTrap.png
 /importer:TextureImporter
 /processor:TextureProcessor

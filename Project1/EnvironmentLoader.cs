@@ -52,11 +52,12 @@ namespace Project1
                 int posX = pos.Item1;
                 int posY = pos.Item2;
 
+                //temporary solution, may need refactor later
                 bool canCollide = true;
-                if (name == "CarpetBlock")
+                if (name == "CarpetBlock" || name == "BlackRoom")
                     canCollide = false;
 
-                blocksArray[i] = new CurrentBlock(texture, posX, posY, canCollide);
+                blocksArray[i] = new CurrentBlock(texture, posX, posY, canCollide, name);
                 Game1.GameObjManager.addNewEnvironment(blocksArray[i]);
             }
         }

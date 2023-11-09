@@ -52,7 +52,9 @@ namespace Project1
             Texture2D block12 = GAME_OBJ.Content.Load<Texture2D>("brickFish");
             Texture2D block13 = GAME_OBJ.Content.Load<Texture2D>("brickWater");
 
-            Texture2D[] temp = { block0, block1, block2, block3, block4, block5, block6, block7, block8, block9, block10, block11, block12, block13 };
+            Texture2D block14 = GAME_OBJ.Content.Load<Texture2D>("BlackRoom");
+
+            Texture2D[] temp = { block0, block1, block2, block3, block4, block5, block6, block7, block8, block9, block10, block11, block12, block13, block14};
 
             CreateList(temp);
         }
@@ -74,6 +76,8 @@ namespace Project1
                     return texture2D[13];
                 case ("Staircase"):
                     return texture2D[6];
+                case ("BlackRoom"):
+                    return texture2D[14];
                 default:
                     return texture2D[10];
             }

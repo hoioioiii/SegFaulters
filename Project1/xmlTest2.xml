@@ -1299,8 +1299,22 @@
 					<Locked>False</Locked>
 				</Door>
 			</Doors>
-
+			
 			<Blocks>
+				<BlackRoom xLoc="0" yLoc="0"></BlackRoom>
+				<Invisible id="24" xLoc="2" yLoc="0"></Invisible>
+				<Invisible id="23" xLoc="2" yLoc="1"></Invisible>
+				<Invisible id="24" xLoc="2" yLoc="2"></Invisible>
+				<Invisible id="23" xLoc="2" yLoc="3"></Invisible>
+				<Invisible id="24" xLoc="2" yLoc="4"></Invisible>
+				<Invisible id="24" xLoc="2" yLoc="5"></Invisible>
+				<Invisible id="23" xLoc="2" yLoc="6"></Invisible>
+				<Invisible id="24" xLoc="2" yLoc="7"></Invisible>
+				<Invisible id="23" xLoc="2" yLoc="8"></Invisible>
+				<Invisible id="24" xLoc="2" yLoc="9"></Invisible>
+				<Invisible id="24" xLoc="2" yLoc="10"></Invisible>
+				<Invisible id="23" xLoc="2" yLoc="11"></Invisible>
+
 			</Blocks>
 		</Environment>
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +18,27 @@ namespace Project1
         private int posX;
         private int posY;
         private bool canCollide;
+        private string name;
 
         private Rectangle tempBoundingBox;
 
-        public CurrentBlock(Texture2D text, int posX, int posY, bool canCollide)
+        public CurrentBlock(Texture2D text, int posX, int posY, bool canCollide, string name)
         {
-            tempBoundingBox = new Rectangle(posX, posY, BLOCK_DIMENSION, BLOCK_DIMENSION);
+            this.name = name;
+            //if its blackroom; temp solution, potential refactor later.
+            if (name == "BlackRoom")
+            {
+                int width = BLOCK_DIMENSION * 12;
+                int height = BLOCK_DIMENSION * 7;
+                tempBoundingBox = new Rectangle(posX, posY, width, height);
+            }
+            else
+            {
+                tempBoundingBox = new Rectangle(posX, posY, BLOCK_DIMENSION, BLOCK_DIMENSION);
+
+            }
+
+            //for carpet, dont have a bounding box so there is no collision.
             if (canCollide)
                 BoundingBox = tempBoundingBox;
 
@@ -47,7 +63,8 @@ namespace Project1
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, tempBoundingBox, Color.White);
+            if (name != "Invisible")
+                spriteBatch.Draw(texture, tempBoundingBox, Color.White);
         }
     }
 }
