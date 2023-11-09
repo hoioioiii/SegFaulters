@@ -28,8 +28,8 @@ namespace Project1
             //if its blackroom; temp solution, potential refactor later.
             if (name == "BlackRoom")
             {
-                int width = BLOCK_DIMENSION * 12;
-                int height = BLOCK_DIMENSION * 7;
+                int width = BLOCK_DIMENSION * blockColumns;
+                int height = BLOCK_DIMENSION * blockRows;
                 tempBoundingBox = new Rectangle(posX, posY, width, height);
             }
             else

@@ -66,6 +66,7 @@ namespace Project1
         //Collision metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int roomBoundsMaxX = 660, roomBoundsMaxY = 365 + FRAME_BUFFER, roomBoundsMinX = 90, roomBoundsMinY = 53 + FRAME_BUFFER;
 
+        public static int blockRows = 7, blockColumns = 12;
         // used for spawn and respawn after travelling through doors
         public static Vector2 RESPAWN_LEFT = new Vector2((int)(roomBoundsMaxX * 7.8 / 8), (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
         public static Vector2 RESPAWN_RIGHT = new Vector2((int)(roomBoundsMaxX * 1.4) / 8, (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
