@@ -29,7 +29,12 @@ namespace Project1
 
         public static void SetActiveRoom(int roomId)
         {
+
             FRAME_BUFFER_Y -= 100;
+            roomBoundsMaxX = 660 + FRAME_BUFFER_X; roomBoundsMaxY = 365 + FRAME_BUFFER_Y;  roomBoundsMinX = 90 + FRAME_BUFFER_X; roomBoundsMinY = 53 + FRAME_BUFFER_Y;
+
+
+
             PositionGrid.Update();
             for(int i = 0; i < activeList.Count; i++)
             {
