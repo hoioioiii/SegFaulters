@@ -36,6 +36,10 @@ namespace Project1
          **/
         //public (Microsoft.Xna.Framework.Rectangle, Microsoft.Xna.Framework.Rectangle) GetRectangle();
         public Rectangle GetPositionAndRectangle();
+
+        public void TakeDamage(int amount);
+
+        
     }
 }
 

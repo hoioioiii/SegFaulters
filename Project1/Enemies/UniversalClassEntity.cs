@@ -16,7 +16,7 @@ namespace Project1.Enemies
         public IEntityState state_manager;
 
         private (Rectangle, Rectangle) rectangles;
-
+        public int attackStat { get; private set; }
         //Rectangle IEntity.BoundingBox => throw new NotImplementedException();
 
 
@@ -32,7 +32,7 @@ namespace Project1.Enemies
             animation_manager = new Animation(0, time_manager, direction_state_manager);
             state_manager = new EntityState();
             movement_manager = new Movement(direction_state_manager, this, time_manager, position.Item1, position.Item2, 0);
-
+            attackStat = 1;
         }
 
     
@@ -156,5 +156,17 @@ namespace Project1.Enemies
                 state_manager.setIsAlive(false);
             }
         }
+
+        public void TakeDamage(int damageAmount)
+        {
+            //Play a sound
+
+            //Have it flash
+
+
+            //Reduce the health in health manager 
+
+        }
+
     }
 }

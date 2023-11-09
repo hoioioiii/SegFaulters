@@ -17,10 +17,13 @@ namespace Project1
         private ISpriteWeapon sprite;
 
         public Rectangle BoundingBox { get; set; }
+
+        public int attackStat { get; private set; }
+
         public Boomerange()
         {
-
             sprite = WeaponSpriteFactory.Instance.CreateBoomerangeSprite();
+            attackStat = 2;
         }
 
         /*

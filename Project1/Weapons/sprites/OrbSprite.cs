@@ -138,7 +138,6 @@ namespace Project1
         private int filterPlayerPosition()
         {
             int playerY = (int)Player.getPositionAndRectangle().Location.Y;
-          
 
             //Change in the future:
             //Later change it so in the future, if the player is farther. Have the y have a smaller slope
