@@ -26,7 +26,7 @@ namespace Project1
 
         private bool completed;
         private ORB_DIRECTION orbType;
-
+        private int offset;
         public OrbSprite(Texture2D[] spriteSheet,(int,int) pos, ORB_DIRECTION orbType)
         {
             texture = spriteSheet;
@@ -42,6 +42,8 @@ namespace Project1
 
             orbPlaced = false;
             completed = false;
+
+            
 
         }
 
@@ -82,8 +84,8 @@ namespace Project1
 
         private void placeOffset()
         {
-
             filterPlayerPosition();
+            
         }
 
         private void drawItem(int x, int y, SpriteBatch spriteBatch)
@@ -116,7 +118,7 @@ namespace Project1
         private void filterMovementY(ORB_DIRECTION type)
         {
             //this is going to need to be based on hypotenus
-           int offset = filterPlayerPosition();
+           
             switch (type)
             {
                 case ORB_DIRECTION.TOP:
@@ -136,10 +138,10 @@ namespace Project1
         private int filterPlayerPosition()
         {
             int playerY = (int)Player.getPositionAndRectangle().Location.Y;
-            int offset = 0;
+          
 
             //Change in the future:
-
+            //Later change it so in the future, if the player is farther. Have the y have a smaller slope
             if(playerY < weaponY)
             {
                 offset = -1;
@@ -147,8 +149,8 @@ namespace Project1
             else
             {
                 offset = 1;
-
             }
+           
             return offset;
 
         }
