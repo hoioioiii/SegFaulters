@@ -289,61 +289,14 @@ namespace Project1
         //on the screen
         private static void DrawBasedOnAttackType(SpriteBatch spriteBatch)
         {
-            //if (isAttackingWithSword)
-            //{
-            //    //draw sword sprite according to link's position, does not persist on screen
-            //    //DrawNonpersistantWeapon((int)WEAPONS.sword);
-            //}
-            //else if (isAttackingWithBoomerang)
-            //{
-            //    //add weapon to manager so it'll stay on the screen
-               
-            //}
-            //else if (isAttackingWithBow)
-            //{
-            //    // add weapon to manager so it'll stay on the screen
-            //    IWeapon arrow = new Arrow2();
-            //    Game1.GameObjManager.addNewWeapon(arrow);
-            //}
-            //else if (isAttackingWithBomb)
-            //{
-            //    // add weapon to manager so it'll stay on the screen
-            //    IWeapon bomb = new Bomb();
-            //  Game1.GameObjManager.addNewWeapon(bomb);
-
-            //}
+            
             
             //draw link with attack frames
             sprite.Draw(spriteBatch, "attack", linkDirection, position);
         }
 
 
-        //Draw a weapon that does not need to be persistent on screen (Mostly sword)
-        public static void DrawNonpersistantWeapon(int weaponType)
-        {
-            //spriteWeapon = weaponsArray[weaponType];
-
-            //remainOnScreen = true;
-            //spriteWeapon.Attack();
-            //spriteWeapon.Draw();
-
-            //This should be in DrawBasedOnAttackType()
-            /*
-            switch (weaponType)
-            {
-                case 0:
-                    //spriteWeapon.Attack();
-                    Game1.GameObjManager.addNewWeapon(spriteWeapon);
-                    break;
-                    //case 1:
-                    //    Game1.GameObjManager.addNewWeapon(new Arrow2());
-                    //    break;
-                    //case 2:
-                    //    Game1.GameObjManager.addNewWeapon(new Boomerange());
-                    //    break;
-            }
-            */
-        }
+        
 
 
 

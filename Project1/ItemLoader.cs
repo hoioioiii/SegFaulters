@@ -28,7 +28,7 @@ namespace Project1
         public static void initItems(String itemString, (int,int) pos)
         {
 
-             pos = PositionGrid.getPosBasedOnGrid(pos.Item1, pos.Item2);
+            
             switch (itemString)
             {
                 case "bomb":

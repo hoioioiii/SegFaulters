@@ -68,6 +68,7 @@ namespace Project1
             {
                 String name = item.Item1;
                 (int, int) position = item.Item2;
+                position = PositionGrid.getPosBasedOnGrid(position.Item1, position.Item2);
                 ItemLoader.LoadAndInitializeItems(name, position, Game1.GameObjManager);
             }
         }

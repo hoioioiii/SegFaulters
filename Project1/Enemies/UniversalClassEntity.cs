@@ -67,10 +67,20 @@ namespace Project1.Enemies
             }
             else if (!state_manager.finished)
             {
+               
                 ItemDrop();
+                FinishEnemies();
             }
             UpdateFrames();
         }
+
+        private void FinishEnemies()
+        {
+
+            Game1.GameObjManager.removeEntity(this);
+            
+        }
+
 
         public virtual void Attack()
         {
@@ -142,7 +152,7 @@ namespace Project1.Enemies
             //create new item
 
             //this is for testing purposes
-            // CreateNumItem(("fairy", 1));
+            //CreateNumItem(("fairy", 1));
 
             //this is actual--------------------------
             foreach ((string, int) itemtype in drops)
