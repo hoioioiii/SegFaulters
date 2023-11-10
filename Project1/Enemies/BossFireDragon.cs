@@ -13,6 +13,7 @@ using System.Collections;
 using static Project1.Constants;
 using Project1.Enemies;
 using Microsoft.Xna.Framework.Audio;
+using System.Runtime.CompilerServices;
 
 namespace Project1
 {
@@ -124,6 +125,12 @@ namespace Project1
                 state_manager.setNewAttack(false);
             }
         }
+
+        public override void ChangeDirections()
+        {
+            //void
+        }
+
     }
 
 }

@@ -29,7 +29,7 @@ namespace Project1
 
         //public void setRectangles();
 
-
+        public void ChangeDirections();
         /**
          * Gets the source and destination rectangle from the object 
          * Form: (Source Rectangle, Destination Rectangle)
