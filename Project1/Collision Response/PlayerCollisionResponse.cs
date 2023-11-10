@@ -67,7 +67,7 @@ namespace Project1.Collision_Response
                 System.Diagnostics.Debug.WriteLine(sb.ToString());
             #endregion
 
-            RoomManager.SetActiveRoom(door.destinationRoom);
+            RoomManager.SetActiveRoom(door.destinationRoom, door.direction);
 
 
         }

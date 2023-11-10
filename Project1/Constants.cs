@@ -33,7 +33,7 @@ namespace Project1
             Down
         }
 
-        public enum DIRECTION { right = 0, left = 1, up = 2, down = 3 };
+        public enum DIRECTION { right = 0, left = 1, up = 2, down = 3, none = -1};
 
         public static int UP_DIRECTION_SPRITE = 2;
         public static int DOWN_DIRECTION_SPRITE = 0;
@@ -42,6 +42,7 @@ namespace Project1
         public static int RIGHT = 1;
         public static int DOWN = 2;
         public static int LEFT = 3;
+        public static int NONE = -1;
 
         public enum ENEMY_DIRECTION { up = 0, right = 1, down = 2, left = 3 };
 

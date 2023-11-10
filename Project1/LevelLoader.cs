@@ -169,9 +169,18 @@ namespace Project1
         }
 
 
-        public static void drawActiveRoom(int n)
+        public static void drawActiveRoom(int currentRoomNum, int nextRoomNum, DIRECTION doorDirection)
         {
-            roomList[n].Load();
+            Room currentRoom = roomList[currentRoomNum];
+            Room nextRoom = roomList[nextRoomNum];
+
+            if (currentRoomNum != nextRoomNum && doorDirection != DIRECTION.none) //if not the first load in
+            { 
+                RoomTransition.StartScrolling(nextRoom, nextRoomNum, doorDirection);
+            } else 
+            {
+                nextRoom.Load();
+            }
         }
 
         private static void getRoomCountFromXmlDoc(XmlDocument doc)

@@ -119,6 +119,7 @@ namespace Project1
         {
             //make the grid
             PositionGrid.createMap();
+            RoomTransition.LoadTextures(Content);
 
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("ZeldaFont");
@@ -134,6 +135,7 @@ namespace Project1
 
             IListIterate ItemList = new ItemIterator(this);
             EnvironmentIterator = new EnvironmentIterator(this);
+
 
 
 
@@ -221,6 +223,7 @@ namespace Project1
             {
                 
                 EnvironmentLoader.Draw(_spriteBatch);
+                RoomTransition.Draw(_spriteBatch);
 
                 Player.Draw(gameTime, _spriteBatch);
 

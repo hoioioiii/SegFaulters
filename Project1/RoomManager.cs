@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using static Project1.Constants;
@@ -24,10 +25,10 @@ namespace Project1
                 activeList.Add(i, false);
             }
             activeList[0] = true;
-            DrawActiveRoom();
+            DrawActiveRoom(0, DIRECTION.none);
         }
 
-        public static void SetActiveRoom(int roomId)
+        public static void SetActiveRoom(int roomId, DIRECTION doorDirection)
         {
 
             //FRAME_BUFFER_Y -= 100;
@@ -37,18 +38,19 @@ namespace Project1
             //RESPAWN_RIGHT = new Vector2(roomBoundsMinX + 20, (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
             //RESPAWN_UP = new Vector2((roomBoundsMaxX - roomBoundsMinX) / 2 + roomBoundsMinX + 5, roomBoundsMaxY - 10);
             //RESPAWN_DOWN = new Vector2((roomBoundsMaxX - roomBoundsMinX) / 2 + roomBoundsMinX + 5, roomBoundsMinY + 10);
-
+            int oldRoom = 0;
 
             PositionGrid.Update();
             for(int i = 0; i < activeList.Count; i++)
             {
                 if (activeList[i])
                 {
+                    oldRoom = i;
                     activeList[i] = false;
                 }
             }
             activeList[roomId] = true;
-            DrawActiveRoom();
+            DrawActiveRoom(oldRoom, doorDirection);
         }
         public static void IncrementActiveRoom()
         {
@@ -61,7 +63,7 @@ namespace Project1
                     activeList[i] = false;
                 }
             }
-
+            int oldRoom = n;
             n++;
             if(n >= activeList.Count)
             {
@@ -69,7 +71,7 @@ namespace Project1
             }
 
             activeList[n] = true;
-            DrawActiveRoom();
+            DrawActiveRoom(oldRoom, DIRECTION.none) ;
         }
         public static void DecrementActiveRoom()
         {
@@ -82,7 +84,7 @@ namespace Project1
                     activeList[i] = false;
                 }
             }
-
+            int oldRoom = n;
             n--;
             if (n < 0)
             {
@@ -90,7 +92,7 @@ namespace Project1
             }
 
             activeList[n] = true;
-            DrawActiveRoom();
+            DrawActiveRoom(oldRoom, DIRECTION.none);
         }
 
         public static int getActiveRoomNumber()
@@ -104,14 +106,14 @@ namespace Project1
             return -1;
         }
 
-        public static void DrawActiveRoom()
+        public static void DrawActiveRoom(int oldRoom, DIRECTION doorDirection)
         {
             
             for (int i = 0; i < activeList.Count-1; i++)
             {
                 if (activeList[i])
                 {
-                    LevelLoader.drawActiveRoom(i);
+                    LevelLoader.drawActiveRoom(oldRoom, i, doorDirection);
                 }
             }
         }
