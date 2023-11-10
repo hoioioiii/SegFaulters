@@ -33,6 +33,8 @@ namespace Project1
         public static ContentManager ContentManager1;
         public static Game1 Game;
 
+        public static bool pauseTest = false;
+
 
         public static IEntity ENEMY;
         public static IItem Item;
@@ -137,6 +139,8 @@ namespace Project1
 
             //Load XML File
             LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
+
+            
             hudDisplay = new HeadsUpDisplay(GraphicsDevice, Content);
             //LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
         }
@@ -166,7 +170,7 @@ namespace Project1
             GameObjManager.Update();
             AllCollisionDetection.DetectCollision(GameObjManager);
 
-            hudDisplay.Update(false);
+            hudDisplay.Update(pauseTest);
 
             /*
             #region Print to debug console
@@ -189,24 +193,25 @@ namespace Project1
             GraphicsDevice.Clear(Color.Black);
 
             _spriteBatch.Begin();
-            EnvironmentLoader.Draw(_spriteBatch);
 
-            Player.Draw(gameTime, _spriteBatch);
+                EnvironmentLoader.Draw(_spriteBatch);
 
-            /*
-            #region Debug Draw Link's bounding box
-            // Create the single-pixel texture
-            Texture2D pixel = new Texture2D(GraphicsDevice, 1, 1);
-            pixel.SetData<Color>(new Color[] { Color.White });
+                Player.Draw(gameTime, _spriteBatch);
 
-            _spriteBatch.Draw(pixel, Player.BoundingBox, Color.White);
-            #endregion
-            */
+                /*
+                #region Debug Draw Link's bounding box
+                // Create the single-pixel texture
+                Texture2D pixel = new Texture2D(GraphicsDevice, 1, 1);
+                pixel.SetData<Color>(new Color[] { Color.White });
 
-            //ENEMY.Draw(_spriteBatch);
-            Item.Draw(_spriteBatch);
-            //CurrentEnvironment.Draw(_spriteBatch);
-            GameObjManager.Draw();
+                _spriteBatch.Draw(pixel, Player.BoundingBox, Color.White);
+                #endregion
+                */
+
+                //ENEMY.Draw(_spriteBatch);
+                Item.Draw(_spriteBatch);
+                //CurrentEnvironment.Draw(_spriteBatch);
+                GameObjManager.Draw();
 
             hudDisplay.Draw(_spriteBatch);
 
