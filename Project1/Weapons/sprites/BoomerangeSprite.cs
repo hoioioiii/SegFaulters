@@ -43,7 +43,7 @@ namespace Project1
         private bool completed;
         private bool change;
 
-        private SoundEffectInstance tempBoomerangSFX;
+        private SoundEffectInstance boomerangSFX;
 
         public BoomerangeSprite(Texture2D[] spriteSheet)
         {
@@ -121,9 +121,9 @@ namespace Project1
             {
                 placeOffset();
 
-                tempBoomerangSFX = boomerang.CreateInstance();
-                tempBoomerangSFX.IsLooped = true;
-                tempBoomerangSFX.Play();
+                boomerangSFX = boomerang.CreateInstance();
+                boomerangSFX.IsLooped = true;
+                boomerangSFX.Play();
             }
         }
 
@@ -296,7 +296,7 @@ namespace Project1
             if (check <= 20)
             {
                 removeBang();
-                tempBoomerangSFX.Stop();
+                boomerangSFX.Stop();
                 completed = true;
             }
 
