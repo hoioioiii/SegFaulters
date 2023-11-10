@@ -169,11 +169,65 @@
 /processorParam:TextureFormat=Color
 /build:arrowUp.png
 
+#begin Audio/LOZ_Arrow_Boomerang.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/LOZ_Arrow_Boomerang.wav
+
+#begin Audio/LOZ_Bomb_Blow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/LOZ_Bomb_Blow.wav
+
+#begin Audio/LOZ_Bomb_Drop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/LOZ_Bomb_Drop.wav
+
+#begin Audio/LOZ_Door_Unlock.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/LOZ_Door_Unlock.wav
+
 #begin Audio/LOZ_Enemy_Hit.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/LOZ_Enemy_Hit.wav
+
+#begin Audio/LOZ_Enemy_Hit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/LOZ_Enemy_Hit.wav
+
+#begin Audio/LOZ_Get_Heart.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/LOZ_Get_Heart.wav
+
+#begin Audio/LOZ_Get_Item.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/LOZ_Get_Item.wav
+
+#begin Audio/LOZ_Get_Rupee.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/LOZ_Get_Rupee.wav
+
+#begin Audio/LOZ_Link_Hurt.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/LOZ_Link_Hurt.wav
 
 #begin bat1.png
 /importer:TextureImporter
