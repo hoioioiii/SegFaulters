@@ -3,6 +3,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.Collision;
+using Project1.HUD;
 using static Project1.Constants;
 
 namespace Project1.Collision_Response
@@ -101,9 +102,10 @@ namespace Project1.Collision_Response
             AudioManager.PlaySoundEffect(linkHurt);
 
             Vector2 playerPosition = Player.getPosition();
-            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, KNOCKBACK_DISTANCE);
-            AllCollisionResponse.ApplyDamage();
+            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, KNOCKBACK_DISTANCE);            
             Player.setPosition(playerPosition);
-        }       
+
+            HealthDisplay.linkHealth.DamageHealth(DAMAGE_HALF_HEART);
+        }
     }
 }

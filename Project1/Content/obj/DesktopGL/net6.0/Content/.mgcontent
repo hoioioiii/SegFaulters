@@ -17,6 +17,7 @@
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/arrowRight.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/arrowUp.gif</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/arrowUp.png</File>
+    <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/LOZ_Enemy_Hit.wav</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bat1.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bat2.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/BigItemInventory.png</File>
@@ -171,6 +172,7 @@
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/ZeldaSpriteOldMan.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

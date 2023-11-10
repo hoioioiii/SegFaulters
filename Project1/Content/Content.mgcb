@@ -169,6 +169,12 @@
 /processorParam:TextureFormat=Color
 /build:arrowUp.png
 
+#begin Audio/LOZ_Enemy_Hit.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/LOZ_Enemy_Hit.wav
+
 #begin bat1.png
 /importer:TextureImporter
 /processor:TextureProcessor

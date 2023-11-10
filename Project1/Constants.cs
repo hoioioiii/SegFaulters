@@ -22,7 +22,7 @@ namespace Project1
         public static Song BGM;
 
         //Change this later to be all caps
-        public static SoundEffect addUI, bombBlow, bombDrop, boomerang, cling, death, doorUnlock, puzzleSolved, dragon, dragon2, dragon3, enemyDie, fire, flame, bigItemGet, smallItemGet, heartGet, rupeeGet, linkHurt, lowHealth, plus, plusPlus, secret, stairs, subtractUI, sword;
+        public static SoundEffect addUI, bombBlow, bombDrop, boomerang, cling, death, doorUnlock, puzzleSolved, dragon, dragon2, dragon3, enemyDie, enemyHit, fire, flame, bigItemGet, smallItemGet, heartGet, rupeeGet, linkHurt, lowHealth, plus, plusPlus, secret, stairs, subtractUI, sword;
 
         //Directions->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public enum Direction
@@ -67,6 +67,9 @@ namespace Project1
         public static int HEALTH_HUD_HEIGHT = (HUD_HEIGHT / 3);
         public static float HEALTH_ROW = 30f;
         public static int ENTITY_HEARTS = 5;
+        public static int DAMAGE_HALF_HEART = 1;
+        public static int DAMAGE_FULL_HEART = 2;
+
         public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, sword = 3};
 
         public static int START_FRAME = 0;

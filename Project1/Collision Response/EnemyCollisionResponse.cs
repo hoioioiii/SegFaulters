@@ -25,7 +25,7 @@ namespace Project1.Collision_Response
             Vector2 enemyPosition = new Vector2(enemy.GetPositionAndRectangle().X, enemy.GetPositionAndRectangle().Y);
             enemyPosition = AllCollisionResponse.Knockback(enemyPosition, direction, KNOCKBACK_DISTANCE);
             enemy.setPosition((int)enemyPosition.X, (int)enemyPosition.Y);
-            AllCollisionResponse.ApplyDamage();
-        }       
+            enemy.TakeDamage(DAMAGE_FULL_HEART);
+        }
     }
 }

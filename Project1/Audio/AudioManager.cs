@@ -27,6 +27,7 @@ namespace Project1
             dragon3 = content.Load<SoundEffect>("Audio\\dragon3");
             doorUnlock = content.Load<SoundEffect>("Audio\\LOZ_Door_Unlock");
             enemyDie = content.Load<SoundEffect>("Audio\\enemy die");
+            enemyHit = content.Load<SoundEffect>("Audio\\LOZ_Enemy_Hit");
             fire = content.Load<SoundEffect>("Audio\\fire");
             flame = content.Load<SoundEffect>("Audio\\flame");
             bigItemGet = content.Load<SoundEffect>("Audio\\item");

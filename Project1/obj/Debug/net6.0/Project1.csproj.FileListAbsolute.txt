@@ -2084,3 +2084,4 @@ D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Cont
 D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\RoomSprite.xnb
 D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\smallItemBox.xnb
 D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\USEBbuttonfont.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Enemy_Hit.xnb

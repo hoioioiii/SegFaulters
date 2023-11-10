@@ -56,17 +56,6 @@ namespace Project1.Collision
             return position;
         }
 
-        /*
-         * Not until sprint4
-         * Lower health variable of Link or enemy
-         * Apply temporary invincibility so the entity can't take every frame
-         * Are there different damage amounts from different damage sources?
-         */
-        public static void ApplyDamage()
-        {
-
-        }
-
         /* uses int instead of vector2
         public static int Knockback(int positionX, int positionY, DIRECTION directon, int knockbackDist)
         {

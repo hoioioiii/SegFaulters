@@ -25,7 +25,7 @@ namespace Project1.HUD
         private int titleOffset;
 
         //health TO BE MODIFIED ONCE PLAYER DONE
-        private IHealthSystem linkHealth;
+        public static IHealthSystem linkHealth;
 
         public HealthDisplay(GraphicsDevice graphics, ContentManager content)
 		{

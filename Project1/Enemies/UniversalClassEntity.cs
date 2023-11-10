@@ -181,7 +181,7 @@ namespace Project1.Enemies
         public void TakeDamage(int damageAmount)
         {
             //Play a sound
-
+            AudioManager.PlaySoundEffect(enemyHit);
             //Have it flash
 
 
