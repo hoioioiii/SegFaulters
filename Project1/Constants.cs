@@ -357,6 +357,10 @@ namespace Project1
             MIDDLE,
            BOTTOM
         }
+
+        // For room transition
+        // Room transition is 3 seconds long
+        public static float ROOM_TRANSITION_SPEED = 3;
     }
 }
 

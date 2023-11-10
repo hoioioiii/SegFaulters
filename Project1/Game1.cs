@@ -178,6 +178,10 @@ namespace Project1
             {
                 // Add your update logic here
                 Player.Update(gameTime);
+
+                //camera.Follow(Player.BoundingBox);
+                camera.Initialize();
+
                 //HealthBarSprite.Update();
                 //HealthBarSprite.HealthDamage(1);
                 //HealthBarSprite.Update();
@@ -217,10 +221,15 @@ namespace Project1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            _spriteBatch.Begin(transformMatrix: camera.Transform);
+            /*
+            if (roomTransitioning)
+            {
+                _spriteBatch.Begin(transformMatrix: camera.Transform);
+            }
+            */         
             if (gameStatePlaying)
             {
-                
+                _spriteBatch.Begin();
                 EnvironmentLoader.Draw(_spriteBatch);
 
                 Player.Draw(gameTime, _spriteBatch);
@@ -244,7 +253,7 @@ namespace Project1
             }
             else
             {
-                
+                _spriteBatch.Begin();
                 if (timer <= 0)
                 {
                     GameOverScreens.DrawOptionsScreen(_spriteBatch, font);
