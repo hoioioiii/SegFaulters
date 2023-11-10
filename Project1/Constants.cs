@@ -4,13 +4,6 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Mime;
 using System.Reflection.Metadata;
 using System.Text;
@@ -62,7 +55,7 @@ namespace Project1
         //*
         public static int HUD_SECTION_WIDTH = SCREEN_WIDTH / 3;
         //*
-        public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, sword = 3 };
+        public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, sword = 3};
 
         public static int START_FRAME = 0;
         public static double FRAME_SPD = .5 / 4;
@@ -304,3 +297,4 @@ namespace Project1
 
     }
 }
+

@@ -11,6 +11,7 @@ namespace Project1
     public static class RoomManager
     {
         private static Dictionary<int, bool> activeList;
+        private static int currentRoomIndex;
         
         public static void Load()
         {
@@ -22,6 +23,7 @@ namespace Project1
                 activeList.Add(i, false);
             }
             activeList[0] = true;
+            currentRoomIndex = 0;
             DrawActiveRoom();
         }
 
@@ -35,6 +37,7 @@ namespace Project1
                 }
             }
             activeList[roomId] = true;
+            currentRoomIndex = roomId;
             DrawActiveRoom();
         }
         public static void IncrementActiveRoom()
@@ -56,6 +59,7 @@ namespace Project1
             }
 
             activeList[n] = true;
+            currentRoomIndex = n;
             DrawActiveRoom();
         }
         public static void DecrementActiveRoom()
@@ -77,6 +81,7 @@ namespace Project1
             }
 
             activeList[n] = true;
+            currentRoomIndex = n;
             DrawActiveRoom();
         }
 
@@ -90,6 +95,16 @@ namespace Project1
                     LevelLoader.drawActiveRoom(i);
                 }
             }
+        }
+
+        public static Dictionary<int, bool> GetActiveList()
+        {
+            return activeList;
+        }
+
+        public static int GetCurrentRoomIndex()
+        {
+            return currentRoomIndex;
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Collections;
 using static Project1.Constants;
 using System;
 using System.Text;
+using Project1.HUD;
 
 namespace Project1
 {
@@ -32,9 +33,13 @@ namespace Project1
         public static ContentManager ContentManager1;
         public static Game1 Game;
 
+        public static bool pauseTest = false;
+
 
         public static IEntity ENEMY;
         public static IItem Item;
+
+        public static IHUD hudDisplay;
 
         //Example code for how to create a item in the environment:
         //public static IItem testItem;
@@ -47,6 +52,8 @@ namespace Project1
 
 
             _graphics = new GraphicsDeviceManager(this);
+            //this is the height of the screen
+            //width should be 800
             _graphics.PreferredBackBufferHeight = (int)(480 * 1.75);
             Content.RootDirectory = "Content";
             contentLoader = Content;
@@ -96,6 +103,8 @@ namespace Project1
             player = new Player();
             Player.Initialize();
 
+            //hudDisplay = new HeadsUpDisplay();
+
             base.Initialize();
         }
 
@@ -128,9 +137,11 @@ namespace Project1
             EnvironmentLoader.LoadContent(Content);
 
 
-
             //Load XML File
             LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
+
+            
+            hudDisplay = new HeadsUpDisplay(GraphicsDevice, Content);
             //LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
         }
 
@@ -159,6 +170,8 @@ namespace Project1
             GameObjManager.Update();
             AllCollisionDetection.DetectCollision(GameObjManager);
 
+            hudDisplay.Update(pauseTest);
+
             /*
             #region Print to debug console
             System.Text.StringBuilder sb = new StringBuilder();
@@ -180,25 +193,27 @@ namespace Project1
             GraphicsDevice.Clear(Color.Black);
 
             _spriteBatch.Begin();
-            EnvironmentLoader.Draw(_spriteBatch);
 
-            Player.Draw(gameTime, _spriteBatch);
+                EnvironmentLoader.Draw(_spriteBatch);
 
-            /*
-            #region Debug Draw Link's bounding box
-            // Create the single-pixel texture
-            Texture2D pixel = new Texture2D(GraphicsDevice, 1, 1);
-            pixel.SetData<Color>(new Color[] { Color.White });
+                Player.Draw(gameTime, _spriteBatch);
 
-            _spriteBatch.Draw(pixel, Player.BoundingBox, Color.White);
-            #endregion
-            */
+                /*
+                #region Debug Draw Link's bounding box
+                // Create the single-pixel texture
+                Texture2D pixel = new Texture2D(GraphicsDevice, 1, 1);
+                pixel.SetData<Color>(new Color[] { Color.White });
 
-            //ENEMY.Draw(_spriteBatch);
-            Item.Draw(_spriteBatch);
-            //CurrentEnvironment.Draw(_spriteBatch);
-            GameObjManager.Draw();
+                _spriteBatch.Draw(pixel, Player.BoundingBox, Color.White);
+                #endregion
+                */
 
+                //ENEMY.Draw(_spriteBatch);
+                Item.Draw(_spriteBatch);
+                //CurrentEnvironment.Draw(_spriteBatch);
+                GameObjManager.Draw();
+
+            hudDisplay.Draw(_spriteBatch);
 
             _spriteBatch.End();
             base.Draw(gameTime);

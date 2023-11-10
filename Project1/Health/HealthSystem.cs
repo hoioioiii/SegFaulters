@@ -22,6 +22,8 @@ namespace Project1.Health
         public HealthSystemManager healthSystem;
         public IndividualHeart heart;
 
+        private float yCoordState = 0;
+
         public HealthSystem(int amountHearts)
         {
             //list of all types of hearts
@@ -143,8 +145,18 @@ namespace Project1.Health
 
                 currentHeart.SetHeartFragment(heart.GetFragmentAmount());
             }
+        }
 
+        //Pushed down hearts when paused state
+        public void Paused()
+        {
+            yCoordState = ((SCREEN_HEIGHT / 3) * 2);
+        }
 
+        //Pushed up hearts when reset state
+        public void Reset()
+        {
+            yCoordState = 0;
         }
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -153,13 +165,9 @@ namespace Project1.Health
 
             foreach (var heart in heartsList)
             {
-/*                float xCoord = heart.position.X;
-                if (reset == true)
-                {
-                    float yCoord = heart.position.Y + ((SCREEN_HEIGHT / 3) * 2);
-                }
-                Vector2 heartPosition = new Vector2(xCoord, yCoord);  */  
-                spriteBatch.Draw(heart.heartTexture, heart.position , null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
+                //MAKE THIS PRETTIER
+                Vector2 heartPosition = new Vector2(heart.position.X, heart.position.Y+yCoordState);
+                spriteBatch.Draw(heart.heartTexture, heartPosition, null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
             }
         }
 

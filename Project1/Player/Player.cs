@@ -112,8 +112,8 @@ namespace Project1
 
             BoundingBox = new Rectangle(0, 0, LINK_BOUNDING_DIMENSION, LINK_BOUNDING_DIMENSION);
 
-            healthSystem = new Health.HealthSystem();
-
+/*            healthSystem = new Health.HealthSystem();
+*/
             //           testing = new Health.HealthSystemManager(3);
 /*            healthSystem.Update(1);
 */
@@ -401,7 +401,7 @@ namespace Project1
                 }
             }
 
-            healthSystem.Draw(spriteBatch);
+            //healthSystem.Draw(spriteBatch);
         }
 
         public static void Attack(string weaponType)
