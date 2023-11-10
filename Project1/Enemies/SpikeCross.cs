@@ -41,6 +41,29 @@ namespace Project1
 
         }
 
+        public bool ItIsSameRow()
+        {
+            int playerRow = Player.getPositionAndRectangle().Location.X / 6; // Assuming rowHeight is the height of each row
+            int entityRow = movement_manager.getPosition().Item1 / 6;
+
+            return (playerRow == entityRow) ;
+        }
+
+        public bool ItIsSameCol()
+        {
+            int playerCol = Player.getPositionAndRectangle().Location.Y / 11; // Assuming rowHeight is the height of each row
+            int entityCol = movement_manager.getPosition().Item2 / 11;
+
+            return (playerCol == entityCol);
+        }
+
+        public override void MovementType()
+        {
+
+            //create new method with 
+            //universal enemy class
+        }
+
         ///*
         // * Update Spike
         // */
