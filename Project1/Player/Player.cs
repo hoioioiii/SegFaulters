@@ -7,7 +7,6 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using static Project1.Constants;
 using System;
-using Microsoft.Xna.Framework.Audio;
 
 namespace Project1
 {
@@ -19,7 +18,7 @@ namespace Project1
         private static ContentManager Content;
         private static Vector2 position = RESPAWN_UP;
 
-        public static int[] itemInventory = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+        public static int[] itemInventory = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
         //this enum is used to access the invetory by item type:
         //public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12 };
 
@@ -31,9 +30,8 @@ namespace Project1
         public static int playerSpeed = 5;
 
         // cardinal direction player is facing, starts with up on 1 and progresses clockwise (e.g. 4 is left-facing)
-        private static int linkDirection = (int)DIRECTION.right;
+        private static int linkDirection = 2;
 
-        /*
         // frames used for still and animation
         public static Texture2D linkRight1;
         public static Texture2D linkLeft1;
@@ -51,7 +49,6 @@ namespace Project1
         public static Texture2D linkAttackLeft;
         public static Texture2D linkAttackUp;
         public static Texture2D linkAttackDown;
-        */
 
         // attacking metrics
         public static bool isAttacking = false;
@@ -77,25 +74,28 @@ namespace Project1
         // link only has two frames of animation
         private static bool isSecondFrame = false;
 
-        private static IWeapon[] weaponsArray;
-        //private static IWeapon weapon;
-        private static int currentWeaponIndex;
+        private static IWeapon weapon;
         private static IWeapon spriteWeapon;
-        private static IActiveObjects objManager;
 
         private static int onScreen;
-
+       
         //private static int posX;
         //private static int posY;
         //private Rectangle rect;
         private static bool remainOnScreen;
-        private static int damageFlash;
+
+
+        public static Health.HealthSystem healthSystem;
+        public static Health.HealthSystemManager testing;
+
         public Player()
         {
-
             //posX = 0;
             //posY = 0;
             remainOnScreen = false;
+
+            //initial health for linkk
+            Health.HealthSystem healthSystem;
         }
 
         // initialize timing metrics for attacks and damage
@@ -105,33 +105,23 @@ namespace Project1
             AttackTimer = Constants.ATTACK_SECONDS;
             DamageTimer = Constants.INVINCIBILITY_SECONDS;
             FlashTimer = Constants.FLASHTIME;
-            damageFlash = 0;
-            //IWeapon[] temp = { new Bomb(), new Arrow2(), new Boomerange()};
-            //weaponsArray = temp;
-            //weaponsArray[0] = new Bomb();
-            //weaponsArray[1] = new Arrow2();
-            //weaponsArray[2] = new Boomerange();
-            //weaponsArray[3] = new Orb();
-
-            objManager = new ActiveObjects();
 
             sprite = PlayerSpriteFactory.Instance.CreateLinkSprite();
 
-            // weapon = new Bomb();
+            weapon = new Bomb();
 
             BoundingBox = new Rectangle(0, 0, LINK_BOUNDING_DIMENSION, LINK_BOUNDING_DIMENSION);
+
+/*            healthSystem = new Health.HealthSystem();
+*/
+            //           testing = new Health.HealthSystemManager(3);
+/*            healthSystem.Update(1);
+*/
         }
 
 
         public static void LoadContent(ContentManager content)
         {
-            //Try getting rid of this and use only sprite factory stuff
-
-            //update this to have only sword
-            IWeapon[] temp = { new Bomb(), new Arrow2(), new Boomerange(), new Sword() };
-            weaponsArray = temp;
-
-            /*
             // still and movement
             linkRight1 = content.Load<Texture2D>("linkRight1");
             linkLeft1 = content.Load<Texture2D>("linkLeft1");
@@ -149,13 +139,13 @@ namespace Project1
             linkAttackLeft = content.Load<Texture2D>("linkAttackLeft");
             linkAttackUp = content.Load<Texture2D>("linkAttackUp");
             linkAttackDown = content.Load<Texture2D>("linkAttackDown");
-            */
         }
-
+       
 
         //change the current frame to the next frame
         public static void Update(GameTime gameTime)
         {
+
             // update timers for attack, damage, flash
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             AttackTimer -= elapsedSeconds;
@@ -165,19 +155,13 @@ namespace Project1
             // set bounding box position to link position
             BoundingBox.Location = new Point((int)position.X + 5, (int)position.Y + 20);
             // move link to bounding box
-            //sprite.Update(linkDirection, position);
+            sprite.Update(linkDirection, position);
             // call collision and pass in link
-
-            if (isDamaged)
-            {
-                DamageInvincibility();
-            }
-
 
 
             KeyboardState keystate = Keyboard.GetState();
 
-
+            
             #region Print to debug console currently pressed keys
             System.Text.StringBuilder sb = new StringBuilder();
             foreach (var key in keystate.GetPressedKeys())
@@ -207,8 +191,6 @@ namespace Project1
                     // attack using his sword
                     isAttacking = true;
                     isAttackingWithSword = true;
-                    //currentWeaponIndex = (int)WEAPONS.sword;
-                    AudioManager.PlaySoundEffect(sword);
                     //sprite.Update(linkDirection, position);
                 }
                 else if (keystate.IsKeyDown(Keys.I))
@@ -216,21 +198,18 @@ namespace Project1
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBoomerang = true;
-                    //currentWeaponIndex = (int)WEAPONS.boom;
                 }
                 else if (keystate.IsKeyDown(Keys.U))
                 {
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBow = true;
-                    //currentWeaponIndex = (int)WEAPONS.bow;
                 }
-                else if (keystate.IsKeyDown(Keys.T))
+                else if (keystate.IsKeyDown(Keys.B))
                 {
                     // attack using his sword
                     isAttacking = true;
                     isAttackingWithBomb = true;
-                    //currentWeaponIndex = (int)WEAPONS.bomb;
 
                     isAttackingWithSword = false;
                     isAttackingWithBoomerang = false;
@@ -239,27 +218,27 @@ namespace Project1
                 }
 
 
-                /*
 
                 if (keystate.IsKeyDown(Keys.Left) || keystate.IsKeyDown(Keys.A))
                 {
                     position.X -= playerSpeed;
-                    //room boundary controller, roomBounds var may need to be changed to new values
                     position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
                     isMoving = true;
-                    linkDirection = (int)DIRECTION.left;
+                    linkDirection = 4;
 
                     //posX -= playerSpeed;
 
 
+                    sprite.Update(4, position);
                 }
                 else if (keystate.IsKeyDown(Keys.Down) || keystate.IsKeyDown(Keys.S))
                 {
                     position.Y += playerSpeed;
                     position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
                     isMoving = true;
-                    linkDirection = (int)DIRECTION.down;
+                    linkDirection = 3;
                     //posX += playerSpeed;
+                    sprite.Update(3, position);
 
                 }
                 else if (keystate.IsKeyDown(Keys.Up) || keystate.IsKeyDown(Keys.W))
@@ -267,36 +246,34 @@ namespace Project1
                     position.Y -= playerSpeed;
                     position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
                     isMoving = true;
-                    linkDirection = (int)DIRECTION.up;
+                    linkDirection = 1;
                     //posY -= playerSpeed;
+                    sprite.Update(1, position);
                 }
                 else if (keystate.IsKeyDown(Keys.Right) || keystate.IsKeyDown(Keys.D))
                 {
                     position.X += playerSpeed;
                     position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
                     isMoving = true;
-                    linkDirection = (int)DIRECTION.right;
+                    linkDirection = 2;
                     //posY += playerSpeed;
+                    sprite.Update(2, position);
                 }
-                */
-
-                //move method to increment/decrement position depending on direction
             }
 
+            /*
             if (keystate.IsKeyDown(Keys.E))
             {
                 DamageInvincibility();
             }
-            
+            */
             //Move(keystate);
 
             if (keystate.IsKeyDown(Keys.E))
             {
                 isDamaged = true;
                 DamageInvincibility();
-                AudioManager.PlaySoundEffect(lowHealth);
             }
-
             if (keystate.IsKeyDown(Keys.T) || keystate.IsKeyDown(Keys.Y))
             {
                 // cycle between which block is currently being shown
@@ -310,23 +287,19 @@ namespace Project1
 
             }
 
-
-
-            //if (remainOnScreen)
-            //{
-            //    spriteWeapon.Update();
-            //}
-
+            if (remainOnScreen)
+            {
+                spriteWeapon.Update();
+            }
         }
 
         public static Rectangle getPositionAndRectangle()
         {
-            return sprite.getRectangle();
+           return sprite.getRectangle();
         }
         public static void CheckTime()
         {
             onScreen += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-            damageFlash += Game1.deltaTime.ElapsedGameTime.Milliseconds;
         }
 
 
@@ -345,9 +318,8 @@ namespace Project1
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             FrameTimer -= elapsedSeconds;
 
-            //CheckOnScreen();
+            CheckOnScreen();
 
-            //manage non persistent weapon
             if (remainOnScreen)
             {
                 spriteWeapon.Draw();
@@ -357,187 +329,83 @@ namespace Project1
                 onScreen = 0;
                 remainOnScreen = false;
             }
-
             if (renderLink)
             {
                 if (isAttacking)
                 {
-                    //DrawBasedOnAttackType(spriteBatch);
-
-                    //if (isAttackingWithSword)
-                    //{
-                    //    //Sword.Draw(position, linkDirection);
-                    //    sprite.Draw(spriteBatch, "attack", linkDirection, position);
-
-                    //    /*
-                    //    switch (linkDirection)
-                    //    {
-                    //        //get rid of the switch case since you can just
-                    //        //call draw with the direction variable
-                    //        case 1:
-                    //            Sword.Draw(position, linkDirection);
-                    //            sprite.Draw(spriteBatch, "attack", linkDirection, position);
-                    //            break;
-                    //        case 2:
-                    //            Sword.Draw(position, linkDirection);
-                    //            sprite.Draw(spriteBatch, "attack", linkDirection, position);
-                    //            break;
-                    //        case 3:
-                    //            Sword.Draw(position, linkDirection);
-                    //            sprite.Draw(spriteBatch, "attack", linkDirection, position);
-                    //            break;
-                    //        case 4:
-                    //            Sword.Draw(position, linkDirection);
-                    //            sprite.Draw(spriteBatch, "attack", linkDirection, position);
-                    //            break;
-                    //    }
-                    //    */
-                    //}
-                    ////pass corresponding index of weapon to Attack() method so get
-                    ////rid of these if branches
-                    //else
-                    //{
-                    //    //Attack(currentWeaponIndex);
-
-                    //    //sprite.Draw(spriteBatch, "attack", linkDirection, position);
-
-                    //}
-
-                    /*
+                    if (isAttackingWithSword)
+                    {
+                        switch (linkDirection)
+                        {
+                            case 1:
+                                Sword.Draw(position, linkDirection);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                            case 2:
+                                Sword.Draw(position, linkDirection);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                            case 3:
+                                Sword.Draw(position, linkDirection);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                            case 4:
+                                Sword.Draw(position, linkDirection);
+                                sprite.Draw(spriteBatch, "attack");
+                                break;
+                        }
+                    }
                     else if (isAttackingWithBoomerang)
                     {
-                        Attack((int)WEAPONS.boom);
 
-                        sprite.Draw(spriteBatch, "attack", linkDirection, position);
+                        Attack("boomerange");
+
+                        sprite.Draw(spriteBatch, "attack");
                     }
                     else if (isAttackingWithBow)
                     {
                         
-                        Attack((int)WEAPONS.bow);
+                        Attack("bow");
                     
-                        sprite.Draw(spriteBatch, "attack", linkDirection, position);
+                        sprite.Draw(spriteBatch, "attack");
                     }
                     else if (isAttackingWithBomb)
                     {
-                        Attack((int)WEAPONS.bomb);
-                        sprite.Draw(spriteBatch, "attack", linkDirection, position);
+                        Attack("bomb");
+                        sprite.Draw(spriteBatch, "attack");
                     }
-                    */
                 }
                 else
                 {
-
-                    DrawBasedOnMovementType(spriteBatch);
-                    /*
                     if (isMoving)
                     {
-                        //can be condensed since it should default to still
-                        //when its is not on secondFrame && isMoving
-
-                        DrawBasedOnMove();
                         CheckFrameTimer();
                         if (isSecondFrame)
                         {
                             //tell sprite how to draw
-                            sprite.Draw(spriteBatch, "move", linkDirection, position);
+                            sprite.Draw(spriteBatch, "move");
 
                         }
                         else
                         {
                             //tell sprite how to draw
-                            sprite.Draw(spriteBatch, "still", linkDirection, position);
+                            sprite.Draw(spriteBatch, "still");
                         }
-
                     }
                     else
                     {
                         //tell sprite how to draw
-                        sprite.Draw(spriteBatch, "still", linkDirection, position);
+                        sprite.Draw(spriteBatch, "still");
 
                     }
-                    */
                 }
             }
-            
+
+            //healthSystem.Draw(spriteBatch);
         }
 
-        //decide which method of drawing link should be used based on his current state
-        private static void DrawBasedOnMovementType(SpriteBatch spriteBatch)
+        public static void Attack(string weaponType)
         {
-            if (isMoving)
-            {
-                CheckFrameTimer();
-                if (isSecondFrame)
-                {
-                    //tell sprite how to draw
-                    sprite.Draw(spriteBatch, "move", linkDirection, position);
-
-                }
-                else
-                {
-                    //tell sprite how to draw
-                    sprite.Draw(spriteBatch, "still", linkDirection, position);
-                }
-
-            }
-            else
-            {
-                //tell sprite how to draw
-                sprite.Draw(spriteBatch, "still", linkDirection, position);
-
-            }
-
-
-        }
-
-        //Decide which way to go about drawing based on which weapon needs to be drawn
-        //on the screen
-        private static void DrawBasedOnAttackType(SpriteBatch spriteBatch)
-        {
-            if (isAttackingWithSword)
-            {
-                //draw sword sprite according to link's position, does not persist on screen
-                DrawNonpersistantWeapon((int)WEAPONS.sword);
-
-            }
-            else if (isAttackingWithBoomerang)
-            {
-                //add weapon to manager so it'll stay on the screen
-                spriteWeapon = new Boomerange();
-                objManager.addNewWeapon(spriteWeapon);
-
-            }
-            else if (isAttackingWithBow)
-            {
-                // add weapon to manager so it'll stay on the screen
-                spriteWeapon = new Arrow2();
-                objManager.addNewWeapon(spriteWeapon);
-
-            }
-            else if (isAttackingWithBomb)
-            {
-                // add weapon to manager so it'll stay on the screen
-                spriteWeapon = new Bomb();
-                objManager.addNewWeapon(spriteWeapon);
-
-            }
-            //draw link with attack frames
-            sprite.Draw(spriteBatch, "attack", linkDirection, position);
-        }
-
-
-        //Draw a weapon that does not need to be persistent on screen
-        public static void DrawNonpersistantWeapon(int weaponType)
-        {
-            //set spriteWeapon to element in weapon array to get rid of these
-            //if branches
-
-            //weapon = weaponsArray[weaponType];
-
-
-            //spriteWeapon = weaponsArray[weaponType];
-            spriteWeapon = new Bomb();
-            /*
             switch (weaponType)
             {
                 case "bomb":
@@ -560,30 +428,9 @@ namespace Project1
                     break;
 
             }
-            */
-
-            //remainOnScreen = true;
-            //spriteWeapon.Attack();
-            //spriteWeapon.Draw();
-
-
-            switch (weaponType)
-            {
-                case 0:
-                    //spriteWeapon.Attack();
-                    Game1.GameObjManager.addNewWeapon(spriteWeapon);
-                    break;
-                    //case 1:
-                    //    Game1.GameObjManager.addNewWeapon(new Arrow2());
-                    //    break;
-                    //case 2:
-                    //    Game1.GameObjManager.addNewWeapon(new Boomerange());
-                    //    break;
-            }
-
-
-
-
+            remainOnScreen = true;
+            spriteWeapon.Attack();
+            spriteWeapon.Draw();
         }
 
 
@@ -607,32 +454,19 @@ namespace Project1
         // Link cannot take damage for x seconds after getting hit
         public static void DamageInvincibility()
         {
-            //if (DamageTimer <= 0)
-            //{
-            //    renderLink = true;
-            //    isDamaged = false;
-            //    DamageTimer = INVINCIBILITY_SECONDS;
-            //}
-            //else
-            //{
-            //    if (FlashTimer <= 0)
-            //    {
-            //        renderLink = !renderLink;
-            //        FlashTimer = FLASHTIME;
-            //    }
-            //}
-            
-            if (damageFlash <= 50)
-            {
-                CheckTime();
-                renderLink = false;
-                
-            }
-            else if (damageFlash > 10)
+            if (DamageTimer <= 0)
             {
                 renderLink = true;
                 isDamaged = false;
-                damageFlash = 0;
+                DamageTimer = INVINCIBILITY_SECONDS;
+            }
+            else
+            {
+                if (FlashTimer <= 0)
+                {
+                    renderLink = !renderLink;
+                    FlashTimer = FLASHTIME;
+                }
             }
         }
 
@@ -646,83 +480,69 @@ namespace Project1
             }
         }
 
-        //Command Functions
         public static void attackSword()
         {
             isAttacking = true;
             isAttackingWithSword = true;
-            //currentWeaponIndex = (int)WEAPONS.sword;
         }
 
         public static void attackBoom()
         {
             isAttacking = true;
             isAttackingWithBoomerang = true;
-            //currentWeaponIndex = (int)WEAPONS.boom;
         }
 
         public static void attackBow()
         {
             isAttacking = true;
             isAttackingWithBow = true;
-            //currentWeaponIndex = (int)WEAPONS.bow;
-        }
-
-        public static void attackBomb()
-        {
-            isAttacking = true;
-            isAttackingWithBomb = true;
-            //currentWeaponIndex = (int)WEAPONS.bomb;
         }
 
         public static void left()
         {
             position.X -= playerSpeed;
-            //room boundary controller, roomBounds var may need to be changed to new values
             position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
             isMoving = true;
-            linkDirection = (int)DIRECTION.left;
-
+            linkDirection = 4;
+            sprite.Update(4, position);
         }
 
         public static void down()
         {
             position.Y += playerSpeed;
-            //room boundary controller, roomBounds var may need to be changed to new values
             position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
             isMoving = true;
-            linkDirection = (int)DIRECTION.down;
+            linkDirection = 3;
+            sprite.Update(3, position);
         }
 
         public static void up()
         {
             position.Y -= playerSpeed;
-            //room boundary controller, roomBounds var may need to be changed to new values
             position.Y = Math.Clamp(position.Y, roomBoundsMinY, roomBoundsMaxY);
             isMoving = true;
-            linkDirection = (int)DIRECTION.up;
+            linkDirection = 1;
+            sprite.Update(1, position);
         }
 
         public static void right()
         {
             position.X += playerSpeed;
-            //room boundary controller, roomBounds var may need to be changed to new values
             position.X = Math.Clamp(position.X, roomBoundsMinX, roomBoundsMaxX);
             isMoving = true;
-            linkDirection = (int)DIRECTION.right;
+            linkDirection = 2;
+            sprite.Update(2, position);
         }
 
         public static void damage()
         {
-            isDamaged = true;
+            //isDamaged = true;
             DamageInvincibility();
-
-            AudioManager.PlaySoundEffect(linkHurt);
         }
 
         public static Vector2 getUserPos()
         {
-            
+
             return new Vector2(position.X, position.Y);
         }
 
@@ -736,18 +556,11 @@ namespace Project1
             itemInventory[(int)itemToAdd]++;
         }
 
-        public static bool UseItem(ITEMS itemToDelete)
+        public static void UseItem(ITEMS itemToDelete)
         {
-            bool didItemGetUsed;
             if(itemInventory[(int)itemToDelete] > 0) {
                 itemInventory[(int)itemToDelete]--;
-                didItemGetUsed = true; //if player has item, it got used.
-            } else
-            { 
-                didItemGetUsed = false; //if player does not have item, it did not get used.
             }
-
-            return didItemGetUsed;
         }
 
         public static void setPosition(Vector2 newPostion)
@@ -758,11 +571,6 @@ namespace Project1
         public static Vector2 getPosition()
         {
             return position;
-        }
-
-        public static bool getPlayerAttackingState()
-        {
-            return isAttacking;
         }
 
     }

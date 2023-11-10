@@ -21,11 +21,18 @@ namespace Project1
         public Rectangle BoundingBox => getRectangle();
 
         public bool drawState { get; set; }
+        public int V { get; }
+
         public Heart((int, int) pos)
         {
             drawState = true;
          
             sprite = ItemSpriteFactory.Instance.CreateHeartSprite(pos);
+        }
+
+        public Heart(int v)
+        {
+            V = v;
         }
 
         //Update Frames of the Item

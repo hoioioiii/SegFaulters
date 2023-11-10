@@ -5,10 +5,18 @@ namespace Project1
 	{
 		public void Execute()
 		{
-			if (!Player.isAttacking)
+			if(GameStateManager.GameState == GameState.DefaultState)
 			{
-				Player.right();
-			}
+                if (!Player.isAttacking)
+                {
+                    Player.right();
+                }
+            } else if(GameStateManager.GameState == GameState.PausedState)
+			{
+                GameStateManager.PausedScreen.moveSelectorRight();
+
+            }
+
 		}
 	}
 }
