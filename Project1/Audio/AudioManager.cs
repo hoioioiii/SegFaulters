@@ -49,7 +49,7 @@ namespace Project1
 
         public static void PlayMusic(Song music)
         {
-            //MediaPlayer.IsRepeating = true;
+            MediaPlayer.IsRepeating = true;
             MediaPlayer.Play(music);
         }
         public static void StopAllAudio()
