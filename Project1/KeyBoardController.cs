@@ -146,7 +146,7 @@ namespace Project1
             MOVE_MAP.Add(Keys.D6, new displayHeart());
             MOVE_MAP.Add(Keys.D7, new displayKey());
             MOVE_MAP.Add(Keys.D8, new displayMap());
-            MOVE_MAP.Add(Keys.D9, new displayRupee());
+            //MOVE_MAP.Add(Keys.D9, new displayRupee());
             MOVE_MAP.Add(Keys.OemMinus, new displaySword());
             MOVE_MAP.Add(Keys.OemPlus, new displayTriforce());
 
@@ -163,7 +163,7 @@ namespace Project1
             ITERATE_MAP.Add(Keys.O, new EntityIterateBackCommand());
             ITERATE_MAP.Add(Keys.P, new EntityIterateForwardCommand());
 
-            ITERATE_MAP.Add(Keys.B, new RoomIterateBack());
+            ITERATE_MAP.Add(Keys.V, new RoomIterateBack());
             ITERATE_MAP.Add(Keys.M, new RoomIterateForward());
 
         }

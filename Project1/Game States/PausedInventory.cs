@@ -180,6 +180,7 @@ namespace Project1
             {
                 case inventoryItems.bow:
                     smallboxinventoryitem = new Bow(((int)pos.X, (int)pos.Y));
+                    type = USABLE_ITEM.bow;
                     break;
                 case inventoryItems.boomerang:
                     smallboxinventoryitem = new BoomerangItem(((int)pos.X, (int)pos.Y));

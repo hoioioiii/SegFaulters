@@ -122,6 +122,7 @@ namespace Project1
             MOVE_MAP.Add(Keys.Z, new attackSword());
             MOVE_MAP.Add(Keys.N, new attackSword());
             MOVE_MAP.Add(Keys.T, new atttackBomb());
+            MOVE_MAP.Add(Keys.B, new attackSelectedWeapon());
             //MOVE_MAP.Add(Keys.E, new Damage());
             MOVE_MAP.Add(Keys.R, new QuitGame());
             MOVE_MAP.Add(Keys.I, new attackBoomerang());
