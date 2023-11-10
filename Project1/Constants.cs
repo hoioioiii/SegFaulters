@@ -19,7 +19,7 @@ namespace Project1
 {
     public class Constants
     {
-        public static Song BGM;
+        public static Song BGM, gameOver;
 
         //Change this later to be all caps
         public static SoundEffect addUI, bombBlow, bombDrop, boomerang, cling, death, doorUnlock, puzzleSolved, dragon, dragon2, dragon3, enemyDie, enemyHit, fire, flame, bigItemGet, smallItemGet, heartGet, rupeeGet, linkHurt, lowHealth, plus, plusPlus, secret, stairs, subtractUI, sword;

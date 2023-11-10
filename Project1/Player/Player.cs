@@ -158,7 +158,7 @@ namespace Project1
                     isAttacking = true;
                     isAttackingWithSword = true;
 
-                    
+                    AudioManager.PlaySoundEffect(sword);
                     //currentWeaponIndex = (int)WEAPONS.sword;
                     //sprite.Update(linkDirection, position);
                 }

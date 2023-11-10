@@ -15,6 +15,7 @@ namespace Project1
         {
             // song used for background music
             BGM = content.Load<Song>("Audio\\04 Underworld BGM");
+            gameOver = content.Load<Song>("Audio\\11_-_Legend_of_Zelda_-_NES_-_Game_Over");
 
             // sound effects
             addUI = content.Load<SoundEffect>("Audio\\add ui");
@@ -50,17 +51,8 @@ namespace Project1
 
         public static void PlayMusic(Song music)
         {
-            MediaPlayer.IsRepeating = true;
+            //MediaPlayer.IsRepeating = true;
             MediaPlayer.Play(music);
-        }
-        public static void StopAllAudio()
-        {
-            MediaPlayer.Stop();
-        }
-
-        public static void ResumeMusic() 
-        {         
-            MediaPlayer.Resume();
         }
 
         public static void PlaySoundEffect(SoundEffect SFX)
