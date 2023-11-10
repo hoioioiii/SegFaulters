@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading.Tasks.Dataflow;
 using Microsoft.Xna.Framework;
 using static Project1.Constants;
 
@@ -13,7 +14,12 @@ namespace Project1
     {
         public Matrix Transform { get; set; }
 
-        public void RoomTransitionCamera(Vector2 camPos, DIRECTION direction)
+        public void Initialize()
+        {
+            Transform = Matrix.CreateTranslation(SCREEN_WIDTH_UPPER / 2, SCREEN_HEIGHT_UPPER / 2, 0);
+        }
+
+        public void RoomTransitionCamera(DIRECTION direction)
         {
             //var position = Matrix.CreateTranslation(0,0,0);
 

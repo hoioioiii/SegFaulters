@@ -110,6 +110,9 @@ namespace Project1
             timeProj = new GameTime();
             player = new Player();
             Player.Initialize();
+
+            camera = new Camera();
+            camera.Initialize();
            
             base.Initialize();
         }
