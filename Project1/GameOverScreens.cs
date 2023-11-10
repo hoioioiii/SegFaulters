@@ -19,7 +19,8 @@ namespace Project1
 
             spriteBatch.DrawString(font, "Game Over",CENTER, Color.White);
 
-            MediaPlayer.Pause();      
+            // Commmenting out because background music does not resume on restart
+            //MediaPlayer.Pause();      
         }
       
 
