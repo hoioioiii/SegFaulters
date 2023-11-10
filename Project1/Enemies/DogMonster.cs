@@ -24,11 +24,7 @@ namespace Project1
         private ISprite sprite;
         private IWeapon[] weapon;
         private bool ended;
-
         
-
-
-
         /*
          * Initalize Dog Monster
          */
@@ -39,22 +35,16 @@ namespace Project1
             weapon = new IWeapon[1];
             weapon[0] = new Boomerange();
             ended = false;
-
-           
-
         }
         public override Rectangle GetPositionAndRectangle()
         {
             return sprite.GetRectangle().Item2;
-
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, weapon);
-
         }
-
 
         public override void Attack()
         {
@@ -78,9 +68,6 @@ namespace Project1
             {
                 EndAttack();
             }
-
-
-
         }
         private void StartAttack()
         {
@@ -124,12 +111,8 @@ namespace Project1
                 state_manager.setIsAttacking(true);
                 state_manager.setIsMoving(false);
                 state_manager.setNewAttack(true);
-               
-
             }
         }
-
-
     }
 }
 

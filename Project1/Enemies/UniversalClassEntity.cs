@@ -154,6 +154,8 @@ namespace Project1.Enemies
             if (elaspedTime >= 500)
             {
                 state_manager.setIsAlive(false);
+
+                AudioManager.PlaySoundEffect(enemyDie);
             }
         }
 

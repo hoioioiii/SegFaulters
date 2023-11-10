@@ -27,7 +27,7 @@ namespace Project1
         public void Attack()
         {
             sprite.Attack();
-
+            AudioManager.PlaySoundEffect(boomerang);
         }
 
         /*

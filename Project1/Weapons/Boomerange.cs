@@ -99,6 +99,7 @@ namespace Project1
         public void Attack()
         {
             sprite.Attack();
+
         }
 
         public void Draw(SpriteBatch spriteBatch)

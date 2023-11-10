@@ -2056,3 +2056,17 @@ C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\spikes5.xnb
 C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\spikes6.xnb
 C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\spikes7.xnb
 C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\ZeldaFont.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Arrow_Boomerang.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Bomb_Blow.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Bomb_Drop.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Door_Unlock.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Get_Heart.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Get_Item.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Get_Rupee.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Link_Hurt.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\BlackRoom.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\brickCarpet.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\brickDragon.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\brickFish.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\brickWater.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\ZeldaFont.xnb
