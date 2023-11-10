@@ -84,11 +84,18 @@ namespace Project1
         //private Rectangle rect;
         private static bool remainOnScreen;
 
+
+        public static Health.HealthSystem healthSystem;
+        public static Health.HealthSystemManager testing;
+
         public Player()
         {
             //posX = 0;
             //posY = 0;
             remainOnScreen = false;
+
+            //initial health for linkk
+            Health.HealthSystem healthSystem;
         }
 
         // initialize timing metrics for attacks and damage
@@ -104,6 +111,12 @@ namespace Project1
             weapon = new Bomb();
 
             BoundingBox = new Rectangle(0, 0, LINK_BOUNDING_DIMENSION, LINK_BOUNDING_DIMENSION);
+
+/*            healthSystem = new Health.HealthSystem();
+*/
+            //           testing = new Health.HealthSystemManager(3);
+/*            healthSystem.Update(1);
+*/
         }
 
 
@@ -132,6 +145,7 @@ namespace Project1
         //change the current frame to the next frame
         public static void Update(GameTime gameTime)
         {
+
             // update timers for attack, damage, flash
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             AttackTimer -= elapsedSeconds;
@@ -386,6 +400,8 @@ namespace Project1
                     }
                 }
             }
+
+            //healthSystem.Draw(spriteBatch);
         }
 
         public static void Attack(string weaponType)
