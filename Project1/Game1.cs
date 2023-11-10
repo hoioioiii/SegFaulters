@@ -9,6 +9,7 @@ using static Project1.Constants;
 using System;
 using System.Text;
 using System.Threading;
+using Project1.HUD;
 
 namespace Project1
 {
@@ -26,6 +27,7 @@ namespace Project1
 
 
 
+        public static GameStateManager GameStateManager;
         private Texture2D _texture;
         //public static SpriteBatch _spriteBatch;
 
@@ -41,6 +43,8 @@ namespace Project1
 
         public static IEntity ENEMY;
         public static IItem Item;
+
+        public static IHUD hudDisplay;
 
         //Example code for how to create a item in the environment:
         //public static IItem testItem;
@@ -113,12 +117,15 @@ namespace Project1
             GameObjManager = new ActiveObjects();
             UpdateManager = new UpdateManager();
             DrawManager = new DrawManager();
+            GameStateManager = new GameStateManager();
 
 
             timeProj = new GameTime();
             player = new Player();
             Player.Initialize();
-           
+
+            //hudDisplay = new HeadsUpDisplay();
+
             base.Initialize();
         }
 
@@ -140,6 +147,16 @@ namespace Project1
             IListIterate ItemList = new ItemIterator(this);
             EnvironmentIterator = new EnvironmentIterator(this);
 
+
+
+            Sword.LoadContent(Content);
+            Arrow.LoadContent(Content);
+            Boomerang.LoadContent(Content);
+
+            //pause icon
+            GameStateManager.LoadContent(GraphicsDevice, Content);
+
+            PlayerSpriteFactory.Instance.LoadAllTextures(Content);
             Player.LoadContent(Content);
 
             //Load background
@@ -153,8 +170,9 @@ namespace Project1
 
             
             //Load XML File
-            //LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
-            LevelLoader.Load("C:\\Users\\tinal\\Source\\Repos\\3.7\\Project1\\xmlTest2.xml");
+            LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
+            hudDisplay = new HeadsUpDisplay(GraphicsDevice, Content);
+            //LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
         }
 
 
@@ -171,10 +189,12 @@ namespace Project1
 
             //fix later
             deltaTime = gameTime;
-            if (gameStatePlaying)
+            if(GameStateManager.GameState == GameState.DefaultState)
             {
                 // Add your update logic here
+                hudDisplay.Update(false);
                 Player.Update(gameTime);
+
                 //HealthBarSprite.Update();
                 //HealthBarSprite.HealthDamage(1);
                 //HealthBarSprite.Update();
@@ -183,13 +203,18 @@ namespace Project1
                 //testItem.Update();
 
                 Item.Update();
-                //ENEMY.Update();
+                ENEMY.Update();
                 EnvironmentLoader.Update();
 
+                GameObjManager.Update();
+                AllCollisionDetection.DetectCollision(GameObjManager);
                 /*GameObjManager.Update()*/;
 
                 UpdateManager.Update();
                 AllCollisionDetection.DetectCollision(GameObjManager);
+
+                //if it's paused, HUDdisplay needs to move down
+
 
                 /*
                 #region Print to debug console
@@ -208,6 +233,18 @@ namespace Project1
             }
             
             
+                if (sb.Length > 0)
+                    System.Diagnostics.Debug.WriteLine(sb.ToString());
+                #endregion
+                */
+
+            } else if (GameStateManager.GameState == GameState.PausedState) 
+            {
+                hudDisplay.Update(true);
+            }
+            
+
+            
             base.Update(gameTime);
         }
 
@@ -216,10 +253,11 @@ namespace Project1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
+
             _spriteBatch.Begin();
-            if (gameStatePlaying)
+            hudDisplay.Draw(_spriteBatch);
+            if(GameStateManager.GameState == GameState.DefaultState)
             {
-                
                 EnvironmentLoader.Draw(_spriteBatch);
 
                 Player.Draw(gameTime, _spriteBatch);
@@ -234,6 +272,16 @@ namespace Project1
                 #endregion
                 */
 
+                //ENEMY.Draw(_spriteBatch);
+                Item.Draw(_spriteBatch);
+                //CurrentEnvironment.Draw(_spriteBatch);
+                GameObjManager.Draw();
+            } else if (GameStateManager.GameState == GameState.PausedState) {
+                GameStateManager.DrawGameState(_spriteBatch);
+            }
+            
+
+            
                 //ENEMY.Draw(_spriteBatch);
                 //Item.Draw(_spriteBatch);
                 //CurrentEnvironment.Draw(_spriteBatch);

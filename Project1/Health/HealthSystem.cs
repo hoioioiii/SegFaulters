@@ -1,98 +1,176 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Project1;
 using System;
-using System.Collections;
+using System.Buffers.Text;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-//using static Project1.ConstantClass;
+using System.Data.Common;
+using System.Security.Principal;
+using static Project1.Constants;
+using static Project1.Health.HealthSystemManager;
 
-public class HealthSystem : IHealth
+namespace Project1.Health
 {
-    
-    public static float HealthCurrent;
-    //private const float maxHealth = ConstantClass.maxHealth;
-
-
-    Texture2D HealthBarSprite;
-    Texture2D BarCoverSprite;
-    Vector2 HealthBarPosition;
-    Vector2 HealthBarCoverPosition;
-
-    Rectangle BarRectangle;
-    Rectangle CoverRectangle;
-
-    public int Health { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-    public HealthSystem()
+    public class HealthSystem
     {
-        LoadHealthBar();
-    }
-    
-    public void LoadHealthBar()
-	{
-        
-        HealthBarSprite = Game1.contentLoader.Load<Texture2D>("redbaradjusted");
-        BarCoverSprite = Game1.contentLoader.Load<Texture2D>("emptyhealthbar");
+        public static Texture2D fullHeart;
+        public static Texture2D halfHeart;
+        public static Texture2D emptyHeart;
 
-        HealthBarPosition = new Vector2(59, 38); // NEEDS TO BE CHANGED BASED ON GRAPHICS DEVICE WINDOW
-        HealthBarCoverPosition = new Vector2(40, 30); // NEEDS TO BE CHANGED BASED ON GRAPHICS DEVICE WINDOW
-        
-        BarRectangle= new Rectangle(0, 0, HealthBarSprite.Width, HealthBarSprite.Height);
-        CoverRectangle = new Rectangle(0, 0, BarCoverSprite.Width, BarCoverSprite.Height);
+        public static List<IndividualHeart> heartsList;
+        public static List<Texture2D> heartsFragments;
 
-        HealthCurrent = BarRectangle.Width;
-    }
+        public HealthSystemManager healthSystem;
+        public IndividualHeart heart;
 
-    public float GetCurrentHealth()
-    {
-        return HealthCurrent;
-    }
+        private float yCoordState = 0;
 
-    public void HealthDamage(float attack)
-    {
-        if (HealthCurrent-attack > 0) {
-            HealthCurrent -= attack;
-        }
-    }
-
-    //Can be changed for overheal properties
-    public void HealthHeal(float restore)
-    {
-        if (HealthCurrent + restore <= 100)
+        public HealthSystem(int amountHearts)
         {
-            HealthCurrent += restore;
-        }
-            
-    }
+            //list of all types of hearts
+            heartsFragments = new List<Texture2D>();
+            LoadHearts();
 
-    public void HealthLifeStatus()
-    {
-        if (HealthCurrent <= 0)
+            //list of current Link's hearts
+            heartsList = new List<IndividualHeart>();
+
+            //set up a health system that starts with (amountHearts) hearts
+            HealthSystemManager healthSystem = new HealthSystemManager(amountHearts);
+            SetHealthSystem(healthSystem);
+        }
+
+        public void SetHealthSystem(HealthSystemManager healthSystem)
         {
-            //call state machine to change to death state
+            //HUD bounding box
+            Vector2 boundingBoxUpperLeft = new Vector2(HUD_SECTION_WIDTH * 2, (HUD_HEIGHT / 3));
+            Vector2 boundingBoxLowerRight = new Vector2(SCREEN_WIDTH, HUD_HEIGHT);
+            float rowColSize = 30f;
+            Vector2 currentHeartPosition = boundingBoxUpperLeft; // initial pos based off HUD
+            int colMax = (int)((boundingBoxLowerRight.X - boundingBoxUpperLeft.X) / rowColSize);
+
+            //list of hearts with amount of fragments each
+            this.healthSystem = healthSystem;
+            List<HealthSystemManager.Heart> hearts = healthSystem.GetHealthSystem();
+
+            for (int i = 0; i < hearts.Count; i++)
+            {
+                HealthSystemManager.Heart heart = hearts[i];
+                
+                //add heart with its respective fragments
+                CreateHeart(currentHeartPosition).SetHeartFragment(heart.GetFragmentAmount());
+                currentHeartPosition.X += rowColSize; // Offset the next heart to the right
+
+                //adjust heart to be inside HUD bounding box
+                if (currentHeartPosition.X >= boundingBoxLowerRight.X)
+                {
+                    currentHeartPosition.X = boundingBoxUpperLeft.X;
+                    currentHeartPosition.Y += rowColSize; // Move to the next row
+                }
+            }
         }
+
+        //Load all possible types of hearts
+        public void LoadHearts()
+        {
+            fullHeart = Game1.contentLoader.Load<Texture2D>("fullheart");
+            halfHeart = Game1.contentLoader.Load<Texture2D>("halfheart");
+            emptyHeart = Game1.contentLoader.Load<Texture2D>("emptyheart");
+
+            heartsFragments.Add(emptyHeart);
+            heartsFragments.Add(halfHeart);
+            heartsFragments.Add(fullHeart);
+        }
+
+        public bool IsDead()
+        {
+            List<HealthSystemManager.Heart> hearts = healthSystem.GetHealthSystem();
+            return (hearts[0].GetFragmentAmount() == 0); //if first heart empty, link dead
+        }
+
+        public IndividualHeart CreateHeart(Vector2 position)
+        {
+            Texture2D currentHeart = heartsFragments[0];
+
+            //Create a type heart (full, empty, half)
+            heart = new IndividualHeart(currentHeart, position, this);
+
+            //Add to Link current hearts
+            heartsList.Add(heart);
+
+            return heart;
+        }
+
+        public void DamageHealth(int damageAmount)
+        {
+            healthSystem.DamageHealth(damageAmount);
+            Update(); //update fragment quantity of all the hearts
+        }
+
+        public void HealHealth(int healAmount)
+        {
+            // Update fragment quantity of all the hearts
+            healthSystem.HealHealth(healAmount);
+
+            Vector2 boundingBoxUpperLeft = new Vector2(HUD_SECTION_WIDTH * 2, HUD_HEIGHT / 3);
+            Vector2 boundingBoxLowerRight = new Vector2(SCREEN_WIDTH, HUD_HEIGHT);
+            float rowColSize = 30f;
+
+            for (int i = heartsList.Count; i < healthSystem.GetHealthSystem().Count; i++)
+            {
+                HealthSystemManager.Heart heart = healthSystem.GetHealthSystem()[i];
+
+                // Calculate the position based on the HUD bounding box
+                Vector2 newPosition = new Vector2(
+                    boundingBoxUpperLeft.X + (i % (int)((boundingBoxLowerRight.X - boundingBoxUpperLeft.X) / rowColSize)) * rowColSize,
+                    boundingBoxUpperLeft.Y + (i / (int)((boundingBoxLowerRight.X - boundingBoxUpperLeft.X) / rowColSize)) * rowColSize
+                );
+
+                // Add additional hearts
+                CreateHeart(newPosition).SetHeartFragment(heart.GetFragmentAmount());
+            }
+
+            Update();//update fragment quantity of all the hearts
+        }
+
+
+        public void Update()
+        {
+            List<HealthSystemManager.Heart> hearts = healthSystem.GetHealthSystem();
+
+            //update each heart texture based off its fragments
+            for (int i = 0; i < heartsList.Count; i++)
+            {
+                IndividualHeart currentHeart = heartsList[i];
+
+                HealthSystemManager.Heart heart = hearts[i];
+
+                currentHeart.SetHeartFragment(heart.GetFragmentAmount());
+            }
+        }
+
+        //Pushed down hearts when paused state
+        public void Paused()
+        {
+            yCoordState = ((SCREEN_HEIGHT / 3) * 2);
+        }
+
+        //Pushed up hearts when reset state
+        public void Reset()
+        {
+            yCoordState = 0;
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            float desiredWidth = 30; // The desired width for the sprite
+            float scale = desiredWidth / heartsList[0].heartTexture.Width;
+
+            foreach (var heart in heartsList)
+            {
+                //MAKE THIS PRETTIER
+                Vector2 heartPosition = new Vector2(heart.position.X, heart.position.Y+yCoordState);
+                spriteBatch.Draw(heart.heartTexture, heartPosition, null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
+            }
+        }
+
+
     }
-
-    // NEEDS TO BE UPDATED BASED ON HEALTH CURRENT
-    //NEEDS MATH MODIFICATION
-    public void Update()
-    {
-
-        BarRectangle.Width = (int)HealthCurrent;
-    }
-
-    public void Draw()
-    {
-
-        Game1._spriteBatch.Draw(HealthBarSprite, HealthBarPosition, BarRectangle, Color.White);
-        Game1._spriteBatch.Draw(BarCoverSprite, HealthBarCoverPosition, CoverRectangle, Color.White);
-
-    }
-
 }

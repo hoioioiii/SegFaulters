@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/triforcePieceBlue.png</SourceFile>
-  <SourceTime>2023-10-01T05:11:11.5536126-04:00</SourceTime>
-  <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/triforcePieceBlue.xnb</DestFile>
-  <DestTime>2023-11-09T23:54:26.9592446-05:00</DestTime>
+  <SourceFile>C:/Users/Jachi/source/repos/SegFaulters/seg4.2/Project1/Content/triforcePieceBlue.png</SourceFile>
+  <SourceTime>2023-11-01T19:03:01.462006-04:00</SourceTime>
+  <DestFile>C:/Users/Jachi/source/repos/SegFaulters/seg4.2/Project1/Content/bin/DesktopGL/Content/triforcePieceBlue.xnb</DestFile>
+  <DestTime>2023-11-01T19:07:13.7647916-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
