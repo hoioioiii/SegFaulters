@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Project1.Constants;
 
 namespace Project1.Health
 {
@@ -12,7 +13,6 @@ namespace Project1.Health
         public int fragments;
         public List<Heart> heartList;
         public Heart individualHeart;
-        const int MAX_FRAGMENTS = 4; //put into constants folder
         public HealthSystemManager(int heartsAmount)
         {
             heartList = new List<Heart>();

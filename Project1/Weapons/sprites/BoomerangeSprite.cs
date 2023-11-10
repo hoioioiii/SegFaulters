@@ -177,13 +177,13 @@ namespace Project1
             switch (direct)
             {
                 case Direction.Up:
-                    direction = 1;
+                    direction = 3;
                     break;
                 case Direction.Left:
-                    direction = 4;
+                    direction = 0;
                     break;
                 case Direction.Down:
-                    direction = 3;
+                    direction = 1;
                     break;
                 case Direction.Right:
                     direction = 2;
