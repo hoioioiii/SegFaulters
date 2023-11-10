@@ -163,7 +163,11 @@ namespace Project1
         */
         public void GetUserState(Direction direct)
         {
-
+/*            if (direct == Direction.Left)
+            {
+                System.Diagnostics.Debug.WriteLine("foundhere");
+            }*/
+            
 
             switch (direct)
             {
@@ -171,13 +175,13 @@ namespace Project1
                     direction = 1;
                     break;
                 case Direction.Left:
-                    direction = 2;
+                    direction = 4;
                     break;
                 case Direction.Down:
                     direction = 3;
                     break;
                 case Direction.Right:
-                    direction = 4;
+                    direction = 2;
                     break;
             }
         }
