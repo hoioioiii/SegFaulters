@@ -189,6 +189,7 @@ namespace Project1
             {
                 // GameStateManager.GameState = GameState.GameOverState;
                 gameStatePlaying = false;
+
             }
 
 

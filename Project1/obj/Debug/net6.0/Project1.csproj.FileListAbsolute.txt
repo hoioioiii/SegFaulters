@@ -2127,3 +2127,6 @@ D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\obj\Debug\net6.0\Proj
 D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\obj\Debug\net6.0\ref\Project1.dll
 D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\11_-_Legend_of_Zelda_-_NES_-_Game_Over.ogg
 D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\11_-_Legend_of_Zelda_-_NES_-_Game_Over.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\blackSquareRoom.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\greenSquareOnMap.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\pausedMap.xnb
