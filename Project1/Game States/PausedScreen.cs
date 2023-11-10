@@ -11,16 +11,18 @@ namespace Project1
     public class PausedScreen
     {
         public static IPaused pausedInventory { get; set; }
+        public static IPaused pausedMap { get; set; }
         public PausedScreen(GraphicsDevice graphics, ContentManager content)
         {
             pausedInventory = new PausedInventory(graphics, content);
+            pausedMap = new PausedMap(graphics, content);
         }
         public void Draw(SpriteBatch spritebatch)
         {
             pausedInventory.Draw(spritebatch);
+            pausedMap.Draw(spritebatch);
 
         }
-
 
         public void moveSelectorRight()
         {

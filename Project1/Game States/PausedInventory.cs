@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Project1;
 using Project1.HUD;
 using System;
 using System.Collections.Generic;
@@ -173,6 +174,7 @@ namespace Project1
         private void drawSelectedItemToSmallBox(SpriteBatch spriteBatch)
         {
             IItem smallboxinventoryitem = null;
+            USABLE_ITEM type = (USABLE_ITEM)itemLocations[currentItemIndex].Item2;
             Vector2 pos = new Vector2((int)smallitemboxPosition.X + itemInventoryBoxOffSet3, (int)smallitemboxPosition.Y + itemInventoryBoxOffSet3);
             switch (itemLocations[currentItemIndex].Item2)
             {
@@ -181,15 +183,19 @@ namespace Project1
                     break;
                 case inventoryItems.boomerang:
                     smallboxinventoryitem = new BoomerangItem(((int)pos.X, (int)pos.Y));
+                    type = USABLE_ITEM.boomerang;
                     break;
                 case inventoryItems.bomb:
                     smallboxinventoryitem = new BombItem(((int)pos.X, (int)pos.Y));
+                    type = USABLE_ITEM.bomb;
                     break;
                 case inventoryItems.key:
                     smallboxinventoryitem = new Key(((int)pos.X, (int)pos.Y));
+                    type = USABLE_ITEM.key;
                     break;
             }
             smallboxinventoryitem.Draw(spriteBatch, pos, 3);
+            InventoryDisplay.setSelectedItem(type);
         }
 
         //function that gets the number of items and which ones so Draw can have the correct sprite to create
@@ -257,5 +263,5 @@ namespace Project1
             selectorSmoother++;
         }
     }
-    public enum inventoryItems { bomb, boomerang, key, bow }
+    public enum inventoryItems { bomb = 1, boomerang = 0, key = 2, bow = 3 } //sword maps to bow for now for HUD
 }

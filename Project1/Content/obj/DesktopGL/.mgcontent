@@ -38,6 +38,7 @@
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/brick7.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/brick8.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/clock.png</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/compassPauseText.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/DINO.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/dino1.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/dino2.png</File>
@@ -129,6 +130,8 @@
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/LockedDoorSOUTH.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/LockedDoorWEST.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/map.png</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/mapItem.png</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/mapPauseText.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/MERCHANT.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/OLDM.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/orb.png</File>
@@ -165,6 +168,9 @@
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/ZeldaSpriteOldMan.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

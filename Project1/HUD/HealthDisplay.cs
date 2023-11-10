@@ -14,11 +14,13 @@ namespace Project1.HUD
     {
         private Texture2D titleRect;
         private Texture2D healthRect;
-        private Vector2 coordTitle;
-        private Vector2 coordHealth;
+        private Vector2[] coordsTitle;
+        private Vector2[] coordsHealth;
         private float fullMenuOffset = (SCREEN_HEIGHT / 3) * 2;
         private bool reset = false;
         private SpriteFont font;
+        private enum PAUSE_STATE { active = 0, paused = 1 };
+        private static PAUSE_STATE pauseIndex = PAUSE_STATE.active;
         private int titleOffset;
 
         public HealthDisplay(GraphicsDevice graphics, ContentManager content)
@@ -27,8 +29,15 @@ namespace Project1.HUD
             titleRect = new Texture2D(graphics, HUD_SECTION_WIDTH, HUD_HEIGHT / 3);
             healthRect = new Texture2D(graphics, HUD_SECTION_WIDTH, HUD_HEIGHT - titleRect.Height);
             titleOffset = (HUD_SECTION_WIDTH - (int)font.MeasureString("-LIFE-").X) / 2;
-            coordTitle = new Vector2((2 * HUD_SECTION_WIDTH) + titleOffset, 0);
-            coordHealth = new Vector2(2 * HUD_SECTION_WIDTH, titleRect.Height);
+
+            //index 0 is not paused and 1 is paused
+            Vector2[] tempVectorArr = { new Vector2((2 * HUD_SECTION_WIDTH) + titleOffset, 0), new Vector2((2 * HUD_SECTION_WIDTH) + titleOffset, fullMenuOffset) };
+            coordsTitle = tempVectorArr;
+
+            //index 0 is not paused and 1 is paused
+            Vector2[] tempVectorArr2 = { new Vector2(2 * HUD_SECTION_WIDTH, titleRect.Height), new Vector2(2 * HUD_SECTION_WIDTH, titleRect.Height + fullMenuOffset) };
+            coordsHealth = tempVectorArr2;
+
             
         }
 
@@ -36,14 +45,12 @@ namespace Project1.HUD
         {
             if (HeadsUpDisplay.IsFullMenuDisplay())
             {
-                coordTitle.Y += fullMenuOffset;
-                coordHealth.Y += fullMenuOffset;
+                pauseIndex = PAUSE_STATE.paused;
                 reset = true;
             }
             else if (reset)
             {
-                coordTitle.Y -= fullMenuOffset;
-                coordHealth.Y -= fullMenuOffset;
+                pauseIndex = PAUSE_STATE.active;
                 reset = false;
             }
 
@@ -51,10 +58,8 @@ namespace Project1.HUD
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(titleRect, coordTitle, Color.White);
-            //titleWidth = (int)font.MeasureString("-LIFE-").X;
-            spriteBatch.DrawString(font, "-LIFE-", coordTitle, Color.Red);
-            spriteBatch.Draw(healthRect, coordHealth, Color.Blue);
+            spriteBatch.DrawString(font, "-LIFE-", coordsTitle[(int)pauseIndex], Color.Red);
+            spriteBatch.Draw(healthRect, coordsHealth[(int)pauseIndex], Color.Blue);
         }
     }
 }
