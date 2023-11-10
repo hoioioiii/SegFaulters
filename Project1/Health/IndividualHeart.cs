@@ -28,8 +28,8 @@ namespace Project1.Health
             switch (fragments)
             {
                 case 0: heartTexture = this.healthSystem.heartsFragments[0]; break; //empty
-                case 1: heartTexture = this.healthSystem.heartsFragments[1]; break; //half
-                case 2: heartTexture = this.healthSystem.heartsFragments[2]; break; //full
+                case 2: heartTexture = this.healthSystem.heartsFragments[1]; break; //half
+                case 4: heartTexture = this.healthSystem.heartsFragments[2]; break; //full
             }
         }
     }

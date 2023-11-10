@@ -68,7 +68,7 @@ namespace Project1
         public static float HEALTH_ROW = 30f;
         public static int ENTITY_HEARTS = 5;
         public static int DAMAGE_HALF_HEART = 1;
-        public static int DAMAGE_FULL_HEART = 2;
+        public static int DAMAGE_FULL_HEART = 3;
 
         public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, sword = 3};
 
