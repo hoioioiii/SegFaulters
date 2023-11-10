@@ -36,6 +36,7 @@ namespace Project1.Health
             //set up a health system that starts with (amountHearts) hearts
             HealthSystemManager healthSystem = new HealthSystemManager(amountHearts);
             SetHealthSystem(healthSystem);
+
         }
 
         public void SetHealthSystem(HealthSystemManager healthSystem)

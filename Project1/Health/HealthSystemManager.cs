@@ -7,31 +7,31 @@ using System.Threading.Tasks;
 
 namespace Project1.Health
 {
-    public class HealthSystemManager 
+    public class HealthSystemManager
     {
         public int fragments;
         public List<Heart> heartList;
         public Heart individualHeart;
-        const int MAX_FRAGMENTS = 2; //put into constants folder
-        public HealthSystemManager(int heartsAmount) 
-        { 
+        const int MAX_FRAGMENTS = 4; //put into constants folder
+        public HealthSystemManager(int heartsAmount)
+        {
             heartList = new List<Heart>();
 
             //create heartAmount of hearts
-            for (int  i = 0; i < heartsAmount; i++) 
+            for (int i = 0; i < heartsAmount; i++)
             {
-                Heart individualHeart = new Heart(2); //start all hearts as full
+                Heart individualHeart = new Heart(4); //start all hearts as full
                 heartList.Add(individualHeart);
             }
-      }
+        }
 
         public List<Heart> GetHealthSystem()
         {
             return heartList;
         }
 
-        //attack = 1: takes half a heart
-        //attack = 2: takes an entire heart
+        //attack = 2: takes half a heart
+        //attack = 4: takes an entire heart
         public void DamageHealth(int damageAmount)
         {
             for (int i = heartList.Count - 1; i >= 0; i--)
@@ -55,10 +55,10 @@ namespace Project1.Health
                     break;
                 }
             }
-       }
+        }
 
-        //healAmount = 1: heal half a heart
-        //healAmount = 2: heal entire heart
+        //healAmount = 2: heal half a heart
+        //healAmount = 4: heal entire heart
         public void HealHealth(int healAmount)
         {
             for (int i = 0; i < heartList.Count; i++)
@@ -80,7 +80,7 @@ namespace Project1.Health
                 }
             }
 
-                     
+
             while (healAmount > 0)
             {
                 if (healAmount >= MAX_FRAGMENTS)
@@ -119,7 +119,7 @@ namespace Project1.Health
                 if (damageAmount >= fragments)
                 {
                     fragments = 0;
-                } 
+                }
                 else
                 {
                     fragments -= damageAmount;
