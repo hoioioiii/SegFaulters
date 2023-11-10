@@ -70,17 +70,8 @@ namespace Project1
         {
             if (!state_manager.IsAttacking())
             {
-            else
-            {
-            else
-            {
-            else
-            {
-            else
-            {
-            else
-            {
-            else
+                // The dragon's sound effect is overlapping itself!!!
+                /*
                 #region playSound
                 switch (lastDragonSoundPlayed)
                 {
@@ -99,25 +90,23 @@ namespace Project1
                     default:
                         AudioManager.PlaySoundEffect(dragon);
                         break;
-                }             
+                }
                 #endregion
+                */
+
+                /*
+                //direction_state_manager.NeedDirectionUpdate(true);
+                weaponTop = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
+                weaponMiddle = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
+                weaponBottom = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
+                      
+                }             
 
                 //direction_state_manager.NeedDirectionUpdate(true);
                 weaponTop = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
                 weaponMiddle = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
                 weaponBottom = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
-                        lastDragonSoundPlayed = 1;
-                        break;
-                    default:
-                        AudioManager.PlaySoundEffect(dragon);
-                        break;
-                }             
-                #endregion
-
-                //direction_state_manager.NeedDirectionUpdate(true);
-                weaponTop = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.TOP);
-                weaponMiddle = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.MIDDLE);
-                weaponBottom = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
+                */
                 state_manager.setNewAttack(false);
                 time_manager.enableMoveTime();
 
@@ -128,7 +117,6 @@ namespace Project1
 
                 state_manager.setIsAttacking(false);
             }
-
         }
 
         private void CreateOrbs()

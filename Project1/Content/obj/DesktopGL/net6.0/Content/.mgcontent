@@ -47,6 +47,7 @@
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/sword swing.wav</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bat1.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bat2.png</File>
+    <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/BlackRoom.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/BladeTrap.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bomb.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/boomerang_sheet.png</File>
@@ -64,6 +65,10 @@
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/brick6.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/brick7.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/brick8.png</File>
+    <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/brickCarpet.png</File>
+    <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/brickDragon.png</File>
+    <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/brickFish.png</File>
+    <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/brickWater.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/clock.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/DINO.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/dino1.png</File>
@@ -227,6 +232,11 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File>Audio/sword.wav</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
