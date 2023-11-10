@@ -20,7 +20,9 @@ namespace Project1.Collision_Response
          */
         public static void ItemResponse(IItem item)
         {
-            item.drawState = false;
+            Game1.GameObjManager.removeItem(item);
+            //item.drawState = false;
+            AudioManager.PlaySoundEffect(smallItemGet);
         }
 
         /*
@@ -96,6 +98,8 @@ namespace Project1.Collision_Response
          */
         public static void DamageResponse(DIRECTION direction)
         {
+            AudioManager.PlaySoundEffect(linkHurt);
+
             Vector2 playerPosition = Player.getPosition();
             playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, KNOCKBACK_DISTANCE);
             AllCollisionResponse.ApplyDamage();

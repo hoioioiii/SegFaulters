@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Content;
 using System.Collections;
 using static Project1.Constants;
 using Project1.Enemies;
+using Microsoft.Xna.Framework.Audio;
 
 namespace Project1
 {
@@ -30,6 +31,8 @@ namespace Project1
         private bool remainOnScreen;
         private int onScreen;
 
+        private SoundEffectInstance dragonSFX;
+
         /*
          * Initalize fire drag
          */
@@ -45,6 +48,7 @@ namespace Project1
             CreateOrbs();
             ended = false;
 
+            dragonSFX = dragon.CreateInstance();
         }
         public override Rectangle GetPositionAndRectangle()
         {
@@ -79,6 +83,7 @@ namespace Project1
         {
             if (state_manager.startNewAttack())
             {
+                dragonSFX.Play();
 
                 CreateOrbs();
                 //Game1.GameObjManager.addNewWeapon(weapon[0]);

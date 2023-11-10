@@ -144,36 +144,36 @@ namespace Project1
             //    #endregion
             //    */
             }
-            //foreach (var enemy in entities)
-            //{
+            foreach (var enemy in entities)
+            {
 
-            //    isColliding = Player.BoundingBox.Intersects(enemy.BoundingBox);
-            //    if (isColliding)
-            //    {
-            //        collisionDirection = DetectCollisionDirection(Player.BoundingBox, enemy.BoundingBox, collisionDirection);
-            //        //PlayerCollisionResponse.DamageResponse(collisionDirection);
+                isColliding = Player.BoundingBox.Intersects(enemy.BoundingBox);
+                if (isColliding)
+                {
+                    collisionDirection = DetectCollisionDirection(Player.BoundingBox, enemy.BoundingBox, collisionDirection);
+                    //PlayerCollisionResponse.DamageResponse(collisionDirection);
 
-            //        #region Print to debug console
-            //        System.Text.StringBuilder sb = new StringBuilder();
-            //        sb.Append("COLLISION DIRECTION: " + collisionDirection);
+                    #region Print to debug console
+                    System.Text.StringBuilder sb = new StringBuilder();
+                    sb.Append("COLLISION DIRECTION: " + collisionDirection);
 
-            //        if (sb.Length > 0)
-            //            System.Diagnostics.Debug.WriteLine(sb.ToString());
-            //        #endregion
+                    if (sb.Length > 0)
+                        System.Diagnostics.Debug.WriteLine(sb.ToString());
+                    #endregion
 
-            //        PlayerCollisionResponse.DamageResponse(collisionDirection);
-            //    }
+                    PlayerCollisionResponse.DamageResponse(collisionDirection);
+                }
 
-            //}
-            //foreach (var enemyAttack in enemyAttackInstances)
-            //{
-            //    isColliding = link.BoundingBox.Intersects(enemyAttack);
-            //    if (isColliding)
-            //    {
-            //        collisionDirection = DetectCollisionDirection(link.BoundingBox, enemyAttack, collisionDirection);
-            //        PlayerCollisionResponse.DamageResponse(link, collisionDirection);
-            //    }
-            //}
+            }
+            foreach (var enemyAttack in weapons)
+            {
+                isColliding = Player.BoundingBox.Intersects(enemyAttack.BoundingBox);
+                if (isColliding)
+                {
+                    collisionDirection = DetectCollisionDirection(Player.BoundingBox, enemyAttack.BoundingBox, collisionDirection);
+                    PlayerCollisionResponse.DamageResponse(collisionDirection);
+                }
+            }
 
 
             /*

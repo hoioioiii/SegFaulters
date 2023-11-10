@@ -110,7 +110,7 @@ namespace Project1
                 placeOffset();
 
                 boomerangSFX = boomerang.CreateInstance();
-                boomerangSFX.IsLooped = true;
+                //boomerangSFX.IsLooped = true;
                 boomerangSFX.Play();
             }
         }
@@ -288,7 +288,7 @@ namespace Project1
             if (check <= 20)
             {
                 removeBang();
-                boomerangSFX.Stop();
+                //boomerangSFX.Stop();
                 completed = true;
             }
 

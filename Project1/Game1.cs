@@ -134,6 +134,10 @@ namespace Project1
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("ZeldaFont");
+
+            AudioManager.LoadContent(Content);
+            AudioManager.PlayMusic(BGM);
+
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
             WeaponSpriteFactory.Instance.LoadAllTextures(Content);
@@ -157,8 +161,7 @@ namespace Project1
             EnvironmentLoader.LoadContent(Content);
 
             //Load Music and start the BGM
-            AudioManager.LoadContent(Content);
-            AudioManager.PlayMusic(BGM);
+            
             //AudioManager.PlaySoundEffect();
 
 
