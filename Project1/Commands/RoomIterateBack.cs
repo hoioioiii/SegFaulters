@@ -5,6 +5,7 @@ namespace Project1.Commands
 	{
         public void Execute()
         {
+            Game1.GameObjManager.clearAll();
             RoomManager.DecrementActiveRoom();
         }
     }

@@ -147,12 +147,6 @@ namespace Project1
             IListIterate ItemList = new ItemIterator(this);
             EnvironmentIterator = new EnvironmentIterator(this);
 
-
-
-            Sword.LoadContent(Content);
-            Arrow.LoadContent(Content);
-            Boomerang.LoadContent(Content);
-
             //pause icon
             GameStateManager.LoadContent(GraphicsDevice, Content);
 
@@ -206,7 +200,7 @@ namespace Project1
                 ENEMY.Update();
                 EnvironmentLoader.Update();
 
-                GameObjManager.Update();
+                //GameObjManager.Update();
                 AllCollisionDetection.DetectCollision(GameObjManager);
                 /*GameObjManager.Update()*/;
 
@@ -226,25 +220,20 @@ namespace Project1
                     System.Diagnostics.Debug.WriteLine(sb.ToString());
                 #endregion
                 */
-            }
-            else
-            {
-                timer--;
-            }
             
-            
-                if (sb.Length > 0)
-                    System.Diagnostics.Debug.WriteLine(sb.ToString());
-                #endregion
-                */
-
-            } else if (GameStateManager.GameState == GameState.PausedState) 
+            } 
+            else if (GameStateManager.GameState == GameState.PausedState) 
             {
                 hudDisplay.Update(true);
             }
-            
 
-            
+            else if (GameStateManager.GameState == GameState.GameOverState)
+            {
+                timer--;
+            }
+
+
+
             base.Update(gameTime);
         }
 
@@ -255,12 +244,16 @@ namespace Project1
             GraphicsDevice.Clear(Color.Black);
 
             _spriteBatch.Begin();
-            hudDisplay.Draw(_spriteBatch);
+
             if(GameStateManager.GameState == GameState.DefaultState)
             {
+
                 EnvironmentLoader.Draw(_spriteBatch);
 
                 Player.Draw(gameTime, _spriteBatch);
+
+                DrawManager.Draw();
+
 
                 /*
                 #region Debug Draw Link's bounding box
@@ -273,44 +266,32 @@ namespace Project1
                 */
 
                 //ENEMY.Draw(_spriteBatch);
-                Item.Draw(_spriteBatch);
-                //CurrentEnvironment.Draw(_spriteBatch);
-                GameObjManager.Draw();
-            } else if (GameStateManager.GameState == GameState.PausedState) {
-                GameStateManager.DrawGameState(_spriteBatch);
-            }
-            
-
-            
-                //ENEMY.Draw(_spriteBatch);
                 //Item.Draw(_spriteBatch);
                 //CurrentEnvironment.Draw(_spriteBatch);
                 //GameObjManager.Draw();
-
-                DrawManager.Draw();
-
-               
+                hudDisplay.Draw(_spriteBatch);
+            } else if (GameStateManager.GameState == GameState.PausedState) {
+                GameStateManager.DrawGameState(_spriteBatch);
+                hudDisplay.Draw(_spriteBatch);
             }
-            else
+            else if (GameStateManager.GameState == GameState.GameOverState)
             {
-                
                 if (timer <= 0)
                 {
                     GameOverScreens.DrawOptionsScreen(_spriteBatch, font);
                 }
                 else
                 {
-                    
+
                     GameOverScreens.DrawGameOverScreen(_spriteBatch, font);
                 }
-                
-                
-            
-                
-             
-
-
             }
+
+            //ENEMY.Draw(_spriteBatch);
+            //Item.Draw(_spriteBatch);
+            //CurrentEnvironment.Draw(_spriteBatch);
+            //GameObjManager.Draw();
+                
             _spriteBatch.End();
             base.Draw(gameTime);
         }

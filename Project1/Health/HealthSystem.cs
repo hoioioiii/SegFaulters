@@ -10,14 +10,14 @@ using static Project1.Health.HealthSystemManager;
 
 namespace Project1.Health
 {
-    public class HealthSystem
+    public class HealthSystem : IHealthSystem
     {
         public static Texture2D fullHeart;
         public static Texture2D halfHeart;
         public static Texture2D emptyHeart;
 
-        public static List<IndividualHeart> heartsList;
-        public static List<Texture2D> heartsFragments;
+        public List<IndividualHeart> heartsList;
+        public List<Texture2D> heartsFragments;
 
         public HealthSystemManager healthSystem;
         public IndividualHeart heart;
@@ -41,9 +41,9 @@ namespace Project1.Health
         public void SetHealthSystem(HealthSystemManager healthSystem)
         {
             //HUD bounding box
-            Vector2 boundingBoxUpperLeft = new Vector2(HUD_SECTION_WIDTH * 2, (HUD_HEIGHT / 3));
+            Vector2 boundingBoxUpperLeft = new Vector2(HEALTH_HUD_WIDTH, HEALTH_HUD_HEIGHT);
             Vector2 boundingBoxLowerRight = new Vector2(SCREEN_WIDTH, HUD_HEIGHT);
-            float rowColSize = 30f;
+            float rowColSize = HEALTH_ROW;
             Vector2 currentHeartPosition = boundingBoxUpperLeft; // initial pos based off HUD
             int colMax = (int)((boundingBoxLowerRight.X - boundingBoxUpperLeft.X) / rowColSize);
 
@@ -54,7 +54,7 @@ namespace Project1.Health
             for (int i = 0; i < hearts.Count; i++)
             {
                 HealthSystemManager.Heart heart = hearts[i];
-                
+
                 //add heart with its respective fragments
                 CreateHeart(currentHeartPosition).SetHeartFragment(heart.GetFragmentAmount());
                 currentHeartPosition.X += rowColSize; // Offset the next heart to the right
@@ -110,9 +110,9 @@ namespace Project1.Health
             // Update fragment quantity of all the hearts
             healthSystem.HealHealth(healAmount);
 
-            Vector2 boundingBoxUpperLeft = new Vector2(HUD_SECTION_WIDTH * 2, HUD_HEIGHT / 3);
+            Vector2 boundingBoxUpperLeft = new Vector2(HEALTH_HUD_WIDTH, HEALTH_HUD_HEIGHT);
             Vector2 boundingBoxLowerRight = new Vector2(SCREEN_WIDTH, HUD_HEIGHT);
-            float rowColSize = 30f;
+            float rowColSize = HEALTH_ROW;
 
             for (int i = heartsList.Count; i < healthSystem.GetHealthSystem().Count; i++)
             {
@@ -160,13 +160,12 @@ namespace Project1.Health
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            float desiredWidth = 30; // The desired width for the sprite
+            float desiredWidth = HEALTH_ROW; // The desired width for the sprite
             float scale = desiredWidth / heartsList[0].heartTexture.Width;
 
             foreach (var heart in heartsList)
             {
-                //MAKE THIS PRETTIER
-                Vector2 heartPosition = new Vector2(heart.position.X, heart.position.Y+yCoordState);
+                Vector2 heartPosition = new Vector2(heart.position.X, heart.position.Y + yCoordState);
                 spriteBatch.Draw(heart.heartTexture, heartPosition, null, Color.White, 0f, Vector2.Zero, scale, SpriteEffects.None, 0);
             }
         }

@@ -25,7 +25,7 @@ namespace Project1.HUD
         private int titleOffset;
 
         //health TO BE MODIFIED ONCE PLAYER DONE
-        public HealthSystem linkHealth;
+        private IHealthSystem linkHealth;
 
         public HealthDisplay(GraphicsDevice graphics, ContentManager content)
 		{
@@ -44,9 +44,7 @@ namespace Project1.HUD
             //Vector2[] tempVectorArr2 = { new Vector2(2 * HUD_SECTION_WIDTH, titleRect.Height), new Vector2(2 * HUD_SECTION_WIDTH, titleRect.Height + fullMenuOffset) };
             //coordsHealth = tempVectorArr2;
 
-
-            //TO BE CHANGED AFTER PLAYER REFACTORING ==== HEALTH
-            linkHealth = new HealthSystem(3); //start link with 3 hearts
+            linkHealth = new HealthSystem(LINK_HEARTS); //start link with 3 hearts
         }
 
         public void Update()

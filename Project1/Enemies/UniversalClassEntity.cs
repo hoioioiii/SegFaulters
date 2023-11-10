@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using static Project1.Constants;
 using System.Collections.Generic;
+using Project1.Health;
 
 namespace Project1.Enemies
 {
@@ -14,6 +15,11 @@ namespace Project1.Enemies
         public ITime time_manager;
         public IMove movement_manager;
         public IEntityState state_manager;
+
+        //CHANGE TO INTERFACE LATER
+        private IHealthSystem entityHealthSystem;
+
+        public (string, int)[] drops;
 
         private (Rectangle, Rectangle) rectangles;
         public int attackStat { get; private set; }
@@ -33,6 +39,12 @@ namespace Project1.Enemies
             state_manager = new EntityState();
             movement_manager = new Movement(direction_state_manager, this, time_manager, position.Item1, position.Item2, 0);
             attackStat = 1;
+
+            //set up entities health system
+            entityHealthSystem = new HealthSystem(ENTITY_HEARTS); //start entity with 5 hearts
+
+            //enemy drops
+            drops = items;
         }
 
     
@@ -40,6 +52,13 @@ namespace Project1.Enemies
         public void Update()
         {
             //testDeath();
+
+            //check entity life status
+            if (entityHealthSystem.IsDead())
+            {
+                state_manager.setIsAlive(false);
+            }
+
             if (state_manager.IsAlive())
             {
                 Attack();
@@ -119,17 +138,17 @@ namespace Project1.Enemies
         public void ItemDrop()
         {
 
-            System.Diagnostics.Debug.WriteLine("in item drop: ");
+            //System.Diagnostics.Debug.WriteLine("in item drop: ");
             //create new item
 
             //this is for testing purposes
-            CreateNumItem(("fairy", 1));
+            // CreateNumItem(("fairy", 1));
 
             //this is actual--------------------------
-            //foreach ((String, int) itemType in drops)
-            //{
-            //    CreateNumItem(itemType);
-            //}
+            foreach ((string, int) itemtype in drops)
+            {
+                CreateNumItem(itemtype);
+            }
             state_manager.SetFinished();
         }
 
@@ -167,6 +186,7 @@ namespace Project1.Enemies
 
 
             //Reduce the health in health manager 
+            entityHealthSystem.DamageHealth(damageAmount);
 
         }
 

@@ -54,6 +54,7 @@ namespace Project1
         public static int SCREEN_WIDTH_LOWER = 0;
         public static int SCREEN_HEIGHT_UPPER = 400;
         public static int SCREEN_HEIGHT_LOWER = 0;
+        public static int PAUSED_STATE_YCOORD = ((SCREEN_HEIGHT / 3) * 2);
         //*
         public static int SCREEN_HEIGHT = (int)(480 * 1.75);
         //*
@@ -61,6 +62,11 @@ namespace Project1
         //*
         public static int HUD_SECTION_WIDTH = SCREEN_WIDTH / 3;
         //*
+
+        public static int HEALTH_HUD_WIDTH = HUD_SECTION_WIDTH * 2;
+        public static int HEALTH_HUD_HEIGHT = (HUD_HEIGHT / 3);
+        public static float HEALTH_ROW = 30f;
+        public static int ENTITY_HEARTS = 5;
         public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, sword = 3};
 
         public static int START_FRAME = 0;
@@ -184,6 +190,8 @@ namespace Project1
         //Player metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int LINK_R = 1;
         public static int LINK_C = 4;
+        public const int LINK_HEARTS = 3;
+        public const int LINK_HEARTS_WIDTH = 30;
 
         //Attacking metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public const float ATTACK_SECONDS = 0.5f;

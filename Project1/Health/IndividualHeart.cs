@@ -27,9 +27,9 @@ namespace Project1.Health
             //set heart to be full, half or empty
             switch (fragments)
             {
-                case 0: heartTexture = HealthSystem.heartsFragments[0]; break; //empty
-                case 1: heartTexture = HealthSystem.heartsFragments[1]; break; //half
-                case 2: heartTexture = HealthSystem.heartsFragments[2]; break; //full
+                case 0: heartTexture = this.healthSystem.heartsFragments[0]; break; //empty
+                case 1: heartTexture = this.healthSystem.heartsFragments[1]; break; //half
+                case 2: heartTexture = this.healthSystem.heartsFragments[2]; break; //full
             }
         }
     }

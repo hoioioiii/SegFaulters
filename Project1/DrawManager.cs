@@ -52,7 +52,7 @@ namespace Project1
             {
                 if (items[i].drawState)
                 {
-                    items[i].Draw(Game1._spriteBatch, new Vector2(100, 100), 1);
+                    items[i].Draw(Game1._spriteBatch);
                 }
             }
         }
