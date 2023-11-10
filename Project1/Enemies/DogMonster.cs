@@ -106,7 +106,7 @@ namespace Project1
 
         private void PrepareAttack()
         {
-            if (time_manager.checkIfAttackTime())
+            if (time_manager.checkIfAttackTimeRandom())
             {
                 state_manager.setIsAttacking(true);
                 state_manager.setIsMoving(false);

@@ -89,7 +89,7 @@ namespace Project1
         //check if direction change is needed for wandering movement
         public bool checkRandMovementTime()
         {
-             if (elapsed_move__sec >= movement_timeframe_sec)
+             if (elapsed_move__sec >= Random.RandomMilli())
             {
                 elapsed_move__sec = 0;
                 return true;
@@ -101,6 +101,18 @@ namespace Project1
         {
             elapsed_move__sec += 1;
             if (elapsed_move__sec >= attackPerMovement)
+            {
+                elapsed_move__sec = 0;
+                stopMoveTime = true;
+                return true;
+            }
+            return false;
+        }
+
+        public bool checkIfAttackTimeRandom()
+        {
+            elapsed_move__sec += 1;
+            if (elapsed_move__sec >= Random.RandomMilli())
             {
                 elapsed_move__sec = 0;
                 stopMoveTime = true;

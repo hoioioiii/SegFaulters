@@ -20,11 +20,47 @@ namespace Project1
             return val;
         }
 
+        public static int RandomLower()
+        {
+            System.Random rand = new System.Random();
+            int val = rand.Next(0, 1000);
+
+            return val;
+        }
+
+        public static int RandomUpper()
+        {
+            System.Random rand = new System.Random();
+            int val = rand.Next(1000, 2000);
+
+            return val;
+        }
+
+        private static int RandomRandom()
+        {
+            System.Random rand = new System.Random();
+            int val = rand.Next(RandomLower(), RandomUpper());
+
+            return val;
+        }
+
+
+
         //will randomize how many milliseconds a enemy will be moving before attacking
         public static int RandomMilli()
         {
             System.Random rand = new System.Random();
-            int val = rand.Next(100, 300);
+
+            int lower = RandomRandom();
+            int upper = RandomRandom();
+            while(lower > upper)
+            {
+                lower = RandomRandom();
+                upper = RandomRandom();
+
+            }
+            
+            int val = rand.Next(lower,upper );
 
             return val;
         }

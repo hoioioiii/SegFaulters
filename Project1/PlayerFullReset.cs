@@ -23,6 +23,8 @@ namespace Project1
             //GameStateManager.GameState = GameState.DefaultState;
             Game1.gameStatePlaying = true;
             Game1.timer = 60 * 3;
+            Game1.GameObjManager.clearAll();
+            
             Game1.hudDisplay = new HeadsUpDisplay(Game1.graphics,Game1.contentLoader);
 
         }
