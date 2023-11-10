@@ -205,6 +205,18 @@
 /processorParam:TextureFormat=Color
 /build:BigItemInventory.png
 
+#begin blackSquareRoom.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:blackSquareRoom.png
+
 #begin BladeTrap.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1004,6 +1016,18 @@
 /processorParam:TextureFormat=Color
 /build:grass.png
 
+#begin greenSquareOnMap.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:greenSquareOnMap.png
+
 #begin HAND.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1586,6 +1610,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:orbRed.png
+
+#begin pausedMap.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:pausedMap.png
 
 #begin redbar.png
 /importer:TextureImporter

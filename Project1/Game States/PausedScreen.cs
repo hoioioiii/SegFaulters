@@ -23,6 +23,11 @@ namespace Project1
             pausedMap.Draw(spritebatch);
 
         }
+        public void Update()
+        {
+            pausedMap.Update();
+
+        }
 
         public void moveSelectorRight()
         {

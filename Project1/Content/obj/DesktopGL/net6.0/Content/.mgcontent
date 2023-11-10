@@ -20,6 +20,7 @@
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/bat1.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/bat2.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/BigItemInventory.png</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/blackSquareRoom.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/BladeTrap.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/bomb.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/boomerang_sheet.png</File>
@@ -87,6 +88,7 @@
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/fire2.gif</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/forest.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/grass.png</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/greenSquareOnMap.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/HAND.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/handLeft1.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/handLeft2.png</File>
@@ -136,6 +138,7 @@
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/OLDM.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/orb.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/orbRed.png</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/pausedMap.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/redbar.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/redbaradjusted.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/redItemSelector.png</File>
@@ -168,6 +171,9 @@
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/ZeldaSpriteOldMan.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
