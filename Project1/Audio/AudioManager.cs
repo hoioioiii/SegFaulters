@@ -30,7 +30,7 @@ namespace Project1
             enemyHit = content.Load<SoundEffect>("Audio\\LOZ_Enemy_Hit");
             fire = content.Load<SoundEffect>("Audio\\fire");
             flame = content.Load<SoundEffect>("Audio\\flame");
-            bigItemGet = content.Load<SoundEffect>("Audio\\item");
+            bigItemGet = content.Load<SoundEffect>("Audio\\item get");
             smallItemGet = content.Load<SoundEffect>("Audio\\LOZ_Get_Item");
             heartGet = content.Load<SoundEffect>("Audio\\LOZ_Get_Heart");
             rupeeGet = content.Load<SoundEffect>("Audio\\LOZ_Get_Rupee");
@@ -41,7 +41,7 @@ namespace Project1
             secret = content.Load<SoundEffect>("Audio\\secret revealed");
             stairs = content.Load<SoundEffect>("Audio\\stairs");
             subtractUI = content.Load<SoundEffect>("Audio\\subtract ui");
-            sword = content.Load<SoundEffect>("Audio\\sword");
+            sword = content.Load<SoundEffect>("Audio\\sword swing");
             //puzzleSolved = content.Load<SoundEffect>("Audio\\puzzleSolved");
 
             MediaPlayer.IsRepeating = true;

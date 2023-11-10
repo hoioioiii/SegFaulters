@@ -42,7 +42,7 @@ namespace Project1
             }
         }
 
-        public void UpdateGameState(SpriteBatch spritebatch)
+        public void UpdateGameState()
         {
             switch (GameState)
             {
@@ -50,7 +50,7 @@ namespace Project1
                 case GameState.DefaultState:
                     break;
                 case GameState.PausedState:
-                    //UpdatePausedState();
+                    PausedScreen.Update();
                     break;
 
             }

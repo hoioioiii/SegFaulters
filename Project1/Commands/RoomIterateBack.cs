@@ -5,8 +5,11 @@ namespace Project1.Commands
 	{
         public void Execute()
         {
-            Game1.GameObjManager.clearAll();
-            RoomManager.DecrementActiveRoom();
+            if(GameStateManager.GameState == GameState.DefaultState)
+            {
+                RoomManager.DecrementActiveRoom();
+            }
+            
         }
     }
 }

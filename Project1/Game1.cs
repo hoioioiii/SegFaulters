@@ -243,6 +243,7 @@ namespace Project1
                 else if (GameStateManager.GameState == GameState.PausedState)
                 {
                     hudDisplay.Update(true);
+                    GameStateManager.UpdateGameState();
                 }
 
 

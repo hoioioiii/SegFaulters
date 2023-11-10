@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/tinal/source/repos/3.7/Project1/Content/jelly1.png</SourceFile>
-  <SourceTime>2023-11-10T07:29:44.0856372-05:00</SourceTime>
-  <DestFile>C:/Users/tinal/source/repos/3.7/Project1/Content/bin/DesktopGL/Content/jelly1.xnb</DestFile>
-  <DestTime>2023-11-10T07:29:57.001574-05:00</DestTime>
+  <SourceFile>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/jelly1.png</SourceFile>
+  <SourceTime>2023-11-07T19:35:59.3468098-05:00</SourceTime>
+  <DestFile>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/jelly1.xnb</DestFile>
+  <DestTime>2023-11-10T13:47:28.9429371-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
