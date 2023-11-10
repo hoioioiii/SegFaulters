@@ -168,8 +168,11 @@ namespace Project1
         private ISpriteWeapon sprite;
 
         public Rectangle BoundingBox { get; set; }
+        public bool isAttacking {private get; set; }
+
         public Sword()
         {
+           
             sprite = WeaponSpriteFactory.Instance.CreateSwordSprite();
         }
 
@@ -188,6 +191,7 @@ namespace Project1
         {
 
             sprite.Update();
+            finished();
         }
         /*
          * 
@@ -195,7 +199,7 @@ namespace Project1
          */
         public void Draw()
         {
-
+            
             sprite.Draw(Game1._spriteBatch);
         }
 
@@ -233,10 +237,12 @@ namespace Project1
             throw new NotImplementedException();
         }
 
-
-
         public bool finished()
         {
+            if (sprite.finished()) {
+                Game1.GameObjManager.removePlayerWeapon(this);
+
+            }
             return sprite.finished();
         }
 

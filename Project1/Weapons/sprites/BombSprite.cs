@@ -30,8 +30,7 @@ namespace Project1
         private int width;
         private int height;
 
-        private int offsetX;
-        private int offsetY;
+        
         private bool finishAndRemove;
         private TimeSpan time;
 
@@ -46,9 +45,6 @@ namespace Project1
             fps = 700;
             
             onScreen = 0;
-            offsetX = 0; 
-            offsetY = 0;
-
             
             remainOnScreen = true;
             finishAndRemove = false;
@@ -195,19 +191,11 @@ namespace Project1
          */
         public void Draw(SpriteBatch spriteBatch)
         {
-            onScreen += (int)Game1.deltaTime.ElapsedGameTime.TotalMilliseconds;
-            if (onScreen < 60000 && !finishAndRemove)
-            {
                 width = texture[current_frame].Width;
                 height = texture[current_frame].Height;
                 Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
-                Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width *3, height * 3);
+                Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width *LARGER_SIZE, height * LARGER_SIZE);
                 spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
-            }
-            else
-            {
-                onScreen = 0;
-            }
         }
 
         /*
@@ -251,7 +239,7 @@ namespace Project1
 
         public bool finished()
         {
-            throw new NotImplementedException();
+            return finishAndRemove;
         }
     }
 }

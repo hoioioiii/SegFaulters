@@ -36,8 +36,12 @@ namespace Project1
         public void Update()
         {
             sprite.Update();
-            //GetUserPos();
-            //GetUserState();
+
+            if (finished())
+            {
+                Game1.GameObjManager.removePlayerWeapon(this);
+            }
+
         }
 
         /*
@@ -90,7 +94,7 @@ namespace Project1
 
         public bool finished()
         {
-            throw new NotImplementedException();
+            return sprite.finished();
         }
 
       

@@ -6,32 +6,31 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.Enemies;
 using static Project1.Constants;
-
 namespace Project1
 {
-    public class Animation : IAnimation
+    public class PlayerAnimation : IAnimationPlayer
     {
-        
 
         private int curr_frame;
-
         private int total_frame;
 
         private ITime time_manager;
         private IDirectionStateManager direction_manager;
-
+        private IPlayerStateTest playerState;
         private int start_frame;
         private bool direction_change;
         private int frame_direct;
 
         public Texture2D sprite_frame { get; private set; }
-        public List<Texture2D[]> frame_list { private get;  set; }
-
+        public List<Texture2D[]> frame_list { private get; set; }
+        public static Texture2D[] stillFrame_list { private get; set; }
+        public static Texture2D[] attackingFrame_list { private get; set; }
 
 
         //might change later according to new sprite factory
-        public Animation(int frame, ITime time_manager, IDirectionStateManager direct_manager) { 
-           
+        public PlayerAnimation(int frame, ITime time_manager, IDirectionStateManager direct_manager, IPlayerStateTest state)
+        {
+
             this.frame_list = null;
             //this.total_frame = total;
             this.curr_frame = frame;
@@ -39,15 +38,24 @@ namespace Project1
             this.direction_manager = direct_manager;
             this.start_frame = START_FRAME;
             this.direction_change = false;
+            this.playerState = state;
+        }
+
+        public void SetAttackFrame()
+        {
+            
+           getDirectionArray(direction_manager.getDirection(),playerState.isAttacking, playerState.isMoving);
             
         }
 
+      
+
         public void PopulateFrames()
         {
-            getDirectionArray(direction_manager.getDirection());
+            getDirectionArray(direction_manager.getDirection(),false,false);
         }
 
-        private void getDirectionArray(Direction direct)
+        private void getDirectionArray(Direction direct, bool isAttack, bool isStill)
         {
             switch (direct)
             {
@@ -64,38 +72,60 @@ namespace Project1
                     frame_direct = LEFT;
                     break;
             }
-            this.total_frame = frame_list[frame_direct].Length;
 
-            checkCurrentFrame();
-            this.sprite_frame = frame_list[frame_direct][curr_frame];
+            changeCurrentSpriteFrames(isStill,isAttack);
+            
+            
         }
 
+        private void changeCurrentSpriteFrames(bool isStill, bool isAttack)
+        {
+            //if it is not moving then we want to use the still sprite array
+            if (isStill)
+            {
+                this.total_frame = stillFrame_list.Length;
+                this.sprite_frame = stillFrame_list[frame_direct];
+
+            }
+            else if (isAttack)
+            {
+                this.total_frame = attackingFrame_list.Length;
+                this.sprite_frame = attackingFrame_list[frame_direct];
+
+            }
+            else
+            {
+                this.total_frame = frame_list[frame_direct].Length;
+                checkCurrentFrame();
+                this.sprite_frame = frame_list[frame_direct][curr_frame];
+            }
+        }
 
 
         public void Animate()
         {
-            getDirectionArray(direction_manager.getDirection());
+            getDirectionArray(direction_manager.getDirection(),playerState.isAttacking,playerState.isMoving);
             if (this.time_manager.checkAnimationFrameTime())
             {
                 this.time_manager.resetElaspedMilli();
                 this.curr_frame += 1;
             }
             checkCurrentFrame();
-            
+
         }
 
         public int getCurrentFrame()
         {
             return this.curr_frame;
-            
+
         }
 
         private void checkCurrentFrame()
         {
-           
+
             if (direction_change)
             {
-                getDirectionArray(direction_manager.getDirection());
+                getDirectionArray(direction_manager.getDirection(),playerState.isAttacking, playerState.isMoving);
                 direction_change = false;
             }
             if (this.curr_frame >= this.total_frame)
@@ -105,7 +135,7 @@ namespace Project1
             this.sprite_frame = frame_list[frame_direct][curr_frame];
         }
 
-    
+
         //not needed
         public void setTotalFrame(int frameNum)
         {

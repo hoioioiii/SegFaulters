@@ -30,6 +30,7 @@ namespace Project1
                 UpdateItems();
                 UpdateEnemies();
                 UpdateIWeapons();
+                UpdatePlayerIWeapons();
             }
 
             Game1.GameObjManager.RemoveDead();
@@ -53,6 +54,15 @@ namespace Project1
         private void UpdateIWeapons()
         {
             List<IWeapon> weapons = Game1.GameObjManager.getWeaponList();
+            for (int i = 0; i < weapons.Count; i++)
+            {
+                weapons[i].Update();
+            }
+        }
+
+        private void UpdatePlayerIWeapons()
+        {
+            List<IWeapon> weapons = Game1.GameObjManager.getPlayerWeaponList();
             for (int i = 0; i < weapons.Count; i++)
             {
                 weapons[i].Update();

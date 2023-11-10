@@ -106,6 +106,11 @@ namespace Project1
 
         }
 
+        public void Draw()
+        {
+            throw new NotImplementedException();
+        }
+
         /*
         public void setPosition(Vector2 pos)
         {

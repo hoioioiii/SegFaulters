@@ -81,7 +81,8 @@ namespace Project1
 
         public static Game1 GameObj = Game1.Game;
 
-
+        public static int WEAPON_OFFSET_X = 20;
+        public static int WEAPON_OFFSET_Y = 30;
         //Collision metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int roomBoundsMaxX = 660, roomBoundsMaxY = 365 + FRAME_BUFFER, roomBoundsMinX = 90, roomBoundsMinY = 53 + FRAME_BUFFER;
 
@@ -193,6 +194,10 @@ namespace Project1
         //Player metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int LINK_R = 1;
         public static int LINK_C = 4;
+        public static int PLAYER_FRAMES_U = 2;
+        public static int PLAYER_FRAMES_R = 2;
+        public static int PLAYER_FRAMES_L = 2;
+        public static int PLAYER_FRAMES_D = 2;
         public const int LINK_HEARTS = 3;
         public const int LINK_HEARTS_WIDTH = 30;
 
@@ -292,6 +297,7 @@ namespace Project1
 
         public static int SWORD_R = 1;
         public static int SWORD_C = 4;
+        public static int SWORD_SCALE = 3;
 
         public static int BOOMERANG_R = 1;
         public static int BOOMERANG_C = 4;

@@ -121,7 +121,7 @@ namespace Project1
 
 
             timeProj = new GameTime();
-            player = new Player();
+            
             Player.Initialize();
 
             //hudDisplay = new HeadsUpDisplay();

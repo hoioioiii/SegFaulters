@@ -15,6 +15,8 @@ namespace Project1
         private List<IItem>items;
         private List<IEntity> entities;
         private List<IWeapon> weapons;
+        private List<IWeapon> playerWeapons;
+
         private List<Door> doors;
         private List<IEnvironment> blocks;
         private List<Rectangle> walls;
@@ -22,6 +24,8 @@ namespace Project1
         private List<IItem> removeItemsList;
         private List<IEntity> removeEntityList;
         private List<IWeapon> removeWeaponList;
+        private List<IWeapon> removePlayerWeaponList;
+
 
         private List<IItem> addItemsList;
         private List<IEntity> addEntitiesList;
@@ -29,7 +33,7 @@ namespace Project1
         private List<Door> addDoorsList;
         private List<IEnvironment> addBlocksList;
         private List<Rectangle> addWallsList;
-
+        private List<IWeapon> addPlayerWeaponsList;
 
 
         private Player link;
@@ -44,10 +48,12 @@ namespace Project1
             doors = new List<Door>();
             blocks = new List<IEnvironment>();
             walls = new List<Rectangle>();
+            playerWeapons = new List<IWeapon>();
 
             removeEntityList = new List<IEntity>();
             removeItemsList = new List<IItem>();
             removeWeaponList = new List<IWeapon>();
+            removePlayerWeaponList = new List<IWeapon>();
 
             addDoorsList = new List<Door>();
             addItemsList = new List<IItem> ();
@@ -55,6 +61,8 @@ namespace Project1
             addWeaponsList = new List<IWeapon>();
             addBlocksList = new List<IEnvironment> ();
             addWallsList = new List<Rectangle> ();
+            addPlayerWeaponsList = new List<IWeapon> ();
+
 
             ITime timeManager = new TimeTracker(true);
 
@@ -96,6 +104,11 @@ namespace Project1
            addWeaponsList.Add(weapon);
         }
 
+        public void addNewPlayerWeapon(IWeapon weapon)
+        {
+            addPlayerWeaponsList.Add(weapon);
+        }
+
         private void addAllItems()
         {
             foreach(IItem item in addItemsList)
@@ -117,6 +130,14 @@ namespace Project1
             foreach (IWeapon weapon in addWeaponsList)
             {
                 weapons.Add(weapon);
+            }
+        }
+
+        private void addAllPlayerWeapons()
+        {
+            foreach (IWeapon weapon in addPlayerWeaponsList)
+            {
+                playerWeapons.Add(weapon);
             }
         }
 
@@ -147,6 +168,7 @@ namespace Project1
         public void setAllObjects()
         {
             addAllWeapons();
+            addAllPlayerWeapons();
             addAllWalls();
             addAllBlocks();
             addAllDoors();
@@ -160,6 +182,7 @@ namespace Project1
             items.Clear();
             entities.Clear();
             weapons.Clear();
+            playerWeapons.Clear();
             doors.Clear();
             blocks.Clear();
         }
@@ -168,6 +191,7 @@ namespace Project1
         {
             addBlocksList.Clear();
             addWeaponsList.Clear();
+            addPlayerWeaponsList.Clear();
             addWallsList.Clear();
             addEntitiesList.Clear();
             addDoorsList.Clear();
@@ -182,6 +206,7 @@ namespace Project1
             removeItemsList.Clear();
             removeWeaponList.Clear();
             removeEntityList.Clear();
+            removePlayerWeaponList.Clear();
         }
         
 
@@ -220,6 +245,7 @@ namespace Project1
             removeAllItems();
             removeAllWeapons();
             removeAllEntities();
+            removeAllPlayerWeapons();
         }
 
         private void removeAllEntities()
@@ -246,8 +272,14 @@ namespace Project1
                 weapons.Remove(weapon);
             }
         }
+        private void removeAllPlayerWeapons()
+        {
+            foreach (IWeapon weapon in removePlayerWeaponList)
+            {
+                playerWeapons.Remove(weapon);
+            }
+        }
 
-      
 
         public void removeItem(IItem item)
         {
@@ -263,115 +295,17 @@ namespace Project1
         {
            removeWeaponList.Add(weapon);
         }
+
+        public void removePlayerWeapon(IWeapon weapon)
+        {
+            removePlayerWeaponList.Add(weapon);
+        }
+
+        public List<IWeapon> getPlayerWeaponList()
+        {
+            return playerWeapons;
+        }
     }
 }
 
-//public void Update()
-//{
-
-//    if (!DrawState)
-//    {
-//        setAllObjects();
-//        ClearAddingLists();
-//        UpdateState = true;
-//        UpdateItems();
-//        UpdateEnemies();
-//        UpdateIWeapons();
-//    }
-
-//    RemoveDead();
-//    ClearRemovingLists();
-
-//    UpdateState = false;
-
-//    //UpdatePlayer();
-//    //AllCollisionDetection.DetectCollision(this);
-//}
-
-
-
-
-
-//private void UpdatePlayer()
-//{
-//    //link.Update();
-//}
-
-//private void UpdateIWeapons()
-//{
-//    for (int i = 0; i < weapons.Count; i++)
-//    {
-//        weapons[i].Update();
-//    }
-//}
-
-//private void UpdateEnemies()
-//{
-//    for (int i = 0; i < entities.Count; i++)
-//    {
-//        entities[i].Update();
-//    }
-//}
-
-//private void UpdateItems()
-//{
-//    for (int i = 0; i < items.Count; i++)
-//    {
-//        items[i].Update();
-//    }
-//}
-
-
-//private void DrawPlayer()
-//{
-
-//        //TODO:Fix later
-//       // link.Draw(, Game1._spriteBatch);
-
-//}
-
-//private void DrawIWeapons()
-//{
-
-//    for (int i = 0; i < weapons.Count; i++)
-//    {
-//        //this is needed for bomb(the attack)
-//        //weapons[i].Attack();
-//        weapons[i].Draw();
-//    }
-//}
-
-//private void DrawEnemies()
-//{
-//    for (int i = 0; i < entities.Count; i++)
-//    {
-//        entities[i].Draw(Game1._spriteBatch);
-//    }
-//}
-
-//private void DrawItems()
-//{
-//    for (int i = 0; i < items.Count; i++)
-//    {
-//        if (items[i].drawState)
-//        {
-//            items[i].Draw(Game1._spriteBatch, new Vector2(100, 100), 1);
-//        }
-//    }
-//}
-
-//public void Draw()
-//{
-
-//    if (!UpdateState)
-//    {
-//        DrawState = true;
-//        DrawIWeapons();
-//        DrawEnemies();
-//        DrawItems();
-
-//    }
-//    DrawState = false;
-//   // DrawPlayer();
-//}
 
