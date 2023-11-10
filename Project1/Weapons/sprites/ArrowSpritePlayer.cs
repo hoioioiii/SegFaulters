@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
@@ -30,10 +31,9 @@ namespace Project1
         private int width;
         private int height;
 
-        private int offsetX;
-        private int offsetY;
+        private int spd;
 
-        private static int onScreen;
+        private bool completed;
         public static bool remainOnScreen { get; private set; }
 
         public ArrowSpritePlayer(Texture2D[] spriteSheet)
@@ -44,19 +44,8 @@ namespace Project1
             current_frame = 0;
             fps = 300;
 
-            onScreen = 0;
-            offsetX = 0;
-            offsetY = 0;
-
-            ////delete later
-            //texture[(int)DIRECTION.up] = Game1.ContentManager1.Load<Texture2D>("arrowUp");
-            //texture[(int)DIRECTION.right] = Game1.ContentManager1.Load<Texture2D>("arrowRight");
-            //texture[(int)DIRECTION.down] = Game1.ContentManager1.Load<Texture2D>("arrowDown");
-            //texture[(int)DIRECTION.left] = Game1.ContentManager1.Load<Texture2D>("arrowLeft");
-
-            width = texture[0].Width;
-            height = texture[0].Height;
-
+            completed = false;
+            spd = 2;
         }
 
 
@@ -74,12 +63,13 @@ namespace Project1
         private void removeArrow()
         {
             ArrowPlaced = false;
+            completed = true;
         }
 
         //ignore
         private void UpdateFrames()
         {
-       
+
         }
 
         /*
@@ -111,6 +101,7 @@ namespace Project1
          */
         public void Update()
         {
+            Attack();
             Move();
         }
 
@@ -119,8 +110,10 @@ namespace Project1
          */
         private void placeOffset()
         {
-            weaponX = WeaponDirectionMovement.OffsetX(userX, direction);
-            weaponY = WeaponDirectionMovement.OffsetY(userY, direction);
+            (int, int) pos = WeaponDirectionMovement.SwordOffSetX(userX, userY, direction);
+
+            weaponX = pos.Item1;
+            weaponY = pos.Item2;
         }
 
         /*
@@ -129,7 +122,7 @@ namespace Project1
         public void Draw(SpriteBatch spriteBatch)
         {
             Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
-            Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width, height);
+            Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width * LARGER_SIZE, height * LARGER_SIZE);
             spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
@@ -145,31 +138,38 @@ namespace Project1
 
 
 
+
+
         /*
          * Get user directions
          */
         private void GetUserState()
         {
             direction = Player.getUserDirection();
-            current_frame = direction;
 
-            /*
+
             switch (direction)
             {
-                case 1:
+                case 0:
                     current_frame = 0;
+
                     break;
-                case 2:
+                case 1:
                     current_frame = 1;
                     break;
-                case 3:
+
+                case 2:
                     current_frame = 2;
+
                     break;
-                case 4:
+                case 3:
                     current_frame = 3;
+
                     break;
             }
-            */
+            width = texture[current_frame].Width;
+            height = texture[current_frame].Height;
+
         }
         /*
          * Arrow moves accross screen
@@ -177,15 +177,30 @@ namespace Project1
         //NEED TO FIX WEAPON-DIRECT-MOVEMENT to reflect new linkdirection variable
         private void Move()
         {
-            if (direction % 2 == 0)
+           
+            if (direction == UP || direction == DOWN)
             {
-                weaponX = WeaponDirectionMovement.FourDirMove(weaponX, direction,1);
+                weaponY = WeaponDirectionMovement.moveY(weaponY, direction,spd);
+                //weaponX = WeaponDirectionMovement.moveY(weaponX, direction, 1);
             }
             else
             {
-                weaponY = WeaponDirectionMovement.FourDirMove(weaponY, direction,1);
+              weaponX = WeaponDirectionMovement.moveX(weaponX, direction,spd);
             }
 
+            if (CheckPosition())
+            {
+                removeArrow();
+            }
+        }
+
+        private bool CheckPosition()
+        {
+            if (WeaponDirectionMovement.CheckBoundary(weaponX, roomBoundsMaxX, roomBoundsMinX) || WeaponDirectionMovement.CheckBoundary(weaponY, roomBoundsMaxY, roomBoundsMinY))
+            {
+                return true;
+            }
+            return false;
 
         }
 
@@ -201,7 +216,7 @@ namespace Project1
 
         public bool finished()
         {
-            throw new NotImplementedException();
+            return completed;
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Project1
     public interface IWeapon
     {
         public Rectangle BoundingBox { get; set; }
+
         public void Draw(SpriteBatch spriteBatch);
         public void Attack();
 

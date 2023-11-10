@@ -27,7 +27,7 @@ namespace Project1.Enemies
         {
             
             //replace starting direction based on lvl loader info
-            direction_state_manager = new DirectionStateEnemy(Direction.Up);
+            direction_state_manager = new DirectionState(Direction.Up);
             time_manager = new TimeTracker(false);
             animation_manager = new Animation(0, time_manager, direction_state_manager);
             state_manager = new EntityState();

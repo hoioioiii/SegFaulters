@@ -42,8 +42,14 @@ namespace Project1
          */
         public void Update()
         {
-
+            Attack();
             sprite.Update();
+
+            if (finished())
+            {
+                Game1.GameObjManager.removeWeapon(this);
+            }
+
         }
         /*
          * 

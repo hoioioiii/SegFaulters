@@ -9,14 +9,14 @@ using static Project1.Constants.Direction;
 
 namespace Project1.Enemies
 {
-    public class DirectionStateEnemy : IDirectionStateManager
+    public class DirectionState : IDirectionStateManager
     {
         
         
         private Direction current_direction;
         private Dictionary<Direction, Direction> oppositeDirection;
 
-        public DirectionStateEnemy(Direction direction_state)
+        public DirectionState(Direction direction_state)
         {
 
             current_direction = direction_state;

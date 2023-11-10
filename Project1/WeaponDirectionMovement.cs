@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using static Project1.Constants;
 
 namespace Project1
 {
@@ -17,13 +18,15 @@ namespace Project1
         {
             //takes care of horizontal
 
+            //Up and Down
             if (direction % 2 == 0)
             {
-                pos = moveX(pos, direction, modifer);
-            }
-            else
-            {
                 pos = moveY(pos, direction, modifer);
+            }
+            else 
+            {
+                pos = moveX(pos, direction, modifer);
+                
             }
 
             return pos;
@@ -33,27 +36,27 @@ namespace Project1
         {
 
             //moving down: 3
-            if (direction == 3)
+            if (direction == 2)
             {
 
-                pos += 1;
+                pos += 1 * modifer;
             }
-            else if(direction == 1)//moving up
+            else if(direction == 0)//moving up
             {
 
-                pos += -1;
+                pos -= 1 * modifer;
             }
             return pos;
         }
         public static int ForwardBack(int pos, int direction, int mod)
         {
-            if (direction == 1 || direction == 4)
+            if (direction == 0 || direction == 3)
             {
 
                 pos -= 1 * mod;
 
             }
-            else if (direction == 2 || direction == 3)
+            else if (direction == 1 || direction == 2)
             {
                 pos += 1 * mod;
             }
@@ -61,24 +64,56 @@ namespace Project1
 
         }
 
-
         public static int moveX(int pos, int direction,int modifer)
         {
 
             //moving left
-            if (direction == 4)
+            if (direction == 3)
             {
 
-                pos += -1 ;
+                pos += -1 * modifer ;
             }
-            else if (direction == 2)//moving right
+            else if (direction == 1)//moving right
             {
-                pos += 1;
+                pos += 1 * modifer;
 
             }
 
             return pos;
 
+        }
+
+        public static int FollowXPlayer(int x, int user)
+        {
+
+            int diff = (user - x);
+
+            if(diff < 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;
+            }
+        }
+
+        public static int FollowYPlayer(int y, int user)
+        {
+
+            int diff = (user - y);
+
+            if (diff <= 0)
+            {
+                y -= 1;
+            }
+            else
+            {
+                y += 1;
+            }
+
+
+            return y;
         }
 
 
@@ -124,32 +159,54 @@ namespace Project1
             return y;
         }
 
-        public static int DirectionOffsetX(int pos, int direction)
+        public static (int,int) SwordOffSetX(int x, int y,int direction)
         {
-
-            if (direction > 2)
+            
+            //up and down
+            switch (direction)
             {
+                //0 is right
 
-                int offset = -1 * 10;
-                pos += offset;
+                //1 is left
+
+                //2 is up
+
+                //3 is down
+                case 0:
+                    x += WEAPON_OFFSET_X;
+                    y -= WEAPON_OFFSET_Y;
+                    break;
+                case 1:
+                    x += WEAPON_OFFSET_Y;
+                    y += WEAPON_OFFSET_X;
+                    break;
+                case 2:
+                    x += WEAPON_OFFSET_X;
+                    y += WEAPON_OFFSET_Y;
+                    break;
+                case 3:
+                    x -= WEAPON_OFFSET_Y;
+                    y += WEAPON_OFFSET_X;
+                    break;
             }
-            else
-            {
-                int offset = 10;
-                pos += offset;
-            }
-
-            return pos;
-
+            return (x,y);
         }
 
-        public static int DirectionOffsetY(int pos)
+        public static int SwordOffSetY(int pos, int direction)
         {
             //vibe
 
             return pos;
         }
 
+        public static bool CheckBoundary(int pos, int upperBound, int lowerBound)
+        {
+            if ((pos >= upperBound) || (pos <= lowerBound))
+            {
+                return true;
+            }
+            return false;
+        }
 
 
 

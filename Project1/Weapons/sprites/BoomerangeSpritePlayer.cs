@@ -11,7 +11,7 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    internal class BoomerangeSprite : ISpriteWeapon
+    internal class BoomerangeSpritePlayer : ISpriteWeapon
     {
 
         private Texture2D[] texture;
@@ -33,10 +33,10 @@ namespace Project1
 
         private bool completed;
         private bool change;
-        
+        private int animationTime;
+        private int fps;
 
-
-        public BoomerangeSprite(Texture2D[] spriteSheet)
+        public BoomerangeSpritePlayer(Texture2D[] spriteSheet)
         {
             //needs to be refactored 
             texture = spriteSheet;
@@ -48,10 +48,11 @@ namespace Project1
             width = spriteSheet[0].Width;
             height = spriteSheet[0].Height;
 
-            
+            animationTime = 0;
             onWayTime = 0;
             change = false;
             completed = false;
+            fps = 30;
         }
 
         /*
@@ -78,12 +79,18 @@ namespace Project1
         */
         private void UpdateFrames()
         {
-            current_frame += 1;
+            animationTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
 
-            if (current_frame >= total_frame)
-            {
-                current_frame = 0;
+            if(animationTime >= fps) {
+                current_frame += 1;
+
+                if (current_frame >= total_frame)
+                {
+                    current_frame = 0;
+                }
+                animationTime = 0;
             }
+          
 
         }
 
@@ -105,6 +112,8 @@ namespace Project1
         {
             if (!BangPlaced)
             {
+                GetUserPos(0, 0);
+                GetUserState(Direction.Up);
                 placeOffset();
             }
         }
@@ -115,7 +124,8 @@ namespace Project1
         */
         public void Update()
         {
-            
+
+            Attack();
             UpdateFrames();
             Move();
         }
@@ -136,12 +146,10 @@ namespace Project1
         */
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (BangPlaced)
-            {
+            
                 Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
-                Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width, height);
+                Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width * LARGER_SIZE, height * LARGER_SIZE);
                 spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
-            }
 
         }
 
@@ -153,8 +161,8 @@ namespace Project1
         public void GetUserPos(int x, int y)
         {
 
-            //Vector2 posVec = Player.getUserPos();
-            userX = x; userY = y;
+            Vector2 posVec = Player.getUserPos();
+            userX = (int)posVec.X; userY = (int)posVec.Y;
         }
 
         /*
@@ -163,22 +171,7 @@ namespace Project1
         */
         public void GetUserState(Direction direct)
         {
-
-            switch (direct)
-            {
-                case Direction.Up:
-                    direction = 1;
-                    break;
-                case Direction.Left:
-                    direction = 2;
-                    break;
-                case Direction.Down:
-                    direction = 3;
-                    break;
-                case Direction.Right:
-                    direction = 4;
-                    break;
-            }
+            direction = (int)Player.getUserDirection(); ;
         }
 
         public bool finished()
@@ -194,39 +187,10 @@ namespace Project1
         public void CheckTime()
         {
             onWayTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-
+            
         }
 
-        /*
-        * 
-        * change boomerange directions
-        */
-        private void changeDirections()
-        {
-            switch (direction)
-            {
-                case 1:
-
-                    direction = 3;
-
-                    break;
-
-                case 2:
-                    direction = 4;
-                    break;
-
-
-                case 3:
-                    direction = 1;
-                    break;
-
-                case 4:
-                    direction = 2;
-                    break;
-
-
-            }
-        }
+       
 
         /*
         * 
@@ -247,18 +211,21 @@ namespace Project1
                 }
             }
 
-            if (direction % 2 == 0)
+            if (direction == 1 || direction == 3)
             {
                 weaponX = WeaponDirectionMovement.ForwardBack(weaponX, direction, mod);
 
-                if (change) checkFinish(weaponX, userX);
+                if (change) checkFinish(weaponX, (int)Player.getPosition().X);
             }
             else
             {
                 weaponY = WeaponDirectionMovement.ForwardBack(weaponY, direction, mod);
-                if (change) checkFinish(weaponY, userY);
+                if (change) checkFinish(weaponY, (int)Player.getPosition().Y);
             }
+
         }
+
+
 
         //this is going to be replaced by collision response
         private void checkFinish(int wPos, int userPos)
@@ -270,6 +237,7 @@ namespace Project1
             {
                 removeBang();
                 completed = true;
+                
             }
 
         }

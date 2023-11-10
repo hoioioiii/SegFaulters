@@ -116,7 +116,7 @@ namespace Project1
 
 
             timeProj = new GameTime();
-            player = new Player();
+            
             Player.Initialize();
            
             base.Initialize();
@@ -222,8 +222,6 @@ namespace Project1
                 
                 EnvironmentLoader.Draw(_spriteBatch);
 
-                Player.Draw(gameTime, _spriteBatch);
-
                 /*
                 #region Debug Draw Link's bounding box
                 // Create the single-pixel texture
@@ -240,8 +238,8 @@ namespace Project1
                 //GameObjManager.Draw();
 
                 DrawManager.Draw();
+                Player.Draw(gameTime, _spriteBatch);
 
-               
             }
             else
             {

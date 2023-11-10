@@ -36,6 +36,17 @@ namespace Project1
             }
         }
 
+
+        private void DrawPlayerIWeapons()
+        {
+            List<IWeapon> weapons = Game1.GameObjManager.getPlayerWeaponList();
+            for (int i = 0; i < weapons.Count; i++)
+            {
+                //this is needed for bomb(the attack)
+                //weapons[i].Attack();
+                weapons[i].Draw();
+            }
+        }
         private void DrawEnemies()
         {
             List<IEntity> entities = Game1.GameObjManager.getEntityList();
@@ -66,6 +77,7 @@ namespace Project1
                 DrawIWeapons();
                 DrawEnemies();
                 DrawItems();
+                DrawPlayerIWeapons();
 
             }
             DrawState = false;

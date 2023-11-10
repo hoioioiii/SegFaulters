@@ -6,58 +6,75 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
+using static Project1.Constants;
 namespace Project1
 {
 
 
 
-    internal class Bomb : IWeapon
+    internal class BoomerangePlayer : IWeapon
     {
+        private ISpriteWeapon sprite;
+
         public Rectangle BoundingBox { get; set; }
 
-        private ISpriteWeapon sprite;
-        public Bomb() {
+        public int attackStat { get; private set; }
 
-
-            sprite = WeaponSpriteFactory.Instance.CreateBombSprite();
+        public BoomerangePlayer()
+        {
+            sprite = WeaponSpriteFactory.Instance.CreateBoomerangePlayerSprite();
+            attackStat = 2;
         }
 
-        /**
+        /*
          * Attack
          */
-        public void Attack()
+        public void Attack(int x, int y, Direction direct)
         {
-            sprite.Attack();
+
             
+            sprite.Attack();
+
         }
         /*
          * Update
          */
-
         public void Update()
         {
+            Attack();
             sprite.Update();
-
             if (finished())
             {
                 Game1.GameObjManager.removePlayerWeapon(this);
             }
-
-
         }
-
         /*
+         * 
          * Draw
          */
         public void Draw()
         {
+
             sprite.Draw(Game1._spriteBatch);
         }
 
+        public void GetUserPos(int x, int y)
+        {
+            int xPos = (int)Player.getPosition().X;
+            int yPos = (int)Player.getPosition().Y;
+            sprite.GetUserPos(xPos, yPos);
+        }
 
-        //Ignore-----------------------------fix later
-        public void DetermineWeaponState()
+        public void GetUserState(Direction currUserDirection)
+        {
+            sprite.GetUserState(currUserDirection);
+        }
+
+        /*
+        * Ognore--------------------
+        * 
+        */
+        public void Load()
         {
             throw new NotImplementedException();
         }
@@ -72,30 +89,26 @@ namespace Project1
             throw new NotImplementedException();
         }
 
-        public void Load()
+        public void DetermineWeaponState()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(int x, int y, Constants.Direction direct)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public bool finished()
         {
             return sprite.finished();
         }
 
-        public void Draw(int x, int y, Constants.Direction direct)
+        public void Attack()
         {
-            throw new NotImplementedException();
+         
+            sprite.Attack();
         }
 
-        public void Attack(int x, int y, Constants.Direction direct)
-        {
-            throw new NotImplementedException();
-        }
+      
+       
 
         public void Draw(SpriteBatch spriteBatch)
         {

@@ -106,9 +106,10 @@ namespace Project1
         private int offsetX;
         private int offsetY;
 
+         
 
 
-        private bool isAttacking;
+        public bool isAttacking;
 
         public SwordSpritePlayer(Texture2D[] spriteSheet)
         {
@@ -117,19 +118,13 @@ namespace Project1
             total_frame = 2;
             current_frame = 0;
 
-          
+            
             offsetX = 0;
             offsetY = 0;
 
-            ////delete later
-            //texture[(int)DIRECTION.up] = Game1.ContentManager1.Load<Texture2D>("arrowUp");
-            //texture[(int)DIRECTION.right] = Game1.ContentManager1.Load<Texture2D>("arrowRight");
-            //texture[(int)DIRECTION.down] = Game1.ContentManager1.Load<Texture2D>("arrowDown");
-            //texture[(int)DIRECTION.left] = Game1.ContentManager1.Load<Texture2D>("arrowLeft");
 
-            isAttacking = true;
-            
-
+            GetUserState();
+            isAttacking = Player.getPlayerAttackingState();
         }
 
 
@@ -147,7 +142,9 @@ namespace Project1
         private void RemoveSword()
         {
             swordPlaced = false;
+            
         }
+
 
         //ignore
         private void UpdateFrames()
@@ -160,9 +157,8 @@ namespace Project1
          */
         public void Attack()
         {
-
             DetermineWeaponState();
-            //SetSword();
+            SetSword();
 
         }
 
@@ -182,7 +178,7 @@ namespace Project1
          */
         public void Update()
         {
-            
+            Attack();
         }
 
         /*
@@ -190,8 +186,12 @@ namespace Project1
          */
         private void placeOffset()
         {
-            weaponX = WeaponDirectionMovement.OffsetX(userX, direction);
-            weaponY = WeaponDirectionMovement.OffsetY(userY, direction);
+           (int,int) pos = WeaponDirectionMovement.SwordOffSetX(userX,userY, direction);
+
+            weaponX = pos.Item1;
+            weaponY = pos.Item2;
+
+
         }
 
         /*
@@ -200,19 +200,15 @@ namespace Project1
         public void Draw(SpriteBatch spriteBatch)
         {
 
-            if (isAttacking)
-            {
+            
                 width = texture[current_frame].Width;
                 height = texture[current_frame].Height;
                 //System.Diagnostics.Debug.WriteLine("X,Y", userX, userY);
                 Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
-                Rectangle DEST_REC = new Rectangle(weaponX,weaponY, width*4, height*4);
+                Rectangle DEST_REC = new Rectangle(weaponX,weaponY, width * SWORD_SCALE, height * SWORD_SCALE);
                 spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
-            }
-            else
-            {
-                //RemoveSword();
-            }
+            
+            
             
         }
 
@@ -236,22 +232,22 @@ namespace Project1
             direction = Player.getUserDirection();
             current_frame = direction;
 
-            
-            //switch (direction)
-            //{
-            //    case 1:
-            //        current_frame = 0;
-            //        break;
-            //    case 2:
-            //        current_frame = 1;
-            //        break;
-            //    case 3:
-            //        current_frame = 2;
-            //        break;
-            //    case 4:
-            //        current_frame = 3;
-            //        break;
-            //}
+            //right = 0, left = 1, up = 2, down = 3
+            switch (direction)
+            {
+                case 0:
+                    current_frame = 0;
+                    break;
+                case 1:
+                    current_frame = 1;
+                    break;
+                case 2:
+                    current_frame = 2;
+                    break;
+                case 3:
+                    current_frame = 3;
+                    break;
+            }
         }
 
         private void GetUserAttackingState()
@@ -272,7 +268,8 @@ namespace Project1
 
         public bool finished()
         {
-            throw new NotImplementedException();
+            if (!isAttacking) return true;
+            return false;
         }
     }
 }
