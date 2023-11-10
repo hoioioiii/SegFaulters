@@ -10,6 +10,7 @@ using System;
 using System.Text;
 using System.Threading;
 using Project1.HUD;
+using Project1.Health;
 
 namespace Project1
 {
@@ -20,7 +21,7 @@ namespace Project1
         private GraphicsDeviceManager _graphics;
         public static SpriteBatch _spriteBatch;
         public static ContentManager contentLoader;
-
+        public static GraphicsDevice graphics;
         public static IActiveObjects GameObjManager;
         public static IDraw DrawManager;
         public static IUpdate UpdateManager;
@@ -60,7 +61,7 @@ namespace Project1
         public static bool gameStatePlaying;
         public static OptionSelector selectionManager;
         private SpriteFont font;
-        private int timer;
+        public static int timer;
 
         public Game1()
         {
@@ -134,7 +135,7 @@ namespace Project1
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("ZeldaFont");
-
+            graphics = GraphicsDevice;
             AudioManager.LoadContent(Content);
             AudioManager.PlayMusic(BGM);
 
@@ -184,57 +185,76 @@ namespace Project1
                 controller.Update();
             }
 
-            //fix later
-            deltaTime = gameTime;
-            if(GameStateManager.GameState == GameState.DefaultState)
+            if (HealthDisplay.linkHealth.IsDead())
             {
-                // Add your update logic here
-                hudDisplay.Update(false);
-                Player.Update(gameTime);
-
-                //HealthBarSprite.Update();
-                //HealthBarSprite.HealthDamage(1);
-                //HealthBarSprite.Update();
-
-                //Example code for how to create an item in the environment:
-                //testItem.Update();
-
-                Item.Update();
-                ENEMY.Update();
-                EnvironmentLoader.Update();
-
-                //GameObjManager.Update();
-                AllCollisionDetection.DetectCollision(GameObjManager);
-                /*GameObjManager.Update()*/;
-
-                UpdateManager.Update();
-                AllCollisionDetection.DetectCollision(GameObjManager);
-
-                //if it's paused, HUDdisplay needs to move down
-
-
-                /*
-                #region Print to debug console
-                System.Text.StringBuilder sb = new StringBuilder();
-                sb.Append("Player pos" + Player.getPosition());
-                //sb.Append((char)Player.getPosition().Item1, (char)Player.getPosition().Item2);
-
-                if (sb.Length > 0)
-                    System.Diagnostics.Debug.WriteLine(sb.ToString());
-                #endregion
-                */
-            
-            } 
-            else if (GameStateManager.GameState == GameState.PausedState) 
-            {
-                hudDisplay.Update(true);
+                // GameStateManager.GameState = GameState.GameOverState;
+                gameStatePlaying = false;
             }
 
-            else if (GameStateManager.GameState == GameState.GameOverState)
+
+            //fix later
+            deltaTime = gameTime;
+
+            if (gameStatePlaying)
+            {
+
+
+
+                if (GameStateManager.GameState == GameState.DefaultState)
+                {
+                    // Add your update logic here
+                    hudDisplay.Update(false);
+                    Player.Update(gameTime);
+
+                    //HealthBarSprite.Update();
+                    //HealthBarSprite.HealthDamage(1);
+                    //HealthBarSprite.Update();
+
+                    //Example code for how to create an item in the environment:
+                    //testItem.Update();
+
+                    Item.Update();
+                    ENEMY.Update();
+                    EnvironmentLoader.Update();
+
+                    //GameObjManager.Update();
+                    AllCollisionDetection.DetectCollision(GameObjManager);
+                    /*GameObjManager.Update()*/
+                    ;
+
+                    UpdateManager.Update();
+                    AllCollisionDetection.DetectCollision(GameObjManager);
+
+                    //if it's paused, HUDdisplay needs to move down
+
+
+                    /*
+                    #region Print to debug console
+                    System.Text.StringBuilder sb = new StringBuilder();
+                    sb.Append("Player pos" + Player.getPosition());
+                    //sb.Append((char)Player.getPosition().Item1, (char)Player.getPosition().Item2);
+
+                    if (sb.Length > 0)
+                        System.Diagnostics.Debug.WriteLine(sb.ToString());
+                    #endregion
+                    */
+
+                }
+                else if (GameStateManager.GameState == GameState.PausedState)
+                {
+                    hudDisplay.Update(true);
+                }
+
+
+                //else if (GameStateManager.GameState == GameState.GameOverState)
+                //{
+                //    timer--;
+                //}
+            }
+            else
             {
                 timer--;
             }
-
 
 
             base.Update(gameTime);
@@ -248,36 +268,54 @@ namespace Project1
 
             _spriteBatch.Begin();
 
-            if(GameStateManager.GameState == GameState.DefaultState)
+
+            if (gameStatePlaying)
             {
+                if (GameStateManager.GameState == GameState.DefaultState)
+                {
 
-                EnvironmentLoader.Draw(_spriteBatch);
+                    EnvironmentLoader.Draw(_spriteBatch);
 
-                Player.Draw(gameTime, _spriteBatch);
+                    Player.Draw(gameTime, _spriteBatch);
 
-                DrawManager.Draw();
+                    DrawManager.Draw();
 
 
-                /*
-                #region Debug Draw Link's bounding box
-                // Create the single-pixel texture
-                Texture2D pixel = new Texture2D(GraphicsDevice, 1, 1);
-                pixel.SetData<Color>(new Color[] { Color.White });
+                    /*
+                    #region Debug Draw Link's bounding box
+                    // Create the single-pixel texture
+                    Texture2D pixel = new Texture2D(GraphicsDevice, 1, 1);
+                    pixel.SetData<Color>(new Color[] { Color.White });
 
-                _spriteBatch.Draw(pixel, Player.BoundingBox, Color.White);
-                #endregion
-                */
+                    _spriteBatch.Draw(pixel, Player.BoundingBox, Color.White);
+                    #endregion
+                    */
 
-                //ENEMY.Draw(_spriteBatch);
-                //Item.Draw(_spriteBatch);
-                //CurrentEnvironment.Draw(_spriteBatch);
-                //GameObjManager.Draw();
-                hudDisplay.Draw(_spriteBatch);
-            } else if (GameStateManager.GameState == GameState.PausedState) {
-                GameStateManager.DrawGameState(_spriteBatch);
-                hudDisplay.Draw(_spriteBatch);
+                    //ENEMY.Draw(_spriteBatch);
+                    //Item.Draw(_spriteBatch);
+                    //CurrentEnvironment.Draw(_spriteBatch);
+                    //GameObjManager.Draw();
+                    hudDisplay.Draw(_spriteBatch);
+                }
+                else if (GameStateManager.GameState == GameState.PausedState)
+                {
+                    GameStateManager.DrawGameState(_spriteBatch);
+                    hudDisplay.Draw(_spriteBatch);
+                }
+                //else if (GameStateManager.GameState == GameState.GameOverState)
+                //{
+                //    if (timer <= 0)
+                //    {
+                //        GameOverScreens.DrawOptionsScreen(_spriteBatch, font);
+                //    }
+                //    else
+                //    {
+
+                //        GameOverScreens.DrawGameOverScreen(_spriteBatch, font);
+                //    }
+                //}
             }
-            else if (GameStateManager.GameState == GameState.GameOverState)
+            else
             {
                 if (timer <= 0)
                 {
@@ -294,7 +332,7 @@ namespace Project1
             //Item.Draw(_spriteBatch);
             //CurrentEnvironment.Draw(_spriteBatch);
             //GameObjManager.Draw();
-                
+
             _spriteBatch.End();
             base.Draw(gameTime);
         }

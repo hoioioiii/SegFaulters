@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 using static Project1.Constants;
 using System;
+using Project1.HUD;
 
 namespace Project1
 {
@@ -64,7 +65,12 @@ namespace Project1
 
 
         private static bool remainOnScreen;
+
         private static int damageFlash;
+
+        //this is a temp solution
+        private static bool isDeadState;
+
         public Player()
         {
 
@@ -117,7 +123,7 @@ namespace Project1
                 DamageInvincibility();
             }
 
-
+            
 
             KeyboardState keystate = Keyboard.GetState();
 
