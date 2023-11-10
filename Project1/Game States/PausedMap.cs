@@ -60,11 +60,11 @@ namespace Project1
             compassPauseText = content.Load<Texture2D>(assetName: "compassPauseText");
             mapItem = content.Load<Texture2D>(assetName: "mapItem");
             mapPauseText = content.Load<Texture2D>(assetName: "mapPauseText");
-            blackSquareRoom = content.Load<Texture2D>(assetName: "blackRoom");
+            blackSquareRoom = content.Load<Texture2D>(assetName: "blackSquareRoom");
 
             // TODO: FIX THESE TWO ASSETS!!!
-            greenSquareOnMap = content.Load<Texture2D>(assetName: "blackRoom");
-            pausedMap = content.Load<Texture2D>(assetName: "map");
+            greenSquareOnMap = content.Load<Texture2D>(assetName: "greenSquareOnMap");
+            pausedMap = content.Load<Texture2D>(assetName: "pausedMap");
 
             for (int i = 0; i < 19; i++)
             {

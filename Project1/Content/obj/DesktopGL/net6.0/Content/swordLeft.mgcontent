@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/swordLeft.png</SourceFile>
-  <SourceTime>2023-09-26T23:26:36-04:00</SourceTime>
-  <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/swordLeft.xnb</DestFile>
-  <DestTime>2023-11-10T15:43:41.9531776-05:00</DestTime>
+  <SourceFile>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/swordLeft.png</SourceFile>
+  <SourceTime>2023-11-07T19:35:59.4212141-05:00</SourceTime>
+  <DestFile>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/swordLeft.xnb</DestFile>
+  <DestTime>2023-11-10T17:00:45.5704108-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
