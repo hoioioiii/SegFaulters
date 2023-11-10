@@ -145,8 +145,6 @@ namespace Project1
             {
 
                 ChangeToSelectionKeys();
-
-
             }
             else
             {

@@ -19,9 +19,6 @@ namespace Project1
         private Dictionary<OPTION, Vector2> OptionPositionMap;
         
         public OptionSelector() {
-
-
-            
             CreateArrayOfOptions();
             CreateOptionMap();
             selected = options[0];
