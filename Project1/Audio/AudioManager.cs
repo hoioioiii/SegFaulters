@@ -36,13 +36,11 @@ namespace Project1
             //puzzleSolved = content.Load<SoundEffect>("Audio\\puzzleSolved");
 
             MediaPlayer.IsRepeating = true;
-            //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
         }
 
         public static void PlayMusic(Song music)
         {
-            //MediaPlayer.IsRepeating = true;
-            MediaPlayer.Play(music);
+            //MediaPlayer.Play(music);
         }
         public static void StopAllAudio()
         {

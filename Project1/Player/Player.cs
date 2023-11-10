@@ -33,6 +33,26 @@ namespace Project1
         // cardinal direction player is facing, starts with up on 1 and progresses clockwise (e.g. 4 is left-facing)
         private static int linkDirection = (int)DIRECTION.right;
 
+        /*
+        // frames used for still and animation
+        public static Texture2D linkRight1;
+        public static Texture2D linkLeft1;
+        public static Texture2D linkUp1;
+        public static Texture2D linkDown1;
+
+        // frames used for animation only
+        public static Texture2D linkRight2;
+        public static Texture2D linkLeft2;
+        public static Texture2D linkUp2;
+        public static Texture2D linkDown2;
+
+        // frames used for attacking
+        public static Texture2D linkAttackRight;
+        public static Texture2D linkAttackLeft;
+        public static Texture2D linkAttackUp;
+        public static Texture2D linkAttackDown;
+        */
+
         // attacking metrics
         public static bool isAttacking = false;
         private static float AttackTimer;
@@ -65,7 +85,9 @@ namespace Project1
 
         private static int onScreen;
 
-
+        //private static int posX;
+        //private static int posY;
+        //private Rectangle rect;
         private static bool remainOnScreen;
         private static int damageFlash;
         public Player()
@@ -109,6 +131,25 @@ namespace Project1
             IWeapon[] temp = { new Bomb(), new Arrow2(), new Boomerange(), new Sword() };
             weaponsArray = temp;
 
+            /*
+            // still and movement
+            linkRight1 = content.Load<Texture2D>("linkRight1");
+            linkLeft1 = content.Load<Texture2D>("linkLeft1");
+            linkUp1 = content.Load<Texture2D>("linkUp1");
+            linkDown1 = content.Load<Texture2D>("linkDown1");
+
+            // movement only
+            linkRight2 = content.Load<Texture2D>("linkRight2");
+            linkLeft2 = content.Load<Texture2D>("linkLeft2");
+            linkUp2 = content.Load<Texture2D>("linkUp2");
+            linkDown2 = content.Load<Texture2D>("linkDown2");
+
+            // Attack using weapon or item
+            linkAttackRight = content.Load<Texture2D>("linkAttackRight");
+            linkAttackLeft = content.Load<Texture2D>("linkAttackLeft");
+            linkAttackUp = content.Load<Texture2D>("linkAttackUp");
+            linkAttackDown = content.Load<Texture2D>("linkAttackDown");
+            */
         }
 
 
@@ -246,40 +287,35 @@ namespace Project1
             {
                 DamageInvincibility();
             }
-            
+
             //Move(keystate);
 
-            //Is not always returning to display state at end
-            //Is not always returning to display state at end
-            //Is not always returning to display state at end
-            //Is not always returning to display state at end
-            //Is not always returning to display state at end
             if (keystate.IsKeyDown(Keys.E))
             {
                 isDamaged = true;
+                DamageInvincibility();
+                AudioManager.PlaySoundEffect(lowHealth);
+            }
+
             if (keystate.IsKeyDown(Keys.T) || keystate.IsKeyDown(Keys.Y))
             {
                 // cycle between which block is currently being shown
             }
             if (keystate.IsKeyDown(Keys.U) || keystate.IsKeyDown(Keys.I))
             {
-                AudioManager.PlaySoundEffect(lowHealth);
+
             }
             if (keystate.IsKeyDown(Keys.O) || keystate.IsKeyDown(Keys.P))
+            {
 
+            }
 
-
-            if (remainOnScreen)
 
 
             //if (remainOnScreen)
             //{
             //    spriteWeapon.Update();
             //}
-
-            {
-                spriteWeapon.Update();
-            }
 
         }
 
@@ -305,11 +341,11 @@ namespace Project1
 
         public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            //CheckOnScreen();
+            // timer for Draw()
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
             FrameTimer -= elapsedSeconds;
 
-            CheckOnScreen();
+            //CheckOnScreen();
 
             //manage non persistent weapon
             if (remainOnScreen)
@@ -322,13 +358,17 @@ namespace Project1
                 remainOnScreen = false;
             }
 
+            if (renderLink)
+            {
+                if (isAttacking)
+                {
                     //DrawBasedOnAttackType(spriteBatch);
 
                     //if (isAttackingWithSword)
                     //{
                     //    //Sword.Draw(position, linkDirection);
                     //    sprite.Draw(spriteBatch, "attack", linkDirection, position);
-            {
+
                     //    /*
                     //    switch (linkDirection)
                     //    {
@@ -384,10 +424,10 @@ namespace Project1
                     }
                     */
                 }
+                else
                 {
-                    DrawBasedOnAttackType(spriteBatch);
 
-
+                    DrawBasedOnMovementType(spriteBatch);
                     /*
                     if (isMoving)
                     {
@@ -418,15 +458,11 @@ namespace Project1
                     */
                 }
             }
-            
+
         }
 
-            }
-            
-        }
-
-//decide which method of drawing link should be used based on his current state
-private static void DrawBasedOnMovementType(SpriteBatch spriteBatch)
+        //decide which method of drawing link should be used based on his current state
+        private static void DrawBasedOnMovementType(SpriteBatch spriteBatch)
         {
             if (isMoving)
             {
@@ -464,42 +500,46 @@ private static void DrawBasedOnMovementType(SpriteBatch spriteBatch)
                 DrawNonpersistantWeapon((int)WEAPONS.sword);
 
             }
-                objManager.addNewWeapon(spriteWeapon);
+            else if (isAttackingWithBoomerang)
             {
                 //add weapon to manager so it'll stay on the screen
                 spriteWeapon = new Boomerange();
-                Game1.GameObjManager.addNewWeapon(spriteWeapon);
+                objManager.addNewWeapon(spriteWeapon);
 
             }
-                objManager.addNewWeapon(spriteWeapon);
+            else if (isAttackingWithBow)
             {
                 // add weapon to manager so it'll stay on the screen
                 spriteWeapon = new Arrow2();
-                Game1.GameObjManager.addNewWeapon(spriteWeapon);
+                objManager.addNewWeapon(spriteWeapon);
 
             }
-                objManager.addNewWeapon(spriteWeapon);
+            else if (isAttackingWithBomb)
             {
                 // add weapon to manager so it'll stay on the screen
                 spriteWeapon = new Bomb();
-                Game1.GameObjManager.addNewWeapon(spriteWeapon);
+                objManager.addNewWeapon(spriteWeapon);
 
             }
             //draw link with attack frames
-        //Draw a weapon that does not need to be persistent on screen
+            sprite.Draw(spriteBatch, "attack", linkDirection, position);
         }
 
+
+        //Draw a weapon that does not need to be persistent on screen
+        public static void DrawNonpersistantWeapon(int weaponType)
+        {
             //set spriteWeapon to element in weapon array to get rid of these
             //if branches
 
             //weapon = weaponsArray[weaponType];
-        public static void DrawNonpersistantWeapon(int weaponType)
+
 
             //spriteWeapon = weaponsArray[weaponType];
             spriteWeapon = new Bomb();
-            spriteWeapon.Attack();
-            spriteWeapon.Draw();
-
+            /*
+            switch (weaponType)
+            {
                 case "bomb":
                     weapon = new Bomb();
                     spriteWeapon = weapon;
@@ -520,17 +560,13 @@ private static void DrawBasedOnMovementType(SpriteBatch spriteBatch)
                     break;
 
             }
-            
+            */
 
             //remainOnScreen = true;
             //spriteWeapon.Attack();
             //spriteWeapon.Draw();
 
 
-            switch (weaponType)
-            {
-            //This should be in DrawBasedOnAttackType()
-            /*
             switch (weaponType)
             {
                 case 0:
@@ -540,12 +576,12 @@ private static void DrawBasedOnMovementType(SpriteBatch spriteBatch)
                     //case 1:
                     //    Game1.GameObjManager.addNewWeapon(new Arrow2());
                     //    break;
+                    //case 2:
                     //    Game1.GameObjManager.addNewWeapon(new Boomerange());
                     //    break;
-
-
             }
-            */
+
+
 
 
         }
@@ -566,6 +602,10 @@ private static void DrawBasedOnMovementType(SpriteBatch spriteBatch)
                 isAttackingWithBow = false;
                 isAttackingWithSword = false;
             }
+        }
+
+        // Link cannot take damage for x seconds after getting hit
+        public static void DamageInvincibility()
         {
             //if (DamageTimer <= 0)
             //{
@@ -581,16 +621,12 @@ private static void DrawBasedOnMovementType(SpriteBatch spriteBatch)
             //        FlashTimer = FLASHTIME;
             //    }
             //}
-            
 
-        // Link cannot take damage for x seconds after getting hit
-        public static void DamageInvincibility()
-        {      
             if (damageFlash <= 50)
             {
                 CheckTime();
                 renderLink = false;
-                
+
             }
             else if (damageFlash > 10)
             {
@@ -610,33 +646,33 @@ private static void DrawBasedOnMovementType(SpriteBatch spriteBatch)
             }
         }
 
-            //currentWeaponIndex = (int)WEAPONS.sword;
         //Command Functions
         public static void attackSword()
         {
             isAttacking = true;
             isAttackingWithSword = true;
+            //currentWeaponIndex = (int)WEAPONS.sword;
         }
-            //currentWeaponIndex = (int)WEAPONS.boom;
 
         public static void attackBoom()
         {
             isAttacking = true;
             isAttackingWithBoomerang = true;
+            //currentWeaponIndex = (int)WEAPONS.boom;
         }
-            //currentWeaponIndex = (int)WEAPONS.bow;
 
         public static void attackBow()
         {
             isAttacking = true;
             isAttackingWithBow = true;
+            //currentWeaponIndex = (int)WEAPONS.bow;
         }
-            //currentWeaponIndex = (int)WEAPONS.bomb;
 
         public static void attackBomb()
         {
             isAttacking = true;
             isAttackingWithBomb = true;
+            //currentWeaponIndex = (int)WEAPONS.bomb;
         }
 
         public static void left()
@@ -684,7 +720,7 @@ private static void DrawBasedOnMovementType(SpriteBatch spriteBatch)
 
         public static Vector2 getUserPos()
         {
-            
+
             return new Vector2(position.X, position.Y);
         }
 
@@ -701,11 +737,13 @@ private static void DrawBasedOnMovementType(SpriteBatch spriteBatch)
         public static bool UseItem(ITEMS itemToDelete)
         {
             bool didItemGetUsed;
-            if(itemInventory[(int)itemToDelete] > 0) {
+            if (itemInventory[(int)itemToDelete] > 0)
+            {
                 itemInventory[(int)itemToDelete]--;
                 didItemGetUsed = true; //if player has item, it got used.
-            } else
-            { 
+            }
+            else
+            {
                 didItemGetUsed = false; //if player does not have item, it did not get used.
             }
 

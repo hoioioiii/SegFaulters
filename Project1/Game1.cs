@@ -45,7 +45,7 @@ namespace Project1
         public static GameTime timeProj;
         private ArrayList ControllerList;
 
-
+        Camera camera;
 
         //Manages game over or playing
         public static bool gameStatePlaying;
@@ -140,6 +140,7 @@ namespace Project1
 
             
             Player.LoadContent(Content);
+            camera = new Camera();
 
             //Load background
             EnvironmentLoader.LoadContent(Content);
@@ -213,7 +214,7 @@ namespace Project1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            _spriteBatch.Begin();
+            _spriteBatch.Begin(transformMatrix: camera.Transform);
             if (gameStatePlaying)
             {
                 
@@ -236,7 +237,6 @@ namespace Project1
                 //CurrentEnvironment.Draw(_spriteBatch);
                 GameObjManager.Draw();
 
-
                
             }
             else
@@ -252,11 +252,6 @@ namespace Project1
                     GameOverScreens.DrawGameOverScreen(_spriteBatch, font);
                 }
                 
-                
-            
-                
-             
-
 
             }
             _spriteBatch.End();
