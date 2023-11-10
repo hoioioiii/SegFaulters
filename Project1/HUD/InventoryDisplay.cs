@@ -88,7 +88,7 @@ namespace Project1.HUD
             keyLableOffsetY = font.MeasureString("B").Y;
 
             //create the selected item array
-            IItem[] tempSelectedItemArray = { new BoomerangItem(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)), new BombItem(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)), new Key(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)), new SwordItem(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y))};
+            IItem[] tempSelectedItemArray = { new BoomerangItem(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)), new BombItem(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)), new Key(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)), new Bow(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y))};
             selectedItemArray = tempSelectedItemArray;
         }
 
@@ -118,6 +118,11 @@ namespace Project1.HUD
             userSelectedItem = type;
         }
 
+        public static USABLE_ITEM getSelectedItem()
+        {
+            //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, sword = 3};" enum from constants.cs for this
+            return userSelectedItem;
+        }
         public void Draw(SpriteBatch spriteBatch)
         {
             //spriteBatch.Draw(countRect, coordCount, Color.White);
@@ -167,7 +172,7 @@ namespace Project1.HUD
             spriteBatch.DrawString(font, "B", coordKeyLabel, Color.White);
             Vector2 coordKeyLabel2 = coordKeyLabel;
             coordKeyLabel2.X += secondRectOffset;
-            spriteBatch.DrawString(font, "A", coordKeyLabel2, Color.White);
+            spriteBatch.DrawString(font, "Z", coordKeyLabel2, Color.White);
 
             //Add default sword into item A box
             IItem sword = new SwordItem(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y));

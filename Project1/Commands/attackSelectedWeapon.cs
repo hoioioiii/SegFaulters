@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
-using Project1.Commands;
 using Project1.HUD;
 
-namespace Project1
+namespace Project1.Commands
 {
-    public class AttackSelectedWeapon : ICommand
+    internal class attackSelectedWeapon : ICommand
     {
         public void Execute()
         {

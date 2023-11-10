@@ -71,7 +71,7 @@ namespace Project1
         public static int DAMAGE_FULL_HEART = 3;
         public static int MAX_FRAGMENTS = 4;
 
-        public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, sword = 3};
+        public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, bow = 3};
 
         public static int START_FRAME = 0;
         public static double FRAME_SPD = .5 / 4;
