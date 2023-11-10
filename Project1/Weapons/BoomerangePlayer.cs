@@ -42,6 +42,7 @@ namespace Project1
         public void Update()
         {
             Attack();
+            BoundingBox = sprite.GetRectangle();
             sprite.Update();
             if (finished())
             {

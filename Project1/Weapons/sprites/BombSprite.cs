@@ -30,7 +30,7 @@ namespace Project1
         private int width;
         private int height;
 
-        
+        private Rectangle rec;
         private bool finishAndRemove;
         private TimeSpan time;
 
@@ -195,9 +195,14 @@ namespace Project1
                 height = texture[current_frame].Height;
                 Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
                 Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width *LARGER_SIZE, height * LARGER_SIZE);
-                spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
+            rec = DEST_REC;
+            spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
 
+        public Rectangle GetRectangle()
+        {
+            return rec;
+        }
         /*
          * Get User Pos
          */

@@ -36,7 +36,7 @@ namespace Project1
         public void Update()
         {
             sprite.Update();
-
+            BoundingBox = sprite.GetRectangle();
             if (finished())
             {
                 Game1.GameObjManager.removePlayerWeapon(this);

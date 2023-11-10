@@ -34,6 +34,7 @@ namespace Project1
         private int spd;
 
         private bool completed;
+        private Rectangle rec;
         public static bool remainOnScreen { get; private set; }
 
         public ArrowSpritePlayer(Texture2D[] spriteSheet)
@@ -123,9 +124,13 @@ namespace Project1
         {
             Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
             Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width * LARGER_SIZE, height * LARGER_SIZE);
+            rec = DEST_REC;
             spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
-
+        public Rectangle GetRectangle()
+        {
+            return rec;
+        }
         /*
          * Get user x and y at teh momemnt of attk
          */

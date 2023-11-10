@@ -97,7 +97,7 @@ namespace Project1.Collision_Response
         /*
          * Enemy collision, significant knockback & damage & temporary invincibility
          */
-        public static void DamageResponse(DIRECTION direction)
+        public static void DamageResponse(DIRECTION direction, bool weapon,int damageAmount)
         {
             AudioManager.PlaySoundEffect(linkHurt);
 
@@ -105,7 +105,11 @@ namespace Project1.Collision_Response
             playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, KNOCKBACK_DISTANCE);            
             Player.setPosition(playerPosition);
 
-            HealthDisplay.linkHealth.DamageHealth(DAMAGE_HALF_HEART);
+            //if (weapon) { HealthDisplay.linkHealth.DamageHealth(damageAmount); } else
+            //{
+                HealthDisplay.linkHealth.DamageHealth(DAMAGE_HALF_HEART);
+            //}
+            
         }
     }
 }

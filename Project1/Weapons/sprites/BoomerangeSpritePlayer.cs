@@ -35,6 +35,7 @@ namespace Project1
         private bool change;
         private int animationTime;
         private int fps;
+        private Rectangle rec;
 
         public BoomerangeSpritePlayer(Texture2D[] spriteSheet)
         {
@@ -149,10 +150,14 @@ namespace Project1
             
                 Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
                 Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width * LARGER_SIZE, height * LARGER_SIZE);
-                spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
+            rec = DEST_REC;
+            spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
 
         }
-
+        public Rectangle GetRectangle()
+        {
+            return rec;
+        }
 
         /*
         * 

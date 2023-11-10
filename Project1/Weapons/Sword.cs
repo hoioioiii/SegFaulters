@@ -174,6 +174,7 @@ namespace Project1
         {
            
             sprite = WeaponSpriteFactory.Instance.CreateSwordSprite();
+
         }
 
         /*
@@ -191,6 +192,7 @@ namespace Project1
         {
 
             sprite.Update();
+            BoundingBox = sprite.GetRectangle();
             finished();
         }
         /*

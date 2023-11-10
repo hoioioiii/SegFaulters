@@ -68,6 +68,7 @@ namespace Project1
         private static List<IEnvironment> roomBoundaries;
 
         private static List<IWeapon> weapons;
+        private static List<IWeapon> playerWeapons;
         ////TODO: change to interface
         /*
          * List of rectangles for collision boxes for enemies
@@ -161,7 +162,7 @@ namespace Project1
                         System.Diagnostics.Debug.WriteLine(sb.ToString());
                     #endregion
 
-                    PlayerCollisionResponse.DamageResponse(collisionDirection);
+                    PlayerCollisionResponse.DamageResponse(collisionDirection,false,DAMAGE_HALF_HEART);
                 }
 
             }
@@ -171,7 +172,8 @@ namespace Project1
                 if (isColliding)
                 {
                     collisionDirection = DetectCollisionDirection(Player.BoundingBox, enemyAttack.BoundingBox, collisionDirection);
-                    PlayerCollisionResponse.DamageResponse(collisionDirection);
+                    
+                    PlayerCollisionResponse.DamageResponse(collisionDirection,true,0);
                 }
             }
 
@@ -208,7 +210,7 @@ namespace Project1
                         EnemyCollisionResponse.BoundaryResponse(enemy, collisionDirection);
                     }
                 }
-                foreach (IWeapon weapon in weapons)
+                foreach (IWeapon weapon in playerWeapons)
                 {
                     isColliding = enemy.BoundingBox.Intersects(weapon.BoundingBox);
                     if (isColliding)
@@ -241,6 +243,7 @@ namespace Project1
             //Game1.Player();
             roomBoundaries = new List<IEnvironment>(GameOBJ.getEnvironmentList());
             weapons = new List<IWeapon>(GameOBJ.getWeaponList());
+            playerWeapons = new List<IWeapon>(GameOBJ.getPlayerWeaponList());
             roomItems = new List<IItem>(GameOBJ.getItemList());
 
             roomDoors = new List<Door>(GameOBJ.getDoorList());

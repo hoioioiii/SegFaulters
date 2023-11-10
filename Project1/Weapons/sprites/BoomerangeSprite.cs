@@ -34,6 +34,7 @@ namespace Project1
 
         private bool completed;
         private bool change;
+        private Rectangle rec;
 
         private SoundEffectInstance boomerangSFX;
 
@@ -145,11 +146,15 @@ namespace Project1
             {
                 Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
                 Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width, height);
+                rec = DEST_REC;
                 spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
             }
 
         }
-
+        public Rectangle GetRectangle()
+        {
+            return rec;
+        }
 
         /*
         * 

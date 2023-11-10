@@ -106,7 +106,7 @@ namespace Project1
         private int offsetX;
         private int offsetY;
 
-         
+        private Rectangle rec;
 
 
         public bool isAttacking;
@@ -206,7 +206,8 @@ namespace Project1
                 //System.Diagnostics.Debug.WriteLine("X,Y", userX, userY);
                 Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
                 Rectangle DEST_REC = new Rectangle(weaponX,weaponY, width * SWORD_SCALE, height * SWORD_SCALE);
-                spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
+            rec = DEST_REC;
+            spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
             
             
             
@@ -270,6 +271,11 @@ namespace Project1
         {
             if (!isAttacking) return true;
             return false;
+        }
+
+        public Rectangle GetRectangle()
+        {
+            return rec;
         }
     }
 }

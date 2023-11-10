@@ -27,6 +27,7 @@ namespace Project1
         private bool completed;
         private ORB_DIRECTION orbType;
         private int offset;
+        private Rectangle rec;
         public OrbSprite(Texture2D[] spriteSheet,(int,int) pos, ORB_DIRECTION orbType)
         {
             texture = spriteSheet;
@@ -92,9 +93,13 @@ namespace Project1
         {
             Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
             Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width * LARGER_SIZE, height * LARGER_SIZE);
+            rec = DEST_REC;
             spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
-
+        public Rectangle GetRectangle()
+        {
+            return rec;
+        }
 
         public void Draw(SpriteBatch spriteBatch)
         {
