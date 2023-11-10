@@ -14,6 +14,7 @@ namespace Project1.Collision_Response
         {           
             Vector2 enemyPosition = new Vector2(enemy.GetPositionAndRectangle().X, enemy.GetPositionAndRectangle().Y);
             enemyPosition = AllCollisionResponse.Knockback(enemyPosition, direction, ENEMY_SPEED);
+            enemy.ChangeDirections();
             enemy.setPosition((int)enemyPosition.X, (int)enemyPosition.Y);
         }
 

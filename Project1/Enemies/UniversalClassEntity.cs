@@ -188,6 +188,11 @@ namespace Project1.Enemies
             }
         }
 
+        public virtual void ChangeDirections()
+        {
+            direction_state_manager.getRandomDirection();
+        }
+
         public void TakeDamage(int damageAmount)
         {
             //Play a sound
