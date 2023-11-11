@@ -282,7 +282,7 @@ namespace Project1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-          
+
             if (roomIsTransitioning)
             {
                 _spriteBatch.Begin(transformMatrix: Camera.Transform);
@@ -298,9 +298,9 @@ namespace Project1
                 {
 
                     EnvironmentLoader.Draw(_spriteBatch);
-                
-                
-                
+
+
+
 
 
                     Player.Draw(gameTime, _spriteBatch);
@@ -322,12 +322,12 @@ namespace Project1
                     //Item.Draw(_spriteBatch);
                     //CurrentEnvironment.Draw(_spriteBatch);
                     //GameObjManager.Draw();
-                    
+
                 }
                 else if (GameStateManager.GameState == GameState.PausedState)
                 {
                     GameStateManager.DrawGameState(_spriteBatch);
-                    
+
                 }
                 hudDisplay.Draw(_spriteBatch);
                 //else if (GameStateManager.GameState == GameState.GameOverState)
@@ -352,16 +352,16 @@ namespace Project1
                 }
 
 
-            //ENEMY.Draw(_spriteBatch);
-            //Item.Draw(_spriteBatch);
-            //CurrentEnvironment.Draw(_spriteBatch);
-            //GameObjManager.Draw();
+                //ENEMY.Draw(_spriteBatch);
+                //Item.Draw(_spriteBatch);
+                //CurrentEnvironment.Draw(_spriteBatch);
+                //GameObjManager.Draw();
 
+                
+                base.Draw(gameTime);
+            }
             _spriteBatch.End();
-            base.Draw(gameTime);
         }
-
-
 
     }
 }

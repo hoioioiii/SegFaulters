@@ -3,11 +3,7 @@
   <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/rupeeBlue.png</SourceFile>
   <SourceTime>2023-10-01T05:11:11.5526124-04:00</SourceTime>
   <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/rupeeBlue.xnb</DestFile>
-<<<<<<< HEAD
-  <DestTime>2023-11-10T23:21:24.3061455-05:00</DestTime>
-=======
-  <DestTime>2023-11-10T19:44:32.2741391-05:00</DestTime>
->>>>>>> camera-merge
+  <DestTime>2023-11-10T23:26:41.3985422-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -3,11 +3,7 @@
   <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/skeleton1.png</SourceFile>
   <SourceTime>2023-10-21T06:19:49.8285286-04:00</SourceTime>
   <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/skeleton1.xnb</DestFile>
-<<<<<<< HEAD
-  <DestTime>2023-11-10T23:21:24.3209206-05:00</DestTime>
-=======
-  <DestTime>2023-11-10T19:44:32.2826581-05:00</DestTime>
->>>>>>> camera-merge
+  <DestTime>2023-11-10T23:26:41.4093789-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
