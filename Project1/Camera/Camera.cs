@@ -59,7 +59,7 @@ namespace Project1
          * Should be called in update
          * Smoothly transitions
          */
-        private void TransitionRoom(GameTime gametime, Vector2 pos)
+        private void TransitionRoom(GameTime gametime, Vector2 finalPosition)
         {
             _timer += (float)gametime.ElapsedGameTime.TotalSeconds;
 
@@ -71,8 +71,8 @@ namespace Project1
             else
             {
                 Transform = Matrix.CreateTranslation(
-                        (_timer / ROOM_TRANSITION_SPEED) * pos.X,
-                        (_timer / ROOM_TRANSITION_SPEED) * pos.Y,
+                        (_timer / ROOM_TRANSITION_SPEED) * finalPosition.X,
+                        (_timer / ROOM_TRANSITION_SPEED) * finalPosition.Y,
                         0);
             }
 
