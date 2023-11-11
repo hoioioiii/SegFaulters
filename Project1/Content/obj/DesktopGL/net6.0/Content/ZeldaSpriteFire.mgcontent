@@ -3,7 +3,11 @@
   <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/ZeldaSpriteFire.gif</SourceFile>
   <SourceTime>2023-10-01T04:53:02.5311146-04:00</SourceTime>
   <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/ZeldaSpriteFire.xnb</DestFile>
+<<<<<<< HEAD
   <DestTime>2023-11-10T23:21:24.4348183-05:00</DestTime>
+=======
+  <DestTime>2023-11-10T19:44:32.3460955-05:00</DestTime>
+>>>>>>> camera-merge
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

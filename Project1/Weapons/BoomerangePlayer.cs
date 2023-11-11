@@ -34,7 +34,7 @@ namespace Project1
 
             
             sprite.Attack();
-
+            AudioManager.PlaySoundEffect(boomerang);
         }
         /*
          * Update

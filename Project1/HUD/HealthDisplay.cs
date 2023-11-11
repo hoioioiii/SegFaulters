@@ -8,6 +8,7 @@ using System.Drawing;
 using Color = Microsoft.Xna.Framework.Color;
 using Microsoft.Xna.Framework.Content;
 using Project1.Health;
+using static Project1.Health.HealthSystemManager;
 
 namespace Project1.HUD
 {
@@ -70,6 +71,12 @@ namespace Project1.HUD
         {
             spriteBatch.DrawString(font, "-LIFE-", coordsTitle[(int)pauseIndex], Color.Red);
            // spriteBatch.Draw(healthRect, coordsHealth[(int)pauseIndex], Color.Blue);
+            linkHealth.Draw(spriteBatch);
+        }
+
+        public void DrawFollowCamera(SpriteBatch spriteBatch)
+        {
+            spriteBatch.DrawString(font, "-LIFE-", coordsTitle[(int)pauseIndex], Color.Red);
             linkHealth.Draw(spriteBatch);
         }
     }

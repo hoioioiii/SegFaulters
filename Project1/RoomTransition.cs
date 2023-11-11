@@ -34,15 +34,15 @@ namespace Project1
 
             shouldDraw = true;
 
-
-            //wait for screen scroller to stop
-            EndScrolling(); //this should be called from the camera.
+            Camera.RoomTransitionCalculate(doorDirection);
+            Game1.roomIsTransitioning = true;
         }
 
         public static void EndScrolling()
         {
             shouldDraw = false;
             nextRoom.Load();
+            Game1.roomIsTransitioning = false;
         }
 
         private static void getPositionFromDirection(DIRECTION direction)
@@ -50,20 +50,20 @@ namespace Project1
             switch (direction)
             {
                 case DIRECTION.up:
-                    positionX = 17;
-                    positionY = -230;
+                    positionX = TRANSITION_OFFSET_X;
+                    positionY = TRANSITION_OFFSET_Y;
                     break;
                 case DIRECTION.down:
-                    positionX = 17;
-                    positionY = -235 + ROOM_FRAME_HEIGHT * 2;
+                    positionX = TRANSITION_OFFSET_X;
+                    positionY = TRANSITION_OFFSET_Y + ROOM_FRAME_HEIGHT * 2;
                     break;
                 case DIRECTION.right:
-                    positionX = 17 + ROOM_FRAME_WIDTH;
-                    positionY = -230 + ROOM_FRAME_HEIGHT;
+                    positionX = TRANSITION_OFFSET_X + ROOM_FRAME_WIDTH;
+                    positionY = TRANSITION_OFFSET_Y + ROOM_FRAME_HEIGHT;
                     break;
                 case DIRECTION.left:
-                    positionX = 17 - ROOM_FRAME_WIDTH;
-                    positionY = -230 + ROOM_FRAME_HEIGHT;
+                    positionX = TRANSITION_OFFSET_X - ROOM_FRAME_WIDTH;
+                    positionY = TRANSITION_OFFSET_Y + ROOM_FRAME_HEIGHT;
                     break;
                 default:
                     return;

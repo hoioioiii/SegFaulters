@@ -3,7 +3,11 @@
   <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/linkRight1.png</SourceFile>
   <SourceTime>2023-09-29T22:54:52-04:00</SourceTime>
   <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/linkRight1.xnb</DestFile>
+<<<<<<< HEAD
   <DestTime>2023-11-10T23:21:24.2287297-05:00</DestTime>
+=======
+  <DestTime>2023-11-10T19:44:32.235279-05:00</DestTime>
+>>>>>>> camera-merge
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

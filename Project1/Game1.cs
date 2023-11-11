@@ -55,13 +55,15 @@ namespace Project1
         public static GameTime timeProj;
         private ArrayList ControllerList;
 
-
+        Vector2 finalPostion;
 
         //Manages game over or playing
         public static bool gameStatePlaying;
         public static OptionSelector selectionManager;
         private SpriteFont font;
         public static int timer;
+
+        public static bool roomIsTransitioning;
 
         public Game1()
         {
@@ -125,6 +127,8 @@ namespace Project1
             
             Player.Initialize();
 
+            Camera.Initialize();
+
             //hudDisplay = new HeadsUpDisplay();
 
             base.Initialize();
@@ -180,28 +184,27 @@ namespace Project1
         //clean up
         protected override void Update(GameTime gameTime)
         {
-
-            
-            
-            foreach (IController controller in ControllerList)
-            {
-                controller.Update();
-            }
-
-         /*   if (HealthDisplay.linkHealth.IsDead())
-            {
-                // GameStateManager.GameState = GameState.GameOverState;
-                gameStatePlaying = false;
-
-            } */
-
-
             //fix later
             deltaTime = gameTime;
 
+            if (roomIsTransitioning)
+            {
+                Camera.TransitionRoom(gameTime);
+            }
+            else if (gameStatePlaying)
+            {
+                foreach (IController controller in ControllerList)
+                {
+                    controller.Update();
+                }
 
+                if (HealthDisplay.linkHealth.IsDead())
+                {
+                    // GameStateManager.GameState = GameState.GameOverState;
+                    gameStatePlaying = false;
 
-                GameStateManager.UpdateGameState();
+                }
+
                 if (GameStateManager.GameState == GameState.DefaultState)
                 {
                     // Add your update logic here
@@ -256,12 +259,21 @@ namespace Project1
                     Player.Update(gameTime);
                 }
 
-
+                
                 //else if (GameStateManager.GameState == GameState.GameOverState)
                 //{
                 //    timer--;
                 //}
-
+            }
+            else
+            {
+                foreach (IController controller in ControllerList)
+                {
+                    controller.Update();
+                }
+                timer--;
+            }
+            
             base.Update(gameTime);
         }
 
@@ -270,17 +282,27 @@ namespace Project1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
-            _spriteBatch.Begin();
-
-            GameStateManager.DrawGameState(_spriteBatch);
-
+          
+            if (roomIsTransitioning)
+            {
+                _spriteBatch.Begin(transformMatrix: Camera.Transform);
+                RoomTransition.Draw(_spriteBatch);
+                EnvironmentLoader.Draw(_spriteBatch);
+                // HUD doesn't move with camera yet, it has many small draw calls
+                //hudDisplay.DrawFollowCamera(_spriteBatch);
+            }
+            else if (gameStatePlaying)
+            {
+                _spriteBatch.Begin();
                 if (GameStateManager.GameState == GameState.DefaultState)
                 {
 
                     EnvironmentLoader.Draw(_spriteBatch);
-                    EnvironmentLoader.Draw(_spriteBatch);
-                    RoomTransition.Draw(_spriteBatch);
+                
+                
+                
+
+
                     Player.Draw(gameTime, _spriteBatch);
 
                     DrawManager.Draw();
@@ -300,14 +322,31 @@ namespace Project1
                     //Item.Draw(_spriteBatch);
                     //CurrentEnvironment.Draw(_spriteBatch);
                     //GameObjManager.Draw();
-                    hudDisplay.Draw(_spriteBatch);
+                    
                 }
                 else if (GameStateManager.GameState == GameState.PausedState)
                 {
-                    hudDisplay.Draw(_spriteBatch);
-                } else if (GameStateManager.GameState == GameState.TriforceWinState) {
-                   //placeholder for future implementation
-                } else if(GameStateManager.GameState == GameState.GameOverState)
+                    GameStateManager.DrawGameState(_spriteBatch);
+                    
+                }
+                hudDisplay.Draw(_spriteBatch);
+                //else if (GameStateManager.GameState == GameState.GameOverState)
+                //{
+                //    if (timer <= 0)
+                //    {
+                //        GameOverScreens.DrawOptionsScreen(_spriteBatch, font);
+                //    }
+                //    else
+                //    {
+
+                //        GameOverScreens.DrawGameOverScreen(_spriteBatch, font);
+                //    }
+                //}
+            }
+            else
+            {
+                _spriteBatch.Begin();
+                if (timer <= 0)
                 {
                     //placeholder for future implementation
                 }

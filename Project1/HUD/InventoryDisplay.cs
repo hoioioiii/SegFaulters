@@ -194,6 +194,11 @@ namespace Project1.HUD
             IItem selectedItem = selectedItemArray[(int)userSelectedItem];
             selectedItem.Draw(spriteBatch, selectedSprite, 2);
         }
+
+        public void DrawFollowCamera(SpriteBatch spriteBatch)
+        {
+
+        }
     }
 }
 

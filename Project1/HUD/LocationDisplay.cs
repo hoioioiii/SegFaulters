@@ -128,6 +128,20 @@ namespace Project1.HUD
             //draw location indicator
             spriteBatch.Draw(positionRect, positionDestination, Color.Green);
         }
+
+        public void DrawFollowCamera(SpriteBatch spriteBatch)
+        {
+            //Draw title
+            //PLease keep the following comment for future debugging purposes
+            //spriteBatch.DrawString(font, "-Room " + (activeRoomNumber + 1) + "-", coordTitle, Color.White);
+            //or:
+            spriteBatch.DrawString(font, "-Level 1-", coordsTitle[(int)pauseIndex], Color.White);
+
+            //draw entire map
+            spriteBatch.Draw(mapSprite, mapDestinations[(int)pauseIndex], Color.Blue);
+            //draw location indicator
+            spriteBatch.Draw(positionRect, positionDestination, Color.Green);
+        }
     }
 }
 
