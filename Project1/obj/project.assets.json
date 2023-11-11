@@ -102,32 +102,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kyler\\.nuget\\packages\\": {},
-    "D:\\CSE3902\\Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CSE3902\\Projects\\SegFaulters\\Project1\\Project1.csproj",
+      "projectUniqueName": "D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj",
       "projectName": "Project1",
-      "projectPath": "D:\\CSE3902\\Projects\\SegFaulters\\Project1\\Project1.csproj",
-      "packagesPath": "C:\\Users\\kyler\\.nuget\\packages\\",
-      "outputPath": "D:\\CSE3902\\Projects\\SegFaulters\\Project1\\obj\\",
+      "projectPath": "D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\Project1.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\CSE3902\\Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\kyler\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
