@@ -2130,3 +2130,22 @@ D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Cont
 D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\blackSquareRoom.xnb
 D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\greenSquareOnMap.xnb
 D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\pausedMap.xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\11_-_Legend_of_Zelda_-_NES_-_Game_Over.ogg
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\11_-_Legend_of_Zelda_-_NES_-_Game_Over.xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\boomerangThrow.xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\dragon4.xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\fairyGet.xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\item get.xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Sword_Combined.xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Sword_Slash.xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\phantomSword.xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\puzzleSolved.xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\Sound Effect (11).xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\Sound Effect (23).xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\Sound Effect (24).xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\Sound Effect (25).xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\Sound Effect (9).xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\sword swing.xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\blackSquareRoom.xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\greenSquareOnMap.xnb
+C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\pausedMap.xnb

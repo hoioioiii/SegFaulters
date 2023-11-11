@@ -51,7 +51,7 @@ namespace Project1.Enemies
 
         public void Update()
         {
-            //testDeath();
+            testDeath();
 
             //check entity life status
             if (entityHealthSystem.IsDead())

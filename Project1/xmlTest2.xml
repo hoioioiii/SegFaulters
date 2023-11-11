@@ -156,8 +156,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
 					<DroppedItem Name="key" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
@@ -169,8 +169,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="3" xLoc="2" yLoc="6">
@@ -181,8 +181,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="4" xLoc="4" yLoc="6">
@@ -193,8 +193,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="5" xLoc="3" yLoc="11">
@@ -205,8 +205,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
 		</Enemies>
@@ -250,8 +250,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="2" xLoc="2" yLoc="4">
@@ -262,8 +262,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="3" xLoc="4" yLoc="3">
@@ -274,8 +274,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
 		</Enemies>
@@ -317,8 +317,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="1"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="1"></DroppedItem>
 					<DroppedItem Name="key" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
@@ -330,8 +330,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="3" xLoc="3" yLoc="6">
@@ -342,8 +342,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="4" xLoc="2" yLoc="7">
@@ -354,8 +354,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="5" xLoc="0" yLoc="8">
@@ -366,8 +366,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
 		</Enemies>
@@ -783,8 +783,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="2" xLoc="1" yLoc="10">
@@ -795,8 +795,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="3" xLoc="4" yLoc="8">
@@ -807,8 +807,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupees" quantity="0"></DroppedItem>
-					<DroppedItem Name="recoveryHeart" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
 		</Enemies>
@@ -1281,7 +1281,7 @@
 		</Environment>
 
 		<Items>
-			<TriforceOfWisdom quantity ="4" xLoc ="3" yLoc ="5" restore="100"></TriforceOfWisdom>
+			<triforce quantity ="4" xLoc ="3" yLoc ="5" restore="100"></triforce>
 		</Items>
 	</Room>
 
