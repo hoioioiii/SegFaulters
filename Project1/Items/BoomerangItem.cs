@@ -20,12 +20,15 @@ namespace Project1
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
 
+        public ITEMS itemInventoryIndex { get; set; }
 
         public bool drawState { get; set; }
         public BoomerangItem((int, int) pos)
         {
             drawState = true;
-            
+
+            itemInventoryIndex = ITEMS.Boomerang;
+
             sprite = ItemSpriteFactory.Instance.CreateBoomerangSprite(pos);
         }
 

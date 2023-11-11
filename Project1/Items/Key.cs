@@ -20,6 +20,8 @@ namespace Project1
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
 
+        public ITEMS itemInventoryIndex { get; set; }
+
         private int positionX, positionY;
 
         public bool drawState { get; set; }
@@ -27,7 +29,7 @@ namespace Project1
         public Key((int, int) pos)
         {
             drawState = true;
-            
+            itemInventoryIndex = ITEMS.Key;
             sprite = ItemSpriteFactory.Instance.CreateKeySprite(pos);
             positionX = pos.Item1;
             positionY = pos.Item2;

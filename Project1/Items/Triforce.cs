@@ -19,7 +19,7 @@ namespace Project1
     {
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
-
+        public ITEMS itemInventoryIndex { get; set; }
         public bool drawState { get; set; }
         
 
@@ -28,7 +28,7 @@ namespace Project1
         public Triforce((int, int) pos)
         {
             drawState = true;
-            
+            itemInventoryIndex = ITEMS.Triforce;
             sprite = ItemSpriteFactory.Instance.CreateTriforceSprite(pos);
         }
 

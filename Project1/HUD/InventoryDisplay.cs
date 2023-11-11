@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Project1.HUD
 {
-	public class InventoryDisplay : IHUDEntity
+    public class InventoryDisplay : IHUDEntity
     {
         private Texture2D itemRect;
         private Texture2D innerItemRect;
@@ -35,10 +35,11 @@ namespace Project1.HUD
         private enum PAUSE_STATE { active = 0, paused = 1 };
         private static PAUSE_STATE pauseIndex = PAUSE_STATE.active;
         private SpriteFont font;
-        private int[] itemCount = {Player.itemInventory[(int)ITEMS.Rupee], Player.itemInventory[(int)ITEMS.Key] , Player.itemInventory[(int)ITEMS.Bomb]};
+        public static IItem selectedItem;
+        private int[] itemCount = { Player.itemInventory[(int)ITEMS.Rupee], Player.itemInventory[(int)ITEMS.Key], Player.itemInventory[(int)ITEMS.Bomb] };
 
         public InventoryDisplay(GraphicsDevice graphics, ContentManager content)
-		{
+        {
 
             itemRect = new Texture2D(graphics, 1, 1);
             itemRect.SetData(new[] { Color.Blue });
@@ -50,7 +51,7 @@ namespace Project1.HUD
 
             coordItem = new Vector2(HUD_SECTION_WIDTH + (HUD_SECTION_WIDTH / 3), HUD_HEIGHT / 3);
 
-            
+
             //for outer box of inventory
             //index 0 is not paused and 1 is paused
             Rectangle[] tempRectArr = { new Rectangle((int)coordItem.X, (int)coordItem.Y, HUD_SECTION_WIDTH / 4, HUD_HEIGHT / 3), new Rectangle((int)coordItem.X, (int)(coordItem.Y + fullMenuOffset), HUD_SECTION_WIDTH / 4, HUD_HEIGHT / 3) };
@@ -80,7 +81,7 @@ namespace Project1.HUD
 
             //for base of all things in the inventory section
             //index 0 is not paused and 1 is paused
-            Vector2[] tempVectorArr = {new Vector2(HUD_SECTION_WIDTH, HUD_COUNT_OFFSET), new Vector2(HUD_SECTION_WIDTH, HUD_COUNT_OFFSET + fullMenuOffset) };
+            Vector2[] tempVectorArr = { new Vector2(HUD_SECTION_WIDTH, HUD_COUNT_OFFSET), new Vector2(HUD_SECTION_WIDTH, HUD_COUNT_OFFSET + fullMenuOffset) };
             coordsCountBase = tempVectorArr;
 
             //trying to call measureString only once since its an expensive operation
@@ -88,7 +89,7 @@ namespace Project1.HUD
             keyLableOffsetY = font.MeasureString("B").Y;
 
             //create the selected item array
-            IItem[] tempSelectedItemArray = { new BoomerangItem(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)), new BombItem(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)), new Key(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)), new Bow(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y))};
+            IItem[] tempSelectedItemArray = { new BoomerangItem(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)), new BombItem(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)), new Key(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)), new Bow(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)) };
             selectedItemArray = tempSelectedItemArray;
         }
 
@@ -114,15 +115,15 @@ namespace Project1.HUD
 
         public static void setSelectedItem(USABLE_ITEM type)
         {
-            //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, sword = 3};" enum from constants.cs for this
+            //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, bow = 3};" enum from constants.cs for this
             userSelectedItem = type;
         }
 
         public static USABLE_ITEM getSelectedItem()
         {
-            //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, sword = 3};" enum from constants.cs for this
             return userSelectedItem;
         }
+
         public void Draw(SpriteBatch spriteBatch)
         {
             //spriteBatch.Draw(countRect, coordCount, Color.White);
@@ -159,13 +160,13 @@ namespace Project1.HUD
             itemDestination2.X += (int)secondRectOffset;
             spriteBatch.Draw(itemRect, itemDestination2, Color.Blue);
 
-            
+
             //boxes for inner inventory
             spriteBatch.Draw(innerItemRect, itemInnerDestinations[(int)pauseIndex], Color.Black);
             Rectangle itemInnerDestination2 = itemInnerDestinations[(int)pauseIndex];
             itemInnerDestination2.X += (int)secondRectOffset;
             spriteBatch.Draw(innerItemRect, itemInnerDestination2, Color.Black);
-            
+
 
             //Add control labels to inventory boxes
             Vector2 coordKeyLabel = new Vector2(itemDestinations[(int)pauseIndex].X + (itemDestinations[(int)pauseIndex].Width / 2) - keyLableOffsetX, itemDestinations[(int)pauseIndex].Y - 5);
@@ -191,13 +192,14 @@ namespace Project1.HUD
             selectedItemArray[(int)USABLE_ITEM.key] = new Key(((int)selectedSprite.X, (int)selectedSprite.Y));
 
             //display the selected item
-            IItem selectedItem = selectedItemArray[(int)userSelectedItem];
+            selectedItem = selectedItemArray[(int)userSelectedItem];
             selectedItem.Draw(spriteBatch, selectedSprite, 2);
         }
 
-        public void DrawFollowCamera(SpriteBatch spriteBatch)
-        {
-
+        // UI follows camera during room transition
+        public void DrawFollowCamera(SpriteBatch spriteBatch) 
+        { 
+            throw new NotImplementedException();
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Project1
     {
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
+        public ITEMS itemInventoryIndex { get; set; }
 
         public bool drawState { get; set; }
         public int V { get; }
@@ -26,7 +27,9 @@ namespace Project1
         public Heart((int, int) pos)
         {
             drawState = true;
-         
+
+            itemInventoryIndex = ITEMS.Heart;
+
             sprite = ItemSpriteFactory.Instance.CreateHeartSprite(pos);
         }
 

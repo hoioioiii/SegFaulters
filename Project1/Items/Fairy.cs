@@ -19,11 +19,14 @@ namespace Project1
     {
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
+        public ITEMS itemInventoryIndex { get; set; }
         public bool drawState { get; set; }
         public Fairy((int, int) pos)
         {
             drawState = true;
-          
+
+            itemInventoryIndex = ITEMS.Fairy;
+
             sprite = ItemSpriteFactory.Instance.CreateFairySprite(pos);
         }
 

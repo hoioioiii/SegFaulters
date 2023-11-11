@@ -20,13 +20,15 @@ namespace Project1
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
 
+        public ITEMS itemInventoryIndex { get; set; }
+
         public bool drawState { get; set; }
 
 
         public Rupee((int, int) pos)
         {
             drawState = true;
-           
+            itemInventoryIndex = ITEMS.Rupee;
             sprite = ItemSpriteFactory.Instance.CreateRupeeSprite(pos);
         }
 

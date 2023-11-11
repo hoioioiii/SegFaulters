@@ -20,10 +20,13 @@ namespace Project1
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
         public bool drawState { get; set; }
+        public ITEMS itemInventoryIndex { get; set; }
         public Clock((int, int) pos)
         {
             drawState = true;
-        
+
+            itemInventoryIndex = ITEMS.Clock;
+
             sprite = ItemSpriteFactory.Instance.CreateClockSprite(pos);
         }
 

@@ -19,6 +19,8 @@ namespace Project1
     {
         private IItemSprite sprite;
 
+        public ITEMS itemInventoryIndex { get; set; }
+
         public Rectangle BoundingBox => getRectangle();
 
 
@@ -27,7 +29,9 @@ namespace Project1
         public BombItem((int, int) pos)
         {
             drawState = true;
-           
+
+            itemInventoryIndex = ITEMS.Bomb;
+
             sprite = ItemSpriteFactory.Instance.CreateBombSprite(pos);
         }
 

@@ -21,10 +21,14 @@ namespace Project1
         public Rectangle BoundingBox => getRectangle();
         public bool drawState { get; set; }
 
+        public ITEMS itemInventoryIndex { get; set; }
+
         public HeartContainer((int, int) pos)
         {
             drawState = true;
-            
+
+            itemInventoryIndex = ITEMS.HeartContainer;
+
             sprite = ItemSpriteFactory.Instance.CreateHeartContainerSprite(pos);
         }
 
