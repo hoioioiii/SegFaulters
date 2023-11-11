@@ -35,7 +35,6 @@ namespace Project1
                 spritebatch.DrawString(font, "You Win!", CENTER, Color.White);
             }
             
-
         }
         public static void TriForceSoundEffect() {
             MediaPlayer.Pause();

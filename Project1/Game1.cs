@@ -191,20 +191,14 @@ namespace Project1
             {
                 Camera.TransitionRoom(gameTime);
             }
-            else if (gameStatePlaying)
+            else
             {
                 foreach (IController controller in ControllerList)
                 {
                     controller.Update();
                 }
 
-                if (HealthDisplay.linkHealth.IsDead())
-                {
-                    // GameStateManager.GameState = GameState.GameOverState;
-                    gameStatePlaying = false;
-
-                }
-
+                GameStateManager.UpdateGameState();
                 if (GameStateManager.GameState == GameState.DefaultState)
                 {
                     // Add your update logic here
@@ -224,36 +218,25 @@ namespace Project1
 
                     //GameObjManager.Update();
                     AllCollisionDetection.DetectCollision(GameObjManager);
-                    /*GameObjManager.Update()*/
-                    ;
+                    /*GameObjManager.Update()*/                    
 
                     UpdateManager.Update();
                     AllCollisionDetection.DetectCollision(GameObjManager);
 
                     //if it's paused, HUDdisplay needs to move down
 
-
-                    /*
-                    #region Print to debug console
-                    System.Text.StringBuilder sb = new StringBuilder();
-                    sb.Append("Player pos" + Player.getPosition());
-                    //sb.Append((char)Player.getPosition().Item1, (char)Player.getPosition().Item2);
-
-                    if (sb.Length > 0)
-                        System.Diagnostics.Debug.WriteLine(sb.ToString());
-                    #endregion
-                    */
-
                 }
                 else if (GameStateManager.GameState == GameState.PausedState)
                 {
                     hudDisplay.Update(true);
                     
-                } else if (GameStateManager.GameState == GameState.TriforceWinState)
+                } 
+                else if (GameStateManager.GameState == GameState.TriforceWinState)
                 {
                     //needed for keyboard
                     Player.Update(gameTime);
-                } else if (GameStateManager.GameState == GameState.GameOverState)
+                } 
+                else if (GameStateManager.GameState == GameState.GameOverState)
                 {
                     //needed for keyboard
                     Player.Update(gameTime);
@@ -265,14 +248,7 @@ namespace Project1
                 //    timer--;
                 //}
             }
-            else
-            {
-                foreach (IController controller in ControllerList)
-                {
-                    controller.Update();
-                }
-                timer--;
-            }
+
             
             base.Update(gameTime);
         }
@@ -291,18 +267,18 @@ namespace Project1
                 // HUD doesn't move with camera yet, it has many small draw calls
                 //hudDisplay.DrawFollowCamera(_spriteBatch);
             }
-            else if (gameStatePlaying)
+            else
             {
                 _spriteBatch.Begin();
+
+                GameStateManager.DrawGameState(_spriteBatch);
+
                 if (GameStateManager.GameState == GameState.DefaultState)
                 {
 
                     EnvironmentLoader.Draw(_spriteBatch);
-
-
-
-
-
+                    EnvironmentLoader.Draw(_spriteBatch);
+                    RoomTransition.Draw(_spriteBatch);
                     Player.Draw(gameTime, _spriteBatch);
 
                     DrawManager.Draw();
@@ -322,45 +298,24 @@ namespace Project1
                     //Item.Draw(_spriteBatch);
                     //CurrentEnvironment.Draw(_spriteBatch);
                     //GameObjManager.Draw();
-
+                    hudDisplay.Draw(_spriteBatch);
                 }
                 else if (GameStateManager.GameState == GameState.PausedState)
                 {
-                    GameStateManager.DrawGameState(_spriteBatch);
-
+                    hudDisplay.Draw(_spriteBatch);
                 }
-                hudDisplay.Draw(_spriteBatch);
-                //else if (GameStateManager.GameState == GameState.GameOverState)
-                //{
-                //    if (timer <= 0)
-                //    {
-                //        GameOverScreens.DrawOptionsScreen(_spriteBatch, font);
-                //    }
-                //    else
-                //    {
-
-                //        GameOverScreens.DrawGameOverScreen(_spriteBatch, font);
-                //    }
-                //}
-            }
-            else
-            {
-                _spriteBatch.Begin();
-                if (timer <= 0)
+                else if (GameStateManager.GameState == GameState.TriforceWinState)
                 {
                     //placeholder for future implementation
                 }
-
-
-                //ENEMY.Draw(_spriteBatch);
-                //Item.Draw(_spriteBatch);
-                //CurrentEnvironment.Draw(_spriteBatch);
-                //GameObjManager.Draw();
-
-                
-                base.Draw(gameTime);
+                else if (GameStateManager.GameState == GameState.GameOverState)
+                {
+                    //placeholder for future implementation
+                }
             }
-            _spriteBatch.End();
+
+                _spriteBatch.End();
+            base.Draw(gameTime);
         }
 
     }
