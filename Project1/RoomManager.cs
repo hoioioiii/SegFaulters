@@ -14,13 +14,13 @@ namespace Project1
     public static class RoomManager
     {
         private static Dictionary<int, bool> activeList;
-        
+
         public static void Load()
         {
             //load in list of active rooms
             activeList = new Dictionary<int, bool>();
-            
-            for(int i = 0; i < LevelLoader.roomCount; i++)
+
+            for (int i = 0; i < LevelLoader.roomCount; i++)
             {
                 activeList.Add(i, false);
             }
@@ -41,7 +41,7 @@ namespace Project1
             int oldRoom = 0;
 
             PositionGrid.Update();
-            for(int i = 0; i < activeList.Count; i++)
+            for (int i = 0; i < activeList.Count; i++)
             {
                 if (activeList[i])
                 {
@@ -65,13 +65,13 @@ namespace Project1
             }
             int oldRoom = n;
             n++;
-            if(n >= activeList.Count)
+            if (n >= activeList.Count)
             {
                 n = 0;
             }
 
             activeList[n] = true;
-            DrawActiveRoom(oldRoom, DIRECTION.none) ;
+            DrawActiveRoom(oldRoom, DIRECTION.none);
         }
         public static void DecrementActiveRoom()
         {
@@ -97,7 +97,7 @@ namespace Project1
 
         public static int getActiveRoomNumber()
         {
-            for (int i =0; i < activeList.Count; i++)
+            for (int i = 0; i < activeList.Count; i++)
             {
                 if (activeList[i])
                     return i;
@@ -108,8 +108,8 @@ namespace Project1
 
         public static void DrawActiveRoom(int oldRoom, DIRECTION doorDirection)
         {
-            
-            for (int i = 0; i < activeList.Count-1; i++)
+
+            for (int i = 0; i < activeList.Count - 1; i++)
             {
                 if (activeList[i])
                 {

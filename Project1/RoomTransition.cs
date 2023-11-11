@@ -29,7 +29,7 @@ namespace Project1
 
             shouldDraw = true;
 
-            
+
             //roomTexture = roomTextures[nextRoomNum];
 
             // get the next room texture
@@ -40,7 +40,7 @@ namespace Project1
 
             //finally load in the actual room.
             nextRoom.Load();
-            
+
 
         }
 
@@ -50,19 +50,19 @@ namespace Project1
             {
                 case DIRECTION.up:
                     positionX = 17;
-                    positionY = -225;
+                    positionY = -230;
                     break;
                 case DIRECTION.down:
                     positionX = 17;
-                    positionY = -235 + roomTexture.Height * 2;
+                    positionY = -235 + ROOM_FRAME_HEIGHT * 2;
                     break;
                 case DIRECTION.right:
-                    positionX = 17 + roomTexture.Width;
-                    positionY = -235 + roomTexture.Height;
+                    positionX = 17 + ROOM_FRAME_WIDTH;
+                    positionY = -230 + ROOM_FRAME_HEIGHT;
                     break;
                 case DIRECTION.left:
-                    positionX = 17 - roomTexture.Width;
-                    positionY = -235 + roomTexture.Height;
+                    positionX = 17 - ROOM_FRAME_WIDTH;
+                    positionY = -230 + ROOM_FRAME_HEIGHT;
                     break;
                 default:
                     return;
@@ -103,7 +103,7 @@ namespace Project1
         {
             if (shouldDraw)
             {
-                spriteBatch.Draw(roomTexture, new Rectangle(positionX, positionY, roomTexture.Width, roomTexture.Height), Color.White);
+                spriteBatch.Draw(roomTexture, new Rectangle(positionX, positionY, ROOM_FRAME_WIDTH, ROOM_FRAME_HEIGHT), Color.White);
 
             }
 

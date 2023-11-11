@@ -33,7 +33,7 @@ namespace Project1
             Down
         }
 
-        public enum DIRECTION { right = 0, left = 1, up = 2, down = 3, none = -1};
+        public enum DIRECTION { right = 0, left = 1, up = 2, down = 3, none = -1 };
 
         public static int UP_DIRECTION_SPRITE = 2;
         public static int DOWN_DIRECTION_SPRITE = 0;
@@ -47,6 +47,9 @@ namespace Project1
         public enum ENEMY_DIRECTION { up = 0, right = 1, down = 2, left = 3 };
 
         //Windows and frames metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int ROOM_FRAME_HEIGHT = 0;
+        public static int ROOM_FRAME_WIDTH = 0;
+
         public static int FRAME_BUFFER_Y = 320;
         public static int FRAME_BUFFER_X = 0;
 

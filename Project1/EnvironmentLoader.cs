@@ -22,6 +22,8 @@ namespace Project1
             doorArray = new Door[0];
             //load in background content
             levelBackground = content.Load<Texture2D>("LevelBackground");
+            ROOM_FRAME_HEIGHT = levelBackground.Height * 3;
+            ROOM_FRAME_WIDTH = levelBackground.Width * 3;
 
             //load in door content
             doorSpriteArray = new Texture2D[8];
@@ -109,9 +111,10 @@ namespace Project1
             }
         }
 
+        //fix tom
         public static void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(levelBackground, new Rectangle(17 + FRAME_BUFFER_X, -22 + FRAME_BUFFER_Y, levelBackground.Width * 3, levelBackground.Height * 3), Color.White);
+            spriteBatch.Draw(levelBackground, new Rectangle(17 + FRAME_BUFFER_X, -22 + FRAME_BUFFER_Y, ROOM_FRAME_WIDTH, ROOM_FRAME_HEIGHT), Color.White);
 
             foreach (IEnvironment block in blocksArray)
             {
