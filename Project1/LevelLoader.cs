@@ -176,6 +176,7 @@ namespace Project1
 
             if (currentRoomNum != nextRoomNum && doorDirection != DIRECTION.none) //if not the first load in
             {
+                currentRoom.Load();
                 RoomTransition.StartScrolling(nextRoom, nextRoomNum, doorDirection);
             }
             else

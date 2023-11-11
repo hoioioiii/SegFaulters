@@ -289,7 +289,7 @@ namespace Project1
                 _spriteBatch.Begin(transformMatrix: Camera.Transform);
                 RoomTransition.Draw(_spriteBatch);
                 EnvironmentLoader.Draw(_spriteBatch);
-                hudDisplay.Draw(_spriteBatch);
+                hudDisplay.DrawFollowCamera(_spriteBatch);
             }
             else if (gameStatePlaying)
             {

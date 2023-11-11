@@ -8,6 +8,7 @@ namespace Project1.HUD
 	{
         public void Update();
         public void Draw(SpriteBatch spriteBatch);
+        public void DrawFollowCamera(SpriteBatch spriteBatch);
     }
 }
 
