@@ -13,6 +13,7 @@ namespace Project1
     public class Camera
     {
         public Matrix Transform { get; set; }
+        private Vector2 posAdjust;
 
         private float _timer;
 
@@ -23,75 +24,59 @@ namespace Project1
         }
 
         /*
-         * Used to test the camera following the player
-         */
-        /*
-        public void Follow(Rectangle target)
-        {
-            var position = Matrix.CreateTranslation(
-                -target.Center.X - (target.Width / 2),
-                -target.Center.Y - (target.Height / 2),
-                0);
-
-            // TODO: replace with constants!!
-            var offset = Matrix.CreateTranslation(
-                800 / 2,
-                480 / 2,
-                0);
-
-            Transform = position * offset;
-        }
-        */
-
-        /*
          * Calculates the camera transition
          */
-        public void RoomTransitionCalculate(DIRECTION direction)
+        public Vector2 RoomTransitionCalculate(DIRECTION direction)
         {
             //var position = Matrix.CreateTranslation(0,0,0);
 
             switch (direction)
             {
                 case DIRECTION.left:
-                    Transform = Matrix.CreateTranslation(
-                        -800,
-                        0,
-                        0);
-                    break;
+                    posAdjust.X = -800;
+                    posAdjust.Y = 0;
+                    break;   
                 case DIRECTION.right:
-                    Transform = Matrix.CreateTranslation(
-                        800,
-                        0,
-                        0);
-                    break;
+                    posAdjust.X = 800;
+                    posAdjust.Y = 0;
+                    break;   
                 case DIRECTION.down:
-                    Transform = Matrix.CreateTranslation(
-                        0,
-                        -480,
-                        0);
-                    break;
+                    posAdjust.X = 0;
+                    posAdjust.Y = -480;
+                    break;   
                 case DIRECTION.up:
-                    Transform = Matrix.CreateTranslation(
-                        0,
-                        480,
-                        0);
+                    posAdjust.X = 0;
+                    posAdjust.Y = 480;                   
                     break;
             }
 
             _timer = 0;
+            
+            return posAdjust;
         }
 
         /*
          * Should be called in update
+         * Smoothly transitions
          */
-        private void TransitionRoom(GameTime gametime)
+        private void TransitionRoom(GameTime gametime, Vector2 pos)
         {
             _timer += (float)gametime.ElapsedGameTime.TotalSeconds;
 
+            // If true, room has finished transitioning
             if (_timer > ROOM_TRANSITION_SPEED)
             {
                 _timer = 0;
             }
+            else
+            {
+                Transform = Matrix.CreateTranslation(
+                        (_timer / ROOM_TRANSITION_SPEED) * pos.X,
+                        (_timer / ROOM_TRANSITION_SPEED) * pos.Y,
+                        0);
+            }
+
+            
         }
 
     }
