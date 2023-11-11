@@ -53,6 +53,8 @@ namespace Project1
         private SpriteFont font;
         private int timer;
 
+        private Boolean roomTransitioning;
+
         public Game1()
         {
 
@@ -195,17 +197,6 @@ namespace Project1
 
                 GameObjManager.Update();
                 AllCollisionDetection.DetectCollision(GameObjManager);
-
-                /*
-                #region Print to debug console
-                System.Text.StringBuilder sb = new StringBuilder();
-                sb.Append("Player pos" + Player.getPosition());
-                //sb.Append((char)Player.getPosition().Item1, (char)Player.getPosition().Item2);
-
-                if (sb.Length > 0)
-                    System.Diagnostics.Debug.WriteLine(sb.ToString());
-                #endregion
-                */
             }
             else
             {
@@ -221,13 +212,13 @@ namespace Project1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            /*
+            
             if (roomTransitioning)
             {
                 _spriteBatch.Begin(transformMatrix: camera.Transform);
             }
-            */         
-            if (gameStatePlaying)
+                   
+            else if (gameStatePlaying)
             {
                 _spriteBatch.Begin();
                 EnvironmentLoader.Draw(_spriteBatch);
