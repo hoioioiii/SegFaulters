@@ -390,6 +390,8 @@ namespace Project1
             MIDDLE,
            BOTTOM
         }
+
+        public static int ROOM_TRANSITION_SECONDS = 3;
     }
 }
 
