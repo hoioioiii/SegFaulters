@@ -55,13 +55,16 @@ namespace Project1
         public static GameTime timeProj;
         private ArrayList ControllerList;
 
-
+        Camera camera;
+        Vector2 finalPostion;
 
         //Manages game over or playing
         public static bool gameStatePlaying;
         public static OptionSelector selectionManager;
         private SpriteFont font;
         public static int timer;
+
+        private Boolean roomIsTransitioning;
 
         public Game1()
         {
@@ -125,6 +128,9 @@ namespace Project1
             
             Player.Initialize();
 
+            camera = new Camera();
+            camera.Initialize();
+
             //hudDisplay = new HeadsUpDisplay();
 
             base.Initialize();
@@ -182,29 +188,19 @@ namespace Project1
         //clean up
         protected override void Update(GameTime gameTime)
         {
-
-            
-            
-            foreach (IController controller in ControllerList)
+            if (roomIsTransitioning)
             {
-                controller.Update();
+                roomIsTransitioning = camera.TransitionRoom(gameTime, finalPostion);
             }
-
-            if (HealthDisplay.linkHealth.IsDead())
-            {
-                // GameStateManager.GameState = GameState.GameOverState;
-                gameStatePlaying = false;
-
-            }
-
-
-            //fix later
-            deltaTime = gameTime;
-
-            if (gameStatePlaying)
+            else if (gameStatePlaying)
             {
 
+                if (HealthDisplay.linkHealth.IsDead())
+                {
+                    // GameStateManager.GameState = GameState.GameOverState;
+                    gameStatePlaying = false;
 
+                }
 
                 if (GameStateManager.GameState == GameState.DefaultState)
                 {
@@ -262,6 +258,20 @@ namespace Project1
             {
                 timer--;
             }
+            
+            
+            foreach (IController controller in ControllerList)
+            {
+                controller.Update();
+            }
+
+           
+
+
+            //fix later
+            deltaTime = gameTime;
+
+            
 
 
             base.Update(gameTime);
@@ -275,8 +285,11 @@ namespace Project1
 
             _spriteBatch.Begin();
 
-
-            if (gameStatePlaying)
+            if (roomIsTransitioning)
+            {
+                _spriteBatch.Begin(transformMatrix: camera.Transform);
+            }
+            else if (gameStatePlaying)
             {
                 if (GameStateManager.GameState == GameState.DefaultState)
                 {
