@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -19,29 +20,29 @@ namespace Project1
         private static bool shouldDraw;
         private static int nextRoomNum;
 
+        private static Room nextRoom;
+
         private static int positionX;
         private static int positionY;
 
-        public static void StartScrolling(Room nextRoom, int nextRoomNum, DIRECTION doorDirection)
+        public static void StartScrolling(Room nextR, int nextRoomNum, DIRECTION doorDirection)
         {
+            nextRoom = nextR;
+
             roomTexture = roomTextures[nextRoomNum];
             getPositionFromDirection(doorDirection);
 
             shouldDraw = true;
 
 
-            //roomTexture = roomTextures[nextRoomNum];
-
-            // get the next room texture
-            //Texture2D nextRoomTexture = roomTextures[nextRoomNum];
-            //draw it either above, to the side, or below it
-
             //wait for screen scroller to stop
+            EndScrolling(); //this should be called from the camera.
+        }
 
-            //finally load in the actual room.
+        public static void EndScrolling()
+        {
+            shouldDraw = false;
             nextRoom.Load();
-
-
         }
 
         private static void getPositionFromDirection(DIRECTION direction)
