@@ -13,7 +13,7 @@ namespace Project1
     public class Camera
     {
         public Matrix Transform { get; set; }
-        private Vector2 posAdjust;
+        private Vector2 positionAdjust;
 
         private float _timer;
 
@@ -33,26 +33,26 @@ namespace Project1
             switch (direction)
             {
                 case DIRECTION.left:
-                    posAdjust.X = -800;
-                    posAdjust.Y = 0;
+                    positionAdjust.X = -800;
+                    positionAdjust.Y = 0;
                     break;   
                 case DIRECTION.right:
-                    posAdjust.X = 800;
-                    posAdjust.Y = 0;
+                    positionAdjust.X = 800;
+                    positionAdjust.Y = 0;
                     break;   
                 case DIRECTION.down:
-                    posAdjust.X = 0;
-                    posAdjust.Y = -480;
+                    positionAdjust.X = 0;
+                    positionAdjust.Y = -480;
                     break;   
                 case DIRECTION.up:
-                    posAdjust.X = 0;
-                    posAdjust.Y = 480;                   
+                    positionAdjust.X = 0;
+                    positionAdjust.Y = 480;                   
                     break;
             }
 
             _timer = 0;
             
-            return posAdjust;
+            return positionAdjust;
         }
 
         /*
