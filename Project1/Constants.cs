@@ -33,7 +33,7 @@ namespace Project1
             Down
         }
 
-        public enum DIRECTION { right = 0, left = 1, up = 2, down = 3 };
+        public enum DIRECTION { right = 0, left = 1, up = 2, down = 3, none = -1 };
 
         public static int UP_DIRECTION_SPRITE = 2;
         public static int DOWN_DIRECTION_SPRITE = 0;
@@ -42,11 +42,16 @@ namespace Project1
         public static int RIGHT = 1;
         public static int DOWN = 2;
         public static int LEFT = 3;
+        public static int NONE = -1;
 
         public enum ENEMY_DIRECTION { up = 0, right = 1, down = 2, left = 3 };
 
         //Windows and frames metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        public static int FRAME_BUFFER = 320;
+        public static int ROOM_FRAME_HEIGHT = 0;
+        public static int ROOM_FRAME_WIDTH = 0;
+
+        public static int FRAME_BUFFER_Y = 320;
+        public static int FRAME_BUFFER_X = 0;
 
         public static int SCREEN_WIDTH_UPPER = 600;
         //*
@@ -85,12 +90,12 @@ namespace Project1
         public static int WEAPON_OFFSET_X = 20;
         public static int WEAPON_OFFSET_Y = 30;
         //Collision metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        public static int roomBoundsMaxX = 660, roomBoundsMaxY = 365 + FRAME_BUFFER, roomBoundsMinX = 90, roomBoundsMinY = 53 + FRAME_BUFFER;
+        public static int roomBoundsMaxX = 660 + FRAME_BUFFER_X, roomBoundsMaxY = 365 + FRAME_BUFFER_Y, roomBoundsMinX = 90 + FRAME_BUFFER_X, roomBoundsMinY = 53 + FRAME_BUFFER_Y;
 
         public static int blockRows = 7, blockColumns = 12;
         // used for spawn and respawn after travelling through doors
-        public static Vector2 RESPAWN_LEFT = new Vector2((int)(roomBoundsMaxX * 7.8 / 8), (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
-        public static Vector2 RESPAWN_RIGHT = new Vector2((int)(roomBoundsMaxX * 1.4) / 8, (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
+        public static Vector2 RESPAWN_LEFT = new Vector2(roomBoundsMaxX - 20, (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
+        public static Vector2 RESPAWN_RIGHT = new Vector2(roomBoundsMinX + 20, (roomBoundsMaxY - roomBoundsMinY) / 2 + roomBoundsMinY + 10);
         public static Vector2 RESPAWN_UP = new Vector2((roomBoundsMaxX - roomBoundsMinX) / 2 + roomBoundsMinX + 5, roomBoundsMaxY - 10);
         public static Vector2 RESPAWN_DOWN = new Vector2((roomBoundsMaxX - roomBoundsMinX) / 2 + roomBoundsMinX + 5, roomBoundsMinY + 10);
         public enum CollisionType

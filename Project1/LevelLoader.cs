@@ -24,7 +24,8 @@ namespace Project1
         private static ((string, (int, bool))[],(string,(int, int))[]) environmentInfo; //(doorArray, blockArray)
         private static (string, (int, int))[] itemArray;//(string itemName,(int posX, posY))
         public static void Load(string xmlPath)
-        {
+        { 
+
             XmlDocument xmlDoc = new XmlDocument();
 
             //old way of referencing xml was copyying local full path, have updated it to where it is relative to remote using System.IO.Path.Combine
@@ -168,9 +169,19 @@ namespace Project1
         }
 
 
-        public static void drawActiveRoom(int n)
+        public static void drawActiveRoom(int currentRoomNum, int nextRoomNum, DIRECTION doorDirection)
         {
-            roomList[n].Load();
+            Room currentRoom = roomList[currentRoomNum];
+            Room nextRoom = roomList[nextRoomNum];
+
+            if (currentRoomNum != nextRoomNum && doorDirection != DIRECTION.none) //if not the first load in
+            {
+                RoomTransition.StartScrolling(nextRoom, nextRoomNum, doorDirection);
+            }
+            else
+            {
+                nextRoom.Load();
+            }
         }
 
         private static void getRoomCountFromXmlDoc(XmlDocument doc)

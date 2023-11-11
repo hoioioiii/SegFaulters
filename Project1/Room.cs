@@ -18,6 +18,7 @@ namespace Project1
         private (string, ((int, int), (string, int)[]))[] enemyArray; //(string enemyName, ((int posX, int posY), (string itemName, int quantity)[]))
         private ((string, (int, bool))[], (string, (int, int))[]) environmentInfo; //(doorArray, blockArray)
         private (string, (int, int))[] itemArray;//(string itemName,(int posX, posY))
+
         public Room((string, ((int, int), (string, int)[]))[] enemyArray, ((string, (int, bool))[], (string, (int, int))[]) environmentInfo, (string, (int, int))[] itemArray) 
         {
             this.enemyArray = enemyArray;

@@ -133,6 +133,11 @@ namespace Project1
         //clean
         protected override void LoadContent()
         {
+            //make the grid
+            PositionGrid.createMap();
+
+            RoomTransition.LoadTextures(Content);
+
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("ZeldaFont");
             graphics = GraphicsDevice;
@@ -277,6 +282,10 @@ namespace Project1
                 {
 
                     EnvironmentLoader.Draw(_spriteBatch);
+                
+                EnvironmentLoader.Draw(_spriteBatch);
+                RoomTransition.Draw(_spriteBatch);
+
 
                     Player.Draw(gameTime, _spriteBatch);
 
