@@ -55,7 +55,6 @@ namespace Project1
         public static GameTime timeProj;
         private ArrayList ControllerList;
 
-        Camera camera;
         Vector2 finalPostion;
 
         //Manages game over or playing
@@ -64,7 +63,7 @@ namespace Project1
         private SpriteFont font;
         public static int timer;
 
-        private Boolean roomIsTransitioning;
+        public static bool roomIsTransitioning;
 
         public Game1()
         {
@@ -128,8 +127,7 @@ namespace Project1
             
             Player.Initialize();
 
-            camera = new Camera();
-            camera.Initialize();
+            Camera.Initialize();
 
             //hudDisplay = new HeadsUpDisplay();
 
@@ -188,9 +186,12 @@ namespace Project1
         //clean up
         protected override void Update(GameTime gameTime)
         {
+            //fix later
+            deltaTime = gameTime;
+
             if (roomIsTransitioning)
             {
-                roomIsTransitioning = camera.TransitionRoom(gameTime, finalPostion);
+                Camera.TransitionRoom(gameTime);
             }
             else if (gameStatePlaying)
             {
@@ -268,8 +269,8 @@ namespace Project1
            
 
 
-            //fix later
-            deltaTime = gameTime;
+            
+            
 
             
 
@@ -282,22 +283,24 @@ namespace Project1
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-
-            _spriteBatch.Begin();
-
+          
             if (roomIsTransitioning)
             {
-                _spriteBatch.Begin(transformMatrix: camera.Transform);
+                _spriteBatch.Begin(transformMatrix: Camera.Transform);
+                RoomTransition.Draw(_spriteBatch);
+                EnvironmentLoader.Draw(_spriteBatch);
+                hudDisplay.Draw(_spriteBatch);
             }
             else if (gameStatePlaying)
             {
+                _spriteBatch.Begin();
                 if (GameStateManager.GameState == GameState.DefaultState)
                 {
 
                     EnvironmentLoader.Draw(_spriteBatch);
                 
-                EnvironmentLoader.Draw(_spriteBatch);
-                RoomTransition.Draw(_spriteBatch);
+                
+                
 
 
                     Player.Draw(gameTime, _spriteBatch);
@@ -319,13 +322,14 @@ namespace Project1
                     //Item.Draw(_spriteBatch);
                     //CurrentEnvironment.Draw(_spriteBatch);
                     //GameObjManager.Draw();
-                    hudDisplay.Draw(_spriteBatch);
+                    
                 }
                 else if (GameStateManager.GameState == GameState.PausedState)
                 {
                     GameStateManager.DrawGameState(_spriteBatch);
-                    hudDisplay.Draw(_spriteBatch);
+                    
                 }
+                hudDisplay.Draw(_spriteBatch);
                 //else if (GameStateManager.GameState == GameState.GameOverState)
                 //{
                 //    if (timer <= 0)
@@ -341,6 +345,7 @@ namespace Project1
             }
             else
             {
+                _spriteBatch.Begin();
                 if (timer <= 0)
                 {
                     GameOverScreens.DrawOptionsScreen(_spriteBatch, font);

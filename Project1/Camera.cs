@@ -4,34 +4,34 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    public class Camera
+    public static class Camera
     {
-        public Matrix Transform { get; set; }
-        private Vector2 positionAdjust;
+        public static Matrix Transform { get; set; }
+        private static Vector2 positionAdjust;
 
-        private float _timer;
+        private static float _timer;
 
-        public void Initialize()
+        public static void Initialize()
         {
             Transform = Matrix.CreateTranslation(0, 0, 0);
             _timer = 0;
+
+            positionAdjust = new Vector2(0,0);
         }
 
         /*
          * Calculates the camera transition
          */
-        public Vector2 RoomTransitionCalculate(DIRECTION direction)
+        public static void RoomTransitionCalculate(DIRECTION direction)
         {
-            //var position = Matrix.CreateTranslation(0,0,0);
-
             switch (direction)
             {
                 case DIRECTION.left:
-                    positionAdjust.X = -800;
+                    positionAdjust.X = 800;
                     positionAdjust.Y = 0;
                     break;
                 case DIRECTION.right:
-                    positionAdjust.X = 800;
+                    positionAdjust.X = -800;
                     positionAdjust.Y = 0;
                     break;
                 case DIRECTION.down:
@@ -44,16 +44,14 @@ namespace Project1
                     break;
             }
 
-            _timer = 0;
-
-            return positionAdjust;
+            _timer = 0;    
         }
 
         /*
          * Should be called in update
          * Smoothly transitions between rooms
          */
-        public bool TransitionRoom(GameTime gametime, Vector2 finalPosition)
+        public static bool TransitionRoom(GameTime gametime)
         {
             Boolean isFinishedTransitioning = false;
             _timer += (float)gametime.ElapsedGameTime.TotalSeconds;
@@ -65,12 +63,13 @@ namespace Project1
                 _timer = 0;
 
                 isFinishedTransitioning = true;
+                RoomTransition.EndScrolling();
             }
             else
             {
                 Transform = Matrix.CreateTranslation(
-                        (_timer / ROOM_TRANSITION_SECONDS) * finalPosition.X,
-                        (_timer / ROOM_TRANSITION_SECONDS) * finalPosition.Y,
+                        (_timer / ROOM_TRANSITION_SECONDS) * positionAdjust.X,
+                        (_timer / ROOM_TRANSITION_SECONDS) * positionAdjust.Y,
                         0);
             }
 

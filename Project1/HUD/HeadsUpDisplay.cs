@@ -36,6 +36,13 @@ namespace Project1.HUD
             health.Draw(spriteBatch);
         }
 
+        public void DrawFollowCamera(SpriteBatch spriteBatch)
+        {
+            location.Draw(spriteBatch);
+            inventory.Draw(spriteBatch);
+            health.Draw(spriteBatch);
+        }
+
         public static bool IsFullMenuDisplay()
         {
             return isFullMenu;

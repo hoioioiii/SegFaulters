@@ -391,7 +391,7 @@ namespace Project1
            BOTTOM
         }
 
-        public static int ROOM_TRANSITION_SECONDS = 3;
+        public static float ROOM_TRANSITION_SECONDS = 3;
     }
 }
 

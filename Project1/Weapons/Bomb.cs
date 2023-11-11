@@ -30,7 +30,7 @@ namespace Project1
         public void Attack()
         {
             sprite.Attack();
-            AudioManager.PlaySoundEffect(bombBlow);
+            AudioManager.PlaySoundEffect(bombDrop);
         }
         /*
          * Update

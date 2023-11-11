@@ -34,15 +34,15 @@ namespace Project1
 
             shouldDraw = true;
 
-
-            //wait for screen scroller to stop
-            EndScrolling(); //this should be called from the camera.
+            Camera.RoomTransitionCalculate(doorDirection);
+            Game1.roomIsTransitioning = true;
         }
 
         public static void EndScrolling()
         {
             shouldDraw = false;
             nextRoom.Load();
+            Game1.roomIsTransitioning = false;
         }
 
         private static void getPositionFromDirection(DIRECTION direction)
