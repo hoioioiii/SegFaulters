@@ -2149,3 +2149,92 @@ C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\Audio\sword sw
 C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\blackSquareRoom.xnb
 C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\greenSquareOnMap.xnb
 C:\Users\tinal\source\repos\3.7\Project1\bin\Debug\net6.0\Content\pausedMap.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\04 Underworld BGM.ogg
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\04 Underworld BGM.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\11_-_Legend_of_Zelda_-_NES_-_Game_Over.ogg
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\11_-_Legend_of_Zelda_-_NES_-_Game_Over.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\add ui.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\boomerang.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\boomerangThrow.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\cling.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\death.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\do do do do do DO do do.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\dragon.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\dragon2.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\dragon3.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\dragon4.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\enemy die.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\fairyGet.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\fire.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\flame.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\item get.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\item.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\low health.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Arrow_Boomerang.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Bomb_Blow.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Bomb_Drop.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Door_Unlock.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Enemy_Hit.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Get_Heart.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Get_Item.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Get_Rupee.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Link_Hurt.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Sword_Combined.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\LOZ_Sword_Slash.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\phantomSword.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\plus plus.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\plus.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\puzzleSolved.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\secret revealed.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\Sound Effect (11).xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\Sound Effect (23).xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\Sound Effect (24).xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\Sound Effect (25).xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\Sound Effect (9).xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\stairs.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\subtract ui.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\sword swing.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\sword.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\BigItemInventory.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\BlackRoom.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\blackSquareRoom.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\brickCarpet.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\brickDragon.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\brickFish.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\brickWater.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\CarpetBlock.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\compassPauseText.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\DragonBlock.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\emptyheart.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\File.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\FishBlock.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\fullheart.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\greenSquareOnMap.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\halfheart.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\HUDFont.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\INVENTORYfont.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\mapItem.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\mapPauseText.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\pausedMap.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\redItemSelector.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room0.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room1.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room10.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room11.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room12.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room13.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room14.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room15.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room16.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room2.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room3.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room4.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room5.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room6.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room7.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room8.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\Room9.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\RoomSprite.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\smallItemBox.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\USEBbuttonfont.xnb
+D:\CSE3902\Projects\SegFaulters\Project1\bin\Debug\net6.0\Content\ZeldaFont.xnb
