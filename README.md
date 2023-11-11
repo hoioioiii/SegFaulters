@@ -35,7 +35,10 @@ Known Bugs/Errors
    12. Cannot click on map to teleport yet
    13. Do not have secret tunnel doors yet
    14. Enemies and items are not remembered by the room if they are killed or picked up.
-   15. Attacking with the arrow does not work.
+   15. If a previously locked door is unlocked it is not shown as being unlocked on room transition.
+   16. Heart pickups do not work.
+   17. Enemy item drops are buggy.
+   18. Item pickups are buggy.
 
 
 Tools and Processes 
