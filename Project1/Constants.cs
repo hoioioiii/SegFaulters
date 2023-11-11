@@ -391,7 +391,10 @@ namespace Project1
            BOTTOM
         }
 
+        // Room Transitioning
         public static float ROOM_TRANSITION_SECONDS = 3;
+        public static int TRANSITION_OFFSET_X = 17;
+        public static int TRANSITION_OFFSET_Y = -231;
     }
 }
 

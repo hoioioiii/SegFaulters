@@ -27,20 +27,20 @@ namespace Project1
             switch (direction)
             {
                 case DIRECTION.left:
-                    positionAdjust.X = 800;
+                    positionAdjust.X = ROOM_FRAME_WIDTH;
                     positionAdjust.Y = 0;
                     break;
                 case DIRECTION.right:
-                    positionAdjust.X = -800;
+                    positionAdjust.X = -ROOM_FRAME_WIDTH;
                     positionAdjust.Y = 0;
                     break;
                 case DIRECTION.down:
                     positionAdjust.X = 0;
-                    positionAdjust.Y = -480;
+                    positionAdjust.Y = -ROOM_FRAME_HEIGHT;
                     break;
                 case DIRECTION.up:
                     positionAdjust.X = 0;
-                    positionAdjust.Y = 480;
+                    positionAdjust.Y = ROOM_FRAME_HEIGHT;
                     break;
             }
 
