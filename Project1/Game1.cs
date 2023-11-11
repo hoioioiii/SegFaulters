@@ -289,7 +289,8 @@ namespace Project1
                 _spriteBatch.Begin(transformMatrix: Camera.Transform);
                 RoomTransition.Draw(_spriteBatch);
                 EnvironmentLoader.Draw(_spriteBatch);
-                hudDisplay.DrawFollowCamera(_spriteBatch);
+                // HUD doesn't move with camera yet, it has many small draw calls
+                //hudDisplay.DrawFollowCamera(_spriteBatch);
             }
             else if (gameStatePlaying)
             {
