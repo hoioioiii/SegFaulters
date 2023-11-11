@@ -51,7 +51,7 @@ namespace Project1.Enemies
 
         public void Update()
         {
-            testDeath();
+            //testDeath();
 
             //check entity life status
             if (entityHealthSystem.IsDead())
@@ -100,10 +100,7 @@ namespace Project1.Enemies
                 //sprite.animationManager
                 animation_manager.Animate();
             }
-            else
-            {
-                //Do Item Drop
-            }
+           
         }
 
         
