@@ -195,6 +195,10 @@ namespace Project1
             }
             else if (gameStatePlaying)
             {
+                foreach (IController controller in ControllerList)
+                {
+                    controller.Update();
+                }
 
                 if (HealthDisplay.linkHealth.IsDead())
                 {
@@ -249,7 +253,7 @@ namespace Project1
                     GameStateManager.UpdateGameState();
                 }
 
-
+                
                 //else if (GameStateManager.GameState == GameState.GameOverState)
                 //{
                 //    timer--;
@@ -257,24 +261,13 @@ namespace Project1
             }
             else
             {
+                foreach (IController controller in ControllerList)
+                {
+                    controller.Update();
+                }
                 timer--;
             }
             
-            
-            foreach (IController controller in ControllerList)
-            {
-                controller.Update();
-            }
-
-           
-
-
-            
-            
-
-            
-
-
             base.Update(gameTime);
         }
 
