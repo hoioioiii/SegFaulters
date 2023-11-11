@@ -24,8 +24,51 @@ namespace Project1.Collision_Response
             Game1.GameObjManager.removeItem(item);
             //item.drawState = false;
             AudioManager.PlaySoundEffect(smallItemGet);
+            Player.PickUpItem(IItemtoITEMS(item));
         }
+        //helper method to get player pickupitem method the needed input type
+        public static ITEMS IItemtoITEMS(IItem item)
+        {
+            ITEMS ITEMS = ITEMS.Bow;
+            switch (item)
+            {
+                case BombItem:
+                    ITEMS = ITEMS.Bomb;
+                    break;
+                case ArrowItem:
+                    ITEMS = ITEMS.Arrow;
+                    break;
+                case BoomerangItem:
+                    ITEMS = ITEMS.Boomerang;
+                    break;
+                case Clock:
+                    ITEMS = ITEMS.Clock;
+                    break;
+                case Fairy:
+                    ITEMS = ITEMS.Fairy;
+                    break;
+                case HeartContainer:
+                    ITEMS = ITEMS.HeartContainer;
+                    break;
+                case Key:
+                    ITEMS = ITEMS.Key;
+                    break;
+                case Map:
+                    ITEMS = ITEMS.Map;
+                    break;
+                case Rupee:
+                    ITEMS = ITEMS.Rupee;
+                    break;
+                case Sword:
+                    ITEMS = ITEMS.Sword;
+                    break;
+                case Triforce:
+                    ITEMS = ITEMS.Triforce;
+                    break;
 
+            }
+            return ITEMS;
+        }
         /*
          * Pass in door
          * Send to level loader which door it was

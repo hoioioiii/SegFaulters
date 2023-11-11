@@ -18,6 +18,7 @@
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/arrowUp.gif</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/arrowUp.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/04 Underworld BGM.mp3</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/11_-_Legend_of_Zelda_-_NES_-_Game_Over.ogg</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/add ui.wav</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/boomerang.wav</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/boomerangThrow.wav</File>
@@ -32,6 +33,7 @@
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/fairyGet.wav</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/fire.wav</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/flame.wav</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/Game OverState.wav</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/item get.wav</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/low health.wav</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/LOZ_Arrow_Boomerang.wav</File>
@@ -43,6 +45,8 @@
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/LOZ_Get_Item.wav</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/LOZ_Get_Rupee.wav</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/LOZ_Link_Hurt.wav</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/LOZ_Sword_Combined.wav</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/LOZ_Sword_Slash.wav</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/phantomSword.wav</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/plus plus.wav</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/plus.wav</File>
@@ -56,10 +60,12 @@
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/stairs.wav</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/subtract ui.wav</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/sword swing.wav</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Audio/TriforceSound.wav</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/bat1.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/bat2.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/BigItemInventory.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/BlackRoom.png</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/blackSquareRoom.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/BladeTrap.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/bomb.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/boomerang_sheet.png</File>
@@ -135,6 +141,7 @@
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/forest.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/fullheart.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/grass.png</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/greenSquareOnMap.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/halfheart.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/HAND.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/handLeft1.png</File>
@@ -185,9 +192,27 @@
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/OLDM.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/orb.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/orbRed.png</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/pausedMap.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/redbar.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/redbaradjusted.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/redItemSelector.png</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room0.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room1.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room10.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room11.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room12.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room13.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room14.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room15.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room16.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room2.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room3.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room4.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room5.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room6.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room7.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room8.PNG</File>
+    <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/Room9.PNG</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/RoomSprite.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/rupeeBlue.png</File>
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/rupeeGold.png</File>
@@ -218,6 +243,31 @@
     <File>C:/Users/ephra/source/repos/Boioioiii/SegFaulters/Project1/Content/ZeldaSpriteOldMan.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

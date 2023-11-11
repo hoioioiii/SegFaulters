@@ -133,11 +133,9 @@ namespace Project1
         //clean
         protected override void LoadContent()
         {
-            //make the grid
             PositionGrid.createMap();
 
             RoomTransition.LoadTextures(Content);
-
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("ZeldaFont");
             graphics = GraphicsDevice;
@@ -190,22 +188,20 @@ namespace Project1
                 controller.Update();
             }
 
-            if (HealthDisplay.linkHealth.IsDead())
+         /*   if (HealthDisplay.linkHealth.IsDead())
             {
                 // GameStateManager.GameState = GameState.GameOverState;
                 gameStatePlaying = false;
 
-            }
+            } */
 
 
             //fix later
             deltaTime = gameTime;
 
-            if (gameStatePlaying)
-            {
 
 
-
+                GameStateManager.UpdateGameState();
                 if (GameStateManager.GameState == GameState.DefaultState)
                 {
                     // Add your update logic here
@@ -249,7 +245,15 @@ namespace Project1
                 else if (GameStateManager.GameState == GameState.PausedState)
                 {
                     hudDisplay.Update(true);
-                    GameStateManager.UpdateGameState();
+                    
+                } else if (GameStateManager.GameState == GameState.TriforceWinState)
+                {
+                    //needed for keyboard
+                    Player.Update(gameTime);
+                } else if (GameStateManager.GameState == GameState.GameOverState)
+                {
+                    //needed for keyboard
+                    Player.Update(gameTime);
                 }
 
 
@@ -257,12 +261,6 @@ namespace Project1
                 //{
                 //    timer--;
                 //}
-            }
-            else
-            {
-                timer--;
-            }
-
 
             base.Update(gameTime);
         }
@@ -275,18 +273,14 @@ namespace Project1
 
             _spriteBatch.Begin();
 
+            GameStateManager.DrawGameState(_spriteBatch);
 
-            if (gameStatePlaying)
-            {
                 if (GameStateManager.GameState == GameState.DefaultState)
                 {
 
                     EnvironmentLoader.Draw(_spriteBatch);
-                
-                EnvironmentLoader.Draw(_spriteBatch);
-                RoomTransition.Draw(_spriteBatch);
-
-
+                    EnvironmentLoader.Draw(_spriteBatch);
+                    RoomTransition.Draw(_spriteBatch);
                     Player.Draw(gameTime, _spriteBatch);
 
                     DrawManager.Draw();
@@ -310,34 +304,14 @@ namespace Project1
                 }
                 else if (GameStateManager.GameState == GameState.PausedState)
                 {
-                    GameStateManager.DrawGameState(_spriteBatch);
                     hudDisplay.Draw(_spriteBatch);
-                }
-                //else if (GameStateManager.GameState == GameState.GameOverState)
-                //{
-                //    if (timer <= 0)
-                //    {
-                //        GameOverScreens.DrawOptionsScreen(_spriteBatch, font);
-                //    }
-                //    else
-                //    {
-
-                //        GameOverScreens.DrawGameOverScreen(_spriteBatch, font);
-                //    }
-                //}
-            }
-            else
-            {
-                if (timer <= 0)
+                } else if (GameStateManager.GameState == GameState.TriforceWinState) {
+                   //placeholder for future implementation
+                } else if(GameStateManager.GameState == GameState.GameOverState)
                 {
-                    GameOverScreens.DrawOptionsScreen(_spriteBatch, font);
+                    //placeholder for future implementation
                 }
-                else
-                {
 
-                    GameOverScreens.DrawGameOverScreen(_spriteBatch, font);
-                }
-            }
 
             //ENEMY.Draw(_spriteBatch);
             //Item.Draw(_spriteBatch);

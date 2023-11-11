@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework.Media;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,10 @@ namespace Project1
             switch (Game1.selectionManager.selected)
             {
                 case OPTION.RETRY:
+                    Player.UseItem(ITEMS.Triforce);
                     new ResetLink().Execute();
+                    GameStateManager.GameState = GameState.DefaultState;
+                    MediaPlayer.Resume();
                     break;
 
                 case OPTION.QUIT:

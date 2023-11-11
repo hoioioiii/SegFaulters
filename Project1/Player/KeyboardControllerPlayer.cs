@@ -142,7 +142,7 @@ namespace Project1
 
         private void CheckGameState()
         {
-            if (!Game1.gameStatePlaying)
+            if (!Game1.gameStatePlaying || GameStateManager.GameState == GameState.TriforceWinState || GameStateManager.GameState == GameState.GameOverState)
             {
 
                 ChangeToSelectionKeys();

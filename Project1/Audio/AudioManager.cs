@@ -43,6 +43,8 @@ namespace Project1
             stairs = content.Load<SoundEffect>("Audio\\stairs");
             subtractUI = content.Load<SoundEffect>("Audio\\subtract ui");
             sword = content.Load<SoundEffect>("Audio\\sword swing");
+            winningStateSound = content.Load<SoundEffect>("Audio\\TriforceSound");
+            gameOverStateSound = content.Load<SoundEffect>("Audio\\Game OverState");
             //puzzleSolved = content.Load<SoundEffect>("Audio\\puzzleSolved");
 
             MediaPlayer.IsRepeating = true;

@@ -19,7 +19,7 @@ namespace Project1
         private static ContentManager Content;
         private static Vector2 position = RESPAWN_UP;
 
-        public static int[] itemInventory = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
+        public static int[] itemInventory = { 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0 };
         //this enum is used to access the invetory by item type:
         //public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12 };
 

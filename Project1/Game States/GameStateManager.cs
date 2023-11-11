@@ -2,12 +2,14 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Project1.HUD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using static Project1.Constants;
 
 namespace Project1
 {
@@ -23,6 +25,8 @@ namespace Project1
         Texture2D pausebutton;
         private static Vector2 position;
         public static PausedScreen PausedScreen { get; set; }
+        public static TriforceWinningScreen TriforceWinningScreen { get; set; }
+        public static GameOverScreen GameOverScreen { get; set; }
         public  GameStateManager() {
 
             GameState = GameState.DefaultState;
@@ -38,7 +42,13 @@ namespace Project1
                 case GameState.PausedState:
                     PausedScreen.Draw(spritebatch);
                     break;
-            
+                case GameState.TriforceWinState:
+                    TriforceWinningScreen.Draw(spritebatch);
+                    break;
+                case GameState.GameOverState:
+                    GameOverScreen.Draw(spritebatch);
+                    break;
+
             }
         }
 
@@ -46,25 +56,48 @@ namespace Project1
         {
             switch (GameState)
             {
-
+                
                 case GameState.DefaultState:
+                    checkTriforceState();
+                    checkGameOverState();
                     break;
                 case GameState.PausedState:
                     PausedScreen.Update();
                     break;
-
+                case GameState.TriforceWinState:
+                    TriforceWinningScreen.Update();
+                    break;
+                case GameState.GameOverState:
+                    GameOverScreen.Update();
+                    break;
             }
         }
+
+
 
         public void LoadContent(GraphicsDevice graphics, ContentManager content)
         {
            PausedScreen = new PausedScreen(graphics, content);
-           
+           TriforceWinningScreen = new TriforceWinningScreen(graphics, content);
+            GameOverScreen = new GameOverScreen(graphics, content);
+
 
         }
-        private void PausedState()
+        private void checkTriforceState()
         {
-            
+            if (Player.itemInventory[(int)ITEMS.Triforce] == 1)
+            {
+                GameState = GameState.TriforceWinState;
+                TriforceWinningScreen.TriForceSoundEffect();
+            }
+        }
+        private void checkGameOverState()
+        {
+            if (HealthDisplay.linkHealth.IsDead())
+            {
+                GameState = GameState.GameOverState;
+                GameOverScreen.GameOverSoundEffecct();
+            }
         }
         public void PauseGame() {
             paused = !paused;

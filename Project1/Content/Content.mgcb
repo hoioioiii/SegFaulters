@@ -265,6 +265,12 @@
 /processorParam:Quality=Best
 /build:Audio/flame.wav
 
+#begin Audio/Game OverState.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Game OverState.wav
+
 #begin Audio/item get.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -420,6 +426,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Audio/sword swing.wav
+
+#begin Audio/TriforceSound.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/TriforceSound.wav
 
 #begin bat1.png
 /importer:TextureImporter
@@ -2043,18 +2055,6 @@
 /processorParam:TextureFormat=Color
 /build:Room0.PNG
 
-#begin Room0.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room0.PNG
-
 #begin Room1.PNG
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -2066,30 +2066,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Room1.PNG
-
-#begin Room1.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room1.PNG
-
-#begin Room10.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room10.PNG
 
 #begin Room10.PNG
 /importer:TextureImporter
@@ -2115,18 +2091,6 @@
 /processorParam:TextureFormat=Color
 /build:Room11.PNG
 
-#begin Room11.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room11.PNG
-
 #begin Room12.PNG
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -2138,30 +2102,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Room12.PNG
-
-#begin Room12.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room12.PNG
-
-#begin Room13.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room13.PNG
 
 #begin Room13.PNG
 /importer:TextureImporter
@@ -2187,18 +2127,6 @@
 /processorParam:TextureFormat=Color
 /build:Room14.PNG
 
-#begin Room14.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room14.PNG
-
 #begin Room15.PNG
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -2210,30 +2138,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Room15.PNG
-
-#begin Room15.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room15.PNG
-
-#begin Room16.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room16.PNG
 
 #begin Room16.PNG
 /importer:TextureImporter
@@ -2259,18 +2163,6 @@
 /processorParam:TextureFormat=Color
 /build:Room2.PNG
 
-#begin Room2.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room2.PNG
-
 #begin Room3.PNG
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -2282,30 +2174,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Room3.PNG
-
-#begin Room3.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room3.PNG
-
-#begin Room4.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room4.PNG
 
 #begin Room4.PNG
 /importer:TextureImporter
@@ -2331,30 +2199,6 @@
 /processorParam:TextureFormat=Color
 /build:Room5.PNG
 
-#begin Room5.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room5.PNG
-
-#begin Room6.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room6.PNG
-
 #begin Room6.PNG
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -2379,18 +2223,6 @@
 /processorParam:TextureFormat=Color
 /build:Room7.PNG
 
-#begin Room7.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room7.PNG
-
 #begin Room8.PNG
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -2402,30 +2234,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Room8.PNG
-
-#begin Room8.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room8.PNG
-
-#begin Room9.PNG
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Room9.PNG
 
 #begin Room9.PNG
 /importer:TextureImporter
