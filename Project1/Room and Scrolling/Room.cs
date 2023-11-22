@@ -16,10 +16,10 @@ namespace Project1
         public DIRECTION direction { get; private set; }
 
         private (string, ((int, int), (string, int)[]))[] enemyArray; //(string enemyName, ((int posX, int posY), (string itemName, int quantity)[]))
-        private ((string, (int, bool))[], (string, (int, int))[]) environmentInfo; //(doorArray, blockArray)
+        private (((string, bool), (int, bool))[], (string, (int, int))[]) environmentInfo; //(doorArray, blockArray)
         private (string, (int, int))[] itemArray;//(string itemName,(int posX, posY))
 
-        public Room((string, ((int, int), (string, int)[]))[] enemyArray, ((string, (int, bool))[], (string, (int, int))[]) environmentInfo, (string, (int, int))[] itemArray) 
+        public Room((string, ((int, int), (string, int)[]))[] enemyArray, (((string, bool), (int, bool))[], (string, (int, int))[]) environmentInfo, (string, (int, int))[] itemArray) 
         {
             this.enemyArray = enemyArray;
             this.environmentInfo = environmentInfo;
@@ -46,7 +46,7 @@ namespace Project1
             }*/
             EnvironmentLoader.LoadBlocks(blocks);
 
-            (string, (int, bool))[] doors = environmentInfo.Item1; //(direction,(destinationRoom, isLocked))
+            ((string, bool), (int, bool))[] doors = environmentInfo.Item1; //((direction, isTunnel),(destinationRoom, isLocked))
             //TODO: code door loading in, most of the code will be in environment loader
             EnvironmentLoader.LoadDoors(doors);
         }
@@ -77,20 +77,17 @@ namespace Project1
         //find the door that matches up with the door that wants to be changed, and unlock it within the room
         public void UnlockDoor(DIRECTION doorToUnlockDirection)
         {
-            (string, (int, bool))[] doors = environmentInfo.Item1; //(direction,(destinationRoom, isLocked))
+            ((string, bool), (int, bool))[] doors = environmentInfo.Item1; //(direction,(destinationRoom, isLocked))
             for (int i = 0; i < doors.Length; i++)
             {
-                (string, (int, bool)) door = doors[i];
+                ((string, bool), (int, bool)) door = doors[i];
 
-                DIRECTION direction = EnvironmentLoader.DirectionToEnum(door.Item1);
-                int destinationRoom = door.Item2.Item1;
-                bool isLocked = door.Item2.Item2;
-               
+                DIRECTION direction = EnvironmentLoader.DirectionToEnum(door.Item1.Item1);
+                int destinationRoom = door.Item2.Item1;               
 
                 //if the door that is being unlocked is found,
                 if (doorToUnlockDirection == direction) {
-                    isLocked = false;
-                    door = (door.Item1, (destinationRoom, isLocked));
+                    door = (door.Item1, (destinationRoom, false));
                     doors[i] = door;
                     environmentInfo.Item1 = doors;
 

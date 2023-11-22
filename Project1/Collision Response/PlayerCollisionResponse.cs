@@ -77,6 +77,11 @@ namespace Project1.Collision_Response
         {
             if (door.isDoorLocked())//if locked
             {
+                if (door.isTunnelDoor())
+                {
+                    return;
+                }
+
                 bool didItemGetUsed = Player.UseItem(ITEMS.Key); //use key
                 if (didItemGetUsed) //if player does have key
                 {

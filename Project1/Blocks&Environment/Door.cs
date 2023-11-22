@@ -17,6 +17,7 @@ namespace Project1
         public DIRECTION direction { get; private set; }
         public int destinationRoom { get; private set; }
         private bool isLocked;
+        private bool isTunnel;
         private Texture2D texture;
         private Texture2D[] textures;
         private int xPos;
@@ -24,13 +25,16 @@ namespace Project1
         private int width;
         private int height;
 
+        private bool invisible;
+
         public Rectangle BoundingBox { get; private set; }
-        public Door(Texture2D[] textures, DIRECTION direction, int destinationRoom, bool isLocked)
+        public Door(Texture2D[] textures, DIRECTION direction, int destinationRoom, bool isLocked, bool isTunnel)
         {
 
             this.textures = textures;
             this.destinationRoom = destinationRoom;
             this.isLocked = isLocked;
+            this.isTunnel = isTunnel;
             this.direction = direction;
 
             setProperties();
@@ -45,7 +49,17 @@ namespace Project1
                 //set respective scaling, and texture for the door depending on the direction, and if its locked or not.
                 case DIRECTION.up:
                     width = 100; height = 60;
-                    if (isLocked)
+                    if (isTunnel)
+                    {
+                        if (isLocked)
+                            invisible = true;
+                        else
+                        {
+                            invisible = false;
+                            texture = textures[8];
+                        }
+                    }
+                    else if (isLocked)
                         texture = textures[4];
                     else
                         texture = textures[3];
@@ -55,7 +69,17 @@ namespace Project1
                     break;
                 case DIRECTION.down:
                     width = 100; height = 60;
-                    if (isLocked)
+                    if (isTunnel)
+                    {
+                        if (isLocked)
+                            invisible = true;
+                        else
+                        {
+                            invisible = false;
+                            texture = textures[9];
+                        }
+                    }
+                    else if (isLocked)
                         texture = textures[5];
                     else
                         texture = textures[2];
@@ -94,6 +118,7 @@ namespace Project1
             double ratio = 1.3;
             BoundingBox = new Rectangle(xPos, yPos, width, height);
             //System.Diagnostics.Debug.WriteLine("Direction: " + this.direction + " Width: " + (int)(texture.Width * ratio) + "  Height: " + (int)(texture.Height * ratio));
+            if (!invisible)
             spriteBatch.Draw(texture, new Rectangle(xPos, yPos, width, height), Color.White);
 
         }
@@ -101,6 +126,11 @@ namespace Project1
         public bool isDoorLocked()
         {
             return isLocked;
+        }
+
+        public bool isTunnelDoor()
+        {
+            return isTunnel;
         }
 
         public void UnlockDoor()
