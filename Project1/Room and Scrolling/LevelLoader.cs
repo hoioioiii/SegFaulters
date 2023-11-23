@@ -174,6 +174,11 @@ namespace Project1
         {
             roomList[roomNumber].UnlockDoor(direction);
         }
+        
+        public static void RemoveItem(int roomNumber, IItem item)
+        {
+            roomList[roomNumber].RemoveItem(item);
+        }
 
 
         public static void drawActiveRoom(int currentRoomNum, int nextRoomNum, DIRECTION doorDirection)

@@ -19,7 +19,7 @@ namespace Project1
         private (((string, bool), (int, bool))[], (string, (int, int))[]) environmentInfo; //(doorArray, blockArray)
         private (string, (int, int))[] itemArray;//(string itemName,(int posX, posY))
 
-        public Room((string, ((int, int), (string, int)[]))[] enemyArray, (((string, bool), (int, bool))[], (string, (int, int))[]) environmentInfo, (string, (int, int))[] itemArray) 
+        public Room((string, ((int, int), (string, int)[]))[] enemyArray, (((string, bool), (int, bool))[], (string, (int, int))[]) environmentInfo, (string, (int, int))[] itemArray)
         {
             this.enemyArray = enemyArray;
             this.environmentInfo = environmentInfo;
@@ -52,13 +52,14 @@ namespace Project1
         }
 
         private void LoadEntity()
-        {            
+        {
             foreach ((string, ((int, int), (string, int)[])) enemyInfo in enemyArray)
             {
                 String name = enemyInfo.Item1;
                 (int, int) position = enemyInfo.Item2.Item1;
                 (string, int)[] items = enemyInfo.Item2.Item2;
-                EntityLoader.LoadEntities(Game1.GameObjManager, enemyInfo.Item1,  position, items);
+
+                EntityLoader.LoadEntities(Game1.GameObjManager, enemyInfo.Item1, position, items);
             }
         }
 
@@ -69,8 +70,16 @@ namespace Project1
             {
                 String name = item.Item1;
                 (int, int) position = item.Item2;
-                position = PositionGrid.getPosBasedOnGrid(position.Item1, position.Item2);
-                ItemLoader.LoadAndInitializeItems(name, position, Game1.GameObjManager);
+
+                if (position != (-1, -1))
+                { //-1 -1 is the code for invalid item
+                    position = PositionGrid.getPosBasedOnGrid(position.Item1, position.Item2);
+                    ItemLoader.LoadAndInitializeItems(name, position, Game1.GameObjManager);
+                }
+                else
+                {
+
+                }
             }
         }
 
@@ -83,17 +92,34 @@ namespace Project1
                 ((string, bool), (int, bool)) door = doors[i];
 
                 DIRECTION direction = EnvironmentLoader.DirectionToEnum(door.Item1.Item1);
-                int destinationRoom = door.Item2.Item1;               
+                int destinationRoom = door.Item2.Item1;
 
                 //if the door that is being unlocked is found,
-                if (doorToUnlockDirection == direction) {
+                if (doorToUnlockDirection == direction)
+                {
                     door = (door.Item1, (destinationRoom, false));
                     doors[i] = door;
                     environmentInfo.Item1 = doors;
 
-                    
+
                     return;
                 }
+            }
+        }
+
+        public void RemoveItem(IItem item)
+        {
+            string itemName = item.itemInventoryIndex.ToString();
+            for (int i = 0; i < itemArray.Length; i++)
+            {
+                (string, (int, int)) n = itemArray[i];
+                string name = n.Item1;
+                if (name.Equals(itemName, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    n.Item2 = (-1, -1);
+                    itemArray[i] = n;
+                }
+
             }
         }
 
