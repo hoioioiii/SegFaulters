@@ -29,9 +29,12 @@ namespace Project1.Enemies
         //testing death and item drop->remove later
         private int elaspedTime;
 
+        //the initial spawning position of the enemy, not yet put into pixel coordinates
+        private (int, int) initalPosition; 
         public UniversalClassEntity((int, int) position, (string, int)[] items)
         {
-            
+            this.initalPosition = position;
+
             //replace starting direction based on lvl loader info
             direction_state_manager = new DirectionState(Direction.Up);
             time_manager = new TimeTracker(false);
@@ -57,6 +60,7 @@ namespace Project1.Enemies
             if (entityHealthSystem.IsDead())
             {
                 state_manager.setIsAlive(false);
+                LevelLoader.RemoveEnemy(RoomManager.GetCurrentRoomIndex(), initalPosition);
             }
 
             if (state_manager.IsAlive())

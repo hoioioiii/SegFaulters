@@ -180,6 +180,10 @@ namespace Project1
             roomList[roomNumber].RemoveItem(item);
         }
 
+        public static void RemoveEnemy(int roomNumber, (int, int) position)
+        {
+            roomList[roomNumber].RemoveEnemy(position);
+        }
 
         public static void drawActiveRoom(int currentRoomNum, int nextRoomNum, DIRECTION doorDirection)
         {

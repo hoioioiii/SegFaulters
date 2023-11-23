@@ -59,7 +59,8 @@ namespace Project1
                 (int, int) position = enemyInfo.Item2.Item1;
                 (string, int)[] items = enemyInfo.Item2.Item2;
 
-                EntityLoader.LoadEntities(Game1.GameObjManager, enemyInfo.Item1, position, items);
+                if(!name.Equals("DEAD"))
+                    EntityLoader.LoadEntities(Game1.GameObjManager, enemyInfo.Item1, position, items);
             }
         }
 
@@ -123,6 +124,20 @@ namespace Project1
             }
         }
 
+        public void RemoveEnemy((int,int) positionToKill) //removes enemy using the inital spawning position as the identifier
+        {
+            for(int i = 0; i < enemyArray.Length; i++)
+            {
+                (string, ((int, int), (string, int)[])) enemy = enemyArray[i];
+
+                (int, int) enemyPos = enemy.Item2.Item1;
+                if(enemyPos == positionToKill)
+                {
+                    enemy.Item1 = "DEAD";
+                    enemyArray[i] = enemy;
+                }
+            }
+        }
         public void print()
         {
             PrintEnemies();
