@@ -31,6 +31,7 @@ namespace Project1.HUD
         private float keyLableOffsetY;
         private bool reset = false;
         private static USABLE_ITEM userSelectedItem = USABLE_ITEM.boomerang;
+        //private static int[] usableItemCount = { Player.itemInventory[(int)ITEMS.Boomerang], Player.itemInventory[(int)ITEMS.Bomb], Player.itemInventory[(int)ITEMS.Key], Player.itemInventory[(int)ITEMS.Bow]};
         private static IItem[] selectedItemArray;
         private enum PAUSE_STATE { active = 0, paused = 1 };
         private static PAUSE_STATE pauseIndex = PAUSE_STATE.active;
@@ -111,17 +112,31 @@ namespace Project1.HUD
             itemCount[1] = Player.itemInventory[(int)ITEMS.Key];
             itemCount[2] = Player.itemInventory[(int)ITEMS.Bomb];
 
+            /*
+            //Update usable item counts
+            usableItemCount[(int)USABLE_ITEM.boomerang] = Player.itemInventory[(int)ITEMS.Boomerang];
+            usableItemCount[(int)USABLE_ITEM.bomb] = Player.itemInventory[(int)ITEMS.Bomb];
+            usableItemCount[(int)USABLE_ITEM.key] = Player.itemInventory[(int)ITEMS.Key];
+            usableItemCount[(int)USABLE_ITEM.bow] = Player.itemInventory[(int)ITEMS.Bow];
+            */
+
         }
 
         public static void setSelectedItem(USABLE_ITEM type)
         {
             //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, bow = 3};" enum from constants.cs for this
             userSelectedItem = type;
+            selectedItem = selectedItemArray[(int)userSelectedItem];
         }
 
         public static USABLE_ITEM getSelectedItem()
         {
             return userSelectedItem;
+        }
+
+        public static ITEMS getSelectedItemTypeIndex()
+        {
+            return selectedItem.GetTypeIndex();
         }
 
         public void Draw(SpriteBatch spriteBatch)
@@ -182,7 +197,7 @@ namespace Project1.HUD
             sword.Draw(spriteBatch, swordSprite, 2);
 
             //Add selected item to item B box
-            //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, sword = 3};" enum from constants.cs for this
+            //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, bow = 3};" enum from constants.cs for this
             Vector2 selectedSprite = coordKeyLabel;
             selectedSprite.Y += keyLableOffsetY;
             selectedSprite.X -= (itemDestinations[(int)pauseIndex].Width / 2);
@@ -193,7 +208,10 @@ namespace Project1.HUD
 
             //display the selected item
             selectedItem = selectedItemArray[(int)userSelectedItem];
-            selectedItem.Draw(spriteBatch, selectedSprite, 2);
+
+            if (Player.itemInventory[(int)selectedItem.GetTypeIndex()] != 0) {
+                selectedItem.Draw(spriteBatch, selectedSprite, 2);
+            }
         }
 
         // UI follows camera during room transition

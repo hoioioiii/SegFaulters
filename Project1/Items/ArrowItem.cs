@@ -19,11 +19,12 @@ namespace Project1
     {
         private IItemSprite sprite;
 
-        public ITEMS itemInventoryIndex { get; set; }
+        private ITEMS itemInventoryIndex;
 
         public Rectangle BoundingBox => getRectangle();
 
         public bool drawState { get; set; }
+
 
         public ArrowItem((int, int) pos)
         {
@@ -37,14 +38,14 @@ namespace Project1
         //Update Frames of the Item
         public void Update()
         {
-         
+
             sprite.Update();
         }
 
         // Sprite for item in Link's inventory. Displaying link inventory
         public void Draw(SpriteBatch spriteBatch)
         {
-          
+
             sprite.Draw(spriteBatch);
         }
 
@@ -52,16 +53,22 @@ namespace Project1
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale)
         {
 
-            
+
             sprite.Draw(spriteBatch, location, spriteScale);
-            
-            
+
+
         }
 
         //Return bounding box of the item
         private Rectangle getRectangle()
         {
             return sprite.getRect();
+        }
+
+        //Return index in inventory array of this item
+        public ITEMS GetTypeIndex()
+        {
+            return itemInventoryIndex;
         }
     }
 }
