@@ -24,7 +24,8 @@ namespace Project1.Collision_Response
             Game1.GameObjManager.removeItem(item);
             //item.drawState = false;
             AudioManager.PlaySoundEffect(smallItemGet);
-            Player.PickUpItem(IItemtoITEMS(item));
+            //Player.PickUpItem(IItemtoITEMS(item));
+            Player.PickUpItem(item.GetTypeIndex());
         }
         //helper method to get player pickupitem method the needed input type
         public static ITEMS IItemtoITEMS(IItem item)

@@ -19,8 +19,8 @@ namespace Project1
         private static ContentManager Content;
         private static Vector2 position = RESPAWN_UP;
 
-        public static int[] itemInventory = { 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0 };
-        //this enum is used to access the invetory by item type:
+        public static int[] itemInventory = { 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0};
+        //this enum is used to access the inventory by item type:
         //public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12 };
 
         //Needed for link sprite to draw
@@ -361,34 +361,46 @@ namespace Project1
         //Command Functions
         public static void attackSword()
         {
-            isAttacking = true;
-            isAttackingWithSword = true;
-            spriteWeapon = new Sword();
-            Game1.GameObjManager.addNewPlayerWeapon(spriteWeapon);
+            if (itemInventory[(int)ITEMS.Sword] != 0) {
+                isAttacking = true;
+                isAttackingWithSword = true;
+                spriteWeapon = new Sword();
+                Game1.GameObjManager.addNewPlayerWeapon(spriteWeapon);
+            }
         }
 
         public static void attackBoom()
         {
-            isAttacking = true;
-            isAttackingWithBoomerang = true;
-            IWeapon boom = new BoomerangePlayer();
-            Game1.GameObjManager.addNewPlayerWeapon(boom);
+            if (itemInventory[(int)ITEMS.Boomerang] != 0)
+            {
+                isAttacking = true;
+                isAttackingWithBoomerang = true;
+                IWeapon boom = new BoomerangePlayer();
+                Game1.GameObjManager.addNewPlayerWeapon(boom);
+            }
         }
 
         public static void attackBow()
         {
-            isAttacking = true;
-            isAttackingWithBow = true;
-            IWeapon arrow = new Arrow2();
-            Game1.GameObjManager.addNewPlayerWeapon(arrow);
+            if (itemInventory[(int)ITEMS.Bow] != 0)
+            {
+                isAttacking = true;
+                isAttackingWithBow = true;
+                IWeapon arrow = new Arrow2();
+                Game1.GameObjManager.addNewPlayerWeapon(arrow);
+            }
         }
 
         public static void attackBomb()
         {
-            isAttacking = true;
-            isAttackingWithBomb = true;
-            IWeapon bomb = new Bomb();
-            Game1.GameObjManager.addNewPlayerWeapon(bomb);
+            if (itemInventory[(int)ITEMS.Bomb] != 0)
+            {
+                isAttacking = true;
+                isAttackingWithBomb = true;
+                IWeapon bomb = new Bomb();
+                Game1.GameObjManager.addNewPlayerWeapon(bomb);
+                UseItem(ITEMS.Bomb);
+            }
         }
 
         public static void left()
@@ -477,12 +489,11 @@ namespace Project1
 
 
 
-
         //inventory stuff -> did not add yet 
         //TODO
         public static void PickUpItem(ITEMS itemToAdd)
         {
-            itemInventory[(int)itemToAdd]++;
+            itemInventory[(int)itemToAdd] = itemInventory[(int)itemToAdd] + 1;
         }
 
         public static bool UseItem(ITEMS itemToDelete)
