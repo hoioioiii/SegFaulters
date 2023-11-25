@@ -24,8 +24,7 @@ namespace Project1.Collision_Response
             Game1.GameObjManager.removeItem(item);
             //item.drawState = false;
             AudioManager.PlaySoundEffect(smallItemGet);
-            //Player.PickUpItem(IItemtoITEMS(item));
-            Player.PickUpItem(item.GetTypeIndex());
+            Inventory.PickUpItem(item.GetTypeIndex());
         }
         //helper method to get player pickupitem method the needed input type
         public static ITEMS IItemtoITEMS(IItem item)
@@ -78,7 +77,7 @@ namespace Project1.Collision_Response
         {
             if (door.isDoorLocked())//if locked
             {
-                bool didItemGetUsed = Player.UseItem(ITEMS.Key); //use key
+                bool didItemGetUsed = Inventory.UseItem(ITEMS.Key); //use key
                 if (didItemGetUsed) //if player does have key
                 {
                     door.UnlockDoor();
@@ -134,7 +133,7 @@ namespace Project1.Collision_Response
                 System.Diagnostics.Debug.WriteLine(sb.ToString());
             #endregion
 
-            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, Player.playerSpeed);
+            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, PlayerMovement.playerSpeed);
             Player.setPosition(playerPosition);
         }
 

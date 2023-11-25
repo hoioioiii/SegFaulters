@@ -8,7 +8,7 @@ namespace Project1
         {
             if (!Player.isAttacking)
             {
-                Player.attackBomb();
+                PlayerAttack.attackBomb();
             }
         }
     }

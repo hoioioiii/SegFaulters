@@ -17,7 +17,7 @@ namespace Project1
         public static Rectangle BoundingBox;
         private GraphicsDeviceManager _graphics;
         private static ContentManager Content;
-        private static Vector2 position = RESPAWN_UP;
+        //public static Vector2 position = RESPAWN_UP;
 
         public static int[] itemInventory = { 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0};
         //this enum is used to access the inventory by item type:
@@ -26,22 +26,26 @@ namespace Project1
         //Needed for link sprite to draw
         private static IPlayerSprite sprite;
 
-        private static bool isMoving = false;
+        public static bool isMoving = false;
 
-        public static int playerSpeed = 5;
+        //public static int playerSpeed = 5;
 
         // cardinal direction player is facing, starts with up on 1 and progresses clockwise (e.g. 4 is left-facing)
-        private static int linkDirection = (int)DIRECTION.right;
-        
+        //public static int linkDirection = (int)DIRECTION.right;
+
+        public static bool isAttacking = false;
+        /*
         // attacking metrics
         public static bool isAttacking = false;
-        private static float AttackTimer;
+        public static float AttackTimer;
 
         // weapons
-        private static bool isAttackingWithSword = false;
-        private static bool isAttackingWithBoomerang = false;
-        private static bool isAttackingWithBow = false;
+        public static bool isAttackingWithSword = false;
+        public static bool isAttackingWithBoomerang = false;
+        public static bool isAttackingWithBow = false;
         public static bool isAttackingWithBomb = false;
+
+        */
 
         // Check damage cooldown period to get hit again
         private static bool isDamaged = false;
@@ -59,7 +63,7 @@ namespace Project1
 
         private static IWeapon[] weaponsArray;
         //private static IWeapon weapon;
-        private static IWeapon spriteWeapon;
+        //public static IWeapon spriteWeapon;
 
         private static int onScreen;
 
@@ -81,7 +85,7 @@ namespace Project1
         public static void Initialize()
         {
             FrameTimer = Constants.FRAMETIME;
-            AttackTimer = Constants.ATTACK_SECONDS;
+            PlayerAttack.AttackTimer = Constants.ATTACK_SECONDS;
             DamageTimer = Constants.INVINCIBILITY_SECONDS;
             FlashTimer = Constants.FLASHTIME;
             damageFlash = 0;
@@ -109,12 +113,12 @@ namespace Project1
         {
             // update timers for attack, damage, flash
             float elapsedSeconds = (float)gameTime.ElapsedGameTime.TotalSeconds;
-            AttackTimer -= elapsedSeconds;
+            PlayerAttack.AttackTimer -= elapsedSeconds;
             DamageTimer -= elapsedSeconds;
             FlashTimer -= elapsedSeconds;
 
             // set bounding box position to link position
-            BoundingBox.Location = new Point((int)position.X + 5, (int)position.Y + 20);
+            BoundingBox.Location = new Point((int)PlayerMovement.position.X + 5, (int)PlayerMovement.position.Y + 20);
             // move link to bounding box
             // call collision and pass in link
 
@@ -143,20 +147,20 @@ namespace Project1
 
             // Move our sprite based on arrow keys being pressed:
 
-            if (isAttacking)
+            if (Player.isAttacking)
             {
-                WaitForAttack();
+                PlayerAttack.WaitForAttack();
             }
 
 
             // Link can't move when attacking
-            if (!isAttacking)
+            if (!Player.isAttacking)
             {
                 if (keystate.IsKeyDown(Keys.Z) || keystate.IsKeyDown(Keys.N))
                 {
                     // attack using his sword
-                    isAttacking = true;
-                    isAttackingWithSword = true;
+                    Player.isAttacking = true;
+                    PlayerAttack.isAttackingWithSword = true;
 
                     AudioManager.PlaySoundEffect(sword);
                     //currentWeaponIndex = (int)WEAPONS.sword;
@@ -165,28 +169,28 @@ namespace Project1
                 else if (keystate.IsKeyDown(Keys.I))
                 {
                     // attack using his 
-                    isAttacking = true;
-                    isAttackingWithBoomerang = true;
+                    Player.isAttacking = true;
+                    PlayerAttack.isAttackingWithBoomerang = true;
 
                     //currentWeaponIndex = (int)WEAPONS.boom;
                 }
                 else if (keystate.IsKeyDown(Keys.U))
                 {
                     // attack using his 
-                    isAttacking = true;
-                    isAttackingWithBow = true;
+                    Player.isAttacking = true;
+                    PlayerAttack.isAttackingWithBow = true;
                     //currentWeaponIndex = (int)WEAPONS.bow;
                 }
                 else if (keystate.IsKeyDown(Keys.T))
                 {
                     // attack using his sword
-                    isAttacking = true;
-                    isAttackingWithBomb = true;
+                    Player.isAttacking = true;
+                    PlayerAttack.isAttackingWithBomb = true;
                     //currentWeaponIndex = (int)WEAPONS.bomb;
 
-                    isAttackingWithSword = false;
-                    isAttackingWithBoomerang = false;
-                    isAttackingWithBow = false;
+                    PlayerAttack.isAttackingWithSword = false;
+                    PlayerAttack.isAttackingWithBoomerang = false;
+                    PlayerAttack.isAttackingWithBow = false;
 
                 }
 
@@ -249,7 +253,7 @@ namespace Project1
 
             if (renderLink)
             {
-                if (isAttacking)
+                if (Player.isAttacking)
                 {
                     DrawBasedOnAttackType(spriteBatch);
 
@@ -271,20 +275,20 @@ namespace Project1
                 if (isSecondFrame)
                 {
                     //tell sprite how to draw
-                    sprite.Draw(spriteBatch, "move", linkDirection, position);
+                    sprite.Draw(spriteBatch, "move", PlayerMovement.linkDirection, PlayerMovement.position);
 
                 }
                 else
                 {
                     //tell sprite how to draw
-                    sprite.Draw(spriteBatch, "still", linkDirection, position);
+                    sprite.Draw(spriteBatch, "still", PlayerMovement.linkDirection, PlayerMovement.position);
                 }
 
             }
             else
             {
                 //tell sprite how to draw
-                sprite.Draw(spriteBatch, "still", linkDirection, position);
+                sprite.Draw(spriteBatch, "still", PlayerMovement.linkDirection, PlayerMovement.position);
 
             }
 
@@ -298,7 +302,7 @@ namespace Project1
             
             
             //draw link with attack frames
-            sprite.Draw(spriteBatch, "attack", linkDirection, position);
+            sprite.Draw(spriteBatch, "attack", PlayerMovement.linkDirection, PlayerMovement.position);
         }
 
 
@@ -307,7 +311,7 @@ namespace Project1
 
 
 
-
+        /*
 
         // if 1 second has passed since attacking, revert attack keystate to false (allowing for other actions)
         public static void WaitForAttack()
@@ -330,6 +334,8 @@ namespace Project1
 
             }
         }
+
+        */
 
         // Link cannot take damage for x seconds after getting hit
         public static void DamageInvincibility()
@@ -357,6 +363,8 @@ namespace Project1
                 FrameTimer = FRAMETIME;
             }
         }
+
+        /*
 
         //Command Functions
         public static void attackSword()
@@ -399,9 +407,13 @@ namespace Project1
                 isAttackingWithBomb = true;
                 IWeapon bomb = new Bomb();
                 Game1.GameObjManager.addNewPlayerWeapon(bomb);
-                UseItem(ITEMS.Bomb);
+                Inventory.UseItem(ITEMS.Bomb);
             }
         }
+
+        */
+
+        /*
 
         public static void left()
         {
@@ -442,6 +454,8 @@ namespace Project1
            
         }
 
+        */
+
         public static void damage()
         {
             isDamaged = true;
@@ -453,13 +467,13 @@ namespace Project1
         public static Vector2 getUserPos()
         {
 
-            return new Vector2(position.X, position.Y);
+            return new Vector2(PlayerMovement.position.X, PlayerMovement.position.Y);
         }
 
         private static int CleanDirection()
         {
-            int direction = linkDirection;
-            switch (linkDirection)
+            int direction = PlayerMovement.linkDirection;
+            switch (PlayerMovement.linkDirection)
             {
                 case 2:
                     direction = 0;
@@ -487,7 +501,7 @@ namespace Project1
             return CleanDirection();
         }
 
-
+        /*
 
         //inventory stuff -> did not add yet 
         //TODO
@@ -511,23 +525,30 @@ namespace Project1
 
             return didItemGetUsed;
         }
+        */
+
 
         //got
         public static void setPosition(Vector2 newPostion)
         {
-            position = newPostion;
+            PlayerMovement.position = newPostion;
         }
 
         //got
         public static Vector2 getPosition()
         {
-            return position;
+            return PlayerMovement.position;
         }
 
         //got
         public static bool getPlayerAttackingState()
         {
-            return isAttacking;
+            return Player.isAttacking;
+        }
+
+        public static int getDirection()
+        {
+            return PlayerMovement.linkDirection;
         }
 
     }
