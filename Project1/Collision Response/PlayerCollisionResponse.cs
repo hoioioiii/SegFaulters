@@ -22,7 +22,9 @@ namespace Project1.Collision_Response
         public static void ItemResponse(IItem item)
         {
             Game1.GameObjManager.removeItem(item);
-            //item.drawState = false;        
+            LevelLoader.RemoveItem(RoomManager.GetCurrentRoomIndex(), item);
+            //item.drawState = false;
+            AudioManager.PlaySoundEffect(smallItemGet);
             Player.PickUpItem(IItemtoITEMS(item));
         }
         //helper method to get player pickupitem method the needed input type
@@ -87,6 +89,11 @@ namespace Project1.Collision_Response
         {
             if (door.isDoorLocked())//if locked
             {
+                if (door.isTunnelDoor())
+                {
+                    return;
+                }
+
                 bool didItemGetUsed = Player.UseItem(ITEMS.Key); //use key
                 if (didItemGetUsed) //if player does have key
                 {

@@ -26,7 +26,7 @@ namespace Project1
             ROOM_FRAME_WIDTH = levelBackground.Width * 3;
 
             //load in door content
-            doorSpriteArray = new Texture2D[8];
+            doorSpriteArray = new Texture2D[10];
             doorSpriteArray[0] = content.Load<Texture2D>("DoorWEST");
             doorSpriteArray[1] = content.Load<Texture2D>("DoorEAST");
             doorSpriteArray[2] = content.Load<Texture2D>("DoorSOUTH");
@@ -35,6 +35,9 @@ namespace Project1
             doorSpriteArray[5] = content.Load<Texture2D>("LockedDoorSOUTH");
             doorSpriteArray[6] = content.Load<Texture2D>("LockedDoorWEST");
             doorSpriteArray[7] = content.Load<Texture2D>("LockedDoorEAST");
+            doorSpriteArray[8] = content.Load<Texture2D>("TunnelDoorNORTH");
+            doorSpriteArray[9] = content.Load<Texture2D>("TunnelDoorSOUTH");
+
 
         }
 
@@ -64,16 +67,17 @@ namespace Project1
             }
         }
 
-        public static void LoadDoors((string, (int, bool))[] doorsToLoad)
+        public static void LoadDoors(((string, bool), (int, bool))[] doorsToLoad)
         {
             doorArray = new Door[doorsToLoad.Length];
             for (int i = 0; i < doorsToLoad.Length; i++)
             {
-                string directionString = doorsToLoad[i].Item1;
+                string directionString = doorsToLoad[i].Item1.Item1;
                 DIRECTION directionEnum = DirectionToEnum(directionString);
                 int destinationRoom = doorsToLoad[i].Item2.Item1;
                 bool isLocked = doorsToLoad[i].Item2.Item2;
-                doorArray[i] = new Door(doorSpriteArray, directionEnum, destinationRoom, isLocked);
+                bool isTunnel = doorsToLoad[i].Item1.Item2;
+                doorArray[i] = new Door(doorSpriteArray, directionEnum, destinationRoom, isLocked, isTunnel);
                 Game1.GameObjManager.addDoors(doorArray[i]);
             }
         }
