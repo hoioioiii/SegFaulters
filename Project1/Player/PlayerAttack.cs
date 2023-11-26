@@ -7,13 +7,13 @@ namespace Project1
 	public static class PlayerAttack
 	{
         // attacking metrics
-        public static float AttackTimer;
+        private static float AttackTimer;
 
         // weapons
-        public static bool isAttackingWithSword = false;
-        public static bool isAttackingWithBoomerang = false;
-        public static bool isAttackingWithBow = false;
-        public static bool isAttackingWithBomb = false;
+        private static bool isAttackingWithSword = false;
+        private static bool isAttackingWithBoomerang = false;
+        private static bool isAttackingWithBow = false;
+        private static bool isAttackingWithBomb = false;
 
         public static IWeapon spriteWeapon;
 
@@ -78,6 +78,64 @@ namespace Project1
 
 
             }
+        }
+
+        public static float getAttackTimer()
+        {
+            return AttackTimer;
+        }
+
+        public static void setAttackTimer(float newVal)
+        {
+            AttackTimer = newVal;
+        }
+
+        /*
+        public static bool getIsAttackingWithSword()
+        {
+            return isAttackingWithSword;
+        }
+        */
+
+        public static void setIsAttackingWithSword(bool newVal)
+        {
+            isAttackingWithSword = newVal;
+        }
+
+        /*
+        public static bool getIsAttackingWithBoomerang()
+        {
+            return isAttackingWithBoomerang;
+        }
+        */
+
+        public static void setIsAttackingWithBoomerang(bool newVal)
+        {
+            isAttackingWithBoomerang = newVal;
+        }
+
+        /*
+        public static bool getIsAttackingWithBomb()
+        {
+            return isAttackingWithBomb;
+        }
+        */
+
+        public static void setIsAttackingWithBomb(bool newVal)
+        {
+            isAttackingWithBomb = newVal;
+        }
+
+        /*
+        public static bool getIsAttackingWithBow()
+        {
+            return isAttackingWithBow;
+        }
+        */
+
+        public static void setIsAttackingWithBow(bool newVal)
+        {
+            isAttackingWithBow = newVal;
         }
     }
 }

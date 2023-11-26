@@ -5,11 +5,11 @@ namespace Project1
 {
 	public static class PlayerMovement
 	{
-        public static int playerSpeed = 5;
+        private static int playerSpeed = 5;
 
-        public static Vector2 position = RESPAWN_UP;
+        private static Vector2 position = RESPAWN_UP;
 
-        public static int linkDirection = (int)DIRECTION.right;
+        private static int linkDirection = (int)DIRECTION.right;
 
         public static void left()
         {
@@ -48,6 +48,42 @@ namespace Project1
             Player.isMoving = true;
             linkDirection = (int)DIRECTION.right;
 
+        }
+
+        public static int getLinkDirection()
+        {
+            return linkDirection;
+        }
+
+        public static void setLinkDirection(int dir)
+        {
+            linkDirection = dir;
+        }
+
+        public static Vector2 getPosition()
+        {
+            //return position;
+            return new Vector2(position.X, position.Y);
+        }
+
+        public static void setPosition(Vector2 newPos)
+        {
+            position = newPos;
+        }
+
+        public static void setPositionX(float newValue)
+        {
+            position.X = newValue;
+        }
+
+        public static void setPositionY(float newValue)
+        {
+            position.Y = newValue;
+        }
+
+        public static int getPlayerSpeed()
+        {
+            return playerSpeed;
         }
     }
 }

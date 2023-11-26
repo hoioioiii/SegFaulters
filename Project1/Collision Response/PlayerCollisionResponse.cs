@@ -133,7 +133,7 @@ namespace Project1.Collision_Response
                 System.Diagnostics.Debug.WriteLine(sb.ToString());
             #endregion
 
-            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, PlayerMovement.playerSpeed);
+            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, PlayerMovement.getPlayerSpeed());
             Player.setPosition(playerPosition);
         }
 
