@@ -379,6 +379,7 @@
 				<Door id="north" xLoc="0" yLoc="0">
 					<DestinationRoom>9</DestinationRoom>
 					<Locked>True</Locked>
+					<isTunnel>True </isTunnel>
 				</Door>
 				<Door id="south" xLoc="0" yLoc="0">
 					<DestinationRoom>4</DestinationRoom>
@@ -499,6 +500,7 @@
 				<Door id="north" xLoc="0" yLoc="0">
 					<DestinationRoom>13</DestinationRoom>
 					<Locked>True</Locked>
+					<isTunnel>True</isTunnel>
 				</Door>
 				<Door id="west" xLoc="0" yLoc="0">
 					<DestinationRoom>5</DestinationRoom>
@@ -748,7 +750,8 @@
 				</Door>
 				<Door id="south" xLoc="0" yLoc="0">
 					<DestinationRoom>5</DestinationRoom>
-					<Locked>False</Locked>
+					<Locked>True</Locked>
+					<isTunnel>True</isTunnel>
 				</Door>
 			</Doors>
 
@@ -1090,7 +1093,8 @@
 				</Door>
 				<Door id="south" xLoc="0" yLoc="0">
 					<DestinationRoom>6</DestinationRoom>
-					<Locked>False</Locked>
+					<Locked>True</Locked>
+					<isTunnel>True</isTunnel>
 				</Door>
 			</Doors>
 

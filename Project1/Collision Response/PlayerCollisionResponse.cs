@@ -22,6 +22,7 @@ namespace Project1.Collision_Response
         public static void ItemResponse(IItem item)
         {
             Game1.GameObjManager.removeItem(item);
+            LevelLoader.RemoveItem(RoomManager.GetCurrentRoomIndex(), item);
             //item.drawState = false;
             AudioManager.PlaySoundEffect(smallItemGet);
             Player.PickUpItem(IItemtoITEMS(item));
@@ -34,30 +35,39 @@ namespace Project1.Collision_Response
             {
                 case BombItem:
                     ITEMS = ITEMS.Bomb;
+                    AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case ArrowItem:
                     ITEMS = ITEMS.Arrow;
+                    AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case BoomerangItem:
                     ITEMS = ITEMS.Boomerang;
+                    AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case Clock:
                     ITEMS = ITEMS.Clock;
+                    AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case Fairy:
                     ITEMS = ITEMS.Fairy;
+                    AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case HeartContainer:
                     ITEMS = ITEMS.HeartContainer;
+                    AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case Key:
                     ITEMS = ITEMS.Key;
+                    AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case Map:
                     ITEMS = ITEMS.Map;
+                    AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case Rupee:
                     ITEMS = ITEMS.Rupee;
+                    AudioManager.PlaySoundEffect(rupeeGet);
                     break;
                 case Sword:
                     ITEMS = ITEMS.Sword;
@@ -65,6 +75,8 @@ namespace Project1.Collision_Response
                 case Triforce:
                     ITEMS = ITEMS.Triforce;
                     break;
+                    // Where is the case for heart?
+                    // AudioManager.PlaySoundEffect(heartGet);
 
             }
             return ITEMS;
@@ -77,6 +89,11 @@ namespace Project1.Collision_Response
         {
             if (door.isDoorLocked())//if locked
             {
+                if (door.isTunnelDoor())
+                {
+                    return;
+                }
+
                 bool didItemGetUsed = Player.UseItem(ITEMS.Key); //use key
                 if (didItemGetUsed) //if player does have key
                 {

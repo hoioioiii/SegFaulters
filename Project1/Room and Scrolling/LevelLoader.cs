@@ -21,7 +21,7 @@ namespace Project1
         public static int roomCount;
         private static Room[] roomList;
         private static (string, ((int, int), (string, int)[]))[] enemyArray; //(string enemyName, ((int posX, int posY), (string itemName, int quantity)[]))
-        private static ((string, (int, bool))[],(string,(int, int))[]) environmentInfo; //(doorArray, blockArray)
+        private static (((string, bool), (int, bool))[],(string,(int, int))[]) environmentInfo; //(doorArray, blockArray)
         private static (string, (int, int))[] itemArray;//(string itemName,(int posX, posY))
         public static void Load(string xmlPath)
         { 
@@ -121,7 +121,7 @@ namespace Project1
             //so far no implementation for walls needed
 
             //get door information
-            (string, (int, bool))[] doorArray = new (string, (int, bool))[doorList.Count];
+            ((string, bool), (int, bool))[] doorArray = new ((string, bool), (int, bool))[doorList.Count];
             int i = 0;
             foreach(XmlNode door in doorList)
             {
@@ -129,7 +129,14 @@ namespace Project1
                 int destinationRoom = int.Parse(door.SelectSingleNode("DestinationRoom").InnerText) - 1;
                 bool isLocked = bool.Parse(door.SelectSingleNode("Locked").InnerText);
 
-                doorArray[i] = (direction, (destinationRoom, isLocked));
+                bool isTunnel = false;
+
+                if (door.SelectNodes("isTunnel").Count > 0)
+                {
+                    isTunnel = true;
+                }
+
+                doorArray[i] = ((direction, isTunnel), (destinationRoom, isLocked));
                 i++;
             }
 
@@ -167,7 +174,16 @@ namespace Project1
         {
             roomList[roomNumber].UnlockDoor(direction);
         }
+        
+        public static void RemoveItem(int roomNumber, IItem item)
+        {
+            roomList[roomNumber].RemoveItem(item);
+        }
 
+        public static void RemoveEnemy(int roomNumber, (int, int) position)
+        {
+            roomList[roomNumber].RemoveEnemy(position);
+        }
 
         public static void drawActiveRoom(int currentRoomNum, int nextRoomNum, DIRECTION doorDirection)
         {
