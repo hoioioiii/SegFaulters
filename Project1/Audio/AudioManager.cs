@@ -16,6 +16,7 @@ namespace Project1
             // song used for background music
             BGM = content.Load<Song>("Audio\\04 Underworld BGM");
             gameOver = content.Load<Song>("Audio\\11_-_Legend_of_Zelda_-_NES_-_Game_Over");
+            gameOverStateSound = content.Load<Song>("Audio\\Game OverState mp3");
 
             // sound effects
             addUI = content.Load<SoundEffect>("Audio\\add ui");
@@ -44,7 +45,7 @@ namespace Project1
             subtractUI = content.Load<SoundEffect>("Audio\\subtract ui");
             sword = content.Load<SoundEffect>("Audio\\sword swing");
             winningStateSound = content.Load<SoundEffect>("Audio\\TriforceSound");
-            gameOverStateSound = content.Load<SoundEffect>("Audio\\Game OverState");
+            
             //puzzleSolved = content.Load<SoundEffect>("Audio\\puzzleSolved");
 
             MediaPlayer.IsRepeating = true;

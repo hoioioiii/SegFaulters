@@ -33,6 +33,7 @@
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/fairyGet.wav</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/fire.wav</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/flame.wav</File>
+    <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/Game OverState mp3.mp3</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/Game OverState.wav</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/item get.wav</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/low health.wav</File>
@@ -243,6 +244,7 @@
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/ZeldaSpriteOldMan.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
