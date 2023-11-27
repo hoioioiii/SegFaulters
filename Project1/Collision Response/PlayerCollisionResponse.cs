@@ -55,6 +55,7 @@ namespace Project1.Collision_Response
                     break;
                 case HeartContainer:
                     ITEMS = ITEMS.HeartContainer;
+                    HealthDisplay.linkHealth.HealHealth(4); //give link full heart
                     AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case Key:
