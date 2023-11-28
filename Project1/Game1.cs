@@ -47,6 +47,7 @@ namespace Project1
 
         public static IHUD hudDisplay;
 
+        public static IStatsScreen statsDisplay;
         //Example code for how to create a item in the environment:
         //public static IItem testItem;
         //public static Vector2 testLoc = new Vector2((float)SPRITE_X, (float)SPRITE_Y);
@@ -177,6 +178,7 @@ namespace Project1
             //Load XML File
             LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
             hudDisplay = new HeadsUpDisplay(GraphicsDevice, Content);
+            statsDisplay = new StatsDisplay(GraphicsDevice, Content);
             //LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
         }
 
@@ -318,6 +320,7 @@ namespace Project1
 
             _spriteBatch.Begin();
             hudDisplay.Draw(_spriteBatch);
+            statsDisplay.Draw(_spriteBatch);
             _spriteBatch.End();
             base.Draw(gameTime);
         }

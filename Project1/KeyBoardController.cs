@@ -152,6 +152,7 @@ namespace Project1
 
             //pausing the game
             MOVE_MAP.Add(Keys.OemPeriod, new PauseGame());
+            MOVE_MAP.Add(Keys.OemComma, new StatsScreen());
         }
 
         public void IteratorMap()
