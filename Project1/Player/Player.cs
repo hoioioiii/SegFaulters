@@ -71,7 +71,7 @@ namespace Project1
         //this is a temp solution
         private static bool isDeadState;
 
-        Dictionary<string, int> stats = new Dictionary<string, int>();
+        public static Dictionary<string, int> Stats;
 
         public Player()
         {
@@ -92,6 +92,19 @@ namespace Project1
 
 
             BoundingBox = new Rectangle(0, 0, LINK_BOUNDING_DIMENSION, LINK_BOUNDING_DIMENSION);
+
+            //initialize stats
+            InitializeStats();
+        }
+
+        public static void InitializeStats()
+        {
+            Stats = new Dictionary<string, int>();
+            Stats.Add(ATTACK, 0);
+            Stats.Add(SPEED, playerSpeed);
+            Stats.Add(CRITICAL_HIT, 0);
+            Stats.Add(DAMAGE, 0);
+            Stats.Add(STAMINA, 0);
         }
 
 
