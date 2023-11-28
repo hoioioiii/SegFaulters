@@ -71,6 +71,8 @@ namespace Project1
         //this is a temp solution
         private static bool isDeadState;
 
+        Dictionary<string, int> stats = new Dictionary<string, int>();
+
         public Player()
         {
 

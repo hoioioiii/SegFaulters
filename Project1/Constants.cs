@@ -206,7 +206,11 @@ namespace Project1
         public static int PLAYER_FRAMES_D = 2;
         public const int LINK_HEARTS = 3;
         public const int LINK_HEARTS_WIDTH = 30;
-
+        public static string ATTACK = "ATK";
+        public static string SPEED = "SPD";
+        public static string CRITICAL_HIT = "CRIT";
+        public static string DAMAGE = "DMG";
+        public static string STAMINA = "SMNA";
         //Attacking metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public const float ATTACK_SECONDS = 0.5f;
 
