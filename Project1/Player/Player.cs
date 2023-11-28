@@ -97,7 +97,7 @@ namespace Project1
             FlashTimer -= elapsedSeconds;
 
             // set bounding box position to link position
-            BoundingBox.Location = new Point((int)PlayerMovement.getPosition().X + 5, (int)PlayerMovement.getPosition().Y + 20);
+            BoundingBox.Location = new Point((int)PlayerMovement.getPosition().X + BOUNDING_OFFSET_X, (int)PlayerMovement.getPosition().Y + BOUNDING_OFFSET_Y);
             // move link to bounding box
             // call collision and pass in link
 
@@ -131,7 +131,7 @@ namespace Project1
         public static void CheckOnScreen()
         {
             CheckTime();
-            if (onScreen > 1000)
+            if (onScreen > SCREEN_THRESHOLD)
             {
                 remainOnScreen = false;
             }
@@ -169,20 +169,20 @@ namespace Project1
                 if (isSecondFrame)
                 {
                     //tell sprite how to draw
-                    sprite.Draw(spriteBatch, "move", PlayerMovement.getLinkDirection(), PlayerMovement.getPosition());
+                    sprite.Draw(spriteBatch, MOVE, PlayerMovement.getLinkDirection(), PlayerMovement.getPosition());
 
                 }
                 else
                 {
                     //tell sprite how to draw
-                    sprite.Draw(spriteBatch, "still", PlayerMovement.getLinkDirection(), PlayerMovement.getPosition());
+                    sprite.Draw(spriteBatch, STILL, PlayerMovement.getLinkDirection(), PlayerMovement.getPosition());
                 }
 
             }
             else
             {
                 //tell sprite how to draw
-                sprite.Draw(spriteBatch, "still", PlayerMovement.getLinkDirection(), PlayerMovement.getPosition());
+                sprite.Draw(spriteBatch, STILL, PlayerMovement.getLinkDirection(), PlayerMovement.getPosition());
 
             }
 
@@ -196,20 +196,20 @@ namespace Project1
             
             
             //draw link with attack frames
-            sprite.Draw(spriteBatch, "attack", PlayerMovement.getLinkDirection(), PlayerMovement.getPosition());
+            sprite.Draw(spriteBatch, ATTACK, PlayerMovement.getLinkDirection(), PlayerMovement.getPosition());
         }
 
 
         // Link cannot take damage for x seconds after getting hit
         public static void DamageInvincibility()
         {
-            if (damageFlash <= 50)
+            if (damageFlash <= RENDER_THRESHOLD)
             {
                 CheckTime();
                 renderLink = false;
 
             }
-            else if (damageFlash > 10)
+            else if (damageFlash > DAMAGE_THRESHOLD)
             {
                 renderLink = true;
                 isDamaged = false;
