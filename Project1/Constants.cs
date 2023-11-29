@@ -402,7 +402,7 @@ namespace Project1
         }
 
         // Room Transitioning
-        public static float ROOM_TRANSITION_SECONDS = 1.5f;
+        public static float CAMERA_TRANSITION_SECONDS = 1.5f;
         public static int TRANSITION_OFFSET_X = 17;
         public static int TRANSITION_OFFSET_Y = -231;
     }

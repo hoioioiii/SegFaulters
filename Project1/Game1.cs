@@ -42,6 +42,7 @@ namespace Project1
         //Zelda txt font
         private SpriteFont font;
         public static bool roomIsTransitioning;
+        public static bool HUDisTransitioning;
 
         public Game1()
         {
@@ -142,7 +143,11 @@ namespace Project1
 
             if (roomIsTransitioning)
             {
-                Camera.TransitionRoom(gameTime);
+                Camera.CameraTransition(gameTime, true);
+            }
+            else if (HUDisTransitioning)
+            {
+                Camera.CameraTransition(gameTime, false);
             }
             else
             {
@@ -199,6 +204,10 @@ namespace Project1
                 RoomTransition.Draw(_spriteBatch);
                 EnvironmentLoader.Draw(_spriteBatch);
                
+            }
+            else if (HUDisTransitioning)
+            {
+
             }
             else
             {
