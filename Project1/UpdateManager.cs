@@ -19,10 +19,10 @@ namespace Project1
             Game1.GameObjManager.ClearAddingLists();
 
             
-             UpdateItems();
-             UpdateEnemies();
-             UpdateIWeapons();
-             UpdatePlayerIWeapons();
+            UpdateItems();
+            UpdateEnemies();
+            UpdateIWeapons();
+            UpdatePlayerIWeapons();
 
 
             AllCollisionDetection.DetectCollision(Game1.GameObjManager);
