@@ -82,7 +82,6 @@ namespace Project1
 
         public Player()
         {
-
             remainOnScreen = false;
         }
 
@@ -100,19 +99,9 @@ namespace Project1
 
             BoundingBox = new Rectangle(0, 0, LINK_BOUNDING_DIMENSION, LINK_BOUNDING_DIMENSION);
 
-
-            //initialize stats
-            //InitializeStats();
-
-            //UP TO MODIFICATION
+            //initialize player stats
             playerStats = new PlayerStats();
             stats = PlayerStats.stats;
-        }
-
-        public static void UpdateStats(GameTime gameTime)
-        {
-            stats = PlayerStats.stats;
-            PlayerStats.UpdateStats(gameTime);
         }
 
 /*        public static void InitializeStats()
@@ -153,6 +142,11 @@ namespace Project1
 
         }
 
+        public static void UpdateStats(GameTime gameTime)
+        {
+            stats = PlayerStats.stats;
+            PlayerStats.UpdateStats(gameTime);
+        }
 
         //change the current frame to the next frame
         public static void Update(GameTime gameTime)
@@ -168,7 +162,7 @@ namespace Project1
             // move link to bounding box
             // call collision and pass in link
 
-            //MODIFY
+            //Update player stats
             UpdateStats(gameTime);
 
             if (isDamaged)
