@@ -81,6 +81,7 @@ namespace Project1.Collision_Response
             }
             return ITEMS;
         }
+
         /*
          * Pass in door
          * Send to level loader which door it was
@@ -121,35 +122,15 @@ namespace Project1.Collision_Response
                         break;
                 }
 
-            #region Print to debug console
-            System.Text.StringBuilder sb = new StringBuilder();
-            sb.Append("door direction: " + door.direction);
-
-            if (sb.Length > 0)
-                System.Diagnostics.Debug.WriteLine(sb.ToString());
-            #endregion
-
             RoomManager.SetActiveRoom(door.destinationRoom, door.direction);
-
-
         }
 
         /*
          * For boundary collision, can't move past/through
          */
         public static void BoundaryResponse(DIRECTION direction)
-        {
-           
+        {          
             Vector2 playerPosition = Player.getPosition();
-
-            #region Print to debug console
-            System.Text.StringBuilder sb = new StringBuilder();
-            sb.Append("COLLISION DIRECTION: " + direction);
-
-            if (sb.Length > 0)
-                System.Diagnostics.Debug.WriteLine(sb.ToString());
-            #endregion
-
             playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, Player.playerSpeed);
             Player.setPosition(playerPosition);
         }
@@ -165,11 +146,7 @@ namespace Project1.Collision_Response
             playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, KNOCKBACK_DISTANCE);            
             Player.setPosition(playerPosition);
 
-            //if (weapon) { HealthDisplay.linkHealth.DamageHealth(damageAmount); } else
-            //{
-                HealthDisplay.linkHealth.DamageHealth(DAMAGE_HALF_HEART);
-            //}
-            
+            HealthDisplay.linkHealth.DamageHealth(DAMAGE_HALF_HEART);           
         }
     }
 }

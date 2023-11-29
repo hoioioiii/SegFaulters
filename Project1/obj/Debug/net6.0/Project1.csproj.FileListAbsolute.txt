@@ -2520,3 +2520,7 @@ C:\Users\jackd\source\repos\hoioioiii\SegFaulters\Project1\obj\Debug\net6.0\Proj
 C:\Users\jackd\source\repos\hoioioiii\SegFaulters\Project1\obj\Debug\net6.0\Project1.genruntimeconfig.cache
 C:\Users\jackd\source\repos\hoioioiii\SegFaulters\Project1\obj\Debug\net6.0\ref\Project1.dll
 C:\Users\jackd\source\repos\hoioioiii\SegFaulters\Project1\obj\Debug\net6.0\Project1.sourcelink.json
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\Game OverState mp3.ogg
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\Audio\Game OverState mp3.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\tunnelDoorNORTH.xnb
+D:\Users\Admin\Source\Repos\Boioioiii\SegFaulters\Project1\bin\Debug\net6.0\Content\TunnelDoorSOUTH.xnb

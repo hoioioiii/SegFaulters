@@ -46,22 +46,20 @@ namespace Project1
             stairs = content.Load<SoundEffect>("Audio\\stairs");
             subtractUI = content.Load<SoundEffect>("Audio\\subtract ui");
             sword = content.Load<SoundEffect>("Audio\\sword swing");
-            winningStateSound = content.Load<SoundEffect>("Audio\\TriforceSound");
-            
-            //puzzleSolved = content.Load<SoundEffect>("Audio\\puzzleSolved");
+            winningStateSound = content.Load<SoundEffect>("Audio\\TriforceSound");          
 
             MediaPlayer.IsRepeating = true;
-            //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
         }
 
         public static void PlayMusic(Song music)
         {
-            //MediaPlayer.IsRepeating = true;
             MediaPlayer.Play(music);
         }
 
         public static void PlaySoundEffect(SoundEffect SFX)
         {
+            // Monogame will crash if more than 100 sound effects are played at a time
+            // This try catch is for just in case that happens, though it shouldn't in normal gameplay
             try
             {
                 SFX.Play();               

@@ -314,11 +314,13 @@ namespace Project1
                 }
             }
 
-                _spriteBatch.End();
+            _spriteBatch.End();
 
+            // For HUD
             _spriteBatch.Begin();
             hudDisplay.Draw(_spriteBatch);
             _spriteBatch.End();
+            
             base.Draw(gameTime);
         }
 
