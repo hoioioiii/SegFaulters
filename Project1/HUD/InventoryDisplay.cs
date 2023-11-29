@@ -213,12 +213,6 @@ namespace Project1.HUD
                 selectedItem.Draw(spriteBatch, selectedSprite, 2);
             }
         }
-
-        // UI follows camera during room transition
-        public void DrawFollowCamera(SpriteBatch spriteBatch) 
-        { 
-            throw new NotImplementedException();
-        }
     }
 }
 
