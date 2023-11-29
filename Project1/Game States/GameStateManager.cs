@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Project1.Commands;
 using Project1.HUD;
 using System;
 using System.Collections.Generic;
@@ -96,7 +97,10 @@ namespace Project1
             if (HealthDisplay.linkHealth.IsDead())
             {
                 GameState = GameState.GameOverState;
-                GameOverScreen.GameOverSoundEffecct();
+
+                ICommand restart = new GameRestart();
+                restart.Execute();
+                 
             }
         }
         public void PauseGame() {

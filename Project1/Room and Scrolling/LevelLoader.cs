@@ -23,7 +23,7 @@ namespace Project1
         private static (string, ((int, int), (string, int)[]))[] enemyArray; //(string enemyName, ((int posX, int posY), (string itemName, int quantity)[]))
         private static (((string, bool), (int, bool))[],(string,(int, int))[]) environmentInfo; //(doorArray, blockArray)
         private static (string, (int, int))[] itemArray;//(string itemName,(int posX, posY))
-        public static void Load(string xmlPath)
+        public static void Load()
         { 
 
             XmlDocument xmlDoc = new XmlDocument();
@@ -38,8 +38,6 @@ namespace Project1
             string fullPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
 
             xmlDoc.Load(fullPath);
-
-            //xmlDoc.Load(xmlPath);
 
             getRoomCountFromXmlDoc(xmlDoc);
             roomList = new Room[roomCount];

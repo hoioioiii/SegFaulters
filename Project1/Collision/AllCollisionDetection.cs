@@ -238,14 +238,14 @@ namespace Project1
         
         private static void DetectAllCollisionsDoors()
         {
-            bool isColliding = false;
             foreach (Door door in roomDoors)
             {
                 foreach (IWeapon weapon in playerWeapons)
                 {
                     if (weapon.ToString().Equals("Project1.Bomb") && door.BoundingBox.Intersects(weapon.BoundingBox) && door.isTunnelDoor())
                     {
-                        LevelLoader.UnlockDoorFromRoom(RoomManager.getActiveRoomNumber(), door.direction);
+                        door.UnlockDoor();
+                        //PLAY TUNNEL DOOR UNLOCK SOUND HERE
                         return;
                     }
                 }

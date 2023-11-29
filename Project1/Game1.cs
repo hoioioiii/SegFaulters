@@ -129,7 +129,7 @@ namespace Project1
 
             
             //Load XML File
-            LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
+            LevelLoader.Load();
             hudDisplay = new HeadsUpDisplay(GraphicsDevice, Content);
             
         }
