@@ -232,6 +232,10 @@ namespace Project1
             }
 
                 _spriteBatch.End();
+
+                _spriteBatch.Begin();
+                hudDisplay.Draw(_spriteBatch);
+                _spriteBatch.End();
             base.Draw(gameTime);
         }
 
