@@ -5,7 +5,7 @@ namespace Project1
     {
         public void Execute()
         {
-           Game1.Game.Exit();
+           Game1.self.Exit();
         }
     }
 }

@@ -9,37 +9,30 @@ namespace Project1
 {
     public class UpdateManager : IUpdate
     {
-        public bool UpdateState { get; private set; }
-        
-
-
-        public UpdateManager() {
-
-            UpdateState = true;
-        }
+     
 
         public void Update()
         {
 
-            if (!Game1.DrawManager.DrawState)
-            {
-                Game1.GameObjManager.setAllObjects();
-                Game1.GameObjManager.ClearAddingLists();
+            
+            Game1.GameObjManager.setAllObjects();
+            Game1.GameObjManager.ClearAddingLists();
 
-                UpdateState = true;
-                UpdateItems();
-                UpdateEnemies();
-                UpdateIWeapons();
-                UpdatePlayerIWeapons();
-            }
+            
+             UpdateItems();
+             UpdateEnemies();
+             UpdateIWeapons();
+             UpdatePlayerIWeapons();
 
+
+            AllCollisionDetection.DetectCollision(Game1.GameObjManager);
             Game1.GameObjManager.RemoveDead();
             Game1.GameObjManager.ClearRemovingLists();
 
-            UpdateState = false;
+          
 
             //UpdatePlayer();
-            //AllCollisionDetection.DetectCollision(this);
+           
         }
 
 
@@ -48,7 +41,7 @@ namespace Project1
 
         private void UpdatePlayer()
         {
-            //link.Update();
+           
         }
 
         private void UpdateIWeapons()
