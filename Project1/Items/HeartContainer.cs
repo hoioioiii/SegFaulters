@@ -21,7 +21,7 @@ namespace Project1
         public Rectangle BoundingBox => getRectangle();
         public bool drawState { get; set; }
 
-        public ITEMS itemInventoryIndex { get; set; }
+        private ITEMS itemInventoryIndex;
 
         public HeartContainer((int, int) pos)
         {
@@ -58,6 +58,12 @@ namespace Project1
         private Rectangle getRectangle()
         {
             return sprite.getRect();
+        }
+
+        //Return index in inventory array of this item
+        public ITEMS GetTypeIndex()
+        {
+            return itemInventoryIndex;
         }
     }
 }

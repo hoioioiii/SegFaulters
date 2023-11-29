@@ -33,7 +33,10 @@
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/fairyGet.wav</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/fire.wav</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/flame.wav</File>
+<<<<<<< HEAD
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/Game OverState mp3.mp3</File>
+=======
+>>>>>>> d79fe66db6e478e54366379bfab8954cd85feba2
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/Game OverState.wav</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/item get.wav</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/Audio/low health.wav</File>
@@ -232,8 +235,11 @@
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/swordUp.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/triforcePieceBlue.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/triforcePieceGold.png</File>
+<<<<<<< HEAD
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/tunnelDoorNORTH.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/TunnelDoorSOUTH.png</File>
+=======
+>>>>>>> d79fe66db6e478e54366379bfab8954cd85feba2
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/USEBbuttonfont.png</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/ZeldaFont.spritefont</File>
     <File>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/ZeldaSpriteAquamentusLeft.gif</File>

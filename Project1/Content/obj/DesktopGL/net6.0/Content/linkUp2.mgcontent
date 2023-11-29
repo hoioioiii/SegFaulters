@@ -3,7 +3,11 @@
   <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/linkUp2.png</SourceFile>
   <SourceTime>2023-09-29T22:54:52-04:00</SourceTime>
   <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/linkUp2.xnb</DestFile>
+<<<<<<< HEAD
   <DestTime>2023-11-27T17:44:57.5185592-05:00</DestTime>
+=======
+  <DestTime>2023-11-10T23:26:41.3639265-05:00</DestTime>
+>>>>>>> d79fe66db6e478e54366379bfab8954cd85feba2
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

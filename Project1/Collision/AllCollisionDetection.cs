@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Numerics;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using static Project1.Constants;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
@@ -51,7 +52,7 @@ namespace Project1
         //List<IWeaponProjectile> weaponProjectiles = new List<IWeaponProjectile>();
         #endregion
 
-        #region Collision Detection Entities (player & room enemies)
+        #region Collision Detection Entities (player & room enemies & doors)
         /*
          * Detect every object the player could be colliding with
          * pass in list of axis-alligned bounding rectangles
@@ -81,7 +82,7 @@ namespace Project1
                 {
                     PlayerCollisionResponse.DoorResponse(door);
                     break;
-                }            
+                }
             }
             foreach (var boundary in roomBoundaries)
             {
@@ -151,6 +152,23 @@ namespace Project1
                 }
             }
         }
+        
+        private static void DetectAllCollisionsDoors()
+        {
+            bool isColliding = false;
+            foreach (Door door in roomDoors)
+            {
+                foreach (IWeapon weapon in playerWeapons)
+                {
+                    if (weapon.ToString().Equals("Project1.Bomb") && door.BoundingBox.Intersects(weapon.BoundingBox) && door.isTunnelDoor())
+                    {
+                        LevelLoader.UnlockDoorFromRoom(RoomManager.getActiveRoomNumber(), door.direction);
+                        return;
+                    }
+                }
+            }
+        }
+
         #endregion
 
         public static void DetectCollision(IActiveObjects GameOBJ)
@@ -164,6 +182,9 @@ namespace Project1
             
             DetectAllCollisionsLinkEntity();
             DetectAllCollisionsEnemiesEntity();
+
+            DetectAllCollisionsDoors();
+
         }
 
 

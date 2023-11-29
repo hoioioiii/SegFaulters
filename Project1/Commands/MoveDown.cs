@@ -7,7 +7,7 @@ namespace Project1
 		{
 			if (!Player.isAttacking)
 			{
-				Player.down();
+				PlayerMovement.down();
 			}
 		}
 	}

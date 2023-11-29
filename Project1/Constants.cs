@@ -204,6 +204,8 @@ namespace Project1
         public static int PLAYER_FRAMES_R = 2;
         public static int PLAYER_FRAMES_L = 2;
         public static int PLAYER_FRAMES_D = 2;
+        public static int BOUNDING_OFFSET_X = 5;
+        public static int BOUNDING_OFFSET_Y = 20;
         public const int LINK_HEARTS = 3;
         public const int LINK_HEARTS_WIDTH = 30;
 
@@ -216,6 +218,14 @@ namespace Project1
 
         public static int SPRITE_X_START = 400;
         public static int SPRITE_Y_START = 200;
+
+        public static int SCREEN_THRESHOLD = 1000;
+        public static int RENDER_THRESHOLD = 50;
+        public static int DAMAGE_THRESHOLD = 10;
+
+        public const string STILL = "still";
+        public const string MOVE = "move";
+        public const string ATTACK = "attack";
 
         //Player metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public const float FLASHES_PER_SECOND = 8; //link flashes after damage

@@ -50,6 +50,11 @@ namespace Project1
         public void GetInputType()
         {
             GET_PRESSED = CURR_KEYBOARD_STATE.GetPressedKeys();
+            if (GET_PRESSED == null || CURR_KEYBOARD_STATE.GetPressedKeys().Length == 0)
+            {
+                Player.isMoving = false;
+            }
+
             foreach (Keys key in GET_PRESSED)
             {
                 Keys CLEAN_KEY = CleanInput(key);
@@ -128,6 +133,7 @@ namespace Project1
             MOVE_MAP.Add(Keys.I, new attackBoomerang());
             MOVE_MAP.Add(Keys.U, new attackBow());
             MOVE_MAP.Add(Keys.D0, new displayArrow());
+            MOVE_MAP.Add(Keys.E, new Damage());
         }
 
         public void Update()
