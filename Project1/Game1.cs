@@ -298,11 +298,11 @@ namespace Project1
                     //Item.Draw(_spriteBatch);
                     //CurrentEnvironment.Draw(_spriteBatch);
                     //GameObjManager.Draw();
-                    hudDisplay.Draw(_spriteBatch);
+                    //hudDisplay.Draw(_spriteBatch);
                 }
                 else if (GameStateManager.GameState == GameState.PausedState)
                 {
-                    hudDisplay.Draw(_spriteBatch);
+                    //hudDisplay.Draw(_spriteBatch);
                 }
                 else if (GameStateManager.GameState == GameState.TriforceWinState)
                 {
@@ -315,6 +315,10 @@ namespace Project1
             }
 
                 _spriteBatch.End();
+
+            _spriteBatch.Begin();
+            hudDisplay.Draw(_spriteBatch);
+            _spriteBatch.End();
             base.Draw(gameTime);
         }
 

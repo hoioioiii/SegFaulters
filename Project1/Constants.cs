@@ -19,10 +19,10 @@ namespace Project1
 {
     public class Constants
     {
-        public static Song BGM, gameOver;
+        public static Song BGM, gameOver, gameOverStateSound;
 
         //Change this later to be all caps
-        public static SoundEffect gameOverStateSound, winningStateSound, addUI , bombBlow, bombDrop, boomerang, cling, death, doorUnlock, puzzleSolved, dragon, dragon2, dragon3, enemyDie, enemyHit, fire, flame, bigItemGet, smallItemGet, heartGet, rupeeGet, linkHurt, lowHealth, plus, plusPlus, secret, stairs, subtractUI, sword;
+        public static SoundEffect winningStateSound, addUI , bombBlow, bombDrop, boomerang, cling, death, doorUnlock, puzzleSolved, dragon, dragon2, dragon3, enemyDie, enemyHit, fire, flame, bigItemGet, smallItemGet, heartGet, rupeeGet, linkHurt, lowHealth, plus, plusPlus, secret, stairs, subtractUI, sword;
 
         //Directions->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public enum Direction

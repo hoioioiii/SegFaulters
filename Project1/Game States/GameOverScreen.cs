@@ -40,8 +40,9 @@ namespace Project1
         }
         public static void GameOverSoundEffecct()
         {
-            MediaPlayer.Pause();
-            AudioManager.PlaySoundEffect(gameOverStateSound);
+            MediaPlayer.Stop();
+            MediaPlayer.IsRepeating = false;
+            MediaPlayer.Play(gameOverStateSound);
         }
 
         public void Update()
