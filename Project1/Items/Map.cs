@@ -20,7 +20,7 @@ namespace Project1
         private IItemSprite sprite;
         public Rectangle BoundingBox => getRectangle();
 
-        public ITEMS itemInventoryIndex { get; set; }
+        private ITEMS itemInventoryIndex;
 
         public bool drawState { get; set; }
         public Map((int, int) pos)
@@ -56,6 +56,12 @@ namespace Project1
         private Rectangle getRectangle()
         {
             return sprite.getRect();
+        }
+
+        //Return index in inventory array of this item
+        public ITEMS GetTypeIndex()
+        {
+            return itemInventoryIndex;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace Project1
     {
         private IItemSprite sprite;
 
-        public ITEMS itemInventoryIndex { get; set; }
+        private ITEMS itemInventoryIndex;
 
         public Rectangle BoundingBox => getRectangle();
 
@@ -63,6 +63,12 @@ namespace Project1
         private Rectangle getRectangle()
         {
             return sprite.getRect();
+        }
+
+        //Return index in inventory array of this item
+        public ITEMS GetTypeIndex()
+        {
+            return itemInventoryIndex;
         }
     }
 }

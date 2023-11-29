@@ -110,7 +110,7 @@ namespace Project1
 
         public void RemoveItem(IItem item)
         {
-            string itemName = item.itemInventoryIndex.ToString();
+            string itemName = item.GetTypeIndex().ToString();
             for (int i = 0; i < itemArray.Length; i++)
             {
                 (string, (int, int)) n = itemArray[i];

@@ -9,12 +9,12 @@ namespace Project1
 	{
         Rectangle BoundingBox { get; }
         public bool drawState { get; set; }
-        public ITEMS itemInventoryIndex { get; set; }
 
 
         void Update();
         void Draw(SpriteBatch spriteBatch);
         public void Draw(SpriteBatch spriteBatch, Vector2 location, int spriteScale);
+        public ITEMS GetTypeIndex();
     }
 }
 

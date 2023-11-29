@@ -25,7 +25,7 @@ namespace Project1.Collision_Response
             LevelLoader.RemoveItem(RoomManager.GetCurrentRoomIndex(), item);
             //item.drawState = false;
             AudioManager.PlaySoundEffect(smallItemGet);
-            Player.PickUpItem(IItemtoITEMS(item));
+            Inventory.PickUpItem(item.GetTypeIndex());
         }
         //helper method to get player pickupitem method the needed input type
         public static ITEMS IItemtoITEMS(IItem item)
@@ -55,6 +55,7 @@ namespace Project1.Collision_Response
                     break;
                 case HeartContainer:
                     ITEMS = ITEMS.HeartContainer;
+                    HealthDisplay.linkHealth.HealHealth(4); //give link full heart
                     AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case Key:
@@ -94,7 +95,7 @@ namespace Project1.Collision_Response
                     return;
                 }
 
-                bool didItemGetUsed = Player.UseItem(ITEMS.Key); //use key
+                bool didItemGetUsed = Inventory.UseItem(ITEMS.Key); //use key
                 if (didItemGetUsed) //if player does have key
                 {
                     door.UnlockDoor();
@@ -150,7 +151,7 @@ namespace Project1.Collision_Response
                 System.Diagnostics.Debug.WriteLine(sb.ToString());
             #endregion
 
-            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, Player.playerSpeed);
+            playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, PlayerMovement.getPlayerSpeed());
             Player.setPosition(playerPosition);
         }
 
