@@ -41,7 +41,7 @@ namespace Project1
                 spriteBatch.Draw(backgroundRect, destinationBackground, Color.Black);
                 spriteBatch.DrawString(font, "Player Stats", coordBase, Color.White);
                 Vector2 coordStat = new Vector2(coordBase.X + (STATS_WIDTH / 4), coordBase.Y + titleHeight);
-                foreach (KeyValuePair<String, int> Stat in Player.Stats)
+                foreach (KeyValuePair<String, int> Stat in Player.stats)
                 {
                     spriteBatch.DrawString(font, Stat.Key, coordStat, Color.White);
 

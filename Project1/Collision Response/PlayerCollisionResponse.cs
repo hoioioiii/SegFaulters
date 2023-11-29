@@ -47,6 +47,7 @@ namespace Project1.Collision_Response
                     break;
                 case Clock:
                     ITEMS = ITEMS.Clock;
+                    Player.playerSpeed += 10;
                     AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case Fairy:

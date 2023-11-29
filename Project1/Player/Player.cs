@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using static Project1.Constants;
 using System;
 using Project1.HUD;
+using Project1.Stats;
 
 namespace Project1
 {
@@ -71,7 +72,13 @@ namespace Project1
         //this is a temp solution
         private static bool isDeadState;
 
-        public static Dictionary<string, int> Stats;
+        /*        public static Dictionary<string, int> stats;
+                public static float coolDown; */
+
+        //nenw code for stats
+
+        public static PlayerStats playerStats;
+        public static Dictionary<string, int> stats;
 
         public Player()
         {
@@ -93,19 +100,47 @@ namespace Project1
 
             BoundingBox = new Rectangle(0, 0, LINK_BOUNDING_DIMENSION, LINK_BOUNDING_DIMENSION);
 
+
             //initialize stats
-            InitializeStats();
+            //InitializeStats();
+
+            //UP TO MODIFICATION
+            playerStats = new PlayerStats();
+            stats = PlayerStats.stats;
         }
 
-        public static void InitializeStats()
+        public static void UpdateStats(GameTime gameTime)
         {
-            Stats = new Dictionary<string, int>();
-            Stats.Add(ATTACK, 0);
-            Stats.Add(SPEED, playerSpeed);
-            Stats.Add(CRITICAL_HIT, 0);
-            Stats.Add(DAMAGE, 0);
-            Stats.Add(STAMINA, 0);
+            stats = PlayerStats.stats;
+            PlayerStats.UpdateStats(gameTime);
         }
+
+/*        public static void InitializeStats()
+        {
+            stats = new Dictionary<string, int>();
+            stats.Add(ATTACK, 0);
+            stats.Add(SPEED, playerSpeed);
+            stats.Add(CRITICAL_HIT, 0);
+            stats.Add(DAMAGE, 0);
+            stats.Add(STAMINA, 0);
+        }*/
+
+        /*        public static void UpdateStats(GameTime gameTime)
+                {
+                    coolDown += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+                    foreach (var item in stats)
+                    {
+                        if (item.Key == "SPD" && Player.playerSpeed != item.Value)
+                        {
+                            stats["SPD"] = Player.playerSpeed;
+                        }
+                        else if (item.Key == "SPD" && coolDown >= 5)
+                        {
+                            Player.playerSpeed = 5;
+                        }
+                    }
+                }*/
 
 
         public static void LoadContent(ContentManager content)
@@ -132,6 +167,9 @@ namespace Project1
             BoundingBox.Location = new Point((int)position.X + 5, (int)position.Y + 20);
             // move link to bounding box
             // call collision and pass in link
+
+            //MODIFY
+            UpdateStats(gameTime);
 
             if (isDamaged)
             {

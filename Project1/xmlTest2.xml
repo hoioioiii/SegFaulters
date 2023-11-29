@@ -79,6 +79,7 @@
 		</Environment>
 
 		<Items>
+			<clock xLoc="4" yLoc="4"></clock>
 		</Items>
 	</Room>
 
