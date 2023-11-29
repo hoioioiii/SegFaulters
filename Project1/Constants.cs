@@ -85,7 +85,7 @@ namespace Project1
         public const float FRAMES_PER_SECOND = 10;
         public const float FRAMETIME = 1 / 10;
 
-        public static Game1 GameObj = Game1.Game;
+        //public static Game1 GameObj = Game1.Game;
 
         public static int WEAPON_OFFSET_X = 20;
         public static int WEAPON_OFFSET_Y = 30;

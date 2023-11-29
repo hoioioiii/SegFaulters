@@ -10,7 +10,7 @@ namespace Project1
     {
         public void Execute()
         {
-            Game1.ENEMY = EnemyIterator.getCurrEnemy(false);
+           // Game1.ENEMY = EnemyIterator.getCurrEnemy(false);
         }
     }
 }
