@@ -6,7 +6,7 @@ namespace Project1
         public void Execute()
         {
             if (!Player.isAttacking) {
-                Player.attackBoom();
+                PlayerAttack.attackBoom();
             }
         }
     }

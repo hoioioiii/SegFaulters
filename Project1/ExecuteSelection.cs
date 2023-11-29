@@ -15,7 +15,7 @@ namespace Project1
             switch (Game1.selectionManager.selected)
             {
                 case OPTION.RETRY:
-                    Player.UseItem(ITEMS.Triforce);
+                    Inventory.UseItem(ITEMS.Triforce);
                     new ResetLink().Execute();
                     GameStateManager.GameState = GameState.DefaultState;
                     MediaPlayer.Resume();

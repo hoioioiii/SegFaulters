@@ -10,7 +10,7 @@ namespace Project1.Commands
     {
         public void Execute()
         {
-            Player.attackBomb(); ;
+            PlayerAttack.attackBomb(); ;
         }
     }
 }

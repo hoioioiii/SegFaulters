@@ -9,7 +9,7 @@ namespace Project1
 			{
                 if (!Player.isAttacking)
                 {
-                    Player.right();
+                    PlayerMovement.right();
                 }
             } else if(GameStateManager.GameState == GameState.PausedState)
 			{

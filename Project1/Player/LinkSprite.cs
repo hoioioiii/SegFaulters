@@ -40,13 +40,13 @@ namespace Project1
         {
             switch (type)
             {
-                case "attack":
+                case ATTACK:
                     currentFrames = attackFrames;
                     break;
-                case "still":
+                case STILL:
                     currentFrames = stillFrames;
                     break;
-                case "move":
+                case MOVE:
                     currentFrames = movingFrames;
                     break;
                 default:

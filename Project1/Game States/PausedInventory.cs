@@ -195,8 +195,11 @@ namespace Project1
                     type = USABLE_ITEM.key;
                     break;
             }
-            smallboxinventoryitem.Draw(spriteBatch, pos, 3);
             InventoryDisplay.setSelectedItem(type);
+            //Issue here, this is not displaying the correct item in the small box inventory when an item gets used up
+            //instead, it displays an item next to it
+            //You can use Player.itemInventory[(int)InventoryDisplay.getSelectedItemTypeIndex()] > 0 to test if the selected item's count is greater than 1 in case that helps you solve the problem
+            smallboxinventoryitem.Draw(spriteBatch, pos, 3);
         }
 
         //function that gets the number of items and which ones so Draw can have the correct sprite to create
