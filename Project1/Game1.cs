@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using Project1.HUD;
 using Project1.Health;
+using Microsoft.Xna.Framework.Media;
 
 namespace Project1
 {
@@ -109,10 +110,9 @@ namespace Project1
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             font = Content.Load<SpriteFont>("ZeldaFont");
             
-
-
             AudioManager.LoadContent(Content);
-            AudioManager.PlayMusic(BGM);
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Play(BGM);
 
             ItemSpriteFactory.Instance.LoadAllTextures(Content);
             EnemySpriteFactory.Instance.LoadAllTextures(Content);
@@ -126,7 +126,6 @@ namespace Project1
 
             //Load background
             EnvironmentLoader.LoadContent(Content);
-
             
             //Load XML File
             LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
@@ -193,6 +192,7 @@ namespace Project1
         {
             GraphicsDevice.Clear(Color.Black);
 
+            // Non-HUD
             if (roomIsTransitioning)
             {
                 _spriteBatch.Begin(transformMatrix: Camera.Transform);
@@ -208,14 +208,13 @@ namespace Project1
                 if (GameStateManager.GameState == GameState.DefaultState)
                 {
                     EnvironmentLoader.Draw(_spriteBatch);
-                    RoomTransition.Draw(_spriteBatch);
+
 
                     //needs to be given to draw manager
                     Player.Draw(gameTime, _spriteBatch);
 
                     DrawManager.Draw();
 
-                    hudDisplay.Draw(_spriteBatch);
                 }
                 else if (GameStateManager.GameState == GameState.PausedState)
                 {
@@ -233,9 +232,14 @@ namespace Project1
 
                 _spriteBatch.End();
 
+            // HUD
+            if (GameStateManager.GameState != GameState.GameOverState)
+            {
                 _spriteBatch.Begin();
                 hudDisplay.Draw(_spriteBatch);
                 _spriteBatch.End();
+            }
+
             base.Draw(gameTime);
         }
 
