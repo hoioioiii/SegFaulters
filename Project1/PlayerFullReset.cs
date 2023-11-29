@@ -21,7 +21,6 @@ namespace Project1
             Game1.GameObjManager.clearAll();
             Player.Initialize();
             RoomManager.Load();
-            //GameStateManager.GameState = GameState.DefaultState;
             
             Game1.gameStatePlaying = true;
             Game1.timer = 60 * 3;
