@@ -71,9 +71,12 @@ namespace Project1
         public static int HEALTH_HUD_HEIGHT = (HUD_HEIGHT / 3);
         public static float HEALTH_ROW = 30f;
         public static int ENTITY_HEARTS = 5;
-        public static int DAMAGE_HALF_HEART = 1;
-        public static int DAMAGE_FULL_HEART = 3;
+        public static int DAMAGE_HALF_HEART = 2;
+        public static int DAMAGE_FULL_HEART = 4;
         public static int MAX_FRAGMENTS = 4;
+
+        public static int DAMAGE_INCREASE = 2;
+
 
         public static int STATS_HEIGHT = HUD_HEIGHT / 2;
         public static int STATS_WIDTH = HUD_SECTION_WIDTH;

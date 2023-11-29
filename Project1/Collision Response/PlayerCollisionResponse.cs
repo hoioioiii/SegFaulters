@@ -3,6 +3,7 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.Collision;
+using Project1.Enemies;
 using Project1.HUD;
 using static Project1.Constants;
 
@@ -69,6 +70,7 @@ namespace Project1.Collision_Response
                     break;
                 case Rupee:
                     ITEMS = ITEMS.Rupee;
+                    Player.stats[ATTACK] += DAMAGE_INCREASE;
                     AudioManager.PlaySoundEffect(rupeeGet);
                     break;
                 case Sword:

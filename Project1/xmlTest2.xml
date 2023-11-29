@@ -79,7 +79,8 @@
 		</Environment>
 
 		<Items>
-			<clock xLoc="4" yLoc="4"></clock>
+		
+			<rupee xLoc="4" yLoc="4"></rupee>
 		</Items>
 	</Room>
 
