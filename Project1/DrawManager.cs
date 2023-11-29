@@ -11,18 +11,18 @@ namespace Project1
 {
     public class DrawManager : IDraw
     {
-        public bool DrawState { get; private set; }
+       
 
         public DrawManager()
         {
-            DrawState = false;
+            
         }
 
         private void DrawPlayer()
         {
 
             //TODO:Fix later
-            // link.Draw(, Game1._spriteBatch);
+            // Player.Draw(, Game1._spriteBatch);
 
         }
         private void DrawIWeapons()
@@ -30,8 +30,7 @@ namespace Project1
             List<IWeapon> weapons = Game1.GameObjManager.getWeaponList();
             for (int i = 0; i < weapons.Count; i++)
             {
-                //this is needed for bomb(the attack)
-                //weapons[i].Attack();
+               
                 weapons[i].Draw();
             }
         }
@@ -42,8 +41,6 @@ namespace Project1
             List<IWeapon> weapons = Game1.GameObjManager.getPlayerWeaponList();
             for (int i = 0; i < weapons.Count; i++)
             {
-                //this is needed for bomb(the attack)
-                //weapons[i].Attack();
                 weapons[i].Draw();
             }
         }
@@ -71,17 +68,11 @@ namespace Project1
         public void Draw()
         {
 
-            if (!Game1.UpdateManager.UpdateState)
-            {
-                DrawState = true;
                 DrawIWeapons();
                 DrawEnemies();
                 DrawItems();
                 DrawPlayerIWeapons();
-
-            }
-            DrawState = false;
-            // DrawPlayer();
+               // DrawPlayer();
         }
 
 

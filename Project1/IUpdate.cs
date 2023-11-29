@@ -8,7 +8,7 @@ namespace Project1
 {
     public interface IUpdate
     {
-        public bool UpdateState { get;}
+      
 
         public void Update();
 
