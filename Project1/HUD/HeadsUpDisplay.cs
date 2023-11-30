@@ -45,9 +45,9 @@ namespace Project1.HUD
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            location.Draw(spriteBatch);
-            inventory.Draw(spriteBatch);
-            health.Draw(spriteBatch);
+                location.Draw(spriteBatch);
+                inventory.Draw(spriteBatch);
+                health.Draw(spriteBatch);
         }
 
         public static bool IsFullMenuDisplay()

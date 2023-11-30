@@ -14,14 +14,13 @@ namespace Project1
             if (GameStateManager.GameState == GameState.DefaultState)
             {
                 //Not sure if I switched the directions
-                HeadsUpDisplay.StartScrolling(DIRECTION.up);
+                HeadsUpDisplay.StartScrolling(DIRECTION.down);
             }
             //check if paused
             else if (GameStateManager.GameState == GameState.PausedState)
             {
-                HeadsUpDisplay.StartScrolling(DIRECTION.down);
+                HeadsUpDisplay.StartScrolling(DIRECTION.up);
             }
-           
         }
     }
 }

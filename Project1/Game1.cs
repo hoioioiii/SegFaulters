@@ -245,7 +245,7 @@ namespace Project1
             _spriteBatch.End();
 
             // Attach HUD to screen
-            if (GameStateManager.GameState != GameState.GameOverState || GameStateManager.GameState != GameState.PausedState)
+            if (GameStateManager.GameState != GameState.GameOverState && GameStateManager.GameState != GameState.PausedState && !HUDisTransitioning)
             {
                 _spriteBatch.Begin();
                 hudDisplay.Draw(_spriteBatch);

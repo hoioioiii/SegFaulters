@@ -77,10 +77,12 @@ namespace Project1.HUD
 
         public void Update()
         {
+
             //update indicator based on which room we're in
             activeRoomNumber = RoomManager.GetCurrentRoomIndex() % totalRooms;
             positionDestination.X = (int)positionCoords[activeRoomNumber].X;
             positionDestination.Y = (int)positionCoords[activeRoomNumber].Y;
+            /*
             //update HUD location based on game state
             if (HeadsUpDisplay.IsFullMenuDisplay())
             {
@@ -95,7 +97,7 @@ namespace Project1.HUD
                 positionDestination.Y -= (int)fullMenuOffset;
                 reset = false;
             }
-
+            */
         }
 
         public void Draw(SpriteBatch spriteBatch)

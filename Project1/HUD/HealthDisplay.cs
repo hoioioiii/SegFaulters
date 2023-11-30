@@ -50,6 +50,7 @@ namespace Project1.HUD
 
         public void Update()
         {
+            /*
             // If paused
             if (HeadsUpDisplay.IsFullMenuDisplay())
             {
@@ -65,6 +66,7 @@ namespace Project1.HUD
                 linkHealth.Reset();
                 reset = false;
             }
+            */
 
         }
 
