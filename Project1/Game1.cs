@@ -235,7 +235,7 @@ namespace Project1
                 _spriteBatch.End();
 
             // HUD
-            if (GameStateManager.GameState != GameState.GameOverState)
+            if (GameStateManager.GameState != GameState.GameOverState && GameStateManager.GameState != GameState.TriforceWinState)
             {
                 _spriteBatch.Begin();
                 hudDisplay.Draw(_spriteBatch);
