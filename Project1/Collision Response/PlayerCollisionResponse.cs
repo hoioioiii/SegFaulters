@@ -53,6 +53,7 @@ namespace Project1.Collision_Response
                     break;
                 case Fairy:
                     ITEMS = ITEMS.Fairy;
+                    Player.stats[ATTACK] += ATTACK_INCREASE; //increment attack stat
                     AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case HeartContainer:
@@ -70,7 +71,6 @@ namespace Project1.Collision_Response
                     break;
                 case Rupee:
                     ITEMS = ITEMS.Rupee;
-                    Player.stats[ATTACK] += DAMAGE_INCREASE;
                     AudioManager.PlaySoundEffect(rupeeGet);
                     break;
                 case Sword:

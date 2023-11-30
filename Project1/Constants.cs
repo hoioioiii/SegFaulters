@@ -75,7 +75,7 @@ namespace Project1
         public static int DAMAGE_FULL_HEART = 4;
         public static int MAX_FRAGMENTS = 4;
 
-        public static int DAMAGE_INCREASE = 2;
+        public static int ATTACK_INCREASE = 1;
 
 
         public static int STATS_HEIGHT = HUD_HEIGHT / 2;
@@ -217,6 +217,8 @@ namespace Project1
         public static string DAMAGE = "DMG";
         public static string STAMINA = "SMNA";
         public static int STATS_TOTAL = 5;
+        public static int DEFAULT_SPEED = 5;
+        public enum WEAPON_ATTACK_AMOUNT { swordAmount = 2, bombAmount = 3, bowAmount = 1, boomerangAmount = 1};
         //Attacking metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public const float ATTACK_SECONDS = 0.5f;
 

@@ -29,7 +29,7 @@ namespace Project1
 
         private static bool isMoving = false;
 
-        public static int playerSpeed = 5;
+        public static int playerSpeed = DEFAULT_SPEED;
 
         // cardinal direction player is facing, starts with up on 1 and progresses clockwise (e.g. 4 is left-facing)
         private static int linkDirection = (int)DIRECTION.right;
@@ -43,6 +43,7 @@ namespace Project1
         private static bool isAttackingWithBoomerang = false;
         private static bool isAttackingWithBow = false;
         public static bool isAttackingWithBomb = false;
+        public static int weaponAttackAmount = 0;
 
         // Check damage cooldown period to get hit again
         private static bool isDamaged = false;
@@ -72,11 +73,8 @@ namespace Project1
         //this is a temp solution
         private static bool isDeadState;
 
-        /*        public static Dictionary<string, int> stats;
-                public static float coolDown; */
 
-        //nenw code for stats
-
+        //player stats
         public static PlayerStats playerStats;
         public static Dictionary<string, int> stats;
 
@@ -103,33 +101,6 @@ namespace Project1
             playerStats = new PlayerStats();
             stats = PlayerStats.stats;
         }
-
-/*        public static void InitializeStats()
-        {
-            stats = new Dictionary<string, int>();
-            stats.Add(ATTACK, 0);
-            stats.Add(SPEED, playerSpeed);
-            stats.Add(CRITICAL_HIT, 0);
-            stats.Add(DAMAGE, 0);
-            stats.Add(STAMINA, 0);
-        }*/
-
-        /*        public static void UpdateStats(GameTime gameTime)
-                {
-                    coolDown += (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-                    foreach (var item in stats)
-                    {
-                        if (item.Key == "SPD" && Player.playerSpeed != item.Value)
-                        {
-                            stats["SPD"] = Player.playerSpeed;
-                        }
-                        else if (item.Key == "SPD" && coolDown >= 5)
-                        {
-                            Player.playerSpeed = 5;
-                        }
-                    }
-                }*/
 
 
         public static void LoadContent(ContentManager content)
@@ -204,6 +175,7 @@ namespace Project1
                     // attack using his sword
                     isAttacking = true;
                     isAttackingWithSword = true;
+                    weaponAttackAmount = (int)WEAPON_ATTACK_AMOUNT.swordAmount;
 
                     AudioManager.PlaySoundEffect(sword);
                     //currentWeaponIndex = (int)WEAPONS.sword;
@@ -214,6 +186,7 @@ namespace Project1
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBoomerang = true;
+                    weaponAttackAmount = (int)WEAPON_ATTACK_AMOUNT.boomerangAmount;
 
                     //currentWeaponIndex = (int)WEAPONS.boom;
                 }
@@ -222,6 +195,7 @@ namespace Project1
                     // attack using his 
                     isAttacking = true;
                     isAttackingWithBow = true;
+                    weaponAttackAmount = (int)WEAPON_ATTACK_AMOUNT.bowAmount;
                     //currentWeaponIndex = (int)WEAPONS.bow;
                 }
                 else if (keystate.IsKeyDown(Keys.T))
@@ -229,12 +203,17 @@ namespace Project1
                     // attack using his sword
                     isAttacking = true;
                     isAttackingWithBomb = true;
+                    weaponAttackAmount = (int)WEAPON_ATTACK_AMOUNT.bombAmount;
                     //currentWeaponIndex = (int)WEAPONS.bomb;
 
                     isAttackingWithSword = false;
                     isAttackingWithBoomerang = false;
                     isAttackingWithBow = false;
 
+                }
+                else
+                {
+                    weaponAttackAmount = 0;
                 }
 
             }

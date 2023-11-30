@@ -10,6 +10,11 @@ using static Project1.Constants;
 
 namespace Project1.Stats
 {
+    /*
+     * Clock: player speed
+     * Fairy: player attack
+     * Rupees: every 2 ruppes -> player damage is +2
+     */
     public class PlayerStats : IPlayerStats
     {
         public static Dictionary<string, int> stats;
@@ -22,6 +27,7 @@ namespace Project1.Stats
 
         public void InitializeStats()
         {
+            //default stats metrics
             stats = new Dictionary<string, int>();
             stats.Add(ATTACK, DAMAGE_HALF_HEART);
             stats.Add(SPEED, Player.playerSpeed);
@@ -42,8 +48,9 @@ namespace Project1.Stats
                 }
                 else if (item.Key == "SPD" && coolDown >= 10)
                 {
-                    Player.playerSpeed = 5;
+                    Player.playerSpeed = DEFAULT_SPEED;
                 }
+                //if (item.Key == "DMG" && itemInventory.)
             }
         }
     }
