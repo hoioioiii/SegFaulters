@@ -53,6 +53,8 @@ namespace Project1
             IsMouseVisible = true;
             self = this;
 
+            gameStatePlaying = true;
+
             //temp fix -- fix later
             timer = 60 * 3;
         }
