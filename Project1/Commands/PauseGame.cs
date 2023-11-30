@@ -8,6 +8,13 @@ namespace Project1
         public void Execute()
         {
             Game1.GameStateManager.PauseGame();
+
+            /*
+            if (Game1.GameStateManager.)
+            {
+
+            }
+            */
         }
     }
 }

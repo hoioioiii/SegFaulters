@@ -54,6 +54,17 @@ namespace Project1.HUD
         {
             return isFullMenu;
         }
-	}
+
+        public static void StartScrolling(DIRECTION scrollDirection)
+        {
+            Camera.CameraTransitionCalculate(scrollDirection);
+            Game1.HUDisTransitioning = true;
+        }
+
+        public static void EndScrolling()
+        {
+            Game1.HUDisTransitioning = false;
+        }
+    }
 }
 

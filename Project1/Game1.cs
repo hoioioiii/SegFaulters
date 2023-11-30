@@ -207,7 +207,10 @@ namespace Project1
             }
             else if (HUDisTransitioning)
             {
-
+                _spriteBatch.Begin(transformMatrix: Camera.Transform);
+                EnvironmentLoader.Draw(_spriteBatch);
+                Player.Draw(gameTime, _spriteBatch);
+                hudDisplay.Draw(_spriteBatch);
             }
             else
             {
