@@ -211,6 +211,7 @@ namespace Project1
                 EnvironmentLoader.Draw(_spriteBatch);
                 Player.Draw(gameTime, _spriteBatch);
                 hudDisplay.Draw(_spriteBatch);
+                DrawManager.Draw();
             }
             else
             {

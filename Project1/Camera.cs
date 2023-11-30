@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Project1.HUD;
 using static Project1.Constants;
 
 namespace Project1
@@ -62,15 +63,15 @@ namespace Project1
             if (_timer > CAMERA_TRANSITION_SECONDS)
             {
                 _timer = 0;
+                isFinishedTransitioning = true;
 
-                if(isRoomTransition) 
+                if (isRoomTransition) 
                 { 
-                    isFinishedTransitioning = true;
                     RoomTransition.EndScrolling();
                 }
                 else
                 {
-
+                    HeadsUpDisplay.EndScrolling();
                 }               
             }
             else
