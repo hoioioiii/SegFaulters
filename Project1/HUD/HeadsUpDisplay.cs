@@ -26,7 +26,7 @@ namespace Project1.HUD
             backgroundRect = new Texture2D(graphics, 1, 1);
             backgroundRect.SetData(new[] { Color.Black });
             coordBase = new Vector2(0, 0);
-            destinationBackground = new Rectangle((int)coordBase.X, (int)coordBase.Y, SCREEN_WIDTH, HUD_HEIGHT);
+            destinationBackground = new Rectangle((int)coordBase.X, (int)coordBase.Y, SCREEN_WIDTH, HUD_HEIGHT + SCROLL_OFFSET);
 
             //individual components
             location = new LocationDisplay(graphics, content);
@@ -45,6 +45,7 @@ namespace Project1.HUD
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.Draw(backgroundRect, destinationBackground, Color.Black);
             location.Draw(spriteBatch);
             inventory.Draw(spriteBatch);
             health.Draw(spriteBatch);
