@@ -37,7 +37,7 @@ namespace Project1.HUD
         private static PAUSE_STATE pauseIndex = PAUSE_STATE.active;
         private SpriteFont font;
         public static IItem selectedItem;
-        private int[] itemCount = { Player.itemInventory[(int)ITEMS.Rupee], Player.itemInventory[(int)ITEMS.Key], Player.itemInventory[(int)ITEMS.Bomb] };
+        private int[] itemCount = { Inventory.itemInventory[(int)ITEMS.Rupee], Inventory.itemInventory[(int)ITEMS.Key], Inventory.itemInventory[(int)ITEMS.Bomb] };
 
         public InventoryDisplay(GraphicsDevice graphics, ContentManager content)
         {
@@ -108,9 +108,9 @@ namespace Project1.HUD
             }
 
             //Update item counts
-            itemCount[0] = Player.itemInventory[(int)ITEMS.Rupee];
-            itemCount[1] = Player.itemInventory[(int)ITEMS.Key];
-            itemCount[2] = Player.itemInventory[(int)ITEMS.Bomb];
+            itemCount[0] = Inventory.itemInventory[(int)ITEMS.Rupee];
+            itemCount[1] = Inventory.itemInventory[(int)ITEMS.Key];
+            itemCount[2] = Inventory.itemInventory[(int)ITEMS.Bomb];
 
             /*
             //Update usable item counts
@@ -209,7 +209,7 @@ namespace Project1.HUD
             //display the selected item
             selectedItem = selectedItemArray[(int)userSelectedItem];
 
-            if (Player.itemInventory[(int)selectedItem.GetTypeIndex()] != 0) {
+            if (Inventory.itemInventory[(int)selectedItem.GetTypeIndex()] != 0) {
                 selectedItem.Draw(spriteBatch, selectedSprite, 2);
             }
         }

@@ -207,22 +207,22 @@ namespace Project1
         {
             int num = 0;
             List<inventoryItems> list = new List<inventoryItems>();
-            if (Player.itemInventory[(int)ITEMS.Bow] > 0)
+            if (Inventory.itemInventory[(int)ITEMS.Bow] > 0)
             {
                 num++;
                 list.Add(inventoryItems.bow);
             }
-            if (Player.itemInventory[(int)ITEMS.Bomb] > 0)
+            if (Inventory.itemInventory[(int)ITEMS.Bomb] > 0)
             {
                 num++;
                 list.Add(inventoryItems.bomb);
             }
-            if (Player.itemInventory[(int)ITEMS.Key] > 0)
+            if (Inventory.itemInventory[(int)ITEMS.Key] > 0)
             {
                 num++;
                 list.Add(inventoryItems.key);
             }
-            if (Player.itemInventory[(int)ITEMS.Boomerang] > 0)
+            if (Inventory.itemInventory[(int)ITEMS.Boomerang] > 0)
             {
                 num++;
                 list.Add(inventoryItems.boomerang);

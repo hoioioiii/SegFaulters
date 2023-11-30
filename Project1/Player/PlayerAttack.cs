@@ -20,7 +20,7 @@ namespace Project1
         //Command Functions
         public static void attackSword()
         {
-            if (Player.itemInventory[(int)ITEMS.Sword] != 0)
+            if (Inventory.itemInventory[(int)ITEMS.Sword] != 0)
             {
                 Player.isAttacking = true;
                 isAttackingWithSword = true;
@@ -31,7 +31,7 @@ namespace Project1
 
         public static void attackBoom()
         {
-            if (Player.itemInventory[(int)ITEMS.Boomerang] != 0)
+            if (Inventory.itemInventory[(int)ITEMS.Boomerang] != 0)
             {
                 Player.isAttacking = true;
                 isAttackingWithBoomerang = true;
@@ -42,7 +42,7 @@ namespace Project1
 
         public static void attackBow()
         {
-            if (Player.itemInventory[(int)ITEMS.Bow] != 0)
+            if (Inventory.itemInventory[(int)ITEMS.Bow] != 0)
             {
                 Player.isAttacking = true;
                 isAttackingWithBow = true;
@@ -53,7 +53,7 @@ namespace Project1
 
         public static void attackBomb()
         {
-            if (Player.itemInventory[(int)ITEMS.Bomb] != 0)
+            if (Inventory.itemInventory[(int)ITEMS.Bomb] != 0)
             {
                 Player.isAttacking = true;
                 isAttackingWithBomb = true;

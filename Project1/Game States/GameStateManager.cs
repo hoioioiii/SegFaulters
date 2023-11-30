@@ -86,7 +86,7 @@ namespace Project1
         }
         private void checkTriforceState()
         {
-            if (Player.itemInventory[(int)ITEMS.Triforce] == 1)
+            if (Inventory.itemInventory[(int)ITEMS.Triforce] == 1)
             {
                 GameState = GameState.TriforceWinState;
                 TriforceWinningScreen.TriForceSoundEffect();

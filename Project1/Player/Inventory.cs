@@ -5,17 +5,21 @@ namespace Project1
 {
 	public static class Inventory
 	{
+        //this enum is used to access the inventory by item type:
+        //public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12 };
+        public static int[] itemInventory = { 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0 };
+
         public static void PickUpItem(ITEMS itemToAdd)
         {
-            Player.itemInventory[(int)itemToAdd] = Player.itemInventory[(int)itemToAdd] + 1;
+            itemInventory[(int)itemToAdd] = itemInventory[(int)itemToAdd] + 1;
         }
 
         public static bool UseItem(ITEMS itemToDelete)
         {
             bool didItemGetUsed;
-            if (Player.itemInventory[(int)itemToDelete] > 0)
+            if (itemInventory[(int)itemToDelete] > 0)
             {
-                Player.itemInventory[(int)itemToDelete]--;
+                itemInventory[(int)itemToDelete]--;
                 didItemGetUsed = true; //if player has item, it got used.
             }
             else
