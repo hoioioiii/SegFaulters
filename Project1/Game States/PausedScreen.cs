@@ -17,7 +17,7 @@ namespace Project1
             pausedInventory = new PausedInventory(graphics, content);
             pausedMap = new PausedMap(graphics, content);
         }
-        public static void Draw(SpriteBatch spritebatch)
+        public void Draw(SpriteBatch spritebatch)
         {
             pausedInventory.Draw(spritebatch);
             pausedMap.Draw(spritebatch);
@@ -25,6 +25,7 @@ namespace Project1
         }
         public void Update()
         {
+            pausedInventory.Update();
             pausedMap.Update();
 
         }
