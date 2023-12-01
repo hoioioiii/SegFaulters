@@ -66,15 +66,6 @@ namespace Project1
         public void GenerateKeyToKeyMap()
         {
             KEY_TO_KEY = new Dictionary<Keys, Keys>();
-
-            //this was causing WASD to not work for some reason
-            /*
-            KEY_TO_KEY.Add(Keys.A, Keys.Left);
-            KEY_TO_KEY.Add(Keys.W, Keys.Up);
-            KEY_TO_KEY.Add(Keys.S, Keys.Down);
-            KEY_TO_KEY.Add(Keys.D, Keys.Right);
-            */
-            //KEY_TO_KEY.Add(Keys.N, Keys.Z); //Handled elsewhere, needs to be modified to be handled here
             KEY_TO_KEY.Add(Keys.Q, Keys.R);
             KEY_TO_KEY.Add(Keys.NumPad0, Keys.D0);
             KEY_TO_KEY.Add(Keys.NumPad1, Keys.D1);
@@ -112,7 +103,6 @@ namespace Project1
             MOVE_MAP = new Dictionary<Keys, ICommand>();
 
             
-            //the wasd keys don't work for some reason
             MOVE_MAP.Add(Keys.S, new MoveDown());
             MOVE_MAP.Add(Keys.W, new MoveUp());
             MOVE_MAP.Add(Keys.A, new MoveLeft());
@@ -128,7 +118,6 @@ namespace Project1
             MOVE_MAP.Add(Keys.N, new attackSword());
             MOVE_MAP.Add(Keys.T, new atttackBomb());
             MOVE_MAP.Add(Keys.B, new attackSelectedWeapon());
-            //MOVE_MAP.Add(Keys.E, new Damage());
             MOVE_MAP.Add(Keys.R, new QuitGame());
             MOVE_MAP.Add(Keys.I, new attackBoomerang());
             MOVE_MAP.Add(Keys.U, new attackBow());

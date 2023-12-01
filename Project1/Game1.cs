@@ -54,6 +54,8 @@ namespace Project1
             IsMouseVisible = true;
             self = this;
 
+            gameStatePlaying = true;
+
             //temp fix -- fix later
             timer = 60 * 3;
         }
@@ -129,7 +131,7 @@ namespace Project1
             EnvironmentLoader.LoadContent(Content);
             
             //Load XML File
-            LevelLoader.Load("D:\\CSE3902\\Projects\\SegFaulters\\Project1\\xmlTest2.xml");
+            LevelLoader.Load();
             hudDisplay = new HeadsUpDisplay(GraphicsDevice, Content);
             
         }

@@ -66,6 +66,7 @@ namespace Project1
         public static int HUD_HEIGHT = SCREEN_HEIGHT / 3;
         //*
         public static int HUD_SECTION_WIDTH = SCREEN_WIDTH / 3;
+        public static int SCROLL_OFFSET = 17;
         //*
 
         public static int HEALTH_HUD_WIDTH = HUD_SECTION_WIDTH * 2;

@@ -7,7 +7,7 @@ namespace Project1.Commands
     {
         public void Execute()
         {
-            if (Player.itemInventory[(int)ITEMS.HeartContainer] > 0)
+            if (Inventory.itemInventory[(int)ITEMS.HeartContainer] > 0)
             {
                // ItemIterator.pointer = (int)ITEMS.HeartContainer;
                // Game1.Item = ItemIterator.getCurrItem();
