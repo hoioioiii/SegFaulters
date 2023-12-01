@@ -28,36 +28,41 @@ namespace Project1
         private float screenMaxHeight; // Height of the top two-thirds of the screen
 
         //fix magic numbers constants
-        private static int inventoryTextOffsetX = 130; 
-        private static int inventoryTextOffsetY = 500 + ROOM_FRAME_HEIGHT; 
-        private static int useBtextOffsetX = 100; 
-        private static int useBtextOffsetY = 300 + ROOM_FRAME_HEIGHT;
-        private static int smallItemBoxTextOffsetX = 190;
-        private static int smallItemBoxTextOffsetY = 430 + ROOM_FRAME_HEIGHT;
-        private static int itemInventoryBoxTextOffsetX = 400;
-        private static int itemInventoryBoxTextOffsetY = 450 + ROOM_FRAME_HEIGHT;
+        /*  private static int inventoryTextOffsetX = 130; 
+          private static int inventoryTextOffsetY = 500; 
+          private static int useBtextOffsetX = 100; 
+          private static int useBtextOffsetY = 300;
+          private static int smallItemBoxTextOffsetX = 190;
+          private static int smallItemBoxTextOffsetY = 430;
+          private static int itemInventoryBoxTextOffsetX = 400;
+          private static int itemInventoryBoxTextOffsetY = 450;
 
-        private static int itemInventoryBoxOffSet = 18;
-        private static int itemInventoryBoxOffSet2 = 4;
-        private static int itemInventoryBoxOffSet3 = 16;
-        private static int itemInventoryBoxScaleOffSet = 10;
+          private static int itemInventoryBoxOffSet = 18;
+          private static int itemInventoryBoxOffSet2 = 4;
+          private static int itemInventoryBoxOffSet3 = 16;
+          private static int itemInventoryBoxScaleOffSet = 10;
 
-        private static int inventoryboxWidth; 
-        private static int inventoryboxHeight;
+          private static int inventoryboxWidth; 
+          private static int inventoryboxHeight;
 
+
+          private static int currentItemIndex = 0;
+          private static int trueTotalItemCount = 0;
+
+          int inventoryRows = 2;
+          int inventoryCols = 4;
+          int selectorSmoother = 0; */
         private static Vector2 selectedItemPosition;
-        private static int currentItemIndex = 0;
-
-        int inventoryRows = 2;
-        int inventoryCols = 4;
-        int selectorSmoother = 0;
-
-        Vector2 inventoryPosition;
-        Vector2 useBPosition;
-        Vector2 smallitemboxPosition;
+        public static Vector2 inventoryPosition;
+        public static Vector2 useBPosition;
+        private static Vector2 smallitemboxPosition;
         Vector2 itemInventoryPosition;
 
+        private static int totalItems;
         private static List<(Vector2, inventoryItems)> itemLocations = new List<(Vector2, inventoryItems)>();
+        private static Dictionary<inventoryItems, bool> itemDict = new Dictionary<inventoryItems, bool>();
+        private static List<inventoryItems> listOfItems = new List<inventoryItems>();
+
 
 
 
@@ -102,12 +107,15 @@ namespace Project1
             spriteBatch.Draw(smallItemBox, new Rectangle((int)smallitemboxPosition.X, (int)smallitemboxPosition.Y, smallItemBox.Width * spriteScale, smallItemBox.Height * spriteScale), Color.White);
             spriteBatch.Draw(itemInventory, new Rectangle((int)itemInventoryPosition.X, (int)itemInventoryPosition.Y, itemInventory.Width * spriteScale, itemInventory.Height * spriteScale), Color.White);
 
-            List<inventoryItems> listOfItems = new List<inventoryItems>();
-            var temp = getTotalNumOfItems();
-            int totalItems = temp.Item1;
-            listOfItems = temp.Item2;
+            // List<inventoryItems> listOfItems = new List<inventoryItems>();
+            
+            totalItems = itemDict.Count;
+            listOfItems = GetListOfTrueItems();
+            trueTotalItemCount = listOfItems.Count;
+
 
             int maxItems = inventoryRows * inventoryCols;
+            int numofitems = totalItems;
             for (int i = 0; i < maxItems; i++)
             {
                 // Calculate row and column based on the current index
@@ -115,14 +123,14 @@ namespace Project1
                 int col = i % inventoryCols;
 
                 // Check if items run out
-                if (totalItems <= 0)
+                if (numofitems <= 0)
                 {
                     break; // Break out of the loop
                 }
                 int x = (int)itemInventoryPosition.X + (col * inventoryboxWidth * spriteScale) + itemInventoryBoxOffSet;
                 int y = (int)itemInventoryPosition.Y + (row * inventoryboxHeight * spriteScale) + itemInventoryBoxOffSet;
 
-                
+                //for here populate a list of inventory itmes from the dictionary
                 foreach (var item in listOfItems)
                 {
                     //change or put each draw in each else if
@@ -157,7 +165,7 @@ namespace Project1
                     break;
                     
                 }
-                totalItems--;
+                numofitems--;
             }
 
             selectedItemPosition = itemLocations[currentItemIndex].Item1;
@@ -197,43 +205,55 @@ namespace Project1
             }
             InventoryDisplay.setSelectedItem(type);
             //Issue here, this is not displaying the correct item in the small box inventory when an item gets used up
+            //idea behind solution: need to implement command that updates the amount if rows and columns based on if an consumable is use. need to change getTotalNumOfItems to be called once at the start
             //instead, it displays an item next to it
             //You can use Player.itemInventory[(int)InventoryDisplay.getSelectedItemTypeIndex()] > 0 to test if the selected item's count is greater than 1 in case that helps you solve the problem
             smallboxinventoryitem.Draw(spriteBatch, pos, 3);
+            itemLocations.Clear();
         }
 
         //function that gets the number of items and which ones so Draw can have the correct sprite to create
-        public (int, List<inventoryItems>) getTotalNumOfItems() 
+        public void UpdateItemDict()
         {
-            int num = 0;
-            List<inventoryItems> list = new List<inventoryItems>();
-            if (Inventory.itemInventory[(int)ITEMS.Bow] > 0)
+            // Initialize the dictionary if it's empty
+            if (itemDict.Count == 0)
             {
-                num++;
-                list.Add(inventoryItems.bow);
-            }
-            if (Inventory.itemInventory[(int)ITEMS.Bomb] > 0)
-            {
-                num++;
-                list.Add(inventoryItems.bomb);
-            }
-            if (Inventory.itemInventory[(int)ITEMS.Key] > 0)
-            {
-                num++;
-                list.Add(inventoryItems.key);
-            }
-            if (Inventory.itemInventory[(int)ITEMS.Boomerang] > 0)
-            {
-                num++;
-                list.Add(inventoryItems.boomerang);
+                itemDict.Add(inventoryItems.bow, false);
+                itemDict.Add(inventoryItems.boomerang, false);
+                itemDict.Add(inventoryItems.bomb, false);
+                itemDict.Add(inventoryItems.key, false);
             }
 
-            return (num, list);
+            // Update the dictionary based on Player.itemInventory
+            UpdateItemStatus(ITEMS.Bow, inventoryItems.bow);
+            UpdateItemStatus(ITEMS.Boomerang, inventoryItems.boomerang);
+            UpdateItemStatus(ITEMS.Bomb, inventoryItems.bomb);
+            UpdateItemStatus(ITEMS.Key, inventoryItems.key);
         }
 
+        public List<inventoryItems> GetListOfTrueItems()
+        {
+            List<inventoryItems> listOfItems = itemDict
+                .Where(entry => entry.Value)  // Filter by boolean value being true
+                .Select(entry => entry.Key)  // Select only the inventoryItems
+                .ToList();
+
+            return listOfItems;
+        }
+
+        private void UpdateItemStatus(ITEMS itemType, inventoryItems item)
+        {
+            bool hasItem = Inventory.itemInventory[(int)itemType] > 0;
+            
+
+            itemDict.Remove(item);
+            itemDict.Add(item, hasItem);
+        }
+
+        //clear item inventory helper function. should be called when an item gets used as a "consumable" (ex: bomb)
         public void Update()
         {
-            
+            UpdateItemDict();
         }
 
         //moves the selector, makes sure it loops back to the other side 
@@ -244,10 +264,10 @@ namespace Project1
             {
                 if (currentItemIndex == 0)
                 {
-                    currentItemIndex = itemLocations.Count - 1;
+                    currentItemIndex = trueTotalItemCount;
                 }
-                currentItemIndex--;
                 selectorSmoother = 0;
+                currentItemIndex--;
             }
             selectorSmoother++;
         }
@@ -257,11 +277,12 @@ namespace Project1
         {
             if(selectorSmoother == 9)
             {
-                if (currentItemIndex == itemLocations.Count - 1)
+                currentItemIndex++;
+                if (currentItemIndex == trueTotalItemCount)
                 {
                     currentItemIndex = 0;
                 }
-                currentItemIndex++;
+                
                 selectorSmoother = 0;
             }
             selectorSmoother++;

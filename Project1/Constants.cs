@@ -89,8 +89,46 @@ namespace Project1
         public static int HUD_HEIGHT_THIRD = HUD_HEIGHT / 3;
         public static int KEY_OFFSET = 5;
         public static int SPRITE_SIZE = 2;
+        //paused inventory STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int MAPOFFSET = 70;
+        public static int inventoryTextOffsetX = 130;
+        public static int inventoryTextOffsetY = 500;
+        public static int useBtextOffsetX = 100;
+        public static int useBtextOffsetY = 300;
+        public static int smallItemBoxTextOffsetX = 190;
+        public static int smallItemBoxTextOffsetY = 430;
+        public static int itemInventoryBoxTextOffsetX = 400;
+        public static int itemInventoryBoxTextOffsetY = 450;
+        
+        public static int itemInventoryBoxOffSet = 18;
+        public static int itemInventoryBoxOffSet2 = 4;
+        public static int itemInventoryBoxOffSet3 = 16;
+        public static int itemInventoryBoxScaleOffSet = 10;
+        
+        public static int inventoryboxWidth;
+        public static int inventoryboxHeight;
+        
+        
+        public static int currentItemIndex = 0;
+        public static int trueTotalItemCount = 0;
 
-
+        public static int inventoryRows = 2;
+        public static int inventoryCols = 4;
+        public static int selectorSmoother = 0;
+        //paused map STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int compassPauseTextX = 130;
+        public static int compassPauseTextY = 100;
+        public static int mapItemX = 210;
+        public static int mapItemY = 180;
+        public static int mapPauseTextX = 180;
+        public static int mapPauseTextY = 230;
+        public static int pausedMapX = 410;
+        public static int pausedMapY = 230 + MAPOFFSET;
+        public static int spriteScaleOffset1 = 100;
+        public static int greenBoxOffset = 3;
+        public static int locationDisplayOffSetX = 470;
+        public static int locationDisplayOffSetY = 280 - MAPOFFSET;
+        public static int totalRooms = 18;
         //HEALTH STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int HEALTH_HUD_WIDTH = HUD_SECTION_WIDTH * 2;
         public static int HEALTH_HUD_HEIGHT = (HUD_HEIGHT / 3);

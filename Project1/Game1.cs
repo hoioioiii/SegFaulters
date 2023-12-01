@@ -283,7 +283,7 @@ namespace Project1
             else if (GameStateManager.GameState == GameState.PausedState && !HUDisTransitioning) 
             {
                 _spriteBatch.Begin();
-                PausedScreen.Draw(_spriteBatch);
+                GameStateManager.DrawGameState(_spriteBatch);
                 _spriteBatch.End();
             }
 
