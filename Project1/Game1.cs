@@ -147,7 +147,15 @@ namespace Project1
             }
             else if (HUDisTransitioning)
             {
-                Camera.CameraTransition(gameTime, false);
+                // if the HUD is transitioning down, use the camera transition offset
+                if (GameStateManager.GameState == GameState.DefaultState)
+                {
+                    Camera.CameraTransitionOffset(gameTime, false, 0, ROOM_FRAME_HEIGHT);                   
+                }
+                else
+                {
+                    Camera.CameraTransition(gameTime, false);
+                }             
             }
             else
             {
@@ -212,6 +220,13 @@ namespace Project1
                 Player.Draw(gameTime, _spriteBatch);
                 hudDisplay.Draw(_spriteBatch);
                 DrawManager.Draw();
+                //PausedScreen.Draw(_spriteBatch);
+            }
+            else if (GameStateManager.GameState == GameState.PausedState)
+            {
+                _spriteBatch.Begin(transformMatrix: Camera.Transform);
+                hudDisplay.Draw(_spriteBatch);
+                //PausedScreen.Draw(_spriteBatch);
             }
             else
             {
@@ -250,6 +265,12 @@ namespace Project1
             {
                 _spriteBatch.Begin();
                 hudDisplay.Draw(_spriteBatch);
+                _spriteBatch.End();
+            }
+            else if (GameStateManager.GameState == GameState.PausedState && !HUDisTransitioning) 
+            {
+                _spriteBatch.Begin();
+                PausedScreen.Draw(_spriteBatch);
                 _spriteBatch.End();
             }
 

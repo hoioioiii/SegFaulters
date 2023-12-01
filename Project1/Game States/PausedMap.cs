@@ -24,13 +24,13 @@ namespace Project1
 
         private static List<bool> roomsEntered = new List<bool>(18);
         private static int compassPauseTextX = 130;
-        private static int compassPauseTextY = 100;
+        private static int compassPauseTextY = 100 + ROOM_FRAME_HEIGHT;
         private static int mapItemX = 210;
-        private static int mapItemY = 180;
+        private static int mapItemY = 180 + ROOM_FRAME_HEIGHT;
         private static int mapPauseTextX = 180;
-        private static int mapPauseTextY = 230;
+        private static int mapPauseTextY = 230 + ROOM_FRAME_HEIGHT;
         private static int pausedMapX = 410;
-        private static int pausedMapY = 230;
+        private static int pausedMapY = 230 + ROOM_FRAME_HEIGHT;
 
         private static int spriteScaleOffset1 = 100;
         private static int greenBoxOffset = 3;

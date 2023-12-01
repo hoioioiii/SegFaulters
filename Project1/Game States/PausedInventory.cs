@@ -29,13 +29,13 @@ namespace Project1
 
         //fix magic numbers constants
         private static int inventoryTextOffsetX = 130; 
-        private static int inventoryTextOffsetY = 500; 
+        private static int inventoryTextOffsetY = 500 + ROOM_FRAME_HEIGHT; 
         private static int useBtextOffsetX = 100; 
-        private static int useBtextOffsetY = 300;
+        private static int useBtextOffsetY = 300 + ROOM_FRAME_HEIGHT;
         private static int smallItemBoxTextOffsetX = 190;
-        private static int smallItemBoxTextOffsetY = 430;
+        private static int smallItemBoxTextOffsetY = 430 + ROOM_FRAME_HEIGHT;
         private static int itemInventoryBoxTextOffsetX = 400;
-        private static int itemInventoryBoxTextOffsetY = 450;
+        private static int itemInventoryBoxTextOffsetY = 450 + ROOM_FRAME_HEIGHT;
 
         private static int itemInventoryBoxOffSet = 18;
         private static int itemInventoryBoxOffSet2 = 4;

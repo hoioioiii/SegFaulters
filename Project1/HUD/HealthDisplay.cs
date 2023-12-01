@@ -50,8 +50,9 @@ namespace Project1.HUD
 
         public void Update()
         {
-            /*
+            
             // If paused
+            /*
             if (HeadsUpDisplay.IsFullMenuDisplay())
             {
                 pauseIndex = PAUSE_STATE.paused;
