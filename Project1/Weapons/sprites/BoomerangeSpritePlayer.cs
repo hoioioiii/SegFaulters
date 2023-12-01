@@ -33,7 +33,7 @@ namespace Project1
         private int onWayTime; 
         private int mod;
 
-        private bool completed;
+        public bool completed;
         private bool change;
         private int animationTime;
         private int fps;
@@ -187,7 +187,7 @@ namespace Project1
         */
         public void GetUserState(Direction direct)
         {
-            direction = (int)Player.getUserDirection(); ;
+            direction = (int)Player.getUserDirection(); 
         }
 
         public bool finished()
@@ -228,16 +228,18 @@ namespace Project1
 
             if (!change)
             {
+
+                //RIGHT LEFT
                 if (direction == 1 || direction == 3)
                 {
                     weaponX = WeaponDirectionMovement.ForwardBack(movementManager.getPosition().Item1, direction, mod);
                     movementManager.setPosition(weaponX, movementManager.getPosition().Item2);
                     // if (change) checkFinish(weaponX, (int)Player.getPosition().X);
                 }
-                else
+                else  //UP DOWN
                 {
                     weaponY = WeaponDirectionMovement.ForwardBack(movementManager.getPosition().Item2, direction, mod);
-                    movementManager.setPosition(movementManager.getPosition().Item2, weaponY);
+                    movementManager.setPosition(movementManager.getPosition().Item1, weaponY); //changed item2 to item 
                     //if (change) checkFinish(weaponY, (int)Player.getPosition().Y);
                 }
                 
@@ -245,8 +247,11 @@ namespace Project1
             else
             {
                 seekMovement(change);
-                checkFinish(movementManager.getPosition().Item2, (int)Player.getPosition().Y);
-                checkFinish(movementManager.getPosition().Item1, (int)Player.getPosition().X);
+                int yOffsetCheck = Math.Abs(movementManager.getPosition().Item2 - (int)Player.getPosition().Y);
+                int xOffsetCheck = Math.Abs(movementManager.getPosition().Item1 - (int)Player.getPosition().X);
+                checkFinish(xOffsetCheck, yOffsetCheck);
+                //checkFinish(movementManager.getPosition().Item2, (int)Player.getPosition().Y);
+                //checkFinish(movementManager.getPosition().Item1, (int)Player.getPosition().X);
             }
             //movementManager.setPosition(weaponX, weaponY);
 
@@ -263,18 +268,24 @@ namespace Project1
 
 
         //this is going to be replaced by collision response
-        private void checkFinish(int wPos, int userPos)
+        private void checkFinish(int xOffsetCheck, int yOffsetCheck)
         {
+
             if (!completed)
             {
-                int check = Math.Abs(wPos - userPos);
-
-                //change later
-                if (check <= 20)
+                if (xOffsetCheck <= 10 && yOffsetCheck <= 10)
                 {
                     removeBang();
                     completed = true;
                 }
+                /*                int check = Math.Abs(wPos - userPos);
+
+                                //change later
+                                if (check <= 9)
+                                {
+                                    removeBang();
+                                    completed = true;
+                                }*/
             }
         }
 
