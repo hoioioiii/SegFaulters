@@ -170,6 +170,13 @@ namespace Project1.Collision_Response
             //{
                 HealthDisplay.linkHealth.DamageHealth(DAMAGE_HALF_HEART);
             //}
+
+            //IF ROOM 13, SEND BACK TO ROOM 0 UPON GETTING HIT (WALL MASTERS)
+            if(RoomManager.GetCurrentRoomIndex() == 13)
+            {
+                Player.setPosition(RESPAWN_UP);
+                RoomManager.SetActiveRoom(0, DIRECTION.none);
+            }
             
         }
     }

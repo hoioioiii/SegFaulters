@@ -14,7 +14,7 @@ namespace Project1.Commands
             GameOverScreen.GameOverSoundEffecct(); //game over sound
             LevelLoader.Load(); //re-parse the XML sheet
 
-            //temporary solution
+            //Magic number?
             Inventory.itemInventory = new int[]{ 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0};
 
             //respawn the player at the bottom
