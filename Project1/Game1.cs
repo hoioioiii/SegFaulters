@@ -45,11 +45,7 @@ namespace Project1
         public static bool roomIsTransitioning;
 
 
-        //This is testing purposes--delete later
-        private IEntity enemy;
-        public static Texture2D circle;
-
-
+        
 
 
         public Game1()
@@ -146,15 +142,7 @@ namespace Project1
             LevelLoader.Load();
             hudDisplay = new HeadsUpDisplay(GraphicsDevice, Content);
 
-            //testing purposes only, delete later:------------------
-            (string, int)[] nullList = { ("", 0) };
-            IEntity skelly = new Skeleton((2, 4), nullList);
-            enemy = skelly;
-
-            circle = Content.Load<Texture2D>(assetName: "circle");
-
-            //------Delete Above Later-------------(B4 turning in sprint 5)
-
+         
         }
 
 
@@ -187,8 +175,7 @@ namespace Project1
                     UpdateManager.Update();
 
 
-                    //delete later---for testing smartAI only:
-                    enemy.Update();
+             
 
                 }
                 else if (GameStateManager.GameState == GameState.PausedState)
@@ -240,11 +227,6 @@ namespace Project1
                     Player.Draw(gameTime, _spriteBatch);
 
                     DrawManager.Draw();
-
-
-
-                    //delete later---for testing smart AI only:
-                    enemy.Draw(_spriteBatch);
 
                 }
                 else if (GameStateManager.GameState == GameState.PausedState)

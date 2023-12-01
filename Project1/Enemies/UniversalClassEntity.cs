@@ -23,11 +23,9 @@ namespace Project1.Enemies
 
         private (Rectangle, Rectangle) rectangles;
         public int attackStat { get; private set; }
-        //Rectangle IEntity.BoundingBox => throw new NotImplementedException();
+     
 
 
-        //testing death and item drop->remove later
-        private int elaspedTime;
 
         //the initial spawning position of the enemy, not yet put into pixel coordinates
         private (int, int) initalPosition; 
