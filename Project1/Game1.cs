@@ -261,14 +261,6 @@ namespace Project1
                 {
                     hudDisplay.Draw(_spriteBatch);
                 }
-                else if (GameStateManager.GameState == GameState.TriforceWinState)
-                {
-                    //placeholder for future implementation
-                }
-                else if (GameStateManager.GameState == GameState.GameOverState)
-                {
-                    //placeholder for future implementation
-                }
             }
 
             _spriteBatch.End();
