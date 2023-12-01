@@ -17,12 +17,14 @@ namespace Project1
         private ISpriteWeapon sprite;
 
         public Rectangle BoundingBox { get; set; }
-
+        public WEAPON_TYPE weaponType { get; private set; }
         public int attackStat { get; private set; }
         public bool detected { set => throw new NotImplementedException(); }
+        public bool finishEarly { private get; set; }
 
         public BoomerangePlayer()
         {
+            weaponType = WEAPON_TYPE.BOOMERANGE;
             sprite = WeaponSpriteFactory.Instance.CreateBoomerangePlayerSprite();
             attackStat = 2;
         }

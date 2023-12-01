@@ -12,14 +12,13 @@ namespace Project1
     public interface IWeapon
     {
         public Rectangle BoundingBox { get; set; }
-        public bool detected { set; }
 
+        public WEAPON_TYPE weaponType { get;}
+        public bool detected { set; }
+        public bool finishEarly { set; }
         public void Attack();
 
-
-
-
-
+       
 
         public Rectangle getDetectionFieldRectangle();
         public void Update();

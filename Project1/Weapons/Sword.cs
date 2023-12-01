@@ -15,15 +15,17 @@ namespace Project1
     internal class Sword : IWeapon
     {
         private ISpriteWeapon sprite;
-
+        public WEAPON_TYPE weaponType { get; private set; }
         public Rectangle BoundingBox { get; set; }
         public bool isAttacking {private get; set; }
         public bool detected { set => throw new NotImplementedException(); }
 
+        public bool finishEarly { private get; set; }
+
         public Sword()
         {
-           
-            sprite = WeaponSpriteFactory.Instance.CreateSwordSprite();
+             weaponType = WEAPON_TYPE.SWORD;
+             sprite = WeaponSpriteFactory.Instance.CreateSwordSprite();
 
         }
 
@@ -57,7 +59,7 @@ namespace Project1
 
         public bool finished()
         {
-            if (sprite.finished()) {
+            if (sprite.finished() || finishEarly) {
                 Game1.GameObjManager.removePlayerWeapon(this);
 
             }

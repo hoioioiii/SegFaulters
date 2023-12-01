@@ -16,9 +16,12 @@ namespace Project1
 
         public Rectangle BoundingBox { get; set; }
         public bool detected { set => throw new NotImplementedException(); }
+        public bool finishEarly { private get; set; }
+        public WEAPON_TYPE weaponType { get; private set; }
 
         public Arrow2()
-        { 
+        {
+            weaponType = WEAPON_TYPE.ARROW;
             sprite = WeaponSpriteFactory.Instance.CreateArrowSprite();
         }
 

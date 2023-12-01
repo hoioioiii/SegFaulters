@@ -17,11 +17,14 @@ namespace Project1
     {
         public Rectangle BoundingBox { get; set; }
         public bool detected { set => throw new NotImplementedException(); }
-
+        public WEAPON_TYPE weaponType { get; private set; }
         private ISpriteWeapon sprite;
+
+        public bool finishEarly { private get; set; }
+
         public Bomb() {
 
-
+            weaponType = WEAPON_TYPE.BOMB;
             sprite = WeaponSpriteFactory.Instance.CreateBombSprite();
         }
 
@@ -45,8 +48,6 @@ namespace Project1
             {
                 Game1.GameObjManager.removePlayerWeapon(this);
             }
-
-
         }
         /*
          * Draw

@@ -186,22 +186,39 @@ namespace Project1
 
         private void filterMoveAll(ORB_DIRECTION type)
         {
-            filterMovementX();
-            filterMovementY(type);
+            if (!detected)
+            {
+                filterMovementX();
+                filterMovementY(type);
+            }
+           
         }
         private void Move()
         {
             //Vector2 targetPosition = new Vector2(target.getPos().Item1, target.getPos().Item2);
             //SeekEntity.Move(targetPosition, movement_manager);
+            CheckIfTargetDetected();
+            filterMoveAll(rocketType);
+            checkIfTargetIsAlive();
+            checkFinish();
+        }
+        private void CheckIfTargetDetected()
+        {
             if (detected)
             {
                 Vector2 targetPosition = new Vector2(target.getPos().Item1, target.getPos().Item2);
                 //Direction direction = DirectionRelativeToEnemy(targetPosition);
                 SeekEntity.Move(targetPosition, movement_manager);
             }
-            filterMoveAll(rocketType);
 
-            checkFinish();
+        }
+
+        private void checkIfTargetIsAlive()
+        {
+            List<IEntity> existingEntites = Game1.GameObjManager.getEntityList();
+            if (!existingEntites.Contains(target)){
+                removeTarget();
+            }
         }
 
 

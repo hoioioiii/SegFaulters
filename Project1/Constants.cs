@@ -447,6 +447,17 @@ namespace Project1
         public static int WEAPON_INITAL_SPD = 2;
         public static int ROCKET_FIELD = 100;
 
+        //Weapons Enums:
+        public enum WEAPON_TYPE
+        {
+            SWORD,
+            ORBS,
+            ARROW,
+            BOMB,
+            BOOMERANGE,
+            ROCKET
+        }
+
     }
 }
 

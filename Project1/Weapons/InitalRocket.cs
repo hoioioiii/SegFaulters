@@ -18,10 +18,12 @@ namespace Project1
         public Rectangle BoundingBox { get; set; }
         public int attackStat { get; private set; }
         public bool detected { set => throw new NotImplementedException(); }
+        public WEAPON_TYPE weaponType { get; private set; }
+        public bool finishEarly { private get; set; }
 
         public InitalRocket()
         {
-          
+            weaponType = WEAPON_TYPE.ROCKET;
             sprite = WeaponSpriteFactory.Instance.CreateInitalRocketSprite();
             
             attackStat = 4;

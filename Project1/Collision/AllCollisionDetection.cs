@@ -223,24 +223,10 @@ namespace Project1
                         DIRECTION collisionDirection = DIRECTION.left;
                         collisionDirection = DetectCollisionDirection(enemy.BoundingBox, weapon.BoundingBox, collisionDirection);
 
+                        WeaponCollisionResponse.WeaponResponse(weapon);
                         EnemyCollisionResponse.DamageResponse(enemy, collisionDirection);
                     }
                 }
-
-               
-
-
-                //foreach (var weaponProjectile in weaponProjectiles)
-                //{
-                //    isColliding = enemy.BoundingBox.Intersects(weaponProjectile.BoundingBox);
-                //    if (isColliding)
-                //    {
-                //        DIRECTION collisionDirection = DIRECTION.left;
-                //        collisionDirection = DetectCollisionDirection(enemy.BoundingBox, weaponProjectile.BoundingBox, collisionDirection);
-
-                //        EnemyCollisionResponse.DamageResponse(enemy, collisionDirection);
-                //    }
-                //}
             }
 
             foreach (IWeapon weapon in detectionWeapons)
@@ -248,6 +234,9 @@ namespace Project1
                 CheckAllEntites(weapon);
             }
         }
+
+        
+
         private static void CheckAllEntites(IWeapon weapon)
         {
            
@@ -259,7 +248,6 @@ namespace Project1
                 {
                     DIRECTION collisionDirection = DIRECTION.left;
                     collisionDirection = DetectCollisionDirection(enemy.BoundingBox, weapon.BoundingBox, collisionDirection);
-
                     EnemyCollisionResponse.DetectionResponse(enemy, weapon, collisionDirection);
                 }
             }
