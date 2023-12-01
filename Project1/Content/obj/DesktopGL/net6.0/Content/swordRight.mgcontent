@@ -3,11 +3,7 @@
   <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/swordRight.png</SourceFile>
   <SourceTime>2023-09-26T23:27:34-04:00</SourceTime>
   <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/swordRight.xnb</DestFile>
-<<<<<<< HEAD
-  <DestTime>2023-11-27T17:44:57.7629684-05:00</DestTime>
-=======
-  <DestTime>2023-11-10T23:26:41.4494056-05:00</DestTime>
->>>>>>> d79fe66db6e478e54366379bfab8954cd85feba2
+  <DestTime>2023-11-30T19:33:01.1281627-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -3,11 +3,7 @@
   <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bat1.png</SourceFile>
   <SourceTime>2023-10-01T04:53:02.5311146-04:00</SourceTime>
   <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/bat1.xnb</DestFile>
-<<<<<<< HEAD
-  <DestTime>2023-11-27T17:44:56.9295415-05:00</DestTime>
-=======
-  <DestTime>2023-11-10T23:26:41.1700355-05:00</DestTime>
->>>>>>> d79fe66db6e478e54366379bfab8954cd85feba2
+  <DestTime>2023-11-30T19:33:00.8001968-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -46,9 +46,39 @@ namespace Project1
             stairs = content.Load<SoundEffect>("Audio\\stairs");
             subtractUI = content.Load<SoundEffect>("Audio\\subtract ui");
             sword = content.Load<SoundEffect>("Audio\\sword swing");
-            winningStateSound = content.Load<SoundEffect>("Audio\\TriforceSound");          
+            winningStateSound = content.Load<SoundEffect>("Audio\\TriforceSound");
+
+            
 
             MediaPlayer.IsRepeating = true;
+            //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+
+            MediaPlayer.IsRepeating = true;
+            //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+
+            MediaPlayer.IsRepeating = true;
+            //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+
+            MediaPlayer.IsRepeating = true;
+            //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+
+            MediaPlayer.IsRepeating = true;
+            //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+
+            MediaPlayer.IsRepeating = true;
+            //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+
+            MediaPlayer.IsRepeating = true;
+            //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+
+            MediaPlayer.IsRepeating = true;
+            //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+
+            MediaPlayer.IsRepeating = true;
+            //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+
+            MediaPlayer.IsRepeating = true;
+            //MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
         }
 
         public static void PlayMusic(Song music)

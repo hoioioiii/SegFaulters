@@ -3,11 +3,7 @@
   <SourceFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/LinkAttackDown.png</SourceFile>
   <SourceTime>2023-09-29T22:54:52-04:00</SourceTime>
   <DestFile>D:/Users/Admin/Source/Repos/Boioioiii/SegFaulters/Project1/Content/bin/DesktopGL/Content/LinkAttackDown.xnb</DestFile>
-<<<<<<< HEAD
-  <DestTime>2023-11-27T17:44:57.3375374-05:00</DestTime>
-=======
-  <DestTime>2023-11-10T23:26:41.306346-05:00</DestTime>
->>>>>>> d79fe66db6e478e54366379bfab8954cd85feba2
+  <DestTime>2023-11-30T19:33:00.9557843-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T07:44:56-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

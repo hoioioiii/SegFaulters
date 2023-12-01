@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Project1.HUD;
 using static Project1.Constants;
 
 namespace Project1
@@ -22,7 +23,7 @@ namespace Project1
         /*
          * Calculates the camera transition
          */
-        public static void RoomTransitionCalculate(DIRECTION direction)
+        public static void CameraTransitionCalculate(DIRECTION direction)
         {
             switch (direction)
             {
@@ -49,27 +50,74 @@ namespace Project1
 
         /*
          * Should be called in update
-         * Smoothly transitions between rooms
+         * Smoothly transitions between rooms or the HUD
+         * Boolean differentiates room and HUD transitions
          */
-        public static bool TransitionRoom(GameTime gametime)
+        public static bool CameraTransition(GameTime gametime, bool isRoomTransition)
+        {
+            Boolean isFinishedTransitioning = false;
+            _timer += (float)gametime.ElapsedGameTime.TotalSeconds;
+            
+            // If true, room has finished transitioning
+            // Else keep panning the camera
+            if (_timer > CAMERA_TRANSITION_SECONDS)
+            {
+                _timer = 0;
+                isFinishedTransitioning = true;
+
+                if (isRoomTransition) 
+                { 
+                    RoomTransition.EndScrolling();
+                }
+                else
+                {
+                    HeadsUpDisplay.EndScrolling();
+                }               
+            }
+            else
+            {
+                Transform = Matrix.CreateTranslation(
+                        (_timer / CAMERA_TRANSITION_SECONDS) * positionAdjust.X,
+                        (_timer / CAMERA_TRANSITION_SECONDS) * positionAdjust.Y,
+                        0);
+            }
+
+            return isFinishedTransitioning;
+        }
+
+        /*
+         * Should be called in update
+         * Smoothly transitions between rooms or the HUD
+         * Boolean differentiates room and HUD transitions
+         * This overload was created to avoid bloating the initial method with additional checks,
+         * and to provide room for expansion
+         */
+        public static bool CameraTransitionOffset(GameTime gametime, bool isRoomTransition, int offsetX, int offsetY)
         {
             Boolean isFinishedTransitioning = false;
             _timer += (float)gametime.ElapsedGameTime.TotalSeconds;
 
             // If true, room has finished transitioning
             // Else keep panning the camera
-            if (_timer > ROOM_TRANSITION_SECONDS)
+            if (_timer > CAMERA_TRANSITION_SECONDS)
             {
                 _timer = 0;
-
                 isFinishedTransitioning = true;
-                RoomTransition.EndScrolling();
+
+                if (isRoomTransition)
+                {
+                    RoomTransition.EndScrolling();
+                }
+                else
+                {
+                    HeadsUpDisplay.EndScrolling();
+                }
             }
             else
             {
                 Transform = Matrix.CreateTranslation(
-                        (_timer / ROOM_TRANSITION_SECONDS) * positionAdjust.X,
-                        (_timer / ROOM_TRANSITION_SECONDS) * positionAdjust.Y,
+                        (_timer / CAMERA_TRANSITION_SECONDS) * positionAdjust.X + offsetX,
+                        (_timer / CAMERA_TRANSITION_SECONDS) * positionAdjust.Y + offsetY,
                         0);
             }
 

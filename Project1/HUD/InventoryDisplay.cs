@@ -96,6 +96,7 @@ namespace Project1.HUD
 
         public void Update()
         {
+            /*
             if (HeadsUpDisplay.IsFullMenuDisplay())
             {
                 pauseIndex = PAUSE_STATE.paused;
@@ -106,6 +107,7 @@ namespace Project1.HUD
                 pauseIndex = PAUSE_STATE.active;
                 reset = false;
             }
+            */
 
             //Update item counts
             itemCount[0] = Player.itemInventory[(int)ITEMS.Rupee];
@@ -212,12 +214,6 @@ namespace Project1.HUD
             if (Player.itemInventory[(int)selectedItem.GetTypeIndex()] != 0) {
                 selectedItem.Draw(spriteBatch, selectedSprite, 2);
             }
-        }
-
-        // UI follows camera during room transition
-        public void DrawFollowCamera(SpriteBatch spriteBatch) 
-        { 
-            throw new NotImplementedException();
         }
     }
 }

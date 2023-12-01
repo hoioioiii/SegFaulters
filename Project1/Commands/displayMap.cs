@@ -9,8 +9,8 @@ namespace Project1.Commands
         {
             if (Player.itemInventory[(int)ITEMS.Map] > 0)
             {
-                ItemIterator.pointer = (int)ITEMS.Map;
-                Game1.Item = ItemIterator.getCurrItem();
+               // ItemIterator.pointer = (int)ITEMS.Map;
+               // Game1.Item = ItemIterator.getCurrItem();
             }
         }
     }

@@ -77,10 +77,12 @@ namespace Project1.HUD
 
         public void Update()
         {
+
             //update indicator based on which room we're in
             activeRoomNumber = RoomManager.GetCurrentRoomIndex() % totalRooms;
             positionDestination.X = (int)positionCoords[activeRoomNumber].X;
             positionDestination.Y = (int)positionCoords[activeRoomNumber].Y;
+            /*
             //update HUD location based on game state
             if (HeadsUpDisplay.IsFullMenuDisplay())
             {
@@ -95,41 +97,10 @@ namespace Project1.HUD
                 positionDestination.Y -= (int)fullMenuOffset;
                 reset = false;
             }
-
+            */
         }
-
-        //Keeping this in case bugs are found with GetCurrentRoomIndex implementation
-        /*
-        private void setRoomNum()
-        {
-            Dictionary<int, bool> roomList = RoomManager.GetActiveList();
-            for (int i = 0; i < roomList.Count; i++)
-            {
-                if (roomList[i])
-                {
-                    activeRoomNumber = i % totalRooms;
-                    //just to avoid doing uneccessary iterations:
-                    i = roomList.Count;
-                }
-            }
-        }
-        */
 
         public void Draw(SpriteBatch spriteBatch)
-        {
-            //Draw title
-            //PLease keep the following comment for future debugging purposes
-            //spriteBatch.DrawString(font, "-Room " + (activeRoomNumber + 1) + "-", coordTitle, Color.White);
-            //or:
-            spriteBatch.DrawString(font, "-Level 1-", coordsTitle[(int)pauseIndex], Color.White);
-
-            //draw entire map
-            spriteBatch.Draw(mapSprite, mapDestinations[(int)pauseIndex], Color.Blue);
-            //draw location indicator
-            spriteBatch.Draw(positionRect, positionDestination, Color.Green);
-        }
-
-        public void DrawFollowCamera(SpriteBatch spriteBatch)
         {
             //Draw title
             //PLease keep the following comment for future debugging purposes

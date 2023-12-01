@@ -27,7 +27,7 @@ namespace Project1
             Load();
             pointer = 0;
             GAME_OBJ = game1;
-            Game1.ENEMY = ENTITY[pointer];
+            //Game1.ENEMY = ENTITY[pointer];
         }
         public void CreateList(Texture2D[] ignore)
         {

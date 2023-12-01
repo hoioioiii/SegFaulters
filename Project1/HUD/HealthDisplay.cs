@@ -50,6 +50,9 @@ namespace Project1.HUD
 
         public void Update()
         {
+            
+            // If paused
+            /*
             if (HeadsUpDisplay.IsFullMenuDisplay())
             {
                 pauseIndex = PAUSE_STATE.paused;
@@ -64,6 +67,7 @@ namespace Project1.HUD
                 linkHealth.Reset();
                 reset = false;
             }
+            */
 
         }
 
@@ -71,12 +75,6 @@ namespace Project1.HUD
         {
             spriteBatch.DrawString(font, "-LIFE-", coordsTitle[(int)pauseIndex], Color.Red);
            // spriteBatch.Draw(healthRect, coordsHealth[(int)pauseIndex], Color.Blue);
-            linkHealth.Draw(spriteBatch);
-        }
-
-        public void DrawFollowCamera(SpriteBatch spriteBatch)
-        {
-            spriteBatch.DrawString(font, "-LIFE-", coordsTitle[(int)pauseIndex], Color.Red);
             linkHealth.Draw(spriteBatch);
         }
     }

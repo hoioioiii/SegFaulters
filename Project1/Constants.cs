@@ -85,7 +85,7 @@ namespace Project1
         public const float FRAMES_PER_SECOND = 10;
         public const float FRAMETIME = 1 / 10;
 
-        public static Game1 GameObj = Game1.Game;
+        //public static Game1 GameObj = Game1.Game;
 
         public static int WEAPON_OFFSET_X = 20;
         public static int WEAPON_OFFSET_Y = 30;
@@ -402,7 +402,7 @@ namespace Project1
         }
 
         // Room Transitioning
-        public static float ROOM_TRANSITION_SECONDS = 1.5f;
+        public static float CAMERA_TRANSITION_SECONDS = 1.5f;
         public static int TRANSITION_OFFSET_X = 17;
         public static int TRANSITION_OFFSET_Y = -231;
     }

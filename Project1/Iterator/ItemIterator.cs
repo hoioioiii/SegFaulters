@@ -28,7 +28,7 @@ namespace Project1
             Load();
             pointer = (int)ITEMS.Sword;
             GAME_OBJ = game1;
-            Game1.Item = ENTITY[pointer];
+           // Game1.Item = ENTITY[pointer];
         }
         public void CreateList(Texture2D[] ignore)
         {

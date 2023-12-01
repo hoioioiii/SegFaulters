@@ -9,7 +9,7 @@ namespace Project1
     public interface IDraw
     {
 
-        public bool DrawState { get; }
+
 
         public void Draw();
     }
