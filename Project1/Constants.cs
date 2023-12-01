@@ -60,15 +60,38 @@ namespace Project1
         public static int SCREEN_HEIGHT_UPPER = 400;
         public static int SCREEN_HEIGHT_LOWER = 0;
         public static int PAUSED_STATE_YCOORD = ((SCREEN_HEIGHT / 3) * 2);
-        //*
+        //HUD STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int SCREEN_HEIGHT = (int)(480 * 1.75);
-        //*
         public static int HUD_HEIGHT = SCREEN_HEIGHT / 3;
-        //*
         public static int HUD_SECTION_WIDTH = SCREEN_WIDTH / 3;
         public static int SCROLL_OFFSET = 17;
-        //*
+        public enum PAUSE_STATE { active = 0, paused = 1 };
 
+        public static float FULL_MENU_OFFSET = (SCREEN_HEIGHT / 3) * 2;
+        public static int HUD_COUNT_OFFSET = HUD_HEIGHT / 4;
+        public static int ITEM_SPRITE_OFFSET = HUD_SECTION_WIDTH / 9;
+        public static int INNER_OFFSET_SLICE_X = 48;
+        public static int INNER_OFFSET_SLICE_Y = 36;
+        public static int INNER_WIDTH_SLICE = 24;
+        public static int INNER_HEIGHT_SLICE = 18;
+
+        public static int MAP_ROW_HEIGHT = (HUD_HEIGHT - 100) / 6;
+        public static int MAP_START_Y = 103;
+        public static int ROOM_WIDTH = 42;
+        public static int STARTING_ROOM_X = (HUD_SECTION_WIDTH / 3) + 5;
+        public static int TOTAL_ROOMS = 18;
+        public static int STARTING_ROOM_Y = MAP_START_Y + (5 * MAP_ROW_HEIGHT);
+
+        public static int POSITION_INDICATOR_SLICE_X = 8;
+        public static int POSITION_INDICATOR_SLICE_Y = 10;
+        public static int HUD_SECTION_THIRD = HUD_SECTION_WIDTH / 3;
+        public static int HUD_SECTION_FOURTH = HUD_SECTION_WIDTH / 4;
+        public static int HUD_HEIGHT_THIRD = HUD_HEIGHT / 3;
+        public static int KEY_OFFSET = 5;
+        public static int SPRITE_SIZE = 2;
+
+
+        //HEALTH STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int HEALTH_HUD_WIDTH = HUD_SECTION_WIDTH * 2;
         public static int HEALTH_HUD_HEIGHT = (HUD_HEIGHT / 3);
         public static float HEALTH_ROW = 30f;

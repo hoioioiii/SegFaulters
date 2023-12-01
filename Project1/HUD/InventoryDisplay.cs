@@ -15,26 +15,15 @@ namespace Project1.HUD
     {
         private Texture2D itemRect;
         private Texture2D innerItemRect;
-        private Vector2[] coordsCountBase;
+        private Vector2 coordCountBase;
         private Vector2 coordItem;
         private Vector2 coordInnerItem;
-        private Rectangle[] itemDestinations;
-        private Rectangle[] itemInnerDestinations;
-        private float fullMenuOffset = (SCREEN_HEIGHT / 3) * 2;
-        private int HUD_COUNT_OFFSET = HUD_HEIGHT / 4;
-        private int ITEM_SPRITE_OFFSET = HUD_SECTION_WIDTH / 9;
-        private static int INNER_OFFSET_SLICE_X = 48;
-        private static int INNER_OFFSET_SLICE_Y = 36;
-        private static int INNER_WIDTH_SLICE = 24;
-        private static int INNER_HEIGHT_SLICE = 18;
+        private Rectangle itemDestination;
+        private Rectangle itemInnerDestination;
         private float keyLableOffsetX;
         private float keyLableOffsetY;
-        private bool reset = false;
-        private static USABLE_ITEM userSelectedItem = USABLE_ITEM.boomerang;
-        //private static int[] usableItemCount = { Player.itemInventory[(int)ITEMS.Boomerang], Player.itemInventory[(int)ITEMS.Bomb], Player.itemInventory[(int)ITEMS.Key], Player.itemInventory[(int)ITEMS.Bow]};
+        private static USABLE_ITEM userSelectedItem = USABLE_ITEM.bow;
         private static IItem[] selectedItemArray;
-        private enum PAUSE_STATE { active = 0, paused = 1 };
-        private static PAUSE_STATE pauseIndex = PAUSE_STATE.active;
         private SpriteFont font;
         public static IItem selectedItem;
         private int[] itemCount = { Inventory.itemInventory[(int)ITEMS.Rupee], Inventory.itemInventory[(int)ITEMS.Key], Inventory.itemInventory[(int)ITEMS.Bomb] };
@@ -50,77 +39,41 @@ namespace Project1.HUD
 
             font = content.Load<SpriteFont>("HUDFont");
 
-            coordItem = new Vector2(HUD_SECTION_WIDTH + (HUD_SECTION_WIDTH / 3), HUD_HEIGHT / 3);
+            coordItem = new Vector2(HUD_SECTION_WIDTH + HUD_SECTION_THIRD, HUD_HEIGHT_THIRD);
 
 
             //for outer box of inventory
-            //index 0 is not paused and 1 is paused
-            Rectangle[] tempRectArr = { new Rectangle((int)coordItem.X, (int)coordItem.Y, HUD_SECTION_WIDTH / 4, HUD_HEIGHT / 3), new Rectangle((int)coordItem.X, (int)(coordItem.Y + fullMenuOffset), HUD_SECTION_WIDTH / 4, HUD_HEIGHT / 3) };
-            itemDestinations = tempRectArr;
+            itemDestination = new Rectangle((int)coordItem.X, (int)coordItem.Y, HUD_SECTION_FOURTH, HUD_HEIGHT_THIRD);
 
-            /*
-            tried to achieve this but infortunatly had to add lots of magic numbers to get it to work
-            float innerOffsetX = itemDestination.Width / 12;
-            float innerOffsetY = itemDestination.Height / 12;
-            */
             float innerOffsetX = HUD_SECTION_WIDTH / INNER_OFFSET_SLICE_X;
             float innerOffsetY = HUD_HEIGHT / INNER_OFFSET_SLICE_Y;
             coordInnerItem = new Vector2(coordItem.X + innerOffsetX, coordItem.Y + innerOffsetY);
 
-            /*
-            tried to achieve this but infortunatly had to add lots of magic numbers to get it to work
-            float innerWidth = itemDestination.Width * (5 / 6);
-            float innerHeight = itemDestination.Height * (5 / 6);
-            */
-            float innerWidth = (HUD_SECTION_WIDTH / 4) - (HUD_SECTION_WIDTH / INNER_WIDTH_SLICE);
-            float innerHeight = (HUD_HEIGHT / 3) - (HUD_HEIGHT / INNER_HEIGHT_SLICE);
+            float innerWidth = HUD_SECTION_FOURTH - (HUD_SECTION_WIDTH / INNER_WIDTH_SLICE);
+            float innerHeight = HUD_HEIGHT_THIRD - (HUD_HEIGHT / INNER_HEIGHT_SLICE);
 
             //for inner rectangle of inventory
-            //index 0 is not paused and 1 is paused
-            Rectangle[] tempRectArr2 = { new Rectangle((int)coordInnerItem.X, (int)coordInnerItem.Y, (int)innerWidth, (int)innerHeight), new Rectangle((int)coordInnerItem.X, (int)(coordInnerItem.Y + fullMenuOffset), (int)innerWidth, (int)innerHeight) };
-            itemInnerDestinations = tempRectArr2;
+            itemInnerDestination = new Rectangle((int)coordInnerItem.X, (int)coordInnerItem.Y, (int)innerWidth, (int)innerHeight);
 
             //for base of all things in the inventory section
-            //index 0 is not paused and 1 is paused
-            Vector2[] tempVectorArr = { new Vector2(HUD_SECTION_WIDTH, HUD_COUNT_OFFSET), new Vector2(HUD_SECTION_WIDTH, HUD_COUNT_OFFSET + fullMenuOffset) };
-            coordsCountBase = tempVectorArr;
+            coordCountBase = new Vector2(HUD_SECTION_WIDTH, HUD_COUNT_OFFSET);
 
             //trying to call measureString only once since its an expensive operation
             keyLableOffsetX = font.MeasureString("B").X / 2;
             keyLableOffsetY = font.MeasureString("B").Y;
 
             //create the selected item array
-            IItem[] tempSelectedItemArray = { new BoomerangItem(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)), new BombItem(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)), new Key(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)), new Bow(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y)) };
+            IItem[] tempSelectedItemArray = { new BoomerangItem(((int)coordCountBase.X, (int)coordCountBase.Y)), new BombItem(((int)coordCountBase.X, (int)coordCountBase.Y)), new Key(((int)coordCountBase.X, (int)coordCountBase.Y)), new Bow(((int)coordCountBase.X, (int)coordCountBase.Y)) };
             selectedItemArray = tempSelectedItemArray;
         }
 
         public void Update()
         {
-            /*
-            if (HeadsUpDisplay.IsFullMenuDisplay())
-            {
-                pauseIndex = PAUSE_STATE.paused;
-                reset = true;
-            }
-            else if (reset)
-            {
-                pauseIndex = PAUSE_STATE.active;
-                reset = false;
-            }
-            */
 
             //Update item counts
             itemCount[0] = Inventory.itemInventory[(int)ITEMS.Rupee];
             itemCount[1] = Inventory.itemInventory[(int)ITEMS.Key];
             itemCount[2] = Inventory.itemInventory[(int)ITEMS.Bomb];
-
-            /*
-            //Update usable item counts
-            usableItemCount[(int)USABLE_ITEM.boomerang] = Player.itemInventory[(int)ITEMS.Boomerang];
-            usableItemCount[(int)USABLE_ITEM.bomb] = Player.itemInventory[(int)ITEMS.Bomb];
-            usableItemCount[(int)USABLE_ITEM.key] = Player.itemInventory[(int)ITEMS.Key];
-            usableItemCount[(int)USABLE_ITEM.bow] = Player.itemInventory[(int)ITEMS.Bow];
-            */
 
         }
 
@@ -143,66 +96,64 @@ namespace Project1.HUD
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(countRect, coordCount, Color.White);
-            IItem rupee = new Rupee(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y));
-            IItem bomb = new BombItem(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y));
+            IItem rupee = new Rupee(((int)coordCountBase.X, (int)coordCountBase.Y));
+            IItem bomb = new BombItem(((int)coordCountBase.X, (int)coordCountBase.Y));
 
-            float secondRectOffset = (HUD_SECTION_WIDTH / 3);
+            float secondRectOffset = HUD_SECTION_THIRD;
 
-            //NEED to make coordCountBase array as well
-            Vector2 coordCount = coordsCountBase[(int)pauseIndex];
-            coordCount.X = coordsCountBase[(int)pauseIndex].X + ITEM_SPRITE_OFFSET;
+            //Display counts of bomb, keys, and rupees
+            Vector2 coordCount = coordCountBase;
+            coordCount.X = coordCountBase.X + ITEM_SPRITE_OFFSET;
 
             for (int i = 0; i < 3; i++)
             {
-                coordCount.Y = coordsCountBase[(int)pauseIndex].Y + ((HUD_HEIGHT / 3) * i);
+                coordCount.Y = coordCountBase.Y + (HUD_HEIGHT_THIRD * i);
                 spriteBatch.DrawString(font, "X" + itemCount[i], coordCount, Color.White);
             }
-            coordCount = coordsCountBase[(int)pauseIndex];
-            rupee.Draw(spriteBatch, coordCount, 2);
+            coordCount = coordCountBase;
+            rupee.Draw(spriteBatch, coordCount, SPRITE_SIZE);
 
             //key implementation depends on the initial coordinates passed to it
             //for some reason so I cant intantiate it at the top
-            coordCount.Y = coordsCountBase[(int)pauseIndex].Y + ((HUD_HEIGHT / 3) * 1);
+            coordCount.Y = coordCountBase.Y + (HUD_HEIGHT_THIRD * 1);
             IItem key = new Key(((int)coordCount.X, (int)coordCount.Y));
-            key.Draw(spriteBatch, coordCount, 2);
+            key.Draw(spriteBatch, coordCount, SPRITE_SIZE);
 
-            coordCount.Y = coordsCountBase[(int)pauseIndex].Y + ((HUD_HEIGHT / 3) * 2);
-            bomb.Draw(spriteBatch, coordCount, 2);
-            //spriteBatch.DrawString(font, "-Inventory-", coordCount, Color.White);
+            coordCount.Y = coordCountBase.Y + (HUD_HEIGHT_THIRD * 2);
+            bomb.Draw(spriteBatch, coordCount, SPRITE_SIZE);
 
             //boxes to hold inventory
-            spriteBatch.Draw(itemRect, itemDestinations[(int)pauseIndex], Color.Blue);
-            Rectangle itemDestination2 = itemDestinations[(int)pauseIndex];
+            spriteBatch.Draw(itemRect, itemDestination, Color.Blue);
+            Rectangle itemDestination2 = itemDestination;
             itemDestination2.X += (int)secondRectOffset;
             spriteBatch.Draw(itemRect, itemDestination2, Color.Blue);
 
 
             //boxes for inner inventory
-            spriteBatch.Draw(innerItemRect, itemInnerDestinations[(int)pauseIndex], Color.Black);
-            Rectangle itemInnerDestination2 = itemInnerDestinations[(int)pauseIndex];
+            spriteBatch.Draw(innerItemRect, itemInnerDestination, Color.Black);
+            Rectangle itemInnerDestination2 = itemInnerDestination;
             itemInnerDestination2.X += (int)secondRectOffset;
             spriteBatch.Draw(innerItemRect, itemInnerDestination2, Color.Black);
 
 
             //Add control labels to inventory boxes
-            Vector2 coordKeyLabel = new Vector2(itemDestinations[(int)pauseIndex].X + (itemDestinations[(int)pauseIndex].Width / 2) - keyLableOffsetX, itemDestinations[(int)pauseIndex].Y - 5);
+            Vector2 coordKeyLabel = new Vector2(itemDestination.X + (itemDestination.Width / 2) - keyLableOffsetX, itemDestination.Y - KEY_OFFSET);
             spriteBatch.DrawString(font, "B", coordKeyLabel, Color.White);
             Vector2 coordKeyLabel2 = coordKeyLabel;
             coordKeyLabel2.X += secondRectOffset;
             spriteBatch.DrawString(font, "Z", coordKeyLabel2, Color.White);
 
             //Add default sword into item A box
-            IItem sword = new SwordItem(((int)coordsCountBase[(int)pauseIndex].X, (int)coordsCountBase[(int)pauseIndex].Y));
+            IItem sword = new SwordItem(((int)coordCountBase.X, (int)coordCountBase.Y));
             Vector2 swordSprite = coordKeyLabel2;
             swordSprite.Y += keyLableOffsetY;
-            sword.Draw(spriteBatch, swordSprite, 2);
+            sword.Draw(spriteBatch, swordSprite, SPRITE_SIZE);
 
             //Add selected item to item B box
             //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, bow = 3};" enum from constants.cs for this
             Vector2 selectedSprite = coordKeyLabel;
             selectedSprite.Y += keyLableOffsetY;
-            selectedSprite.X -= (itemDestinations[(int)pauseIndex].Width / 2);
+            selectedSprite.X -= (itemDestination.Width / 2);
             selectedSprite.X += 3 * keyLableOffsetX;
 
             //key was implemented weirdly so we have to pass location now rather than ealier
@@ -212,7 +163,7 @@ namespace Project1.HUD
             selectedItem = selectedItemArray[(int)userSelectedItem];
 
             if (Inventory.itemInventory[(int)selectedItem.GetTypeIndex()] != 0) {
-                selectedItem.Draw(spriteBatch, selectedSprite, 2);
+                selectedItem.Draw(spriteBatch, selectedSprite, SPRITE_SIZE);
             }
         }
     }
