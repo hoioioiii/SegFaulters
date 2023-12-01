@@ -13,7 +13,7 @@ namespace Project1.Stats
     /*
      * Clock: player speed
      * Fairy: player attack
-     * Rupees: every 2 ruppes -> player damage is +2
+     * Rupees: every 2 ruppes -> player defense is +2
      */
     public class PlayerStats : IPlayerStats
     {
@@ -31,9 +31,7 @@ namespace Project1.Stats
             stats = new Dictionary<string, int>();
             stats.Add(ATTACK, DAMAGE_HALF_HEART);
             stats.Add(SPEED, Player.playerSpeed);
-            stats.Add(CRITICAL_HIT, 0); //up to deletion
-            stats.Add(DAMAGE, 1);
-            stats.Add(STAMINA, 0); //up to deletion
+            stats.Add(DEFENSE, 0);
         }
 
         public static void UpdateStats(GameTime gameTime)
@@ -50,7 +48,13 @@ namespace Project1.Stats
                 {
                     Player.playerSpeed = DEFAULT_SPEED;
                 }
-                //if (item.Key == "DMG" && itemInventory.)
+
+                //if (item.Key == "DEF" && 
+                //    Inventory.itemsInventory[(int)ITEMS.Ruppee] % 2 == 0)
+                //{
+                //    stats["DEF"] += 1;
+                //}
+
             }
         }
     }

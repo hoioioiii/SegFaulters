@@ -171,7 +171,7 @@ namespace Project1.Collision_Response
 
             //if (weapon) { HealthDisplay.linkHealth.DamageHealth(damageAmount); } else
             //{
-                HealthDisplay.linkHealth.DamageHealth(DAMAGE_HALF_HEART);
+                HealthDisplay.linkHealth.DamageHealth(DAMAGE_HALF_HEART - Player.stats[DEFENSE]);
             //}
             
         }

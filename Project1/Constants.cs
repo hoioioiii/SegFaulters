@@ -214,9 +214,9 @@ namespace Project1
         public static string ATTACK = "ATK";
         public static string SPEED = "SPD";
         public static string CRITICAL_HIT = "CRIT";
-        public static string DAMAGE = "DMG";
+        public static string DEFENSE = "DEF";
         public static string STAMINA = "SMNA";
-        public static int STATS_TOTAL = 5;
+        public static int STATS_TOTAL = 3;
         public static int DEFAULT_SPEED = 5;
         public enum WEAPON_ATTACK_AMOUNT { swordAmount = 2, bombAmount = 3, bowAmount = 1, boomerangAmount = 1};
         //Attacking metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
