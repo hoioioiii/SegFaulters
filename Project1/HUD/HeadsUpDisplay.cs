@@ -45,6 +45,7 @@ namespace Project1.HUD
 
         public void Draw(SpriteBatch spriteBatch)
         {
+                spriteBatch.Draw(backgroundRect, destinationBackground, Color.Black);
                 location.Draw(spriteBatch);
                 inventory.Draw(spriteBatch);
                 health.Draw(spriteBatch);
