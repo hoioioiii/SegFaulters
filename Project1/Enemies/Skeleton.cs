@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Content;
 using System.Collections;
 using static Project1.Constants;
 using Project1.Enemies;
+using Project1.SmartAI;
 
 namespace Project1
 {
@@ -39,61 +40,13 @@ namespace Project1
         public override void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch);
-
         }
 
-        ///*
-        // * Update Skelly
-        // */
-        //public void Update()
-        //{
-        //    sprite.Update();
+        public override void MovementType()
+        {
 
-        //}
+            movement_manager.SmartAIDetectionFieldMovement();
 
-        ///*
-        // * Draw Skelly
-        // */
-        //public void Draw(SpriteBatch spriteBatch)
-        //{
-
-        //    sprite.Draw(spriteBatch);
-        //}
-
-        ///*
-        // * Add Heatth fot skeely
-        // */
-        //public void Health()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        ///*
-        // * Skelly sttack
-        // */
-        //public void Attack()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        ///*
-        // * Skelly dead item
-        // */
-        //public void ItemDrop()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Rectangle getPositionAndRectangle()
-        //{
-        //    return sprite.GetRectangle().Item2;
-
-        //}
-
-        //public void setPosition(int x, int y)
-        //{
-        //    sprite.setPos(x, y);
-
-        //}
+        }
     }
 }

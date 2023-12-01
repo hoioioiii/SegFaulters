@@ -406,6 +406,35 @@ namespace Project1
         public static float ROOM_TRANSITION_SECONDS = 1.5f;
         public static int TRANSITION_OFFSET_X = 17;
         public static int TRANSITION_OFFSET_Y = -231;
+
+        //SMART AI-------------------------------------
+        public enum SMARTAI_USER
+        {
+            ENTITY,
+            WEAPON
+        }
+
+
+        //Enemy Smart AI Range Detection---------------------
+        public enum RangeTypeToMovement
+        {
+            //Seek if the player is inside or on the circle
+            SEEK,
+            PASSIVE //if player is outside of the circle
+        }
+
+        public static int RANGE_RADIUS = 150;
+        public static int AGGRO_SPD = 2;
+        public static int CONTACT_POINT = 10;
+        public static int RADIUS_FORMULA_POWER_OF_2 = 2;
+
+        //WEAPON MOVEMENT TYPE SMART AI--------------------
+        
+
+        public static int WEAPON_AGGRO_SPD = 3;
+
+
+
     }
 }
 

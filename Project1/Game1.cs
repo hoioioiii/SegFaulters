@@ -12,6 +12,7 @@ using System.Threading;
 using Project1.HUD;
 using Project1.Health;
 using Microsoft.Xna.Framework.Media;
+using System.Reflection.Metadata;
 
 namespace Project1
 {
@@ -42,6 +43,14 @@ namespace Project1
         //Zelda txt font
         private SpriteFont font;
         public static bool roomIsTransitioning;
+
+
+        //This is testing purposes--delete later
+        private IEntity enemy;
+        public static Texture2D circle;
+
+
+
 
         public Game1()
         {
@@ -99,6 +108,10 @@ namespace Project1
             Player.Initialize();
             Camera.Initialize();
 
+
+           
+
+
             base.Initialize();
         }
 
@@ -132,7 +145,16 @@ namespace Project1
             //Load XML File
             LevelLoader.Load();
             hudDisplay = new HeadsUpDisplay(GraphicsDevice, Content);
-            
+
+            //testing purposes only, delete later:------------------
+            (string, int)[] nullList = { ("", 0) };
+            IEntity skelly = new Skeleton((2, 4), nullList);
+            enemy = skelly;
+
+            circle = Content.Load<Texture2D>(assetName: "circle");
+
+            //------Delete Above Later-------------(B4 turning in sprint 5)
+
         }
 
 
@@ -161,10 +183,12 @@ namespace Project1
 
                     //this needs to be moved into update manager
                     Player.Update(gameTime);
-
-
                     EnvironmentLoader.Update();
                     UpdateManager.Update();
+
+
+                    //delete later---for testing smartAI only:
+                    enemy.Update();
 
                 }
                 else if (GameStateManager.GameState == GameState.PausedState)
@@ -216,6 +240,11 @@ namespace Project1
                     Player.Draw(gameTime, _spriteBatch);
 
                     DrawManager.Draw();
+
+
+
+                    //delete later---for testing smart AI only:
+                    enemy.Draw(_spriteBatch);
 
                 }
                 else if (GameStateManager.GameState == GameState.PausedState)

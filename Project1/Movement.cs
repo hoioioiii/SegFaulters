@@ -4,7 +4,9 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 using Project1.Enemies;
+using Project1.SmartAI;
 using static Project1.Constants;
 
 namespace Project1
@@ -20,6 +22,7 @@ namespace Project1
         private double speed;
         private int directionIndicator;
 
+        private RangeDetection rangeDetector;
 
         //for testing purposes only:
         private int elaspedTime;
@@ -29,14 +32,17 @@ namespace Project1
             this.direction_state = direction_state;
             this.entityObj = entityObj;
             this.time_manager = time_manager;
-
+            this.rangeDetector = new RangeDetection(this, RANGE_RADIUS);
             MovementBasedGrid(x,y);
             
             this.angle = 0;
             this.speed = spd;
             elaspedTime = 0;
 
-        directionIndicator = 1;
+            directionIndicator = 1;
+
+
+
         }
 
         private void MovementBasedGrid(int x, int y)
@@ -277,7 +283,22 @@ namespace Project1
             return Math.Clamp(pos, boundLower, boundUpper);
         }
 
-    
+        public Vector2 getVector()
+        {
+            return new Vector2(pos_x, pos_y);
+        }
 
+        public void SmartAIDetectionFieldMovement()
+        {
+            if (rangeDetector.DetectionField() == RangeTypeToMovement.SEEK)
+            {
+                Seek.Move(getVector(), direction_state.getDirection(), this, SMARTAI_USER.ENTITY);
+            }
+            else
+            {
+                WanderMove();
+            }
+
+        }
     }
 }

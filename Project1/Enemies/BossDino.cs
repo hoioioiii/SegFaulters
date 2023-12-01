@@ -12,6 +12,7 @@ using Microsoft.Xna.Framework.Content;
 using System.Collections;
 using static Project1.Constants;
 using Project1.Enemies;
+using Project1.SmartAI;
 
 namespace Project1
 {
@@ -39,62 +40,11 @@ namespace Project1
             sprite.Draw(spriteBatch);
 
         }
-        ///*
-        // * Update Dino 
-        // */
-        //public void Update()
-        //{
-        //    sprite.Update();
 
-        //}
-
-        ///*
-        // * Draw Dino
-        // */
-        //public void Draw(SpriteBatch spriteBatch)
-        //{
-        //    sprite.Draw(spriteBatch);
-        //}
-
-        ///*
-        // * Dino's health
-        // * Future Implement
-        // */
-        //public void Health()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        ///*
-        // * Dino's attack 
-        // * Future Implement
-        // */
-        //public void Attack()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        ///*
-        // * Dino death drop
-        // * Future Implement
-        // */
-        //public void ItemDrop()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-
-        //public Rectangle getPositionAndRectangle()
-        //{
-        //    return sprite.GetRectangle().Item2;
-
-        //}
-
-        //public void setPosition(int x, int y)
-        //{
-        //    sprite.setPos(x, y);
-
-        //}
+        public override void MovementType()
+        {
+            SeekEntity.Move(movement_manager.getVector(), direction_state_manager.getDirection(), movement_manager);
+        }
     }
 }
 

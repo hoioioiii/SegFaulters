@@ -114,6 +114,8 @@ namespace Project1.Enemies
             {
                 //Movement.WanderMove(direction_state_manager, this, time_manager);
                 MovementType();
+                //This is just for testing purposes: 
+                
             }
 
         }
@@ -134,10 +136,6 @@ namespace Project1.Enemies
             return movement_manager.getPosition();
         }
 
-        //public virtual (Rectangle, Rectangle) GetRectangle()
-        //{
-        //    throw new NotImplementedException();
-        //}
 
         public virtual void Draw(SpriteBatch spriteBatch)
         {
@@ -148,14 +146,6 @@ namespace Project1.Enemies
 
         public void ItemDrop()
         {
-
-            //System.Diagnostics.Debug.WriteLine("in item drop: ");
-            //create new item
-
-            //this is for testing purposes
-            //CreateNumItem(("fairy", 1));
-
-            //this is actual--------------------------
             foreach ((string, int) itemtype in drops)
             {
                 CreateNumItem(itemtype);
@@ -176,18 +166,6 @@ namespace Project1.Enemies
 
         }
 
-        //this is only for testing purposes
-        private void testDeath()
-        {
-            elaspedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-
-            if (elaspedTime >= 500)
-            {
-                state_manager.setIsAlive(false);
-
-                AudioManager.PlaySoundEffect(enemyDie);
-            }
-        }
 
         public virtual void ChangeDirections()
         {
