@@ -24,7 +24,19 @@ namespace Project1.Collision_Response
             Game1.GameObjManager.removeItem(item);
             LevelLoader.RemoveItem(RoomManager.GetCurrentRoomIndex(), item);
             //item.drawState = false;
-            AudioManager.PlaySoundEffect(smallItemGet);
+            if (item.GetTypeIndex() == ITEMS.Rupee)
+            {
+                AudioManager.PlaySoundEffect(rupeeGet);
+            }
+            else if (item.GetTypeIndex() == ITEMS.HeartContainer)
+            {
+                HealthDisplay.linkHealth.HealHealth(4); //give link full heart
+                AudioManager.PlaySoundEffect(smallItemGet);
+            }
+            else
+            {
+                AudioManager.PlaySoundEffect(smallItemGet);
+            }
             Inventory.PickUpItem(item.GetTypeIndex());
         }
         //helper method to get player pickupitem method the needed input type
