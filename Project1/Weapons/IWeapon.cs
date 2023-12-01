@@ -13,16 +13,14 @@ namespace Project1
     {
         public Rectangle BoundingBox { get; set; }
 
-        public void Draw(SpriteBatch spriteBatch);
+        
         public void Attack();
 
-        public void Load();
+      
 
-        public void GetUserPos();
+       
 
-        public void GetUserState();
-
-        public void DetermineWeaponState();
+       
 
         public void Update();
 

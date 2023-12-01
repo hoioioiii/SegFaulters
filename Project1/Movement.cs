@@ -22,7 +22,7 @@ namespace Project1
         private double speed;
         private int directionIndicator;
 
-        private RangeDetection rangeDetector;
+        private RangeDetectionToPlayer rangeDetector;
 
         //for testing purposes only:
         private int elaspedTime;
@@ -32,7 +32,7 @@ namespace Project1
             this.direction_state = direction_state;
             this.entityObj = entityObj;
             this.time_manager = time_manager;
-            this.rangeDetector = new RangeDetection(this, RANGE_RADIUS);
+            this.rangeDetector = new RangeDetectionToPlayer(this, RANGE_RADIUS);
             MovementBasedGrid(x,y);
             
             this.angle = 0;
@@ -186,8 +186,6 @@ namespace Project1
             
             WandererMovement(direction_state.getDirection());
             
-
-
         }
 
         private void WandererMovement(Direction start_direction)
@@ -292,7 +290,7 @@ namespace Project1
         {
             if (rangeDetector.DetectionField() == RangeTypeToMovement.SEEK)
             {
-                Seek.Move(getVector(), direction_state.getDirection(), this, SMARTAI_USER.ENTITY);
+                SeekPlayer.Move(getVector(), this, SMARTAI_USER.ENTITY);
             }
             else
             {

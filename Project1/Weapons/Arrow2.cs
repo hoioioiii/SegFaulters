@@ -53,39 +53,7 @@ namespace Project1
         }
         
 
-        /*
-         * Load the sprite
-         */
-        public void Load()
-        {
-            throw new NotImplementedException();
-        }
-
-        
-        //public void GetUserPos(int x, int y)
-        //{
-            
-        //}
-
-        //public void GetUserState(Direction currUserDirection)
-        //{
-            
-        //}
-
-        public void DetermineWeaponState()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetUserPos()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetUserState()
-        {
-            throw new NotImplementedException();
-        }
+      
 
         public void Update(int x, int y, Direction direct)
         {
@@ -103,9 +71,5 @@ namespace Project1
             throw new NotImplementedException();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

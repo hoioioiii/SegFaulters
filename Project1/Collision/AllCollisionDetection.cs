@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project1.Collision_Response;
-using Project1.Weapons;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -77,7 +76,7 @@ namespace Project1
          * 
          * TODO: Differentiate between whether weapons belong to Link or an enemy
          */
-        List<IWeaponMelee> weaponMelees = new List<IWeaponMelee>();
+        //List<IWeaponMelee> weaponMelees = new List<IWeaponMelee>();
         //List<IWeaponProjectile> weaponProjectiles = new List<IWeaponProjectile>();
         #endregion
 

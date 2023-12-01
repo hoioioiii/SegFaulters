@@ -431,7 +431,7 @@ namespace Project1
         //WEAPON MOVEMENT TYPE SMART AI--------------------
         
 
-        public static int WEAPON_AGGRO_SPD = 3;
+        public static int WEAPON_AGGRO_SPD = 2;
 
 
 

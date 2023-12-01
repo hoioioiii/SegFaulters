@@ -10,11 +10,11 @@ using System.ComponentModel;
 
 namespace Project1.SmartAI
 {
-    public class Seek
+    public class SeekPlayer
     {
         //this can be dino attack
 
-        public static void Move(Vector2 entity, Direction direction, IMove move_manager, SMARTAI_USER type)
+        public static void Move(Vector2 entity, IMove move_manager, SMARTAI_USER type)
         {
 
             Vector2 playerVector = Player.getPosition();

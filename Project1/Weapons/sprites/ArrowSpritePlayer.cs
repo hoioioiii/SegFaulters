@@ -186,7 +186,6 @@ namespace Project1
             if (direction == UP || direction == DOWN)
             {
                 weaponY = WeaponDirectionMovement.moveY(weaponY, direction,spd);
-                //weaponX = WeaponDirectionMovement.moveY(weaponX, direction, 1);
             }
             else
             {

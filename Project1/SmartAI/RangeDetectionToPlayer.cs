@@ -8,14 +8,14 @@ using Microsoft.Xna.Framework;
 using static Project1.Constants;
 namespace Project1.SmartAI
 {
-    public class RangeDetection
+    public class RangeDetectionToPlayer
     {
 
         private IMove movementManager;
         private RangeTypeToMovement rangeResults;
         private int radius;
 
-        public RangeDetection(IMove movementManager, int radius) { 
+        public RangeDetectionToPlayer(IMove movementManager, int radius) { 
         
             this.movementManager = movementManager;
             this.radius = radius;

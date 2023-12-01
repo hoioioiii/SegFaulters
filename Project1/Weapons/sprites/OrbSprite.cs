@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.SmartAI;
 using static Project1.Constants;
 namespace Project1
 {
@@ -13,8 +14,7 @@ namespace Project1
     {
 
         private Texture2D[] texture;
-        private int weaponX;
-        private int weaponY;
+      
 
         private bool orbPlaced;
         private int current_frame;
@@ -28,6 +28,9 @@ namespace Project1
         private ORB_DIRECTION orbType;
         private int offset;
         private Rectangle rec;
+        private IMove movement_manager;
+        private RangeDetectionToPlayer rangeDetector;
+
         public OrbSprite(Texture2D[] spriteSheet,(int,int) pos, ORB_DIRECTION orbType)
         {
             texture = spriteSheet;
@@ -37,15 +40,17 @@ namespace Project1
             width = spriteSheet[0].Width;
             height = spriteSheet[0].Height;
 
+
+            movement_manager = new WeaponMove(pos.Item1, pos.Item2);
             this.orbType = orbType;
-            this.weaponX = pos.Item1; 
-            this.weaponY = pos.Item2;
+            
+
+
 
             orbPlaced = false;
             completed = false;
 
-            
-
+            rangeDetector = new RangeDetectionToPlayer(movement_manager, 100);
         }
 
         private void setOrb()
@@ -92,7 +97,7 @@ namespace Project1
         private void drawItem(int x, int y, SpriteBatch spriteBatch)
         {
             Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
-            Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width * LARGER_SIZE, height * LARGER_SIZE);
+            Rectangle DEST_REC = new Rectangle(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, width * LARGER_SIZE, height * LARGER_SIZE);
             rec = DEST_REC;
             spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
@@ -106,7 +111,7 @@ namespace Project1
             Attack();
             if (orbPlaced)
             {
-                drawItem(weaponX, weaponY, spriteBatch);
+                drawItem(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, spriteBatch);
             }
         }
 
@@ -116,14 +121,16 @@ namespace Project1
          */
         private void filterMovementX()
         {
-            weaponX += -1;
-        
+            
+            int weaponX = movement_manager.getPosition().Item1 - 1;
+            movement_manager.setPosition(weaponX, movement_manager.getPosition().Item2);
         }
 
         private void filterMovementY(ORB_DIRECTION type)
         {
             //this is going to need to be based on hypotenus
-           
+
+            int weaponY = movement_manager.getPosition().Item2;
             switch (type)
             {
                 case ORB_DIRECTION.TOP:
@@ -137,8 +144,10 @@ namespace Project1
                     weaponY += 2 * offset;
                     break;
             }
+
+            movement_manager.setPosition(movement_manager.getPosition().Item1, weaponY);
         }
-       
+
 
         private int filterPlayerPosition()
         {
@@ -146,7 +155,7 @@ namespace Project1
 
             //Change in the future:
             //Later change it so in the future, if the player is farther. Have the y have a smaller slope
-            if(playerY < weaponY)
+            if(playerY < movement_manager.getPosition().Item2)
             {
                 offset = -1;
             }
@@ -166,7 +175,14 @@ namespace Project1
         }
         private void Move()
         {
-            filterMoveAll(orbType);
+            if(rangeDetector.DetectionField() == RangeTypeToMovement.SEEK)
+            {
+                SeekPlayer.Move(movement_manager.getVector(), movement_manager, SMARTAI_USER.WEAPON);
+            }
+            else
+            {
+                filterMoveAll(orbType);
+            }
             checkFinish();
         }
 
@@ -181,7 +197,7 @@ namespace Project1
         {
             
             //If it collides with a wall,
-            if (CheckBoundary(weaponX, roomBoundsMaxX, roomBoundsMinX) || CheckBoundary(weaponY, roomBoundsMaxY, roomBoundsMinY))
+            if (CheckBoundary(movement_manager.getPosition().Item1, roomBoundsMaxX, roomBoundsMinX) || CheckBoundary(movement_manager.getPosition().Item2, roomBoundsMaxY, roomBoundsMinY))
             {
                 return true;
             }

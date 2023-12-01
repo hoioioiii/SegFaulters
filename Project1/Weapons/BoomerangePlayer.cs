@@ -59,43 +59,6 @@ namespace Project1
             sprite.Draw(Game1._spriteBatch);
         }
 
-        public void GetUserPos(int x, int y)
-        {
-            int xPos = (int)Player.getPosition().X;
-            int yPos = (int)Player.getPosition().Y;
-            sprite.GetUserPos(xPos, yPos);
-        }
-
-        public void GetUserState(Direction currUserDirection)
-        {
-            sprite.GetUserState(currUserDirection);
-        }
-
-        /*
-        * Ognore--------------------
-        * 
-        */
-        public void Load()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetUserPos()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetUserState()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DetermineWeaponState()
-        {
-            throw new NotImplementedException();
-        }
-
-
 
         public bool finished()
         {
@@ -108,12 +71,6 @@ namespace Project1
             sprite.Attack();
         }
 
-      
-       
-
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }

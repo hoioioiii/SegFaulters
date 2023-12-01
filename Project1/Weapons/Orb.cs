@@ -44,31 +44,6 @@ namespace Project1
             sprite.Draw(Game1._spriteBatch);
         }
 
-        public void Draw(SpriteBatch spriteBatch)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Load()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetUserPos()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetUserState()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DetermineWeaponState()
-        {
-            throw new NotImplementedException();
-        }
-
         public void Attack(int x, int y, Direction direct)
         {
             throw new NotImplementedException();
