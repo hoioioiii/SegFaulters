@@ -16,6 +16,7 @@ namespace Project1
         private List<IEntity> entities;
         private List<IWeapon> weapons;
         private List<IWeapon> playerWeapons;
+        private List<IWeapon> detectionWeapons;
 
         private List<Door> doors;
         private List<IEnvironment> blocks;
@@ -25,7 +26,7 @@ namespace Project1
         private List<IEntity> removeEntityList;
         private List<IWeapon> removeWeaponList;
         private List<IWeapon> removePlayerWeaponList;
-
+        private List<IWeapon> removeDetectionWeaponsList;
 
         private List<IItem> addItemsList;
         private List<IEntity> addEntitiesList;
@@ -34,13 +35,11 @@ namespace Project1
         private List<IEnvironment> addBlocksList;
         private List<Rectangle> addWallsList;
         private List<IWeapon> addPlayerWeaponsList;
-
+        private List<IWeapon> addDetectionWeaponsList;
 
         private Player link;
         private ITime timeManager;
 
-        private bool DrawState;
-        private bool UpdateState;
         public ActiveObjects() {
             items = new List<IItem>();
             entities = new List<IEntity>();
@@ -49,11 +48,13 @@ namespace Project1
             blocks = new List<IEnvironment>();
             walls = new List<Rectangle>();
             playerWeapons = new List<IWeapon>();
+            detectionWeapons = new List<IWeapon>();
 
             removeEntityList = new List<IEntity>();
             removeItemsList = new List<IItem>();
             removeWeaponList = new List<IWeapon>();
             removePlayerWeaponList = new List<IWeapon>();
+            removeDetectionWeaponsList = new List<IWeapon>();
 
             addDoorsList = new List<Door>();
             addItemsList = new List<IItem> ();
@@ -62,12 +63,11 @@ namespace Project1
             addBlocksList = new List<IEnvironment> ();
             addWallsList = new List<Rectangle> ();
             addPlayerWeaponsList = new List<IWeapon> ();
+            addDetectionWeaponsList = new List<IWeapon> ();
 
 
             ITime timeManager = new TimeTracker(true);
 
-            DrawState = false;
-            UpdateState = true;
         }
 
         public void addLink(Project1.Player link)
@@ -109,6 +109,13 @@ namespace Project1
             addPlayerWeaponsList.Add(weapon);
         }
 
+        public void addNewDetectionWeapon(IWeapon weapon)
+        {
+            addDetectionWeaponsList.Add(weapon);
+        }
+
+
+
         private void addAllItems()
         {
             foreach(IItem item in addItemsList)
@@ -140,6 +147,15 @@ namespace Project1
                 playerWeapons.Add(weapon);
             }
         }
+
+        private void addAllDetectionWeapons()
+        {
+            foreach (IWeapon weapon in addDetectionWeaponsList)
+            {
+                detectionWeapons.Add(weapon);
+            }
+        }
+
 
         private void addAllWalls()
         {
@@ -174,6 +190,7 @@ namespace Project1
             addAllDoors();
             addAllEntities();
             addAllItems();
+            addAllDetectionWeapons();
         }
 
 
@@ -185,6 +202,7 @@ namespace Project1
             playerWeapons.Clear();
             doors.Clear();
             blocks.Clear();
+            detectionWeapons.Clear();
         }
 
         public void ClearAddingLists()
@@ -196,7 +214,7 @@ namespace Project1
             addEntitiesList.Clear();
             addDoorsList.Clear();
             addItemsList.Clear();
-
+            addDetectionWeaponsList.Clear();
             
             
         }
@@ -207,6 +225,7 @@ namespace Project1
             removeWeaponList.Clear();
             removeEntityList.Clear();
             removePlayerWeaponList.Clear();
+            removeDetectionWeaponsList.Clear();
         }
         
 
@@ -240,12 +259,26 @@ namespace Project1
             return weapons;
         }
 
+        public List<IWeapon> getDetectionWeaponsList()
+        {
+            return detectionWeapons;
+        }
+
         public void RemoveDead()
         {
             removeAllItems();
             removeAllWeapons();
             removeAllEntities();
             removeAllPlayerWeapons();
+            removeAllDetectionFieldWeapon();
+        }
+
+        private void removeAllDetectionFieldWeapon()
+        {
+            foreach (IWeapon weapon in removeDetectionWeaponsList)
+            {
+                detectionWeapons.Remove(weapon);
+            }
         }
 
         private void removeAllEntities()
@@ -301,10 +334,19 @@ namespace Project1
             removePlayerWeaponList.Add(weapon);
         }
 
+        public void removeDetectionWeapon(IWeapon weapon)
+        {
+            removeDetectionWeaponsList.Add(weapon);
+        }
+
         public List<IWeapon> getPlayerWeaponList()
         {
             return playerWeapons;
         }
+
+      
+
+      
     }
 }
 

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
 using System.Net.Security;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.SmartAI;
 using static Project1.Constants;
 
 namespace Project1
@@ -36,6 +38,8 @@ namespace Project1
         private int animationTime;
         private int fps;
         private Rectangle rec;
+        private IMove movementManager;
+
 
         public BoomerangeSpritePlayer(Texture2D[] spriteSheet)
         {
@@ -54,13 +58,17 @@ namespace Project1
             change = false;
             completed = false;
             fps = 30;
-        }
 
-        /*
-        * 
-        * set Boomerange
-        */
-        public void setBang()
+
+           movementManager = new WeaponMove((int)Player.getPosition().X,(int)Player.getPosition().Y);
+
+    }
+
+    /*
+    * 
+    * set Boomerange
+    */
+    public void setBang()
         {
             BangPlaced = true;
         }
@@ -139,6 +147,9 @@ namespace Project1
         {
             weaponX = WeaponDirectionMovement.OffsetX(userX, direction);
             weaponY = WeaponDirectionMovement.OffsetY(userY, direction);
+
+            movementManager.setPosition(weaponX, weaponY);
+
         }
 
         /*
@@ -149,7 +160,7 @@ namespace Project1
         {
             
                 Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
-                Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width * LARGER_SIZE, height * LARGER_SIZE);
+                Rectangle DEST_REC = new Rectangle(movementManager.getPosition().Item1, movementManager.getPosition().Item2, width * LARGER_SIZE, height * LARGER_SIZE);
             rec = DEST_REC;
             spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
 
@@ -203,7 +214,6 @@ namespace Project1
         */
         private void Move()
         {
-
             if (!change)
             {
                 CheckTime();
@@ -216,18 +226,38 @@ namespace Project1
                 }
             }
 
-            if (direction == 1 || direction == 3)
+            if (!change)
             {
-                weaponX = WeaponDirectionMovement.ForwardBack(weaponX, direction, mod);
-
-                if (change) checkFinish(weaponX, (int)Player.getPosition().X);
+                if (direction == 1 || direction == 3)
+                {
+                    weaponX = WeaponDirectionMovement.ForwardBack(movementManager.getPosition().Item1, direction, mod);
+                    movementManager.setPosition(weaponX, movementManager.getPosition().Item2);
+                    // if (change) checkFinish(weaponX, (int)Player.getPosition().X);
+                }
+                else
+                {
+                    weaponY = WeaponDirectionMovement.ForwardBack(movementManager.getPosition().Item2, direction, mod);
+                    movementManager.setPosition(movementManager.getPosition().Item2, weaponY);
+                    //if (change) checkFinish(weaponY, (int)Player.getPosition().Y);
+                }
+                
             }
             else
             {
-                weaponY = WeaponDirectionMovement.ForwardBack(weaponY, direction, mod);
-                if (change) checkFinish(weaponY, (int)Player.getPosition().Y);
+                seekMovement(change);
+                checkFinish(movementManager.getPosition().Item2, (int)Player.getPosition().Y);
+                checkFinish(movementManager.getPosition().Item1, (int)Player.getPosition().X);
             }
+            //movementManager.setPosition(weaponX, weaponY);
 
+        }
+
+        private void seekMovement(bool isReturning)
+        {
+           
+                Vector2 position = new Vector2(movementManager.getPosition().Item1, movementManager.getPosition().Item2);
+                SeekPlayer.Move(position,movementManager,SMARTAI_USER.WEAPON);
+            
         }
 
 
@@ -235,16 +265,19 @@ namespace Project1
         //this is going to be replaced by collision response
         private void checkFinish(int wPos, int userPos)
         {
-            int check = Math.Abs(wPos - userPos);
-
-            //change later
-            if (check <= 20)
+            if (!completed)
             {
-                removeBang();
-                completed = true;
-                
-            }
+                int check = Math.Abs(wPos - userPos);
 
+                //change later
+                if (check <= 20)
+                {
+                    removeBang();
+                    completed = true;
+                }
+            }
         }
+
+       
     }
 }

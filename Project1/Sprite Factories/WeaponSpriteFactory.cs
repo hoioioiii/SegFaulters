@@ -6,6 +6,7 @@ using Project1;
 using System.Reflection.Metadata;
 using System.Xml.Linq;
 using static Project1.Constants;
+using Project1.Items.sprites;
 
 namespace Project1
 {
@@ -37,20 +38,6 @@ namespace Project1
 
         public void LoadAllTextures(ContentManager content)
         {
-            //add all frames to the arrays
-            //anything in all caps still needs to be updates with the new sprite
-
-            //SwordSheet[0] = content.Load<Texture2D>("swordUp");
-            //SwordSheet[1] = content.Load<Texture2D>("swordDown");
-            //SwordSheet[2] = content.Load<Texture2D>("swordRight");
-            //SwordSheet[3] = content.Load<Texture2D>("swordLeft");
-
-            //// movement only
-            //BowSheet[0] = content.Load<Texture2D>("bowUp");
-            //BowSheet[1] = content.Load<Texture2D>("bowDown");
-            //BowSheet[2] = content.Load<Texture2D>("bowLeft");
-            //BowSheet[3] = content.Load<Texture2D>("bowRight");
-
             SwordSheet[UP] = content.Load<Texture2D>("swordUp");
             SwordSheet[RIGHT] = content.Load<Texture2D>("swordRight");
             SwordSheet[DOWN] = content.Load<Texture2D>("swordDown");
@@ -100,8 +87,14 @@ namespace Project1
         {
             return new OrbSprite(OrbSheet, pos, type);
         }
-
-
+        public ISpriteWeapon CreateRocketSprite((int, int) pos, ORB_DIRECTION type)
+        {
+            return new RocketSprite(OrbSheet, pos, type);
+        }
+        public ISpriteWeapon CreateInitalRocketSprite()
+        {
+            return new InitalRocketSprite(OrbSheet);
+        }
         public ISpriteWeapon CreateSwordSprite()
         {
             return new SwordSpritePlayer(SwordSheet);

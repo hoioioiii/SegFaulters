@@ -35,7 +35,6 @@ namespace Project1
 
         public bool PaceTime(int pace);
 
-
         public bool CreateAttackAqua();
     }
 }

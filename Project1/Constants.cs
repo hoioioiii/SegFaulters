@@ -399,7 +399,19 @@ namespace Project1
         {
             TOP,
             MIDDLE,
-           BOTTOM
+            BOTTOM
+        }
+
+
+        public enum ROCKET_DIRECTION
+        {
+            NE,
+            E,
+            SE,
+            S,
+            SW,
+            W,
+            NW
         }
 
         // Room Transitioning
@@ -429,11 +441,11 @@ namespace Project1
         public static int RADIUS_FORMULA_POWER_OF_2 = 2;
 
         //WEAPON MOVEMENT TYPE SMART AI--------------------
-        
-
         public static int WEAPON_AGGRO_SPD = 2;
 
-
+        //New Weapons--Rocket Laucher:
+        public static int WEAPON_INITAL_SPD = 2;
+        public static int ROCKET_FIELD = 100;
 
     }
 }

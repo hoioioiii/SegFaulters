@@ -1,50 +1,45 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Runtime.CompilerServices;
-//using System.Text;
-//using System.Threading.Tasks;
-//using Microsoft.Xna.Framework;
-//using static Project1.Constants;
-//namespace Project1.SmartAI
-//{
-//    public class RangeDetectionWeapons
-//    {
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using static Project1.Constants;
+namespace Project1.SmartAI
+{
+    public class RangeDetectionWeapons
+    {
 
-        
-//        private RangeTypeToMovement rangeResults;
-//        private int radius;
+        private IMove movementManager;
+        private RangeTypeToMovement rangeResults;
+        private int size;
+        private Rectangle DetectionRec;
+        public RangeDetectionWeapons(IMove movementManager, int radius)
+        {
 
-//        public RangeDetectionWeapons((int,int) weaponPosition, int radius)
-//        {
+            this.movementManager = movementManager;
+            this.size = radius * radius;
+        }
 
-//            this.movementManager = movementManager;
-//            this.radius = radius;
-//        }
+        public void Update()
+        {
+           
+            DetectionRec = new Rectangle(movementManager.getPosition().Item1, movementManager.getPosition().Item2, size, size);
+        }
 
-//        private double DeterminePositionRelativeToRadius()
-//        {
-//            int playerX = (int)Player.getPosition().X;
-//            int playerY = (int)Player.getPosition().Y;
-//            int entityX = movementManager.getPosition().Item1;
-//            int entityY = movementManager.getPosition().Item2;
+        public RangeTypeToMovement DetectionField(bool detected)
+        {
+            
+            return DetermineMovementAction(detected);
+        }
 
-//            return Math.Sqrt(Math.Pow(playerX - entityX, RADIUS_FORMULA_POWER_OF_2) + Math.Pow(playerY - entityY, RADIUS_FORMULA_POWER_OF_2));
+        private RangeTypeToMovement DetermineMovementAction(bool detected)
+        {
+            rangeResults = (detected) ? RangeTypeToMovement.SEEK : RangeTypeToMovement.PASSIVE;
 
-//        }
-//        public RangeTypeToMovement DetectionField()
-//        {
-//            double playerPosToEnemy = DeterminePositionRelativeToRadius();
+            return rangeResults;
+        }
 
-//            return DetermineMovementAction(playerPosToEnemy);
-//        }
-
-//        private RangeTypeToMovement DetermineMovementAction(double playerPosToEnemy)
-//        {
-//            rangeResults = (playerPosToEnemy - radius <= 0) ? RangeTypeToMovement.SEEK : RangeTypeToMovement.PASSIVE;
-
-//            return rangeResults;
-//        }
-
-//    }
-//}
+    }
+}
