@@ -35,8 +35,8 @@ namespace Project1
             {
                 Player.isAttacking = true;
                 isAttackingWithBoomerang = true;
-                IWeapon boom = new BoomerangePlayer();
-                //IWeapon boom = new InitalRocket();
+                //IWeapon boom = new BoomerangePlayer();
+                IWeapon boom = new InitalRocket();
                 Game1.GameObjManager.addNewPlayerWeapon(boom);
             }
         }

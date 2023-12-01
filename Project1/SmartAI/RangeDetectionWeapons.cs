@@ -22,11 +22,6 @@ namespace Project1.SmartAI
             this.size = radius * radius;
         }
 
-        public void Update()
-        {
-           
-            DetectionRec = new Rectangle(movementManager.getPosition().Item1, movementManager.getPosition().Item2, size, size);
-        }
 
         public RangeTypeToMovement DetectionField(bool detected)
         {

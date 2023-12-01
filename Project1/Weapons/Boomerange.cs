@@ -19,6 +19,7 @@ namespace Project1
         public Rectangle BoundingBox { get; set; }
 
         public int attackStat { get; private set; }
+        public bool detected { set => throw new NotImplementedException(); }
 
         public Boomerange()
         {
@@ -82,5 +83,14 @@ namespace Project1
 
         }
 
+        public Rectangle getDetectionFieldRectangle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void storeTarget(IEntity entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

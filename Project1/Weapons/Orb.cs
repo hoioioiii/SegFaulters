@@ -18,6 +18,7 @@ namespace Project1
 
         public Rectangle BoundingBox { get; set; }
         public int attackStat { get; private set; }
+        public bool detected { set => throw new NotImplementedException(); }
 
         public Orb((int,int) pos, ORB_DIRECTION positionDirection)
         {
@@ -52,6 +53,16 @@ namespace Project1
         public bool finished()
         {
             return sprite.finished();
+        }
+
+        public Rectangle getDetectionFieldRectangle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void storeTarget(IEntity entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -69,6 +69,8 @@ namespace Project1
 
         private static List<IWeapon> weapons;
         private static List<IWeapon> playerWeapons;
+
+        private static List<IWeapon> detectionWeapons;
         ////TODO: change to interface
         /*
          * List of rectangles for collision boxes for enemies
@@ -166,6 +168,7 @@ namespace Project1
                 }
 
             }
+
             foreach (var enemyAttack in weapons)
             {
                 isColliding = Player.BoundingBox.Intersects(enemyAttack.BoundingBox);
@@ -176,6 +179,8 @@ namespace Project1
                     PlayerCollisionResponse.DamageResponse(collisionDirection,true,0);
                 }
             }
+
+
 
 
             /*
@@ -221,6 +226,10 @@ namespace Project1
                         EnemyCollisionResponse.DamageResponse(enemy, collisionDirection);
                     }
                 }
+
+               
+
+
                 //foreach (var weaponProjectile in weaponProjectiles)
                 //{
                 //    isColliding = enemy.BoundingBox.Intersects(weaponProjectile.BoundingBox);
@@ -232,6 +241,27 @@ namespace Project1
                 //        EnemyCollisionResponse.DamageResponse(enemy, collisionDirection);
                 //    }
                 //}
+            }
+
+            foreach (IWeapon weapon in detectionWeapons)
+            {
+                CheckAllEntites(weapon);
+            }
+        }
+        private static void CheckAllEntites(IWeapon weapon)
+        {
+           
+            foreach (var enemy in entities)
+            {
+                bool isColliding = false;
+                isColliding = enemy.BoundingBox.Intersects(weapon.getDetectionFieldRectangle());
+                if (isColliding)
+                {
+                    DIRECTION collisionDirection = DIRECTION.left;
+                    collisionDirection = DetectCollisionDirection(enemy.BoundingBox, weapon.BoundingBox, collisionDirection);
+
+                    EnemyCollisionResponse.DetectionResponse(enemy, weapon, collisionDirection);
+                }
             }
         }
         
@@ -262,7 +292,7 @@ namespace Project1
             weapons = new List<IWeapon>(GameOBJ.getWeaponList());
             playerWeapons = new List<IWeapon>(GameOBJ.getPlayerWeaponList());
             roomItems = new List<IItem>(GameOBJ.getItemList());
-
+            detectionWeapons = new List<IWeapon>(GameOBJ.getDetectionWeaponsList());
             roomDoors = new List<Door>(GameOBJ.getDoorList());
             DetectAllCollisionsLinkEntity();
 

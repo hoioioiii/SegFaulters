@@ -11,20 +11,13 @@ namespace Project1
 {
     public interface ISpriteWeapon
     {
-        //public void Draw(SpriteBatch spriteBatch);
-
-        //public void Attack();
-
-        //public void Load();
-
+        public void setTarget(IEntity entity);
+        public void MovementChange(bool detected);
         public void GetUserPos(int x, int y);
 
         public void GetUserState(Direction direct);
 
-        //public void DetermineWeaponState();
-
-        //public void Update();
-
+        public Rectangle getDetectionFieldRectangle();
         public void Attack();
 
         public void Update();

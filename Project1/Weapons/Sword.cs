@@ -18,6 +18,7 @@ namespace Project1
 
         public Rectangle BoundingBox { get; set; }
         public bool isAttacking {private get; set; }
+        public bool detected { set => throw new NotImplementedException(); }
 
         public Sword()
         {
@@ -64,6 +65,16 @@ namespace Project1
         }
 
         public void Attack(int x, int y, Direction direct)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Rectangle getDetectionFieldRectangle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void storeTarget(IEntity entity)
         {
             throw new NotImplementedException();
         }

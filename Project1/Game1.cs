@@ -46,7 +46,7 @@ namespace Project1
 
 
         //This is testing purposes--delete later
-        private IEntity enemy;
+        public static IEntity enemy;
         public static Texture2D circle;
 
 
@@ -148,10 +148,8 @@ namespace Project1
 
             //testing purposes only, delete later:------------------
             (string, int)[] nullList = { ("", 0) };
-            IEntity skelly = new Skeleton((2, 4), nullList);
+            IEntity skelly = new Jelly((2, 4), nullList);
             enemy = skelly;
-
-            circle = Content.Load<Texture2D>(assetName: "circle");
 
             //------Delete Above Later-------------(B4 turning in sprint 5)
 

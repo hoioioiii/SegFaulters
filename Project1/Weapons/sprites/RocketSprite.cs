@@ -30,8 +30,9 @@ namespace Project1
         private int offset;
         private Rectangle rec;
         private IMove movement_manager;
-        private RangeDetectionToPlayer rangeDetector;
-
+        
+        private IEntity target;
+        private bool detected;
         public RocketSprite(Texture2D[] spriteSheet, (int, int) pos, ORB_DIRECTION rocketType)
         {
             texture = spriteSheet;
@@ -43,11 +44,11 @@ namespace Project1
 
             movement_manager = new WeaponMove(pos.Item1, pos.Item2);
             this.rocketType = rocketType;
-
+            detected = false;
             rocketPlaced = false;
             completed = false;
-
-            rangeDetector = new RangeDetectionToPlayer(movement_manager, 100);
+            
+         
         }
 
         private void setRocket()
@@ -78,6 +79,7 @@ namespace Project1
 
         public void Update()
         {
+            
             Move();
 
             if (drawExplosion)
@@ -150,6 +152,18 @@ namespace Project1
             movement_manager.setPosition(movement_manager.getPosition().Item1, weaponY);
         }
 
+        public void setTarget(IEntity entity)
+        {
+             detected = true;
+             target = entity;
+        }
+
+        private void removeTarget()
+        {
+            detected = false;
+            target = null;
+        }
+
 
         private int filterPlayerPosition()
         {
@@ -177,14 +191,16 @@ namespace Project1
         }
         private void Move()
         {
-            //if (rangeDetector.DetectionField() == RangeTypeToMovement.SEEK)
-            //{
-            //    SeekPlayer.Move(movement_manager.getVector(), movement_manager, SMARTAI_USER.WEAPON);
-            //}
-            //else
-            //{
-                filterMoveAll(rocketType);
-            //}
+            //Vector2 targetPosition = new Vector2(target.getPos().Item1, target.getPos().Item2);
+            //SeekEntity.Move(targetPosition, movement_manager);
+            if (detected)
+            {
+                Vector2 targetPosition = new Vector2(target.getPos().Item1, target.getPos().Item2);
+                //Direction direction = DirectionRelativeToEnemy(targetPosition);
+                SeekEntity.Move(targetPosition, movement_manager);
+            }
+            filterMoveAll(rocketType);
+
             checkFinish();
         }
 
@@ -235,7 +251,7 @@ namespace Project1
 
         public Rectangle getDetectionFieldRectangle()
         {
-            return new Rectangle(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, ROCKET_FIELD, ROCKET_FIELD);
+            return new Rectangle(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, 300, 300);
         }
 
 
@@ -248,6 +264,11 @@ namespace Project1
         public void GetUserState(Constants.Direction direct)
         {
             throw new NotImplementedException();
+        }
+
+        public void MovementChange(bool detected)
+        {
+            
         }
     }
 }

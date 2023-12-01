@@ -43,7 +43,7 @@ namespace Project1
 
         public override void MovementType()
         {
-            SeekEntity.Move(movement_manager.getVector(), direction_state_manager.getDirection(), movement_manager);
+            //SeekEntity.Move(movement_manager.getVector(), movement_manager);
         }
     }
 }

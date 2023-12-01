@@ -19,6 +19,9 @@ namespace Project1
         public Rectangle BoundingBox { get; set; }
         public int attackStat { get; private set; }
 
+        public bool detected { private get;  set; }
+        private (int, int) target;
+
         public Rocket((int, int) pos, ORB_DIRECTION positionDirection)
         {
             sprite = WeaponSpriteFactory.Instance.CreateRocketSprite((pos.Item1, pos.Item2), positionDirection);
@@ -32,12 +35,13 @@ namespace Project1
         public void Update()
         {
             sprite.Update();
+           
             BoundingBox = sprite.GetRectangle();
             if (sprite.finished())
             {
-
-                Game1.GameObjManager.removePlayerWeapon(this);
                 Game1.GameObjManager.removeDetectionWeapon(this);
+                Game1.GameObjManager.removePlayerWeapon(this);
+                
             }
         }
 
@@ -56,10 +60,17 @@ namespace Project1
             return sprite.finished();
         }
 
-        public bool getDetectionFieldRectangle()
+        public Rectangle getDetectionFieldRectangle()
         {
-            return false;
-            //return sprite.getDetectionField();
+            return sprite.getDetectionFieldRectangle();
+        }
+
+        public void storeTarget(IEntity entity)
+        {
+            if (!detected)
+            {
+                sprite.setTarget(entity);
+            }
         }
     }
 }

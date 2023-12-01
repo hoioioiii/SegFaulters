@@ -256,9 +256,17 @@ namespace Project1
         private void CreateSubWeapons()
         {
             (int, int) pos = (movement_manager.getPosition().Item1, movement_manager.getPosition().Item2);
-            Game1.GameObjManager.addNewPlayerWeapon(new Rocket(pos, ORB_DIRECTION.TOP));
-            Game1.GameObjManager.addNewPlayerWeapon(new Rocket(pos, ORB_DIRECTION.MIDDLE));
-            Game1.GameObjManager.addNewPlayerWeapon(new Rocket(pos, ORB_DIRECTION.BOTTOM));
+
+            IWeapon topRocket = new Rocket(pos, ORB_DIRECTION.TOP);
+            IWeapon middleRocket = new Rocket(pos, ORB_DIRECTION.MIDDLE);
+            IWeapon botRocket = new Rocket(pos, ORB_DIRECTION.BOTTOM);
+            Game1.GameObjManager.addNewPlayerWeapon(topRocket);
+            Game1.GameObjManager.addNewPlayerWeapon(middleRocket);
+            Game1.GameObjManager.addNewPlayerWeapon(botRocket);
+
+            Game1.GameObjManager.addNewDetectionWeapon(topRocket);
+            Game1.GameObjManager.addNewDetectionWeapon(middleRocket);
+            Game1.GameObjManager.addNewDetectionWeapon(botRocket);
         }
 
 
@@ -269,6 +277,21 @@ namespace Project1
         }
 
         public void GetUserState(Constants.Direction direct)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Rectangle getDetectionFieldRectangle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MovementChange(bool detected)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void setTarget(IEntity entity)
         {
             throw new NotImplementedException();
         }

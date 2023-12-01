@@ -16,6 +16,7 @@ namespace Project1
     internal class Bomb : IWeapon
     {
         public Rectangle BoundingBox { get; set; }
+        public bool detected { set => throw new NotImplementedException(); }
 
         private ISpriteWeapon sprite;
         public Bomb() {
@@ -67,5 +68,14 @@ namespace Project1
             throw new NotImplementedException();
         }
 
+        public Rectangle getDetectionFieldRectangle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void storeTarget(IEntity entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

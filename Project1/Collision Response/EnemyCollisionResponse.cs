@@ -11,7 +11,7 @@ namespace Project1.Collision_Response
          * For boundary collision, can't move past/through
          */
         public static void BoundaryResponse(IEntity enemy, DIRECTION direction)
-        {           
+        {
             Vector2 enemyPosition = new Vector2(enemy.GetPositionAndRectangle().X, enemy.GetPositionAndRectangle().Y);
             enemyPosition = AllCollisionResponse.Knockback(enemyPosition, direction, ENEMY_SPEED);
             enemy.ChangeDirections();
@@ -28,5 +28,15 @@ namespace Project1.Collision_Response
             enemy.setPosition((int)enemyPosition.X, (int)enemyPosition.Y);
             enemy.TakeDamage(DAMAGE_FULL_HEART);
         }
+
+        /*
+       * Enemy Detected By Detection Weapon
+       */
+        public static void DetectionResponse(IEntity enemy, IWeapon weapon, DIRECTION direction)
+        {
+           weapon.storeTarget(enemy);
+           weapon.detected = true;
+        }
+
     }
 }

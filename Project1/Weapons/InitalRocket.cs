@@ -17,9 +17,7 @@ namespace Project1
         private ISpriteWeapon sprite;
         public Rectangle BoundingBox { get; set; }
         public int attackStat { get; private set; }
-
-     
-       
+        public bool detected { set => throw new NotImplementedException(); }
 
         public InitalRocket()
         {
@@ -60,6 +58,16 @@ namespace Project1
         {
 
             return sprite.finished();
+        }
+
+        public Rectangle getDetectionFieldRectangle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void storeTarget(IEntity entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }
