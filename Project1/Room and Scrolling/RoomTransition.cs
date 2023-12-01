@@ -34,13 +34,14 @@ namespace Project1
 
             shouldDraw = true;
 
-            Camera.RoomTransitionCalculate(doorDirection);
+            Camera.CameraTransitionCalculate(doorDirection);
             Game1.roomIsTransitioning = true;
         }
 
         public static void EndScrolling()
         {
             shouldDraw = false;
+
             nextRoom.Load();
             Game1.roomIsTransitioning = false;
         }

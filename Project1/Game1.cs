@@ -43,6 +43,7 @@ namespace Project1
         //Zelda txt font
         private SpriteFont font;
         public static bool roomIsTransitioning;
+        public static bool HUDisTransitioning;
 
 
         
@@ -154,7 +155,19 @@ namespace Project1
 
             if (roomIsTransitioning)
             {
-                Camera.TransitionRoom(gameTime);
+                Camera.CameraTransition(gameTime, true);
+            }
+            else if (HUDisTransitioning)
+            {
+                // if the HUD is transitioning down, use the camera transition offset
+                if (GameStateManager.GameState == GameState.DefaultState)
+                {
+                    Camera.CameraTransitionOffset(gameTime, false, 0, ROOM_FRAME_HEIGHT);                   
+                }
+                else
+                {
+                    Camera.CameraTransition(gameTime, false);
+                }             
             }
             else
             {
@@ -213,6 +226,21 @@ namespace Project1
                 EnvironmentLoader.Draw(_spriteBatch);
                
             }
+            else if (HUDisTransitioning)
+            {
+                _spriteBatch.Begin(transformMatrix: Camera.Transform);
+                EnvironmentLoader.Draw(_spriteBatch);
+                Player.Draw(gameTime, _spriteBatch);
+                hudDisplay.Draw(_spriteBatch);
+                DrawManager.Draw();
+                //PausedScreen.Draw(_spriteBatch);
+            }
+            else if (GameStateManager.GameState == GameState.PausedState)
+            {
+                _spriteBatch.Begin(transformMatrix: Camera.Transform);
+                hudDisplay.Draw(_spriteBatch);
+                //PausedScreen.Draw(_spriteBatch);
+            }
             else
             {
                 _spriteBatch.Begin();
@@ -243,13 +271,19 @@ namespace Project1
                 }
             }
 
-                _spriteBatch.End();
+            _spriteBatch.End();
 
-            // HUD
-            if (GameStateManager.GameState != GameState.GameOverState && GameStateManager.GameState != GameState.TriforceWinState)
+            // Attach HUD to screen
+            if (GameStateManager.GameState != GameState.GameOverState && GameStateManager.GameState != GameState.PausedState && !HUDisTransitioning && GameStateManager.GameState != GameState.TriforceWinState)
             {
                 _spriteBatch.Begin();
                 hudDisplay.Draw(_spriteBatch);
+                _spriteBatch.End();
+            }
+            else if (GameStateManager.GameState == GameState.PausedState && !HUDisTransitioning) 
+            {
+                _spriteBatch.Begin();
+                PausedScreen.Draw(_spriteBatch);
                 _spriteBatch.End();
             }
 

@@ -96,6 +96,7 @@ namespace Project1.HUD
 
         public void Update()
         {
+            /*
             if (HeadsUpDisplay.IsFullMenuDisplay())
             {
                 pauseIndex = PAUSE_STATE.paused;
@@ -106,6 +107,7 @@ namespace Project1.HUD
                 pauseIndex = PAUSE_STATE.active;
                 reset = false;
             }
+            */
 
             //Update item counts
             itemCount[0] = Inventory.itemInventory[(int)ITEMS.Rupee];

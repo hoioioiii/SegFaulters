@@ -45,18 +45,27 @@ namespace Project1.HUD
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(!isFullMenu) {
-                spriteBatch.Draw(backgroundRect, destinationBackground, Color.Black);
-            }
-            location.Draw(spriteBatch);
-            inventory.Draw(spriteBatch);
-            health.Draw(spriteBatch);
+                location.Draw(spriteBatch);
+                inventory.Draw(spriteBatch);
+                health.Draw(spriteBatch);
+
         }
 
         public static bool IsFullMenuDisplay()
         {
             return isFullMenu;
         }
-	}
+
+        public static void StartScrolling(DIRECTION scrollDirection)
+        {
+            Camera.CameraTransitionCalculate(scrollDirection);
+            Game1.HUDisTransitioning = true;
+        }
+
+        public static void EndScrolling()
+        {
+            Game1.HUDisTransitioning = false;
+        }
+    }
 }
 
