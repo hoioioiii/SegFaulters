@@ -9,9 +9,7 @@ namespace Project1
 {
     public class HandSprite : UniversalSpriteClass
     {
-        /*
-         * Initalize the sprite
-         */
+      
         public HandSprite(List<Texture2D[]> spriteSheet, IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time) : base(spriteSheet,animation, movement, state, direction, time)
         {
 

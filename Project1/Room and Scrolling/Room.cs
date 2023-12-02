@@ -32,7 +32,6 @@ namespace Project1
             LoadEnvironment();
             LoadEntity();
             LoadItems();
-            //print();
         }
 
 
@@ -56,14 +55,13 @@ namespace Project1
                 (string, int)[] items = enemyInfo.Item2.Item2;
 
                 
-                if(!name.Equals("DEAD"))
+                if(!name.Equals(DEAD))
                     EntityLoader.LoadEntities(Game1.GameObjManager, enemyInfo.Item1, position, items);
             }
         }
 
         private void LoadItems()
         {
-            //(string, (int, int))[] itemArray
             foreach ((string, (int, int)) item in itemArray)
             {
                 String name = item.Item1;
@@ -74,14 +72,10 @@ namespace Project1
                     position = PositionGrid.getPosBasedOnGrid(position.Item1, position.Item2);
                     ItemLoader.LoadAndInitializeItems(name, position, Game1.GameObjManager);
                 }
-                else
-                {
-
-                }
             }
         }
 
-        //find the door that matches up with the door that wants to be changed, and unlock it within the room
+   
         public void UnlockDoor(DIRECTION doorToUnlockDirection)
         {
             ((string, bool), (int, bool))[] doors = environmentInfo.Item1; //(direction,(destinationRoom, isLocked))
@@ -130,55 +124,10 @@ namespace Project1
                 (int, int) enemyPos = enemy.Item2.Item1;
                 if(enemyPos == positionToKill)
                 {
-                    enemy.Item1 = "DEAD";
+                    enemy.Item1 = DEAD;
                     enemyArray[i] = enemy;
                 }
             }
-        }
-        public void print()
-        {
-            PrintEnemies();
-            PrintEnvironment();
-            PrintItems();
-        }
-        private void PrintEnemies()
-        {
-            for (int i = 0; i < enemyArray.Length; i++)
-            {
-                System.Diagnostics.Debug.Write("EnemyName: " + enemyArray[i].Item1 + ", Location: " + enemyArray[i].Item2.Item1 + ", Items: ");
-                for (int j = 0; j < enemyArray[i].Item2.Item2.Length; j++)
-                {
-                    System.Diagnostics.Debug.Write(enemyArray[i].Item2.Item2[j] + " ");
-                }
-                System.Diagnostics.Debug.WriteLine("");
-            }
-        }
-
-        private void PrintEnvironment()
-        {
-            int doorCount = environmentInfo.Item1.Length;
-            System.Diagnostics.Debug.WriteLine("Doors: ");
-            for (int i = 0; i < doorCount; i++)
-            {
-                System.Diagnostics.Debug.WriteLine("Direction: " + environmentInfo.Item1[i].Item1 + ", DestinationRoom: " + environmentInfo.Item1[i].Item2.Item1 + ", IsLocked: " + environmentInfo.Item1[i].Item2.Item2);
-            }
-
-            int blockCount = environmentInfo.Item2.Length;
-            for (int j = 0; j < blockCount; j++)
-            {
-                System.Diagnostics.Debug.WriteLine("BlockType: " + environmentInfo.Item2[j].Item1 + ", posX: " + environmentInfo.Item2[j].Item2.Item1 + ", posY: " + environmentInfo.Item2[j].Item2.Item2);
-            }
-        }
-
-        private void PrintItems()
-        {
-            int itemCount = itemArray.Length;
-            System.Diagnostics.Debug.WriteLine("Items: ");
-            for (int i = 0; i < itemCount; i++)
-            {
-                System.Diagnostics.Debug.WriteLine("Item name: " + itemArray[i].Item1 + ", posX: " + itemArray[i].Item2.Item1 + ", posY: " + itemArray[i].Item2.Item2);
-            }
-            System.Diagnostics.Debug.WriteLine("");
         }
     }
 }

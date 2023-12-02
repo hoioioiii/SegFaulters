@@ -39,7 +39,7 @@ namespace Project1
 
             setProperties();
 
-            System.Diagnostics.Debug.WriteLine("Door instantiated; direction: " + direction);
+            
         }
         
         private void setProperties()
@@ -135,7 +135,7 @@ namespace Project1
 
         public void UnlockDoor()
         {
-            LevelLoader.UnlockDoorFromRoom(RoomManager.getActiveRoomNumber(), direction);
+            LevelLoader.UnlockDoorFromRoom(RoomManager.GetActiveRoomNumber(), direction);
             DIRECTION directionInverse = GetInverseDirection(direction);
             LevelLoader.UnlockDoorFromRoom(destinationRoom, directionInverse);
             

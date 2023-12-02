@@ -66,12 +66,12 @@ namespace Project1
         {
             (int,int) pos_pair  = entityObj.getPos();
             (bool, int) update_pair = (false, pos_pair.Item2);
-            Direction direct = direction_state.getDirection();
+            Direction direct = direction_state.GetDirection();
             bool isMoving = false;
 
             if (direct != Direction.Up && direct != Direction.Down)
             {
-                direction_state.setDirection(start_direction);
+                direction_state.SetDirection(start_direction);
             }
             else
             {
@@ -136,12 +136,12 @@ namespace Project1
            
             (int, int) pos_pair = entityObj.getPos();
             (bool, int) update_pair = (false, pos_pair.Item1);
-            Direction direct = direction_state.getDirection();
+            Direction direct = direction_state.GetDirection();
             bool isMoving = false;
 
             if (direct != Direction.Left && direct != Direction.Right)
             {
-                direction_state.setDirection(start_direction);
+                direction_state.SetDirection(start_direction);
             }
             else
             {
@@ -174,17 +174,16 @@ namespace Project1
 
         public void WanderMove()
         {
-            time_manager.setRandMovementTimeFrame();
-            time_manager.updateElapsedMoveTime();
+            time_manager.SetRandMovementTimeFrame();
+            time_manager.UpdateElapsedMoveTime();
 
-            //means to change directions
-            if (time_manager.checkRandMovementTime())
+            if (time_manager.CheckRandMovementTime())
             {
-                direction_state.getRandomDirection();
+                direction_state.GetRandomDirection();
 
             }
             
-            WandererMovement(direction_state.getDirection());
+            WandererMovement(direction_state.GetDirection());
             
         }
 

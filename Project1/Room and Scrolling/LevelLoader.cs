@@ -28,10 +28,7 @@ namespace Project1
 
             XmlDocument xmlDoc = new XmlDocument();
 
-            //old way of referencing xml was copyying local full path, have updated it to where it is relative to remote using System.IO.Path.Combine
-
-            // xmlDoc.Load("D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\xmlTest2.xml");
-
+           
 
             string relativePath = XMLPATH;
 
@@ -51,16 +48,16 @@ namespace Project1
         {
 
             //loop through xml document and sends info of room to the Room instance
-            XmlNodeList rooms = xmlDoc.GetElementsByTagName("Room");
+            XmlNodeList rooms = xmlDoc.GetElementsByTagName(ROOM);
             int i = 0;
             foreach (XmlNode room in rooms)
             {
-                System.Diagnostics.Debug.WriteLine("Room " + i);
+                System.Diagnostics.Debug.WriteLine(ROOM + i);
 
                 //all rooms have these three encompassing nodes
-                XmlNode enemies = room.SelectSingleNode("Enemies");
-                XmlNode environment = room.SelectSingleNode("Environment");
-                XmlNode items = room.SelectSingleNode("Items");
+                XmlNode enemies = room.SelectSingleNode(ENEMIES);
+                XmlNode environment = room.SelectSingleNode(ENVIRONMENT);
+                XmlNode items = room.SelectSingleNode(ITEMS_STRING);
 
                 parseEnemies(enemies);
                 parseEnvironment(environment);
@@ -87,17 +84,17 @@ namespace Project1
             {
                 //get all necessary information for the enemyArray
                 string name = enemy.Name;
-                int posX = int.Parse(enemy.Attributes["xLoc"].Value);
-                int posY = int.Parse(enemy.Attributes["yLoc"].Value);
+                int posX = int.Parse(enemy.Attributes[XLOC].Value);
+                int posY = int.Parse(enemy.Attributes[YLOC].Value);
 
                 //cycle through dropped items make it into an array
-                XmlNodeList droppedItemsList = enemy.SelectSingleNode("Drops").ChildNodes;
+                XmlNodeList droppedItemsList = enemy.SelectSingleNode(DROPS).ChildNodes;
                 (string, int)[] droppedItemArray = new (string, int)[droppedItemsList.Count];
                 int j = 0;
                 foreach(XmlNode droppedItem in droppedItemsList)
                 {
-                    string itemName = droppedItem.Attributes["Name"].Value;
-                    int quantity = int.Parse(droppedItem.Attributes["quantity"].Value);
+                    string itemName = droppedItem.Attributes[NAME].Value;
+                    int quantity = int.Parse(droppedItem.Attributes[QUANITY].Value);
                     droppedItemArray[j] = (itemName, quantity);
 
                     j++;
@@ -112,9 +109,9 @@ namespace Project1
         }
         private static void parseEnvironment(XmlNode environment)
         {
-            XmlNodeList wallList = environment.SelectSingleNode("Walls").ChildNodes;
-            XmlNodeList doorList = environment.SelectSingleNode("Doors").ChildNodes;
-            XmlNodeList blockList = environment.SelectSingleNode("Blocks").ChildNodes;
+            XmlNodeList wallList = environment.SelectSingleNode(WALLS).ChildNodes;
+            XmlNodeList doorList = environment.SelectSingleNode(DOORS).ChildNodes;
+            XmlNodeList blockList = environment.SelectSingleNode(BLOCKS).ChildNodes;
 
             //so far no implementation for walls needed
 
@@ -123,13 +120,13 @@ namespace Project1
             int i = 0;
             foreach(XmlNode door in doorList)
             {
-                string direction = door.Attributes["id"].Value;
-                int destinationRoom = int.Parse(door.SelectSingleNode("DestinationRoom").InnerText) - 1;
-                bool isLocked = bool.Parse(door.SelectSingleNode("Locked").InnerText);
+                string direction = door.Attributes[ID].Value;
+                int destinationRoom = int.Parse(door.SelectSingleNode(DESTINATION_ROOM).InnerText) - 1;
+                bool isLocked = bool.Parse(door.SelectSingleNode(LOCKED).InnerText);
 
                 bool isTunnel = false;
 
-                if (door.SelectNodes("isTunnel").Count > 0)
+                if (door.SelectNodes(IS_TUNNEL).Count > 0)
                 {
                     isTunnel = true;
                 }
@@ -144,8 +141,8 @@ namespace Project1
             foreach(XmlNode block in blockList)
             {
                 string blockType = block.Name;
-                int posX = int.Parse(block.Attributes["xLoc"].Value);
-                int posY = int.Parse(block.Attributes["yLoc"].Value);
+                int posX = int.Parse(block.Attributes[XLOC].Value);
+                int posY = int.Parse(block.Attributes[YLOC].Value);
 
                 blockArray[j] = (blockType, (posX, posY));
                 j++;
@@ -160,8 +157,8 @@ namespace Project1
             int i = 0;
             foreach (XmlNode item in itemList) {
                 string itemName = item.Name;
-                int posX = int.Parse(item.Attributes["xLoc"].Value);
-                int posY = int.Parse(item.Attributes["yLoc"].Value);
+                int posX = int.Parse(item.Attributes[XLOC].Value);
+                int posY = int.Parse(item.Attributes[YLOC].Value);
 
                 itemArray[i] = (itemName, (posX, (posY)));
                 i++;
@@ -200,7 +197,7 @@ namespace Project1
 
         private static void getRoomCountFromXmlDoc(XmlDocument doc)
         {
-            roomCount = doc.GetElementsByTagName("Room").Count;
+            roomCount = doc.GetElementsByTagName(ROOM).Count;
         }
     }
 }

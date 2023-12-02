@@ -7,7 +7,7 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    public class SpikeCrossSprite : UniversalSpriteClass //change sprite
+    public class SpikeCrossSprite : UniversalSpriteClass
     {
        
 
