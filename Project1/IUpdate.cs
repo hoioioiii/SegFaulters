@@ -8,12 +8,7 @@ namespace Project1
 {
     public interface IUpdate
     {
-      
-
         public void Update();
-
-       
-
 
     }
 }

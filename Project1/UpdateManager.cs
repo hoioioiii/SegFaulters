@@ -31,8 +31,6 @@ namespace Project1
             Game1.GameObjManager.ClearRemovingLists();
 
           
-
-            //UpdatePlayer();
            
         }
 

@@ -14,7 +14,6 @@ namespace Project1.Stats
      * Clock: player speed
      * Fairy: player attack
      * Rupees: every 2 ruppes -> player defense is +2
-     * maybe add link size stats
      */
     public class PlayerStats : IPlayerStats
     {
@@ -52,7 +51,7 @@ namespace Project1.Stats
             {
                 stats["SPD"] = PlayerMovement.getPlayerSpeed();
             }
-            else if (currStats == "SPD" && coolDown >= 10)
+            else if (currStats == "SPD" && coolDown >= COOL_DOWN)
             {
                 PlayerMovement.setPlayerSpeed(DEFAULT_SPEED);
             }

@@ -142,6 +142,10 @@ namespace Project1
         public static int inventoryRows = 2;
         public static int inventoryCols = 4;
         public static int selectorSmoother = 0;
+        //Stats display->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int STATS_WIDTH_OFFSET1 = 4;
+        public static int STATS_WIDTH_OFFSET2 = 3;
+        public static int STATS_WIDTH_MULTIPLIER = 2;
         //paused map STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int compassPauseTextX = 130;
         public static int compassPauseTextY = 100;
@@ -165,11 +169,16 @@ namespace Project1
         public static int DAMAGE_FULL_HEART = 4;
         public static int MAX_FRAGMENTS = 4;
         public static int ATTACK_INCREASE = 1;
+        public static int DEFAULT_FULL_HEART = 4;
+        public static int DEFAULT_HALF_HEART = 2;
+        public static int PAUSED_STATE_OFFSET = 3;
+        public static int PAUSED_STATE_MULT = 2;
 
         //STATS metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int STATS_HEIGHT = HUD_HEIGHT / 2;
         public static int STATS_WIDTH = HUD_SECTION_WIDTH;
-
+        public static int COOL_DOWN = 10;
+        
         public enum USABLE_ITEM { boomerang = 0, bomb = 1, beehive = 2, bow = 3 };
 
         public static int START_FRAME = 0;
