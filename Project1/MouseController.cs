@@ -29,9 +29,6 @@ namespace Project1
             {
                 if (Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
-
-
-
                     action = new RoomIterateBack();
                     action.Execute();
                     buttonDown = true;
@@ -42,7 +39,8 @@ namespace Project1
                     action.Execute();
                     buttonDown = true;
                 }
-            } else
+            }
+            else
             {
                 if (Mouse.GetState().LeftButton == ButtonState.Released && Mouse.GetState().RightButton == ButtonState.Released)
                 {
