@@ -15,7 +15,7 @@ namespace Project1.Commands
             LevelLoader.Load(); //re-parse the XML sheet
 
             //Magic number?
-            Inventory.itemInventory = ITEM_INVENTORY;
+            Inventory.itemInventory = new int[] { 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0 };
 
             //respawn the player at the bottom
             Player.setPosition(RESPAWN_UP);

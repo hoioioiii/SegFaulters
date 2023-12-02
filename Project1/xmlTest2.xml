@@ -18,17 +18,7 @@
 	</link>
 	<Room number="0">
 		<Enemies>
-			<Snake id="1" xLoc="1" yLoc="1">
-				<Stats>
-					<Health>0</Health>
-					<Strength>0</Strength>
-					<Stamina>0</Stamina>
-					<Damage>0</Damage>
-				</Stats>
-				<Drops>
-					<DroppedItem Name="bomb" quantity="2"></DroppedItem>
-				</Drops>
-			</Snake>
+			
 		</Enemies>
 
 		<Environment>
@@ -119,6 +109,17 @@
 					<DroppedItem Name="heartcontainer" quantity="2"></DroppedItem>
 				</Drops>
 			</Keese>
+			<Snake id="1" xLoc="0" yLoc="11">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="bomb" quantity="2"></DroppedItem>
+				</Drops>
+			</Snake>
 		</Enemies>
 
 		<Environment>

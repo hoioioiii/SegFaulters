@@ -97,7 +97,7 @@ namespace Project1
         public static int KEY_OFFSET = 5;
         public static int SPRITE_SIZE = 2;
         //paused inventory STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        public static int[] ITEM_INVENTORY = new int[] { 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0 };
+        public static int[] ITEM_INVENTORY = { 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0 };
 
         public static int MAPOFFSET = 70;
         public static int inventoryTextOffsetX = 130;
