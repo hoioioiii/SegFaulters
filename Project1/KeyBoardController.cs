@@ -129,6 +129,7 @@ namespace Project1
             MOVE_MAP.Add(Keys.D8, new displayMap());
             MOVE_MAP.Add(Keys.OemMinus, new displaySword());
             MOVE_MAP.Add(Keys.OemPlus, new displayTriforce());
+            MOVE_MAP.Add(Keys.B, new attackSelectedWeapon());
 
             //pausing the game
             MOVE_MAP.Add(Keys.OemPeriod, new PauseGame());
