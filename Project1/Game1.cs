@@ -89,7 +89,7 @@ namespace Project1
             base.Initialize();
         }
 
-        //clean
+     
         protected override void LoadContent()
         {
             PositionGrid.createMap();

@@ -212,8 +212,6 @@ namespace Project1
             }
         }
 
-        
-
         private static void CheckAllEntites(IWeapon weapon)
         {
            
