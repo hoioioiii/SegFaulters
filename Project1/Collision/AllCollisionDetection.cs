@@ -197,8 +197,6 @@ namespace Project1
             }
         }
 
-        
-
         private static void CheckAllEntites(IWeapon weapon)
         {
            
@@ -246,7 +244,6 @@ namespace Project1
 
             DetectAllCollisionsLinkEntity();
             DetectAllCollisionsEnemiesEntity();
-
             DetectAllCollisionsDoors();
 
         }

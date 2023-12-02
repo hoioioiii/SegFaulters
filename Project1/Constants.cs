@@ -13,6 +13,10 @@ namespace Project1
     {
         public static Song BGM, gameOver, gameOverStateSound;
 
+        public static int DEFAULT_BUFFER = (int)(480 * 1.75);
+        public static int DEFAULT_TIMER = 60 * 3;
+
+
         public static SoundEffect winningStateSound, addUI, bombBlow, bombDrop, boomerang, cling, death, doorUnlock, puzzleSolved, dragon, dragon2, dragon3, enemyDie, enemyHit, fire, flame, bigItemGet, smallItemGet, heartGet, rupeeGet, linkHurt, lowHealth, plus, plusPlus, secret, stairs, subtractUI, sword;
 
         public static String XMLPATH = "..\\..\\..\\xmlTest2.xml";

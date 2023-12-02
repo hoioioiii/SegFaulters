@@ -35,6 +35,7 @@ Known Bugs/Errors
    5. Missing Power-up selection screen
    6. Items can bounce sometimes and end up triggering the desired effect more than once.
    7. Sometimes when you use the bomb, it uses up all of it.
+   8. If build is broken, manually click on files that have errors and load them.  This is a VS code issue where it doesn't load it in automatically.
 
 
 Tools and Processes 
