@@ -40,7 +40,7 @@ namespace Project1
         {
             switch (type)
             {
-                case ATTACK:
+                case ATTACK_LINK:
                     currentFrames = attackFrames;
                     break;
                 case STILL:

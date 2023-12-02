@@ -300,7 +300,7 @@ namespace Project1
 
         public const string STILL = "still";
         public const string MOVE = "move";
-        public const string ATTACK = "attack";
+        public const string ATTACK_LINK = "attack";
 
         //Player metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public const float FLASHES_PER_SECOND = 8; //link flashes after damage

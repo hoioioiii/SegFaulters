@@ -79,6 +79,7 @@
 		</Environment>
 
 		<Items>
+			<rupee xLoc="4" yLoc="4"></rupee>
 		</Items>
 	</Room>
 

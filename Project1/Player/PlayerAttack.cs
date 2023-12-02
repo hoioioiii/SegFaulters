@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata.Ecma335;
 using static Project1.Constants;
 
 namespace Project1
@@ -14,6 +15,7 @@ namespace Project1
         private static bool isAttackingWithBoomerang = false;
         private static bool isAttackingWithBow = false;
         private static bool isAttackingWithBomb = false;
+        private static int weaponAttackAmount = 0;
 
         public static IWeapon spriteWeapon;
 
@@ -24,6 +26,7 @@ namespace Project1
             {
                 Player.isAttacking = true;
                 isAttackingWithSword = true;
+                weaponAttackAmount = (int)WEAPON_ATTACK_AMOUNT.swordAmount;
                 spriteWeapon = new Sword();
                 Game1.GameObjManager.addNewPlayerWeapon(spriteWeapon);
             }
@@ -35,6 +38,7 @@ namespace Project1
             {
                 Player.isAttacking = true;
                 isAttackingWithBoomerang = true;
+                weaponAttackAmount = (int)WEAPON_ATTACK_AMOUNT.boomerangAmount;
                 IWeapon boom = new BoomerangePlayer();
                 Game1.GameObjManager.addNewPlayerWeapon(boom);
             }
@@ -46,6 +50,7 @@ namespace Project1
             {
                 Player.isAttacking = true;
                 isAttackingWithBow = true;
+                weaponAttackAmount = (int)WEAPON_ATTACK_AMOUNT.bowAmount;
                 IWeapon arrow = new Arrow2();
                 Game1.GameObjManager.addNewPlayerWeapon(arrow);
             }
@@ -57,10 +62,16 @@ namespace Project1
             {
                 Player.isAttacking = true;
                 isAttackingWithBomb = true;
+                weaponAttackAmount = (int)WEAPON_ATTACK_AMOUNT.bombAmount;
                 IWeapon bomb = new Bomb();
                 Game1.GameObjManager.addNewPlayerWeapon(bomb);
                 Inventory.UseItem(ITEMS.Bomb);
             }
+        }
+
+        public static int getWeaponStats()
+        {
+            return weaponAttackAmount;
         }
 
         // if 1 second has passed since attacking, revert attack keystate to false (allowing for other actions)

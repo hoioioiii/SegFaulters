@@ -85,6 +85,11 @@ namespace Project1
         {
             return playerSpeed;
         }
+
+        public static void setPlayerSpeed(int newSpeed)
+        {
+            playerSpeed = newSpeed;
+        }
     }
 }
 

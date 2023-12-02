@@ -216,7 +216,7 @@ namespace Project1
             
             
             //draw link with attack frames
-            sprite.Draw(spriteBatch, ATTACK, PlayerMovement.getLinkDirection(), PlayerMovement.getPosition());
+            sprite.Draw(spriteBatch, ATTACK_LINK, PlayerMovement.getLinkDirection(), PlayerMovement.getPosition());
         }
 
 

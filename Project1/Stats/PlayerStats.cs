@@ -14,6 +14,7 @@ namespace Project1.Stats
      * Clock: player speed
      * Fairy: player attack
      * Rupees: every 2 ruppes -> player defense is +2
+     * maybe add link size stats
      */
     public class PlayerStats : IPlayerStats
     {
@@ -30,7 +31,7 @@ namespace Project1.Stats
             //default stats metrics
             stats = new Dictionary<string, int>();
             stats.Add(ATTACK, DAMAGE_HALF_HEART);
-            stats.Add(SPEED, Player.playerSpeed);
+            stats.Add(SPEED, PlayerMovement.getPlayerSpeed());
             stats.Add(DEFENSE, 0);
         }
 
@@ -40,21 +41,20 @@ namespace Project1.Stats
 
             foreach (var item in stats)
             {
-                if (item.Key == "SPD" && Player.playerSpeed != item.Value)
-                {
-                    stats["SPD"] = Player.playerSpeed;
-                }
-                else if (item.Key == "SPD" && coolDown >= 10)
-                {
-                    Player.playerSpeed = DEFAULT_SPEED;
-                }
+                SetStats(item.Key);
 
-                //if (item.Key == "DEF" && 
-                //    Inventory.itemsInventory[(int)ITEMS.Ruppee] % 2 == 0)
-                //{
-                //    stats["DEF"] += 1;
-                //}
+            }
+        }
 
+        public static void SetStats(string currStats)
+        {
+            if (currStats == "SPD" && PlayerMovement.getPlayerSpeed() != stats[currStats])
+            {
+                stats["SPD"] = PlayerMovement.getPlayerSpeed();
+            }
+            else if (currStats == "SPD" && coolDown >= 10)
+            {
+                PlayerMovement.setPlayerSpeed(DEFAULT_SPEED);
             }
         }
     }

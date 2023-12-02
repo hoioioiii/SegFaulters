@@ -10,5 +10,6 @@ namespace Project1.Stats
     public interface IPlayerStats
     {
         public void InitializeStats();
+
     }
 }

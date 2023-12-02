@@ -45,8 +45,8 @@ namespace Project1
         public static bool roomIsTransitioning;
         public static bool HUDisTransitioning;
 
-
-        
+        //Stats display
+        public static IStatsScreen statsDisplay;
 
 
         public Game1()
@@ -270,6 +270,7 @@ namespace Project1
             {
                 _spriteBatch.Begin();
                 hudDisplay.Draw(_spriteBatch);
+                statsDisplay.Draw(_spriteBatch);
                 _spriteBatch.End();
             }
             else if (GameStateManager.GameState == GameState.PausedState && !HUDisTransitioning) 
