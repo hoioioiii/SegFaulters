@@ -539,8 +539,10 @@ namespace Project1
             ARROW,
             BOMB,
             BOOMERANGE,
-            ROCKET
+            BEES
         }
+
+
 
         public enum SPIKE_ID
         {
@@ -562,7 +564,8 @@ namespace Project1
         public static int SPIKE_AXIS_X = 0;
         public static int SPIKE_AXIS_Y = 1;
 
-
+        public static int BEE_WIDTH = 15;
+        public static int BEE_HEIGHT = 15;
 
 
     }

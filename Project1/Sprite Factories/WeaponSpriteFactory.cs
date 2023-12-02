@@ -23,7 +23,7 @@ namespace Project1
         private Texture2D[] OrbSheet = new Texture2D[1];
         private Texture2D[] BeehiveSheet = new Texture2D[BEEHIVE_ARRAY];
         private List<Texture2D[]> BeeSheet = new List<Texture2D[]>() { new Texture2D[BEE_ARRAY], new Texture2D[BEE_ARRAY], new Texture2D[BEE_ARRAY], new Texture2D[BEE_ARRAY], new Texture2D[BEE_ARRAY]};
-        private Texture2D[] HoneycombSheet = new Texture2D[HONEYCOMB_ARRAY];
+        private List<Texture2D[]> HoneycombSheet = new List<Texture2D[]>() { new Texture2D[HONEYCOMB_ARRAY] };
         // More private Texture2Ds follow
         // ...
 
@@ -62,11 +62,11 @@ namespace Project1
             
             BeehiveSheet[UP] = content.Load<Texture2D>("HiveNew");
 
-            HoneycombSheet[UP] = content.Load<Texture2D>("HoneycombNew");
-            HoneycombSheet[RIGHT] = content.Load<Texture2D>("HoneycombNew");
-            HoneycombSheet[DOWN] = content.Load<Texture2D>("HoneycombNew");
-            HoneycombSheet[LEFT] = content.Load<Texture2D>("HoneycombNew");
-            HoneycombSheet[4] = content.Load<Texture2D>("HoneycombNew");
+            HoneycombSheet[UP][UP] = content.Load<Texture2D>("HoneycombNew");
+            HoneycombSheet[UP][RIGHT] = content.Load<Texture2D>("HoneycombNew");
+            HoneycombSheet[UP][DOWN] = content.Load<Texture2D>("HoneycombNew");
+            HoneycombSheet[UP][LEFT] = content.Load<Texture2D>("HoneycombNew");
+            HoneycombSheet[UP][4] = content.Load<Texture2D>("HoneycombNew");
 
             #region Bee Storage
 
@@ -149,13 +149,13 @@ namespace Project1
         {
             return new OrbSprite(OrbSheet, pos, type);
         }
-        public ISpriteWeapon CreateRocketSprite((int, int) pos, ORB_DIRECTION type)
+        public ISpriteWeapon CreateBeesSprite((int, int) pos, ORB_DIRECTION type)
         {
-            return new RocketSprite(OrbSheet, pos, type);
+            return new BeesSprite(BeeSheet, pos, type);
         }
-        public ISpriteWeapon CreateInitalRocketSprite()
+        public ISpriteWeapon CreateBeeHiveSprite()
         {
-            return new InitalRocketSprite(OrbSheet);
+            return new BeeHiveSprite(HoneycombSheet);
         }
         public ISpriteWeapon CreateSwordSprite()
         {

@@ -77,8 +77,8 @@ namespace Project1
                 Player.isAttacking = true;
                 isAttackingWithBeehive = true;
                 weaponAttackAmount = (int)WEAPON_ATTACK_AMOUNT.beehiveAmount;
-                //spriteWeapon = new Beehive();
-                //Game1.GameObjManager.addNewPlayerWeapon(spriteWeapon);
+                spriteWeapon = new BeeHive();
+                Game1.GameObjManager.addNewPlayerWeapon(spriteWeapon);
             }
         }
 

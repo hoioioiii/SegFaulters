@@ -11,10 +11,10 @@ using Project1.SmartAI;
 using static Project1.Constants;
 namespace Project1
 {
-    internal class RocketSprite : ISpriteWeapon
+    internal class BeesSprite : ISpriteWeapon
     {
 
-        private Texture2D[] texture;
+        private List<Texture2D[]> texture;
 
         private bool rocketPlaced;
         private int current_frame;
@@ -30,17 +30,20 @@ namespace Project1
         private int offset;
         private Rectangle rec;
         private IMove movement_manager;
-        
+        private IAnimation animation_manager;
         private IEntity target;
         private bool detected;
-        public RocketSprite(Texture2D[] spriteSheet, (int, int) pos, ORB_DIRECTION rocketType)
+        public BeesSprite(List<Texture2D[]> spriteSheet, (int, int) pos, ORB_DIRECTION rocketType)
         {
             texture = spriteSheet;
             current_frame = 0;
             elapsedTime = 0;
 
-            width = spriteSheet[0].Width;
-            height = spriteSheet[0].Height;
+            width = texture[0][0].Width;
+            height = spriteSheet[0][0].Height;
+
+            animation_manager = new AnimationBees(0,new TimeTracker(false), spriteSheet);
+            
 
             movement_manager = new WeaponMove(pos.Item1, pos.Item2);
             this.rocketType = rocketType;
@@ -81,11 +84,9 @@ namespace Project1
         {
             
             Move();
-
+            animation_manager.Animate();
             if (drawExplosion)
             {
-
-
             }
 
         }
@@ -100,10 +101,10 @@ namespace Project1
 
         private void drawItem(int x, int y, SpriteBatch spriteBatch)
         {
-            Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
-            Rectangle DEST_REC = new Rectangle(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2,20,18);
+            Rectangle SOURCE_REC = new Rectangle(1, y: 1, BEE_WIDTH, BEE_HEIGHT);
+            Rectangle DEST_REC = new Rectangle(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, BEE_WIDTH, BEE_HEIGHT);
             rec = DEST_REC;
-            spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
+            spriteBatch.Draw(animation_manager.sprite_frame, DEST_REC, SOURCE_REC, Color.White);
         }
         public Rectangle GetRectangle()
         {
@@ -214,7 +215,7 @@ namespace Project1
             if (detected)
             {
                 Vector2 targetPosition = new Vector2(target.getPos().Item1, target.getPos().Item2);
-                //Direction direction = DirectionRelativeToEnemy(targetPosition);
+                
                 SeekEntity.Move(targetPosition, movement_manager);
             }
 
@@ -277,14 +278,14 @@ namespace Project1
         {
             
             int spriteY = movement_manager.getPosition().Item2;
-            return spriteY - ((BEES_DETECTION_FEILD_HEIGHT / CENTER_RATIO) - height / CENTER_RATIO);
+            return spriteY - ((BEES_DETECTION_FEILD_HEIGHT / CENTER_RATIO) - BEE_HEIGHT / CENTER_RATIO);
 
         }
         private int GetCenteredBoundingBoxX()
         {
             int spriteX = movement_manager.getPosition().Item1;
 
-            return spriteX - ((BEES_DETECTION_FEILD_WIDTH / CENTER_RATIO) - height / CENTER_RATIO);
+            return spriteX - ((BEES_DETECTION_FEILD_WIDTH / CENTER_RATIO) - BEE_WIDTH / CENTER_RATIO);
         }
 
 

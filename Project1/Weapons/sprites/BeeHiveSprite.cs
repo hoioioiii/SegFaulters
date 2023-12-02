@@ -11,10 +11,10 @@ using Project1.SmartAI;
 using static Project1.Constants;
 namespace Project1
 {
-    internal class InitalRocketSprite : ISpriteWeapon
+    internal class BeeHiveSprite : ISpriteWeapon
     {
 
-        private Texture2D[] texture;
+        private List<Texture2D[]> texture;
 
         private bool rocketPlaced;
         private int current_frame;
@@ -31,18 +31,18 @@ namespace Project1
         private Rectangle rec;
         private IMove movement_manager;
         private RangeDetectionToPlayer rangeDetector;
-
-        public InitalRocketSprite(Texture2D[] spriteSheet)
+        private IAnimation animation_manager;
+        public BeeHiveSprite(List<Texture2D[]> spriteSheet)
         {
             texture = spriteSheet;
             current_frame = 0;
             elapsedTime = 0;
 
-            width = spriteSheet[0].Width;
-            height = spriteSheet[0].Height;
+            width = texture[0][0].Width;
+            height = texture[0][0].Height;
 
             movement_manager = new WeaponMove((int)Player.getPosition().X, (int)Player.getPosition().Y);
-            
+            animation_manager = new AnimationBees(0, new TimeTracker(false), spriteSheet);
 
             rocketPlaced = false;
             completed = false;
@@ -79,6 +79,7 @@ namespace Project1
         public void Update()
         {
             Move();
+            animation_manager.Animate();
 
             if (drawExplosion)
             {
@@ -101,7 +102,7 @@ namespace Project1
             Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
             Rectangle DEST_REC = new Rectangle(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, width * LARGER_SIZE, height * LARGER_SIZE);
             rec = DEST_REC;
-            spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
+            spriteBatch.Draw(animation_manager.sprite_frame, DEST_REC, SOURCE_REC, Color.White);
         }
         public Rectangle GetRectangle()
         {
@@ -260,9 +261,9 @@ namespace Project1
             for (int i = 0; i < 5; i++)
             {
                 (int, int) pos = (movement_manager.getPosition().Item1 + Random.RandomSeconds(), movement_manager.getPosition().Item2 + Random.RandomSeconds());
-                IWeapon topRocket = new Rocket(pos, ORB_DIRECTION.TOP);
-                IWeapon middleRocket = new Rocket(pos, ORB_DIRECTION.MIDDLE);
-                IWeapon botRocket = new Rocket(pos, ORB_DIRECTION.BOTTOM);
+                IWeapon topRocket = new Bees(pos, ORB_DIRECTION.TOP);
+                IWeapon middleRocket = new Bees(pos, ORB_DIRECTION.MIDDLE);
+                IWeapon botRocket = new Bees(pos, ORB_DIRECTION.BOTTOM);
 
                 Game1.GameObjManager.addNewPlayerWeapon(topRocket);
                 Game1.GameObjManager.addNewPlayerWeapon(middleRocket);
