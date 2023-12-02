@@ -64,6 +64,9 @@ namespace Project1
                 case "triforce":
                     currItem = new Triforce(pos);
                     break;
+                case "beehive":
+                    currItem = new BeehiveItem(pos);
+                    break;
             }
         }
 

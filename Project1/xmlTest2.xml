@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Level1 levelName="The Eagle">
 	<link>
-		<Stats>
-			<Health>0</Health>
-			<Attack>0</Attack>
-			<CritDamage>0</CritDamage>
-			<Crit>0</Crit>
-			<Stamina>0</Stamina>
-			<Speed>0</Speed>
-			<AttackSpeed>0</AttackSpeed>
-			<Defense>0</Defense>
-		</Stats>
-
 		<Weapons>
 			<Sword>
 				<Damage>0</Damage>
@@ -29,7 +18,17 @@
 	</link>
 	<Room number="0">
 		<Enemies>
-
+			<Snake id="1" xLoc="1" yLoc="1">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="bomb" quantity="2"></DroppedItem>
+				</Drops>
+			</Snake>
 		</Enemies>
 
 		<Environment>
@@ -79,7 +78,8 @@
 		</Environment>
 
 		<Items>
-			<rupee xLoc="4" yLoc="4"></rupee>
+			<rupee xLoc="0" yLoc="0"></rupee>
+			<beehive xLoc="4" yLoc="4"></beehive>
 		</Items>
 	</Room>
 
@@ -93,6 +93,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
+					<DroppedItem Name="fairy" quantity="1"></DroppedItem>
 				</Drops>
 			</Keese>
 			<Keese id="2" xLoc="2" yLoc="3">
@@ -103,6 +104,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
+					<DroppedItem Name="clock" quantity="1"></DroppedItem>
+					
 				</Drops>
 			</Keese>
 			<Keese id="3" xLoc="5" yLoc="1">
@@ -113,6 +116,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
+					<DroppedItem Name="heartcontainer" quantity="2"></DroppedItem>
 				</Drops>
 			</Keese>
 		</Enemies>
@@ -145,8 +149,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
-					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="1"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="4"></DroppedItem>
 					<DroppedItem Name="key" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
@@ -158,8 +162,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
-					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="2"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="3" xLoc="2" yLoc="6">
@@ -170,8 +174,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
-					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
+					<DroppedItem Name="fairy" quantity="1"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="4" xLoc="4" yLoc="6">
@@ -182,8 +186,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
-					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
+					<DroppedItem Name="clock" quantity="1"></DroppedItem>
+					<DroppedItem Name="bomb" quantity="2"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="5" xLoc="3" yLoc="11">
@@ -194,8 +198,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
-					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="2"></DroppedItem>
 				</Drops>
 			</Stalfo>
 		</Enemies>
@@ -239,8 +242,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
-					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
+					<DroppedItem Name="bomb" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="2" xLoc="2" yLoc="4">
@@ -251,8 +253,8 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
-					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
+					<DroppedItem Name="clock" quantity="1"></DroppedItem>
+					<DroppedItem Name="heartcontainer" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="3" xLoc="4" yLoc="3">
@@ -263,8 +265,6 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
-					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
 		</Enemies>
@@ -306,7 +306,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupee" quantity="1"></DroppedItem>
+					<DroppedItem Name="bomb" quantity="1"></DroppedItem>
 					<DroppedItem Name="heartcontainer" quantity="1"></DroppedItem>
 					<DroppedItem Name="key" quantity="1"></DroppedItem>
 				</Drops>
@@ -319,7 +319,6 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
 					<DroppedItem Name="heartcontainer" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
@@ -530,6 +529,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
+					<DroppedItem Name="clock" quantity="1"></DroppedItem>
 				</Drops>
 			</Keese>
 			<Keese id="3" xLoc="3" yLoc="0">
@@ -550,6 +550,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
+					<DroppedItem Name="rupee" quantity="1"></DroppedItem>
 				</Drops>
 			</Keese>
 			<Keese id="5" xLoc="6" yLoc="8">
@@ -625,6 +626,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
+					<DroppedItem Name="bomb" quantity="1"></DroppedItem>
 				</Drops>
 			</Gel>
 			<Gel id="3" xLoc="0" yLoc="8">
@@ -637,6 +639,30 @@
 				<Drops>
 				</Drops>
 			</Gel>
+
+			<Gel id="1" xLoc="4" yLoc="6">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="bomb" quantity="1"></DroppedItem>
+				</Drops>
+			</Gel>
+
+			<Dino id="1" xLoc="6" yLoc="6">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="bomb" quantity="1"></DroppedItem>
+				</Drops>
+			</Dino>
 		</Enemies>
 
 		<Environment>
@@ -718,6 +744,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
+					<DroppedItem Name="heartcontainer" quantity="1"></DroppedItem>
 				</Drops>
 			</Gel>
 		</Enemies>
@@ -776,8 +803,6 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
-					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="2" xLoc="1" yLoc="10">
@@ -788,8 +813,6 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupee" quantity="0"></DroppedItem>
-					<DroppedItem Name="heartcontainer" quantity="0"></DroppedItem>
 				</Drops>
 			</Stalfo>
 			<Stalfo id="3" xLoc="4" yLoc="8">
@@ -975,7 +998,6 @@
 					<Health>0</Health>
 					<Strength>0</Strength>
 					<Stamina>0</Stamina>
-					<!--not applicable-->
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
@@ -986,7 +1008,6 @@
 					<Health>0</Health>
 					<Strength>0</Strength>
 					<Stamina>0</Stamina>
-					<!--not applicable-->
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
@@ -997,7 +1018,6 @@
 					<Health>0</Health>
 					<Strength>0</Strength>
 					<Stamina>0</Stamina>
-					<!--not applicable-->
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
@@ -1124,6 +1144,18 @@
 				<Drops>
 				</Drops>
 			</Wallmaster>
+
+			<Snake id="1" xLoc="4" yLoc="4">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="bomb" quantity="1"></DroppedItem>
+				</Drops>
+			</Snake>
 		</Enemies>
 
 		<Environment>
@@ -1181,6 +1213,20 @@
 					<DroppedItem Name="heartContainer" quantity="1" restore="50"></DroppedItem>
 				</Drops>
 			</Aquamentus>
+
+			<Flame id="1" xLoc="0" yLoc="4">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="rupee" quantity="3"></DroppedItem>
+				</Drops>
+			</Flame>
+			
+			
 		</Enemies>
 
 		<Environment>
