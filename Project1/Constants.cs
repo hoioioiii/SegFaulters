@@ -67,6 +67,24 @@ namespace Project1
         public static int SCREEN_HEIGHT_UPPER = 400;
         public static int SCREEN_HEIGHT_LOWER = 0;
         public static int PAUSED_STATE_YCOORD = ((SCREEN_HEIGHT / 3) * 2);
+        //DOOR INFO
+        public static int DOOR_NORTH_X = 350;
+        public static int DOOR_NORTH_Y = 14;
+        public static int DOOR_SOUTH_X = 352;
+        public static int DOOR_SOUTH_Y = 409;
+        public static int DOOR_WEST_X = 53;
+        public static int DOOR_WEST_Y = 190;
+        public static int DOOR_EAST_X = 688;
+        public static int DOOR_EAST_Y = 190;
+
+        public static int HORIZONTAL_DOOR_WIDTH = 100;
+        public static int HORIZONTAL_DOOR_HEIGHT = 60;
+        public static int VERTICAL_DOOR_WIDTH = HORIZONTAL_DOOR_HEIGHT;
+        public static int VERTICAL_DOOR_HEIGHT = HORIZONTAL_DOOR_WIDTH;
+
+        public static int VERTICAL_EAST_WIDTH = 63;
+        public static int VERTICAL_EAST_HEIGHT = 107;
+
         //HUD STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int SCREEN_HEIGHT = (int)(480 * 1.75);
         public static int HUD_HEIGHT = SCREEN_HEIGHT / 3;
