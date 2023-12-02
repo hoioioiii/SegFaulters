@@ -34,6 +34,7 @@ Known Bugs/Errors
    4. Enemy item drops are buggy.
    5. Missing Power-up selection screen
    6. Items can bounce sometimes and end up triggering the desired effect more than once.
+   7. Sometimes when you use the bomb, it uses up all of it.
 
 
 Tools and Processes 
