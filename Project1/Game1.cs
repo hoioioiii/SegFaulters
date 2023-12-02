@@ -142,8 +142,8 @@ namespace Project1
             //Load XML File
             LevelLoader.Load();
             hudDisplay = new HeadsUpDisplay(GraphicsDevice, Content);
-
-         
+            statsDisplay = new StatsDisplay(GraphicsDevice, Content);
+            //LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
         }
 
 

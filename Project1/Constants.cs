@@ -54,7 +54,7 @@ namespace Project1
         public static int FRAME_BUFFER_X = 0;
 
         public static int SCREEN_WIDTH_UPPER = 600;
-        //*
+        
         public static int SCREEN_WIDTH = 800;
         public static int SCREEN_WIDTH_LOWER = 0;
         public static int SCREEN_HEIGHT_UPPER = 400;
@@ -134,9 +134,15 @@ namespace Project1
         public static int HEALTH_HUD_HEIGHT = (HUD_HEIGHT / 3);
         public static float HEALTH_ROW = 30f;
         public static int ENTITY_HEARTS = 5;
-        public static int DAMAGE_HALF_HEART = 1;
-        public static int DAMAGE_FULL_HEART = 3;
+        public static int DAMAGE_HALF_HEART = 2;
+        public static int DAMAGE_FULL_HEART = 4;
         public static int MAX_FRAGMENTS = 4;
+
+        public static int ATTACK_INCREASE = 1;
+
+
+        public static int STATS_HEIGHT = HUD_HEIGHT / 2;
+        public static int STATS_WIDTH = HUD_SECTION_WIDTH;
 
         public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, bow = 3};
 
@@ -270,7 +276,14 @@ namespace Project1
         public static int BOUNDING_OFFSET_Y = 20;
         public const int LINK_HEARTS = 3;
         public const int LINK_HEARTS_WIDTH = 30;
-
+        public static string ATTACK = "ATK";
+        public static string SPEED = "SPD";
+        public static string CRITICAL_HIT = "CRIT";
+        public static string DEFENSE = "DEF";
+        public static string STAMINA = "SMNA";
+        public static int STATS_TOTAL = 3;
+        public static int DEFAULT_SPEED = 5;
+        public enum WEAPON_ATTACK_AMOUNT { swordAmount = 2, bombAmount = 3, bowAmount = 1, boomerangAmount = 1};
         //Attacking metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public const float ATTACK_SECONDS = 0.5f;
 

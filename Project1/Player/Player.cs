@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Content;
 using static Project1.Constants;
 using System;
 using Project1.HUD;
+using Project1.Stats;
 
 namespace Project1
 {
@@ -57,9 +58,13 @@ namespace Project1
         //this is a temp solution
         //private static bool isDeadState;
 
+
+        //player stats
+        public static PlayerStats playerStats;
+        public static Dictionary<string, int> stats;
+
         public Player()
         {
-
             remainOnScreen = false;
         }
 
@@ -77,6 +82,10 @@ namespace Project1
 
 
             BoundingBox = new Rectangle(0, 0, LINK_BOUNDING_DIMENSION, LINK_BOUNDING_DIMENSION);
+
+            //initialize player stats
+            playerStats = new PlayerStats();
+            stats = PlayerStats.stats;
         }
 
 
@@ -89,6 +98,11 @@ namespace Project1
 
         }
 
+        public static void UpdateStats(GameTime gameTime)
+        {
+            stats = PlayerStats.stats;
+            PlayerStats.UpdateStats(gameTime);
+        }
 
         //change the current frame to the next frame
         public static void Update(GameTime gameTime)
@@ -103,6 +117,9 @@ namespace Project1
             BoundingBox.Location = new Point((int)PlayerMovement.getPosition().X + BOUNDING_OFFSET_X, (int)PlayerMovement.getPosition().Y + BOUNDING_OFFSET_Y);
             // move link to bounding box
             // call collision and pass in link
+
+            //Update player stats
+            UpdateStats(gameTime);
 
             if (isDamaged)
             {
