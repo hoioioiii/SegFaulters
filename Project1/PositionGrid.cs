@@ -10,7 +10,7 @@ namespace Project1
     internal static class PositionGrid
     {
         private static Dictionary<(int, int), (int, int)> gridDict;
-        
+
         public static (int, int) getPosBasedOnGrid(int x, int y)
         {
             return gridDict.GetValueOrDefault((x, y));
@@ -20,9 +20,9 @@ namespace Project1
         {
             gridDict = new Dictionary<(int, int), (int, int)>(); //<(row, col), (posX, posY)>
             //load in blockPositionDictionary 7 rows x 12 columns
-            for (int row = 0; row < 7; row++) //per 7 rows
+            for (int row = 0; row < ROW_TOTAL_MAP; row++) //per 7 rows
             {
-                for (int col = 0; col < 12; col++) //12 columns
+                for (int col = 0; col < COL_TOTAL_MAP; col++) //12 columns
                 {
                     //114, 75 is the starting point of the grid
                     //48 is the width/height of each block

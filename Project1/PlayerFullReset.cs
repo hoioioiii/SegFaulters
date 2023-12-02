@@ -14,7 +14,6 @@ namespace Project1
 {
     public class PlayerFullReset
     {
-
         public static void ResetEntireGame()
         {
 
@@ -23,7 +22,7 @@ namespace Project1
             RoomManager.Load();
             
             Game1.gameStatePlaying = true;
-            Game1.timer = 60 * 3;
+            Game1.timer = RESET_TIME;
 
             MediaPlayer.Stop();
             MediaPlayer.IsRepeating = true;

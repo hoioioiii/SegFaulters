@@ -21,8 +21,6 @@ namespace Project1
         private void DrawPlayer()
         {
 
-            //TODO:Fix later
-            // Player.Draw(, Game1._spriteBatch);
 
         }
         private void DrawIWeapons()
@@ -74,7 +72,6 @@ namespace Project1
                 DrawEnemies();
                 DrawItems();
                 DrawPlayerIWeapons();
-               // DrawPlayer();
         }
 
 

@@ -16,7 +16,6 @@ namespace Project1
         private SpriteFont font;
         private Vector2 coordBase;
         private Rectangle destinationBackground;
-        private Rectangle destinationTitle;
         private float titleHeight;
         public static bool displayStats = false;
         public StatsDisplay(GraphicsDevice graphics, ContentManager content)
@@ -40,13 +39,13 @@ namespace Project1
             {
                 spriteBatch.Draw(backgroundRect, destinationBackground, Color.Black);
                 spriteBatch.DrawString(font, "Player Stats", coordBase, Color.White);
-                Vector2 coordStat = new Vector2(coordBase.X + (STATS_WIDTH / 4), coordBase.Y + titleHeight);
+                Vector2 coordStat = new Vector2(coordBase.X + (STATS_WIDTH / STATS_WIDTH_OFFSET1), coordBase.Y + titleHeight);
                 foreach (KeyValuePair<String, int> Stat in Player.stats)
                 {
                     spriteBatch.DrawString(font, Stat.Key, coordStat, Color.White);
 
                     Vector2 coordStatVal = coordStat;
-                    coordStatVal.X = 2 * (STATS_WIDTH / 3);
+                    coordStatVal.X = STATS_WIDTH_MULTIPLIER * (STATS_WIDTH / STATS_WIDTH_OFFSET2);
                     spriteBatch.DrawString(font, "" + Stat.Value, coordStatVal, Color.White);
 
                     coordStat.Y += (STATS_HEIGHT - titleHeight) / STATS_TOTAL;
