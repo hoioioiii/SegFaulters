@@ -44,11 +44,11 @@ namespace Project1
         
         private void setProperties()
         {
-            switch (direction)//following magic numbers are true magic numbers 
+            switch (direction)
             {
                 //set respective scaling, and texture for the door depending on the direction, and if its locked or not.
                 case DIRECTION.up:
-                    width = 100; height = 60;
+                    width = HORIZONTAL_DOOR_WIDTH; height = HORIZONTAL_DOOR_HEIGHT;
                     if (isTunnel)
                     {
                         if (isLocked)
@@ -63,12 +63,12 @@ namespace Project1
                         texture = textures[(int)DOORTEXTURES.LOCKDOORNORTH];
                     else
                         texture = textures[(int)DOORTEXTURES.DOORNORTH];
-                    xPos = 350 + FRAME_BUFFER_X;
-                    yPos = 14 + FRAME_BUFFER_Y;
+                    xPos = DOOR_NORTH_X + FRAME_BUFFER_X;
+                    yPos = DOOR_NORTH_Y + FRAME_BUFFER_Y;
                     this.direction = DIRECTION.up;
                     break;
                 case DIRECTION.down:
-                    width = 100; height = 60;
+                    width = HORIZONTAL_DOOR_WIDTH; height = HORIZONTAL_DOOR_HEIGHT;
                     if (isTunnel)
                     {
                         if (isLocked)
@@ -83,28 +83,28 @@ namespace Project1
                         texture = textures[(int)DOORTEXTURES.LOCKDOORSOUTH];
                     else
                         texture = textures[(int)DOORTEXTURES.DOORSOUTH];
-                    xPos = 352 + FRAME_BUFFER_X;
-                    yPos = 409 + FRAME_BUFFER_Y;
+                    xPos = DOOR_SOUTH_X + FRAME_BUFFER_X;
+                    yPos = DOOR_SOUTH_Y + FRAME_BUFFER_Y;
                     this.direction = DIRECTION.down;
                     break;
                 case DIRECTION.left:
-                    width = 60; height = 100;
+                    width = VERTICAL_DOOR_WIDTH; height = VERTICAL_DOOR_HEIGHT;
                     if (isLocked)
                         texture = textures[(int)DOORTEXTURES.LOCKDOORWEST];
                     else
                         texture = textures[(int)DOORTEXTURES.DOORWEST];
-                    xPos = 53 + FRAME_BUFFER_X;
-                    yPos = 190 + FRAME_BUFFER_Y;
+                    xPos = DOOR_WEST_X + FRAME_BUFFER_X;
+                    yPos = DOOR_WEST_Y + FRAME_BUFFER_Y;
                     this.direction = DIRECTION.left;
                     break;
                 case DIRECTION.right:
-                    width = 63; height = 107;
+                    width = VERTICAL_EAST_WIDTH; height = VERTICAL_EAST_HEIGHT;
                     if (isLocked)
                         texture = textures[(int)DOORTEXTURES.LOCKDOOREAST];
                     else
                         texture = textures[(int)DOORTEXTURES.DOOREAST];
-                    xPos = 688 + FRAME_BUFFER_X;
-                    yPos = 190 + FRAME_BUFFER_Y;
+                    xPos = DOOR_EAST_X + FRAME_BUFFER_X;
+                    yPos = DOOR_EAST_Y + FRAME_BUFFER_Y;
                     this.direction = DIRECTION.right;
                     break;
                 default:
@@ -112,11 +112,12 @@ namespace Project1
             }
         }
 
-        public void Update() { }
+        public void Update() {
+                //door does not get updated, only block does.
+        }
 
         public void Draw(SpriteBatch spriteBatch) {
             BoundingBox = new Rectangle(xPos, yPos, width, height);
-            //System.Diagnostics.Debug.WriteLine("Direction: " + this.direction + " Width: " + (int)(texture.Width * ratio) + "  Height: " + (int)(texture.Height * ratio));
             if (!invisible)
             spriteBatch.Draw(texture, new Rectangle(xPos, yPos, width, height), Color.White);
 
@@ -149,16 +150,12 @@ namespace Project1
             {
                 case DIRECTION.up:
                     return DIRECTION.down;
-                    break;
                 case DIRECTION.down:
                     return DIRECTION.up;
-                    break;
                 case DIRECTION.left:
                     return DIRECTION.right;
-                    break;
                 case DIRECTION.right:
                     return DIRECTION.left;
-                    break;
                 default: return DIRECTION.down;
                 
             }
