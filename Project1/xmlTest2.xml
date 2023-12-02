@@ -1145,18 +1145,6 @@
 				<Drops>
 				</Drops>
 			</Wallmaster>
-
-			<Snake id="1" xLoc="4" yLoc="4">
-				<Stats>
-					<Health>0</Health>
-					<Strength>0</Strength>
-					<Stamina>0</Stamina>
-					<Damage>0</Damage>
-				</Stats>
-				<Drops>
-					<DroppedItem Name="bomb" quantity="1"></DroppedItem>
-				</Drops>
-			</Snake>
 		</Enemies>
 
 		<Environment>
@@ -1223,10 +1211,30 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupee" quantity="3"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="1"></DroppedItem>
 				</Drops>
 			</Flame>
-			
+			<Flame id="1" xLoc="3" yLoc="4">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+				</Drops>
+			</Flame>
+			<Snake id="1" xLoc="0" yLoc="0">
+				<Stats>
+					<Health>0</Health>
+					<Strength>0</Strength>
+					<Stamina>0</Stamina>
+					<Damage>0</Damage>
+				</Stats>
+				<Drops>
+					<DroppedItem Name="key" quantity="1"></DroppedItem>
+				</Drops>
+			</Snake>
 			
 		</Enemies>
 

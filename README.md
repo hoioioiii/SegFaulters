@@ -16,6 +16,7 @@ Key Controls:
 11. Enter: Select option on game over screen.
 12. Period Key: Pause Menu
 13. Comma Key: Stats Menu
+
 Mouse Control:
    1. Right click: cycle rooms forward.
    2. Left click: cycle rooms backwards.
@@ -32,7 +33,8 @@ Known Bugs/Errors
    3. Cannot click on map to teleport yet
    4. Enemy item drops are buggy.
    5. Missing Power-up selection screen
-   6.
+   6. Items can bounce sometimes and end up triggering the desired effect more than once.
+   7. Sometimes when you use the bomb, it uses up all of it.
 
 
 Tools and Processes 
