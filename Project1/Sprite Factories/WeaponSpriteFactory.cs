@@ -60,13 +60,13 @@ namespace Project1
             //BowSheet[3] = content.Load<Texture2D>("bowRight");
 
             
-            BeehiveSheet[UP] = content.Load<Texture2D>("Hive");
+            BeehiveSheet[UP] = content.Load<Texture2D>("HiveNew");
 
-            HoneycombSheet[UP] = content.Load<Texture2D>("Honeycomb");
-            HoneycombSheet[RIGHT] = content.Load<Texture2D>("Honeycomb");
-            HoneycombSheet[DOWN] = content.Load<Texture2D>("Honeycomb");
-            HoneycombSheet[LEFT] = content.Load<Texture2D>("Honeycomb");
-            HoneycombSheet[4] = content.Load<Texture2D>("Honeycomb");
+            HoneycombSheet[UP] = content.Load<Texture2D>("HoneycombNew");
+            HoneycombSheet[RIGHT] = content.Load<Texture2D>("HoneycombNew");
+            HoneycombSheet[DOWN] = content.Load<Texture2D>("HoneycombNew");
+            HoneycombSheet[LEFT] = content.Load<Texture2D>("HoneycombNew");
+            HoneycombSheet[4] = content.Load<Texture2D>("HoneycombNew");
 
             #region Bee Storage
 

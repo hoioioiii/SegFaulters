@@ -75,7 +75,7 @@ namespace Project1
 
             swordSpriteStorage[0] = content.Load<Texture2D>(assetName: "swordUp");
 
-            BeehiveSpriteStorage[0] = content.Load<Texture2D>(assetName: "orb");
+            BeehiveSpriteStorage[0] = content.Load<Texture2D>(assetName: "HiveNew");
 
 
             // More Content.Load calls follow
