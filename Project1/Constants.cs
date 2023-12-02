@@ -61,7 +61,7 @@ namespace Project1
 
         public static int BG_START_X = 17;
         public static int BG_START_Y = -22;
-        //*
+        
         public static int SCREEN_WIDTH = 800;
         public static int SCREEN_WIDTH_LOWER = 0;
         public static int SCREEN_HEIGHT_UPPER = 400;
@@ -146,10 +146,9 @@ namespace Project1
         public static int DAMAGE_HALF_HEART = 2;
         public static int DAMAGE_FULL_HEART = 4;
         public static int MAX_FRAGMENTS = 4;
-
         public static int ATTACK_INCREASE = 1;
 
-
+        //STATS metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int STATS_HEIGHT = HUD_HEIGHT / 2;
         public static int STATS_WIDTH = HUD_SECTION_WIDTH;
 
@@ -297,6 +296,12 @@ namespace Project1
         //Attacking metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public const float ATTACK_SECONDS = 0.5f;
 
+        //Boomerang Sprite Player Metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int ON_WAY_TIME = 2000;
+        public static int DISTANCE_OFFSET = 10;
+        public static int TOT_FRAME_DEFAULT = 4;
+        public static int TOT_FPS_DEFAULT = 30;
+
         //Sprite metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int SPRITE_X = 350;
         public static int SPRITE_Y = 200;
@@ -427,37 +432,6 @@ namespace Project1
 
         public enum WEAPONS { bomb = 0, bow = 1, boom = 2, sword = 3 };
 
-        //items vars
-
-
-        // for Link's sprite animation
-        // how many animation frames per second, not the framerate of the game
-        //public const float FRAMES_PER_SECOND = 10;
-        //public const float FRAMETIME = 1 / FRAMES_PER_SECOND;
-
-        //public static int SCREEN_WIDTH_UPPER = 700;
-        //public static int SCREEN_WIDTH_LOWER = 0;
-        //public static int SCREEN_HEIGHT_UPPER = 400;
-        //public static int SCREEN_HEIGHT_LOWER = 0;
-
-
-        /*
-         * Link sprite constants:
-         */
-
-        //public enum DIRECTION {right = 0, left = 1, up = 2, down = 3};
-
-        //public static int PLAYER_FRAMES = 4;
-        //public static int PLAYER_R = 1;
-
-        //
-        //public const float INVINCIBILITY_SECONDS = 1;
-        //public const float ATTACK_SECONDS = 0.5f;
-        //public const float FLASHES_PER_SECOND = 8;
-        //public const float FLASHTIME = 1 / FLASHES_PER_SECOND;
-
-
-        //
         public const float BOOMERANG_RANGE = 50;
         public static int TRIFORCE_R = 1;
         public static int TRIFORCE_C = 2;
