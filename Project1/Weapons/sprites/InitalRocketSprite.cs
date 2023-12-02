@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,13 +11,12 @@ using Project1.SmartAI;
 using static Project1.Constants;
 namespace Project1
 {
-    internal class OrbSprite : ISpriteWeapon
+    internal class InitalRocketSprite : ISpriteWeapon
     {
 
         private Texture2D[] texture;
-      
 
-        private bool orbPlaced;
+        private bool rocketPlaced;
         private int current_frame;
 
         private int elapsedTime;
@@ -25,13 +25,14 @@ namespace Project1
         private int height;
 
         private bool completed;
-        private ORB_DIRECTION orbType;
+        private bool drawExplosion;
+        private Direction direction;
         private int offset;
         private Rectangle rec;
         private IMove movement_manager;
         private RangeDetectionToPlayer rangeDetector;
 
-        public OrbSprite(Texture2D[] spriteSheet,(int,int) pos, ORB_DIRECTION orbType)
+        public InitalRocketSprite(Texture2D[] spriteSheet)
         {
             texture = spriteSheet;
             current_frame = 0;
@@ -40,58 +41,59 @@ namespace Project1
             width = spriteSheet[0].Width;
             height = spriteSheet[0].Height;
 
-
-            movement_manager = new WeaponMove(pos.Item1, pos.Item2);
-            this.orbType = orbType;
+            movement_manager = new WeaponMove((int)Player.getPosition().X, (int)Player.getPosition().Y);
             
 
-
-
-            orbPlaced = false;
+            rocketPlaced = false;
             completed = false;
-
+            direction = playerNumToDirection();
             rangeDetector = new RangeDetectionToPlayer(movement_manager, 100);
         }
 
-        private void setOrb()
+        private void setRocket()
         {
-            if(!completed)
-            orbPlaced = true;
+            if (!completed)
+                rocketPlaced = true;
         }
-        private void removeOrb()
+        private void removeRocket()
         {
-            orbPlaced = false;
+            rocketPlaced = false;
         }
 
         public void Attack()
         {
 
             DetermineWeaponState();
-            setOrb();
+            setRocket();
 
         }
 
         private void DetermineWeaponState()
         {
-            if (!orbPlaced)
+            if (!rocketPlaced)
             {
-              placeOffset(); 
-            }  
+                placeOffset();
+            }
         }
-
-
-
 
         public void Update()
         {
             Move();
+
+            if (drawExplosion)
+            {
+
+
+            }
+
         }
-       
+
+        
 
         private void placeOffset()
         {
             filterPlayerPosition();
-            
+
         }
 
         private void drawItem(int x, int y, SpriteBatch spriteBatch)
@@ -109,7 +111,7 @@ namespace Project1
         public void Draw(SpriteBatch spriteBatch)
         {
             Attack();
-            if (orbPlaced)
+            if (rocketPlaced)
             {
                 drawItem(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, spriteBatch);
             }
@@ -119,35 +121,41 @@ namespace Project1
          * filters movement for each orb:
          * 
          */
-        private void filterMovementX()
+        private void filterMovementX(Direction type)
         {
-            
-            int weaponX = movement_manager.getPosition().Item1 - 1;
-            movement_manager.setPosition(weaponX, movement_manager.getPosition().Item2);
+
+            int weaponX = movement_manager.getPosition().Item1;
+            int weaponY = movement_manager.getPosition().Item2;
+            switch (type)
+            {
+                case Direction.Left:
+                    weaponX -= WEAPON_INITAL_SPD;
+                    break;
+                case Direction.Right:
+                    weaponX += WEAPON_INITAL_SPD;
+                    break;
+            }
+
+            movement_manager.setPosition(weaponX, weaponY);
         }
 
-        private void filterMovementY(ORB_DIRECTION type)
+        private void filterMovementY(Direction type)
         {
             //this is going to need to be based on hypotenus
 
             int weaponY = movement_manager.getPosition().Item2;
             switch (type)
             {
-                case ORB_DIRECTION.TOP:
-
-                    weaponY += -1 * offset;
+                case Direction.Up:
+                    weaponY -= WEAPON_INITAL_SPD;
                     break;
-                case ORB_DIRECTION.MIDDLE:
-                    weaponY += 0 * offset;
-                    break;
-                case ORB_DIRECTION.BOTTOM:
-                    weaponY += 2 * offset;
+                case Direction.Down:
+                    weaponY += WEAPON_INITAL_SPD;
                     break;
             }
 
             movement_manager.setPosition(movement_manager.getPosition().Item1, weaponY);
         }
-
 
         private int filterPlayerPosition()
         {
@@ -155,7 +163,7 @@ namespace Project1
 
             //Change in the future:
             //Later change it so in the future, if the player is farther. Have the y have a smaller slope
-            if(playerY < movement_manager.getPosition().Item2)
+            if (playerY < movement_manager.getPosition().Item2)
             {
                 offset = -1;
             }
@@ -163,30 +171,42 @@ namespace Project1
             {
                 offset = 1;
             }
-           
+
             return offset;
 
         }
-       
-        private void filterMoveAll(ORB_DIRECTION type)
+
+        private void filterMoveAll(Direction type)
         {
-            filterMovementX();
+            filterMovementX(type);
             filterMovementY(type);
         }
         private void Move()
         {
-            if(rangeDetector.DetectionField() == RangeTypeToMovement.SEEK)
-            {
-                SeekPlayer.Move(movement_manager.getVector(), movement_manager, SMARTAI_USER.WEAPON);
-            }
-            else
-            {
-                filterMoveAll(orbType);
-            }
+            filterMoveAll(direction);
             checkFinish();
         }
 
-        
+
+        private Direction playerNumToDirection()
+        {
+            int direction = Player.getUserDirection();
+            switch(direction)
+            {
+                case 0:
+                    return Direction.Up;
+                    
+                case 1:
+                    return Direction.Right;
+                 case 2:
+                    return Direction.Down;
+                 case 3:
+                    return Direction.Left;
+                 default:
+                    return Direction.Down;
+            }
+        }
+
 
         public bool finished()
         {
@@ -195,7 +215,7 @@ namespace Project1
 
         private bool FinishConditions()
         {
-            
+
             //If it collides with a wall,
             if (CheckBoundary(movement_manager.getPosition().Item1, roomBoundsMaxX, roomBoundsMinX) || CheckBoundary(movement_manager.getPosition().Item2, roomBoundsMaxY, roomBoundsMinY))
             {
@@ -204,31 +224,57 @@ namespace Project1
 
             //if the time slot is up
             elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-            if (elapsedTime >= 5000)
-            {
-                return true; 
-            }
-            return false;
-        }
-
-        private bool CheckBoundary(int pos, int upperBound, int lowerBound)
-        {
-            if((pos >= upperBound) || (pos <= lowerBound))
+            if (elapsedTime >= 1000)
             {
                 return true;
             }
             return false;
         }
 
-       
+        private bool CheckBoundary(int pos, int upperBound, int lowerBound)
+        {
+            if ((pos >= upperBound) || (pos <= lowerBound))
+            {
+                return true;
+            }
+            return false;
+        }
+
+
         private void checkFinish()
-        { 
+        {
             if (FinishConditions())
             {
-                removeOrb();
+
+                removeRocket();
                 completed = true;
+                //drawExplosion = true;
+                CreateSubWeapons();
             }
         }
+
+        private void CreateSubWeapons()
+        {
+            //(int, int) pos = (movement_manager.getPosition().Item1 + Random.RandomSeconds(), movement_manager.getPosition().Item2 + Random.RandomSeconds());
+            
+            for (int i = 0; i < 5; i++)
+            {
+                (int, int) pos = (movement_manager.getPosition().Item1 + Random.RandomSeconds(), movement_manager.getPosition().Item2 + Random.RandomSeconds());
+                IWeapon topRocket = new Rocket(pos, ORB_DIRECTION.TOP);
+                IWeapon middleRocket = new Rocket(pos, ORB_DIRECTION.MIDDLE);
+                IWeapon botRocket = new Rocket(pos, ORB_DIRECTION.BOTTOM);
+
+                Game1.GameObjManager.addNewPlayerWeapon(topRocket);
+                Game1.GameObjManager.addNewPlayerWeapon(middleRocket);
+                Game1.GameObjManager.addNewPlayerWeapon(botRocket);
+
+                Game1.GameObjManager.addNewDetectionWeapon(topRocket);
+                Game1.GameObjManager.addNewDetectionWeapon(middleRocket);
+                Game1.GameObjManager.addNewDetectionWeapon(botRocket);
+            }
+        }
+
+
 
         public void GetUserPos(int x, int y)
         {

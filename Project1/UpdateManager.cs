@@ -23,6 +23,7 @@ namespace Project1
              UpdateEnemies();
              UpdateIWeapons();
              UpdatePlayerIWeapons();
+             
 
 
             AllCollisionDetection.DetectCollision(Game1.GameObjManager);
@@ -61,6 +62,8 @@ namespace Project1
                 weapons[i].Update();
             }
         }
+
+       
 
         private void UpdateEnemies()
         {

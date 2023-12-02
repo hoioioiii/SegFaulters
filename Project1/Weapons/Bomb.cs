@@ -16,11 +16,15 @@ namespace Project1
     internal class Bomb : IWeapon
     {
         public Rectangle BoundingBox { get; set; }
-
+        public bool detected { set => throw new NotImplementedException(); }
+        public WEAPON_TYPE weaponType { get; private set; }
         private ISpriteWeapon sprite;
+
+        public bool finishEarly { private get; set; }
+
         public Bomb() {
 
-
+            weaponType = WEAPON_TYPE.BOMB;
             sprite = WeaponSpriteFactory.Instance.CreateBombSprite();
         }
 
@@ -44,10 +48,7 @@ namespace Project1
             {
                 Game1.GameObjManager.removePlayerWeapon(this);
             }
-
-
         }
-
         /*
          * Draw
          */
@@ -56,49 +57,24 @@ namespace Project1
             sprite.Draw(Game1._spriteBatch);
         }
 
-
-        //Ignore-----------------------------fix later
-        public void DetermineWeaponState()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetUserPos()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetUserState()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Load()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(int x, int y, Constants.Direction direct)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool finished()
         {
             return sprite.finished();
         }
 
-        public void Draw(int x, int y, Constants.Direction direct)
-        {
-            throw new NotImplementedException();
-        }
+    
 
         public void Attack(int x, int y, Constants.Direction direct)
         {
             throw new NotImplementedException();
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public Rectangle getDetectionFieldRectangle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void storeTarget(IEntity entity)
         {
             throw new NotImplementedException();
         }

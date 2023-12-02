@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Project1.Collision_Response;
-using Project1.Weapons;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -70,6 +69,10 @@ namespace Project1
 
         private static List<IWeapon> weapons;
         private static List<IWeapon> playerWeapons;
+
+        private static List<IWeapon> detectionWeapons;
+
+        private static List<IEntity> detectionEntities;
         ////TODO: change to interface
         /*
          * List of rectangles for collision boxes for enemies
@@ -77,7 +80,7 @@ namespace Project1
          * 
          * TODO: Differentiate between whether weapons belong to Link or an enemy
          */
-        List<IWeaponMelee> weaponMelees = new List<IWeaponMelee>();
+        //List<IWeaponMelee> weaponMelees = new List<IWeaponMelee>();
         //List<IWeaponProjectile> weaponProjectiles = new List<IWeaponProjectile>();
         #endregion
 
@@ -167,6 +170,29 @@ namespace Project1
                 }
 
             }
+
+            
+            foreach (var detectionEntity in detectionEntities)
+            {
+                
+                bool isCollidingX = Player.BoundingBox.Intersects(detectionEntity.DetectionFieldX);
+                bool isCollidingY = Player.BoundingBox.Intersects(detectionEntity.DetectionFieldY);
+                if (isCollidingX || isCollidingY)
+                {
+                    Rectangle detectionBox = (isCollidingX) ? detectionEntity.DetectionFieldX : detectionEntity.DetectionFieldY;
+                    collisionDirection = DetectCollisionDirection(Player.BoundingBox, detectionBox, collisionDirection);
+
+                    #region Print to debug console
+                    System.Text.StringBuilder sb = new StringBuilder();
+                    sb.Append("COLLISION DIRECTION: " + collisionDirection);
+
+                    if (sb.Length > 0)
+                        System.Diagnostics.Debug.WriteLine(sb.ToString());
+                    #endregion
+                }
+                EnemyCollisionResponse.SpikeDetectionResponse(detectionEntity, isCollidingX, isCollidingY);
+            }
+
             foreach (var enemyAttack in weapons)
             {
                 isColliding = Player.BoundingBox.Intersects(enemyAttack.BoundingBox);
@@ -177,6 +203,8 @@ namespace Project1
                     PlayerCollisionResponse.DamageResponse(collisionDirection,true,0);
                 }
             }
+
+
 
 
             /*
@@ -219,20 +247,33 @@ namespace Project1
                         DIRECTION collisionDirection = DIRECTION.left;
                         collisionDirection = DetectCollisionDirection(enemy.BoundingBox, weapon.BoundingBox, collisionDirection);
 
+                        WeaponCollisionResponse.WeaponResponse(weapon);
                         EnemyCollisionResponse.DamageResponse(enemy, collisionDirection);
                     }
                 }
-                //foreach (var weaponProjectile in weaponProjectiles)
-                //{
-                //    isColliding = enemy.BoundingBox.Intersects(weaponProjectile.BoundingBox);
-                //    if (isColliding)
-                //    {
-                //        DIRECTION collisionDirection = DIRECTION.left;
-                //        collisionDirection = DetectCollisionDirection(enemy.BoundingBox, weaponProjectile.BoundingBox, collisionDirection);
+            }
 
-                //        EnemyCollisionResponse.DamageResponse(enemy, collisionDirection);
-                //    }
-                //}
+            foreach (IWeapon weapon in detectionWeapons)
+            {
+                CheckAllEntites(weapon);
+            }
+        }
+
+        
+
+        private static void CheckAllEntites(IWeapon weapon)
+        {
+           
+            foreach (var enemy in entities)
+            {
+                bool isColliding = false;
+                isColliding = enemy.BoundingBox.Intersects(weapon.getDetectionFieldRectangle());
+                if (isColliding)
+                {
+                    DIRECTION collisionDirection = DIRECTION.left;
+                    collisionDirection = DetectCollisionDirection(enemy.BoundingBox, weapon.BoundingBox, collisionDirection);
+                    EnemyCollisionResponse.DetectionResponse(enemy, weapon, collisionDirection);
+                }
             }
         }
         
@@ -263,8 +304,11 @@ namespace Project1
             weapons = new List<IWeapon>(GameOBJ.getWeaponList());
             playerWeapons = new List<IWeapon>(GameOBJ.getPlayerWeaponList());
             roomItems = new List<IItem>(GameOBJ.getItemList());
-
+            detectionWeapons = new List<IWeapon>(GameOBJ.getDetectionWeaponsList());
+            detectionEntities = new List<IEntity>(GameOBJ.getDetectionEntityList());
             roomDoors = new List<Door>(GameOBJ.getDoorList());
+
+
             DetectAllCollisionsLinkEntity();
 
             // IS THIS MAKING THE GAME LAG?

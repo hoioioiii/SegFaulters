@@ -36,6 +36,8 @@ namespace Project1
         }
 
 
+
+
         private void DrawPlayerIWeapons()
         {
             List<IWeapon> weapons = Game1.GameObjManager.getPlayerWeaponList();

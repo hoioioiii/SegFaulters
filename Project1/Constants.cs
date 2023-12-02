@@ -492,6 +492,9 @@ namespace Project1
             BOTTOM
         }
 
+
+       
+
         // Room Transitioning
         public static float CAMERA_TRANSITION_SECONDS = 1.5f;
         public static int TRANSITION_OFFSET_X = 17;
@@ -501,7 +504,8 @@ namespace Project1
         public enum SMARTAI_USER
         {
             ENTITY,
-            WEAPON
+            WEAPON,
+            SPIKE
         }
 
 
@@ -519,9 +523,45 @@ namespace Project1
         public static int RADIUS_FORMULA_POWER_OF_2 = 2;
 
         //WEAPON MOVEMENT TYPE SMART AI--------------------
+        public static int WEAPON_AGGRO_SPD = 2;
 
+        //New Weapons--BEES Laucher:
+        public static int WEAPON_INITAL_SPD = 2;
+        public static int ROCKET_FIELD = 100;
+        public static int BEES_DETECTION_FEILD_WIDTH = 200;
+        public static int BEES_DETECTION_FEILD_HEIGHT = 200;
+        public static int CENTER_RATIO = 2;
+        //Weapons Enums:
+        public enum WEAPON_TYPE
+        {
+            SWORD,
+            ORBS,
+            ARROW,
+            BOMB,
+            BOOMERANGE,
+            ROCKET
+        }
 
-        public static int WEAPON_AGGRO_SPD = 3;
+        public enum SPIKE_ID
+        {
+            TOP_LEFT,
+            TOP_RIGHT,
+            BOTTOM_LEFT,
+            BOTTOM_RIGHT
+        }
+
+        public static (int, int) TL_SPIKE = (0, 0);
+        public static (int, int) TR_SPIKE = (0, 11);
+        public static (int, int) BL_SPIKE = (6, 0);
+        public static (int, int) BR_SPIKE = (6,11);
+
+        public static int SPIKE_WIDTH = 50;
+        public static int SPIKE_HEIGHT = 50;
+        public static int DOUBLE = 2;
+
+        public static int SPIKE_AXIS_X = 0;
+        public static int SPIKE_AXIS_Y = 1;
+
 
 
 

@@ -12,20 +12,20 @@ namespace Project1
 
 
 
-    public class Orb : IWeapon
+    public class InitalRocket : IWeapon
     {
         private ISpriteWeapon sprite;
-
         public Rectangle BoundingBox { get; set; }
         public int attackStat { get; private set; }
         public bool detected { set => throw new NotImplementedException(); }
         public WEAPON_TYPE weaponType { get; private set; }
         public bool finishEarly { private get; set; }
 
-        public Orb((int,int) pos, ORB_DIRECTION positionDirection)
+        public InitalRocket()
         {
-            weaponType = WEAPON_TYPE.ORBS;
-            sprite = WeaponSpriteFactory.Instance.CreateOrbSprite((pos.Item1,pos.Item2),positionDirection);
+            weaponType = WEAPON_TYPE.ROCKET;
+            sprite = WeaponSpriteFactory.Instance.CreateInitalRocketSprite();
+            
             attackStat = 4;
         }
         public void Attack()
@@ -37,11 +37,14 @@ namespace Project1
         {
             sprite.Update();
             BoundingBox = sprite.GetRectangle();
-            if (sprite.finished())
+            if (finished())
             {
-                Game1.GameObjManager.removeWeapon(this);
+               
+                Game1.GameObjManager.removePlayerWeapon(this);
             }
         }
+
+       
 
         public void Draw()
         {
@@ -55,6 +58,7 @@ namespace Project1
 
         public bool finished()
         {
+
             return sprite.finished();
         }
 

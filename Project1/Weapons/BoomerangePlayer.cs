@@ -17,11 +17,14 @@ namespace Project1
         private ISpriteWeapon sprite;
 
         public Rectangle BoundingBox { get; set; }
-
+        public WEAPON_TYPE weaponType { get; private set; }
         public int attackStat { get; private set; }
+        public bool detected { set => throw new NotImplementedException(); }
+        public bool finishEarly { private get; set; }
 
         public BoomerangePlayer()
         {
+            weaponType = WEAPON_TYPE.BOOMERANGE;
             sprite = WeaponSpriteFactory.Instance.CreateBoomerangePlayerSprite();
             attackStat = 2;
         }
@@ -59,43 +62,6 @@ namespace Project1
             sprite.Draw(Game1._spriteBatch);
         }
 
-        public void GetUserPos(int x, int y)
-        {
-            int xPos = (int)Player.getPosition().X;
-            int yPos = (int)Player.getPosition().Y;
-            sprite.GetUserPos(xPos, yPos);
-        }
-
-        public void GetUserState(Direction currUserDirection)
-        {
-            sprite.GetUserState(currUserDirection);
-        }
-
-        /*
-        * Ognore--------------------
-        * 
-        */
-        public void Load()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetUserPos()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetUserState()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DetermineWeaponState()
-        {
-            throw new NotImplementedException();
-        }
-
-
 
         public bool finished()
         {
@@ -108,10 +74,12 @@ namespace Project1
             sprite.Attack();
         }
 
-      
-       
+        public Rectangle getDetectionFieldRectangle()
+        {
+            throw new NotImplementedException();
+        }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void storeTarget(IEntity entity)
         {
             throw new NotImplementedException();
         }

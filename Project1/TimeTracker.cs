@@ -36,7 +36,7 @@ namespace Project1
 
 
             //how long to move b4 commencing a attack -> change out magic numbers later
-            attackPerMovement = 100;
+            attackPerMovement = 100;//This is for dino and all the enemies
 
             stopMoveTime = false;
         }
@@ -121,6 +121,9 @@ namespace Project1
             return false;
         }
 
+
+
+        //Can be factored out later
         public bool CreateAttackAqua()
         {
             elapsed_move__sec += 1;
@@ -153,6 +156,7 @@ namespace Project1
             stopMoveTime = false;
         }
 
+
         public bool PaceTime(int pace)
         {
             if (elapsed_move__sec >= pace)
@@ -161,7 +165,6 @@ namespace Project1
                 return true;
             }
             return false;
-
         }
 
     }

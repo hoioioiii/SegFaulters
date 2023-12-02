@@ -246,5 +246,20 @@ namespace Project1
         {
             return finishAndRemove;
         }
+
+        public Rectangle getDetectionFieldRectangle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MovementChange(bool detected)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void setTarget(IEntity entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

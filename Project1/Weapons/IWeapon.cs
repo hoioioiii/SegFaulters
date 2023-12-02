@@ -13,22 +13,19 @@ namespace Project1
     {
         public Rectangle BoundingBox { get; set; }
 
-        public void Draw(SpriteBatch spriteBatch);
+        public WEAPON_TYPE weaponType { get;}
+        public bool detected { set; }
+        public bool finishEarly { set; }
         public void Attack();
 
-        public void Load();
+       
 
-        public void GetUserPos();
-
-        public void GetUserState();
-
-        public void DetermineWeaponState();
-
+        public Rectangle getDetectionFieldRectangle();
         public void Update();
 
         public void Attack(int x, int y, Direction direct);
         public void Draw();
-
+        public void storeTarget(IEntity entity);
         public bool finished();
     }
 }

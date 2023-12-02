@@ -149,8 +149,14 @@ namespace Project1
         {
             return new OrbSprite(OrbSheet, pos, type);
         }
-
-
+        public ISpriteWeapon CreateRocketSprite((int, int) pos, ORB_DIRECTION type)
+        {
+            return new RocketSprite(OrbSheet, pos, type);
+        }
+        public ISpriteWeapon CreateInitalRocketSprite()
+        {
+            return new InitalRocketSprite(OrbSheet);
+        }
         public ISpriteWeapon CreateSwordSprite()
         {
             return new SwordSpritePlayer(SwordSheet);

@@ -186,7 +186,6 @@ namespace Project1
             if (direction == UP || direction == DOWN)
             {
                 weaponY = WeaponDirectionMovement.moveY(weaponY, direction,spd);
-                //weaponX = WeaponDirectionMovement.moveY(weaponX, direction, 1);
             }
             else
             {
@@ -222,6 +221,21 @@ namespace Project1
         public bool finished()
         {
             return completed;
+        }
+
+        public Rectangle getDetectionFieldRectangle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void MovementChange(bool detected)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void setTarget(IEntity entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -13,39 +13,32 @@ namespace Project1.SmartAI
     {
         //this can be dino attack
 
-        public static void Move(Vector2 entity, Direction direction, IMove move_manager)
+        public static void Move(Vector2 target, IMove move_manager)
         {
+            Vector2 user = new Vector2 (move_manager.getPosition().Item1, move_manager.getPosition().Item2);
+            Vector2 distanceFromTarget = Vector2.Subtract(target, user);
 
-            Vector2 playerVector = Player.getPosition();
-            Vector2 distanceFromPlayer = Vector2.Subtract(playerVector, entity);
+            int weaponX = move_manager.getPosition().Item1;
+            int weaponY = move_manager.getPosition().Item2;
 
-            int enitityX = move_manager.getPosition().Item1;
-            int enitityY = move_manager.getPosition().Item2;
-
-            (int,int) position  = SetNewPosition(distanceFromPlayer, enitityX, enitityY);
+            (int,int) position  = SetNewPosition(distanceFromTarget, weaponX, weaponY);
 
             move_manager.setPosition(position.Item1,position.Item2);
         }
 
-        private static (int,int) SetNewPosition(Vector2 distanceFromPlayer, int enitityX,int enitityY)
+        private static (int,int) SetNewPosition(Vector2 distanceFromEntity, int weaponX, int weaponY)
         {
 
-            if ((Math.Abs(distanceFromPlayer.X) - Math.Abs(distanceFromPlayer.Y)) > 0)
-            {
-                enitityX = newPosition(distanceFromPlayer.X, enitityX, AGGRO_SPD);
-            }
-            else
-            {
-                enitityY = newPosition(distanceFromPlayer.Y, enitityY, AGGRO_SPD);
-            }
-            return (enitityX, enitityY);
+            int newX = newPosition(distanceFromEntity.X, weaponX, WEAPON_AGGRO_SPD);
+            int newY = newPosition(distanceFromEntity.Y, weaponY, WEAPON_AGGRO_SPD);
+            return (newX, newY);
         }
 
-        private static int newPosition(float vectorPos, int entityPos, int SPD)
+        private static int newPosition(float vectorPos, int weaponPos, int SPD)
         {
-            if (Math.Abs(vectorPos) <= CONTACT_POINT) return entityPos;
+            if (Math.Abs(vectorPos) <= CONTACT_POINT) return weaponPos;
             int mod = vectorPos > 0 ? 1 : -1;
-            return entityPos = entityPos + (SPD * mod);
+            return weaponPos = weaponPos + ((SPD + Random.RandomEntitySPDPositiveOnly()) * mod);
         }
     }
 }

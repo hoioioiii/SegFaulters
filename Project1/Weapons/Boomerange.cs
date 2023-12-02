@@ -17,11 +17,14 @@ namespace Project1
         private ISpriteWeapon sprite;
 
         public Rectangle BoundingBox { get; set; }
-
+        public WEAPON_TYPE weaponType { get; private set; }
         public int attackStat { get; private set; }
+        public bool finishEarly { private get; set; }
+        public bool detected { set => throw new NotImplementedException(); }
 
         public Boomerange()
         {
+            weaponType = WEAPON_TYPE.BOOMERANGE;
             sprite = WeaponSpriteFactory.Instance.CreateBoomerangeSprite();
             attackStat = 2;
         }
@@ -31,12 +34,12 @@ namespace Project1
          */
         public void Attack(int x, int y, Direction direct)
         {
-
             GetUserPos(x, y);
             GetUserState(direct);
             sprite.Attack();
-
         }
+
+
         /*
          * Update
          */
@@ -50,7 +53,6 @@ namespace Project1
             {
                 Game1.GameObjManager.removeWeapon(this);
             }
-
         }
         /*
          * 
@@ -62,41 +64,15 @@ namespace Project1
             sprite.Draw(Game1._spriteBatch);
         }
 
-        public void GetUserPos(int x, int y)
+        private void GetUserPos(int x, int y)
         {
             sprite.GetUserPos(x, y);
         }
 
-        public void GetUserState(Direction currUserDirection)
+        private void GetUserState(Direction currUserDirection)
         {
             sprite.GetUserState(currUserDirection);
         }
-
-        /*
-        * Ognore--------------------
-        * 
-        */
-        public void Load()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetUserPos()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetUserState()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DetermineWeaponState()
-        {
-            throw new NotImplementedException();
-        }
-
-
 
         public bool finished()
         {
@@ -109,7 +85,12 @@ namespace Project1
 
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public Rectangle getDetectionFieldRectangle()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void storeTarget(IEntity entity)
         {
             throw new NotImplementedException();
         }

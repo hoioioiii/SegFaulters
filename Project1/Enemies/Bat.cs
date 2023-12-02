@@ -41,42 +41,6 @@ namespace Project1
             this.movement_manager.circularMovement(Direction.Right);
         }
 
-        ///*
-        //* Update the Bat
-        //*/
-        //public void Update()
-        //{
-        //    sprite.Update();
-
-        //}
-
-        //Might need this
-        ///*
-        // * Draw the Bat
-        // */
-        //public void Draw(SpriteBatch spriteBatch)
-        //{
-        //    sprite.Draw(spriteBatch);
-
-        //}
-
-        ///*
-        // * Have Bat Attack
-        // */
-        //public void Attack()
-        //{
-        //   //Attacks
-        //}
-
-        ///*
-        // * Have the Bat drop a Item
-        // */
-        //public void ItemDrop()
-        //{
-        //    //Items they drop
-        //}
-
-        //fix later
         public override Rectangle GetPositionAndRectangle()
         {
             return sprite.GetRectangle().Item2;
@@ -89,11 +53,6 @@ namespace Project1
 
         }
 
-        //public void setPosition(int x, int y)
-        //{
-        //   sprite.setPos(x, y);
-
-        //}
     }
 }
 
