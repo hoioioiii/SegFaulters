@@ -44,7 +44,7 @@ namespace Project1
         
         private void setProperties()
         {
-            switch (direction)
+            switch (direction)//following magic numbers are true magic numbers 
             {
                 //set respective scaling, and texture for the door depending on the direction, and if its locked or not.
                 case DIRECTION.up:
@@ -56,13 +56,13 @@ namespace Project1
                         else
                         {
                             invisible = false;
-                            texture = textures[8];
+                            texture = textures[(int)DOORTEXTURES.TUNNELDOORNORTH];
                         }
                     }
                     else if (isLocked)
-                        texture = textures[4];
+                        texture = textures[(int)DOORTEXTURES.LOCKDOORNORTH];
                     else
-                        texture = textures[3];
+                        texture = textures[(int)DOORTEXTURES.DOORNORTH];
                     xPos = 350 + FRAME_BUFFER_X;
                     yPos = 14 + FRAME_BUFFER_Y;
                     this.direction = DIRECTION.up;
@@ -76,13 +76,13 @@ namespace Project1
                         else
                         {
                             invisible = false;
-                            texture = textures[9];
+                            texture = textures[(int)DOORTEXTURES.TUNNELDOORNORTH];
                         }
                     }
                     else if (isLocked)
-                        texture = textures[5];
+                        texture = textures[(int)DOORTEXTURES.LOCKDOORSOUTH];
                     else
-                        texture = textures[2];
+                        texture = textures[(int)DOORTEXTURES.DOORSOUTH];
                     xPos = 352 + FRAME_BUFFER_X;
                     yPos = 409 + FRAME_BUFFER_Y;
                     this.direction = DIRECTION.down;
@@ -90,9 +90,9 @@ namespace Project1
                 case DIRECTION.left:
                     width = 60; height = 100;
                     if (isLocked)
-                        texture = textures[6];
+                        texture = textures[(int)DOORTEXTURES.LOCKDOORWEST];
                     else
-                        texture = textures[0];
+                        texture = textures[(int)DOORTEXTURES.DOORWEST];
                     xPos = 53 + FRAME_BUFFER_X;
                     yPos = 190 + FRAME_BUFFER_Y;
                     this.direction = DIRECTION.left;
@@ -100,9 +100,9 @@ namespace Project1
                 case DIRECTION.right:
                     width = 63; height = 107;
                     if (isLocked)
-                        texture = textures[7];
+                        texture = textures[(int)DOORTEXTURES.LOCKDOOREAST];
                     else
-                        texture = textures[1];
+                        texture = textures[(int)DOORTEXTURES.DOOREAST];
                     xPos = 688 + FRAME_BUFFER_X;
                     yPos = 190 + FRAME_BUFFER_Y;
                     this.direction = DIRECTION.right;
@@ -115,7 +115,6 @@ namespace Project1
         public void Update() { }
 
         public void Draw(SpriteBatch spriteBatch) {
-            double ratio = 1.3;
             BoundingBox = new Rectangle(xPos, yPos, width, height);
             //System.Diagnostics.Debug.WriteLine("Direction: " + this.direction + " Width: " + (int)(texture.Width * ratio) + "  Height: " + (int)(texture.Height * ratio));
             if (!invisible)

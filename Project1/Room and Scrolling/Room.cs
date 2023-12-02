@@ -39,15 +39,11 @@ namespace Project1
         private void LoadEnvironment()
         {
             (string, (int, int))[] blocks = environmentInfo.Item2;
-            /*(int, int)[] blocksToLoad = new (int, int)[blocks.Length];
-            for (int i = 0; i < blocks.Length; i++)
-            {
-                blocksToLoad[i] = blocks[i].Item2;
-            }*/
+            
             EnvironmentLoader.LoadBlocks(blocks);
 
             ((string, bool), (int, bool))[] doors = environmentInfo.Item1; //((direction, isTunnel),(destinationRoom, isLocked))
-            //TODO: code door loading in, most of the code will be in environment loader
+            
             EnvironmentLoader.LoadDoors(doors);
         }
 
@@ -59,6 +55,7 @@ namespace Project1
                 (int, int) position = enemyInfo.Item2.Item1;
                 (string, int)[] items = enemyInfo.Item2.Item2;
 
+                
                 if(!name.Equals("DEAD"))
                     EntityLoader.LoadEntities(Game1.GameObjManager, enemyInfo.Item1, position, items);
             }
@@ -72,8 +69,8 @@ namespace Project1
                 String name = item.Item1;
                 (int, int) position = item.Item2;
 
-                if (position != (-1, -1))
-                { //-1 -1 is the code for invalid item
+                if (position != INVALID_ITEM)
+                {
                     position = PositionGrid.getPosBasedOnGrid(position.Item1, position.Item2);
                     ItemLoader.LoadAndInitializeItems(name, position, Game1.GameObjManager);
                 }
@@ -117,7 +114,7 @@ namespace Project1
                 string name = n.Item1;
                 if (name.Equals(itemName, StringComparison.InvariantCultureIgnoreCase))
                 {
-                    n.Item2 = (-1, -1);
+                    n.Item2 = INVALID_ITEM;
                     itemArray[i] = n;
                 }
 
