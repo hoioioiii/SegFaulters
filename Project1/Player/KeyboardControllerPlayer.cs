@@ -154,13 +154,17 @@ namespace Project1
             MOVE_MAP[Keys.Up] = new PrevSelection();
             MOVE_MAP[Keys.Down] = new NextSelection();
             MOVE_MAP[Keys.Enter]= new ExecuteSelection();
+            MOVE_MAP[Keys.W] = new PrevSelection();
+            MOVE_MAP[Keys.S] = new NextSelection();
+            
         }
 
         private void ChangeToMovementKeys()
         {
             MOVE_MAP[Keys.Up] = new MoveUp();
             MOVE_MAP[Keys.Down] = new MoveDown();
-
+            MOVE_MAP[Keys.W] = new MoveUp();
+            MOVE_MAP[Keys.S] = new MoveDown();
             MOVE_MAP.Remove(Keys.Enter);
         }
     }

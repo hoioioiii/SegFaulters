@@ -38,59 +38,11 @@ namespace Project1
 
         }
 
-        ///*
-        // * Update the flame
-        // */
-        //public void Update()
-        //{
-        //    sprite.Update();
+        public override void MovementType()
+        {
+            movement_manager.SmartAIDetectionFieldMovement();
 
-        //}
-
-        ///*
-        // * Draw Flame Sprite
-        // */
-        //public void Draw(SpriteBatch spriteBatch)
-        //{
-        //    sprite.Draw(spriteBatch);
-        //}
-
-        ///*
-        // * Maybe not
-        // */
-        //public void Health()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        ///*
-        // * Maybe?
-        // */
-        //public void Attack()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        ///*
-        // * Prob not
-        // */
-        //public void ItemDrop()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-
-        //public Rectangle getPositionAndRectangle()
-        //{
-        //    return sprite.GetRectangle().Item2;
-
-        //}
-
-        //public void setPosition(int x, int y)
-        //{
-        //    sprite.setPos(x, y);
-
-        //}
+        }
     }
 }
 

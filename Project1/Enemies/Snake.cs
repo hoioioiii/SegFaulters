@@ -44,7 +44,14 @@ namespace Project1
 
         }
 
-        
+        public override void MovementType()
+        {
+
+            movement_manager.WanderMove();
+            
+        }
+
+
     }
 }
 
