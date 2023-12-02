@@ -12,7 +12,6 @@ Key Controls:
 7. T: Attack with the bomb.
 8. R: Quit game.
 9. B: Use item in the B box of HUD
-
 10. Arrow Keys: Select options on game over screen.
 11. Enter: Select option on game over screen.
 12. Period Key: Pause Menu
