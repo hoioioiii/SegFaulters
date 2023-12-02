@@ -208,8 +208,13 @@ namespace Project1.Collision_Response
         }
 
         public static int calculateDamage()
+
         {
-            int damageTaken = (int)(DAMAGE_HALF_HEART / Player.stats[DEFENSE]);
+            int damageTaken = 0;
+            if (Player.stats[DEFENSE] >= 1)
+            {
+                damageTaken = (int)(DAMAGE_HALF_HEART / Player.stats[DEFENSE]);
+            }
             if (damageTaken <= 0)
             {
                 damageTaken = DAMAGE_HALF_HEART;

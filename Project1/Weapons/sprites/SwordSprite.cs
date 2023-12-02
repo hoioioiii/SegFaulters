@@ -43,7 +43,7 @@ namespace Project1
         {
             texture = spriteSheet;
             swordPlaced = false;
-            total_frame = 2;
+            total_frame = W_DEFAULT_FRAMES;
             current_frame = 0;
 
             
@@ -127,17 +127,12 @@ namespace Project1
          */
         public void Draw(SpriteBatch spriteBatch)
         {
-
-            
-                width = texture[current_frame].Width;
-                height = texture[current_frame].Height;
-                //System.Diagnostics.Debug.WriteLine("X,Y", userX, userY);
-                Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
-                Rectangle DEST_REC = new Rectangle(weaponX,weaponY, width * SWORD_SCALE, height * SWORD_SCALE);
+            width = texture[current_frame].Width;
+            height = texture[current_frame].Height;
+            Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
+            Rectangle DEST_REC = new Rectangle(weaponX,weaponY, width * SWORD_SCALE, height * SWORD_SCALE);
             rec = DEST_REC;
             spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
-            
-            
             
         }
 
@@ -165,16 +160,16 @@ namespace Project1
             switch (direction)
             {
                 case 0:
-                    current_frame = 0;
+                    current_frame = FRAME2_RIGHT;
                     break;
                 case 1:
-                    current_frame = 1;
+                    current_frame = FRAME2_LEFT;
                     break;
                 case 2:
-                    current_frame = 2;
+                    current_frame = FRAME2_UP;
                     break;
                 case 3:
-                    current_frame = 3;
+                    current_frame = FRAME2_DOWN;
                     break;
             }
         }
