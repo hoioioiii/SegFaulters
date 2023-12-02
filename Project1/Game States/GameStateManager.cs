@@ -67,7 +67,6 @@ namespace Project1
                     break;
                 case GameState.TriforceWinState:
                     TriforceWinningScreen.Update();
-                    new GameRestart().Execute();
                     break;
                 case GameState.GameOverState:
                     GameOverScreen.Update();
@@ -89,6 +88,7 @@ namespace Project1
         {
             if (Inventory.itemInventory[(int)ITEMS.Triforce] == 1)
             {
+                new GameRestart().Execute();
                 GameState = GameState.TriforceWinState;
                 TriforceWinningScreen.TriForceSoundEffect();
             }
