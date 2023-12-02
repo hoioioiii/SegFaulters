@@ -13,7 +13,7 @@ namespace Project1
                 }
             } else if(GameStateManager.GameState == GameState.PausedState)
 			{
-                GameStateManager.PausedScreen.moveSelectorRight();
+                GameStateManager.PausedScreen.MoveSelectorRight();
 
             }
 

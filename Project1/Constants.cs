@@ -566,6 +566,12 @@ namespace Project1
         public static int TOP_ORB = 1;
         public static int MID_ORB = 2;
         public static int BOT_ORB = 3;
+        public static int SPRITE_SCALE = 3;
+        public static int MAX_INVENTORY_SLOTS = 9;
+        public static int ROOMS_ENTERED = 19;
+        public static int BOOMERANG_LOC = 0;
+        public static int BEEHIVE_LOC = 2;
+        public static int BOW_LOC = 3;
         //public static int BEE_HEIGHT = 15;
         //public static int ITEM_DROP_OFFSET = 50;
 
@@ -574,7 +580,7 @@ namespace Project1
         public static string QUIT = "QUIT";
         public static string GAMEOVER = "Game Over";
         public static string ZELDAFONT = "ZeldaFont";
-
+        public static string WINNER = "You Win!";
     }
 }
 

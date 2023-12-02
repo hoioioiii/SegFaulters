@@ -26,7 +26,7 @@ namespace Project1
             //Get direction manager
             directionStateManager = new DirectionState(Direction.Up);
             //get animation manager
-            animationManager = new PlayerAnimation(0, timeManager, directionStateManager,stateManager);
+            //animationManager = new PlayerAnimation(0, timeManager, directionStateManager,stateManager);
             //Get movement manager
             //moveManager = new PlayerMove(animationManager,stateManager,();
             //get inventory manager
