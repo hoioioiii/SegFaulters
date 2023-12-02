@@ -101,7 +101,7 @@ namespace Project1
         private void drawItem(int x, int y, SpriteBatch spriteBatch)
         {
             Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
-            Rectangle DEST_REC = new Rectangle(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, width * LARGER_SIZE, height * LARGER_SIZE);
+            Rectangle DEST_REC = new Rectangle(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2,20,18);
             rec = DEST_REC;
             spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
@@ -125,27 +125,30 @@ namespace Project1
          */
         private void filterMovementX()
         {
-
-            int weaponX = movement_manager.getPosition().Item1 - 1;
+            //this can be fixed later
+            int weaponX = movement_manager.getPosition().Item1 - (Random.RandomBeeSPD());
             movement_manager.setPosition(weaponX, movement_manager.getPosition().Item2);
         }
 
         private void filterMovementY(ORB_DIRECTION type)
         {
-            //this is going to need to be based on hypotenus
 
+            int weaponX = movement_manager.getPosition().Item2;
             int weaponY = movement_manager.getPosition().Item2;
             switch (type)
             {
                 case ORB_DIRECTION.TOP:
 
-                    weaponY += -1 * offset;
+                    weaponY += -(Random.RandomBeeSPD()) * offset;
+                   
                     break;
                 case ORB_DIRECTION.MIDDLE:
-                    weaponY += 0 * offset;
+                    weaponY += -(Random.RandomBeeSPD()) * offset;
+                   
                     break;
                 case ORB_DIRECTION.BOTTOM:
-                    weaponY += 2 * offset;
+                    weaponY += (Random.RandomBeeSPD()) * offset;
+                   
                     break;
             }
 
@@ -154,8 +157,14 @@ namespace Project1
 
         public void setTarget(IEntity entity)
         {
-             detected = true;
-             target = entity;
+            if(entity != null)
+            {
+                detected = true;
+                target = entity;
+            }
+            else{
+                removeTarget();
+            } 
         }
 
         private void removeTarget()
@@ -195,11 +204,9 @@ namespace Project1
         }
         private void Move()
         {
-            //Vector2 targetPosition = new Vector2(target.getPos().Item1, target.getPos().Item2);
-            //SeekEntity.Move(targetPosition, movement_manager);
+        
             CheckIfTargetDetected();
             filterMoveAll(rocketType);
-            checkIfTargetIsAlive();
             checkFinish();
         }
         private void CheckIfTargetDetected()
@@ -213,13 +220,7 @@ namespace Project1
 
         }
 
-        private void checkIfTargetIsAlive()
-        {
-            List<IEntity> existingEntites = Game1.GameObjManager.getEntityList();
-            if (!existingEntites.Contains(target)){
-                removeTarget();
-            }
-        }
+        
 
 
 
@@ -262,13 +263,28 @@ namespace Project1
             {
                 removeRocket();
                 completed = true;
-                //drawExplosion = true;
+             
             }
         }
 
         public Rectangle getDetectionFieldRectangle()
         {
-            return new Rectangle(movement_manager.getPosition().Item1, movement_manager.getPosition().Item2, 300, 300);
+
+            return new Rectangle(GetCenteredBoundingBoxX(), GetCenteredBoundingBoxY(), BEES_DETECTION_FEILD_WIDTH, BEES_DETECTION_FEILD_HEIGHT);
+        }
+
+        private int GetCenteredBoundingBoxY()
+        {
+            
+            int spriteY = movement_manager.getPosition().Item2;
+            return spriteY - ((BEES_DETECTION_FEILD_HEIGHT / CENTER_RATIO) - height / CENTER_RATIO);
+
+        }
+        private int GetCenteredBoundingBoxX()
+        {
+            int spriteX = movement_manager.getPosition().Item1;
+
+            return spriteX - ((BEES_DETECTION_FEILD_WIDTH / CENTER_RATIO) - height / CENTER_RATIO);
         }
 
 

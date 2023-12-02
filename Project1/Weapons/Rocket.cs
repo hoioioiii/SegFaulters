@@ -20,7 +20,7 @@ namespace Project1
         public int attackStat { get; private set; }
 
         public bool detected { private get; set; }
-        private (int, int) target;
+        private IEntity target;
         public WEAPON_TYPE weaponType { get; private set; }
         public bool finishEarly { private get; set; }
 
@@ -38,6 +38,7 @@ namespace Project1
         public void Update()
         {
             sprite.Update();
+            if (detected) checkIfTargetIsAlive();
 
             BoundingBox = sprite.GetRectangle();
             if (sprite.finished() || finishEarly)
@@ -45,6 +46,17 @@ namespace Project1
                 Game1.GameObjManager.removeDetectionWeapon(this);
                 Game1.GameObjManager.removePlayerWeapon(this);
                 
+            }
+        }
+
+        private void checkIfTargetIsAlive()
+        {
+            
+            List<IEntity> existingEntites = Game1.GameObjManager.getEntityList();
+            if (!existingEntites.Contains(target))
+            {
+                sprite.setTarget(null) ;
+                detected = false;
             }
         }
 
@@ -72,6 +84,7 @@ namespace Project1
         {
             if (!detected)
             {
+                target = entity;
                 sprite.setTarget(entity);
             }
         }

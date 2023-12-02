@@ -15,8 +15,22 @@ namespace Project1
         public static int RandomSeconds()
         {
             System.Random rand = new System.Random();
-            int val = rand.Next(3,7);
+            int val = rand.Next(-10,10);
    
+            return val;
+        }
+        public static int RandomBeeSPD()
+        {
+            System.Random rand = new System.Random();
+            int val = rand.Next(-5, 5);
+
+            return val;
+        }
+        public static int RandomEntitySPDPositiveOnly()
+        {
+            System.Random rand = new System.Random();
+            int val = rand.Next(1, 3);
+
             return val;
         }
 

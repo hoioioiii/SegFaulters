@@ -443,10 +443,12 @@ namespace Project1
         //WEAPON MOVEMENT TYPE SMART AI--------------------
         public static int WEAPON_AGGRO_SPD = 2;
 
-        //New Weapons--Rocket Laucher:
+        //New Weapons--BEES Laucher:
         public static int WEAPON_INITAL_SPD = 2;
         public static int ROCKET_FIELD = 100;
-
+        public static int BEES_DETECTION_FEILD_WIDTH = 200;
+        public static int BEES_DETECTION_FEILD_HEIGHT = 200;
+        public static int CENTER_RATIO = 2;
         //Weapons Enums:
         public enum WEAPON_TYPE
         {
@@ -457,6 +459,9 @@ namespace Project1
             BOOMERANGE,
             ROCKET
         }
+
+
+        
 
     }
 }

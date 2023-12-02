@@ -15,7 +15,6 @@ namespace Project1.SmartAI
 
         public static void Move(Vector2 target, IMove move_manager)
         {
-
             Vector2 user = new Vector2 (move_manager.getPosition().Item1, move_manager.getPosition().Item2);
             Vector2 distanceFromTarget = Vector2.Subtract(target, user);
 
@@ -39,7 +38,7 @@ namespace Project1.SmartAI
         {
             if (Math.Abs(vectorPos) <= CONTACT_POINT) return weaponPos;
             int mod = vectorPos > 0 ? 1 : -1;
-            return weaponPos = weaponPos + (SPD * mod);
+            return weaponPos = weaponPos + ((SPD + Random.RandomEntitySPDPositiveOnly()) * mod);
         }
     }
 }
