@@ -63,7 +63,7 @@ namespace Project1.HUD
             keyLableOffsetY = font.MeasureString("B").Y;
 
             //create the selected item array
-            IItem[] tempSelectedItemArray = { new BoomerangItem(((int)coordCountBase.X, (int)coordCountBase.Y)), new BombItem(((int)coordCountBase.X, (int)coordCountBase.Y)), new Key(((int)coordCountBase.X, (int)coordCountBase.Y)), new Bow(((int)coordCountBase.X, (int)coordCountBase.Y)) };
+            IItem[] tempSelectedItemArray = { new BoomerangItem(((int)coordCountBase.X, (int)coordCountBase.Y)), new BombItem(((int)coordCountBase.X, (int)coordCountBase.Y)), new BeehiveItem(((int)coordCountBase.X, (int)coordCountBase.Y)), new Bow(((int)coordCountBase.X, (int)coordCountBase.Y)) };
             selectedItemArray = tempSelectedItemArray;
         }
 
@@ -79,7 +79,7 @@ namespace Project1.HUD
 
         public static void setSelectedItem(USABLE_ITEM type)
         {
-            //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, bow = 3};" enum from constants.cs for this
+            //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, beehive = 2, bow = 3};" enum from constants.cs for this
             userSelectedItem = type;
             selectedItem = selectedItemArray[(int)userSelectedItem];
         }
@@ -150,14 +150,14 @@ namespace Project1.HUD
             sword.Draw(spriteBatch, swordSprite, SPRITE_SIZE);
 
             //Add selected item to item B box
-            //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, bow = 3};" enum from constants.cs for this
+            //Using the "public enum USABLE_ITEM { boomerang = 0, bomb = 1, beehive = 2, bow = 3};" enum from constants.cs for this
             Vector2 selectedSprite = coordKeyLabel;
             selectedSprite.Y += keyLableOffsetY;
             selectedSprite.X -= (itemDestination.Width / 2);
             selectedSprite.X += 3 * keyLableOffsetX;
 
             //key was implemented weirdly so we have to pass location now rather than ealier
-            selectedItemArray[(int)USABLE_ITEM.key] = new Key(((int)selectedSprite.X, (int)selectedSprite.Y));
+            //selectedItemArray[(int)USABLE_ITEM.beehive] = new Key(((int)selectedSprite.X, (int)selectedSprite.Y));
 
             //display the selected item
             selectedItem = selectedItemArray[(int)userSelectedItem];

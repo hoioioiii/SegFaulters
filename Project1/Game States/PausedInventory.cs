@@ -200,7 +200,7 @@ namespace Project1
                     break;
                 case inventoryItems.key:
                     smallboxinventoryitem = new Key(((int)pos.X, (int)pos.Y));
-                    type = USABLE_ITEM.key;
+                    type = USABLE_ITEM.beehive;
                     break;
             }
             InventoryDisplay.setSelectedItem(type);

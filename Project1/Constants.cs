@@ -144,7 +144,7 @@ namespace Project1
         public static int STATS_HEIGHT = HUD_HEIGHT / 2;
         public static int STATS_WIDTH = HUD_SECTION_WIDTH;
 
-        public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, bow = 3};
+        public enum USABLE_ITEM { boomerang = 0, bomb = 1, beehive = 2, bow = 3};
 
         public static int START_FRAME = 0;
         public static double FRAME_SPD = .5 / 4;
@@ -265,6 +265,7 @@ namespace Project1
         public static int SPIKE_C = 1;
 
 
+
         //Player metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int LINK_R = 1;
         public static int LINK_C = 4;
@@ -283,7 +284,7 @@ namespace Project1
         public static string STAMINA = "SMNA";
         public static int STATS_TOTAL = 3;
         public static int DEFAULT_SPEED = 5;
-        public enum WEAPON_ATTACK_AMOUNT { swordAmount = 2, bombAmount = 3, bowAmount = 1, boomerangAmount = 1};
+        public enum WEAPON_ATTACK_AMOUNT { swordAmount = 2, bombAmount = 3, bowAmount = 1, boomerangAmount = 1, beehiveAmount = 1 };
         //Attacking metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public const float ATTACK_SECONDS = 0.5f;
 
@@ -308,8 +309,8 @@ namespace Project1
         public const float INVINCIBILITY_SECONDS = 1; // after damage it goes invisible
 
         //Items metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12 };
-        public static int NUM_ITEMS = 13;
+        public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12, Beehive = 13};
+        public static int NUM_ITEMS = 14;
 
         public static int FAIRY_TOTAL = 2;
         public static int HEART_TOTAL = 2;
@@ -369,6 +370,7 @@ namespace Project1
         public static int HAND_FRAMES_DEATH = 1;
         public static int HAND_C = 1;
 
+
         public static int HEART_R = 1;
         public static int HEART_C = 2;
 
@@ -395,6 +397,8 @@ namespace Project1
 
         public static int ORB_R = 1;
         public static int ORB_C = 3;
+
+        public static int BEEHIVE_TOTAL = 1;
 
 
         public static int LINK_X = 300;

@@ -12,8 +12,8 @@ namespace Project1.Commands
     {
         public void Execute()
         {
-            ICommand[] usableItemArray = { new attackBoomerang(), new atttackBomb(), new keyCommand(), new attackBow() };
-            //{ boomerang = 0, bomb = 1, key = 2, sword = 3}
+            ICommand[] usableItemArray = { new attackBoomerang(), new atttackBomb(), new attackBeehive(), new attackBow() };
+            //{ boomerang = 0, bomb = 1, beehive = 2, bow = 3}
             usableItemArray[(int)InventoryDisplay.getSelectedItem()].Execute();
         }
     }

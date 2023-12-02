@@ -15,6 +15,7 @@ namespace Project1
         private static bool isAttackingWithBoomerang = false;
         private static bool isAttackingWithBow = false;
         private static bool isAttackingWithBomb = false;
+        private static bool isAttackingWithBeehive = false;
         private static int weaponAttackAmount = 0;
 
         public static IWeapon spriteWeapon;
@@ -66,6 +67,18 @@ namespace Project1
                 IWeapon bomb = new Bomb();
                 Game1.GameObjManager.addNewPlayerWeapon(bomb);
                 Inventory.UseItem(ITEMS.Bomb);
+            }
+        }
+
+        public static void attackBeehive()
+        {
+            if (Inventory.itemInventory[(int)ITEMS.Beehive] != 0)
+            {
+                Player.isAttacking = true;
+                isAttackingWithBeehive = true;
+                weaponAttackAmount = (int)WEAPON_ATTACK_AMOUNT.beehiveAmount;
+                //spriteWeapon = new Beehive();
+                //Game1.GameObjManager.addNewPlayerWeapon(spriteWeapon);
             }
         }
 
