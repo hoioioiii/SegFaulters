@@ -26,6 +26,12 @@ namespace Project1
 
         public static String XMLPATH = "..\\..\\..\\xmlTest2.xml";
 
+        //MISC ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int OPTION_ARRAY_SIZE = 2;
+        public static int RESET_TIME = 60 * 3;
+        public static int COL_TOTAL_MAP = 12;
+        public static int ROW_TOTAL_MAP = 7;
+
         //Directions->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public enum Direction
         {
