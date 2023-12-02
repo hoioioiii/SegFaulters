@@ -27,6 +27,8 @@ namespace Project1
         private static Vector2 position;
         public static PausedScreen PausedScreen { get; set; }
         public static TriforceWinningScreen TriforceWinningScreen { get; set; }
+
+        public static PowerupScreen PowerupScreen { get; set; }
         public static GameOverScreen GameOverScreen { get; set; }
         public  GameStateManager() {
 
@@ -49,6 +51,9 @@ namespace Project1
                 case GameState.GameOverState:
                     GameOverScreen.Draw(spritebatch);
                     break;
+                case GameState.PowerUpSelectionState:
+                    PowerupScreen.Draw(spritebatch);
+                    break;
 
             }
         }
@@ -61,6 +66,7 @@ namespace Project1
                 case GameState.DefaultState:
                     checkTriforceState();
                     checkGameOverState();
+                    checkPowerUpSelectionState();
                     break;
                 case GameState.PausedState:
                     PausedScreen.Update();
@@ -70,6 +76,9 @@ namespace Project1
                     break;
                 case GameState.GameOverState:
                     GameOverScreen.Update();
+                    break;
+                case GameState.PowerUpSelectionState:
+                    PowerupScreen.Update();
                     break;
             }
         }
@@ -91,6 +100,12 @@ namespace Project1
                 GameState = GameState.TriforceWinState;
                 TriforceWinningScreen.TriForceSoundEffect();
             }
+        }
+
+        private void checkPowerUpSelectionState()
+        {
+            //where checks for being in the correct room that triggers selection state should go
+            //TODO
         }
         private void checkGameOverState()
         {
@@ -119,4 +134,4 @@ namespace Project1
     }
 }
 
-public enum GameState { DefaultState, TriforceWinState, GameOverState, PausedState } 
+public enum GameState { DefaultState, TriforceWinState, GameOverState, PausedState, PowerUpSelectionState } 
