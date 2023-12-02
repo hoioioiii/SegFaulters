@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using Microsoft.Xna.Framework.Graphics;
 using Project1.Enemies;
 using static Project1.Constants;
@@ -44,7 +42,7 @@ namespace Project1
         public void SetAttackFrame()
         {
             
-           getDirectionArray(direction_manager.getDirection(),playerState.isAttacking, playerState.isMoving);
+           getDirectionArray(direction_manager.GetDirection(),playerState.isAttacking, playerState.isMoving);
             
         }
 
@@ -52,7 +50,7 @@ namespace Project1
 
         public void PopulateFrames()
         {
-            getDirectionArray(direction_manager.getDirection(),false,false);
+            getDirectionArray(direction_manager.GetDirection(),false,false);
         }
 
         private void getDirectionArray(Direction direct, bool isAttack, bool isStill)
@@ -104,7 +102,7 @@ namespace Project1
 
         public void Animate()
         {
-            getDirectionArray(direction_manager.getDirection(),playerState.isAttacking,playerState.isMoving);
+            getDirectionArray(direction_manager.GetDirection(),playerState.isAttacking,playerState.isMoving);
             if (this.time_manager.checkAnimationFrameTime())
             {
                 this.time_manager.resetElaspedMilli();
@@ -125,7 +123,7 @@ namespace Project1
 
             if (direction_change)
             {
-                getDirectionArray(direction_manager.getDirection(),playerState.isAttacking, playerState.isMoving);
+                getDirectionArray(direction_manager.GetDirection(),playerState.isAttacking, playerState.isMoving);
                 direction_change = false;
             }
             if (this.curr_frame >= this.total_frame)

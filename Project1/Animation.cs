@@ -11,12 +11,9 @@ namespace Project1
 {
     public class Animation : IAnimation
     {
-        
 
         private int curr_frame;
-
         private int total_frame;
-
         private ITime time_manager;
         private IDirectionStateManager direction_manager;
 
@@ -28,12 +25,9 @@ namespace Project1
         public List<Texture2D[]> frame_list { private get;  set; }
 
 
-
-        //might change later according to new sprite factory
         public Animation(int frame, ITime time_manager, IDirectionStateManager direct_manager) { 
            
             this.frame_list = null;
-            //this.total_frame = total;
             this.curr_frame = frame;
             this.time_manager = time_manager;
             this.direction_manager = direct_manager;
@@ -44,10 +38,10 @@ namespace Project1
 
         public void PopulateFrames()
         {
-            getDirectionArray(direction_manager.getDirection());
+            GetDirectionArray(direction_manager.GetDirection());
         }
 
-        private void getDirectionArray(Direction direct)
+        private void GetDirectionArray(Direction direct)
         {
             switch (direct)
             {
@@ -66,7 +60,7 @@ namespace Project1
             }
             this.total_frame = frame_list[frame_direct].Length;
 
-            checkCurrentFrame();
+            CheckCurrentFrame();
             this.sprite_frame = frame_list[frame_direct][curr_frame];
         }
 
@@ -74,52 +68,49 @@ namespace Project1
 
         public void Animate()
         {
-            getDirectionArray(direction_manager.getDirection());
+            GetDirectionArray(direction_manager.GetDirection());
             if (this.time_manager.checkAnimationFrameTime())
             {
                 this.time_manager.resetElaspedMilli();
                 this.curr_frame += 1;
             }
-            checkCurrentFrame();
+            CheckCurrentFrame();
             
         }
 
-        public int getCurrentFrame()
+        public int GetCurrentFrame()
         {
             return this.curr_frame;
             
         }
 
-        private void checkCurrentFrame()
+        private void CheckCurrentFrame()
         {
            
             if (direction_change)
             {
-                getDirectionArray(direction_manager.getDirection());
+                GetDirectionArray(direction_manager.GetDirection());
                 direction_change = false;
             }
             if (this.curr_frame >= this.total_frame)
-                //start frame will change depending on new sprite factory
+               
                 this.curr_frame = start_frame;
 
             this.sprite_frame = frame_list[frame_direct][curr_frame];
         }
 
-    
-        //not needed
-        public void setTotalFrame(int frameNum)
+        public void SetTotalFrame(int frameNum)
         {
             total_frame = frameNum;
         }
 
-        //not needed
-        public void setStartFrame(int frameNum)
+        public void SetStartFrame(int frameNum)
         {
 
             start_frame = frameNum;
         }
 
-        public void needSpriteDirectionImage(bool update)
+        public void NeedSpriteDirectionImage(bool update)
         {
             direction_change = update;
         }

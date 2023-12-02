@@ -1,24 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+
 using Project1.Commands;
 using Project1.HUD;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
+
 using static Project1.Constants;
 
 namespace Project1
 {
-    /* Game state manager should be in charge of continuously checking each case that could change the state and then
-     * precisley change it.
-     * 
-     * Current possible game states: DefaultState, TriforceWinState, GameOverState, PausedState.
-     */
+   
     public class GameStateManager
     {
         bool paused;

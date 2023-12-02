@@ -44,10 +44,10 @@ namespace Project1
 
         public void PopulateFrames()
         {
-            getDirectionArray(direction);
+            GetDirectionArray(direction);
         }
 
-        private void getDirectionArray(int direct)
+        private void GetDirectionArray(int direct)
         {
             switch (direct)
             {
@@ -72,7 +72,7 @@ namespace Project1
 
             this.total_frame = frame_list[frame_direct].Length;
 
-            checkCurrentFrame();
+            CheckCurrentFrame();
             this.sprite_frame = frame_list[frame_direct][curr_frame];
         }
 
@@ -80,28 +80,28 @@ namespace Project1
 
         public void Animate()
         {
-            getDirectionArray(direction);
+            GetDirectionArray(direction);
             if (this.time_manager.checkAnimationFrameTime())
             {
                 this.time_manager.resetElaspedMilli();
                 this.curr_frame += 1;
             }
-            checkCurrentFrame();
+            CheckCurrentFrame();
             
         }
 
-        public int getCurrentFrame()
+        public int GetCurrentFrame()
         {
             return this.curr_frame;
             
         }
 
-        private void checkCurrentFrame()
+        private void CheckCurrentFrame()
         {
            
             if (direction_change)
             {
-                getDirectionArray(direction);
+                GetDirectionArray(direction);
                 direction_change = false;
             }
             if (this.curr_frame >= this.total_frame)
@@ -111,20 +111,20 @@ namespace Project1
         }
 
     
-        //not needed
-        public void setTotalFrame(int frameNum)
+      
+        public void SetTotalFrame(int frameNum)
         {
             total_frame = frameNum;
         }
 
-        //not needed
-        public void setStartFrame(int frameNum)
+      
+        public void SetStartFrame(int frameNum)
         {
 
             start_frame = frameNum;
         }
 
-        public void needSpriteDirectionImage(bool update)
+        public void NeedSpriteDirectionImage(bool update)
         {
             direction_change = update;
         }

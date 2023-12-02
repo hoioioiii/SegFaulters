@@ -1,17 +1,9 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mime;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework.Content;
-using System.Collections;
+
 using static Project1.Game1;
-using System.Security.Cryptography.X509Certificates;
+
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 
@@ -567,6 +559,21 @@ namespace Project1
         public static int BEE_WIDTH = 15;
         public static int BEE_HEIGHT = 15;
         public static int ITEM_DROP_OFFSET = 50;
+
+
+        public static int ORB_TIME_ALLOWED = 1000;
+        public static int MAX_ORBS = 3;
+        public static int TOP_ORB = 1;
+        public static int MID_ORB = 2;
+        public static int BOT_ORB = 3;
+        //public static int BEE_HEIGHT = 15;
+        //public static int ITEM_DROP_OFFSET = 50;
+
+
+        public static string RETRY = "RETRY";
+        public static string QUIT = "QUIT";
+        public static string GAMEOVER = "Game Over";
+        public static string ZELDAFONT = "ZeldaFont";
 
     }
 }
