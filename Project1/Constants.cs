@@ -408,6 +408,9 @@ namespace Project1
         public static int ORB_C = 3;
 
         public static int BEEHIVE_TOTAL = 1;
+        public static int BEEHIVE_ARRAY = 1;
+        public static int BEE_ARRAY = 4;
+        public static int HONEYCOMB_ARRAY = 5;
 
 
         public static int LINK_X = 300;
