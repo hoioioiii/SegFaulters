@@ -153,9 +153,9 @@ namespace Project1
                         listOfItems.Remove(item);
                        
 
-                    } else if (item == inventoryItems.key)
+                    } else if (item == inventoryItems.beehive)
                     {
-                        inventoryitem = new Key((x, y));
+                        inventoryitem = new BeehiveItem((x, y));
                         listOfItems.Remove(item);
                         
                     }
@@ -198,9 +198,9 @@ namespace Project1
                     smallboxinventoryitem = new BombItem(((int)pos.X, (int)pos.Y));
                     type = USABLE_ITEM.bomb;
                     break;
-                case inventoryItems.key:
-                    smallboxinventoryitem = new Key(((int)pos.X, (int)pos.Y));
-                    type = USABLE_ITEM.key;
+                case inventoryItems.beehive:
+                    smallboxinventoryitem = new BeehiveItem(((int)pos.X, (int)pos.Y));
+                    type = USABLE_ITEM.beehive;
                     break;
             }
             InventoryDisplay.setSelectedItem(type);
@@ -221,14 +221,14 @@ namespace Project1
                 itemDict.Add(inventoryItems.bow, false);
                 itemDict.Add(inventoryItems.boomerang, false);
                 itemDict.Add(inventoryItems.bomb, false);
-                itemDict.Add(inventoryItems.key, false);
+                itemDict.Add(inventoryItems.beehive, false);
             }
 
             // Update the dictionary based on Player.itemInventory
             UpdateItemStatus(ITEMS.Bow, inventoryItems.bow);
             UpdateItemStatus(ITEMS.Boomerang, inventoryItems.boomerang);
             UpdateItemStatus(ITEMS.Bomb, inventoryItems.bomb);
-            UpdateItemStatus(ITEMS.Key, inventoryItems.key);
+            UpdateItemStatus(ITEMS.Beehive, inventoryItems.beehive);
         }
 
         public List<inventoryItems> GetListOfTrueItems()
@@ -288,5 +288,5 @@ namespace Project1
             selectorSmoother++;
         }
     }
-    public enum inventoryItems { bomb = 1, boomerang = 0, key = 2, bow = 3 } //sword maps to bow for now for HUD
+    public enum inventoryItems { bomb = 1, boomerang = 0, beehive = 2, bow = 3 } //sword maps to bow for now for HUD
 }
