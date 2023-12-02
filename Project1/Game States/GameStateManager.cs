@@ -67,6 +67,7 @@ namespace Project1
                     break;
                 case GameState.TriforceWinState:
                     TriforceWinningScreen.Update();
+                    new GameRestart().Execute();
                     break;
                 case GameState.GameOverState:
                     GameOverScreen.Update();

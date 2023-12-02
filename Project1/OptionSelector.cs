@@ -35,7 +35,7 @@ namespace Project1
 
         private void CreateArrayOfOptions()
         {
-            options = new OPTION[2];
+            options = new OPTION[OPTION_ARRAY_SIZE];
             options[0] = OPTION.RETRY;
             options[1] = OPTION.QUIT;
         }
