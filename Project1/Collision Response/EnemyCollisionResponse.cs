@@ -7,9 +7,7 @@ namespace Project1.Collision_Response
 {
     internal class EnemyCollisionResponse
     {
-        /*
-         * For boundary collision, can't move past/through
-         */
+     
         public static void BoundaryResponse(IEntity enemy, DIRECTION direction)
         {
             Vector2 enemyPosition = new Vector2(enemy.GetPositionAndRectangle().X, enemy.GetPositionAndRectangle().Y);

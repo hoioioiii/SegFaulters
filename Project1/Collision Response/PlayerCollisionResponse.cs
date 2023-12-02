@@ -12,15 +12,7 @@ namespace Project1.Collision_Response
 {
     internal class PlayerCollisionResponse
     {
-        /*
-         * Pass in item
-         * Call item to remove it from the room or
-         * call room manager to do it (which one should?)
-         * 
-         * Place it in Link's inventory or
-         * Change a value (like health)
-         * The last part will be done by the item entity class
-         */
+        
         public static void ItemResponse(IItem item)
         {
             Game1.GameObjManager.removeItem(item);
@@ -28,20 +20,20 @@ namespace Project1.Collision_Response
             //item.drawState = false;
             if (item.GetTypeIndex() == ITEMS.Rupee)
             {
-                if (Inventory.itemInventory[(int)ITEMS.Rupee] % 2 == 0)
+                if (Inventory.itemInventory[(int)ITEMS.Rupee] % DOUBLE == 0)
                 {
-                    PlayerStats.stats["DEF"] += 1;
+                    PlayerStats.stats[DEF] += 1;
                 }
                 AudioManager.PlaySoundEffect(rupeeGet);
             }
             else if (item.GetTypeIndex() == ITEMS.HeartContainer)
             {
-                HealthDisplay.linkHealth.HealHealth(4); //give link full heart
+                HealthDisplay.linkHealth.HealHealth(HEAL_AMNT); //give link full heart
                 AudioManager.PlaySoundEffect(smallItemGet);
             }
             else if (item.GetTypeIndex() == ITEMS.Clock)
             {
-                PlayerMovement.setPlayerSpeed(PlayerMovement.getPlayerSpeed() + 10);
+                PlayerMovement.setPlayerSpeed(PlayerMovement.getPlayerSpeed() + SPD_BUFF);
                 AudioManager.PlaySoundEffect(smallItemGet);
             }
             else if (item.GetTypeIndex() == ITEMS.Fairy)
@@ -55,6 +47,7 @@ namespace Project1.Collision_Response
             }
             Inventory.PickUpItem(item.GetTypeIndex());
         }
+
         //helper method to get player pickupitem method the needed input type
         public static ITEMS IItemtoITEMS(IItem item)
         {
@@ -75,7 +68,7 @@ namespace Project1.Collision_Response
                     break;
                 case Clock:
                     ITEMS = ITEMS.Clock;
-                    PlayerMovement.setPlayerSpeed(PlayerMovement.getPlayerSpeed() + 10);
+                    PlayerMovement.setPlayerSpeed(PlayerMovement.getPlayerSpeed() + SPD_BUFF);
                     AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case Fairy:
@@ -85,7 +78,7 @@ namespace Project1.Collision_Response
                     break;
                 case HeartContainer:
                     ITEMS = ITEMS.HeartContainer;
-                    HealthDisplay.linkHealth.HealHealth(4); //give link full heart
+                    HealthDisplay.linkHealth.HealHealth(HEAL_AMNT); //give link full heart
                     AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case Key:
@@ -106,8 +99,7 @@ namespace Project1.Collision_Response
                 case Triforce:
                     ITEMS = ITEMS.Triforce;
                     break;
-                    // Where is the case for heart?
-                    // AudioManager.PlaySoundEffect(heartGet);
+                 
 
             }
             return ITEMS;
@@ -152,13 +144,7 @@ namespace Project1.Collision_Response
                         break;
                 }
 
-            #region Print to debug console
-            System.Text.StringBuilder sb = new StringBuilder();
-            sb.Append("door direction: " + door.direction);
-
-            if (sb.Length > 0)
-                System.Diagnostics.Debug.WriteLine(sb.ToString());
-            #endregion
+          
 
             RoomManager.SetActiveRoom(door.destinationRoom, door.direction);
 
@@ -173,13 +159,7 @@ namespace Project1.Collision_Response
            
             Vector2 playerPosition = Player.getPosition();
 
-            #region Print to debug console
-            System.Text.StringBuilder sb = new StringBuilder();
-            sb.Append("COLLISION DIRECTION: " + direction);
-
-            if (sb.Length > 0)
-                System.Diagnostics.Debug.WriteLine(sb.ToString());
-            #endregion
+            
 
             playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, PlayerMovement.getPlayerSpeed());
             Player.setPosition(playerPosition);
@@ -199,7 +179,7 @@ namespace Project1.Collision_Response
             HealthDisplay.linkHealth.DamageHealth(calculateDamage());
 
             //IF ROOM 13, SEND BACK TO ROOM 0 UPON GETTING HIT (WALL MASTERS)
-            if (RoomManager.GetCurrentRoomIndex() == 13)
+            if (RoomManager.GetCurrentRoomIndex() == ROOM_THIRTEEN)
             {
                 Player.setPosition(RESPAWN_UP);
                 RoomManager.SetActiveRoom(0, DIRECTION.none);
@@ -209,7 +189,10 @@ namespace Project1.Collision_Response
 
         public static int calculateDamage()
         {
+            
             int damageTaken = (int)(DAMAGE_HALF_HEART / Player.stats[DEFENSE]);
+            
+            
             if (damageTaken <= 0)
             {
                 damageTaken = DAMAGE_HALF_HEART;

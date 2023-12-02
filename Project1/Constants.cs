@@ -660,7 +660,18 @@ namespace Project1
         public static string LOCKED = "Locked";
         public static string IS_TUNNEL = "isTunnel";
         public static string DEAD = "DEAD";
-     
+
+        public static string DEF = "DEF";
+        public static int HEAL_AMNT = 4;
+        public static int SPD_BUFF = 10;
+        public static int ROOM_THIRTEEN = 13;
+        
+
+
+
+
+
+
     }
 }
 
