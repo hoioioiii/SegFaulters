@@ -79,7 +79,6 @@ namespace Project1
                 weaponAttackAmount = (int)WEAPON_ATTACK_AMOUNT.beehiveAmount;
                 //spriteWeapon = new Beehive();
                 //Game1.GameObjManager.addNewPlayerWeapon(spriteWeapon);
-                Inventory.UseItem(ITEMS.Beehive);
             }
         }
 
