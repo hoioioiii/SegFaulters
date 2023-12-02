@@ -44,9 +44,6 @@ namespace Project1
             movement_manager = new WeaponMove(pos.Item1, pos.Item2);
             this.orbType = orbType;
             
-
-
-
             orbPlaced = false;
             completed = false;
 
@@ -153,8 +150,6 @@ namespace Project1
         {
             int playerY = (int)Player.getPositionAndRectangle().Location.Y;
 
-            //Change in the future:
-            //Later change it so in the future, if the player is farther. Have the y have a smaller slope
             if(playerY < movement_manager.getPosition().Item2)
             {
                 offset = -1;
@@ -204,7 +199,7 @@ namespace Project1
 
             //if the time slot is up
             elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-            if (elapsedTime >= 5000)
+            if (elapsedTime >= O_ELAPSED_TIME)
             {
                 return true; 
             }

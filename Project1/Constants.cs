@@ -98,6 +98,13 @@ namespace Project1
 
         public static int B_DEFAULT_FPS = 700;
         public static int B_ON_WAY_TIME = 2000;
+        public static int O_ELAPSED_TIME = 5000;
+
+
+        public static int FRAME2_UP = 2;
+        public static int FRAME2_RIGHT = 0;
+        public static int FRAME2_DOWN = 3;
+        public static int FRAME2_LEFT = 1;
 
         //weapon cardinals
         public static int W_UP = 3;
