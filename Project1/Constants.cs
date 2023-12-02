@@ -26,6 +26,12 @@ namespace Project1
 
         public static String XMLPATH = "..\\..\\..\\xmlTest2.xml";
 
+        //MISC ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int OPTION_ARRAY_SIZE = 2;
+        public static int RESET_TIME = 60 * 3;
+        public static int COL_TOTAL_MAP = 12;
+        public static int ROW_TOTAL_MAP = 7;
+
         //Directions->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public enum Direction
         {
@@ -61,12 +67,30 @@ namespace Project1
 
         public static int BG_START_X = 17;
         public static int BG_START_Y = -22;
-        //*
+        
         public static int SCREEN_WIDTH = 800;
         public static int SCREEN_WIDTH_LOWER = 0;
         public static int SCREEN_HEIGHT_UPPER = 400;
         public static int SCREEN_HEIGHT_LOWER = 0;
         public static int PAUSED_STATE_YCOORD = ((SCREEN_HEIGHT / 3) * 2);
+        //DOOR INFO
+        public static int DOOR_NORTH_X = 350;
+        public static int DOOR_NORTH_Y = 14;
+        public static int DOOR_SOUTH_X = 352;
+        public static int DOOR_SOUTH_Y = 409;
+        public static int DOOR_WEST_X = 53;
+        public static int DOOR_WEST_Y = 190;
+        public static int DOOR_EAST_X = 688;
+        public static int DOOR_EAST_Y = 190;
+
+        public static int HORIZONTAL_DOOR_WIDTH = 100;
+        public static int HORIZONTAL_DOOR_HEIGHT = 60;
+        public static int VERTICAL_DOOR_WIDTH = HORIZONTAL_DOOR_HEIGHT;
+        public static int VERTICAL_DOOR_HEIGHT = HORIZONTAL_DOOR_WIDTH;
+
+        public static int VERTICAL_EAST_WIDTH = 63;
+        public static int VERTICAL_EAST_HEIGHT = 107;
+
         //HUD STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int SCREEN_HEIGHT = (int)(480 * 1.75);
         public static int HUD_HEIGHT = SCREEN_HEIGHT / 3;
@@ -97,6 +121,8 @@ namespace Project1
         public static int KEY_OFFSET = 5;
         public static int SPRITE_SIZE = 2;
         //paused inventory STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int[] ITEM_INVENTORY = { 1, 1, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0 };
+
         public static int MAPOFFSET = 70;
         public static int inventoryTextOffsetX = 130;
         public static int inventoryTextOffsetY = 500;
@@ -122,6 +148,10 @@ namespace Project1
         public static int inventoryRows = 2;
         public static int inventoryCols = 4;
         public static int selectorSmoother = 0;
+        //Stats display->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int STATS_WIDTH_OFFSET1 = 4;
+        public static int STATS_WIDTH_OFFSET2 = 3;
+        public static int STATS_WIDTH_MULTIPLIER = 2;
         //paused map STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int compassPauseTextX = 130;
         public static int compassPauseTextY = 100;
@@ -144,13 +174,17 @@ namespace Project1
         public static int DAMAGE_HALF_HEART = 2;
         public static int DAMAGE_FULL_HEART = 4;
         public static int MAX_FRAGMENTS = 4;
-
         public static int ATTACK_INCREASE = 1;
+        public static int DEFAULT_FULL_HEART = 4;
+        public static int DEFAULT_HALF_HEART = 2;
+        public static int PAUSED_STATE_OFFSET = 3;
+        public static int PAUSED_STATE_MULT = 2;
 
-
+        //STATS metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int STATS_HEIGHT = HUD_HEIGHT / 2;
         public static int STATS_WIDTH = HUD_SECTION_WIDTH;
-
+        public static int COOL_DOWN = 10;
+        
         public enum USABLE_ITEM { boomerang = 0, bomb = 1, beehive = 2, bow = 3 };
 
         public static int START_FRAME = 0;
@@ -295,6 +329,12 @@ namespace Project1
         //Attacking metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public const float ATTACK_SECONDS = 0.5f;
 
+        //Boomerang Sprite Player Metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int ON_WAY_TIME = 2000;
+        public static int DISTANCE_OFFSET = 10;
+        public static int TOT_FRAME_DEFAULT = 4;
+        public static int TOT_FPS_DEFAULT = 30;
+
         //Sprite metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int SPRITE_X = 350;
         public static int SPRITE_Y = 200;
@@ -425,37 +465,6 @@ namespace Project1
 
         public enum WEAPONS { bomb = 0, bow = 1, boom = 2, sword = 3 };
 
-        //items vars
-
-
-        // for Link's sprite animation
-        // how many animation frames per second, not the framerate of the game
-        //public const float FRAMES_PER_SECOND = 10;
-        //public const float FRAMETIME = 1 / FRAMES_PER_SECOND;
-
-        //public static int SCREEN_WIDTH_UPPER = 700;
-        //public static int SCREEN_WIDTH_LOWER = 0;
-        //public static int SCREEN_HEIGHT_UPPER = 400;
-        //public static int SCREEN_HEIGHT_LOWER = 0;
-
-
-        /*
-         * Link sprite constants:
-         */
-
-        //public enum DIRECTION {right = 0, left = 1, up = 2, down = 3};
-
-        //public static int PLAYER_FRAMES = 4;
-        //public static int PLAYER_R = 1;
-
-        //
-        //public const float INVINCIBILITY_SECONDS = 1;
-        //public const float ATTACK_SECONDS = 0.5f;
-        //public const float FLASHES_PER_SECOND = 8;
-        //public const float FLASHTIME = 1 / FLASHES_PER_SECOND;
-
-
-        //
         public const float BOOMERANG_RANGE = 50;
         public static int TRIFORCE_R = 1;
         public static int TRIFORCE_C = 2;

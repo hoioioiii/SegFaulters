@@ -83,12 +83,7 @@ namespace Project1
         {
             return new LinkSprite(link1SpriteStorage, link2SpriteStorage, linkAttackSpriteStorage);
         }
-
-        //this is for later refactor
-        public IPlayerSprite CreateLinkSpriteTest(IAnimationPlayer animation)
-        {
-            return new PlayerSprite(link1SpriteStorage, LinkMovement, linkAttackSpriteStorage,animation);
-        }
+        
 
         // More public ISprite returning methods follow
         // ...

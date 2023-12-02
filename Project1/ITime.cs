@@ -8,12 +8,7 @@ namespace Project1
 {
     public interface ITime
     {
-
-        //public int getTimeMilli()
-
-        //public int getTimeSeconds()  
-
-
+ 
 
         public void UpdateElaspedMilli();
 

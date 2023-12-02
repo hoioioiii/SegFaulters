@@ -151,7 +151,7 @@ namespace Project1.Health
         //Pushed down hearts when paused state
         public void Paused()
         {
-            yCoordState = ((SCREEN_HEIGHT / 3) * 2);
+            yCoordState = ((SCREEN_HEIGHT / PAUSED_STATE_OFFSET) * PAUSED_STATE_MULT);
         }
 
         //Pushed up hearts when reset state
