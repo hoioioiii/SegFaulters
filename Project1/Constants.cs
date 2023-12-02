@@ -596,22 +596,36 @@ namespace Project1
         public static int ATTACK_DURATION = 100;
         public static int ATTACK_PER_MOVEMENT = 100;
         public static int MS_PER_FRAME = 300;
-    
+
+        public static int RANDOM_SECONDS_MIN = -10;
+        public static int RANDOM_SECONDS_MAX = 10;
+        public static int RANDOM_BEE_SPD_MIN = -5;
+        public static int RANDOM_BEE_SPD_MAX = 5;
+        public static int RANDOM_SPD_POS_MIN = 1;
+        public static int RANDOM_SPD_POS_MAX = 3;
+        public static int RANDOM_LOWER_MIN = 0;
+        public static int RANDOM_LOWER_MAX = 1000;
+        public static int RANDOM_UPPER_MIN = 1000;
+        public static int RANDOM_UPPER_MAX = 2000;
+        public static int RANDOM_ORIGIN_OFFSET_MIN = -15;
+        public static int RANDOM_ORIGIN_OFFSET_MAX = 15;
+        public static int RANDOM_RADIUS_MIN = 0;
+        public static int RANDOM_RADIUS_MAX = 15;
+
+        public static int RANDOM_DIRECTION_MIN = 1;
+        public static int RANDOM_DIRECTION_MAX = 4;
+
 
         public static string RETRY = "RETRY";
         public static string QUIT = "QUIT";
         public static string GAMEOVER = "Game Over";
         public static string ZELDAFONT = "ZeldaFont";
         public static string WINNER = "You Win!";
-
-
-
         public static string ROOM = "Room";
         public static string ENEMIES = "Enemies";
         public static string ENVIRONMENT = "Environment";
         public static string ITEMS_STRING = "Items";
         public static string XLOC = "xLoc";
-
         public static string YLOC = "yLoc";
         public static string DROPS = "Drops";
         public static string NAME = "Name";
