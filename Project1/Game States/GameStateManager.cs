@@ -88,6 +88,7 @@ namespace Project1
         {
             if (Inventory.itemInventory[(int)ITEMS.Triforce] == 1)
             {
+                new GameRestart().Execute();
                 GameState = GameState.TriforceWinState;
                 TriforceWinningScreen.TriForceSoundEffect();
             }

@@ -40,36 +40,17 @@ namespace Project1
             texture = spriteSheet;
             bombPlaced = false;
             explode = false;
-            total_frame = 2;
+            total_frame = W_DEFAULT_FRAMES;
             current_frame = 0;
-            fps = 700;
+            fps = B_DEFAULT_FPS;
             
             onScreen = 0;
             
             remainOnScreen = true;
             finishAndRemove = false;
 
-            //time = new TimeSpan();
-            //time.Add(Game1.timeProj.TotalGameTime);
-
             DetermineWeaponState();
         }
-
-        //private void CheckOnScreen()
-        //{
-        //    CheckTime();
-        //    if (onScreen > 1000)
-        //    {
-        //        remainOnScreen = false;
-        //        finishAndRemove = true;
-        //    }
-        //}
-
-        //private void CheckTime()
-        //{
-        //    onScreen += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-        //    System.Diagnostics.Debug.WriteLine("test onScreen" + onScreen);
-        //}
 
         /*
          * Place bomb

@@ -76,7 +76,7 @@ namespace Project1
                         else
                         {
                             invisible = false;
-                            texture = textures[(int)DOORTEXTURES.TUNNELDOORNORTH];
+                            texture = textures[(int)DOORTEXTURES.TUNNELDOORSOUTH];
                         }
                     }
                     else if (isLocked)

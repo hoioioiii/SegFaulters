@@ -41,12 +41,12 @@ namespace Project1
         {
             texture = spriteSheet;
             ArrowPlaced = false;
-            total_frame = 2;
+            total_frame = W_DEFAULT_FRAMES;
             current_frame = 0;
-            fps = 300;
+            fps = W_DEFAULT_FPS;
 
             completed = false;
-            spd = 2;
+            spd = W_DEFAULT_SPD;
         }
 
 
@@ -141,10 +141,6 @@ namespace Project1
             userY = (int)posVec.Y;
         }
 
-
-
-
-
         /*
          * Get user directions
          */
@@ -156,19 +152,19 @@ namespace Project1
             switch (direction)
             {
                 case 0:
-                    current_frame = 0;
+                    current_frame = FRAME_UP;
 
                     break;
                 case 1:
-                    current_frame = 1;
+                    current_frame = FRAME_RIGHT;
                     break;
 
                 case 2:
-                    current_frame = 2;
+                    current_frame = FRAME_DOWN;
 
                     break;
                 case 3:
-                    current_frame = 3;
+                    current_frame = FRAME_LEFT;
 
                     break;
             }
@@ -179,7 +175,6 @@ namespace Project1
         /*
          * Arrow moves accross screen
          */
-        //NEED TO FIX WEAPON-DIRECT-MOVEMENT to reflect new linkdirection variable
         private void Move()
         {
            
