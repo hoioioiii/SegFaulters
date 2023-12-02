@@ -169,12 +169,16 @@ namespace Project1
         public static int DAMAGE_FULL_HEART = 4;
         public static int MAX_FRAGMENTS = 4;
         public static int ATTACK_INCREASE = 1;
+        public static int DEFAULT_FULL_HEART = 4;
+        public static int DEFAULT_HALF_HEART = 2;
+        public static int PAUSED_STATE_OFFSET = 3;
+        public static int PAUSED_STATE_MULT = 2;
 
         //STATS metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int STATS_HEIGHT = HUD_HEIGHT / 2;
         public static int STATS_WIDTH = HUD_SECTION_WIDTH;
         public static int COOL_DOWN = 10;
-
+        
         public enum USABLE_ITEM { boomerang = 0, bomb = 1, beehive = 2, bow = 3 };
 
         public static int START_FRAME = 0;

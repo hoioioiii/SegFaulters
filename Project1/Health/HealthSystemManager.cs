@@ -20,7 +20,7 @@ namespace Project1.Health
             //create heartAmount of hearts
             for (int i = 0; i < heartsAmount; i++)
             {
-                Heart individualHeart = new Heart(4); //start all hearts as full
+                Heart individualHeart = new Heart(DEFAULT_FULL_HEART); //start all hearts as full
                 heartList.Add(individualHeart);
             }
         }
