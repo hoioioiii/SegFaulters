@@ -4,53 +4,37 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using static Project1.Constants;
 namespace Project1
 {
     public class TimeTracker: ITime
     {
-        //factor out into constants class
-        private static int ms_per_frame_animation = 300;
-        private static int weapon_screen_life_sec;
-
+   
 
         private int elapsedTime_sec;
         private int movement_timeframe_sec;
         private int elapsed_move__sec;
         private int elapsedTime_milli;
-        private int attackDuration;
-        private int attackPerMovement;
+     
         private bool stopMoveTime;
 
-        //bool to determine if object is weapon, might factor out to a subclass later
-        private bool obj_weapon;
+     
 
         public TimeTracker(bool is_weapon) {
 
             elapsedTime_milli = 0;
             elapsedTime_sec = 0;
-            obj_weapon = is_weapon;
-
-            //this is in milliseconds -> change out magic numbers later// may not be needed actually
-            attackDuration = 100;
-
-
-            //how long to move b4 commencing a attack -> change out magic numbers later
-            attackPerMovement = 100;//This is for dino and all the enemies
-
             stopMoveTime = false;
         }
 
 
-        private int getTimeMilli()
+        private int GetTimeMilli()
         {
-
-            
             return Game1.deltaTime.ElapsedGameTime.Milliseconds;
         }
 
 
-        private int getTimeSeconds()
+        private int GetTimeSeconds()
         {
             return Game1.deltaTime.ElapsedGameTime.Seconds;
         }
@@ -58,36 +42,38 @@ namespace Project1
         public void UpdateElaspedMilli()
         {
 
-            elapsedTime_milli += getTimeMilli();
+            elapsedTime_milli += GetTimeMilli();
         }
 
 
         public void UpdateElaspedSec()
         {
-            elapsedTime_sec += getTimeSeconds();
+            elapsedTime_sec += GetTimeSeconds();
         }
 
 
-        public void resetElaspedMilli()
+        public void ResetElaspedMilli()
         {
-            elapsedTime_milli -= ms_per_frame_animation ;
+            elapsedTime_milli -= MS_PER_FRAME;
         }
 
 
-        public void resetElaspedSec()
+        public void ResetElaspedSec()
         {
-            elapsedTime_sec -= ms_per_frame_animation;
+            elapsedTime_sec -= MS_PER_FRAME;
         }
 
 
-        public bool checkAnimationFrameTime()
+        public bool CheckAnimationFrameTime()
         {
            UpdateElaspedMilli();
-           return elapsedTime_milli >= ms_per_frame_animation;
+           return elapsedTime_milli >= MS_PER_FRAME;
             
         }
-        //check if direction change is needed for wandering movement
-        public bool checkRandMovementTime()
+       
+
+
+        public bool CheckRandMovementTime()
         {
              if (elapsed_move__sec >= Random.RandomMilli())
             {
@@ -97,10 +83,10 @@ namespace Project1
             return false;
         }
 
-        public bool checkIfAttackTime()
+        public bool CheckIfAttackTime()
         {
             elapsed_move__sec += 1;
-            if (elapsed_move__sec >= attackPerMovement)
+            if (elapsed_move__sec >= ATTACK_PER_MOVEMENT)
             {
                 elapsed_move__sec = 0;
                 stopMoveTime = true;
@@ -109,7 +95,7 @@ namespace Project1
             return false;
         }
 
-        public bool checkIfAttackTimeRandom()
+        public bool CheckIfAttackTimeRandom()
         {
             elapsed_move__sec += 1;
             if (elapsed_move__sec >= Random.RandomMilli())
@@ -122,8 +108,6 @@ namespace Project1
         }
 
 
-
-        //Can be factored out later
         public bool CreateAttackAqua()
         {
             elapsed_move__sec += 1;
@@ -136,14 +120,14 @@ namespace Project1
             return false;
         }
 
-        //Set time for movement duration in 1 direction for wandering movement
-        public void setRandMovementTimeFrame()
+       
+        public void SetRandMovementTimeFrame()
         {
            movement_timeframe_sec =  Random.RandomMilli();
         }
 
-        //Keeps track of the time spent moving
-        public void updateElapsedMoveTime()
+       
+        public void UpdateElapsedMoveTime()
         {
             if(!stopMoveTime)
             {
@@ -151,7 +135,7 @@ namespace Project1
             }
         }
 
-        public void enableMoveTime()
+        public void EnableMoveTime()
         {
             stopMoveTime = false;
         }

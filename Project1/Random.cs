@@ -15,21 +15,21 @@ namespace Project1
         public static int RandomSeconds()
         {
             System.Random rand = new System.Random();
-            int val = rand.Next(-10,10);
+            int val = rand.Next(RANDOM_SECONDS_MIN, RANDOM_SECONDS_MAX);
    
             return val;
         }
         public static int RandomBeeSPD()
         {
             System.Random rand = new System.Random();
-            int val = rand.Next(-5, 5);
+            int val = rand.Next(RANDOM_BEE_SPD_MIN, RANDOM_BEE_SPD_MAX);
 
             return val;
         }
         public static int RandomEntitySPDPositiveOnly()
         {
             System.Random rand = new System.Random();
-            int val = rand.Next(1, 3);
+            int val = rand.Next(RANDOM_SPD_POS_MIN, RANDOM_SPD_POS_MAX);
 
             return val;
         }
@@ -37,7 +37,7 @@ namespace Project1
         public static int RandomLower()
         {
             System.Random rand = new System.Random();
-            int val = rand.Next(0, 1000);
+            int val = rand.Next(RANDOM_LOWER_MIN, RANDOM_LOWER_MAX);
 
             return val;
         }
@@ -45,7 +45,7 @@ namespace Project1
         public static int RandomUpper()
         {
             System.Random rand = new System.Random();
-            int val = rand.Next(1000, 2000);
+            int val = rand.Next(RANDOM_UPPER_MIN, RANDOM_UPPER_MAX);
 
             return val;
         }
@@ -82,7 +82,7 @@ namespace Project1
         public static int RandomOriginOffset()
         {
             System.Random rand = new System.Random();
-            int val = rand.Next(-15, 15);
+            int val = rand.Next(RANDOM_ORIGIN_OFFSET_MIN, RANDOM_ORIGIN_OFFSET_MAX);
 
             return val;
         }
@@ -90,7 +90,7 @@ namespace Project1
         public static int RandomRadius()
         {
             System.Random rand = new System.Random();
-            int val = rand.Next(0, 15);
+            int val = rand.Next(RANDOM_RADIUS_MIN, RANDOM_RADIUS_MAX);
 
             return val;
         }
@@ -99,7 +99,7 @@ namespace Project1
         {
             System.Random rand = new System.Random();
 
-            int val = rand.Next(1, 4);
+            int val = rand.Next(RANDOM_DIRECTION_MIN, RANDOM_DIRECTION_MAX);
             
             switch (val)
             {

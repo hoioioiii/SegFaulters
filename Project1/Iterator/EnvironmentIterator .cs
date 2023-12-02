@@ -1,13 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-
+using static Project1.Constants;
 namespace Project1
 {
     public class EnvironmentIterator : IListIterate
@@ -23,9 +16,9 @@ namespace Project1
             //create iterator here
             GAME_OBJ = game1;
             Load();
-            pointer = 2;
+            pointer = ENVIRONMENT_START;
 
-            //Game1.CurrentEnvironment = new CurrentBlock(texture2D[0]);
+       
         }
 
 
@@ -65,21 +58,21 @@ namespace Project1
             switch (name)
             {
                 case ("DragonBlock"):
-                    return texture2D[11];
+                    return texture2D[DRAGON_POSITION];
                 case ("FishBlock"):
-                    return texture2D[12];
+                    return texture2D[FISH_POS];
                 case ("CarpetBlock"):
-                    return texture2D[7];
+                    return texture2D[CARPET_POS];
                 case ("BrickBlock"):
-                    return texture2D[2];
+                    return texture2D[BRICK_POS];
                 case ("Water"):
-                    return texture2D[13];
+                    return texture2D[WATER_POS];
                 case ("Staircase"):
-                    return texture2D[6];
+                    return texture2D[STARICASE_POS];
                 case ("BlackRoom"):
-                    return texture2D[14];
+                    return texture2D[BLACKROOM_POS];
                 default:
-                    return texture2D[10];
+                    return texture2D[DEFAULT_POS];
             }
         }
 
@@ -87,7 +80,7 @@ namespace Project1
         {
             Texture2D drawItem = texture2D[pointer];
 
-            spriteBatch.Draw(drawItem, new Vector2(200, 200), Color.White);
+            spriteBatch.Draw(drawItem, new Vector2(DUMMY_NUMBER, DUMMY_NUMBER), Color.White);
 
         }
 

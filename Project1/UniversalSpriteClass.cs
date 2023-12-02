@@ -80,6 +80,7 @@ namespace Project1
             rectangles.Item2 = new Rectangle(x, y, width, height);
         }
 
+
         public (Rectangle, Rectangle) GetRectangle()
         {
             return rectangles;

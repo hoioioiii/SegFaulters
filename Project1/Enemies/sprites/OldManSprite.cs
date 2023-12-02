@@ -10,9 +10,7 @@ namespace Project1
     public class OldManSprite : UniversalSpriteClass
     {
         
-        /*
-         * Initalize old man
-         */
+        
         public OldManSprite(List<Texture2D[]> spriteSheet, IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time) : base(spriteSheet,animation, movement, state, direction, time)
         {
             animation.frame_list = spriteSheet;

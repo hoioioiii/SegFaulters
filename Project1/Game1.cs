@@ -34,7 +34,6 @@ namespace Project1
         public static IListIterate EnvironmentIterator;
         public static GameTime deltaTime;
 
-        //these 3 need to handled by game state manager
         public static bool gameStatePlaying;
         public static OptionSelector selectionManager;
         public static int timer;
@@ -53,7 +52,7 @@ namespace Project1
         {
             _graphics = new GraphicsDeviceManager(this);
             selectionManager = new OptionSelector();
-            _graphics.PreferredBackBufferHeight = (int)(480 * 1.75);
+            _graphics.PreferredBackBufferHeight = DEFAULT_BUFFER;
             Content.RootDirectory = "Content";
             contentLoader = Content;
             IsMouseVisible = true;
@@ -61,8 +60,7 @@ namespace Project1
 
             gameStatePlaying = true;
 
-            //temp fix -- fix later
-            timer = 60 * 3;
+            timer = DEFAULT_TIMER;
         }
 
 
@@ -80,23 +78,6 @@ namespace Project1
             ControllerList.Add(new KeyboardControllerPlayer(this));
             ControllerList.Add(new MouseController(this));
 
-            //move out to keyboard
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-            if (state.IsKeyDown(Keys.Escape))
-            {
-                Exit();
-            }
-
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-            if (state.IsKeyDown(Keys.Escape))
-            {
-                Exit();
-            }
-
             GameObjManager = new ActiveObjects();
             UpdateManager = new UpdateManager();
             DrawManager = new DrawManager();
@@ -105,14 +86,10 @@ namespace Project1
             Player.Initialize();
             Camera.Initialize();
 
-
-           
-
-
             base.Initialize();
         }
 
-        //clean
+     
         protected override void LoadContent()
         {
             PositionGrid.createMap();
@@ -143,9 +120,6 @@ namespace Project1
             LevelLoader.Load();
             hudDisplay = new HeadsUpDisplay(GraphicsDevice, Content);
             statsDisplay = new StatsDisplay(GraphicsDevice, Content);
-            //LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
-            //------Delete Above Later-------------(B4 turning in sprint 5)
-
         }
 
 
@@ -183,8 +157,6 @@ namespace Project1
                 {
                     hudDisplay.Update(false);
 
-
-                    //this needs to be moved into update manager
                     Player.Update(gameTime);
                     EnvironmentLoader.Update();
                     UpdateManager.Update();
@@ -235,13 +207,13 @@ namespace Project1
                 Player.Draw(gameTime, _spriteBatch);
                 hudDisplay.Draw(_spriteBatch);
                 DrawManager.Draw();
-                //PausedScreen.Draw(_spriteBatch);
+
             }
             else if (GameStateManager.GameState == GameState.PausedState)
             {
                 _spriteBatch.Begin(transformMatrix: Camera.Transform);
                 hudDisplay.Draw(_spriteBatch);
-                //PausedScreen.Draw(_spriteBatch);
+
             }
             else
             {
@@ -252,8 +224,6 @@ namespace Project1
                 {
                     EnvironmentLoader.Draw(_spriteBatch);
 
-
-                    //needs to be given to draw manager
                     Player.Draw(gameTime, _spriteBatch);
 
                     DrawManager.Draw();

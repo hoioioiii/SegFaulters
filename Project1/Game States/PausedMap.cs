@@ -22,27 +22,12 @@ namespace Project1
         private Texture2D greenSquareOnMap;
         private Texture2D pausedMap;
 
-        private static List<bool> roomsEntered = new List<bool>(18);
-        /*private static int compassPauseTextX = 130;
-        private static int compassPauseTextY = 100;
-        private static int mapItemX = 210;
-        private static int mapItemY = 180;
-        private static int mapPauseTextX = 180;
-        private static int mapPauseTextY = 230;
-        private static int pausedMapX = 410;
-        private static int pausedMapY = 230 + MAPOFFSET;
-
-        private static int spriteScaleOffset1 = 100;
-        private static int greenBoxOffset = 3;
-        private static int locationDisplayOffSetX = 470;
-        private static int locationDisplayOffSetY = 280 - MAPOFFSET;
-        private static int totalRooms = 18;
-        */
+        private static List<bool> roomsEntered = new List<bool>(TOTAL_ROOMS);
+       
         private Vector2 compassPauseTextPos;
         private Vector2 mapItemPos;
         private Vector2 mapPauseTextPos;
-        private Vector2 blackSquareRoomPos;
-        private Vector2 greenSquareOnMapPos;
+        
         private Vector2 pausedMapPos;
 
         private static int activeRoomNumber;
@@ -53,9 +38,8 @@ namespace Project1
 
         public PausedMap(GraphicsDevice graphics, ContentManager content)
         {
-            //assigning scale factors
-            //is 580px
-            screenMaxHeight = graphics.Viewport.Height * 2 / 3;
+            
+            screenMaxHeight = graphics.Viewport.Height * DOUBLE / SPRITE_SCALE;
 
             spriteScale = 2;
             compassPauseText = content.Load<Texture2D>(assetName: "compassPauseText");
@@ -63,11 +47,11 @@ namespace Project1
             mapPauseText = content.Load<Texture2D>(assetName: "mapPauseText");
             blackSquareRoom = content.Load<Texture2D>(assetName: "blackSquareRoom");
 
-            // TODO: FIX THESE TWO ASSETS!!!
+           
             greenSquareOnMap = content.Load<Texture2D>(assetName: "greenSquareOnMap");
             pausedMap = content.Load<Texture2D>(assetName: "pausedMap");
 
-            for (int i = 0; i < 19; i++)
+            for (int i = 0; i < ROOMS_ENTERED; i++)
             {
                 roomsEntered.Add(false);
             }
@@ -114,19 +98,12 @@ namespace Project1
 
         }
 
-
-
-
-
-
-
-
-        public void moveSelectorLeft()
+        public void MoveSelectorLeft()
         {
             //no-op
         }
 
-        public void moveSelectorRight()
+        public void MoveSelectorRight()
         {
             //no-op
         }
