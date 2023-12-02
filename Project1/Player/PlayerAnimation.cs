@@ -42,7 +42,7 @@ namespace Project1
         public void SetAttackFrame()
         {
             
-           getDirectionArray(direction_manager.GetDirection(),playerState.isAttacking, playerState.isMoving);
+           GetDirectionArray(direction_manager.GetDirection(),playerState.isAttacking, playerState.isMoving);
             
         }
 
@@ -50,10 +50,10 @@ namespace Project1
 
         public void PopulateFrames()
         {
-            getDirectionArray(direction_manager.GetDirection(),false,false);
+            GetDirectionArray(direction_manager.GetDirection(),false,false);
         }
 
-        private void getDirectionArray(Direction direct, bool isAttack, bool isStill)
+        private void GetDirectionArray(Direction direct, bool isAttack, bool isStill)
         {
             switch (direct)
             {
@@ -71,12 +71,12 @@ namespace Project1
                     break;
             }
 
-            changeCurrentSpriteFrames(isStill,isAttack);
+            ChangeCurrentSpriteFrames(isStill,isAttack);
             
             
         }
 
-        private void changeCurrentSpriteFrames(bool isStill, bool isAttack)
+        private void ChangeCurrentSpriteFrames(bool isStill, bool isAttack)
         {
             //if it is not moving then we want to use the still sprite array
             if (isStill)
@@ -94,7 +94,7 @@ namespace Project1
             else
             {
                 this.total_frame = frame_list[frame_direct].Length;
-                checkCurrentFrame();
+                CheckCurrentFrame();
                 this.sprite_frame = frame_list[frame_direct][curr_frame];
             }
         }
@@ -102,28 +102,28 @@ namespace Project1
 
         public void Animate()
         {
-            getDirectionArray(direction_manager.GetDirection(),playerState.isAttacking,playerState.isMoving);
+            GetDirectionArray(direction_manager.GetDirection(),playerState.isAttacking,playerState.isMoving);
             if (this.time_manager.checkAnimationFrameTime())
             {
                 this.time_manager.resetElaspedMilli();
                 this.curr_frame += 1;
             }
-            checkCurrentFrame();
+            CheckCurrentFrame();
 
         }
 
-        public int getCurrentFrame()
+        public int GetCurrentFrame()
         {
             return this.curr_frame;
 
         }
 
-        private void checkCurrentFrame()
+        private void CheckCurrentFrame()
         {
 
             if (direction_change)
             {
-                getDirectionArray(direction_manager.GetDirection(),playerState.isAttacking, playerState.isMoving);
+                GetDirectionArray(direction_manager.GetDirection(),playerState.isAttacking, playerState.isMoving);
                 direction_change = false;
             }
             if (this.curr_frame >= this.total_frame)
@@ -135,19 +135,19 @@ namespace Project1
 
 
         //not needed
-        public void setTotalFrame(int frameNum)
+        public void SetTotalFrame(int frameNum)
         {
             total_frame = frameNum;
         }
 
         //not needed
-        public void setStartFrame(int frameNum)
+        public void SetStartFrame(int frameNum)
         {
 
             start_frame = frameNum;
         }
 
-        public void needSpriteDirectionImage(bool update)
+        public void NeedSpriteDirectionImage(bool update)
         {
             direction_change = update;
         }

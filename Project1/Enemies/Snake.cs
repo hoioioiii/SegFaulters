@@ -9,15 +9,11 @@ namespace Project1
 	public class Snake : UniversalClassEntity
 	{
         public override Rectangle BoundingBox => GetPositionAndRectangle();
-        //Texture stores the texture alias for our animation
-        
-
+       
         private ISprite sprite;
 
 
-        /*
-         * Initalize snake
-         */
+     
         public Snake((int, int) position, (String, int)[] items): base(position, items)
         {
          
