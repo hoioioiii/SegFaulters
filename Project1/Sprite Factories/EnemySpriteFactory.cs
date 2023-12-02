@@ -104,13 +104,13 @@ namespace Project1
             dinoStorage[(int)ENEMY_DIRECTION.up][2] = content.Load<Texture2D>(assetName: "dinoTop3");
             dinoStorage[(int)ENEMY_DIRECTION.down][0] = content.Load<Texture2D>(assetName: "dinoBottom1");
             dinoStorage[(int)ENEMY_DIRECTION.down][1] = content.Load<Texture2D>(assetName: "dinoBottom2");
-            dinoStorage[(int)ENEMY_DIRECTION.down][2] = content.Load<Texture2D>(assetName: "dinoBottom2");
+            dinoStorage[(int)ENEMY_DIRECTION.down][2] = content.Load<Texture2D>(assetName: "dinoBottom1");
             dinoStorage[(int)ENEMY_DIRECTION.left][0] = content.Load<Texture2D>(assetName: "dinoLeft1");
             dinoStorage[(int)ENEMY_DIRECTION.left][1] = content.Load<Texture2D>(assetName: "dinoLeft2");
-            dinoStorage[(int)ENEMY_DIRECTION.left][2] = content.Load<Texture2D>(assetName: "dinoLeft3");
+            dinoStorage[(int)ENEMY_DIRECTION.left][2] = content.Load<Texture2D>(assetName: "dinoLeft1");
             dinoStorage[(int)ENEMY_DIRECTION.right][0] = content.Load<Texture2D>(assetName: "dinoRight1");
             dinoStorage[(int)ENEMY_DIRECTION.right][1] = content.Load<Texture2D>(assetName: "dinoRight2");
-            dinoStorage[(int)ENEMY_DIRECTION.right][2] = content.Load<Texture2D>(assetName: "dinoRight3");
+            dinoStorage[(int)ENEMY_DIRECTION.right][2] = content.Load<Texture2D>(assetName: "dinoRight1");
 
 
             #endregion
@@ -210,9 +210,9 @@ namespace Project1
 
             for (int i = 0; i < 4; i++)
             {
-                jellyStorage[i][0] = content.Load<Texture2D>(assetName: "jelly1");
-                jellyStorage[i][1] = content.Load<Texture2D>(assetName: "jelly2");
-                jellyStorage[i][2] = content.Load<Texture2D>(assetName: "jelly3");
+                jellyStorage[i][0] = content.Load<Texture2D>(assetName: "gel1");
+                jellyStorage[i][1] = content.Load<Texture2D>(assetName: "gel2");
+                jellyStorage[i][2] = content.Load<Texture2D>(assetName: "gel1");
             }
 
             #endregion
