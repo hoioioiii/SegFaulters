@@ -22,7 +22,7 @@ namespace Project1
         public static Song BGM, gameOver, gameOverStateSound;
 
         //Change this later to be all caps
-        public static SoundEffect winningStateSound, addUI , bombBlow, bombDrop, boomerang, cling, death, doorUnlock, puzzleSolved, dragon, dragon2, dragon3, enemyDie, enemyHit, fire, flame, bigItemGet, smallItemGet, heartGet, rupeeGet, linkHurt, lowHealth, plus, plusPlus, secret, stairs, subtractUI, sword;
+        public static SoundEffect winningStateSound, addUI, bombBlow, bombDrop, boomerang, cling, death, doorUnlock, puzzleSolved, dragon, dragon2, dragon3, enemyDie, enemyHit, fire, flame, bigItemGet, smallItemGet, heartGet, rupeeGet, linkHurt, lowHealth, plus, plusPlus, secret, stairs, subtractUI, sword;
 
         public static String XMLPATH = "..\\..\\..\\xmlTest2.xml";
 
@@ -37,7 +37,7 @@ namespace Project1
 
         public enum DIRECTION { right = 0, left = 1, up = 2, down = 3, none = -1 };
 
-        public enum DOORTEXTURES { DOORWEST = 0, DOOREAST = 1, DOORSOUTH = 2, DOORNORTH = 3, LOCKDOORNORTH = 4, LOCKDOORSOUTH = 5, LOCKDOORWEST = 6, LOCKDOOREAST = 7, TUNNELDOORNORTH = 8, TUNNELDOORSOUTH = 9};
+        public enum DOORTEXTURES { DOORWEST = 0, DOOREAST = 1, DOORSOUTH = 2, DOORNORTH = 3, LOCKDOORNORTH = 4, LOCKDOORSOUTH = 5, LOCKDOORWEST = 6, LOCKDOOREAST = 7, TUNNELDOORNORTH = 8, TUNNELDOORSOUTH = 9 };
 
         public static int UP_DIRECTION_SPRITE = 2;
         public static int DOWN_DIRECTION_SPRITE = 0;
@@ -106,16 +106,16 @@ namespace Project1
         public static int smallItemBoxTextOffsetY = 430;
         public static int itemInventoryBoxTextOffsetX = 400;
         public static int itemInventoryBoxTextOffsetY = 450;
-        
+
         public static int itemInventoryBoxOffSet = 18;
         public static int itemInventoryBoxOffSet2 = 4;
         public static int itemInventoryBoxOffSet3 = 16;
         public static int itemInventoryBoxScaleOffSet = 10;
-        
+
         public static int inventoryboxWidth;
         public static int inventoryboxHeight;
-        
-        
+
+
         public static int currentItemIndex = 0;
         public static int trueTotalItemCount = 0;
 
@@ -151,7 +151,7 @@ namespace Project1
         public static int STATS_HEIGHT = HUD_HEIGHT / 2;
         public static int STATS_WIDTH = HUD_SECTION_WIDTH;
 
-        public enum USABLE_ITEM { boomerang = 0, bomb = 1, beehive = 2, bow = 3};
+        public enum USABLE_ITEM { boomerang = 0, bomb = 1, beehive = 2, bow = 3 };
 
         public static int START_FRAME = 0;
         public static double FRAME_SPD = .5 / 4;
@@ -316,7 +316,7 @@ namespace Project1
         public const float INVINCIBILITY_SECONDS = 1; // after damage it goes invisible
 
         //Items metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12, Beehive = 13};
+        public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12, Beehive = 13 };
         public static int NUM_ITEMS = 14;
 
         public static (int, int) INVALID_ITEM = (-1, -1);
@@ -489,7 +489,7 @@ namespace Project1
         {
             TOP,
             MIDDLE,
-           BOTTOM
+            BOTTOM
         }
 
         // Room Transitioning
@@ -519,7 +519,7 @@ namespace Project1
         public static int RADIUS_FORMULA_POWER_OF_2 = 2;
 
         //WEAPON MOVEMENT TYPE SMART AI--------------------
-        
+
 
         public static int WEAPON_AGGRO_SPD = 3;
 
