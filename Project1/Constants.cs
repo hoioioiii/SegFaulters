@@ -124,6 +124,10 @@ namespace Project1
         public static int inventoryRows = 2;
         public static int inventoryCols = 4;
         public static int selectorSmoother = 0;
+        //Stats display->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int STATS_WIDTH_OFFSET1 = 4;
+        public static int STATS_WIDTH_OFFSET2 = 3;
+        public static int STATS_WIDTH_MULTIPLIER = 2;
         //paused map STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int compassPauseTextX = 130;
         public static int compassPauseTextY = 100;
@@ -151,6 +155,7 @@ namespace Project1
         //STATS metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int STATS_HEIGHT = HUD_HEIGHT / 2;
         public static int STATS_WIDTH = HUD_SECTION_WIDTH;
+        public static int COOL_DOWN = 10;
 
         public enum USABLE_ITEM { boomerang = 0, bomb = 1, beehive = 2, bow = 3 };
 
