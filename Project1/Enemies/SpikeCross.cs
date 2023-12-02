@@ -21,7 +21,7 @@ namespace Project1
     {
         public override Rectangle BoundingBox => GetPositionAndRectangle();
 
-        // public override Rectangle BoundingDetectionFieldXBox => Axis;
+        
         private ISprite sprite;
         private SPIKE_ID id;
         public override Rectangle DetectionFieldX => GetAxisX();
