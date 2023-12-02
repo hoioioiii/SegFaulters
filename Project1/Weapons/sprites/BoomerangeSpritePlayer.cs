@@ -15,7 +15,6 @@ namespace Project1
 {
     internal class BoomerangeSpritePlayer : ISpriteWeapon
     {
-
         private Texture2D[] texture;
         private int userX;
         private int userY;
@@ -46,7 +45,7 @@ namespace Project1
             //needs to be refactored 
             texture = spriteSheet;
             BangPlaced = false;
-            total_frame = 4;
+            total_frame = TOT_FRAME_DEFAULT;
             current_frame = 0;
         
             mod = 1;
@@ -57,11 +56,9 @@ namespace Project1
             onWayTime = 0;
             change = false;
             completed = false;
-            fps = 30;
-
+            fps = TOT_FPS_DEFAULT;
 
            movementManager = new WeaponMove((int)Player.getPosition().X,(int)Player.getPosition().Y);
-
     }
 
     /*
@@ -99,8 +96,6 @@ namespace Project1
                 }
                 animationTime = 0;
             }
-          
-
         }
 
         /*
@@ -154,13 +149,12 @@ namespace Project1
 
         /*
         * 
-        * draw bommer
+        * draw boomerng
         */
         public void Draw(SpriteBatch spriteBatch)
         {
-            
-                Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
-                Rectangle DEST_REC = new Rectangle(movementManager.getPosition().Item1, movementManager.getPosition().Item2, width * LARGER_SIZE, height * LARGER_SIZE);
+            Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
+            Rectangle DEST_REC = new Rectangle(movementManager.getPosition().Item1, movementManager.getPosition().Item2, width * LARGER_SIZE, height * LARGER_SIZE);
             rec = DEST_REC;
             spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
 
@@ -206,22 +200,16 @@ namespace Project1
             
         }
 
-
-
         /*
         * 
         * move boomeange
         */
-        /*
-* 
-* move boomeange
-*/
         private void Move()
         {
             if (!change)
             {
                 CheckTime();
-                if (onWayTime >= 2000)
+                if (onWayTime >= ON_WAY_TIME)
                 {
                     onWayTime = 0;
                     change = true;
@@ -232,19 +220,15 @@ namespace Project1
 
             if (!change)
             {
-
-                //RIGHT LEFT
-                if (direction == 1 || direction == 3)
+                if (direction == RIGHT || direction == LEFT)
                 {
                     weaponX = WeaponDirectionMovement.ForwardBack(movementManager.getPosition().Item1, direction, mod);
                     movementManager.setPosition(weaponX, movementManager.getPosition().Item2);
-                    // if (change) checkFinish(weaponX, (int)Player.getPosition().X);
                 }
-                else  //UP DOWN
+                else
                 {
                     weaponY = WeaponDirectionMovement.ForwardBack(movementManager.getPosition().Item2, direction, mod);
-                    movementManager.setPosition(movementManager.getPosition().Item1, weaponY); //changed item2 to item 
-                    //if (change) checkFinish(weaponY, (int)Player.getPosition().Y);
+                    movementManager.setPosition(movementManager.getPosition().Item1, weaponY);
                 }
 
             }
@@ -254,11 +238,7 @@ namespace Project1
                 int yOffsetCheck = Math.Abs(movementManager.getPosition().Item2 - (int)Player.getPosition().Y);
                 int xOffsetCheck = Math.Abs(movementManager.getPosition().Item1 - (int)Player.getPosition().X);
                 checkFinish(xOffsetCheck, yOffsetCheck);
-                //checkFinish(movementManager.getPosition().Item2, (int)Player.getPosition().Y);
-                //checkFinish(movementManager.getPosition().Item1, (int)Player.getPosition().X);
             }
-            //movementManager.setPosition(weaponX, weaponY);
-
         }
 
         private void seekMovement(bool isReturning)
@@ -269,14 +249,11 @@ namespace Project1
             
         }
 
-
-
-        //this is going to be replaced by collision response
         private void checkFinish(int xOffsetCheck, int yOffsetCheck)
         {
             if (!completed)
             {
-                if (xOffsetCheck <= 10 && yOffsetCheck <= 10)
+                if (xOffsetCheck <= DISTANCE_OFFSET && yOffsetCheck <= DISTANCE_OFFSET)
                 {
                     removeBang();
                     completed = true;
