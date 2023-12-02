@@ -3,7 +3,9 @@ using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Project1.Collision;
+using Project1.Enemies;
 using Project1.HUD;
+using Project1.Stats;
 using static Project1.Constants;
 
 namespace Project1.Collision_Response
@@ -24,7 +26,33 @@ namespace Project1.Collision_Response
             Game1.GameObjManager.removeItem(item);
             LevelLoader.RemoveItem(RoomManager.GetCurrentRoomIndex(), item);
             //item.drawState = false;
-            AudioManager.PlaySoundEffect(smallItemGet);
+            if (item.GetTypeIndex() == ITEMS.Rupee)
+            {
+                if (Inventory.itemInventory[(int)ITEMS.Rupee] % 2 == 0)
+                {
+                    PlayerStats.stats["DEF"] += 1;
+                }
+                AudioManager.PlaySoundEffect(rupeeGet);
+            }
+            else if (item.GetTypeIndex() == ITEMS.HeartContainer)
+            {
+                HealthDisplay.linkHealth.HealHealth(4); //give link full heart
+                AudioManager.PlaySoundEffect(smallItemGet);
+            }
+            else if (item.GetTypeIndex() == ITEMS.Clock)
+            {
+                PlayerMovement.setPlayerSpeed(PlayerMovement.getPlayerSpeed() + 10);
+                AudioManager.PlaySoundEffect(smallItemGet);
+            }
+            else if (item.GetTypeIndex() == ITEMS.Fairy)
+            {
+                Player.stats[ATTACK] += ATTACK_INCREASE;
+                AudioManager.PlaySoundEffect(smallItemGet);
+            }
+            else
+            {
+                AudioManager.PlaySoundEffect(smallItemGet);
+            }
             Inventory.PickUpItem(item.GetTypeIndex());
         }
         //helper method to get player pickupitem method the needed input type
@@ -47,10 +75,12 @@ namespace Project1.Collision_Response
                     break;
                 case Clock:
                     ITEMS = ITEMS.Clock;
+                    PlayerMovement.setPlayerSpeed(PlayerMovement.getPlayerSpeed() + 10);
                     AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case Fairy:
                     ITEMS = ITEMS.Fairy;
+                    Player.stats[ATTACK] += ATTACK_INCREASE; //increment attack stat
                     AudioManager.PlaySoundEffect(smallItemGet);
                     break;
                 case HeartContainer:
@@ -168,8 +198,15 @@ namespace Project1.Collision_Response
 
             //if (weapon) { HealthDisplay.linkHealth.DamageHealth(damageAmount); } else
             //{
-                HealthDisplay.linkHealth.DamageHealth(DAMAGE_HALF_HEART);
+                HealthDisplay.linkHealth.DamageHealth(DAMAGE_HALF_HEART - Player.stats[DEFENSE]);
             //}
+
+            //IF ROOM 13, SEND BACK TO ROOM 0 UPON GETTING HIT (WALL MASTERS)
+            if(RoomManager.GetCurrentRoomIndex() == 13)
+            {
+                Player.setPosition(RESPAWN_UP);
+                RoomManager.SetActiveRoom(0, DIRECTION.none);
+            }
             
         }
     }

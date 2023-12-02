@@ -25,6 +25,7 @@ namespace Project1
         }
         public void Update()
         {
+            pausedInventory.Update();
             pausedMap.Update();
 
         }

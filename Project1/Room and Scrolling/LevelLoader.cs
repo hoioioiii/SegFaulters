@@ -31,9 +31,9 @@ namespace Project1
             //old way of referencing xml was copyying local full path, have updated it to where it is relative to remote using System.IO.Path.Combine
 
             // xmlDoc.Load("D:\\Users\\Admin\\Source\\Repos\\Boioioiii\\SegFaulters\\Project1\\xmlTest2.xml");
-        
 
-            string relativePath = "..\\..\\..\\xmlTest2.xml";
+
+            string relativePath = XMLPATH;
 
             string fullPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
 

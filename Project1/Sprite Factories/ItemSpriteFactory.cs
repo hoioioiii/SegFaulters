@@ -26,6 +26,7 @@ namespace Project1
         private Texture2D[] rupeeSpriteStorage = new Texture2D[RUPEE_TOTAL];
         private Texture2D[] triforceSpriteStorage = new Texture2D[TRIFORCE_TOTAL];
         private Texture2D[] swordSpriteStorage = new Texture2D[SWORD_TOTAL];
+        private Texture2D[] BeehiveSpriteStorage = new Texture2D[BEEHIVE_TOTAL];
 
 
         // More private Texture2Ds follow
@@ -73,6 +74,8 @@ namespace Project1
             triforceSpriteStorage[1] = content.Load<Texture2D>(assetName: "triforcePieceGold");
 
             swordSpriteStorage[0] = content.Load<Texture2D>(assetName: "swordUp");
+
+            BeehiveSpriteStorage[0] = content.Load<Texture2D>(assetName: "HiveNew");
 
 
             // More Content.Load calls follow
@@ -142,6 +145,11 @@ namespace Project1
         public IItemSprite CreateSwordSprite((int, int) pos)
         {
             return new SwordSprite(swordSpriteStorage, pos);
+        }
+
+        public IItemSprite CreateBeehiveSprite((int, int) pos)
+        {
+            return new BeehiveItemSprite(BeehiveSpriteStorage, pos);
         }
 
         // More public ISprite returning methods follow

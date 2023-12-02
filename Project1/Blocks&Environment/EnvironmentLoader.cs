@@ -27,16 +27,16 @@ namespace Project1
 
             //load in door content
             doorSpriteArray = new Texture2D[10];
-            doorSpriteArray[0] = content.Load<Texture2D>("DoorWEST");
-            doorSpriteArray[1] = content.Load<Texture2D>("DoorEAST");
-            doorSpriteArray[2] = content.Load<Texture2D>("DoorSOUTH");
-            doorSpriteArray[3] = content.Load<Texture2D>("DoorNORTH");
-            doorSpriteArray[4] = content.Load<Texture2D>("Locked DoorNORTH");
-            doorSpriteArray[5] = content.Load<Texture2D>("LockedDoorSOUTH");
-            doorSpriteArray[6] = content.Load<Texture2D>("LockedDoorWEST");
-            doorSpriteArray[7] = content.Load<Texture2D>("LockedDoorEAST");
-            doorSpriteArray[8] = content.Load<Texture2D>("TunnelDoorNORTH");
-            doorSpriteArray[9] = content.Load<Texture2D>("TunnelDoorSOUTH");
+            doorSpriteArray[(int)DOORTEXTURES.DOORWEST] = content.Load<Texture2D>("DoorWEST");
+            doorSpriteArray[(int)DOORTEXTURES.DOOREAST] = content.Load<Texture2D>("DoorEAST");
+            doorSpriteArray[(int)DOORTEXTURES.DOORSOUTH] = content.Load<Texture2D>("DoorSOUTH");
+            doorSpriteArray[(int)DOORTEXTURES.DOORNORTH] = content.Load<Texture2D>("DoorNORTH");
+            doorSpriteArray[(int)DOORTEXTURES.LOCKDOORNORTH] = content.Load<Texture2D>("Locked DoorNORTH");
+            doorSpriteArray[(int)DOORTEXTURES.LOCKDOORSOUTH] = content.Load<Texture2D>("LockedDoorSOUTH");
+            doorSpriteArray[(int)DOORTEXTURES.LOCKDOORWEST] = content.Load<Texture2D>("LockedDoorWEST");
+            doorSpriteArray[(int)DOORTEXTURES.LOCKDOOREAST] = content.Load<Texture2D>("LockedDoorEAST");
+            doorSpriteArray[(int)DOORTEXTURES.TUNNELDOORNORTH] = content.Load<Texture2D>("TunnelDoorNORTH");
+            doorSpriteArray[(int)DOORTEXTURES.TUNNELDOORSOUTH] = content.Load<Texture2D>("TunnelDoorSOUTH");
 
 
         }
@@ -57,7 +57,7 @@ namespace Project1
                 int posX = pos.Item1;
                 int posY = pos.Item2;
 
-                //temporary solution, may need refactor later
+                //IF collision is not necessary!
                 bool canCollide = true;
                 if (name == "CarpetBlock" || name == "BlackRoom")
                     canCollide = false;
@@ -118,7 +118,7 @@ namespace Project1
         //fix tom
         public static void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(levelBackground, new Rectangle(17 + FRAME_BUFFER_X, -22 + FRAME_BUFFER_Y, ROOM_FRAME_WIDTH, ROOM_FRAME_HEIGHT), Color.White);
+            spriteBatch.Draw(levelBackground, new Rectangle(BG_START_X + FRAME_BUFFER_X, BG_START_Y + FRAME_BUFFER_Y, ROOM_FRAME_WIDTH, ROOM_FRAME_HEIGHT), Color.White);
 
             foreach (IEnvironment block in blocksArray)
             {

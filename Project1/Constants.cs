@@ -22,7 +22,9 @@ namespace Project1
         public static Song BGM, gameOver, gameOverStateSound;
 
         //Change this later to be all caps
-        public static SoundEffect winningStateSound, addUI , bombBlow, bombDrop, boomerang, cling, death, doorUnlock, puzzleSolved, dragon, dragon2, dragon3, enemyDie, enemyHit, fire, flame, bigItemGet, smallItemGet, heartGet, rupeeGet, linkHurt, lowHealth, plus, plusPlus, secret, stairs, subtractUI, sword;
+        public static SoundEffect winningStateSound, addUI, bombBlow, bombDrop, boomerang, cling, death, doorUnlock, puzzleSolved, dragon, dragon2, dragon3, enemyDie, enemyHit, fire, flame, bigItemGet, smallItemGet, heartGet, rupeeGet, linkHurt, lowHealth, plus, plusPlus, secret, stairs, subtractUI, sword;
+
+        public static String XMLPATH = "..\\..\\..\\xmlTest2.xml";
 
         //Directions->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public enum Direction
@@ -34,6 +36,8 @@ namespace Project1
         }
 
         public enum DIRECTION { right = 0, left = 1, up = 2, down = 3, none = -1 };
+
+        public enum DOORTEXTURES { DOORWEST = 0, DOOREAST = 1, DOORSOUTH = 2, DOORNORTH = 3, LOCKDOORNORTH = 4, LOCKDOORSOUTH = 5, LOCKDOORWEST = 6, LOCKDOOREAST = 7, TUNNELDOORNORTH = 8, TUNNELDOORSOUTH = 9 };
 
         public static int UP_DIRECTION_SPRITE = 2;
         public static int DOWN_DIRECTION_SPRITE = 0;
@@ -54,30 +58,100 @@ namespace Project1
         public static int FRAME_BUFFER_X = 0;
 
         public static int SCREEN_WIDTH_UPPER = 600;
+
+        public static int BG_START_X = 17;
+        public static int BG_START_Y = -22;
         //*
         public static int SCREEN_WIDTH = 800;
         public static int SCREEN_WIDTH_LOWER = 0;
         public static int SCREEN_HEIGHT_UPPER = 400;
         public static int SCREEN_HEIGHT_LOWER = 0;
         public static int PAUSED_STATE_YCOORD = ((SCREEN_HEIGHT / 3) * 2);
-        //*
+        //HUD STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int SCREEN_HEIGHT = (int)(480 * 1.75);
-        //*
         public static int HUD_HEIGHT = SCREEN_HEIGHT / 3;
-        //*
         public static int HUD_SECTION_WIDTH = SCREEN_WIDTH / 3;
         public static int SCROLL_OFFSET = 17;
-        //*
+        public enum PAUSE_STATE { active = 0, paused = 1 };
 
+        public static float FULL_MENU_OFFSET = (SCREEN_HEIGHT / 3) * 2;
+        public static int HUD_COUNT_OFFSET = HUD_HEIGHT / 4;
+        public static int ITEM_SPRITE_OFFSET = HUD_SECTION_WIDTH / 9;
+        public static int INNER_OFFSET_SLICE_X = 48;
+        public static int INNER_OFFSET_SLICE_Y = 36;
+        public static int INNER_WIDTH_SLICE = 24;
+        public static int INNER_HEIGHT_SLICE = 18;
+
+        public static int MAP_ROW_HEIGHT = (HUD_HEIGHT - 100) / 6;
+        public static int MAP_START_Y = 103;
+        public static int ROOM_WIDTH = 42;
+        public static int STARTING_ROOM_X = (HUD_SECTION_WIDTH / 3) + 5;
+        public static int TOTAL_ROOMS = 18;
+        public static int STARTING_ROOM_Y = MAP_START_Y + (5 * MAP_ROW_HEIGHT);
+
+        public static int POSITION_INDICATOR_SLICE_X = 8;
+        public static int POSITION_INDICATOR_SLICE_Y = 10;
+        public static int HUD_SECTION_THIRD = HUD_SECTION_WIDTH / 3;
+        public static int HUD_SECTION_FOURTH = HUD_SECTION_WIDTH / 4;
+        public static int HUD_HEIGHT_THIRD = HUD_HEIGHT / 3;
+        public static int KEY_OFFSET = 5;
+        public static int SPRITE_SIZE = 2;
+        //paused inventory STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int MAPOFFSET = 70;
+        public static int inventoryTextOffsetX = 130;
+        public static int inventoryTextOffsetY = 500;
+        public static int useBtextOffsetX = 100;
+        public static int useBtextOffsetY = 300;
+        public static int smallItemBoxTextOffsetX = 190;
+        public static int smallItemBoxTextOffsetY = 430;
+        public static int itemInventoryBoxTextOffsetX = 400;
+        public static int itemInventoryBoxTextOffsetY = 450;
+
+        public static int itemInventoryBoxOffSet = 18;
+        public static int itemInventoryBoxOffSet2 = 4;
+        public static int itemInventoryBoxOffSet3 = 16;
+        public static int itemInventoryBoxScaleOffSet = 10;
+
+        public static int inventoryboxWidth;
+        public static int inventoryboxHeight;
+
+
+        public static int currentItemIndex = 0;
+        public static int trueTotalItemCount = 0;
+
+        public static int inventoryRows = 2;
+        public static int inventoryCols = 4;
+        public static int selectorSmoother = 0;
+        //paused map STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int compassPauseTextX = 130;
+        public static int compassPauseTextY = 100;
+        public static int mapItemX = 210;
+        public static int mapItemY = 180;
+        public static int mapPauseTextX = 180;
+        public static int mapPauseTextY = 230;
+        public static int pausedMapX = 410;
+        public static int pausedMapY = 230 + MAPOFFSET;
+        public static int spriteScaleOffset1 = 100;
+        public static int greenBoxOffset = 3;
+        public static int locationDisplayOffSetX = 470;
+        public static int locationDisplayOffSetY = 280 - MAPOFFSET;
+        public static int totalRooms = 18;
+        //HEALTH STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int HEALTH_HUD_WIDTH = HUD_SECTION_WIDTH * 2;
         public static int HEALTH_HUD_HEIGHT = (HUD_HEIGHT / 3);
         public static float HEALTH_ROW = 30f;
         public static int ENTITY_HEARTS = 5;
-        public static int DAMAGE_HALF_HEART = 1;
-        public static int DAMAGE_FULL_HEART = 3;
+        public static int DAMAGE_HALF_HEART = 2;
+        public static int DAMAGE_FULL_HEART = 4;
         public static int MAX_FRAGMENTS = 4;
 
-        public enum USABLE_ITEM { boomerang = 0, bomb = 1, key = 2, bow = 3};
+        public static int ATTACK_INCREASE = 1;
+
+
+        public static int STATS_HEIGHT = HUD_HEIGHT / 2;
+        public static int STATS_WIDTH = HUD_SECTION_WIDTH;
+
+        public enum USABLE_ITEM { boomerang = 0, bomb = 1, beehive = 2, bow = 3 };
 
         public static int START_FRAME = 0;
         public static double FRAME_SPD = .5 / 4;
@@ -198,6 +272,7 @@ namespace Project1
         public static int SPIKE_C = 1;
 
 
+
         //Player metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int LINK_R = 1;
         public static int LINK_C = 4;
@@ -209,7 +284,14 @@ namespace Project1
         public static int BOUNDING_OFFSET_Y = 20;
         public const int LINK_HEARTS = 3;
         public const int LINK_HEARTS_WIDTH = 30;
-
+        public static string ATTACK = "ATK";
+        public static string SPEED = "SPD";
+        public static string CRITICAL_HIT = "CRIT";
+        public static string DEFENSE = "DEF";
+        public static string STAMINA = "SMNA";
+        public static int STATS_TOTAL = 3;
+        public static int DEFAULT_SPEED = 5;
+        public enum WEAPON_ATTACK_AMOUNT { swordAmount = 2, bombAmount = 3, bowAmount = 1, boomerangAmount = 1, beehiveAmount = 1 };
         //Attacking metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public const float ATTACK_SECONDS = 0.5f;
 
@@ -226,7 +308,7 @@ namespace Project1
 
         public const string STILL = "still";
         public const string MOVE = "move";
-        public const string ATTACK = "attack";
+        public const string ATTACK_LINK = "attack";
 
         //Player metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public const float FLASHES_PER_SECOND = 8; //link flashes after damage
@@ -234,8 +316,10 @@ namespace Project1
         public const float INVINCIBILITY_SECONDS = 1; // after damage it goes invisible
 
         //Items metrics ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-        public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12 };
-        public static int NUM_ITEMS = 13;
+        public enum ITEMS { Arrow = 0, Bomb = 1, Boomerang = 2, Bow = 3, Clock = 4, Fairy = 5, Heart = 6, HeartContainer = 7, Key = 8, Map = 9, Rupee = 10, Sword = 11, Triforce = 12, Beehive = 13 };
+        public static int NUM_ITEMS = 14;
+
+        public static (int, int) INVALID_ITEM = (-1, -1);
 
         public static int FAIRY_TOTAL = 2;
         public static int HEART_TOTAL = 2;
@@ -295,6 +379,7 @@ namespace Project1
         public static int HAND_FRAMES_DEATH = 1;
         public static int HAND_C = 1;
 
+
         public static int HEART_R = 1;
         public static int HEART_C = 2;
 
@@ -321,6 +406,11 @@ namespace Project1
 
         public static int ORB_R = 1;
         public static int ORB_C = 3;
+
+        public static int BEEHIVE_TOTAL = 1;
+        public static int BEEHIVE_ARRAY = 1;
+        public static int BEE_ARRAY = 4;
+        public static int HONEYCOMB_ARRAY = 5;
 
 
         public static int LINK_X = 300;
@@ -406,7 +496,7 @@ namespace Project1
        
 
         // Room Transitioning
-        public static float ROOM_TRANSITION_SECONDS = 1.5f;
+        public static float CAMERA_TRANSITION_SECONDS = 1.5f;
         public static int TRANSITION_OFFSET_X = 17;
         public static int TRANSITION_OFFSET_Y = -231;
 

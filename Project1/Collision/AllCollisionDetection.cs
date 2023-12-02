@@ -428,7 +428,7 @@ namespace Project1
                             // TODO: Pass in player entity
                             PlayerCollisionResponse.BoundaryResponse(collisionDirection);
                             break;
-                        case CollisionType.DAMAGE:
+                        case CollisionType.DEFENSE:
                             DetectCollisionDirection(link, roomRect, collisionDirection);
                             // TODO: Pass in player entity
                             PlayerCollisionResponse.DamageResponse(collisionDirection);
@@ -474,7 +474,7 @@ namespace Project1
                                 // TODO: Pass in enemy entity
                                 EnemyCollisionResponse.BoundaryResponse(collisionDirection);
                                 break;
-                            case CollisionType.DAMAGE:
+                            case CollisionType.DEFENSE:
                                 DetectCollisionDirection(enemy, roomRect, collisionDirection);
                                 // TODO: Pass in enemy entity
                                 EnemyCollisionResponse.DamageResponse(collisionDirection);

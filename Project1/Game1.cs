@@ -43,13 +43,10 @@ namespace Project1
         //Zelda txt font
         private SpriteFont font;
         public static bool roomIsTransitioning;
+        public static bool HUDisTransitioning;
 
-
-        //This is testing purposes--delete later
-        public static IEntity enemy;
-        public static Texture2D circle;
-
-
+        //Stats display
+        public static IStatsScreen statsDisplay;
 
 
         public Game1()
@@ -145,12 +142,8 @@ namespace Project1
             //Load XML File
             LevelLoader.Load();
             hudDisplay = new HeadsUpDisplay(GraphicsDevice, Content);
-
-            //testing purposes only, delete later:------------------
-            (string, int)[] nullList = { ("", 0) };
-            IEntity skelly = new Jelly((2, 4), nullList);
-            enemy = skelly;
-
+            statsDisplay = new StatsDisplay(GraphicsDevice, Content);
+            //LevelLoader.Load("C:\\Users\\tinal\\source\\repos\\Seg3.4\\Project1\\xmlTest2.xml");
             //------Delete Above Later-------------(B4 turning in sprint 5)
 
         }
@@ -164,7 +157,19 @@ namespace Project1
 
             if (roomIsTransitioning)
             {
-                Camera.TransitionRoom(gameTime);
+                Camera.CameraTransition(gameTime, true);
+            }
+            else if (HUDisTransitioning)
+            {
+                // if the HUD is transitioning down, use the camera transition offset
+                if (GameStateManager.GameState == GameState.DefaultState)
+                {
+                    Camera.CameraTransitionOffset(gameTime, false, 0, ROOM_FRAME_HEIGHT);                   
+                }
+                else
+                {
+                    Camera.CameraTransition(gameTime, false);
+                }             
             }
             else
             {
@@ -185,8 +190,7 @@ namespace Project1
                     UpdateManager.Update();
 
 
-                    //delete later---for testing smartAI only:
-                    enemy.Update();
+             
 
                 }
                 else if (GameStateManager.GameState == GameState.PausedState)
@@ -224,6 +228,21 @@ namespace Project1
                 EnvironmentLoader.Draw(_spriteBatch);
                
             }
+            else if (HUDisTransitioning)
+            {
+                _spriteBatch.Begin(transformMatrix: Camera.Transform);
+                EnvironmentLoader.Draw(_spriteBatch);
+                Player.Draw(gameTime, _spriteBatch);
+                hudDisplay.Draw(_spriteBatch);
+                DrawManager.Draw();
+                //PausedScreen.Draw(_spriteBatch);
+            }
+            else if (GameStateManager.GameState == GameState.PausedState)
+            {
+                _spriteBatch.Begin(transformMatrix: Camera.Transform);
+                hudDisplay.Draw(_spriteBatch);
+                //PausedScreen.Draw(_spriteBatch);
+            }
             else
             {
                 _spriteBatch.Begin();
@@ -239,33 +258,27 @@ namespace Project1
 
                     DrawManager.Draw();
 
-
-
-                    //delete later---for testing smart AI only:
-                    enemy.Draw(_spriteBatch);
-
                 }
                 else if (GameStateManager.GameState == GameState.PausedState)
                 {
                     hudDisplay.Draw(_spriteBatch);
                 }
-                else if (GameStateManager.GameState == GameState.TriforceWinState)
-                {
-                    //placeholder for future implementation
-                }
-                else if (GameStateManager.GameState == GameState.GameOverState)
-                {
-                    //placeholder for future implementation
-                }
             }
 
-                _spriteBatch.End();
+            _spriteBatch.End();
 
-            // HUD
-            if (GameStateManager.GameState != GameState.GameOverState && GameStateManager.GameState != GameState.TriforceWinState)
+            // Attach HUD to screen
+            if (GameStateManager.GameState != GameState.GameOverState && GameStateManager.GameState != GameState.PausedState && !HUDisTransitioning && GameStateManager.GameState != GameState.TriforceWinState)
             {
                 _spriteBatch.Begin();
                 hudDisplay.Draw(_spriteBatch);
+                statsDisplay.Draw(_spriteBatch);
+                _spriteBatch.End();
+            }
+            else if (GameStateManager.GameState == GameState.PausedState && !HUDisTransitioning) 
+            {
+                _spriteBatch.Begin();
+                GameStateManager.DrawGameState(_spriteBatch);
                 _spriteBatch.End();
             }
 

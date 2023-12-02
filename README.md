@@ -15,6 +15,8 @@ Key Controls:
 
 10. Arrow Keys: Select options on game over screen.
 11. Enter: Select option on game over screen.
+12. Period Key: Pause Menu
+13. Comma Key: Stats Menu
 Mouse Control:
    1. Right click: cycle rooms forward.
    2. Left click: cycle rooms backwards.

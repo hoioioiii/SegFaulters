@@ -23,20 +23,21 @@ namespace Project1
         private Texture2D pausedMap;
 
         private static List<bool> roomsEntered = new List<bool>(18);
-        private static int compassPauseTextX = 130;
+        /*private static int compassPauseTextX = 130;
         private static int compassPauseTextY = 100;
         private static int mapItemX = 210;
         private static int mapItemY = 180;
         private static int mapPauseTextX = 180;
         private static int mapPauseTextY = 230;
         private static int pausedMapX = 410;
-        private static int pausedMapY = 230;
+        private static int pausedMapY = 230 + MAPOFFSET;
 
         private static int spriteScaleOffset1 = 100;
         private static int greenBoxOffset = 3;
         private static int locationDisplayOffSetX = 470;
-        private static int locationDisplayOffSetY = 280;
-
+        private static int locationDisplayOffSetY = 280 - MAPOFFSET;
+        private static int totalRooms = 18;
+        */
         private Vector2 compassPauseTextPos;
         private Vector2 mapItemPos;
         private Vector2 mapPauseTextPos;
@@ -45,7 +46,7 @@ namespace Project1
         private Vector2 pausedMapPos;
 
         private static int activeRoomNumber;
-        private static int totalRooms = 18;
+        
 
         Vector2 locationdisplayRoom;
 
@@ -100,7 +101,7 @@ namespace Project1
                     spriteBatch.Draw(blackSquareRoom, new Rectangle((int)locationdisplayRoom.X, (int)locationdisplayRoom.Y, blackSquareRoom.Width, blackSquareRoom.Height), Color.White);
                 }
             }
-            spriteBatch.Draw(greenSquareOnMap, new Rectangle((int)LocationDisplay.positionCoords[activeRoomNumber].X + greenBoxOffset + 470, (int)LocationDisplay.positionCoords[activeRoomNumber].Y + 280 + greenBoxOffset, greenSquareOnMap.Width, greenSquareOnMap.Height), Color.White);
+            spriteBatch.Draw(greenSquareOnMap, new Rectangle((int)LocationDisplay.positionCoords[activeRoomNumber].X + greenBoxOffset + locationDisplayOffSetX, (int)LocationDisplay.positionCoords[activeRoomNumber].Y + locationDisplayOffSetY + greenBoxOffset, greenSquareOnMap.Width, greenSquareOnMap.Height), Color.White);
 
 
         }
