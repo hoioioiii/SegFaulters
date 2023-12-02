@@ -23,6 +23,13 @@ namespace Project1.Enemies
 
         private (Rectangle, Rectangle) rectangles;
         public int attackStat { get; private set; }
+
+
+
+        public virtual (bool,bool) detected { get; set; }
+        public virtual Rectangle DetectionFieldX => throw new NotImplementedException();
+        public virtual Rectangle DetectionFieldY => throw new NotImplementedException();
+
         //Rectangle IEntity.BoundingBox => throw new NotImplementedException();
 
 
@@ -34,6 +41,7 @@ namespace Project1.Enemies
         public UniversalClassEntity((int, int) position, (string, int)[] items)
         {
             this.initalPosition = position;
+            
 
             //replace starting direction based on lvl loader info
             direction_state_manager = new DirectionState(Direction.Up);
@@ -42,6 +50,7 @@ namespace Project1.Enemies
             state_manager = new EntityState();
             movement_manager = new Movement(direction_state_manager, this, time_manager, position.Item1, position.Item2, 0);
             attackStat = 1;
+            detected = (false,false);
 
             //set up entities health system
             entityHealthSystem = new HealthSystem(ENTITY_HEARTS); //start entity with 5 hearts
@@ -88,15 +97,9 @@ namespace Project1.Enemies
 
         public virtual void Attack()
         {
-            //Check if enemy is currently attacking:
-
-            //No:
-            //We need to check the attack timer to see if we need to attack now
-            //Set isAttack to true
-            //set isMoving to false
-
-            //this is going to be for collision damage attack i think
+            //Only needed for enemies with attack feature
         }
+
         public void UpdateFrames()
         {
             if (state_manager.IsAlive())
@@ -107,15 +110,14 @@ namespace Project1.Enemies
            
         }
 
-        
+       
+
+
         public void Move()
         {
             if (state_manager.isMoving())
             {
-                //Movement.WanderMove(direction_state_manager, this, time_manager);
-                MovementType();
-                //This is just for testing purposes: 
-                
+                MovementType();    
             }
 
         }
@@ -137,10 +139,7 @@ namespace Project1.Enemies
         }
 
 
-        public virtual void Draw(SpriteBatch spriteBatch)
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public virtual Rectangle GetPositionAndRectangle() { throw new NotImplementedException(); }
 
@@ -184,5 +183,15 @@ namespace Project1.Enemies
 
         }
 
+        //handled By sprite object
+        public virtual void Draw(SpriteBatch spriteBatch)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void SetDetected(bool x, bool y)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -38,5 +38,10 @@ namespace Project1.Collision_Response
            weapon.detected = true;
         }
 
+        public static void SpikeDetectionResponse(IEntity enemy, bool xAxis,bool yAxis)
+        {
+          enemy.SetDetected(xAxis, yAxis);
+        }
+
     }
 }

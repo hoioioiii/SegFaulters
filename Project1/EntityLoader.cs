@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Project1.Constants;
-
+using Project1.Enemies.SpikeAdditonalFiles;
 namespace Project1
 {
     public class EntityLoader
@@ -51,7 +51,10 @@ namespace Project1
                     break;
 
                 case "BladeTrap":
-                    currEntity = new SpikeCross(position, items);
+
+
+                    SPIKE_ID id = AxisBoundaryMaps.GetSpikeID(position);
+                    currEntity = new SpikeCross(position, items, id);
                     break;
 
                 case "Wallmaster":

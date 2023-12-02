@@ -403,16 +403,7 @@ namespace Project1
         }
 
 
-        public enum ROCKET_DIRECTION
-        {
-            NE,
-            E,
-            SE,
-            S,
-            SW,
-            W,
-            NW
-        }
+       
 
         // Room Transitioning
         public static float ROOM_TRANSITION_SECONDS = 1.5f;
@@ -423,7 +414,8 @@ namespace Project1
         public enum SMARTAI_USER
         {
             ENTITY,
-            WEAPON
+            WEAPON,
+            SPIKE
         }
 
 
@@ -460,8 +452,28 @@ namespace Project1
             ROCKET
         }
 
+        public enum SPIKE_ID
+        {
+            TOP_LEFT,
+            TOP_RIGHT,
+            BOTTOM_LEFT,
+            BOTTOM_RIGHT
+        }
 
-        
+        public static (int, int) TL_SPIKE = (0, 0);
+        public static (int, int) TR_SPIKE = (0, 11);
+        public static (int, int) BL_SPIKE = (6, 0);
+        public static (int, int) BR_SPIKE = (6,11);
+
+        public static int SPIKE_WIDTH = 50;
+        public static int SPIKE_HEIGHT = 50;
+        public static int DOUBLE = 2;
+
+        public static int SPIKE_AXIS_X = 0;
+        public static int SPIKE_AXIS_Y = 1;
+
+
+
 
     }
 }

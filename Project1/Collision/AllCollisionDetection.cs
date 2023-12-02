@@ -71,6 +71,8 @@ namespace Project1
         private static List<IWeapon> playerWeapons;
 
         private static List<IWeapon> detectionWeapons;
+
+        private static List<IEntity> detectionEntities;
         ////TODO: change to interface
         /*
          * List of rectangles for collision boxes for enemies
@@ -167,6 +169,28 @@ namespace Project1
                     PlayerCollisionResponse.DamageResponse(collisionDirection,false,DAMAGE_HALF_HEART);
                 }
 
+            }
+
+            
+            foreach (var detectionEntity in detectionEntities)
+            {
+                
+                bool isCollidingX = Player.BoundingBox.Intersects(detectionEntity.DetectionFieldX);
+                bool isCollidingY = Player.BoundingBox.Intersects(detectionEntity.DetectionFieldY);
+                if (isCollidingX || isCollidingY)
+                {
+                    Rectangle detectionBox = (isCollidingX) ? detectionEntity.DetectionFieldX : detectionEntity.DetectionFieldY;
+                    collisionDirection = DetectCollisionDirection(Player.BoundingBox, detectionBox, collisionDirection);
+
+                    #region Print to debug console
+                    System.Text.StringBuilder sb = new StringBuilder();
+                    sb.Append("COLLISION DIRECTION: " + collisionDirection);
+
+                    if (sb.Length > 0)
+                        System.Diagnostics.Debug.WriteLine(sb.ToString());
+                    #endregion
+                }
+                EnemyCollisionResponse.SpikeDetectionResponse(detectionEntity, isCollidingX, isCollidingY);
             }
 
             foreach (var enemyAttack in weapons)
@@ -281,7 +305,10 @@ namespace Project1
             playerWeapons = new List<IWeapon>(GameOBJ.getPlayerWeaponList());
             roomItems = new List<IItem>(GameOBJ.getItemList());
             detectionWeapons = new List<IWeapon>(GameOBJ.getDetectionWeaponsList());
+            detectionEntities = new List<IEntity>(GameOBJ.getDetectionEntityList());
             roomDoors = new List<Door>(GameOBJ.getDoorList());
+
+
             DetectAllCollisionsLinkEntity();
 
             // IS THIS MAKING THE GAME LAG?

@@ -35,7 +35,7 @@ namespace Project1
             (int, int) pos = (SPRITE_X_START, SPRITE_Y_START);
 
 
-            IEntity[] temp = { new Bat(pos, items), new BossAquaDragon(pos, items), new BossDino(pos, items), new BossFireDragon(pos, items), new DogMonster(pos, items), new Flame(pos, items), new Hand(pos, items), new Jelly(pos, items),new Merchant(pos, items),new OldMan(pos, items),new Skeleton(pos, items), new Snake(pos, items), new SpikeCross(pos, items) }; 
+            IEntity[] temp = { new Bat(pos, items), new BossAquaDragon(pos, items), new BossDino(pos, items), new BossFireDragon(pos, items), new DogMonster(pos, items), new Flame(pos, items), new Hand(pos, items), new Jelly(pos, items),new Merchant(pos, items),new OldMan(pos, items),new Skeleton(pos, items), new Snake(pos, items), new SpikeCross(pos, items, SPIKE_ID.TOP_LEFT) }; 
             ENTITY = temp;
         }
         
