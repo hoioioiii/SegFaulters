@@ -56,7 +56,7 @@ namespace Project1
                     break;
                 case DIRECTION.down:
                     positionX = TRANSITION_OFFSET_X;
-                    positionY = TRANSITION_OFFSET_Y + ROOM_FRAME_HEIGHT * 2;
+                    positionY = TRANSITION_OFFSET_Y + ROOM_FRAME_HEIGHT * DOUBLE;
                     break;
                 case DIRECTION.right:
                     positionX = TRANSITION_OFFSET_X + ROOM_FRAME_WIDTH;
@@ -73,7 +73,7 @@ namespace Project1
 
         public static void LoadTextures(ContentManager content)
         {
-            roomTextures = new Texture2D[17];
+            roomTextures = new Texture2D[ROOMTEXURE_TOTAL];
 
             roomTextures[0] = content.Load<Texture2D>("Room0");
             roomTextures[1] = content.Load<Texture2D>("Room1");
@@ -94,7 +94,7 @@ namespace Project1
             roomTextures[16] = content.Load<Texture2D>("Room16");
 
 
-            roomTexture = roomTextures[2];
+            roomTexture = roomTextures[DOUBLE];
             positionX = 0;
             positionY = 0;
 

@@ -572,9 +572,9 @@ namespace Project1
 
         public static int ORB_TIME_ALLOWED = 1000;
         public static int MAX_ORBS = 3;
-        public static int TOP_ORB = 1;
-        public static int MID_ORB = 2;
-        public static int BOT_ORB = 3;
+        public static int TOP_ORB = 0;
+        public static int MID_ORB = 1;
+        public static int BOT_ORB = 2;
         public static int SPRITE_SCALE = 3;
         public static int MAX_INVENTORY_SLOTS = 9;
         public static int ROOMS_ENTERED = 19;
@@ -592,12 +592,36 @@ namespace Project1
         public static int STARICASE_POS = 6;
         public static int BLACKROOM_POS = 14;
         public static int DEFAULT_POS = 10;
+        public static int ROOMTEXURE_TOTAL = 17;
+
 
         public static string RETRY = "RETRY";
         public static string QUIT = "QUIT";
         public static string GAMEOVER = "Game Over";
         public static string ZELDAFONT = "ZeldaFont";
         public static string WINNER = "You Win!";
+
+
+
+        public static string ROOM = "Room";
+        public static string ENEMIES = "Enemies";
+        public static string ENVIRONMENT = "Environment";
+        public static string ITEMS_STRING = "Items";
+        public static string XLOC = "xLoc";
+
+        public static string YLOC = "yLoc";
+        public static string DROPS = "Drops";
+        public static string NAME = "Name";
+        public static string QUANITY = "quantity";
+        public static string WALLS = "Walls";
+        public static string DOORS = "Doors";
+        public static string BLOCKS = "Blocks";
+        public static string ID = "id";
+        public static string DESTINATION_ROOM = "DestinationRoom";
+        public static string LOCKED = "Locked";
+        public static string IS_TUNNEL = "isTunnel";
+        public static string DEAD = "DEAD";
+     
     }
 }
 

@@ -16,7 +16,7 @@ namespace Project1
         private bool ended;
         private IWeapon[] weapon;
 
-        //May or may not keep
+      
         private int timeAllowed;
         private ISprite sprite;
         private bool remainOnScreen;
@@ -24,9 +24,7 @@ namespace Project1
 
         private SoundEffectInstance dragonSFX;
 
-        /*
-         * Initalize fire drag
-         */
+    
         public BossFireDragon((int, int) position, (String, int)[] items) : base(position, items)
         {
             ORB_TIME_ALLOWED = 1000;
@@ -99,13 +97,9 @@ namespace Project1
             weapon[BOT_ORB] = new Orb((movement_manager.getPosition().Item1, movement_manager.getPosition().Item2), ORB_DIRECTION.BOTTOM);
         }
 
-
-        //this needs to be handled by a execute.
-
-
         private void PrepareAttack()
         {
-            if (time_manager.checkIfAttackTime()) //time_manager.checkIfAttackTime())
+            if (time_manager.checkIfAttackTime()) 
             {
                 state_manager.setIsAttacking(true);
                 state_manager.setNewAttack(true);
