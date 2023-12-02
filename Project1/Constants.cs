@@ -572,9 +572,17 @@ namespace Project1
         public static int BOOMERANG_LOC = 0;
         public static int BEEHIVE_LOC = 2;
         public static int BOW_LOC = 3;
-        //public static int BEE_HEIGHT = 15;
-        //public static int ITEM_DROP_OFFSET = 50;
 
+        public static int DUMMY_NUMBER = 200;
+        public static int ENVIRONMENT_START = 2;
+        public static int DRAGON_POSITION = 11;
+        public static int FISH_POS = 12;
+        public static int CARPET_POS = 7;
+        public static int BRICK_POS = 2;
+        public static int WATER_POS = 13;
+        public static int STARICASE_POS = 6;
+        public static int BLACKROOM_POS = 14;
+        public static int DEFAULT_POS = 10;
 
         public static string RETRY = "RETRY";
         public static string QUIT = "QUIT";
