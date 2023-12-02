@@ -44,62 +44,7 @@ namespace Project1
 
         }
 
-        //   /*
-        //    * Update snake
-        //    */
-        //   public void Update()
-        //   {
-        //       sprite.Update();
-
-        //   }
-
-        ///*
-        // * Draw Snake
-        // */
-        //   public void Draw(SpriteBatch spriteBatch)
-        //   {
-        //       sprite.Draw(spriteBatch);
-        //   }
-
-
-        //   /*
-        //    * Snake health
-        //    */
-        //   public void Health()
-        //   {
-        //       throw new NotImplementedException();
-        //   }
-
-
-        //   /*
-        //    * 
-        //    * Snake attk
-        //    */
-        //   public void Attack()
-        //   {
-        //       throw new NotImplementedException();
-        //   }
-
-
-        //   /*
-        //    * Snake item drop death
-        //    */
-        //   public void ItemDrop()
-        //   {
-        //       throw new NotImplementedException();
-        //   }
-
-        //   public Rectangle getPositionAndRectangle()
-        //   {
-        //       return sprite.GetRectangle().Item2;
-
-        //   }
-
-        //   public void setPosition(int x, int y)
-        //   {
-        //       sprite.setPos(x, y);
-
-        //   }
+        
     }
 }
 

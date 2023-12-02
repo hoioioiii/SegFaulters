@@ -566,7 +566,7 @@ namespace Project1
 
         public static int BEE_WIDTH = 15;
         public static int BEE_HEIGHT = 15;
-
+        public static int ITEM_DROP_OFFSET = 50;
 
     }
 }

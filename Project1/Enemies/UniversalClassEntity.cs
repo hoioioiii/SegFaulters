@@ -159,11 +159,18 @@ namespace Project1.Enemies
             {
                 int x = movement_manager.getPosition().Item1;
                 int y = movement_manager.getPosition().Item2;
-                ItemLoader.LoadAndInitializeItems(item.Item1, (x, y), Game1.GameObjManager);
+
+                (int,int) pos = CheckItemDropPosition(x,y);
+                ItemLoader.LoadAndInitializeItems(item.Item1,pos, Game1.GameObjManager);
             }
 
         }
-
+        private (int,int) CheckItemDropPosition(int x , int y)
+        {
+           int newX =  Math.Clamp(x,roomBoundsMinX,roomBoundsMaxX);
+           int newY =  Math.Clamp(y, roomBoundsMinY + ITEM_DROP_OFFSET, roomBoundsMaxY);
+            return (newX,newY);
+        }
 
         public virtual void ChangeDirections()
         {
