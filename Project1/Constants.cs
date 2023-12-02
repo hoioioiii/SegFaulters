@@ -593,7 +593,10 @@ namespace Project1
         public static int BLACKROOM_POS = 14;
         public static int DEFAULT_POS = 10;
         public static int ROOMTEXURE_TOTAL = 17;
-
+        public static int ATTACK_DURATION = 100;
+        public static int ATTACK_PER_MOVEMENT = 100;
+        public static int MS_PER_FRAME = 300;
+    
 
         public static string RETRY = "RETRY";
         public static string QUIT = "QUIT";

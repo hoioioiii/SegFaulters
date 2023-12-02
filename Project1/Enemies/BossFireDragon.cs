@@ -77,7 +77,7 @@ namespace Project1
                 CreateOrbs();
                 
                 state_manager.setNewAttack(false);
-                time_manager.enableMoveTime();
+                time_manager.EnableMoveTime();
 
                 foreach (IWeapon orb in weapon)
                 {
@@ -99,7 +99,7 @@ namespace Project1
 
         private void PrepareAttack()
         {
-            if (time_manager.checkIfAttackTime()) 
+            if (time_manager.CheckIfAttackTime()) 
             {
                 state_manager.setIsAttacking(true);
                 state_manager.setNewAttack(true);

@@ -81,9 +81,9 @@ namespace Project1
         public void Animate()
         {
             GetDirectionArray(direction);
-            if (this.time_manager.checkAnimationFrameTime())
+            if (this.time_manager.CheckAnimationFrameTime())
             {
-                this.time_manager.resetElaspedMilli();
+                this.time_manager.ResetElaspedMilli();
                 this.curr_frame += 1;
             }
             CheckCurrentFrame();

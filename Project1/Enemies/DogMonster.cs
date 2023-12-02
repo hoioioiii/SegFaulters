@@ -74,7 +74,7 @@ namespace Project1
             {
                 state_manager.setIsAttacking(false);
                 state_manager.setIsMoving(true);
-                time_manager.enableMoveTime();
+                time_manager.EnableMoveTime();
                 direction_state_manager.GetRandomDirection();
                 ended = true;
                 Game1.GameObjManager.removeWeapon(weapon[0]);
@@ -83,7 +83,7 @@ namespace Project1
 
         private void PrepareAttack()
         {
-            if (time_manager.checkIfAttackTimeRandom())
+            if (time_manager.CheckIfAttackTimeRandom())
             {
                 state_manager.setIsAttacking(true);
                 state_manager.setIsMoving(false);

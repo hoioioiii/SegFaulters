@@ -174,11 +174,10 @@ namespace Project1
 
         public void WanderMove()
         {
-            time_manager.setRandMovementTimeFrame();
-            time_manager.updateElapsedMoveTime();
+            time_manager.SetRandMovementTimeFrame();
+            time_manager.UpdateElapsedMoveTime();
 
-            //means to change directions
-            if (time_manager.checkRandMovementTime())
+            if (time_manager.CheckRandMovementTime())
             {
                 direction_state.GetRandomDirection();
 
