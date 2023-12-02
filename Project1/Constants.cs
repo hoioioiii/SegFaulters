@@ -21,7 +21,6 @@ namespace Project1
     {
         public static Song BGM, gameOver, gameOverStateSound;
 
-        //Change this later to be all caps
         public static SoundEffect winningStateSound, addUI, bombBlow, bombDrop, boomerang, cling, death, doorUnlock, puzzleSolved, dragon, dragon2, dragon3, enemyDie, enemyHit, fire, flame, bigItemGet, smallItemGet, heartGet, rupeeGet, linkHurt, lowHealth, plus, plusPlus, secret, stairs, subtractUI, sword;
 
         public static String XMLPATH = "..\\..\\..\\xmlTest2.xml";
@@ -67,7 +66,8 @@ namespace Project1
         public static int SCREEN_HEIGHT_UPPER = 400;
         public static int SCREEN_HEIGHT_LOWER = 0;
         public static int PAUSED_STATE_YCOORD = ((SCREEN_HEIGHT / 3) * 2);
-        //DOOR INFO
+
+        //DOOR INFO>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int DOOR_NORTH_X = 350;
         public static int DOOR_NORTH_Y = 14;
         public static int DOOR_SOUTH_X = 352;
@@ -84,6 +84,28 @@ namespace Project1
 
         public static int VERTICAL_EAST_WIDTH = 63;
         public static int VERTICAL_EAST_HEIGHT = 107;
+
+        //Weapons metrics->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+        public static int W_DEFAULT_FRAMES = 2;
+        public static int W_DEFAULT_FPS = 300;
+        public static int W_DEFAULT_SPD = 2;
+        public static int W_ELAPSED_TIME = 1000;
+        public static int W2_ELAPSED_TIME = 5000;
+        public static int FRAME_UP = 0;
+        public static int FRAME_RIGHT = 1;
+        public static int FRAME_DOWN = 2;
+        public static int FRAME_LEFT = 3;
+        public static int W_MOD = 2;
+        public static int W_CHECK_OFFSET = 20;
+
+        public static int B_DEFAULT_FPS = 700;
+        public static int B_ON_WAY_TIME = 2000;
+
+        //weapon cardinals
+        public static int W_UP = 3;
+        public static int W_lEFT = 0;
+        public static int W_DOWN = 1;
+        public static int W_RIGHT = 2;
 
         //HUD STUFF ->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         public static int SCREEN_HEIGHT = (int)(480 * 1.75);

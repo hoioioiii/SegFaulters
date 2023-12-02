@@ -225,7 +225,7 @@ namespace Project1
 
             //if the time slot is up
             elapsedTime += Game1.deltaTime.ElapsedGameTime.Milliseconds;
-            if (elapsedTime >= 1000)
+            if (elapsedTime >= W_ELAPSED_TIME)
             {
                 return true;
             }

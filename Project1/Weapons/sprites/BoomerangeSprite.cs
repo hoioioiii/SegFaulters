@@ -40,7 +40,6 @@ namespace Project1
 
         public BoomerangeSprite(Texture2D[] spriteSheet)
         {
-            //needs to be refactored 
             texture = spriteSheet;
             BangPlaced = false;
             total_frame = 4;
@@ -110,7 +109,6 @@ namespace Project1
                 placeOffset();
 
                 boomerangSFX = boomerang.CreateInstance();
-                //boomerangSFX.IsLooped = true;
                 boomerangSFX.Play();
             }
         }
@@ -162,8 +160,6 @@ namespace Project1
         */
         public void GetUserPos(int x, int y)
         {
-
-            //Vector2 posVec = Player.getUserPos();
             userX = x; userY = y;
         }
 
@@ -173,25 +169,19 @@ namespace Project1
         */
         public void GetUserState(Direction direct)
         {
-/*            if (direct == Direction.Left)
-            {
-                System.Diagnostics.Debug.WriteLine("foundhere");
-            }*/
-            
-
             switch (direct)
             {
                 case Direction.Up:
-                    direction = 3;
+                    direction = W_UP;
                     break;
                 case Direction.Left:
-                    direction = 0;
+                    direction = W_lEFT;
                     break;
                 case Direction.Down:
-                    direction = 1;
+                    direction = W_DOWN;
                     break;
                 case Direction.Right:
-                    direction = 2;
+                    direction = W_RIGHT;
                     break;
             }
         }
@@ -212,36 +202,6 @@ namespace Project1
 
         }
 
-        /*
-        * 
-        * change boomerange directions
-        */
-        private void changeDirections()
-        {
-            switch (direction)
-            {
-                case 1:
-
-                    direction = 3;
-
-                    break;
-
-                case 2:
-                    direction = 4;
-                    break;
-
-
-                case 3:
-                    direction = 1;
-                    break;
-
-                case 4:
-                    direction = 2;
-                    break;
-
-
-            }
-        }
 
         /*
         * 
@@ -253,7 +213,7 @@ namespace Project1
             if (!change)
             {
                 CheckTime();
-                if (onWayTime >= 2000)
+                if (onWayTime >= B_ON_WAY_TIME)
                 {
                     onWayTime = 0;
                     change = true;
@@ -262,7 +222,7 @@ namespace Project1
                 }
             }
 
-            if (direction % 2 == 0)
+            if (direction % W_MOD == 0)
             {
                 weaponX = WeaponDirectionMovement.ForwardBack(weaponX, direction, mod);
 
@@ -275,16 +235,13 @@ namespace Project1
             }
         }
 
-        //this is going to be replaced by collision response
         private void checkFinish(int wPos, int userPos)
         {
             int check = Math.Abs(wPos - userPos);
 
-            //change later
-            if (check <= 20)
+            if (check <= W_CHECK_OFFSET)
             {
                 removeBang();
-                //boomerangSFX.Stop();
                 completed = true;
             }
 
