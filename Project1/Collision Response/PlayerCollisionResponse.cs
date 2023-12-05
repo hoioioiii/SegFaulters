@@ -33,7 +33,10 @@ namespace Project1.Collision_Response
             }
             else if (item.GetTypeIndex() == ITEMS.Clock)
             {
-                PlayerMovement.setPlayerSpeed(PlayerMovement.getPlayerSpeed() + SPD_BUFF);
+                int speed = PlayerMovement.getPlayerSpeed() + SPD_BUFF;
+                PlayerMovement.setPlayerSpeed(speed);
+                Player.stats[SPEED] += speed;
+                PlayerStats.UpdateStats(Game1.deltaTime);
                 AudioManager.PlaySoundEffect(smallItemGet);
             }
             else if (item.GetTypeIndex() == ITEMS.Fairy)

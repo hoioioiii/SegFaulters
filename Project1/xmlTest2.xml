@@ -69,6 +69,8 @@
 
 		<Items>
 			<rupee xLoc="0" yLoc="0"></rupee>
+			<rupee xLoc="0" yLoc="1"></rupee>
+			<rupee xLoc="0" yLoc="3"></rupee>
 			<beehive xLoc="4" yLoc="4"></beehive>
 		</Items>
 	</Room>
@@ -117,7 +119,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="bomb" quantity="2"></DroppedItem>
+					<DroppedItem Name="fairy" quantity="4"></DroppedItem>
 				</Drops>
 			</Snake>
 		</Enemies>
@@ -255,7 +257,7 @@
 				</Stats>
 				<Drops>
 					<DroppedItem Name="clock" quantity="1"></DroppedItem>
-					<DroppedItem Name="heartcontainer" quantity="1"></DroppedItem>
+					
 				</Drops>
 			</Stalfo>
 			<Stalfo id="3" xLoc="4" yLoc="3">
@@ -266,6 +268,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
+					<DroppedItem Name="clock" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
 		</Enemies>
