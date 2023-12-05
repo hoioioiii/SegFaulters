@@ -37,7 +37,7 @@ namespace Project1.HUD
             innerItemRect = new Texture2D(graphics, 1, 1);
             innerItemRect.SetData(new[] { Color.Black });
 
-            font = content.Load<SpriteFont>("HUDFont");
+            font = content.Load<SpriteFont>(ZELDAFONT);
 
             coordItem = new Vector2(HUD_SECTION_WIDTH + HUD_SECTION_THIRD, HUD_HEIGHT_THIRD);
 

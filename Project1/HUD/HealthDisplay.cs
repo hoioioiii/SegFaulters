@@ -23,7 +23,7 @@ namespace Project1.HUD
 		{
 
 
-            font = content.Load<SpriteFont>("HUDFont");
+            font = content.Load<SpriteFont>(ZELDAFONT);
     
             titleOffset = (HUD_SECTION_WIDTH - (int)font.MeasureString("-LIFE-").X) / 2;
 

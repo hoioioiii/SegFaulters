@@ -23,7 +23,7 @@ namespace Project1
             backgroundRect = new Texture2D(graphics, 1, 1);
             backgroundRect.SetData(new[] { Color.Black });
 
-            font = content.Load<SpriteFont>("HUDFont");
+            font = content.Load<SpriteFont>(ZELDAFONT);
 
             coordBase = new Vector2(0, HUD_HEIGHT);
 
