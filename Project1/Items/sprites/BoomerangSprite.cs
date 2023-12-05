@@ -51,7 +51,7 @@ namespace Project1
         {
             setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
-            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
+            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width+5, height+5);
             rect = DEST_REC;
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
