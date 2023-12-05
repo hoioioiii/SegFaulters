@@ -224,9 +224,10 @@ namespace Project1
 
             for (int i = 0; i < 4; i++)
             {
-                jellyStorage[i][0] = content.Load<Texture2D>(assetName: "gel1");
-                jellyStorage[i][1] = content.Load<Texture2D>(assetName: "gel2");
-                jellyStorage[i][2] = content.Load<Texture2D>(assetName: "gel1");
+                jellyStorage[i][0] = content.Load<Texture2D>(assetName: "gel12");
+                jellyStorage[i][1] = content.Load<Texture2D>(assetName: "gel21");
+                jellyStorage[i][2] = content.Load<Texture2D>(assetName: "gel12");
+                jellyStorage[i][2] = content.Load<Texture2D>(assetName: "gel21");
             }
 
             #endregion

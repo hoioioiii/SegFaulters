@@ -1,12 +1,12 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowDown.gif","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowDown.xnb","TextureProcessor","Texture2DContent",71,405,0.1009102
-"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowDown.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowDown.xnb","TextureProcessor","Texture2DContent",4252,405,0.0017401
-"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowLeft.gif","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowLeft.xnb","TextureProcessor","Texture2DContent",67,405,0.0020589
-"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowLeft.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowLeft.xnb","TextureProcessor","Texture2DContent",4228,405,0.0017591
-"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowRight.gif","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowRight.xnb","TextureProcessor","Texture2DContent",67,405,0.0020675
-"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowRight.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowRight.xnb","TextureProcessor","Texture2DContent",4228,405,0.0014979
-"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowUp.gif","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowUp.xnb","TextureProcessor","Texture2DContent",72,405,0.0020605
-"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowUp.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowUp.xnb","TextureProcessor","Texture2DContent",4242,405,0.0013974
+"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowDown.gif","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowDown.xnb","TextureProcessor","Texture2DContent",71,405,0.1004751
+"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowDown.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowDown.xnb","TextureProcessor","Texture2DContent",4252,405,0.0019371
+"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowLeft.gif","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowLeft.xnb","TextureProcessor","Texture2DContent",67,405,0.0023345
+"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowLeft.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowLeft.xnb","TextureProcessor","Texture2DContent",4228,405,0.0014848
+"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowRight.gif","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowRight.xnb","TextureProcessor","Texture2DContent",67,405,0.0021769
+"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowRight.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowRight.xnb","TextureProcessor","Texture2DContent",4228,405,0.0018363
+"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowUp.gif","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowUp.xnb","TextureProcessor","Texture2DContent",72,405,0.002289
+"C:/Users/tinal/source/repos/3.10/Project1/Content/arrowUp.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/arrowUp.xnb","TextureProcessor","Texture2DContent",4242,405,0.0015473
 "C:/Users/tinal/source/repos/3.10/Project1/Content/bat1.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/bat1.xnb","TextureProcessor","Texture2DContent",4545,597,0.0037366
 "C:/Users/tinal/source/repos/3.10/Project1/Content/bat2.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/bat2.xnb","TextureProcessor","Texture2DContent",4532,485,0.0032842
 "C:/Users/tinal/source/repos/3.10/Project1/Content/bomb.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/bomb.xnb","TextureProcessor","Texture2DContent",4280,533,0.0024613
@@ -17,7 +17,9 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "C:/Users/tinal/source/repos/3.10/Project1/Content/fairy1.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/fairy1.xnb","TextureProcessor","Texture2DContent",384,597,0.0027842
 "C:/Users/tinal/source/repos/3.10/Project1/Content/fairy2.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/fairy2.xnb","TextureProcessor","Texture2DContent",385,597,0.0023254
 "C:/Users/tinal/source/repos/3.10/Project1/Content/gel1.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/gel1.xnb","TextureProcessor","Texture2DContent",4553,341,0.0028819
+"C:/Users/tinal/source/repos/3.10/Project1/Content/gel12.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/gel12.xnb","TextureProcessor","Texture2DContent",208,533,0.0022977
 "C:/Users/tinal/source/repos/3.10/Project1/Content/gel2.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/gel2.xnb","TextureProcessor","Texture2DContent",4551,301,0.0031796
+"C:/Users/tinal/source/repos/3.10/Project1/Content/gel21.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/gel21.xnb","TextureProcessor","Texture2DContent",221,1109,0.0020197
 "C:/Users/tinal/source/repos/3.10/Project1/Content/handLeft1.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/handLeft1.xnb","TextureProcessor","Texture2DContent",1013,1309,0.0023035
 "C:/Users/tinal/source/repos/3.10/Project1/Content/handLeft2.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/handLeft2.xnb","TextureProcessor","Texture2DContent",1019,1381,0.0023235
 "C:/Users/tinal/source/repos/3.10/Project1/Content/handRight1.png","C:/Users/tinal/source/repos/3.10/Project1/Content/bin/DesktopGL/Content/handRight1.xnb","TextureProcessor","Texture2DContent",979,969,0.0024341

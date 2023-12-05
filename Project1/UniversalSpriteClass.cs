@@ -74,7 +74,7 @@ namespace Project1
 
             int height = animation_manager.sprite_frame.Height;
             int width = animation_manager.sprite_frame.Width;
-            rectangles.Item1 = new Rectangle(1, 1, width, height);
+            rectangles.Item1 = new Rectangle(1,1, width, height);
             width = GetHeightAndWidthResized().Item1;
             height = GetHeightAndWidthResized().Item2;
             rectangles.Item2 = new Rectangle(x, y, width, height);

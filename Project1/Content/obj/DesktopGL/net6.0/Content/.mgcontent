@@ -158,7 +158,9 @@
     <File>C:/Users/tinal/source/repos/3.10/Project1/Content/forest.png</File>
     <File>C:/Users/tinal/source/repos/3.10/Project1/Content/fullheart.png</File>
     <File>C:/Users/tinal/source/repos/3.10/Project1/Content/gel1.png</File>
+    <File>C:/Users/tinal/source/repos/3.10/Project1/Content/gel12.png</File>
     <File>C:/Users/tinal/source/repos/3.10/Project1/Content/gel2.png</File>
+    <File>C:/Users/tinal/source/repos/3.10/Project1/Content/gel21.png</File>
     <File>C:/Users/tinal/source/repos/3.10/Project1/Content/grass.png</File>
     <File>C:/Users/tinal/source/repos/3.10/Project1/Content/greenSquareOnMap.png</File>
     <File>C:/Users/tinal/source/repos/3.10/Project1/Content/halfheart.png</File>
@@ -266,6 +268,8 @@
     <File>C:/Users/tinal/source/repos/3.10/Project1/Content/ZeldaSpriteOldMan.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
