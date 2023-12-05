@@ -83,6 +83,17 @@ namespace Project1
             return false;
         }
 
+
+        public bool CheckRandMovementTimeBat()
+        {
+            if (elapsed_move__sec >= 10000)
+            {
+                elapsed_move__sec = 0;
+                return true;
+            }
+            return false;
+        }
+
         public bool CheckIfAttackTime()
         {
             elapsed_move__sec += 1;

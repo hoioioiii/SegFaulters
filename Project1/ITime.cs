@@ -13,7 +13,7 @@ namespace Project1
         public bool CheckIfAttackTimeRandom();
         public bool CheckAnimationFrameTime();
 
-        
+        public bool CheckRandMovementTimeBat();
         public bool CheckRandMovementTime();
         public void SetRandMovementTimeFrame();
 

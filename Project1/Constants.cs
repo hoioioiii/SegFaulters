@@ -251,10 +251,10 @@ namespace Project1
 
         public static int BAT_TOTAL = 2;
         public static int BAT_C = 1;
-        public static int BAT_FRAMES_U = 2;
-        public static int BAT_FRAMES_R = 2;
-        public static int BAT_FRAMES_L = 2;
-        public static int BAT_FRAMES_D = 2;
+        public static int BAT_FRAMES_U = 4;
+        public static int BAT_FRAMES_R = 4;
+        public static int BAT_FRAMES_L = 4;
+        public static int BAT_FRAMES_D = 4;
         public static int BAT_FRAMES_DEATH = 1;
 
         public static int AQUA_TOTAL = 2;
@@ -640,8 +640,8 @@ namespace Project1
         public static int RANDOM_LOWER_MAX = 1000;
         public static int RANDOM_UPPER_MIN = 1000;
         public static int RANDOM_UPPER_MAX = 2000;
-        public static int RANDOM_ORIGIN_OFFSET_MIN = -15;
-        public static int RANDOM_ORIGIN_OFFSET_MAX = 15;
+        public static int RANDOM_ORIGIN_OFFSET_MIN = -4;
+        public static int RANDOM_ORIGIN_OFFSET_MAX = 4;
         public static int RANDOM_RADIUS_MIN = 0;
         public static int RANDOM_RADIUS_MAX = 15;
 

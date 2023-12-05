@@ -27,6 +27,7 @@ namespace Project1
         public override void MovementType()
         {
             this.movement_manager.circularMovement(Direction.Right);
+            //this.movement_manager.circularMovement(Direction.Right);
         }
 
         public override Rectangle GetPositionAndRectangle()

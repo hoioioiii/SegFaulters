@@ -155,19 +155,26 @@ namespace Project1
         //can remove param later
         public void circularMovement(Direction start_direction)
         {
+            //int originX = entityObj.getPos().Item1 - Random.RandomOriginOffset();
+            //int originY = entityObj.getPos().Item2 - Random.RandomOriginOffset();
+            //time_manager.SetRandMovementTimeFrame();
+            //time_manager.UpdateElapsedMoveTime();
+
+            //if (time_manager.CheckRandMovementTime())
+            //{
+            int originX = entityObj.getPos().Item1 - Random.RandomOriginOffset();
+            int originY = entityObj.getPos().Item2 - Random.RandomOriginOffset();
+            //{
             angle += 0.1;
-           
-                int x = entityObj.getPos().Item1;
-                int y = entityObj.getPos().Item2;
-                int originX = entityObj.getPos().Item1 - Random.RandomOriginOffset();
-                int originY = entityObj.getPos().Item2 - Random.RandomOriginOffset();
+            int x = entityObj.getPos().Item1;
+            int y = entityObj.getPos().Item2;
 
-                double cos = Math.Cos(angle) * Random.RandomRadius();
-                double sin = Math.Sin(angle) * Random.RandomRadius();
+            double cos = Math.Cos(angle) * Random.RandomRadius();
+            double sin = Math.Sin(angle) * Random.RandomRadius();
 
-               (bool, int) positionX = CheckBound((int)(originX + cos), roomBoundsMaxX, roomBoundsMinX);
-               (bool, int) positionY = CheckBound((int)(originY + sin), roomBoundsMaxY, roomBoundsMinY);
-            
+            (bool, int) positionX = CheckBound((int)(originX + cos), roomBoundsMaxX, roomBoundsMinX);
+            (bool, int) positionY = CheckBound((int)(originY + sin), roomBoundsMaxY, roomBoundsMinY);
+        
             entityObj.setPosition(positionX.Item2,positionY.Item2);
             
         }
@@ -180,7 +187,6 @@ namespace Project1
             if (time_manager.CheckRandMovementTime())
             {
                 direction_state.GetRandomDirection();
-
             }
             
             WandererMovement(direction_state.GetDirection());
