@@ -60,8 +60,8 @@ namespace Project1
         public void Draw(SpriteBatch spriteBatch)
         {
             setDimention();
-            Rectangle SOURCE_REC = new Rectangle(0, 0, width + 10, height + 10);
-            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width, height);
+            Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
+            Rectangle DEST_REC = new Rectangle(pos_x, pos_y, width * 2, height * 2);
             rect = DEST_REC;
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
         }
@@ -71,7 +71,7 @@ namespace Project1
         {
             setDimention();
             Rectangle SOURCE_REC = new Rectangle(0, 0, width, height);
-            Rectangle DEST_REC = new Rectangle((int)location.X, (int)location.Y, width * scale, height * scale);
+            Rectangle DEST_REC = new Rectangle((int)location.X, (int)location.Y, width * 2, height * 2);
             rect = DEST_REC;
             spriteBatch.Draw(Texture[(int)current_frame], DEST_REC, SOURCE_REC, Color.White);
 
