@@ -61,8 +61,8 @@ namespace Project1
         //needed if another sprint needs a specific refacor for size
         public virtual (int,int) GetHeightAndWidthResized()
         {
-            int height = animation_manager.sprite_frame.Height * LARGER_SIZE +7;
-            int width = animation_manager.sprite_frame.Width * LARGER_SIZE+ 7;
+            int height = animation_manager.sprite_frame.Height * LARGER_SIZE +4;
+            int width = animation_manager.sprite_frame.Width * LARGER_SIZE+ 4;
 
             return(width,height);
         }
