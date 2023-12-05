@@ -143,7 +143,7 @@ namespace Project1
             if (BangPlaced)
             {
                 Rectangle SOURCE_REC = new Rectangle(1, y: 1, width, height);
-                Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width, height);
+                Rectangle DEST_REC = new Rectangle(weaponX, weaponY, width * 2, height * 2);
                 rec = DEST_REC;
                 spriteBatch.Draw(texture[current_frame], DEST_REC, SOURCE_REC, Color.White);
             }

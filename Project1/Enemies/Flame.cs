@@ -28,7 +28,7 @@ namespace Project1
 
         public override void MovementType()
         {
-            movement_manager.SmartAIDetectionFieldMovement();
+           movement_manager.SmartAIDetectionFieldMovement();
 
         }
     }

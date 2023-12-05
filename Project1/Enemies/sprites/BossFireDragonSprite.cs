@@ -30,35 +30,6 @@ namespace Project1
 
         }
 
-        //private bool CheckFinished(IWeapon[] weapon)
-        //{
-        //    for(int i = 0; i < weapon.Length; i++)
-        //    {
-        //        if (!weapon[i].finished()) return false;
-               
-        //    }
-        //    return true;
-        //}
-
-        //private void LoopAttack(IWeapon[] weapon)
-        //{
-        //    for (int i = 0; i < weapon.Length; i++)
-        //    {
-        //        weapon[i].Attack();
-        //        weapon[i].Draw();
-        //    }
-        //}
-
-
-
-        //public override void DrawAttack(IWeapon[] weapon)
-        //{
-        //    if (!CheckFinished(weapon))
-        //    {
-        //        LoopAttack(weapon);
-        //    }
-         
-        //}
 
         public override void Draw(SpriteBatch spriteBatch, IWeapon[] weapon)
         {

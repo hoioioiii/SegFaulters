@@ -137,10 +137,10 @@ namespace Project1
             fireDinoStorage[(int)ENEMY_DIRECTION.left][1] = content.Load<Texture2D>(assetName: "fd2");
             fireDinoStorage[(int)ENEMY_DIRECTION.left][2] = content.Load<Texture2D>(assetName: "fd3");
             fireDinoStorage[(int)ENEMY_DIRECTION.left][3] = content.Load<Texture2D>(assetName: "fd4");
-            fireDinoStorage[(int)ENEMY_DIRECTION.right][0] = content.Load<Texture2D>(assetName: "fd1Right");
-            fireDinoStorage[(int)ENEMY_DIRECTION.right][1] = content.Load<Texture2D>(assetName: "fd2Right");
-            fireDinoStorage[(int)ENEMY_DIRECTION.right][2] = content.Load<Texture2D>(assetName: "fd3Right");
-            fireDinoStorage[(int)ENEMY_DIRECTION.right][3] = content.Load<Texture2D>(assetName: "fd4Right");
+            fireDinoStorage[(int)ENEMY_DIRECTION.right][0] = content.Load<Texture2D>(assetName: "fd1");
+            fireDinoStorage[(int)ENEMY_DIRECTION.right][1] = content.Load<Texture2D>(assetName: "fd2");
+            fireDinoStorage[(int)ENEMY_DIRECTION.right][2] = content.Load<Texture2D>(assetName: "fd3");
+            fireDinoStorage[(int)ENEMY_DIRECTION.right][3] = content.Load<Texture2D>(assetName: "fd4");
 
             fireDinoStorage[(int)ENEMY_DIRECTION.up][0] = fireDinoStorage[(int)ENEMY_DIRECTION.left][0];
             fireDinoStorage[(int)ENEMY_DIRECTION.up][1] = fireDinoStorage[(int)ENEMY_DIRECTION.left][0];
