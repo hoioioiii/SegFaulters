@@ -13,10 +13,10 @@ namespace Project1
         public List<Texture2D[]> frame_list{ set; }
         public void Animate();
         public void PopulateFrames();
-        public int getCurrentFrame();
+        public int GetCurrentFrame();
 
-        public void setTotalFrame(int frame);
-        public void setStartFrame(int frame);
+        public void SetTotalFrame(int frame);
+        public void SetStartFrame(int frame);
 
        
 

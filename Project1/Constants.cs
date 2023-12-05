@@ -1,17 +1,9 @@
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mime;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework.Content;
-using System.Collections;
+
 using static Project1.Game1;
-using System.Security.Cryptography.X509Certificates;
+
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Media;
 
@@ -259,10 +251,10 @@ namespace Project1
 
         public static int BAT_TOTAL = 2;
         public static int BAT_C = 1;
-        public static int BAT_FRAMES_U = 2;
-        public static int BAT_FRAMES_R = 2;
-        public static int BAT_FRAMES_L = 2;
-        public static int BAT_FRAMES_D = 2;
+        public static int BAT_FRAMES_U = 4;
+        public static int BAT_FRAMES_R = 4;
+        public static int BAT_FRAMES_L = 4;
+        public static int BAT_FRAMES_D = 4;
         public static int BAT_FRAMES_DEATH = 1;
 
         public static int AQUA_TOTAL = 2;
@@ -609,6 +601,87 @@ namespace Project1
         public static int BEE_WIDTH = 15;
         public static int BEE_HEIGHT = 15;
         public static int ITEM_DROP_OFFSET = 50;
+
+
+        public static int ORB_TIME_ALLOWED = 1000;
+        public static int MAX_ORBS = 3;
+        public static int TOP_ORB = 0;
+        public static int MID_ORB = 1;
+        public static int BOT_ORB = 2;
+        public static int SPRITE_SCALE = 3;
+        public static int MAX_INVENTORY_SLOTS = 9;
+        public static int ROOMS_ENTERED = 19;
+        public static int BOOMERANG_LOC = 0;
+        public static int BEEHIVE_LOC = 2;
+        public static int BOW_LOC = 3;
+
+        public static int DUMMY_NUMBER = 200;
+        public static int ENVIRONMENT_START = 2;
+        public static int DRAGON_POSITION = 11;
+        public static int FISH_POS = 12;
+        public static int CARPET_POS = 7;
+        public static int BRICK_POS = 2;
+        public static int WATER_POS = 13;
+        public static int STARICASE_POS = 6;
+        public static int BLACKROOM_POS = 14;
+        public static int DEFAULT_POS = 10;
+        public static int ROOMTEXURE_TOTAL = 17;
+        public static int ATTACK_DURATION = 100;
+        public static int ATTACK_PER_MOVEMENT = 100;
+        public static int MS_PER_FRAME = 300;
+
+        public static int RANDOM_SECONDS_MIN = -10;
+        public static int RANDOM_SECONDS_MAX = 10;
+        public static int RANDOM_BEE_SPD_MIN = -5;
+        public static int RANDOM_BEE_SPD_MAX = 5;
+        public static int RANDOM_SPD_POS_MIN = 1;
+        public static int RANDOM_SPD_POS_MAX = 3;
+        public static int RANDOM_LOWER_MIN = 0;
+        public static int RANDOM_LOWER_MAX = 1000;
+        public static int RANDOM_UPPER_MIN = 1000;
+        public static int RANDOM_UPPER_MAX = 2000;
+        public static int RANDOM_ORIGIN_OFFSET_MIN = -4;
+        public static int RANDOM_ORIGIN_OFFSET_MAX = 4;
+        public static int RANDOM_RADIUS_MIN = 0;
+        public static int RANDOM_RADIUS_MAX = 15;
+
+        public static int RANDOM_DIRECTION_MIN = 1;
+        public static int RANDOM_DIRECTION_MAX = 4;
+
+
+        public static string RETRY = "RETRY";
+        public static string QUIT = "QUIT";
+        public static string GAMEOVER = "Game Over";
+        public static string ZELDAFONT = "ZeldaFont";
+        public static string WINNER = "You Win!";
+        public static string ROOM = "Room";
+        public static string ENEMIES = "Enemies";
+        public static string ENVIRONMENT = "Environment";
+        public static string ITEMS_STRING = "Items";
+        public static string XLOC = "xLoc";
+        public static string YLOC = "yLoc";
+        public static string DROPS = "Drops";
+        public static string NAME = "Name";
+        public static string QUANITY = "quantity";
+        public static string WALLS = "Walls";
+        public static string DOORS = "Doors";
+        public static string BLOCKS = "Blocks";
+        public static string ID = "id";
+        public static string DESTINATION_ROOM = "DestinationRoom";
+        public static string LOCKED = "Locked";
+        public static string IS_TUNNEL = "isTunnel";
+        public static string DEAD = "DEAD";
+
+        public static string DEF = "DEF";
+        public static int HEAL_AMNT = 4;
+        public static int SPD_BUFF = 10;
+        public static int ROOM_THIRTEEN = 13;
+        
+
+
+
+
+
 
     }
 }

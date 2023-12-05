@@ -1,32 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Project1
 {
     public interface ITime
     {
- 
-
         public void UpdateElaspedMilli();
 
         public void UpdateElaspedSec();
 
-        public void resetElaspedMilli();
+        public void ResetElaspedMilli();
 
-        public void resetElaspedSec();
-        public bool checkIfAttackTimeRandom();
-        public bool checkAnimationFrameTime();
+        public void ResetElaspedSec();
+        public bool CheckIfAttackTimeRandom();
+        public bool CheckAnimationFrameTime();
 
-        //How long to to be moving in 1 direction before needing to either stop or change directions
-        public bool checkRandMovementTime();
-        public void setRandMovementTimeFrame();
+        public bool CheckRandMovementTimeBat();
+        public bool CheckRandMovementTime();
+        public void SetRandMovementTimeFrame();
 
-        public void updateElapsedMoveTime();
-        public bool checkIfAttackTime();
-        public void enableMoveTime();
+        public void UpdateElapsedMoveTime();
+        public bool CheckIfAttackTime();
+        public void EnableMoveTime();
 
         public bool PaceTime(int pace);
 

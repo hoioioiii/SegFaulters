@@ -1,15 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Mime;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework.Content;
-using System.Collections;
 using static Project1.Constants;
 using Project1.Enemies;
 using Project1.Enemies.SpikeAdditonalFiles;
@@ -20,21 +11,15 @@ namespace Project1
     public class SpikeCross : UniversalClassEntity
     {
         public override Rectangle BoundingBox => GetPositionAndRectangle();
-
-        
-        private ISprite sprite;
-        private SPIKE_ID id;
         public override Rectangle DetectionFieldX => GetAxisX();
         public override Rectangle DetectionFieldY => GetAxisY();
-
         public override (bool, bool) detected { get; set; }
 
-        /*
-         * Initalize Spike
-         */
+        private ISprite sprite;
+        private SPIKE_ID id;
+      
         public SpikeCross((int, int) position, (String, int)[] items, SPIKE_ID id) : base(position, items)
         {
-
             this.id = id;
             sprite = EnemySpriteFactory.Instance.CreateSpikeCrossSprite(animation_manager, movement_manager, direction_state_manager, state_manager, time_manager);
             Game1.GameObjManager.addNewDetectionEntity(this);
@@ -60,13 +45,8 @@ namespace Project1
         public override void SetDetected(bool x, bool y)
         {
            
-            if (!x && !y)
-            {
-               
-                ResetCompletely();
-            }
-
-
+            if (!x && !y) ResetCompletely();
+     
             detected = (x, y);
         }
 

@@ -66,11 +66,25 @@ namespace Project1
 
             #region Bat Sprite Storage
 
-            for (int i = 0; i < 4; i++)
-            {
-                batStorage[i][0] = content.Load<Texture2D>(assetName: "bat1");
-                batStorage[i][1] = content.Load<Texture2D>(assetName: "bat2");
-            }
+           
+                batStorage[UP][0] = content.Load<Texture2D>(assetName: "bat1");
+                batStorage[UP][1] = content.Load<Texture2D>(assetName: "bat1");
+                batStorage[UP][2] = content.Load<Texture2D>(assetName: "bat2");
+                batStorage[UP][3] = content.Load<Texture2D>(assetName: "bat2");
+            batStorage[RIGHT][0] = content.Load<Texture2D>(assetName: "bat2");
+            batStorage[RIGHT][1] = content.Load<Texture2D>(assetName: "bat2");
+            batStorage[RIGHT][2] = content.Load<Texture2D>(assetName: "bat2");
+            batStorage[RIGHT][3] = content.Load<Texture2D>(assetName: "bat2");
+            batStorage[DOWN][0] = content.Load<Texture2D>(assetName: "bat1");
+            batStorage[DOWN][1] = content.Load<Texture2D>(assetName: "bat1");
+            batStorage[DOWN][2] = content.Load<Texture2D>(assetName: "bat1");
+            batStorage[DOWN][3] = content.Load<Texture2D>(assetName: "bat1");
+            batStorage[LEFT][0] = content.Load<Texture2D>(assetName: "bat1");
+            batStorage[LEFT][1] = content.Load<Texture2D>(assetName: "bat1");
+            batStorage[LEFT][2] = content.Load<Texture2D>(assetName: "bat1");
+            batStorage[LEFT][3] = content.Load<Texture2D>(assetName: "bat1");
+
+
 
             #endregion
 

@@ -3095,3 +3095,5 @@ C:\Users\tinal\source\repos\3.10\Project1\obj\Debug\net6.0\Project1.genruntimeco
 C:\Users\tinal\source\repos\3.10\Project1\obj\Debug\net6.0\ref\Project1.dll
 C:\Users\tinal\source\repos\3.10\Project1\bin\Debug\net6.0\Content\gel1.xnb
 C:\Users\tinal\source\repos\3.10\Project1\bin\Debug\net6.0\Content\gel2.xnb
+C:\Users\tinal\source\repos\3.10\Project1\bin\Debug\net6.0\Content\bat11.xnb
+C:\Users\tinal\source\repos\3.10\Project1\bin\Debug\net6.0\Content\bat21.xnb

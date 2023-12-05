@@ -5,13 +5,13 @@ namespace Project1.Enemies
 {
     public interface IDirectionStateManager
     {
-        public Direction getDirection();
-        public void setDirection(Direction direction);
+        public Direction GetDirection();
+        public void SetDirection(Direction direction);
 
-        public void changeDirection();
+        public void ChangeDirection();
 
         public void NeedDirectionUpdate(bool dir_flag);
 
-        public Direction getRandomDirection();
+        public Direction GetRandomDirection();
     }
 }

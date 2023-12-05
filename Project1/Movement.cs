@@ -66,12 +66,12 @@ namespace Project1
         {
             (int,int) pos_pair  = entityObj.getPos();
             (bool, int) update_pair = (false, pos_pair.Item2);
-            Direction direct = direction_state.getDirection();
+            Direction direct = direction_state.GetDirection();
             bool isMoving = false;
 
             if (direct != Direction.Up && direct != Direction.Down)
             {
-                direction_state.setDirection(start_direction);
+                direction_state.SetDirection(start_direction);
             }
             else
             {
@@ -136,12 +136,12 @@ namespace Project1
            
             (int, int) pos_pair = entityObj.getPos();
             (bool, int) update_pair = (false, pos_pair.Item1);
-            Direction direct = direction_state.getDirection();
+            Direction direct = direction_state.GetDirection();
             bool isMoving = false;
 
             if (direct != Direction.Left && direct != Direction.Right)
             {
-                direction_state.setDirection(start_direction);
+                direction_state.SetDirection(start_direction);
             }
             else
             {
@@ -155,36 +155,41 @@ namespace Project1
         //can remove param later
         public void circularMovement(Direction start_direction)
         {
+            //int originX = entityObj.getPos().Item1 - Random.RandomOriginOffset();
+            //int originY = entityObj.getPos().Item2 - Random.RandomOriginOffset();
+            //time_manager.SetRandMovementTimeFrame();
+            //time_manager.UpdateElapsedMoveTime();
+
+            //if (time_manager.CheckRandMovementTime())
+            //{
+            int originX = entityObj.getPos().Item1 - Random.RandomOriginOffset();
+            int originY = entityObj.getPos().Item2 - Random.RandomOriginOffset();
+            //{
             angle += 0.1;
-           
-                int x = entityObj.getPos().Item1;
-                int y = entityObj.getPos().Item2;
-                int originX = entityObj.getPos().Item1 - Random.RandomOriginOffset();
-                int originY = entityObj.getPos().Item2 - Random.RandomOriginOffset();
+            int x = entityObj.getPos().Item1;
+            int y = entityObj.getPos().Item2;
 
-                double cos = Math.Cos(angle) * Random.RandomRadius();
-                double sin = Math.Sin(angle) * Random.RandomRadius();
+            double cos = Math.Cos(angle) * Random.RandomRadius();
+            double sin = Math.Sin(angle) * Random.RandomRadius();
 
-               (bool, int) positionX = CheckBound((int)(originX + cos), roomBoundsMaxX, roomBoundsMinX);
-               (bool, int) positionY = CheckBound((int)(originY + sin), roomBoundsMaxY, roomBoundsMinY);
-            
+            (bool, int) positionX = CheckBound((int)(originX + cos), roomBoundsMaxX, roomBoundsMinX);
+            (bool, int) positionY = CheckBound((int)(originY + sin), roomBoundsMaxY, roomBoundsMinY);
+        
             entityObj.setPosition(positionX.Item2,positionY.Item2);
             
         }
 
         public void WanderMove()
         {
-            time_manager.setRandMovementTimeFrame();
-            time_manager.updateElapsedMoveTime();
+            time_manager.SetRandMovementTimeFrame();
+            time_manager.UpdateElapsedMoveTime();
 
-            //means to change directions
-            if (time_manager.checkRandMovementTime())
+            if (time_manager.CheckRandMovementTime())
             {
-                direction_state.getRandomDirection();
-
+                direction_state.GetRandomDirection();
             }
             
-            WandererMovement(direction_state.getDirection());
+            WandererMovement(direction_state.GetDirection());
             
         }
 

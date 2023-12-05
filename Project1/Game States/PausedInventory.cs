@@ -25,33 +25,9 @@ namespace Project1
 
         private static int spriteScale;
 
-        private float screenMaxHeight; // Height of the top two-thirds of the screen
+        private float screenMaxHeight;
 
-        //fix magic numbers constants
-        /*  private static int inventoryTextOffsetX = 130; 
-          private static int inventoryTextOffsetY = 500; 
-          private static int useBtextOffsetX = 100; 
-          private static int useBtextOffsetY = 300;
-          private static int smallItemBoxTextOffsetX = 190;
-          private static int smallItemBoxTextOffsetY = 430;
-          private static int itemInventoryBoxTextOffsetX = 400;
-          private static int itemInventoryBoxTextOffsetY = 450;
-
-          private static int itemInventoryBoxOffSet = 18;
-          private static int itemInventoryBoxOffSet2 = 4;
-          private static int itemInventoryBoxOffSet3 = 16;
-          private static int itemInventoryBoxScaleOffSet = 10;
-
-          private static int inventoryboxWidth; 
-          private static int inventoryboxHeight;
-
-
-          private static int currentItemIndex = 0;
-          private static int trueTotalItemCount = 0;
-
-          int inventoryRows = 2;
-          int inventoryCols = 4;
-          int selectorSmoother = 0; */
+      
         private static Vector2 selectedItemPosition;
         public static Vector2 inventoryPosition;
         public static Vector2 useBPosition;
@@ -160,7 +136,7 @@ namespace Project1
                         
                     }
                    // spriteBatch.Draw(test, new Rectangle(x, y, inventoryboxWidth * 2 - 10, inventoryboxHeight * 2 - 10), Color.White);
-                    inventoryitem.Draw(spriteBatch, new Vector2(x, y), 2);
+                    inventoryitem.Draw(spriteBatch, new Vector2(x, y), DOUBLE);
                     itemLocations.Add((new Vector2(x, y), item));
                     break;
                     
@@ -171,7 +147,7 @@ namespace Project1
             selectedItemPosition = itemLocations[currentItemIndex].Item1;
             spriteBatch.Draw(redItemSelector, new Rectangle((int)selectedItemPosition.X - itemInventoryBoxOffSet2, (int)selectedItemPosition.Y - itemInventoryBoxOffSet2, redItemSelector.Width + itemInventoryBoxScaleOffSet, redItemSelector.Height + itemInventoryBoxScaleOffSet), Color.White);
 
-            drawSelectedItemToSmallBox(spriteBatch);
+            DrawSelectedItemToSmallBox(spriteBatch);
 
 
 
@@ -179,7 +155,7 @@ namespace Project1
         }
 
         //depending on what the selector is hovering over, it will display on the small box
-        private void drawSelectedItemToSmallBox(SpriteBatch spriteBatch)
+        private void DrawSelectedItemToSmallBox(SpriteBatch spriteBatch)
         {
             IItem smallboxinventoryitem = null;
             USABLE_ITEM type = (USABLE_ITEM)itemLocations[currentItemIndex].Item2;
@@ -204,15 +180,11 @@ namespace Project1
                     break;
             }
             InventoryDisplay.setSelectedItem(type);
-            //Issue here, this is not displaying the correct item in the small box inventory when an item gets used up
-            //idea behind solution: need to implement command that updates the amount if rows and columns based on if an consumable is use. need to change getTotalNumOfItems to be called once at the start
-            //instead, it displays an item next to it
-            //You can use Player.itemInventory[(int)InventoryDisplay.getSelectedItemTypeIndex()] > 0 to test if the selected item's count is greater than 1 in case that helps you solve the problem
-            smallboxinventoryitem.Draw(spriteBatch, pos, 3);
+           
+            smallboxinventoryitem.Draw(spriteBatch, pos, SPRITE_SCALE);
             itemLocations.Clear();
         }
 
-        //function that gets the number of items and which ones so Draw can have the correct sprite to create
         public void UpdateItemDict()
         {
             // Initialize the dictionary if it's empty
@@ -258,7 +230,7 @@ namespace Project1
 
         //moves the selector, makes sure it loops back to the other side 
         //selector smoother is so it doesnt update crazy fast between the controller checks
-        public void moveSelectorLeft()
+        public void MoveSelectorLeft()
         {
             if(selectorSmoother == 9)
             {
@@ -273,9 +245,9 @@ namespace Project1
         }
 
         //moves the selector, makes sure it loops back to the other side 
-        public void moveSelectorRight()
+        public void MoveSelectorRight()
         {
-            if(selectorSmoother == 9)
+            if(selectorSmoother == MAX_INVENTORY_SLOTS)
             {
                 currentItemIndex++;
                 if (currentItemIndex == trueTotalItemCount)
