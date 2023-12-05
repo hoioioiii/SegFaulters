@@ -20,12 +20,12 @@ namespace Project1.Enemies
         {
 
             current_direction = direction_state;
-            createOppositeDirectionMapping();
+            CreateOppositeDirectionMapping();
 
         }
 
 
-        private void createOppositeDirectionMapping()
+        private void CreateOppositeDirectionMapping()
         {
             oppositeDirection = new Dictionary<Direction, Direction>
             {
@@ -36,17 +36,17 @@ namespace Project1.Enemies
             };
         }
 
-        public void changeDirection()
+        public void ChangeDirection()
         {
-            setDirection(oppositeDirection.GetValueOrDefault(current_direction));
+            SetDirection(oppositeDirection.GetValueOrDefault(current_direction));
         }
 
-        public Direction getDirection()
+        public Direction GetDirection()
         {
             return current_direction;
         }
 
-        public void setDirection(Direction state)
+        public void SetDirection(Direction state)
         {
             this.current_direction = state;
         }
@@ -55,13 +55,13 @@ namespace Project1.Enemies
         {
             if (update_flag)
             {
-                changeDirection();
+                ChangeDirection();
             }
         }
-        public Direction getRandomDirection()
+        public Direction GetRandomDirection()
         {
-            setDirection(Random.RandomDirection());
-            return getDirection();
+            SetDirection(Random.RandomDirection());
+            return GetDirection();
         }
     }
 }

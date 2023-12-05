@@ -7,7 +7,7 @@ using static Project1.Constants;
 
 namespace Project1
 {
-    public class SnakeSprite : UniversalSpriteClass //Do this later, not lvvl 1 dungeon
+    public class SnakeSprite : UniversalSpriteClass
     {
         
         public SnakeSprite(List<Texture2D[]> spriteSheet, IAnimation animation, IMove movement, IDirectionStateManager direction, IEntityState state, ITime time) : base(spriteSheet,animation, movement, state, direction, time)

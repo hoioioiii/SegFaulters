@@ -27,13 +27,12 @@ namespace Project1
          */
 
      
-       
         private static List<IEntity> entities;
        
 
 
-        #region Collision rectangles TODO: USE ENTITIES INSTEAD
-        
+        #region Collision rectangles 
+        // 
         /*
          * List of rectangles for collision boxes for Link
          * Includes: Items, doors, boundaries, enemies, and non-Link damagers (attacks and enemies without health)
@@ -52,8 +51,7 @@ namespace Project1
          * List of rectangles for collision boxes for Link
          * Includes: Items, doors, boundaries, enemies, and non-Link damagers (attacks and enemies without health)
          */
-       
-       
+      
         private static List<IItem> roomItems;
         private static List<Door> roomDoors;
         private static List<IEnvironment> roomBoundaries;
@@ -64,9 +62,7 @@ namespace Project1
         private static List<IWeapon> detectionWeapons;
 
         private static List<IEntity> detectionEntities;
-       
-   
-        #endregion
+      
 
         #region Collision Detection Entities (player & room enemies & doors)
         /*
@@ -79,7 +75,9 @@ namespace Project1
             bool isColliding = false;
 
 
-           
+            // check if player intersects a room rectangle
+            // if the CollisionType is damage or boundary, directional collision check required
+            
             DIRECTION collisionDirection = DIRECTION.left;
 
             
@@ -92,7 +90,7 @@ namespace Project1
                     PlayerCollisionResponse.ItemResponse(item);
                 }
 
-            
+           
                 
             }
             
@@ -114,7 +112,7 @@ namespace Project1
                     collisionDirection = DetectCollisionDirection(Player.BoundingBox, boundary.BoundingBox, collisionDirection);
                     PlayerCollisionResponse.BoundaryResponse(collisionDirection);
                 }
-           
+        
             }
             foreach (var enemy in entities)
             {
@@ -123,16 +121,6 @@ namespace Project1
                 if (isColliding)
                 {
                     collisionDirection = DetectCollisionDirection(Player.BoundingBox, enemy.BoundingBox, collisionDirection);
-                  
-
-                    #region Print to debug console
-                    System.Text.StringBuilder sb = new StringBuilder();
-                    sb.Append("COLLISION DIRECTION: " + collisionDirection);
-
-                    if (sb.Length > 0)
-                        System.Diagnostics.Debug.WriteLine(sb.ToString());
-                    #endregion
-
                     PlayerCollisionResponse.DamageResponse(collisionDirection,false,DAMAGE_HALF_HEART);
                 }
 
@@ -149,7 +137,6 @@ namespace Project1
                     Rectangle detectionBox = (isCollidingX) ? detectionEntity.DetectionFieldX : detectionEntity.DetectionFieldY;
                     collisionDirection = DetectCollisionDirection(Player.BoundingBox, detectionBox, collisionDirection);
 
-                   
                 }
                 EnemyCollisionResponse.SpikeDetectionResponse(detectionEntity, isCollidingX, isCollidingY);
             }
@@ -165,15 +152,13 @@ namespace Project1
                 }
             }
 
-
         }
 
 
 
         private static void DetectAllCollisionsEnemiesEntity()
         {
-          
-
+            // pass in list of axis-alligned bounding rectangles
             bool isColliding = false;
 
             /*
@@ -237,7 +222,6 @@ namespace Project1
                     if (weapon.ToString().Equals("Project1.Bomb") && door.BoundingBox.Intersects(weapon.BoundingBox) && door.isTunnelDoor())
                     {
                         door.UnlockDoor();
-                   
                         return;
                     }
                 }
@@ -249,7 +233,6 @@ namespace Project1
         public static void DetectCollision(IActiveObjects GameOBJ)
         {
             entities = new List<IEntity>(GameOBJ.getEntityList());
-            
             roomBoundaries = new List<IEnvironment>(GameOBJ.getEnvironmentList());
             weapons = new List<IWeapon>(GameOBJ.getWeaponList());
             playerWeapons = new List<IWeapon>(GameOBJ.getPlayerWeaponList());
@@ -315,46 +298,8 @@ namespace Project1
             }
 
             return collisionDirection;
-            #region Print to debug console
-            System.Text.StringBuilder sb = new StringBuilder();
-            sb.Append("COLLISION DIRECTION: " + collisionDirection);
-
-            if (sb.Length > 0)
-                System.Diagnostics.Debug.WriteLine(sb.ToString());
-            #endregion
-        }
-
-        #region OUTDATED, USES RECTS NOT ENTITIES! Collision Detection (player & room enemies)
-   
-        private bool DetectCollisionOfType(List<object> colVars)
-        {
-            bool isColliding = false;
-            foreach (var colVar in colVars) { }
-
-            
-
-            return isColliding;
-        }
-
-        public void DetectAllCollisionsLink(CollisionType collisionType, Rectangle link)
-        {
-            // pass in list of axis-alligned bounding rectangles
-
-            bool isColliding = false;
-
-            /*
-             * additional directional collision information required for enemies, attacks and boundaries
-             */
-
-            foreach (var roomRect in roomCollisionRectsForLink)
-            {
-                // check if player/enemy intersects a room rectangle
-                isColliding = link.Intersects(roomRect);
            
-            }
-
         }
-
-        #endregion
     }
 }
+#endregion

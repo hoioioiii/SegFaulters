@@ -30,14 +30,14 @@ namespace Project1
 
         }
 
-        public void moveSelectorRight()
+        public void MoveSelectorRight()
         {
-            pausedInventory.moveSelectorRight();
+            pausedInventory.MoveSelectorRight();
 
         }
-        public void moveSelectorLeft()
+        public void MoveSelectorLeft()
         {
-            pausedInventory.moveSelectorLeft();
+            pausedInventory.MoveSelectorLeft();
 
         }
     }

@@ -7,15 +7,10 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Project1
 {
-    /*
-     * This is to test the items
-     * 
-     */
+   
     public interface IListIterate
     {
         public void CreateList(Texture2D[] temp);
-        //public void moveBack();
-        //public void moveForward();
         public void Load();
 
 

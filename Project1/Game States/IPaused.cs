@@ -8,8 +8,8 @@ namespace Project1
         public void Update();
         public void Draw(SpriteBatch spriteBatch);
 
-        public void moveSelectorRight();
-        public void moveSelectorLeft();
+        public void MoveSelectorRight();
+        public void MoveSelectorLeft();
     }
 }
 
