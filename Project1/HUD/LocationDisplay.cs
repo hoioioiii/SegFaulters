@@ -57,7 +57,6 @@ namespace Project1.HUD
 
         public void Update()
         {
-
             //update indicator based on which room we're in
             activeRoomNumber = RoomManager.GetCurrentRoomIndex() % TOTAL_ROOMS;
             positionDestination.X = (int)positionCoords[activeRoomNumber].X;
