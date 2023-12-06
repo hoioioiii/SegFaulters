@@ -54,6 +54,7 @@ namespace Project1.Stats
             {
                 stats["SPD"] = DEFAULT_SPEED;
                 PlayerMovement.setPlayerSpeed(DEFAULT_SPEED);
+                coolDown = 0;
             }
         }
     }

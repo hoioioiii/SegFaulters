@@ -179,7 +179,6 @@ namespace Project1.Collision_Response
             playerPosition = AllCollisionResponse.Knockback(playerPosition, direction, KNOCKBACK_DISTANCE);            
             Player.setPosition(playerPosition);
            
-            
             HealthDisplay.linkHealth.DamageHealth(calculateDamage());
 
             //IF ROOM 13, SEND BACK TO ROOM 0 UPON GETTING HIT (WALL MASTERS)
