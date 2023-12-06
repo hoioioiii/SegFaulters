@@ -49,9 +49,9 @@ namespace Project1.Stats
         {
             if (currStats == "SPD" && PlayerMovement.getPlayerSpeed() != stats[currStats])
             {
-                stats["SPD"] = PlayerMovement.getPlayerSpeed();
-            }
-            else if (currStats == "SPD" && coolDown >= COOL_DOWN + 10)
+/*                stats["SPD"] = PlayerMovement.getPlayerSpeed();
+*/            }
+            else if (currStats == "SPD" && coolDown >= COOL_DOWN + 5)
             {
                 stats["SPD"] = DEFAULT_SPEED;
                 PlayerMovement.setPlayerSpeed(DEFAULT_SPEED);
