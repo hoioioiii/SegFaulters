@@ -68,7 +68,8 @@
 		</Environment>
 
 		<Items>
-			<rupee xLoc="0" yLoc="0"></rupee>
+			<rupee xLoc="1" yLoc="0"></rupee>
+			<rupee xLoc="0" yLoc="2"></rupee>
 			<beehive xLoc="4" yLoc="4"></beehive>
 		</Items>
 	</Room>
@@ -117,7 +118,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="bomb" quantity="2"></DroppedItem>
+					<DroppedItem Name="rupee" quantity="2"></DroppedItem>
 				</Drops>
 			</Snake>
 		</Enemies>
@@ -150,7 +151,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupee" quantity="1"></DroppedItem>
+					<DroppedItem Name="clock" quantity="1"></DroppedItem>
 					<DroppedItem Name="heartcontainer" quantity="4"></DroppedItem>
 					<DroppedItem Name="key" quantity="1"></DroppedItem>
 				</Drops>
@@ -163,7 +164,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="rupee" quantity="2"></DroppedItem>
+					<DroppedItem Name="clock" quantity="2"></DroppedItem>
 					<DroppedItem Name="heartcontainer" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
@@ -175,7 +176,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="fairy" quantity="1"></DroppedItem>
+					<DroppedItem Name="clock" quantity="1"></DroppedItem>
 					<DroppedItem Name="heartcontainer" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
@@ -199,7 +200,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="heartcontainer" quantity="2"></DroppedItem>
+					<DroppedItem Name="clock" quantity="2"></DroppedItem>
 				</Drops>
 			</Stalfo>
 		</Enemies>
@@ -243,6 +244,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
+					<DroppedItem Name="fairy" quantity="1"></DroppedItem>
 					<DroppedItem Name="bomb" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
@@ -254,7 +256,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
-					<DroppedItem Name="clock" quantity="1"></DroppedItem>
+					<DroppedItem Name="fairy" quantity="1"></DroppedItem>
 					<DroppedItem Name="heartcontainer" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
@@ -266,6 +268,7 @@
 					<Damage>0</Damage>
 				</Stats>
 				<Drops>
+					<DroppedItem Name="fairy" quantity="1"></DroppedItem>
 				</Drops>
 			</Stalfo>
 		</Enemies>
@@ -895,7 +898,7 @@
 		</Environment>
 
 		<Items>
-			<key quantity="1" xLoc="0" yLoc="0"></key>
+			<key quantity="1" xLoc="0" yLoc="5"></key>
 		</Items>
 	</Room>
 
