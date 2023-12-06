@@ -38,13 +38,9 @@ namespace Project1.Stats
         {
             coolDown += (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-
-
-
-            foreach (var item in stats)
+            foreach (KeyValuePair<string, int> item in stats)
             {
                 SetStats(item.Key);
-
             }
         }
 
@@ -54,7 +50,7 @@ namespace Project1.Stats
             {
                 stats["SPD"] = PlayerMovement.getPlayerSpeed();
             }
-            else if (currStats == "SPD" && coolDown >= COOL_DOWN)
+            else if (currStats == "SPD" && coolDown >= COOL_DOWN+0.5)
             {
                 stats["SPD"] = DEFAULT_SPEED;
                 PlayerMovement.setPlayerSpeed(DEFAULT_SPEED);

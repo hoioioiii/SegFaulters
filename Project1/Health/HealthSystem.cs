@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Project1.Stats;
 using System;
 using System.Buffers.Text;
 using System.Collections.Generic;
@@ -102,8 +103,12 @@ namespace Project1.Health
 
         public void DamageHealth(int damageAmount)
         {
-            healthSystem.DamageHealth(damageAmount);
-            Update(); //update fragment quantity of all the hearts
+            
+                healthSystem.DamageHealth(damageAmount);
+            
+                Update(); //update fragment quantity of all the hearts
+            
+
         }
 
         public void HealHealth(int healAmount)
