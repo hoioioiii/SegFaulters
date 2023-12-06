@@ -35,7 +35,6 @@ namespace Project1.Collision_Response
             {
                 int speed = PlayerMovement.getPlayerSpeed() + SPD_BUFF;
                 PlayerMovement.setPlayerSpeed(speed);
-                Player.stats[SPEED] += speed;
                 PlayerStats.UpdateStats(Game1.deltaTime);
                 AudioManager.PlaySoundEffect(smallItemGet);
             }
